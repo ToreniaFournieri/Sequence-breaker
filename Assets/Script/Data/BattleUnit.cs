@@ -71,35 +71,6 @@ public class BattleUnit : ScriptableObject
         public void InitializeFeature() { this.HateCurrent = HateInitial; }
     }
 
-    //Basic Magnification, offense and defense is acturally same.
-    public class MagnificationClass : ScriptableObject
-    {
-        public MagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast, double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
-        {
-            this.Critical = critical; this.Kinetic = kinetic; this.Chemical = chemical; this.Thermal = thermal; this.VsBeast = vsBeast;
-            this.VsCyborg = vsCyborg; this.VsDrone = vsDrone; this.VsRobot = vsRobot; this.VsTitan = vsTitan;
-        }
-        [SerializeField] public double Critical;
-        [SerializeField] public double Kinetic;
-        [SerializeField] public double Chemical;
-        [SerializeField] public double Thermal;
-        [SerializeField] public double VsBeast;
-        [SerializeField] public double VsCyborg;
-        [SerializeField] public double VsDrone;
-        [SerializeField] public double VsRobot;
-        [SerializeField] public double VsTitan;
-    }
-
-
-    //Offense magnification
-    [CreateAssetMenu(fileName = "OffenseMagnificationClass-", menuName = "BattleUnit/OffenseMagnificationClass", order = 20)]
-    public class OffenseMagnificationClass : MagnificationClass
-    {
-        public OffenseMagnificationClass(double optimumRangeBonus, double critical, double kinetic, double chemical, double thermal, double vsBeast, double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
-        : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan)
-        { this.OptimumRangeBonus = optimumRangeBonus; }
-        [SerializeField] public double OptimumRangeBonus;
-    }
 
     //Defense magnification
     [CreateAssetMenu(fileName = "DefenseMagnificationClass-", menuName = "BattleUnit/DefenseMagnificationClass", order = 22)]
@@ -118,24 +89,6 @@ public class BattleUnit : ScriptableObject
         public SkillMagnificationClass(ActionSkillClass offenseEffectPower, ActionSkillClass triggerPossibility)
         { this.OffenseEffectPower = offenseEffectPower; this.TriggerPossibility = triggerPossibility; }
 
-        //[CreateAssetMenu(fileName = "ActionSkillClass-", menuName = "BattleUnit/ActionSkillClass", order = 20)]
-        //public class ActionSkillClass : ScriptableObject
-        //{
-        //    [SerializeField] public double Move;
-        //    [SerializeField] public double Heal;
-        //    [SerializeField] public double Counter;
-        //    [SerializeField] public double Chain;
-        //    [SerializeField] public double ReAttack;
-        //    [SerializeField] public double Interrupt;
-        //    [SerializeField] public double AtBeginning;
-        //    [SerializeField] public double AtEnding;
-        //    public ActionSkillClass(double move, double heal, double counter, double chain, double reAttack, double interrupt, double atBeginning, double atEnding)
-        //    {
-        //        this.Move = move; this.Heal = heal; this.Counter = counter; this.Chain = chain; this.ReAttack = reAttack;
-        //        this.Interrupt = interrupt; this.AtBeginning = atBeginning; this.AtEnding = atEnding;
-        //    }
-
-        //}
     }
 
 

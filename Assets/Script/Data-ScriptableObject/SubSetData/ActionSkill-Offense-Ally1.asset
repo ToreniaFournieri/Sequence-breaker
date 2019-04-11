@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: aff344f82bee141c5a2f021b13ee1677, type: 3}
   m_Name: ActionSkill-Offense-Ally1
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnit/ActionSkillClass
   Move: 1

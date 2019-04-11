@@ -19,7 +19,7 @@ MonoBehaviour:
   Ability: {fileID: 11400000, guid: 828504d2b87eb467eaa8224a50940e0c, type: 2}
   Combat: {fileID: 11400000, guid: bacb87cf38d1b424ca17ea495d1b6c3e, type: 2}
   Feature: {fileID: 11400000, guid: 5e3e3c444f50f49ab813a81e9abb0e15, type: 2}
-  OffenseMagnification: {fileID: 11400000, guid: 2114f0cbdd66740a985519cbebbd015c,
+  OffenseMagnification: {fileID: 11400000, guid: 1deafeafc55444850abab7330aa8d6b5,
     type: 2}
   DefenseMagnification: {fileID: 11400000, guid: e4b7a1d056fe147e4b65f16324aec011,
     type: 2}

@@ -1,8 +1,41 @@
+ =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
 
-Library/StateCache/SceneView/01214a-mainStage.json
-Library/shadercompiler-UnityShaderCompiler0.log
-Library/StateCache/Hierarchy/7a6cbd-mainStage.json
-Library/StateCache/SceneView/01214a-mainStage.json
-Library/StateCache/Hierarchy/7a6cbd-mainStage.json
-Library/StateCache/Hierarchy/7a6cbd-mainStage.json
-Library/shadercompiler-UnityShaderCompiler0.log
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# ============ #
+# for others   #
+# ============ #
+
+*.log #log files, for some plugins
+*.pyc #python bytecode cache, for some plugins.
+sysinfo.txt #Unity3D Generated File On Crash Reports

@@ -71,8 +71,8 @@ public class BattleEngine
         abilities[12] = new AbilityClass(power: 27, generation: 11, stability: 22, responsiveness: 36, precision: 22, intelligence: 21, luck: 34); //ELD6-
         abilities[13] = new AbilityClass(power: 29, generation: 12, stability: 22, responsiveness: 20, precision: 22, intelligence: 14, luck: 15); //ELD7-
 
-        BattleUnit.OffenseMagnificationClass offenseMagnification =
-         new BattleUnit.OffenseMagnificationClass(optimumRangeBonus: 1.2, critical: 1.4, kinetic: 1.0, chemical: 1.0, thermal: 1.4, vsBeast: 1.0, vsCyborg: 2.44, vsDrone: 1.0, vsRobot: 2.2, vsTitan: 1.0);
+        OffenseMagnificationClass offenseMagnification =
+         new OffenseMagnificationClass(optimumRangeBonus: 1.2, critical: 1.4, kinetic: 1.0, chemical: 1.0, thermal: 1.4, vsBeast: 1.0, vsCyborg: 2.44, vsDrone: 1.0, vsRobot: 2.2, vsTitan: 1.0);
 
         BattleUnit.DefenseMagnificationClass defenseMagnification =
             new BattleUnit.DefenseMagnificationClass(critical: 1.0, kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.2, vsTitan: 1.0);
