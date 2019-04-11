@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\BattleUnitList.cs" />
     <Compile Include="Assets\Script\Data\BattleUnit.cs" />
     <Compile Include="Assets\Script\Data\BattleUnitSub\AbilityClass.cs" />
+    <Compile Include="Assets\Script\Data\BattleUnitSub\ActionSkillClass.cs" />
     <Compile Include="Assets\Script\Data\BattleUnitSub\CombatClass.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\Generator\UnitGenerator.cs" />

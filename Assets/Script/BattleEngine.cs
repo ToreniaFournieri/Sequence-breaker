@@ -77,11 +77,11 @@ public class BattleEngine
         BattleUnit.DefenseMagnificationClass defenseMagnification =
             new BattleUnit.DefenseMagnificationClass(critical: 1.0, kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.2, vsTitan: 1.0);
 
-        BattleUnit.ActionSkillClass skillActionSkillInitial = new BattleUnit.ActionSkillClass(move: 1.0, heal: 1.0, counter: 1.0, chain: 1.0, reAttack: 1.0,
+        ActionSkillClass skillActionSkillInitial = new ActionSkillClass(move: 1.0, heal: 1.0, counter: 1.0, chain: 1.0, reAttack: 1.0,
             interrupt: 1.0, atBeginning: 1.0, atEnding: 1.0);
-        BattleUnit.ActionSkillClass skillActionSkillAllDouble = new BattleUnit.ActionSkillClass(move: 2.0, heal: 1.0, counter: 2.0, chain: 2.0, reAttack: 2.0,
+        ActionSkillClass skillActionSkillAllDouble = new ActionSkillClass(move: 2.0, heal: 1.0, counter: 2.0, chain: 2.0, reAttack: 2.0,
             interrupt: 2.0, atBeginning: 2.0, atEnding: 2.0);
-        BattleUnit.ActionSkillClass skillActionSkillAllTriple = new BattleUnit.ActionSkillClass(move: 3.0, heal: 1.0, counter: 3.0, chain: 3.0, reAttack: 3.0,
+        ActionSkillClass skillActionSkillAllTriple = new ActionSkillClass(move: 3.0, heal: 1.0, counter: 3.0, chain: 3.0, reAttack: 3.0,
             interrupt: 3.0, atBeginning: 3.0, atEnding: 3.0);
 
         BattleUnit.SkillMagnificationClass skillMagnificationAllInitial = new BattleUnit.SkillMagnificationClass(offenseEffectPower: skillActionSkillInitial, triggerPossibility: skillActionSkillInitial);
