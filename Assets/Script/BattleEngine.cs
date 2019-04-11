@@ -74,8 +74,8 @@ public class BattleEngine
         OffenseMagnificationClass offenseMagnification =
          new OffenseMagnificationClass(optimumRangeBonus: 1.2, critical: 1.4, kinetic: 1.0, chemical: 1.0, thermal: 1.4, vsBeast: 1.0, vsCyborg: 2.44, vsDrone: 1.0, vsRobot: 2.2, vsTitan: 1.0);
 
-        BattleUnit.DefenseMagnificationClass defenseMagnification =
-            new BattleUnit.DefenseMagnificationClass(critical: 1.0, kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.2, vsTitan: 1.0);
+        DefenseMagnificationClass defenseMagnification =
+            new DefenseMagnificationClass(critical: 1.0, kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.2, vsTitan: 1.0);
 
         ActionSkillClass skillActionSkillInitial = new ActionSkillClass(move: 1.0, heal: 1.0, counter: 1.0, chain: 1.0, reAttack: 1.0,
             interrupt: 1.0, atBeginning: 1.0, atEnding: 1.0);
@@ -84,9 +84,9 @@ public class BattleEngine
         ActionSkillClass skillActionSkillAllTriple = new ActionSkillClass(move: 3.0, heal: 1.0, counter: 3.0, chain: 3.0, reAttack: 3.0,
             interrupt: 3.0, atBeginning: 3.0, atEnding: 3.0);
 
-        BattleUnit.SkillMagnificationClass skillMagnificationAllInitial = new BattleUnit.SkillMagnificationClass(offenseEffectPower: skillActionSkillInitial, triggerPossibility: skillActionSkillInitial);
-        BattleUnit.SkillMagnificationClass skillMagnificationAllDouble = new BattleUnit.SkillMagnificationClass(offenseEffectPower: skillActionSkillAllDouble, triggerPossibility: skillActionSkillAllDouble);
-        BattleUnit.SkillMagnificationClass skillMagnificationOffenseDoubleTriggerTriple = new BattleUnit.SkillMagnificationClass(offenseEffectPower: skillActionSkillAllDouble, triggerPossibility: skillActionSkillAllTriple);
+        UnitSkillMagnificationClass skillMagnificationAllInitial = new UnitSkillMagnificationClass(offenseEffectPower: skillActionSkillInitial, triggerPossibility: skillActionSkillInitial);
+        UnitSkillMagnificationClass skillMagnificationAllDouble = new UnitSkillMagnificationClass(offenseEffectPower: skillActionSkillAllDouble, triggerPossibility: skillActionSkillAllDouble);
+        UnitSkillMagnificationClass skillMagnificationOffenseDoubleTriggerTriple = new UnitSkillMagnificationClass(offenseEffectPower: skillActionSkillAllDouble, triggerPossibility: skillActionSkillAllTriple);
 
         //Skills
         TriggerBaseClass triggerPossibilityNone = new TriggerBaseClass(possibilityBaseRate: 0.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
@@ -244,12 +244,12 @@ public class BattleEngine
              attack: 682, kineticAttackRatio: 0.8, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.2, criticalHit: 30,
             numberOfAttacks: 6, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1210, deffense: 700);
 
-            BattleUnit.FeatureClass featureNormal;
-            BattleUnit.FeatureClass featureMedic;
+            FeatureClass featureNormal;
+            FeatureClass featureMedic;
 
             for (int i = 0; i <= 5; i++)
             {
-                featureNormal = new BattleUnit.FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
+                featureNormal = new FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
                 characters.Add(new BattleUnit(uniqueID: i, name: "PIG" + (i + 1).ToString() + "-" + skillsMasters[i].Name.ToString().Substring(0, 7), affiliation: Affiliation.ally, unitType: UnitType.robot,
                  ability: abilities[i], combat: combats[i], feature: featureNormal,
                      offenseMagnification: offenseMagnification, defenseMagnification: defenseMagnification, skillMagnification: skillMagnificationOffenseDoubleTriggerTriple));
@@ -257,14 +257,14 @@ public class BattleEngine
             //Medic only  number 6
             for (int i = 6; i <= 6; i++)
             {
-                featureMedic = new BattleUnit.FeatureClass(absorbShieldInitial: 0.0, damageControlAssist: true, hateInitial: 0, hateMagnificationPerTurn: 0.500);
+                featureMedic = new FeatureClass(absorbShieldInitial: 0.0, damageControlAssist: true, hateInitial: 0, hateMagnificationPerTurn: 0.500);
                 characters.Add(new BattleUnit(uniqueID: i, name: "PIG" + (i + 1).ToString() + "-MedicHe", affiliation: Affiliation.ally, unitType: UnitType.robot,
                  ability: abilities[i], combat: combats[i], feature: featureMedic,
                      offenseMagnification: offenseMagnification, defenseMagnification: defenseMagnification, skillMagnification: skillMagnificationOffenseDoubleTriggerTriple));
             }
             for (int i = 7; i <= 12; i++)
             {
-                featureNormal = new BattleUnit.FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
+                featureNormal = new FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
                 // pigs skill has 8 so  skillsMasters [i - 6 -1 ] collect
                 characters.Add(new BattleUnit(uniqueID: i, name: "ELD" + (i - 6).ToString() + "-" + skillsMasters[i - 7].Name.ToString().Substring(0, 7), affiliation: Affiliation.enemy, unitType: UnitType.cyborg,
                  ability: abilities[i], combat: combats[i], feature: featureNormal,
@@ -273,7 +273,7 @@ public class BattleEngine
             //Medic only  number 13
             for (int i = 13; i <= 13; i++)
             {
-                featureMedic = new BattleUnit.FeatureClass(absorbShieldInitial: 0.0, damageControlAssist: true, hateInitial: 0, hateMagnificationPerTurn: 0.500);
+                featureMedic = new FeatureClass(absorbShieldInitial: 0.0, damageControlAssist: true, hateInitial: 0, hateMagnificationPerTurn: 0.500);
                 characters.Add(new BattleUnit(uniqueID: i, name: "ELD" + (i - 6).ToString() + "-MedicHe", affiliation: Affiliation.enemy, unitType: UnitType.cyborg,
                  ability: abilities[i], combat: combats[i], feature: featureMedic,
                 offenseMagnification: offenseMagnification, defenseMagnification: defenseMagnification, skillMagnification: skillMagnificationOffenseDoubleTriggerTriple));

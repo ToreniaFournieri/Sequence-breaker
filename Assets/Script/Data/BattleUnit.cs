@@ -16,7 +16,7 @@ public class BattleUnit : ScriptableObject
     [SerializeField] public FeatureClass Feature;
     [SerializeField] public OffenseMagnificationClass OffenseMagnification;
     [SerializeField] public DefenseMagnificationClass DefenseMagnification;
-    [SerializeField] public SkillMagnificationClass SkillMagnification;
+    [SerializeField] public UnitSkillMagnificationClass SkillMagnification;
     public bool IsOptimumTarget { get; set; }
     public bool IsBarrierExistJustBefore { get; set; }
     public bool IsBarrierBrokenJustNow { get; set; }
@@ -30,7 +30,7 @@ public class BattleUnit : ScriptableObject
 
 
     public BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
-     OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, SkillMagnificationClass skillMagnification)
+     OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
     {
         this.UniqueID = uniqueID; this.Name = name; this.Affiliation = affiliation; this.UnitType = unitType; this.Ability = ability; this.Combat = combat;
         this.Feature = feature; this.OffenseMagnification = offenseMagnification; this.DefenseMagnification = defenseMagnification; this.SkillMagnification = skillMagnification;
@@ -39,59 +39,6 @@ public class BattleUnit : ScriptableObject
         this.IsBarrierExistJustBefore = false; this.IsCrushedJustNow = false; this.IsAvoidMoreThanOnce = false;
         this.Statistics = new StatisticsCollectionClass(); this.PermanentStatistics = new StatisticsCollectionClass();
     }
-
-
-
-
-
-
-
-
-    [CreateAssetMenu(fileName = "FeatureClass-", menuName = "BattleUnit/FeatureClass", order = 18)]
-    public class FeatureClass : ScriptableObject
-    {
-        [SerializeField] public double AbsorbShieldRatioInitial;
-        [SerializeField] public double AbsorbShieldRatioCurrent;
-        [SerializeField] public double AbsorbShieldMaxRatioInitial;
-        [SerializeField] public double AbsorbShieldMaxRatioCurrent;
-        [SerializeField] public bool DamageControlAssist;
-        [SerializeField] public double HateInitial;
-        [SerializeField] public double HateCurrent;
-        [SerializeField] public double HateMagnificationPerTurn;
-
-        public FeatureClass(double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
-        {
-            this.AbsorbShieldRatioCurrent = absorbShieldInitial; this.AbsorbShieldRatioInitial = absorbShieldInitial;
-            this.AbsorbShieldMaxRatioCurrent = absorbShieldInitial * 3.0; this.AbsorbShieldMaxRatioInitial = absorbShieldInitial * 3.0;
-            this.DamageControlAssist = damageControlAssist;
-            this.HateInitial = hateInitial; this.HateCurrent = hateInitial; this.HateMagnificationPerTurn = hateMagnificationPerTurn;
-        }
-        // absorb level should i call?
-        // int absorbLevel  1= (3 * absorbLevel)% of attack and total (9 + 3* absorbLevel)% of max shield heal  etc...
-        public void InitializeFeature() { this.HateCurrent = HateInitial; }
-    }
-
-
-    //Defense magnification
-    [CreateAssetMenu(fileName = "DefenseMagnificationClass-", menuName = "BattleUnit/DefenseMagnificationClass", order = 22)]
-    public class DefenseMagnificationClass : MagnificationClass
-    {
-        public DefenseMagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast, double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
-         : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan) { }
-    }
-
-    [CreateAssetMenu(fileName = "SkillMagnificationClass-", menuName = "BattleUnit/SkillMagnificationClass", order = 24)]
-    public class SkillMagnificationClass : ScriptableObject
-    {
-        [SerializeField] public ActionSkillClass OffenseEffectPower;
-        [SerializeField] public ActionSkillClass TriggerPossibility;
-
-        public SkillMagnificationClass(ActionSkillClass offenseEffectPower, ActionSkillClass triggerPossibility)
-        { this.OffenseEffectPower = offenseEffectPower; this.TriggerPossibility = triggerPossibility; }
-
-    }
-
-
 
 
     public class BuffClass
