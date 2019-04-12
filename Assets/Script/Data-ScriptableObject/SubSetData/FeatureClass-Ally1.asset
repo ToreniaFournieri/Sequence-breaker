@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: de384269cc5fc48649b0f667a9d102e3, type: 3}
   m_Name: FeatureClass-Ally1
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnit/FeatureClass
   AbsorbShieldRatioInitial: 0.07

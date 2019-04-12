@@ -20,8 +20,8 @@ public class InventoryScrollList : MonoBehaviour
     public InventoryScrollList otherInventory;
     public RefreshController refreshController;
     //public Text myGoldDisplay;
-    public BattleUnit unit;
-    public AbilityClass unitAbility;
+    public BattleUnit battleUnit;
+    //public AbilityClass unitAbility;
     public Text abilityText;
     //public Text MagnificationStatusText;
     public SimpleObjectPool itemObjectPool;
@@ -29,6 +29,8 @@ public class InventoryScrollList : MonoBehaviour
 
     void Start()
     {
+
+
         RefreshDisplay();
     }
 
@@ -56,18 +58,20 @@ public class InventoryScrollList : MonoBehaviour
             capacity += 1;
             otherInventory.capacity -= 1;
 
-            AbilityClass targetAbility;
-            if (unitAbility != null)
-            {
-                targetAbility = unitAbility;
-                RemoveStatus(targetAbility, item);
-            }
-            else if (otherInventory.unitAbility != null)
-            {
-                targetAbility = otherInventory.unitAbility;
-                AddStatus(targetAbility, item);
-            }
-            else { Debug.Log("Non unit to non unit transfer. Is it expected?"); }
+            //AbilityClass targetAbility;
+            //if (battleUnit != null && battleUnit.Ability != null)
+            //{
+            //    targetAbility = battleUnit.Ability;
+            //    //RemoveStatus(targetAbility, item);
+            //}
+            //else if (otherInventory.battleUnit != null && otherInventory.battleUnit.Ability != null)
+            //{
+            //    targetAbility = otherInventory.battleUnit.Ability;
+            //    //AddStatus(targetAbility, item);
+            //}
+            //else { Debug.Log("Non unit to non unit transfer. Is it expected?"); }
+
+            //refreshController.NeedToRefresh = true;
 
             AddItem(item, otherInventory);
             RemoveItem(item, this);
@@ -77,37 +81,37 @@ public class InventoryScrollList : MonoBehaviour
         }
     }
 
-    private void AddStatus(AbilityClass targetAbility, Item item)
-    {
+    //private void AddStatus(AbilityClass targetAbility, Item item)
+    //{
 
-        switch (item.ability)
-        {
-            case Ability.power:
-                targetAbility.Power += item.addAbility;
-                break;
-            case Ability.stability:
-                targetAbility.Stability += item.addAbility;
-                break;
-            default:
-                break;
-        }
-    }
+    //    switch (item.ability)
+    //    {
+    //        case Ability.power:
+    //            targetAbility.Power += item.addAbility;
+    //            break;
+    //        case Ability.stability:
+    //            targetAbility.Stability += item.addAbility;
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
-    private void RemoveStatus(AbilityClass targetAbility, Item item)
-    {
+    //private void RemoveStatus(AbilityClass targetAbility, Item item)
+    //{
 
-        switch (item.ability)
-        {
-            case Ability.power:
-                targetAbility.Power -= item.addAbility;
-                break;
-            case Ability.stability:
-                targetAbility.Stability -= item.addAbility;
-                break;
-            default:
-                break;
-        }
-    }
+    //    switch (item.ability)
+    //    {
+    //        case Ability.power:
+    //            targetAbility.Power -= item.addAbility;
+    //            break;
+    //        case Ability.stability:
+    //            targetAbility.Stability -= item.addAbility;
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
     private void AddPanels()
     {

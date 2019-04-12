@@ -26,6 +26,8 @@ public class BattleUnit : ScriptableObject
     public StatisticsCollectionClass Statistics { get; set; }
     public StatisticsCollectionClass PermanentStatistics { get; set; }
 
+
+    public AbilityClass InitialAbility;
     public enum Conditions { current, max }
 
 

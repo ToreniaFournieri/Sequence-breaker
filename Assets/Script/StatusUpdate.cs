@@ -8,10 +8,14 @@ using UnityEngine.UI;
 public class StatusUpdate : MonoBehaviour
 {
     public BattleUnit battleUnit;
-    public Text AbilityText { get; set; }
+    //public Text AbilityText { get; set; }
+    public Text AbilityText;
     public RefreshController refreshController;
+    public InventoryScrollList content;
     private Text[] NewText;
     private List<Text> TextList = new List<Text>();
+    private List<Item> items = new List<Item>();
+
 
     private void Awake()
     {
@@ -22,7 +26,7 @@ public class StatusUpdate : MonoBehaviour
             TextList.Add(NewText[i]);
         }
 
-        AbilityText = TextList.Find((Text obj) => obj.name == "AbilityText");
+        //AbilityText = TextList.Find((Text obj) => obj.name == "AbilityText");
 
         Refresh();
 
@@ -37,15 +41,48 @@ public class StatusUpdate : MonoBehaviour
 
     void Refresh()
     {
+        if (content != null)
+        {
+            items = content.itemList;
+        }
+        CalculateAbility();
         AbilityTextUpdate();
         refreshController.NeedToRefresh = false;
     }
 
+    void CalculateAbility()
+    {
+        battleUnit.Ability = battleUnit.InitialAbility;
+
+        if (items.Count > 0)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                Item item = items[i];
+
+                switch (item.ability)
+                {
+                    case Ability.power:
+                        battleUnit.Ability.Power += item.addAbility;
+                        break;
+                    case Ability.stability:
+                        battleUnit.Ability.Stability += item.addAbility;
+                        break;
+                    default:
+                        break;
+                }
+
+
+            }
+        }
+    }
+
+
     void AbilityTextUpdate()
     {
-        //AbilityText.text = "Mew Power " + battleUnit.Ability.Power + "\nGeneration " + battleUnit.Ability.Generation + "\nStability "
-            //+ battleUnit.Ability.Stability + "\nResponsiveness " + battleUnit.Ability.Responsiveness + "\nPrecision "
-            //+ battleUnit.Ability.Precision + "\nIntelligence " + battleUnit.Ability.Intelligence + "\nLuck " + battleUnit.Ability.Luck;
+        AbilityText.text = "Mew Power " + battleUnit.Ability.Power + "\nGeneration " + battleUnit.Ability.Generation + "\nStability "
+            + battleUnit.Ability.Stability + "\nResponsiveness " + battleUnit.Ability.Responsiveness + "\nPrecision "
+            + battleUnit.Ability.Precision + "\nIntelligence " + battleUnit.Ability.Intelligence + "\nLuck " + battleUnit.Ability.Luck;
 
     }
 
