@@ -970,8 +970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf394ef9af94f498d0f5037d725013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleUnit: {fileID: 11400000, guid: 27637797804084dc788f614d2d724c8a, type: 2}
+  unit: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  abilityText: {fileID: 1445117520}
+  itemAmount: {fileID: 1811699560}
   refreshController: {fileID: 903368331}
+  content: {fileID: 952931269}
 --- !u!1 &387918685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,7 +1927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &734063310
@@ -1976,35 +1979,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07005370919ba4702bedebe52e7ffdee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - itemName: Wooden Shield
-    itemDescription: Stability +1
-    icon: {fileID: 21300000, guid: 37bd445a579944072ae7e2a834626fd3, type: 3}
-    ability: 2
-    addAbility: 1
-  - itemName: Wooden Sword
-    itemDescription: Power +2
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 0
-    addAbility: 2
-  - itemName: Wooden Helm
-    itemDescription: Stability +2
-    icon: {fileID: 21300000, guid: 15d33e5a38baa480c9b39e564a314160, type: 3}
-    ability: 2
-    addAbility: 2
-  - itemName: Wooden Helm
-    itemDescription: Stability +2
-    icon: {fileID: 21300000, guid: 15d33e5a38baa480c9b39e564a314160, type: 3}
-    ability: 2
-    addAbility: 2
+  itemList: []
+  capacity: 200
+  unit: {fileID: 11400000, guid: 665bc0158bc694bfeb91f3d9696719f1, type: 2}
   contentPanel: {fileID: 734063309}
   otherInventory: {fileID: 952931269}
   refreshController: {fileID: 903368331}
-  unit: {fileID: 0}
-  unitAbility: {fileID: 0}
   abilityText: {fileID: 1445117520}
   itemObjectPool: {fileID: 133559408}
-  capacity: 10
 --- !u!1 &776021939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -44.44934}
+  m_AnchoredPosition: {x: 0, y: -44.44928}
   m_SizeDelta: {x: 0, y: -88.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942720966
@@ -2950,25 +2932,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07005370919ba4702bedebe52e7ffdee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - itemName: wooden shield
-    itemDescription: Stability +2
-    icon: {fileID: 21300000, guid: 37bd445a579944072ae7e2a834626fd3, type: 3}
-    ability: 2
-    addAbility: 2
-  - itemName: sword
-    itemDescription: Power +2
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 0
-    addAbility: 2
+  itemList: []
+  capacity: 200
+  unit: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
   contentPanel: {fileID: 952931268}
   otherInventory: {fileID: 734063312}
   refreshController: {fileID: 903368331}
-  unit: {fileID: 0}
-  unitAbility: {fileID: 0}
   abilityText: {fileID: 1445117520}
   itemObjectPool: {fileID: 133559408}
-  capacity: 2
 --- !u!114 &952931270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,7 +3695,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 46187993}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4175,19 +4146,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Power 10
-
-    Generation 10
-
-    Stability 10
-
-    Responsiveness 10
-
-    Precision 10
-
-    Intelligence 10
-
-    Luck 10'
+  m_Text: "10 Power\n10 Generation\n10 Stability\n10 Responsiveness \n10 Precision
+    \n10 Intelligence \n10 Luck"
 --- !u!222 &1445117521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4572,7 +4532,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427428887}
   m_HandleRect: {fileID: 1427428886}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

@@ -19,4 +19,17 @@ public class AbilityClass : ScriptableObject
         this.Power = power; this.Generation = generation; this.Stability = stability; this.Responsiveness = responsiveness;
         this.Precision = precision; this.Intelligence = intelligence; this.Luck = luck;
     }
+
+    public AbilityClass(AbilityClass abilityClass)
+    {
+        this.Power = abilityClass.Power; this.Generation = abilityClass.Generation; this.Stability = abilityClass.Stability; this.Responsiveness = abilityClass.Responsiveness;
+        this.Precision = abilityClass.Precision; this.Intelligence = abilityClass.Intelligence; this.Luck = abilityClass.Luck;
+    }
+
+    public AbilityClass DeepCopy()
+    {
+        AbilityClass other = (AbilityClass)this.MemberwiseClone();
+        return other;
+    }
+
 }

@@ -16,23 +16,27 @@ public class Item
 public class InventoryScrollList : MonoBehaviour
 {
     public List<Item> itemList;
+    public float capacity = 200f;
+    public UnitClass unit;
+
     public Transform contentPanel;
     public InventoryScrollList otherInventory;
     public RefreshController refreshController;
-    //public Text myGoldDisplay;
-    public BattleUnit battleUnit;
-    //public AbilityClass unitAbility;
     public Text abilityText;
-    //public Text MagnificationStatusText;
     public SimpleObjectPool itemObjectPool;
-    public float capacity = 10f;
+
 
     void Start()
     {
-
+        if (unit != null)
+        {
+            capacity = unit.ItemCapacity;
+            itemList = unit.itemList;
+        }
 
         RefreshDisplay();
     }
+
 
     public void RefreshDisplay()
     {
@@ -53,25 +57,10 @@ public class InventoryScrollList : MonoBehaviour
 
     public void TryTransferItemToOtherInventory(Item item)
     {
-        if (otherInventory.capacity >= 1f)
+        if (otherInventory.capacity > otherInventory.itemList.Count)
         {
-            capacity += 1;
-            otherInventory.capacity -= 1;
-
-            //AbilityClass targetAbility;
-            //if (battleUnit != null && battleUnit.Ability != null)
-            //{
-            //    targetAbility = battleUnit.Ability;
-            //    //RemoveStatus(targetAbility, item);
-            //}
-            //else if (otherInventory.battleUnit != null && otherInventory.battleUnit.Ability != null)
-            //{
-            //    targetAbility = otherInventory.battleUnit.Ability;
-            //    //AddStatus(targetAbility, item);
-            //}
-            //else { Debug.Log("Non unit to non unit transfer. Is it expected?"); }
-
-            //refreshController.NeedToRefresh = true;
+            //currentCapacity += 1;
+            //otherInventory.currentCapacity -= 1;
 
             AddItem(item, otherInventory);
             RemoveItem(item, this);
@@ -81,37 +70,6 @@ public class InventoryScrollList : MonoBehaviour
         }
     }
 
-    //private void AddStatus(AbilityClass targetAbility, Item item)
-    //{
-
-    //    switch (item.ability)
-    //    {
-    //        case Ability.power:
-    //            targetAbility.Power += item.addAbility;
-    //            break;
-    //        case Ability.stability:
-    //            targetAbility.Stability += item.addAbility;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
-    //private void RemoveStatus(AbilityClass targetAbility, Item item)
-    //{
-
-    //    switch (item.ability)
-    //    {
-    //        case Ability.power:
-    //            targetAbility.Power -= item.addAbility;
-    //            break;
-    //        case Ability.stability:
-    //            targetAbility.Stability -= item.addAbility;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 
     private void AddPanels()
     {

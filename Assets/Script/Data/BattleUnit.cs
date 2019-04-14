@@ -10,7 +10,6 @@ public class BattleUnit : ScriptableObject
     [SerializeField] public string Name;
     [SerializeField] public Affiliation Affiliation;
     [SerializeField] public UnitType UnitType;
-    [SerializeField] public AbilityClass Ability;
     [SerializeField] public BuffClass Buff;
     [SerializeField] public CombatClass Combat;
     [SerializeField] public FeatureClass Feature;
@@ -26,8 +25,8 @@ public class BattleUnit : ScriptableObject
     public StatisticsCollectionClass Statistics { get; set; }
     public StatisticsCollectionClass PermanentStatistics { get; set; }
 
-
-    public AbilityClass InitialAbility;
+    [HideInInspector] public AbilityClass Ability;
+    [SerializeField] public AbilityClass InitialAbility;
     public enum Conditions { current, max }
 
 

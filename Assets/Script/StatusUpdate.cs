@@ -7,23 +7,24 @@ using UnityEngine.UI;
 [Serializable]
 public class StatusUpdate : MonoBehaviour
 {
-    public BattleUnit battleUnit;
+    public UnitClass unit;
     //public Text AbilityText { get; set; }
-    public Text AbilityText;
+    public Text abilityText;
+    public Text itemAmount;
     public RefreshController refreshController;
     public InventoryScrollList content;
-    private Text[] NewText;
-    private List<Text> TextList = new List<Text>();
+    private Text[] newText;
+    private List<Text> textList = new List<Text>();
     private List<Item> items = new List<Item>();
 
 
     private void Awake()
     {
-        NewText = GetComponentsInChildren<Text>();
+        newText = GetComponentsInChildren<Text>();
 
-        for (int i = 0; i < NewText.Length; i++)
+        for (int i = 0; i < newText.Length; i++)
         {
-            TextList.Add(NewText[i]);
+            textList.Add(newText[i]);
         }
 
         //AbilityText = TextList.Find((Text obj) => obj.name == "AbilityText");
@@ -35,7 +36,7 @@ public class StatusUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (refreshController) { Refresh(); }
+        if (refreshController.NeedToRefresh) { Refresh(); }
     }
 
 
@@ -47,42 +48,51 @@ public class StatusUpdate : MonoBehaviour
         }
         CalculateAbility();
         AbilityTextUpdate();
+        CapacityTextUpdate();
         refreshController.NeedToRefresh = false;
     }
 
     void CalculateAbility()
     {
-        battleUnit.Ability = battleUnit.InitialAbility;
-
-        if (items.Count > 0)
+        if (unit != null)
         {
-            for (int i = 0; i < items.Count; i++)
+            unit.Ability = unit.InitialAbility.DeepCopy();
+            if (items.Count > 0)
             {
-                Item item = items[i];
-
-                switch (item.ability)
+                for (int i = 0; i < items.Count; i++)
                 {
-                    case Ability.power:
-                        battleUnit.Ability.Power += item.addAbility;
-                        break;
-                    case Ability.stability:
-                        battleUnit.Ability.Stability += item.addAbility;
-                        break;
-                    default:
-                        break;
+                    Item item = items[i];
+                    switch (item.ability)
+                    {
+                        case Ability.power:
+                            unit.Ability.Power += item.addAbility;
+                            break;
+                        case Ability.stability:
+                            unit.Ability.Stability += item.addAbility;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-
-
             }
         }
+
     }
 
+    void CapacityTextUpdate()
+    {
+        itemAmount.text = unit.itemList.Count + " / " + unit.ItemCapacity;
+    }
 
     void AbilityTextUpdate()
     {
-        AbilityText.text = "Mew Power " + battleUnit.Ability.Power + "\nGeneration " + battleUnit.Ability.Generation + "\nStability "
-            + battleUnit.Ability.Stability + "\nResponsiveness " + battleUnit.Ability.Responsiveness + "\nPrecision "
-            + battleUnit.Ability.Precision + "\nIntelligence " + battleUnit.Ability.Intelligence + "\nLuck " + battleUnit.Ability.Luck;
+        abilityText.text = unit.Ability.Power + " Mew Power\n" 
+            + unit.Ability.Generation+ " Generation\n"
+            + unit.Ability.Stability + " Stability\n"
+            + unit.Ability.Responsiveness + " Responsiveness\n"  
+            + unit.Ability.Precision + " Precision\n"
+            + unit.Ability.Intelligence + " Intelligence\n" 
+            + unit.Ability.Luck + "Luck\n";
 
     }
 

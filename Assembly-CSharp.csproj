@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\Data\BattleUnitSub\MagnificationClass.cs" />
     <Compile Include="Assets\Script\Data\BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\Script\Data\BattleUnitSub\UnitSkillMagnificationClass.cs" />
+    <Compile Include="Assets\Script\Data\UnitClass.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\Generator\UnitGenerator.cs" />
     <Compile Include="Assets\Script\InventoryScrollList.cs" />

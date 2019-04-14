@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BattleEngine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Data/UnitClass.cs">
     <Files>
-      <File FileName="Assets/Script/ItemPanel.cs" Line="25" Column="40" />
-      <File FileName="Assets/Script/InventoryScrollList.cs" Line="32" Column="26" />
-      <File FileName="Assets/Script/RefreshController.cs" Line="7" Column="14" />
-      <File FileName="Assets/Script/StatusUpdate.cs" Line="48" Column="2" />
-      <File FileName="Assets/Script/SwitchLayer.cs" Line="12" Column="55" />
-      <File FileName="Assets/Script/Generator/UnitGenerator.cs" Line="12" Column="5" />
-      <File FileName="Assets/Script/BattleEngine.cs" Line="240" Column="122" />
-      <File FileName="Assets/Script/Data/BattleUnit.cs" Line="43" Column="1" />
+      <File FileName="Assets/Script/ItemPanel.cs" Line="14" Column="38" />
+      <File FileName="Assets/Script/InventoryScrollList.cs" Line="29" Column="1" />
+      <File FileName="Assets/Script/StatusUpdate.cs" Line="13" Column="27" />
+      <File FileName="Assets/Script/Data/BattleUnit.cs" Line="30" Column="39" />
+      <File FileName="Assets/Script/Data/BattleUnitSub/AbilityClass.cs" Line="23" Column="51" />
+      <File FileName="Assets/Script/Data/UnitClass.cs" Line="7" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
