@@ -9,8 +9,9 @@ public class StatusUpdate : MonoBehaviour
 {
     public UnitClass unit;
     //public Text AbilityText { get; set; }
+    public Text unitNameText;
     public Text abilityText;
-    public Text itemAmount;
+    public Text itemAmountText;
     public RefreshController refreshController;
     public InventoryScrollList content;
     private Text[] newText;
@@ -27,8 +28,6 @@ public class StatusUpdate : MonoBehaviour
             textList.Add(newText[i]);
         }
 
-        //AbilityText = TextList.Find((Text obj) => obj.name == "AbilityText");
-
         Refresh();
 
     }
@@ -40,12 +39,13 @@ public class StatusUpdate : MonoBehaviour
     }
 
 
-    void Refresh()
+    public void Refresh()
     {
         if (content != null)
         {
             items = content.itemList;
         }
+        UnitNameUpdate();
         CalculateAbility();
         AbilityTextUpdate();
         CapacityTextUpdate();
@@ -79,9 +79,14 @@ public class StatusUpdate : MonoBehaviour
 
     }
 
+    void UnitNameUpdate()
+    {
+        unitNameText.text = unit.Name;
+    }
+
     void CapacityTextUpdate()
     {
-        itemAmount.text = unit.itemList.Count + " / " + unit.ItemCapacity;
+        itemAmountText.text = unit.itemList.Count + " / " + unit.ItemCapacity;
     }
 
     void AbilityTextUpdate()

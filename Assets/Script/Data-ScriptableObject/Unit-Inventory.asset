@@ -16,7 +16,6 @@ MonoBehaviour:
   Name: Inventory
   Affiliation: 2
   UnitType: 3
-  Ability: {fileID: 0}
   InitialAbility: {fileID: 0}
   ItemCapacity: 2000
   itemList:
@@ -25,8 +24,13 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
     ability: 0
     addAbility: 3
-  - itemName: Wooden Sowrd
-    itemDescription: Power +2
+  - itemName: 'Wooden Helm '
+    itemDescription: 'Stability +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 2
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
     icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
     ability: 0
     addAbility: 2
@@ -35,9 +39,118 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
     ability: 0
     addAbility: 2
-  - itemName: 'Wooden Helm '
-    itemDescription: 'Stability +2 '
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
     icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
     ability: 0
     addAbility: 2
-  ItemCurrentCapacity: 0
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2
+  - itemName: 'Wooden Sword '
+    itemDescription: 'Power +2 '
+    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
+    ability: 0
+    addAbility: 2

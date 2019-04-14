@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,5 +16,6 @@ public class UnitClass : ScriptableObject
     [SerializeField] public List<Item> itemList;
 
     public AbilityClass Ability { get; set; }
+
 
 }

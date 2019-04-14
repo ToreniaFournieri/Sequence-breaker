@@ -92,6 +92,7 @@
     <Compile Include="Assets\Script\SwitchLayer.cs" />
     <Compile Include="Assets\Script\TabController.cs" />
     <Compile Include="Assets\Script\Timeline Tab\LogButton.cs" />
+    <Compile Include="Assets\SwitchUnitController.cs" />
     <None Include="Assets\GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

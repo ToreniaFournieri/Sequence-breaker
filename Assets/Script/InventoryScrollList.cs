@@ -28,18 +28,17 @@ public class InventoryScrollList : MonoBehaviour
 
     void Start()
     {
-        if (unit != null)
-        {
-            capacity = unit.ItemCapacity;
-            itemList = unit.itemList;
-        }
-
         RefreshDisplay();
     }
 
 
     public void RefreshDisplay()
     {
+        if (unit != null)
+        {
+            capacity = unit.ItemCapacity;
+            itemList = unit.itemList;
+        }
         refreshController.NeedToRefresh = true;
         RemovePanels();
         AddPanels();
