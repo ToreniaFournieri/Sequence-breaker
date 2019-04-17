@@ -57,7 +57,7 @@ public class FuncBattleConditionsText
             }
         }
 
-        text += "------------------------------------\n";
+        //text += "------------------------------------\n";
         return text;
     }
     private int CurrentTurn { get; }

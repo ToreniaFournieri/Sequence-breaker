@@ -351,7 +351,7 @@ public class BattleEngine
                                     case 0: //Battle conditions output
                                         environmentInfo.Phase = 0;
                                         log += "\n";
-                                        log += "------------------------------------\n";
+                                        //log += "------------------------------------\n";
                                         text = new FuncBattleConditionsText(currentTurn: turn, currentBattleWaves: currentBattleWaves, characters: characters);
                                         log += text.Text();
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
@@ -547,13 +547,14 @@ public class BattleEngine
                                 NavigatorSpeechAfterMoveClass navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName: navigatorName, order: order,
                                     characters: characters, effects: effects, orderStatus: orderStatus, environmentInfo: environmentInfo);
 
-                                navigationLog += navigatorSpeechAfterMove.Log;
-                                if (log != null)
+                                navigationLog = navigatorSpeechAfterMove.Log;
+                                if (navigationLog != null)
                                 {
-                                    navigationLog += new string(' ', 2) + "-------------\n";
+                                    //navigationLog += new string(' ', 2) + "-------------\n";
                                     battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, log: navigationLog, importance: 1);
+                                    Debug.Log("in navigationlog is not null :" + battleLog.Log);
                                     battleLogList.Add(battleLog);
-                                }
+                                } 
                             }  // Until all Characters act.
 
                         } // action Phase.
@@ -629,7 +630,7 @@ public class BattleEngine
             foreach (BattleUnit character in characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.Name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
             logPerWavesSets[battleWavesSet - 1] += "Avarage Skill:\n";
             foreach (BattleUnit character in characters) { logPerWavesSets[battleWavesSet - 1] += character.Name + " " + character.PermanentStatistics.Skill() + "\n"; }
-            logPerWavesSets[battleWavesSet - 1] += "------------------------------------\n";
+            //logPerWavesSets[battleWavesSet - 1] += "------------------------------------\n";
 
 
         } // Battle waves set
@@ -644,7 +645,7 @@ public class BattleEngine
             else { finalLog += new string(' ', 5) + battleLog.Log; }
         }
 
-        finalLog += "------------------------------------\n";
+        //finalLog += "------------------------------------\n";
         finalLog += "Battle is over. ";
         text = new FuncBattleConditionsText(currentTurn: totalturn, currentBattleWaves: currentBattleWaves, characters: characters);
         finalLog += text.Text();
