@@ -23,7 +23,6 @@ namespace KohmaiWorks
         /// Reference to the scrollers
         /// </summary>
         public EnhancedScroller vScroller;
-        public EnhancedScroller hScroller;
 
         /// <summary>
         /// References to the UI elements
@@ -41,14 +40,10 @@ namespace KohmaiWorks
         public EnhancedScroller.TweenType vScrollerTweenType = EnhancedScroller.TweenType.immediate;
         public float vScrollerTweenTime = 0f;
 
-        public EnhancedScroller.TweenType hScrollerTweenType = EnhancedScroller.TweenType.immediate;
-        public float hScrollerTweenTime = 0f;
-
         void Start()
         {
             // set up the scroller delegates
             vScroller.Delegate = this;
-            hScroller.Delegate = this;
 
             // set up some simple data
             _data = new List<Data>();
@@ -57,7 +52,7 @@ namespace KohmaiWorks
 
             // tell the scroller to reload now that we have the data
             vScroller.ReloadData();
-            hScroller.ReloadData();
+
         }
 
         #region UI Handlers
@@ -71,7 +66,6 @@ namespace KohmaiWorks
             {
                 // jump to the index
                 vScroller.JumpToDataIndex(jumpDataIndex, scrollerOffsetSlider.value, cellOffsetSlider.value, useSpacingToggle.isOn, vScrollerTweenType, vScrollerTweenTime, null, EnhancedScroller.LoopJumpDirectionEnum.Down);
-                hScroller.JumpToDataIndex(jumpDataIndex, scrollerOffsetSlider.value, cellOffsetSlider.value, useSpacingToggle.isOn, hScrollerTweenType, hScrollerTweenTime);
             }
             else
             {

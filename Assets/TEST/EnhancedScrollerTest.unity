@@ -726,7 +726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000044960183}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 969}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &271300874
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 489691820}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.5472652
+  m_Size: 0.54726523
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3455,7 +3455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vScroller: {fileID: 1665869766}
-  hScroller: {fileID: 1443501608}
   jumpIndexInput: {fileID: 448449831}
   useSpacingToggle: {fileID: 1775897776}
   scrollerOffsetSlider: {fileID: 237258484}
@@ -3463,9 +3462,7 @@ MonoBehaviour:
   cellViewPrefab: {fileID: 8016615574628276910, guid: b3108101b73f94a8ab0a2461bce89510,
     type: 3}
   vScrollerTweenType: 16
-  vScrollerTweenTime: 2
-  hScrollerTweenType: 0
-  hScrollerTweenTime: 0
+  vScrollerTweenTime: 0.2
 --- !u!1 &1665869765
 GameObject:
   m_ObjectHideFlags: 0
