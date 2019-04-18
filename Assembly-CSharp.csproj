@@ -159,6 +159,9 @@
     <Compile Include="Assets\Script\TabController.cs" />
     <Compile Include="Assets\Script\Timeline Tab\LogButton.cs" />
     <Compile Include="Assets\SwitchUnitController.cs" />
+    <Compile Include="Assets\TEST\CellView.cs" />
+    <Compile Include="Assets\TEST\Controller.cs" />
+    <Compile Include="Assets\TEST\Data.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\ComboBox\ComboBoxChanged.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_Image.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_SAUIM.cs" />
