@@ -56,7 +56,21 @@ namespace KohmaiWorks
         }
 
         #region UI Handlers
+        public void JumpButtonWithIndex_OnClick(int jumpDataIndex)
+        {
+            //int jumpDataIndex;
 
+            // extract the integer from the input text
+            if (jumpDataIndex != 0)
+            {
+                // jump to the index
+                vScroller.JumpToDataIndex(jumpDataIndex, scrollerOffsetSlider.value, cellOffsetSlider.value, useSpacingToggle.isOn, vScrollerTweenType, vScrollerTweenTime, null, EnhancedScroller.LoopJumpDirectionEnum.Down);
+            }
+            else
+            {
+                Debug.LogWarning("The jump value you entered is not a number.");
+            }
+        }
         public void JumpButton_OnClick()
         {
             int jumpDataIndex;
