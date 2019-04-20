@@ -552,7 +552,6 @@ public class BattleEngine
                                 {
                                     //navigationLog += new string(' ', 2) + "-------------\n";
                                     battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, log: navigationLog, importance: 1);
-                                    Debug.Log("in navigationlog is not null :" + battleLog.Log);
                                     battleLogList.Add(battleLog);
                                 } 
                             }  // Until all Characters act.

@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BattleLogEnhancedScrollController.cs" />
+    <Compile Include="Assets\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\CellView.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\Data.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\SimpleDemo.cs" />
@@ -144,24 +146,27 @@
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\UnitSkillMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\UnitClass.cs" />
+    <Compile Include="Assets\Script\03_Controller\InventoryScrollList.cs" />
+    <Compile Include="Assets\Script\03_Controller\RefreshController.cs" />
+    <Compile Include="Assets\Script\03_Controller\SwitchUnitController.cs" />
+    <Compile Include="Assets\Script\03_Controller\TabController.cs" />
+    <Compile Include="Assets\Script\04_Timeline Tab\LogButton.cs" />
     <Compile Include="Assets\Script\06_Generator\UnitGenerator.cs" />
     <Compile Include="Assets\Script\BattleEngine.cs" />
     <Compile Include="Assets\Script\BattleLogList.cs" />
     <Compile Include="Assets\Script\BattleUnitList.cs" />
-    <Compile Include="Assets\Script\Controller\InventoryScrollList.cs" />
-    <Compile Include="Assets\Script\Controller\RefreshController.cs" />
-    <Compile Include="Assets\Script\Controller\SwitchUnitController.cs" />
-    <Compile Include="Assets\Script\Controller\TabController.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\ItemPanel.cs" />
     <Compile Include="Assets\Script\Others.cs" />
     <Compile Include="Assets\Script\SimpleObjectPool.cs" />
     <Compile Include="Assets\Script\StatusUpdate.cs" />
     <Compile Include="Assets\Script\SwitchLayer.cs" />
-    <Compile Include="Assets\Script\Timeline Tab\LogButton.cs" />
     <Compile Include="Assets\TEST\CellView.cs" />
     <Compile Include="Assets\TEST\Controller.cs" />
     <Compile Include="Assets\TEST\Data.cs" />
+    <Compile Include="Assets\TEST_08\CellView.cs" />
+    <Compile Include="Assets\TEST_08\Controller.cs" />
+    <Compile Include="Assets\TEST_08\Data.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\ComboBox\ComboBoxChanged.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_Image.cs" />
     <Compile Include="Assets\unity-ui-extensions\Examples\Cooldown\CooldownEffect_SAUIM.cs" />
