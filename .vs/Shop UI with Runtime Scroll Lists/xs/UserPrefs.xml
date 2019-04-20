@@ -3,8 +3,9 @@
     <Files>
       <File FileName="Assets/Script/ItemPanel.cs" Line="14" Column="38" />
       <File FileName="Assets/EnhancedScroller v2/Demos/08 View Driven Cell Sizes/Controller.cs" Line="143" Column="1" />
-      <File FileName="Assets/TEST_08/Controller.cs" Line="83" Column="37" />
-      <File FileName="Assets/EnhancedScroller v2/Demos/04 Jump To Demo/Controller.cs" Line="65" Column="1" />
+      <File FileName="Assets/TEST_08/Controller.cs" Line="60" Column="1" />
+      <File FileName="Assets/Script/BattleLogList.cs" Line="22" Column="46" />
+      <File FileName="Assets/TEST_08/CellView.cs" Line="25" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
