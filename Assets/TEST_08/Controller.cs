@@ -75,17 +75,12 @@ namespace KohmaiWorks.Scroller08
                 EventTrigger trigger = GetComponentInParent<EventTrigger>();
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.PointerEnter;
-
-                entry.callback.AddListener((data) => { PointerEnterDelegate(index); });
+                 
+                entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
 
                 JumpIndex.GetComponent<EventTrigger>().triggers.Add(entry);
             }
 
-        }
-
-        private void PointerEnterDelegate(int index)
-        {
-            JumpButton_OnClick(index);
         }
 
 
@@ -143,22 +138,7 @@ namespace KohmaiWorks.Scroller08
 
         public void JumpButton_OnClick(int jumpIndex)
         {
-            //int jumpDataIndex;
-
-
             scroller.JumpToDataIndex(jumpIndex, 0f, 0f);
-
-            //// extract the integer from the input text
-            //if (int.TryParse(jumpIndexInput.text, out jumpDataIndex))
-            //{
-            //    // jump to the index
-            //    vScroller.JumpToDataIndex(jumpDataIndex, scrollerOffsetSlider.value, cellOffsetSlider.value, useSpacingToggle.isOn, vScrollerTweenType, vScrollerTweenTime, null, EnhancedScroller.LoopJumpDirectionEnum.Down);
-            //    hScroller.JumpToDataIndex(jumpDataIndex, scrollerOffsetSlider.value, cellOffsetSlider.value, useSpacingToggle.isOn, hScrollerTweenType, hScrollerTweenTime);
-            //}
-            //else
-            //{
-            //    Debug.LogWarning("The jump value you entered is not a number.");
-            //}
         }
 
         #region EnhancedScroller Handlers

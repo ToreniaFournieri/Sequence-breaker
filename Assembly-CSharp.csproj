@@ -60,8 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BattleLogEnhancedScrollController.cs" />
-    <Compile Include="Assets\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\CellView.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\Data.cs" />
     <Compile Include="Assets\EnhancedScroller v2\Demos\01 Simple Demo\SimpleDemo.cs" />
@@ -146,6 +144,7 @@
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\UnitSkillMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\UnitClass.cs" />
+    <Compile Include="Assets\Script\03_Controller\BattleLogEnhancedScrollController.cs" />
     <Compile Include="Assets\Script\03_Controller\InventoryScrollList.cs" />
     <Compile Include="Assets\Script\03_Controller\RefreshController.cs" />
     <Compile Include="Assets\Script\03_Controller\SwitchUnitController.cs" />
@@ -155,6 +154,7 @@
     <Compile Include="Assets\Script\BattleEngine.cs" />
     <Compile Include="Assets\Script\BattleLogList.cs" />
     <Compile Include="Assets\Script\BattleUnitList.cs" />
+    <Compile Include="Assets\Script\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\ItemPanel.cs" />
     <Compile Include="Assets\Script\Others.cs" />
