@@ -154,6 +154,8 @@
     <Compile Include="Assets\Script\BattleEngine.cs" />
     <Compile Include="Assets\Script\BattleLogList.cs" />
     <Compile Include="Assets\Script\BattleUnitList.cs" />
+    <Compile Include="Assets\Script\CellView.cs" />
+    <Compile Include="Assets\Script\Data.cs" />
     <Compile Include="Assets\Script\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\ItemPanel.cs" />
