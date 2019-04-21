@@ -21,8 +21,10 @@ namespace KohmaiWorks.Scroller
         public RectOffset textBuffer;
 
         public void SetData(Data data, bool calculateLayout)
+        //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
             someTextText.text = data.someText;
+            //someTextText.text = battleLogLists.Log;
 
             // Only calculate the layout on the first pass.
             // This will save processing on subsequent passes.
@@ -33,6 +35,7 @@ namespace KohmaiWorks.Scroller
 
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
                 data.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                //battleLogLists.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
         }
     }

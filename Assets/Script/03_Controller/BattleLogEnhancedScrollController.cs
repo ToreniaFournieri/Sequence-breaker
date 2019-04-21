@@ -16,6 +16,7 @@ namespace KohmaiWorks.Scroller
     public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
         private List<Data> _data;
+        private List<BattleLogClass> battleLogLists;
 
         /// <summary>
         /// This member tells the scroller that we need
@@ -49,13 +50,12 @@ namespace KohmaiWorks.Scroller
 
             battle.Battle();
 
-            Debug.Log("LogList.Count: " + battle.logList.Count);
 
-            // populate the scroller with some text
+            //battleLogLists = battle.logList;
+             //populate the scroller with some text
             for (var i = 0; i < battle.logList.Count; i++)
             {
                 _data.Add(new Data() { cellSize = 0, someText = battle.logList[i].Log });
-
             }
             
 
@@ -89,28 +89,28 @@ namespace KohmaiWorks.Scroller
         /// <summary>
         /// This function adds a new record, resizing the scroller and calculating the sizes of all cells
         /// </summary>
-        public void AddNewRow()
-        {
-            // first, clear out the cells in the scroller so the new text transforms will be reset
-            scroller.ClearAll();
+        //public void AddNewRow()
+        //{
+        //    // first, clear out the cells in the scroller so the new text transforms will be reset
+        //    scroller.ClearAll();
 
-            // reset the scroller's position so that it is not outside of the new bounds
-            scroller.ScrollPosition = 0;
+        //    // reset the scroller's position so that it is not outside of the new bounds
+        //    scroller.ScrollPosition = 0;
 
-            // second, reset the data's cell view sizes
-            foreach (var item in _data)
-            {
-                item.cellSize = 0;
-            }
+        //    // second, reset the data's cell view sizes
+        //    foreach (var item in _data)
+        //    {
+        //        item.cellSize = 0;
+        //    }
 
-            // now we can add the data row
-            _data.Add(new Data() { cellSize = 0, someText = _data.Count.ToString() + " New Row Added!" });
+        //    // now we can add the data row
+        //    _data.Add(new Data() { cellSize = 0, someText = _data.Count.ToString() + " New Row Added!" });
 
-            ResizeScroller();
+        //    ResizeScroller();
 
-            // optional: jump to the end of the scroller to see the new content
-            scroller.JumpToDataIndex(_data.Count - 1, 1f, 1f);
-        }
+        //    // optional: jump to the end of the scroller to see the new content
+        //    scroller.JumpToDataIndex(_data.Count - 1, 1f, 1f);
+        //}
 
         /// <summary>
         /// This function will exand the scroller to accommodate the cells, reload the data to calculate the cell sizes,
@@ -147,6 +147,7 @@ namespace KohmaiWorks.Scroller
 
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
+            //return battleLogLists.Count;
             return _data.Count;
         }
 
@@ -156,6 +157,7 @@ namespace KohmaiWorks.Scroller
             // First pass (frame countdown 2): this size will be zero as set in the LoadData function
             // Second pass (frame countdown 1): this size will be set to the content size fitter in the cell view
             // Third pass (frmae countdown 0): this set value will be pulled here from the scroller
+            //return battleLogLists[dataIndex].cellSize;
             return _data[dataIndex].cellSize;
         }
 
@@ -165,6 +167,7 @@ namespace KohmaiWorks.Scroller
 
             // tell the cell view to calculate its layout on the first pass,
             // otherwise just use the size set in the data.
+            //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
             cellView.SetData(_data[dataIndex], _calculateLayout);
 
             return cellView;
