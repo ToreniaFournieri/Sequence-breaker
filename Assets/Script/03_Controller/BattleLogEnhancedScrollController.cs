@@ -5,6 +5,8 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
+using System.Linq;
+using System;
 
 namespace KohmaiWorks.Scroller
 {
@@ -31,6 +33,7 @@ namespace KohmaiWorks.Scroller
 
         public Transform parentJumpIndex;
         public GameObject jumpIndexPrefab;
+        public RectTransform canvasToGetWidth;
 
         private BattleEngine battle = new BattleEngine();
 
@@ -52,12 +55,29 @@ namespace KohmaiWorks.Scroller
 
 
             //battleLogLists = battle.logList;
-             //populate the scroller with some text
+            //populate the scroller with some text
             for (var i = 0; i < battle.logList.Count; i++)
             {
-                _data.Add(new Data() { cellSize = 0, someText = battle.logList[i].Log });
+
+                // Get canvas width
+                float widthOfCanvas = canvasToGetWidth.rect.width;
+                string[] lines = battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                int count = lines.Length;
+
+                for (int j = 0; j < lines.Length; j++)
+                {
+                    TextGenerator textGen = new TextGenerator();
+                    TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
+                        (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
+                    float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
+
+                    int numberOfNewLine = (int)(widthOfLine / widthOfCanvas  );
+                    if (numberOfNewLine >= 1 ) { count += numberOfNewLine; }
+                }
+
+                //[temporary] '47' is font size with some space.
+                _data.Add(new Data() { cellSize = (count + 1) * 47, someText = battle.logList[i].Log });
             }
-            
 
             ResizeScroller();
         }
@@ -125,16 +145,16 @@ namespace KohmaiWorks.Scroller
             // set the dimensions to the largest size possible to acommodate all the cells
             rectTransform.sizeDelta = new Vector2(size.x, float.MaxValue);
 
-            // First Pass: reload the scroller so that it can populate the text UI elements in the cell view.
-            // The content size fitter will determine how big the cells need to be on subsequent passes.
-            _calculateLayout = true;
-            scroller.ReloadData();
+            //// First Pass: reload the scroller so that it can populate the text UI elements in the cell view.
+            //// The content size fitter will determine how big the cells need to be on subsequent passes.
+            //_calculateLayout = true;
+            //scroller.ReloadData();
 
-            // reset the scroller size back to what it was originally
+            //// reset the scroller size back to what it was originally
             rectTransform.sizeDelta = size;
 
-            // Second Pass: reload the data once more with the newly set cell view sizes and scroller content size
-            _calculateLayout = false;
+            //// Second Pass: reload the data once more with the newly set cell view sizes and scroller content size
+            //_calculateLayout = false;
             scroller.ReloadData();
         }
 

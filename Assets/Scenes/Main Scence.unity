@@ -740,11 +740,11 @@ RectTransform:
   m_Father: {fileID: 978793925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
-  m_SizeDelta: {x: 0, y: 94.3}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &114568832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00004510216}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &734063310
@@ -3304,7 +3304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34}
+  m_AnchoredPosition: {x: 0, y: -33.999878}
   m_SizeDelta: {x: 0, y: -68.001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942720966
@@ -3379,7 +3379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00016443066}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &952931269
@@ -3477,7 +3477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.017578125, y: -33.598022}
+  m_AnchoredPosition: {x: 0.017578125, y: -33.5979}
   m_SizeDelta: {x: 1.3257, y: -68.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978793926
@@ -4455,7 +4455,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1700506908}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4920,7 +4920,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5377,7 +5377,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6973,7 +6973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1870001501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7455,7 +7455,7 @@ PrefabInstance:
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -99
       objectReference: {fileID: 0}
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
@@ -7465,7 +7465,7 @@ PrefabInstance:
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 198
       objectReference: {fileID: 0}
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
@@ -7475,7 +7475,7 @@ PrefabInstance:
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5342255760343601461, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
@@ -7505,7 +7505,7 @@ PrefabInstance:
     - target: {fileID: 5342255760343578275, guid: a14cf2dd9898447a7acf0b49a39d41b7,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a14cf2dd9898447a7acf0b49a39d41b7, type: 3}
@@ -7744,7 +7744,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1502425499}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
