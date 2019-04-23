@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnhancedScroller v2/Plugins/EnhancedScroller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="131" Column="32" />
-      <File FileName="Assets/Script/Data.cs" Line="10" Column="1" />
-      <File FileName="Assets/Script/BattleLogList.cs" Line="21" Column="27" />
-      <File FileName="Assets/Script/CellView.cs" Line="30" Column="48" />
-      <File FileName="Assets/EnhancedScroller v2/Plugins/EnhancedScroller.cs" Line="568" Column="21" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="53" Column="1" />
+      <File FileName="Assets/Script/Others.cs" Line="170" Column="44" />
+      <File FileName="Assets/Script/Data.cs" Line="15" Column="40" />
+      <File FileName="Assets/Script/CellView.cs" Line="30" Column="46" />
+      <File FileName="Assets/Script/BattleEngine.cs" Line="11" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -158,6 +158,7 @@
     <Compile Include="Assets\Script\Data.cs" />
     <Compile Include="Assets\Script\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
+    <Compile Include="Assets\Script\GenerateBattleUnits.cs" />
     <Compile Include="Assets\Script\ItemPanel.cs" />
     <Compile Include="Assets\Script\Others.cs" />
     <Compile Include="Assets\Script\SimpleObjectPool.cs" />

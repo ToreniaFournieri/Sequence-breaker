@@ -164,7 +164,7 @@ public class SkillLogicShieldHealClass
     public string Log { get; }
 }
 
-
+[Serializable]
 public class EffectClass
 {
     public EffectClass(BattleUnit character, SkillsMasterStruct skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isDamageControlAssistAble, int usageCount,
@@ -1054,7 +1054,7 @@ public class AttackFunction
             if (healedByAbsorbShiled > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShiled + ". \n"; }
 
             OrderConditionClass orderCondition = order.OrderCondition;
-            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
         }
     }
 

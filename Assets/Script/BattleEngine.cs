@@ -8,6 +8,9 @@ public class BattleEngine
 {
     public List<BattleLogClass> logList;
 
+    public List<BattleUnit> allyBattleUnitsList;
+    public List<EffectClass> allySkillsList;
+
     public void Battle()
     {
         DateTime startDateTime = DateTime.Now;
@@ -355,7 +358,7 @@ public class BattleEngine
                                         text = new FuncBattleConditionsText(currentTurn: turn, currentBattleWaves: currentBattleWaves, characters: characters);
                                         log += text.Text();
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -363,7 +366,7 @@ public class BattleEngine
                                         environmentInfo.Phase = 1; orderNumber = 0;
                                         log += new string(' ', 1) + "[At beging phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
@@ -376,7 +379,7 @@ public class BattleEngine
                                         environmentInfo.Phase = 2;
                                         log += new string(' ', 1) + "[Main action phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -409,7 +412,7 @@ public class BattleEngine
                                         log += camlHate.Log;
 
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -539,7 +542,7 @@ public class BattleEngine
                                 if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                 while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
-                                BattleLogClass battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, log: log, importance: 1);
+                                BattleLogClass battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                 battleLogList.Add(battleLog);
 
                                 //Navigation Logic
@@ -551,7 +554,7 @@ public class BattleEngine
                                 if (navigationLog != null)
                                 {
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, log: navigationLog, importance: 1);
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                 } 
                             }  // Until all Characters act.
@@ -583,7 +586,7 @@ public class BattleEngine
 
                         string log = "Time over. \n";
                         OrderConditionClass orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: 4, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1);
+                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                         battleLogList.Add(battleLog);
                     }
 

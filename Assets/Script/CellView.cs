@@ -7,6 +7,7 @@ namespace KohmaiWorks.Scroller
     public class CellView : EnhancedScrollerCellView
     {
         public Text someTextText;
+        public Image image;
 
         /// <summary>
         /// A reference to the rect transform which will be
@@ -25,6 +26,23 @@ namespace KohmaiWorks.Scroller
         {
             someTextText.text = data.someText;
             //someTextText.text = battleLogLists.Log;
+            Color darkRed = new Color32(17, 8, 8, 255); // dark red
+            Color darkGreen = new Color32(8, 17, 8, 255); // dark green
+            Color color = new Color32(17, 17, 17, 255);
+
+            switch (data.affiliation)
+            {
+                case Affiliation.ally:
+                    color = darkGreen;
+                    break;
+                case Affiliation.enemy:
+                    color = darkRed;
+                    break;
+                default:
+                    break;
+            }
+
+            image.color = color;
 
             // Only calculate the layout on the first pass.
             // This will save processing on subsequent passes.

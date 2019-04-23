@@ -18,7 +18,7 @@ namespace KohmaiWorks.Scroller
     public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
         private List<Data> _data;
-        private List<BattleLogClass> battleLogLists;
+        //private List<BattleLogClass> battleLogLists;
 
         /// <summary>
         /// This member tells the scroller that we need
@@ -35,7 +35,14 @@ namespace KohmaiWorks.Scroller
         public GameObject jumpIndexPrefab;
         public RectTransform canvasToGetWidth;
 
-        private BattleEngine battle = new BattleEngine();
+
+        /// <summary>
+        /// Battle Information
+        /// </summary>
+        public List<BattleUnit> allyBattleUnitsList;
+        public List<EffectClass> allySkillsList;
+
+        private BattleEngine _battle = new BattleEngine();
 
         void Start()
         {
@@ -51,17 +58,17 @@ namespace KohmaiWorks.Scroller
         {
             _data = new List<Data>();
 
-            battle.Battle();
+            _battle.Battle();
 
 
             //battleLogLists = battle.logList;
             //populate the scroller with some text
-            for (var i = 0; i < battle.logList.Count; i++)
+            for (var i = 0; i < _battle.logList.Count; i++)
             {
 
                 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
-                string[] lines = battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                 int count = lines.Length;
 
                 for (int j = 0; j < lines.Length; j++)
@@ -71,12 +78,12 @@ namespace KohmaiWorks.Scroller
                         (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                     float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
 
-                    int numberOfNewLine = (int)(widthOfLine / widthOfCanvas  );
+                    int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 170)  );
                     if (numberOfNewLine >= 1 ) { count += numberOfNewLine; }
                 }
 
                 //[temporary] '47' is font size with some space.
-                _data.Add(new Data() { cellSize = (count + 1) * 47, someText = battle.logList[i].Log });
+                _data.Add(new Data() { cellSize = (count + 1) * 47, someText = _battle.logList[i].Log, affiliation = _battle.logList[i].WhichAffiliationAct });
             }
 
             ResizeScroller();
@@ -84,14 +91,14 @@ namespace KohmaiWorks.Scroller
 
         private void SetJumpIndex()
         {
-            int maxCount = battle.logList.Count;
-            int maxTurn = battle.logList[maxCount - 1].OrderCondition.Turn;
+            int maxCount = _battle.logList.Count;
+            int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn;
 
             for (int i = 1; i < maxTurn; i++)
             {
                 GameObject JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
-                int index = battle.logList.FindIndex((obj) => obj.OrderCondition.Turn == i);
+                int index = _battle.logList.FindIndex((obj) => obj.OrderCondition.Turn == i);
                 JumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                 EventTrigger trigger = GetComponentInParent<EventTrigger>();
