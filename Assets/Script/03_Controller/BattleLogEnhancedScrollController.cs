@@ -94,7 +94,7 @@ namespace KohmaiWorks.Scroller
             int maxCount = _battle.logList.Count;
             int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn;
 
-            for (int i = 1; i < maxTurn; i++)
+            for (int i = 1; i <= maxTurn; i++)
             {
                 GameObject JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
