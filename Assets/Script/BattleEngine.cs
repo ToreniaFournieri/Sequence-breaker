@@ -345,6 +345,7 @@ public class BattleEngine
                             List<OrderClass> orderForSort = new List<OrderClass>();
 
                             {
+                                string firstLine = null;
                                 string log = null; int orderNumber = 0;
                                 BattleLogClass battleLog;
                                 OrderConditionClass orderCondition;
@@ -353,20 +354,20 @@ public class BattleEngine
                                 {
                                     case 0: //Battle conditions output
                                         environmentInfo.Phase = 0;
-                                        log += "\n";
                                         //log += "------------------------------------\n";
                                         text = new FuncBattleConditionsText(currentTurn: turn, currentBattleWaves: currentBattleWaves, characters: characters);
+                                        firstLine = text.FirstLine();
                                         log += text.Text();
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
                                     case 1: // Action phase:1 at beginning
                                         environmentInfo.Phase = 1; orderNumber = 0;
-                                        log += new string(' ', 1) + "[At beging phase] \n";
+                                        firstLine = "[At beging phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
@@ -377,9 +378,9 @@ public class BattleEngine
                                         break;
                                     case 2:
                                         environmentInfo.Phase = 2;
-                                        log += new string(' ', 1) + "[Main action phase] \n";
+                                        firstLine = "[Main action phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -412,7 +413,7 @@ public class BattleEngine
                                         log += camlHate.Log;
 
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: null, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -423,6 +424,7 @@ public class BattleEngine
 
                             while (orders.Any()) // loop until order is null.
                             {
+                                string firstLine = null;
                                 string log = null;
                                 OrderClass order = orders.Pop();
 
@@ -449,10 +451,10 @@ public class BattleEngine
                                     order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.Skill.TriggerBase.AccumulationBaseRate * order.SkillEffectChosen.Skill.TriggerBase.AccumulationWeight);
                                 }
 
-                                log += SkillLogicDispatcher(order: order, characters: characters, environmentInfo: environmentInfo); // SkillLogic action include damage control assist.
-                                log += BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
+                                (firstLine, log) = SkillLogicDispatcher(order: order, characters: characters, environmentInfo: environmentInfo); // SkillLogic action include damage control assist.
+                                (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
                                 result = SkillMoveFunction(order: order, characters: characters, environmentInfo: environmentInfo); // offense action
-                                if (result.BattleLog != null) { log += result.BattleLog.Log; }
+                                if (result.BattleLog != null) { log += result.BattleLog.Log; firstLine = result.BattleLog.FirstLine; }
 
                                 battleResult = result.battleResult;
 
@@ -542,7 +544,7 @@ public class BattleEngine
                                 if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                 while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
-                                BattleLogClass battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                BattleLogClass battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                 battleLogList.Add(battleLog);
 
                                 //Navigation Logic
@@ -554,7 +556,7 @@ public class BattleEngine
                                 if (navigationLog != null)
                                 {
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, firstLine: null, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                 } 
                             }  // Until all Characters act.
@@ -586,7 +588,7 @@ public class BattleEngine
 
                         string log = "Time over. \n";
                         OrderConditionClass orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: 4, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: log, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                         battleLogList.Add(battleLog);
                     }
 
@@ -999,12 +1001,13 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
     }
 
     // Buff logic
-    public static string BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterStruct> buffMasters, int turn)
+    public static (string firstLine, string log) BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterStruct> buffMasters, int turn)
     {
         SkillsMasterStruct addingBuff;
         List<EffectClass> addingEffect = new List<EffectClass>();
+        string firstline = null;
         string log = null;
-        if (order.SkillEffectChosen == null) { return log; } // no effect exist, so no buff/ debuff happened
+        if (order.SkillEffectChosen == null) { return (null, null); } // no effect exist, so no buff/ debuff happened
         foreach (BattleUnit character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
         switch (order.SkillEffectChosen.Skill.BuffTarget.TargetType)
         {
@@ -1039,7 +1042,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
                     if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next trigger: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usuage count left."; }
                     accumulationText = "(Accumulation " + order.SkillEffectChosen.Skill.TriggerBase.AccumulationReference.ToString() + ": " + count + nextText + ")";
                 }
-                log += new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
+                firstline = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
                           + new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
                 // Belows: It's a temporary message, only for deffense magnification.
                 if (addingBuff.BuffTarget.DefenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.Buff.DefenseMagnification + " (x" + addingBuff.BuffTarget.DefenseMagnification + ")] "; }
@@ -1049,7 +1052,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
             case TargetType.multi: //Buff attacker's side all
                 addingBuff = buffMasters.FindLast((obj) => obj.Name == order.SkillEffectChosen.Skill.CallingBuffName);
                 List<BattleUnit> buffTargetCharacters = characters.FindAll(character1 => character1.Affiliation == order.Actor.Affiliation && character1.Combat.HitPointCurrent > 0);
-                log += new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! (Trigger Possibility:" + (double)((int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0) + "%) \n";
+                firstline = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! (Trigger Possibility:" + (double)((int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0) + "%) \n";
 
                 for (int i = 0; i < buffTargetCharacters.Count; i++)
                 {
@@ -1077,28 +1080,31 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
         {
             //Debuff exist
         }
-        return log;
+        return (firstline, log);
     }
 
-    public static string SkillLogicDispatcher(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
+    public static (string firstline, string log) SkillLogicDispatcher(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
     {
+        string firstLine = null;
         string log = null;
-        if (order.SkillEffectChosen.Skill.CallSkillLogicName == CallSkillLogicName.none) { return null; } // check call skill 
+        if (order.SkillEffectChosen.Skill.CallSkillLogicName == CallSkillLogicName.none) { return (null, null); } // check call skill 
         SkillLogicShieldHealClass healMulti;
         switch (order.SkillEffectChosen.Skill.CallSkillLogicName)
         {
             case CallSkillLogicName.ShieldHealMulti:
                 healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: true, environmentInfo: environmentInfo);
                 log += healMulti.Log;
+                firstLine = healMulti.firstLine;
                 break;
             case CallSkillLogicName.ShieldHealSingle:
                 healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: false, environmentInfo: environmentInfo);
                 log += healMulti.Log;
+                firstLine = healMulti.firstLine;
                 break;
             default:
                 break;
         }
-        return log;
+        return (firstLine,log);
     }
 
     public static (BattleLogClass, BattleResultClass) SkillMoveFunction(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)

@@ -6,6 +6,7 @@ namespace KohmaiWorks.Scroller
 {
     public class CellView : EnhancedScrollerCellView
     {
+        public Text firstLine;
         public Text someTextText;
         public Image image;
 
@@ -24,6 +25,7 @@ namespace KohmaiWorks.Scroller
         public void SetData(Data data, bool calculateLayout)
         //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
+            firstLine.text = data.firstLine;
             someTextText.text = data.someText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(17, 8, 8, 255); // dark red

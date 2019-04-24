@@ -5,6 +5,7 @@ namespace KohmaiWorks.Scroller
 {
     public class Data
     {
+        public string firstLine;
         public string someText;
 
         /// <summary>

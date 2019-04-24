@@ -13,10 +13,15 @@ public class FuncBattleConditionsText
     public FuncBattleConditionsText(int currentTurn, int currentBattleWaves, List<BattleUnit> characters)
     { this.CurrentTurn = currentTurn; this.Characters = characters; this.CurrentBattleWaves = currentBattleWaves; }
 
+    public string FirstLine()
+    {
+        return "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
+    }
+
     public string Text()
     {
         string text = null;
-        text += "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
+        //text += "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
 
         // get each affiliation unit list.
         List<BattleUnit> allys = Characters.FindAll(x => x.Affiliation == Affiliation.ally);
@@ -48,12 +53,20 @@ public class FuncBattleConditionsText
                 if (affiliationCharacters[i].Buff.DefenseMagnification > 1.01) { defenseText = "[Defense: x" + affiliationCharacters[i].Buff.DefenseMagnification + "]"; }
 
                 text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].Name
-                    + " Shiled:" + new string(' ', shiledSpace) + affiliationCharacters[i].Combat.ShiledCurrent.WithComma() + " ("
-                    + new string(' ', shiledPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.ShiledCurrent / (double)affiliationCharacters[i].Combat.ShiledMax * 100), 0) + "%)"
-                    + " HP:" + new string(' ', hPSpace) + affiliationCharacters[i].Combat.HitPointCurrent.WithComma() + " ("
+                    + " (" + affiliationCharacters[i].Combat.ShiledCurrent.WithComma() + "+" 
+                    + affiliationCharacters[i].Combat.HitPointCurrent.WithComma() + ")" +
+                     " (" + new string(' ', shiledPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.ShiledCurrent / (double)affiliationCharacters[i].Combat.ShiledMax * 100), 0) + "%+"
                     + new string(' ', hPPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.HitPointCurrent / (double)affiliationCharacters[i].Combat.HitPointMax * 100), 0) + "%) "
                     + barrierText + deteriorationText + defenseText
                     + "\n";
+
+                //text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].Name
+                //+ " Shiled:" + new string(' ', shiledSpace) + affiliationCharacters[i].Combat.ShiledCurrent.WithComma() + " ("
+                //+ new string(' ', shiledPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.ShiledCurrent / (double)affiliationCharacters[i].Combat.ShiledMax * 100), 0) + "%)"
+                //+ " HP:" + new string(' ', hPSpace) + affiliationCharacters[i].Combat.HitPointCurrent.WithComma() + " ("
+                //+ new string(' ', hPPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.HitPointCurrent / (double)affiliationCharacters[i].Combat.HitPointMax * 100), 0) + "%) "
+                //+ barrierText + deteriorationText + defenseText
+                //+ "\n";
             }
         }
 
@@ -100,7 +113,7 @@ public class SkillLogicShieldHealClass
     {
         string damageControlAssistText = null;
         if (order.IsDamageControlAssist) { damageControlAssistText = "[damage control assist] "; }
-        Log += new string(' ', 0) + order.Actor.Name + " " + damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
+        firstLine = new string(' ', 0) + order.Actor.Name + " " + damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
         double healBase = order.Actor.Ability.Generation * order.SkillEffectChosen.Skill.Magnification.Heal * 10.0;
 
         // heal only same affiliation
@@ -161,6 +174,7 @@ public class SkillLogicShieldHealClass
         int hateAdd = 30; if (isMulti) { hateAdd = 50; }
         order.Actor.Feature.HateCurrent += hateAdd;
     }
+    public string firstLine { get; }
     public string Log { get; }
 }
 
@@ -424,13 +438,13 @@ public class ShiledHealFunction
                 if ((characters[i].Combat.ShiledMax - characters[i].Combat.ShiledCurrent) <= shiledHealAmount)
                 { // can heal max
                     characters[i].Combat.ShiledCurrent = characters[i].Combat.ShiledMax;
-                    Log += new string(' ', 5) + characters[i].Name + " heals all shiled." +
+                    Log += characters[i].Name + " heals all shiled." +
                      " Shiled:" + characters[i].Combat.ShiledCurrent + " (" + (int)((double)characters[i].Combat.ShiledCurrent / (double)characters[i].Combat.ShiledMax * 100) + "%) \n";
                 }
                 else
                 {
                     characters[i].Combat.ShiledCurrent += shiledHealAmount;
-                    Log += new string(' ', 5) + characters[i].Name + " heals " + shiledHealAmount +
+                    Log += characters[i].Name + " heals " + shiledHealAmount +
                      " Shiled:" + characters[i].Combat.ShiledCurrent + " (" + (int)((double)characters[i].Combat.ShiledCurrent / (double)characters[i].Combat.ShiledMax * 100) + "%) \n";
                 }
             }
@@ -1001,7 +1015,7 @@ public class AttackFunction
 
             string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
-            log += new string(' ', 0) + order.Actor.Name + "'s " + criticalWords + skillName + skillTriggerPossibility + " "
+            string firstLine =  new string(' ', 0) + order.Actor.Name + "'s " + criticalWords + skillName + skillTriggerPossibility + " "
             + order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
              " total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
 
@@ -1012,7 +1026,7 @@ public class AttackFunction
                 if (totalIndivisualHits[opponents[fTargetColumn].UniqueID] >= 1)
                 {
                     string optimumRangeWords = null;
-                    if (opponents[fTargetColumn].IsOptimumTarget) { optimumRangeWords = " [optimum range]"; }
+                    if (opponents[fTargetColumn].IsOptimumTarget) { optimumRangeWords = " *"; }
 
                     string barrierWords = null;
                     if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [Barrier Broken]"; }
@@ -1031,10 +1045,15 @@ public class AttackFunction
                     int damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma().Length);
                     int damageRateSpace = (4 - sign.Length - damageRatio.ToString().Length);
 
-                    log += new string(' ', 4) + opponents[fTargetColumn].Name + " (Sh" + new string(' ', shiledPercentSpace) + shiledRatio.WithComma() + "% HP" + new string(' ', hPPercentSpace)
-                    + hpRatio.WithComma() + "%)" + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
+                    log +=  opponents[fTargetColumn].Name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
                     + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
                     + totalIndivisualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
+
+                    //                    log += new string(' ', 4) + opponents[fTargetColumn].Name + " (Sh" + new string(' ', shiledPercentSpace) + shiledRatio.WithComma() + "% HP" + new string(' ', hPPercentSpace)
+                    //+ hpRatio.WithComma() + "%)" + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
+                    //+ new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
+                    //+ totalIndivisualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
+
 
                     if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                 }
@@ -1054,7 +1073,7 @@ public class AttackFunction
             if (healedByAbsorbShiled > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShiled + ". \n"; }
 
             OrderConditionClass orderCondition = order.OrderCondition;
-            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
         }
     }
 

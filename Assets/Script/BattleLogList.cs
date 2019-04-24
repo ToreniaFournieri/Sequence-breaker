@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class BattleLogClass
 {
     public BattleLogClass() { } // for null call
-    public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, string log, int importance, Affiliation whichAffiliationAct)
-    { OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance; Log = log; WhichAffiliationAct = whichAffiliationAct; }
+    public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
+    { OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance; FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct; }
 
     public OrderConditionClass OrderCondition { get; }
     public bool IsNavigation { get; }
     public int Importance { get; }
+    public string FirstLine { get; }
     public string Log { get; }
     public Affiliation WhichAffiliationAct { get; }
 

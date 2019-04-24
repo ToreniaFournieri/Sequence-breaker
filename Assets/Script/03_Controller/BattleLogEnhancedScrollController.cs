@@ -68,22 +68,26 @@ namespace KohmaiWorks.Scroller
 
                 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
-                string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                int count = lines.Length;
-
-                for (int j = 0; j < lines.Length; j++)
+                int count = 1;
+                if (_battle.logList[i].Log != null)
                 {
-                    TextGenerator textGen = new TextGenerator();
-                    TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
-                        (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
-                    float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
+                    string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    count = lines.Length;
 
-                    int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 170)  );
-                    if (numberOfNewLine >= 1 ) { count += numberOfNewLine; }
+                    for (int j = 0; j < lines.Length; j++)
+                    {
+                        TextGenerator textGen = new TextGenerator();
+                        TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
+                            (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
+                        float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
+
+                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 - 10));
+                        if (numberOfNewLine >= 1) { count += numberOfNewLine; }
+                    }
                 }
 
                 //[temporary] '47' is font size with some space.
-                _data.Add(new Data() { cellSize = (count + 1) * 47, someText = _battle.logList[i].Log, affiliation = _battle.logList[i].WhichAffiliationAct });
+                _data.Add(new Data() { cellSize = (count + 1) * 42 + 80, firstLine = _battle.logList[i].FirstLine, someText = _battle.logList[i].Log, affiliation = _battle.logList[i].WhichAffiliationAct });
             }
 
             ResizeScroller();
