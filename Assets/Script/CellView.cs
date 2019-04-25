@@ -8,7 +8,9 @@ namespace KohmaiWorks.Scroller
     {
         public Text firstLine;
         public Text someTextText;
-        public Image image;
+        public Image backgroundImage;
+        public Image nestedLine;
+        public Image icon;
 
         /// <summary>
         /// A reference to the rect transform which will be
@@ -28,8 +30,8 @@ namespace KohmaiWorks.Scroller
             firstLine.text = data.firstLine;
             someTextText.text = data.someText;
             //someTextText.text = battleLogLists.Log;
-            Color darkRed = new Color32(17, 8, 8, 255); // dark red
-            Color darkGreen = new Color32(8, 17, 8, 255); // dark green
+            Color darkRed = new Color32(24, 12, 12, 255); // dark red
+            Color darkGreen = new Color32(12, 24, 12, 255); // dark green
             Color color = new Color32(17, 17, 17, 255);
 
             switch (data.affiliation)
@@ -44,7 +46,10 @@ namespace KohmaiWorks.Scroller
                     break;
             }
 
-            image.color = color;
+            backgroundImage.color = color;
+
+            nestedLine.rectTransform.sizeDelta = new  Vector2(8 * data.nestLevel, 0);
+
 
             // Only calculate the layout on the first pass.
             // This will save processing on subsequent passes.

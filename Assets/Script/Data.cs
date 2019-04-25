@@ -12,6 +12,7 @@ namespace KohmaiWorks.Scroller
         /// We will store the cell size in the model so that the cell view can update it
         /// </summary>
         public float cellSize;
+        public int nestLevel;
 
         public Affiliation affiliation;
     }

@@ -85,9 +85,19 @@ namespace KohmaiWorks.Scroller
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
+                int cellSize = (count + 1) * 42 + 80;
+                const int cellMinSize = 180;
+                if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
                 //[temporary] '47' is font size with some space.
-                _data.Add(new Data() { cellSize = (count + 1) * 42 + 80, firstLine = _battle.logList[i].FirstLine, someText = _battle.logList[i].Log, affiliation = _battle.logList[i].WhichAffiliationAct });
+                _data.Add(new Data()
+                {
+                    cellSize = cellSize,
+                    firstLine = _battle.logList[i].FirstLine,
+                    someText = _battle.logList[i].Log,
+                    affiliation = _battle.logList[i].WhichAffiliationAct,
+                    nestLevel = _battle.logList[i].OrderCondition.Nest
+                });
             }
 
             ResizeScroller();
