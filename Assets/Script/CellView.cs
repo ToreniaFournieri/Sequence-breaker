@@ -9,6 +9,7 @@ namespace KohmaiWorks.Scroller
         public Text firstLine;
         public Text someTextText;
         public Image backgroundImage;
+        public Image nestedLinePrevious;
         public Image nestedLine;
         public Image icon;
 
@@ -24,7 +25,7 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         public RectOffset textBuffer;
 
-        public void SetData(Data data, bool calculateLayout)
+        public void SetData(Data data, Data nextData, bool calculateLayout)
         //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
             firstLine.text = data.firstLine;
@@ -48,7 +49,8 @@ namespace KohmaiWorks.Scroller
 
             backgroundImage.color = color;
 
-            nestedLine.rectTransform.sizeDelta = new  Vector2(8 * data.nestLevel, 0);
+            nestedLinePrevious.rectTransform.sizeDelta = new Vector2(8 * data.nestLevel, 136);
+            nestedLine.rectTransform.sizeDelta = new  Vector2(8 * nextData.nestLevel, 0);
 
 
             // Only calculate the layout on the first pass.

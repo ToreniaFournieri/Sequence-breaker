@@ -85,7 +85,7 @@ namespace KohmaiWorks.Scroller
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
-                int cellSize = (count + 1) * 42 + 80;
+                int cellSize = (count + 1) * 42 + 60;
                 const int cellMinSize = 180;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
@@ -209,7 +209,10 @@ namespace KohmaiWorks.Scroller
             // tell the cell view to calculate its layout on the first pass,
             // otherwise just use the size set in the data.
             //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
-            cellView.SetData(_data[dataIndex], _calculateLayout);
+            Data nextData = null;
+            if (dataIndex < _data.Count -1  ) { nextData = _data[dataIndex + 1]; }
+
+            cellView.SetData(_data[dataIndex], nextData, _calculateLayout);
 
             return cellView;
         }

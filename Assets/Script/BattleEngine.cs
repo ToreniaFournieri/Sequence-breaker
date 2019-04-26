@@ -427,7 +427,7 @@ public class BattleEngine
                                 string firstLine = null;
                                 string log = null;
                                 OrderClass order = orders.Pop();
-
+                                BattleLogClass battleLog;
                                 if (order.Actor == null) { continue; } // attacker alive check, if crushed, continue.
                                 if (order.Actor.Combat.HitPointCurrent <= 0) { continue; }
 
@@ -451,12 +451,38 @@ public class BattleEngine
                                     order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.Skill.TriggerBase.AccumulationBaseRate * order.SkillEffectChosen.Skill.TriggerBase.AccumulationWeight);
                                 }
 
-                                (firstLine, log) = SkillLogicDispatcher(order: order, characters: characters, environmentInfo: environmentInfo); // SkillLogic action include damage control assist.
-                                (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
-                                result = SkillMoveFunction(order: order, characters: characters, environmentInfo: environmentInfo); // offense action
-                                if (result.BattleLog != null) { log += result.BattleLog.Log; firstLine = result.BattleLog.FirstLine; }
 
+                                bool willSkip = false;
+                                (firstLine, log) = SkillLogicDispatcher(order: order, characters: characters, environmentInfo: environmentInfo); // SkillLogic action include damage control assist.
+                                if (firstLine != null)
+                                {
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLogList.Add(battleLog);
+                                    willSkip = true;
+                                }
+                                if (willSkip != true)
+                                {
+                                    (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
+                                    if (firstLine != null)
+                                    {
+                                        battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                        battleLogList.Add(battleLog);
+                                        willSkip = true;
+                                    }
+                                }
+
+                                result = SkillMoveFunction(order: order, characters: characters, environmentInfo: environmentInfo); // offense action                            
+                                if (result.BattleLog != null) { log = result.BattleLog.Log; firstLine = result.BattleLog.FirstLine; }
+
+                                if (log != null)
+                                {
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLogList.Add(battleLog);
+                                }
                                 battleResult = result.battleResult;
+
+
+
 
                                 if (order.IsDamageControlAssist) //only when Damage Control Assist
                                 {
@@ -544,8 +570,6 @@ public class BattleEngine
                                 if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                 while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
-                                BattleLogClass battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
-                                battleLogList.Add(battleLog);
 
                                 //Navigation Logic
                                 string navigationLog = null;
@@ -558,7 +582,7 @@ public class BattleEngine
                                     //navigationLog += new string(' ', 2) + "-------------\n";
                                     battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, firstLine: null, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
-                                } 
+                                }
                             }  // Until all Characters act.
 
                         } // action Phase.
@@ -1104,7 +1128,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
             default:
                 break;
         }
-        return (firstLine,log);
+        return (firstLine, log);
     }
 
     public static (BattleLogClass, BattleResultClass) SkillMoveFunction(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
