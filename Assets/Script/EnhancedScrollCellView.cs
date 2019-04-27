@@ -22,7 +22,7 @@ namespace KohmaiWorks.Scroller
 
         public void SetData(Data data, bool calculateLayout)
         {
-            cellText.text = data.someText;
+            cellText.text = data.mainText;
 
 
             // Only calculate the layout on the first pass.

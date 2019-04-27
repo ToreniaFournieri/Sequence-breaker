@@ -5,8 +5,11 @@ namespace KohmaiWorks.Scroller
 {
     public class Data
     {
+        public string reactText;
+        public string unitName;
+        public string unitHealth;
         public string firstLine;
-        public string someText;
+        public string mainText;
 
         /// <summary>
         /// We will store the cell size in the model so that the cell view can update it

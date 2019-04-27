@@ -7,15 +7,21 @@ using UnityEngine.UI;
 public class BattleLogClass
 {
     public BattleLogClass() { } // for null call
-    public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
-    { OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance; FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct; }
+    public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, OrderClass order, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
+    {
+        OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance;
+        if (order != null) { Order =  order.Copy(); }  ; 
+        FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct;
+    }
 
     public OrderConditionClass OrderCondition { get; }
     public bool IsNavigation { get; }
     public int Importance { get; }
+    public OrderClass Order { get; }
     public string FirstLine { get; }
     public string Log { get; }
     public Affiliation WhichAffiliationAct { get; }
+
 
     /// <summary>
     /// We will store the cell size in the model so that the cell view can update it

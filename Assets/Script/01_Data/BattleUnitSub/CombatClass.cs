@@ -23,6 +23,11 @@ public class CombatClass : ScriptableObject
     [SerializeField] public int Mobility;
     [SerializeField] public int Deffense;
 
+    public CombatClass Copy()
+    {
+        return (CombatClass)this.MemberwiseClone();
+    }
+
     public CombatClass(int shiledCurrent, int shiledMax, int hitPointCurrent, int hitPointMax, int attack, double kineticAttackRatio, double chemicalAttackRatio,
 double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, int maxRange, int accuracy, int mobility, int deffense)
     {

@@ -85,16 +85,33 @@ namespace KohmaiWorks.Scroller
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
-                int cellSize = (count + 1) * 42 + 60;
-                const int cellMinSize = 180;
+                int cellSize = (count + 1) * 48 + 160;
+                const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
-                //[temporary] '47' is font size with some space.
+                // _data set
+                string unitNameText = null;
+                string unitHealthText = null;
+                string reactText = null;
+                if (_battle.logList[i].Order != null)
+                {
+                    unitNameText = _battle.logList[i].Order.Actor.Name;
+                    unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
+                        "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
+                    + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
+                    + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
+                     + "%)]";
+
+                    reactText = _battle.logList[i].Order.IndividualTargetID.ToString();
+                }
+
                 _data.Add(new Data()
                 {
                     cellSize = cellSize,
+                    unitName = unitNameText,
+                    unitHealth = unitHealthText,
                     firstLine = _battle.logList[i].FirstLine,
-                    someText = _battle.logList[i].Log,
+                    mainText = _battle.logList[i].Log,
                     affiliation = _battle.logList[i].WhichAffiliationAct,
                     nestLevel = _battle.logList[i].OrderCondition.Nest
                 });
@@ -210,7 +227,7 @@ namespace KohmaiWorks.Scroller
             // otherwise just use the size set in the data.
             //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
             Data nextData = null;
-            if (dataIndex < _data.Count -1  ) { nextData = _data[dataIndex + 1]; }
+            if (dataIndex < _data.Count - 1) { nextData = _data[dataIndex + 1]; }
 
             cellView.SetData(_data[dataIndex], nextData, _calculateLayout);
 

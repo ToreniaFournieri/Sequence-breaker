@@ -113,7 +113,7 @@ public class SkillLogicShieldHealClass
     {
         string damageControlAssistText = null;
         if (order.IsDamageControlAssist) { damageControlAssistText = "[damage control assist] "; }
-        firstLine = new string(' ', 0) + order.Actor.Name + " " + damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
+        firstLine =  damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
         double healBase = order.Actor.Ability.Generation * order.SkillEffectChosen.Skill.Magnification.Heal * 10.0;
 
         // heal only same affiliation
@@ -403,6 +403,14 @@ public class OrderClass
                 }
             }
         }
+    }
+
+    public OrderClass Copy()
+    {
+        OrderClass other = (OrderClass)this.MemberwiseClone();
+        other.Actor = this.Actor.Copy();
+
+        return  other;
     }
 
     public OrderConditionClass OrderCondition;
@@ -1003,7 +1011,7 @@ public class AttackFunction
             if (order.SkillEffectChosen != null)
             {
                 if (order.SkillEffectChosen.Skill.Name != SkillName.normalAttack)
-                { skillTriggerPossibility = " (Trigger Possibility: " + (int)(order.SkillEffectChosen.TriggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
+                { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.TriggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
             }
             string sNumberofAttacks = null; if (order.Actor.Combat.NumberOfAttacks != 1) { sNumberofAttacks = "s"; }
             string snumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { snumberOfSuccessAttacks = "s"; }
@@ -1015,9 +1023,13 @@ public class AttackFunction
 
             string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
-            string firstLine =  new string(' ', 0) + order.Actor.Name + "'s " + criticalWords + skillName + skillTriggerPossibility + " "
-            + order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
-             " total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
+            string firstLine =  criticalWords + skillName + skillTriggerPossibility + " "
++ order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
+ " total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
+
+            //string firstLine =  new string(' ', 0) + order.Actor.Name + "'s " + criticalWords + skillName + skillTriggerPossibility + " "
+            //+ order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
+             //" total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
 
             for (int fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
             {
@@ -1073,7 +1085,7 @@ public class AttackFunction
             if (healedByAbsorbShiled > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShiled + ". \n"; }
 
             OrderConditionClass orderCondition = order.OrderCondition;
-            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+            BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
         }
     }
 

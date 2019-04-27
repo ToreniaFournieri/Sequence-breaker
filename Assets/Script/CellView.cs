@@ -6,8 +6,11 @@ namespace KohmaiWorks.Scroller
 {
     public class CellView : EnhancedScrollerCellView
     {
+        public Text reactText;
+        public Text unitName;
+        public Text unitHealth;
         public Text firstLine;
-        public Text someTextText;
+        public Text mainText;
         public Image backgroundImage;
         public Image nestedLinePrevious;
         public Image nestedLine;
@@ -28,8 +31,11 @@ namespace KohmaiWorks.Scroller
         public void SetData(Data data, Data nextData, bool calculateLayout)
         //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
+            reactText.text = data.reactText;
+            unitName.text = data.unitName;
+            unitHealth.text = data.unitHealth;
             firstLine.text = data.firstLine;
-            someTextText.text = data.someText;
+            mainText.text = data.mainText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(24, 12, 12, 255); // dark red
             Color darkGreen = new Color32(12, 24, 12, 255); // dark green
@@ -49,9 +55,12 @@ namespace KohmaiWorks.Scroller
 
             backgroundImage.color = color;
 
-            nestedLinePrevious.rectTransform.sizeDelta = new Vector2(8 * data.nestLevel, 136);
-            nestedLine.rectTransform.sizeDelta = new  Vector2(8 * nextData.nestLevel, 0);
+            nestedLinePrevious.rectTransform.sizeDelta = new Vector2(4 * data.nestLevel, 136);
 
+            if (nextData != null)
+            {
+                nestedLine.rectTransform.sizeDelta = new Vector2(4 * nextData.nestLevel, 0);
+            }
 
             // Only calculate the layout on the first pass.
             // This will save processing on subsequent passes.

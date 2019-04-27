@@ -359,7 +359,7 @@ public class BattleEngine
                                         firstLine = text.FirstLine();
                                         log += text.Text();
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null , firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -367,7 +367,7 @@ public class BattleEngine
                                         environmentInfo.Phase = 1; orderNumber = 0;
                                         firstLine = "[At beging phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null,  firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
@@ -380,7 +380,7 @@ public class BattleEngine
                                         environmentInfo.Phase = 2;
                                         firstLine = "[Main action phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -413,7 +413,7 @@ public class BattleEngine
                                         log += camlHate.Log;
 
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: null, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: null, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -456,7 +456,7 @@ public class BattleEngine
                                 (firstLine, log) = SkillLogicDispatcher(order: order, characters: characters, environmentInfo: environmentInfo); // SkillLogic action include damage control assist.
                                 if (firstLine != null)
                                 {
-                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                     willSkip = true;
                                 }
@@ -465,7 +465,7 @@ public class BattleEngine
                                     (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
                                     if (firstLine != null)
                                     {
-                                        battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                        battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                         battleLogList.Add(battleLog);
                                         willSkip = true;
                                     }
@@ -476,7 +476,7 @@ public class BattleEngine
 
                                 if (log != null)
                                 {
-                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                 }
                                 battleResult = result.battleResult;
@@ -580,7 +580,7 @@ public class BattleEngine
                                 if (navigationLog != null)
                                 {
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, firstLine: null, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: true, order: null, firstLine: null, log: navigationLog, importance: 1, whichAffiliationAct: order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                 }
                             }  // Until all Characters act.
@@ -612,7 +612,7 @@ public class BattleEngine
 
                         string log = "Time over. \n";
                         OrderConditionClass orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: 4, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, firstLine: log, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                        BattleLogClass battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: log, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                         battleLogList.Add(battleLog);
                     }
 
@@ -987,11 +987,62 @@ public class BattleEngine
             effects.Add(effect);
         }
 
-        //Special add Eld4 to counter skill
+        //Special add Eld4 5  6 and PIG 4,5,6 to counter skill
         EffectClass secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
 offenseEffectMagnification: OffenseEffectMagnification[10],
 triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
         effects.Add(secondEffect);
+
+        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+
+        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+
+        // chain skill to ELD 4,5,6 pig 4,5,6secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+        offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[2], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+
+        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+
+        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+offenseEffectMagnification: OffenseEffectMagnification[10],
+triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        effects.Add(secondEffect);
+
 
         //Special add to PIG7 and ELD7 to ShiledHealAll, ShiledHealSingle and ShiledHealPlusSingle
         //ShiledHealAll
@@ -1021,6 +1072,8 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
 offenseEffectMagnification: OffenseEffectMagnification[12],
 triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[11].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
         effects.Add(secondEffect);
+
+
         foreach (EffectClass effect in effects) { effect.BuffToCharacter(currentTurn: 1); }
     }
 
@@ -1066,8 +1119,12 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
                     if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next trigger: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usuage count left."; }
                     accumulationText = "(Accumulation " + order.SkillEffectChosen.Skill.TriggerBase.AccumulationReference.ToString() + ": " + count + nextText + ")";
                 }
-                firstline = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
-                          + new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
+
+                firstline = order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
+          + new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
+
+                //firstline = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
+                          //+ new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
                 // Belows: It's a temporary message, only for deffense magnification.
                 if (addingBuff.BuffTarget.DefenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.Buff.DefenseMagnification + " (x" + addingBuff.BuffTarget.DefenseMagnification + ")] "; }
                 if (addingEffect[0].Skill.BuffTarget.BarrierRemaining > 0) { log += "[Barrier:" + order.Actor.Buff.BarrierRemaining + " (+" + addingEffect[0].Skill.BuffTarget.BarrierRemaining + ")] "; }

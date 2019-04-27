@@ -29,6 +29,14 @@ public class BattleUnit : ScriptableObject
     [SerializeField] public AbilityClass InitialAbility;
     public enum Conditions { current, max }
 
+    public BattleUnit Copy()
+    {
+        BattleUnit other = (BattleUnit)this.MemberwiseClone();
+        other.Combat = this.Combat.Copy();
+
+        return other;
+    }
+
 
     public BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
      OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
