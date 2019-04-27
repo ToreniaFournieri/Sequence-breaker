@@ -7,7 +7,7 @@ public enum Affiliation { ally, enemy, none }
     //Enum: Unit type difinition (for vs check, deal additional bonus or delt additional reduction)
     public enum UnitType { beast, cyborg, drone, robot, titan }
     public enum Ability { power, generation, stability, responsiveness, precision, intelligence, luck, none }
-    public enum ActionType { normalAttack, move, counter, chain, reAttack, interrupt, buff, atBeginning, atEnding, any, none }
+    public enum ActionType { NormalAttack, Move, Counter, Chain, ReAttack, Interrupt, Buff, AtBeginning, AtEnding, Any, None }
     public enum AttackType { kinetic, chemical, thermal, any }
     public enum TargetType { self, single, multi, none }
     public enum CriticalOrNot { critical, nonCritical, any }

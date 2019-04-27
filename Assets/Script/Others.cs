@@ -130,7 +130,7 @@ public class SkillLogicShieldHealClass
             BattleUnit healingCharacter;
             if (order.IsDamageControlAssist)//set crushed character.
             {
-                healingCharacter = characters.FindLast(obj => obj.UniqueID == order.IndividualTargetID);
+                healingCharacter = characters.FindLast(obj => obj == order.IndividualTarget);
                 if (healingCharacter != null) { healingCharacters.Add(healingCharacter); }
             }
             else
@@ -265,8 +265,8 @@ public class StatisticsReporterFirstBloodClass
 {
     public StatisticsReporterFirstBloodClass(int battleWave)
     {
-        this.BattleWave = battleWave; this.AllyCharacterName = "none"; this.AllyActionType = ActionType.none; this.AllyHappenedTurn = 0; this.AllyCrushedCount = 0;
-        this.AllyTotalDealtDamage = 0; this.AllyContentText = "No first Blood."; this.EnemyCharacterName = "none"; this.EnemyActionType = ActionType.none;
+        this.BattleWave = battleWave; this.AllyCharacterName = "none"; this.AllyActionType = ActionType.None; this.AllyHappenedTurn = 0; this.AllyCrushedCount = 0;
+        this.AllyTotalDealtDamage = 0; this.AllyContentText = "No first Blood."; this.EnemyCharacterName = "none"; this.EnemyActionType = ActionType.None;
         this.EnemyHappenedTurn = 0; this.EnemyCrushedCount = 0; this.EnemyTotalDealtDamage = 0; this.EnemyContentText = "No first Blood."; this.WhichWin = WhichWin.Draw;
     }
 
@@ -308,10 +308,10 @@ public class StatisticsReporterFirstBloodClass
 //Action order class
 public class OrderClass
 {
-    public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, int individualTargetID, bool isDamageControlAssist)
+    public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, BattleUnit individualTarget, bool isDamageControlAssist)
     {
         this.OrderCondition = orderCondition; this.Actor = actor; this.ActionType = actionType; this.SkillEffectProposed = skillEffectProposed;
-        this.ActionSpeed = actionSpeed; this.IndividualTargetID = individualTargetID; this.IsDamageControlAssist = isDamageControlAssist;
+        this.ActionSpeed = actionSpeed; this.IndividualTarget = individualTarget; this.IsDamageControlAssist = isDamageControlAssist;
         // By default, first list of SkillEffectProposed is selected if has.
         // You need override others if you want to change it.
         if (skillEffectProposed.Count >= 1) { this.SkillEffectChosen = skillEffectProposed[0]; }
@@ -353,7 +353,7 @@ public class OrderClass
                     if (fillteredEffectList.Count > 0)
                     {
                         this.SkillEffectChosen = fillteredEffectList.Last();
-                        this.IndividualTargetID = healTargets.First().UniqueID;  // get heal target unique ID, 
+                        this.IndividualTarget = healTargets.First();  // get heal target unique ID, 
                     }// multi heal exist
                     else
                     {
@@ -364,7 +364,7 @@ public class OrderClass
                         if (fillteredEffectList.Count > 0)
                         {
                             this.SkillEffectChosen = fillteredEffectList.Last();
-                            this.IndividualTargetID = healTargets.First().UniqueID;  // get heal target unique ID, 
+                            this.IndividualTarget = healTargets.First();  // get heal target unique ID, 
                         }// single heal exist
                     }
                 }
@@ -376,7 +376,7 @@ public class OrderClass
                     if (fillteredEffectList.Count > 0)
                     {
                         this.SkillEffectChosen = fillteredEffectList.Last();
-                        this.IndividualTargetID = healTargets.First().UniqueID;  // get heal target unique ID, 
+                        this.IndividualTarget = healTargets.First();  // get heal target unique ID, 
                     }// multi heal exist
                     else
                     {
@@ -387,7 +387,7 @@ public class OrderClass
                         if (fillteredEffectList.Count > 0)
                         {
                             this.SkillEffectChosen = fillteredEffectList.Last();
-                            this.IndividualTargetID = healTargets.First().UniqueID;  // get heal target unique ID, 
+                            this.IndividualTarget = healTargets.First();  // get heal target unique ID, 
                         }// single heal exist
                     }
                 }
@@ -419,7 +419,7 @@ public class OrderClass
     public List<EffectClass> SkillEffectProposed;
     public EffectClass SkillEffectChosen { get; set; }
     public int ActionSpeed;
-    public int IndividualTargetID;
+    public BattleUnit IndividualTarget;
     public bool IsDamageControlAssist;
 }
 
@@ -844,7 +844,7 @@ public class AttackFunction
                         if (opponent >= minTargetOptimumRange && opponent <= maxTargetOptimumRange) { survivaledOpponents[opponent].IsOptimumTarget = true; }
                         else { survivaledOpponents[opponent].IsOptimumTarget = false; }
                     }
-                    toTarget = opponents.Find(character1 => character1.UniqueID == order.IndividualTargetID);
+                    toTarget = opponents.Find(character1 => character1 == order.IndividualTarget);
                 }
                 else { Console.WriteLine("unexpected. basic attack function, targetType is not single nor multi. info:" + environmentInfo.Info() + " " + order.OrderCondition); }
 

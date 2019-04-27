@@ -81,7 +81,7 @@ namespace KohmaiWorks.Scroller
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                         float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
 
-                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 - 10));
+                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 - 12));
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
@@ -102,12 +102,20 @@ namespace KohmaiWorks.Scroller
                     + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
                      + "%)]";
 
-                    reactText = _battle.logList[i].Order.IndividualTargetID.ToString();
+                    if (_battle.logList[i].Order.IndividualTarget != null)
+                    {
+                        string preposition = " to ";
+                        if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
+                        //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
+
+                        reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
+                    }
                 }
 
                 _data.Add(new Data()
                 {
                     cellSize = cellSize,
+                    reactText = reactText,
                     unitName = unitNameText,
                     unitHealth = unitHealthText,
                     firstLine = _battle.logList[i].FirstLine,

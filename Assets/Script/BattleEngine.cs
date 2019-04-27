@@ -118,19 +118,19 @@ public class BattleEngine
         SkillMagnificationClass magnificationMultiD10N10CR15AC20 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 1.00, kinetic: 1.0, chemical: 1.0,
         thermal: 1.0, heal: 3.0, numberOfAttacks: 1.0, critical: 1.5, accuracy: 2.0, optimumRangeMin: 0.5, optimumRangeMax: 2.0);
 
-        TriggerTargetClass triggerTargetNone = new TriggerTargetClass(actionType: ActionType.none, afterAllMoved: false, counter: false, chain: false, reAttack: false, heal: false, move: false,
+        TriggerTargetClass triggerTargetNone = new TriggerTargetClass(actionType: ActionType.None, afterAllMoved: false, counter: false, chain: false, reAttack: false, heal: false, move: false,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetDamageControl = new TriggerTargetClass(actionType: ActionType.any, afterAllMoved: false, counter: true, chain: true, reAttack: true, heal: false, move: true,
+        TriggerTargetClass triggerTargetDamageControl = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: false, counter: true, chain: true, reAttack: true, heal: false, move: true,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetIndependent = new TriggerTargetClass(actionType: ActionType.any, afterAllMoved: true, counter: false, chain: false, reAttack: false, heal: false, move: false,
+        TriggerTargetClass triggerTargetIndependent = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: false, reAttack: false, heal: false, move: false,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetCounter = new TriggerTargetClass(actionType: ActionType.any, afterAllMoved: true, counter: true, chain: true, reAttack: true, heal: false, move: true,
+        TriggerTargetClass triggerTargetCounter = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: true, chain: true, reAttack: true, heal: false, move: true,
          optimumRange: Range.within, majestyAttackType: AttackType.any, critical: CriticalOrNot.nonCritical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: true, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetChainCounter = new TriggerTargetClass(actionType: ActionType.counter, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: true,
+        TriggerTargetClass triggerTargetChainCounter = new TriggerTargetClass(actionType: ActionType.Counter, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: true,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetCriticalReAttack = new TriggerTargetClass(actionType: ActionType.any, afterAllMoved: true, counter: false, chain: true, reAttack: false, heal: false, move: true,
+        TriggerTargetClass triggerTargetCriticalReAttack = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: true, reAttack: false, heal: false, move: true,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.critical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetInterrupt = new TriggerTargetClass(actionType: ActionType.interrupt, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: false,
+        TriggerTargetClass triggerTargetInterrupt = new TriggerTargetClass(actionType: ActionType.Interrupt, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: false,
          optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
 
         BuffTargetParameterClass buffTargetNone = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
@@ -149,43 +149,43 @@ public class BattleEngine
         DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
         attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);
 
-        skillsMasters[0] = new SkillsMasterStruct(name: SkillName.BarrierCounterAvoidManyTimes, actionType: ActionType.counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
+        skillsMasters[0] = new SkillsMasterStruct(name: SkillName.BarrierCounterAvoidManyTimes, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
          triggerBase: triggerAccumulationMiddle, magnification: magnificationNone, triggerTarget: triggerTargetCounter, buffTarget: buffTargetSelf, callingBuffName: SkillName.Buffdefense12,
              debuffTarget: debuffTargetNone);
-        skillsMasters[1] = new SkillsMasterStruct(name: SkillName.CounterNonCriticalAttack, actionType: ActionType.counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
+        skillsMasters[1] = new SkillsMasterStruct(name: SkillName.CounterNonCriticalAttack, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
          triggerBase: triggerPossibilityBasic, magnification: magnificationSingleD05N05CR05AC05,
              triggerTarget: triggerTargetCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[2] = new SkillsMasterStruct(name: SkillName.ChainAllysCounter, actionType: ActionType.chain, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
+        skillsMasters[2] = new SkillsMasterStruct(name: SkillName.ChainAllysCounter, actionType: ActionType.Chain, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
          triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD075N05CR05AC05, triggerTarget: triggerTargetChainCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
          debuffTarget: debuffTargetNone);
-        skillsMasters[3] = new SkillsMasterStruct(name: SkillName.FutureSightShot, actionType: ActionType.move, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
+        skillsMasters[3] = new SkillsMasterStruct(name: SkillName.FutureSightShot, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
          triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD10N10CR15AC20, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
          debuffTarget: debuffTargetNone);
-        skillsMasters[4] = new SkillsMasterStruct(name: SkillName.ReAttackAfterCritical, actionType: ActionType.reAttack, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
+        skillsMasters[4] = new SkillsMasterStruct(name: SkillName.ReAttackAfterCritical, actionType: ActionType.ReAttack, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
          triggerBase: triggerPossibilityExpert, magnification: magnificationMultiD10N05CR05AC075, triggerTarget: triggerTargetCriticalReAttack,
          buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[5] = new SkillsMasterStruct(name: SkillName.InterruptTargetCounterReduceAccuracy, actionType: ActionType.interrupt, callSkillLogicName: CallSkillLogicName.ReduceAccuracy, isHeal: false, usageCount: 4, veiledTurn: 20, ability: Ability.intelligence,
+        skillsMasters[5] = new SkillsMasterStruct(name: SkillName.InterruptTargetCounterReduceAccuracy, actionType: ActionType.Interrupt, callSkillLogicName: CallSkillLogicName.ReduceAccuracy, isHeal: false, usageCount: 4, veiledTurn: 20, ability: Ability.intelligence,
         triggerBase: triggerPossibilityMaster, magnification: magnificationNone, triggerTarget: triggerTargetInterrupt, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
         // interrupt skill needs coding..
-        skillsMasters[6] = new SkillsMasterStruct(name: SkillName.ShiledHealAll, actionType: ActionType.move, callSkillLogicName: CallSkillLogicName.ShieldHealMulti, isHeal: false, usageCount: 1, veiledTurn: 20, ability: Ability.generation,
+        skillsMasters[6] = new SkillsMasterStruct(name: SkillName.ShiledHealAll, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealMulti, isHeal: false, usageCount: 1, veiledTurn: 20, ability: Ability.generation,
          triggerBase: triggerPossibility100, magnification: magnificationNone, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
-        skillsMasters[11] = new SkillsMasterStruct(name: SkillName.ShiledHealplusSingle, actionType: ActionType.move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 2, veiledTurn: 20, ability: Ability.generation,
+        skillsMasters[11] = new SkillsMasterStruct(name: SkillName.ShiledHealplusSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 2, veiledTurn: 20, ability: Ability.generation,
          triggerBase: triggerPossibility100, magnification: magnificationHeal40, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[12] = new SkillsMasterStruct(name: SkillName.ShiledHealSingle, actionType: ActionType.move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
+        skillsMasters[12] = new SkillsMasterStruct(name: SkillName.ShiledHealSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
          triggerBase: triggerPossibility100, magnification: magnificationHeal20, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
-        skillsMasters[13] = new SkillsMasterStruct(name: SkillName.BarrierAll, actionType: ActionType.atBeginning, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 2, veiledTurn: 20, ability: Ability.none,
+        skillsMasters[13] = new SkillsMasterStruct(name: SkillName.BarrierAll, actionType: ActionType.AtBeginning, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 2, veiledTurn: 20, ability: Ability.none,
         triggerBase: triggerPossibilityNormal, magnification: magnificationNone, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetMultiBarrier, callingBuffName: SkillName.Buffbarrier10, debuffTarget: debuffTargetNone);
 
         // Special Normal attack skill
-        skillsMasters[14] = new SkillsMasterStruct(name: SkillName.normalAttack, actionType: ActionType.none, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 1000, veiledTurn: 20, ability: Ability.none,
+        skillsMasters[14] = new SkillsMasterStruct(name: SkillName.normalAttack, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 1000, veiledTurn: 20, ability: Ability.none,
          triggerBase: triggerPossibility100, magnification: magnificationNormal, triggerTarget: triggerTargetNone, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
         //Buff
-        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffdefense12, actionType: ActionType.none, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
+        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffdefense12, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
         triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrierDefense12, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
-        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffbarrier10, actionType: ActionType.none, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
+        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffbarrier10, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
         triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrier10, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
 
 
@@ -373,7 +373,7 @@ public class BattleEngine
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
 
                                         skillTriggerPossibilityCheck = SkillTriggerPossibilityCheck(actor: null, effects: effects, characters: characters, attackerOrder: null,
-                                        orders: orders, actionType: ActionType.atBeginning, shouldHeal: false, isDamageControlAssist: false, battleResult: null, individualTargetID: 0, nestNumber: 0, environmentInfo: environmentInfo);
+                                        orders: orders, actionType: ActionType.AtBeginning, shouldHeal: false, isDamageControlAssist: false, battleResult: null, individualTarget: null, nestNumber: 0, environmentInfo: environmentInfo);
                                         while (skillTriggerPossibilityCheck != null && skillTriggerPossibilityCheck.Count > 0) { orders.Push(skillTriggerPossibilityCheck.Pop()); }
                                         break;
                                     case 2:
@@ -385,16 +385,16 @@ public class BattleEngine
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
                                         {
-                                            List<EffectClass> effectList = effects.FindAll((obj) => obj.Character == aliveCharacters[i] && obj.Skill.ActionType == ActionType.move
+                                            List<EffectClass> effectList = effects.FindAll((obj) => obj.Character == aliveCharacters[i] && obj.Skill.ActionType == ActionType.Move
                                             && obj.UsageCount > 0 && obj.VeiledFromTurn <= turn && obj.VeiledToTurn >= turn);
                                             orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
 
                                             // Add normal attack skills
-                                            EffectClass normalAttackEffect = new EffectClass(character: aliveCharacters[i], skill: skillsMasters[14], actionType: ActionType.normalAttack, offenseEffectMagnification: 1.0,
+                                            EffectClass normalAttackEffect = new EffectClass(character: aliveCharacters[i], skill: skillsMasters[14], actionType: ActionType.NormalAttack, offenseEffectMagnification: 1.0,
                                             triggeredPossibility: 1.0, isDamageControlAssistAble: false, usageCount: 1000, veiledFromTurn: 1, veiledToTurn: 20);
                                             effectList.Add(normalAttackEffect);
-                                            orderForSort.Add(new OrderClass(orderCondition: orderCondition, actor: aliveCharacters[i], actionType: ActionType.move, skillEffectProposed: ref effectList,
-                                            actionSpeed: (aliveCharacters[i].Ability.Responsiveness * r.Next(40 + aliveCharacters[i].Ability.Luck, 100)), individualTargetID: -1, isDamageControlAssist: false));
+                                            orderForSort.Add(new OrderClass(orderCondition: orderCondition, actor: aliveCharacters[i], actionType: ActionType.Move, skillEffectProposed: ref effectList,
+                                            actionSpeed: (aliveCharacters[i].Ability.Responsiveness * r.Next(40 + aliveCharacters[i].Ability.Luck, 100)), individualTarget: null, isDamageControlAssist: false));
                                         }
                                         orderForSort.Sort((OrderClass x, OrderClass y) => x.ActionSpeed - y.ActionSpeed);
                                         orderNumber = orderForSort.Count(); foreach (OrderClass order in orderForSort) { order.OrderCondition.OrderNumber = orderNumber; orderNumber--; }
@@ -487,7 +487,7 @@ public class BattleEngine
                                 if (order.IsDamageControlAssist) //only when Damage Control Assist
                                 {
                                     List<OrderClass> deleteOneActionOrderrIfHave = orders.ToList();
-                                    OrderClass deleteOneActionOrderRaw = deleteOneActionOrderrIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.move);
+                                    OrderClass deleteOneActionOrderRaw = deleteOneActionOrderrIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
                                     OrderClass deleteOneActionOrder = null;
                                     foreach (EffectClass effect in deleteOneActionOrderRaw.SkillEffectProposed)
                                     { if (effect.Skill.Name == SkillName.normalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
@@ -534,23 +534,23 @@ public class BattleEngine
                                 int nestNumber = 0;
                                 //[[ SKILLS CHECK ]] Damage Control Assist trigger. Note: ActionType independent so ActionType.any!
                                 Stack<OrderClass> damageControlAssistStack = SkillTriggerPossibilityCheck(actor: null, effects: effects, characters: characters,
-                                    attackerOrder: order, orders: orders, actionType: ActionType.any, shouldHeal: true, isDamageControlAssist: true,
-                                        battleResult: battleResult, individualTargetID: order.Actor.UniqueID, nestNumber: nestNumber, environmentInfo: environmentInfo);
+                                    attackerOrder: order, orders: orders, actionType: ActionType.Any, shouldHeal: true, isDamageControlAssist: true,
+                                        battleResult: battleResult, individualTarget: order.Actor, nestNumber: nestNumber, environmentInfo: environmentInfo);
 
                                 //[[ SKILLS CHECK ]] ReAttack skills trigger.
                                 Stack<OrderClass> reAttackStack = SkillTriggerPossibilityCheck(actor: null, effects: effects, characters: characters,
-                                    attackerOrder: order, orders: orders, actionType: ActionType.reAttack, shouldHeal: false, isDamageControlAssist: false,
-                                        battleResult: battleResult, individualTargetID: order.Actor.UniqueID, nestNumber: nestNumber, environmentInfo: environmentInfo);
+                                    attackerOrder: order, orders: orders, actionType: ActionType.ReAttack, shouldHeal: false, isDamageControlAssist: false,
+                                        battleResult: battleResult, individualTarget: order.Actor, nestNumber: nestNumber, environmentInfo: environmentInfo);
 
                                 //[[ SKILLS CHECK ]] Chain skills trigger.
                                 Stack<OrderClass> chainStack = SkillTriggerPossibilityCheck(actor: null, effects: effects, characters: characters,
-                                     attackerOrder: order, orders: orders, actionType: ActionType.chain, shouldHeal: false, isDamageControlAssist: false,
-                                      battleResult: battleResult, individualTargetID: order.Actor.UniqueID, nestNumber: nestNumber, environmentInfo: environmentInfo);
+                                     attackerOrder: order, orders: orders, actionType: ActionType.Chain, shouldHeal: false, isDamageControlAssist: false,
+                                      battleResult: battleResult, individualTarget: order.Actor, nestNumber: nestNumber, environmentInfo: environmentInfo);
 
                                 //[[ SKILLS CHECK ]] Counter skills triger.
                                 Stack<OrderClass> counterStack = SkillTriggerPossibilityCheck(actor: null, effects: effects, characters: characters,
-                                 attackerOrder: order, orders: orders, actionType: ActionType.counter, shouldHeal: false, isDamageControlAssist: false,
-                                  battleResult: battleResult, individualTargetID: order.Actor.UniqueID, nestNumber: nestNumber, environmentInfo: environmentInfo);
+                                 attackerOrder: order, orders: orders, actionType: ActionType.Counter, shouldHeal: false, isDamageControlAssist: false,
+                                  battleResult: battleResult, individualTarget: order.Actor, nestNumber: nestNumber, environmentInfo: environmentInfo);
 
 
                                 //Push order in reverse. counter -> chain -> reAttack -> Damage control assist
@@ -694,7 +694,7 @@ public class BattleEngine
     // Skill check method
     public static Stack<OrderClass> SkillTriggerPossibilityCheck(BattleUnit actor, List<EffectClass> effects, List<BattleUnit> characters, OrderClass attackerOrder,
     Stack<OrderClass> orders, ActionType actionType, bool shouldHeal, bool isDamageControlAssist,
-        BattleResultClass battleResult, int individualTargetID, int nestNumber, EnvironmentInfoClass environmentInfo)
+        BattleResultClass battleResult, BattleUnit individualTarget, int nestNumber, EnvironmentInfoClass environmentInfo)
     {
         if (attackerOrder != null && attackerOrder.IsDamageControlAssist) { return null; } //If previous move is Damage Control Assist, no counter, reattack, chain and Damage control assist is triggered.
         List<EffectClass> rawActionTypeEffects;
@@ -729,24 +729,24 @@ public class BattleEngine
         Affiliation affiliationWhoWillAct = Affiliation.none;
         switch (actionType) // Get actionType dependent condition before calculation.
         {
-            case ActionType.move: //Normal moveskill logic: only actor should trigger moveskill.
+            case ActionType.Move: //Normal moveskill logic: only actor should trigger moveskill.
                 matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.Character == actor);
                 break;
-            case ActionType.counter:
+            case ActionType.Counter:
                 if (attackerOrder.Actor.Affiliation == Affiliation.ally) { affiliationWhoWillAct = Affiliation.enemy; }
                 else if (attackerOrder.Actor.Affiliation == Affiliation.enemy) { affiliationWhoWillAct = Affiliation.ally; }
                 matchedActionTypeEffects = rawActionTypeEffects.FindAll((obj) => obj.Character.Affiliation == affiliationWhoWillAct);
                 break;
-            case ActionType.chain:
+            case ActionType.Chain:
                 matchedActionTypeEffects = rawActionTypeEffects.FindAll((obj) => obj.Character.Affiliation == attackerOrder.Actor.Affiliation && obj.Character != attackerOrder.Actor);
                 break;
-            case ActionType.reAttack:
+            case ActionType.ReAttack:
                 matchedActionTypeEffects = rawActionTypeEffects.FindAll((obj) => obj.Character == attackerOrder.Actor);
                 break;
-            case ActionType.atBeginning:
+            case ActionType.AtBeginning:
                 matchedActionTypeEffects = rawActionTypeEffects;
                 break;
-            case ActionType.any: //[Damage Control Assist skill logic]. ActionType independent so DCA is in ActionType.any.
+            case ActionType.Any: //[Damage Control Assist skill logic]. ActionType independent so DCA is in ActionType.any.
                 if (isDamageControlAssist) // Damage Control Assist skill logic
                 {
                     // Actor's affiliation character is dead just now?
@@ -769,12 +769,12 @@ public class BattleEngine
         foreach (EffectClass effect in matchedActionTypeEffects)
         {
             effect.IsntTriggeredBecause.Initialize();
-            if (effect.Skill.TriggerTarget.ActionType != ActionType.any)
+            if (effect.Skill.TriggerTarget.ActionType != ActionType.Any)
             {
                 if ((effect.Skill.TriggerTarget.ActionType == attackerOrder.ActionType) == false)
                 { effect.IsntTriggeredBecause.TriggerCondition = true; continue; }
             } // Trigger condition check
-            if (effect.Skill.ActionType != ActionType.move && effect.Skill.TriggerTarget.AfterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
+            if (effect.Skill.ActionType != ActionType.Move && effect.Skill.TriggerTarget.AfterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
             {
                 List<OrderClass> checkOrders = orders.ToList();
                 if (checkOrders.FindLast((obj) => obj.Actor == effect.Character && obj.SkillEffectChosen.Skill.Name == SkillName.normalAttack) == null)
@@ -782,26 +782,26 @@ public class BattleEngine
             }
 
 
-            if (effect.Skill.ActionType == ActionType.move && effect.IsDamageControlAssistAble) //Damage Control Assist Special Logic....
+            if (effect.Skill.ActionType == ActionType.Move && effect.IsDamageControlAssistAble) //Damage Control Assist Special Logic....
             {
                 // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
                 if (effect.Skill.TriggerTarget.AfterAllMoved == false)
                 {
                     List<OrderClass> checkActionOrders = orders.ToList();
-                    if (checkActionOrders.FindLast((obj) => obj.Actor == effect.Character && obj.ActionType == ActionType.move) == null)
+                    if (checkActionOrders.FindLast((obj) => obj.Actor == effect.Character && obj.ActionType == ActionType.Move) == null)
                     { effect.IsntTriggeredBecause.AfterAllMoved = true; continue; }// no normalAttack left, whitch means no action.   
                 }
             }
 
             if (attackerOrder != null) // only attackOrder exist, check
             {
-                if (effect.Skill.TriggerTarget.Counter == false && attackerOrder.ActionType == ActionType.counter)
+                if (effect.Skill.TriggerTarget.Counter == false && attackerOrder.ActionType == ActionType.Counter)
                 { effect.IsntTriggeredBecause.TriggerTargetCounter = true; continue; } // counter reaction
-                if (effect.Skill.TriggerTarget.Chain == false && attackerOrder.ActionType == ActionType.chain)
+                if (effect.Skill.TriggerTarget.Chain == false && attackerOrder.ActionType == ActionType.Chain)
                 { effect.IsntTriggeredBecause.TriggerTargetChain = true; continue; } // chain reaction
-                if (effect.Skill.TriggerTarget.ReAttack == false && attackerOrder.ActionType == ActionType.reAttack)
+                if (effect.Skill.TriggerTarget.ReAttack == false && attackerOrder.ActionType == ActionType.ReAttack)
                 { effect.IsntTriggeredBecause.TriggerTargetReAttack = true; continue; } // reAttack reaction
-                if (effect.Skill.TriggerTarget.Move == false && attackerOrder.ActionType == ActionType.move)
+                if (effect.Skill.TriggerTarget.Move == false && attackerOrder.ActionType == ActionType.Move)
                 { effect.IsntTriggeredBecause.TriggerTargetMove = true; continue; } // move skill reaction
             }
 
@@ -899,7 +899,7 @@ public class BattleEngine
                     nest: nest + 1, nestOrderNumber: nestNumber);
 
                 skillsByOrder = new OrderClass(orderCondition: orderCondition, actor: character, actionType: actionType, skillEffectProposed: ref validEffectsPerActor, actionSpeed: 0,
-                 individualTargetID: individualTargetID, isDamageControlAssist: isDamageControlAssist);
+                 individualTarget: individualTarget, isDamageControlAssist: isDamageControlAssist);
                 skillsByOrderStack.Push(skillsByOrder); nestNumber++;
             }
         }
@@ -926,13 +926,13 @@ public class BattleEngine
 
         switch (skillsMaster.ActionType)
         {
-            case ActionType.counter: magnificationRate = character.SkillMagnification.TriggerPossibility.Counter; break;
-            case ActionType.chain: magnificationRate = character.SkillMagnification.TriggerPossibility.Chain; break;
-            case ActionType.reAttack: magnificationRate = character.SkillMagnification.TriggerPossibility.ReAttack; break;
-            case ActionType.move: magnificationRate = character.SkillMagnification.TriggerPossibility.Move; break;
-            case ActionType.interrupt: magnificationRate = character.SkillMagnification.TriggerPossibility.Interrupt; break;
-            case ActionType.atBeginning: magnificationRate = character.SkillMagnification.TriggerPossibility.AtBeginning; break;
-            case ActionType.atEnding: magnificationRate = character.SkillMagnification.TriggerPossibility.AtEnding; break;
+            case ActionType.Counter: magnificationRate = character.SkillMagnification.TriggerPossibility.Counter; break;
+            case ActionType.Chain: magnificationRate = character.SkillMagnification.TriggerPossibility.Chain; break;
+            case ActionType.ReAttack: magnificationRate = character.SkillMagnification.TriggerPossibility.ReAttack; break;
+            case ActionType.Move: magnificationRate = character.SkillMagnification.TriggerPossibility.Move; break;
+            case ActionType.Interrupt: magnificationRate = character.SkillMagnification.TriggerPossibility.Interrupt; break;
+            case ActionType.AtBeginning: magnificationRate = character.SkillMagnification.TriggerPossibility.AtBeginning; break;
+            case ActionType.AtEnding: magnificationRate = character.SkillMagnification.TriggerPossibility.AtEnding; break;
             default: break;
         }
 
@@ -948,13 +948,13 @@ public class BattleEngine
         double magnificationRate = 1.0;
         switch (skillsMaster.ActionType)
         {
-            case ActionType.counter: magnificationRate = character.SkillMagnification.OffenseEffectPower.Counter; break;
-            case ActionType.chain: magnificationRate = character.SkillMagnification.OffenseEffectPower.Chain; break;
-            case ActionType.reAttack: magnificationRate = character.SkillMagnification.OffenseEffectPower.ReAttack; break;
-            case ActionType.move: magnificationRate = character.SkillMagnification.OffenseEffectPower.Move; break;
-            case ActionType.interrupt: magnificationRate = character.SkillMagnification.OffenseEffectPower.Interrupt; break;
-            case ActionType.atBeginning: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtBeginning; break;
-            case ActionType.atEnding: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtEnding; break;
+            case ActionType.Counter: magnificationRate = character.SkillMagnification.OffenseEffectPower.Counter; break;
+            case ActionType.Chain: magnificationRate = character.SkillMagnification.OffenseEffectPower.Chain; break;
+            case ActionType.ReAttack: magnificationRate = character.SkillMagnification.OffenseEffectPower.ReAttack; break;
+            case ActionType.Move: magnificationRate = character.SkillMagnification.OffenseEffectPower.Move; break;
+            case ActionType.Interrupt: magnificationRate = character.SkillMagnification.OffenseEffectPower.Interrupt; break;
+            case ActionType.AtBeginning: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtBeginning; break;
+            case ActionType.AtEnding: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtEnding; break;
             default: break;
         }
         return 1.0 * magnificationRate;
@@ -1090,7 +1090,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
         {
             case TargetType.self: //Buff self
                 addingBuff = buffMasters.FindLast((obj) => obj.Name == order.SkillEffectChosen.Skill.CallingBuffName);
-                addingEffect.Add(new EffectClass(character: order.Actor, skill: addingBuff, actionType: ActionType.none,
+                addingEffect.Add(new EffectClass(character: order.Actor, skill: addingBuff, actionType: ActionType.None,
                 offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.UsageCount,
                    veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.VeiledTurn)));
                 effects.Add(addingEffect[0]);
@@ -1137,7 +1137,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
 
                 for (int i = 0; i < buffTargetCharacters.Count; i++)
                 {
-                    addingEffect.Add(new EffectClass(character: buffTargetCharacters[i], skill: addingBuff, actionType: ActionType.none,
+                    addingEffect.Add(new EffectClass(character: buffTargetCharacters[i], skill: addingBuff, actionType: ActionType.None,
                     offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.UsageCount,
                     veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.VeiledTurn)));
                     effects.Add(addingEffect[i]);
