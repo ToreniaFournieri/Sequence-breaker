@@ -6,8 +6,7 @@ namespace KohmaiWorks.Scroller
     public class Data
     {
         public string reactText;
-        public string unitName;
-        public string unitHealth;
+        public string unitInfo;
         public string firstLine;
         public string mainText;
 
@@ -16,6 +15,9 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         public float cellSize;
         public int nestLevel;
+
+        public float shieldRatio;
+        public float hPRatio;
 
         public Affiliation affiliation;
     }

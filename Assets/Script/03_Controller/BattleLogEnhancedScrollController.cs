@@ -30,10 +30,15 @@ namespace KohmaiWorks.Scroller
 
         public EnhancedScroller scroller;
         public EnhancedScrollerCellView cellViewPrefab;
+        public EnhancedScrollerCellView cellTurnStartPrefab;
 
         public Transform parentJumpIndex;
         public GameObject jumpIndexPrefab;
         public RectTransform canvasToGetWidth;
+
+        // this is temp.
+        public Sprite allyImage;
+        public Sprite enemyImage;
 
 
         /// <summary>
@@ -93,6 +98,8 @@ namespace KohmaiWorks.Scroller
                 string unitNameText = null;
                 string unitHealthText = null;
                 string reactText = null;
+                float shieldRatio = 0f;
+                float hPRatio = 0f;
                 if (_battle.logList[i].Order != null)
                 {
                     unitNameText = _battle.logList[i].Order.Actor.Name;
@@ -110,18 +117,23 @@ namespace KohmaiWorks.Scroller
 
                         reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
                     }
+
+                    shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
+                    hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
+
                 }
 
                 _data.Add(new Data()
                 {
                     cellSize = cellSize,
                     reactText = reactText,
-                    unitName = unitNameText,
-                    unitHealth = unitHealthText,
+                    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
                     firstLine = _battle.logList[i].FirstLine,
                     mainText = _battle.logList[i].Log,
                     affiliation = _battle.logList[i].WhichAffiliationAct,
-                    nestLevel = _battle.logList[i].OrderCondition.Nest
+                    nestLevel = _battle.logList[i].OrderCondition.Nest,
+                    shieldRatio = shieldRatio,
+                    hPRatio = hPRatio
                 });
             }
 
@@ -237,7 +249,11 @@ namespace KohmaiWorks.Scroller
             Data nextData = null;
             if (dataIndex < _data.Count - 1) { nextData = _data[dataIndex + 1]; }
 
-            cellView.SetData(_data[dataIndex], nextData, _calculateLayout);
+            Sprite setSprite = null;
+            if (_data[dataIndex].affiliation == Affiliation.ally) { setSprite = allyImage; }
+            else if (_data[dataIndex].affiliation == Affiliation.enemy) { setSprite = enemyImage; }
+
+            cellView.SetData(_data[dataIndex], nextData, _calculateLayout, setSprite);
 
             return cellView;
         }

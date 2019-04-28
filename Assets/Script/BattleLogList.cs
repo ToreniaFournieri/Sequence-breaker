@@ -21,7 +21,7 @@ public class BattleLogClass
     public string FirstLine { get; }
     public string Log { get; }
     public Affiliation WhichAffiliationAct { get; }
-
+    public List<BattleUnit> Characters;
 
     /// <summary>
     /// We will store the cell size in the model so that the cell view can update it

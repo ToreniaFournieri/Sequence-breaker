@@ -359,7 +359,11 @@ public class BattleEngine
                                         firstLine = text.FirstLine();
                                         log += text.Text();
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null , firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+
+                                        List<BattleUnit> copyedBattleUnit = (from BattleUnit character in characters
+                                                                             select character.Copy()).ToList();
+                                        battleLog.Characters = copyedBattleUnit;
                                         battleLogList.Add(battleLog);
 
                                         break;
@@ -367,7 +371,7 @@ public class BattleEngine
                                         environmentInfo.Phase = 1; orderNumber = 0;
                                         firstLine = "[At beging phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null,  firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLogList.Add(battleLog);
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
@@ -894,9 +898,16 @@ public class BattleEngine
             if (validEffectsPerActor.Count >= 1)
             {
                 int orderNumber = 0; int nest = 0; if (attackerOrder != null) { orderNumber = attackerOrder.OrderCondition.OrderNumber; nest = attackerOrder.OrderCondition.Nest; }
+                int addCount = 0;
 
+                if (attackerOrder != null)
+                {
+                    if (attackerOrder.ActionType == ActionType.Counter) { addCount = 1; }
+                    if (attackerOrder.ActionType == ActionType.Chain) { addCount = 1; }
+                    if (attackerOrder.ActionType == ActionType.ReAttack) { addCount = 1; }
+                }
                 OrderConditionClass orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber,
-                    nest: nest + 1, nestOrderNumber: nestNumber);
+                    nest: nest + addCount, nestOrderNumber: nestNumber);
 
                 skillsByOrder = new OrderClass(orderCondition: orderCondition, actor: character, actionType: actionType, skillEffectProposed: ref validEffectsPerActor, actionSpeed: 0,
                  individualTarget: individualTarget, isDamageControlAssist: isDamageControlAssist);
@@ -1098,7 +1109,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
                 order.Actor.Buff.AddBarrier(addingEffect[0].Skill.BuffTarget.BarrierRemaining);
 
                 string triggerPossibilityText = null;
-                if (order.SkillEffectChosen.TriggeredPossibility < 1.0) { triggerPossibilityText = "(Trigger Possibility: " + (double)((int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0) + "%) "; }
+                if (order.SkillEffectChosen.TriggeredPossibility < 1.0) { triggerPossibilityText = "(" + (double)((int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0) + "%) "; }
                 string accumulationText = null;
                 if (order.SkillEffectChosen.NextAccumulationCount > 0)
                 {
@@ -1124,7 +1135,7 @@ triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], ch
           + new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
 
                 //firstline = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
-                          //+ new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
+                //+ new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
                 // Belows: It's a temporary message, only for deffense magnification.
                 if (addingBuff.BuffTarget.DefenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.Buff.DefenseMagnification + " (x" + addingBuff.BuffTarget.DefenseMagnification + ")] "; }
                 if (addingEffect[0].Skill.BuffTarget.BarrierRemaining > 0) { log += "[Barrier:" + order.Actor.Buff.BarrierRemaining + " (+" + addingEffect[0].Skill.BuffTarget.BarrierRemaining + ")] "; }

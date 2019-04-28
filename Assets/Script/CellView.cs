@@ -7,14 +7,17 @@ namespace KohmaiWorks.Scroller
     public class CellView : EnhancedScrollerCellView
     {
         public Text reactText;
-        public Text unitName;
-        public Text unitHealth;
+        public GameObject separateLine;
+        public Text unitInfo;
         public Text firstLine;
         public Text mainText;
         public Image backgroundImage;
         public Image nestedLinePrevious;
         public Image nestedLine;
-        public Image icon;
+        public GameObject iconMask;
+        public Image unitIcon;
+        public Image hPBar;
+        public Image shieldBar;
 
         /// <summary>
         /// A reference to the rect transform which will be
@@ -28,18 +31,35 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         public RectOffset textBuffer;
 
-        public void SetData(Data data, Data nextData, bool calculateLayout)
+        public void SetData(Data data, Data nextData, bool calculateLayout, Sprite unitSprite)
         //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
             reactText.text = data.reactText;
-            unitName.text = data.unitName;
-            unitHealth.text = data.unitHealth;
+
+
+            unitInfo.text = data.unitInfo;
             firstLine.text = data.firstLine;
             mainText.text = data.mainText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(24, 12, 12, 255); // dark red
             Color darkGreen = new Color32(12, 24, 12, 255); // dark green
             Color color = new Color32(17, 17, 17, 255);
+            Color unitColor = new Color32(120, 120, 120, 255);
+
+            unitIcon.color = unitColor;
+
+            if (unitSprite != null)
+            {
+                unitIcon.sprite = unitSprite;
+                iconMask.SetActive(true);
+            }
+            else
+            {
+                iconMask.SetActive(false);
+            }
+
+            hPBar.fillAmount = data.hPRatio;
+            shieldBar.fillAmount = data.shieldRatio;
 
             switch (data.affiliation)
             {
@@ -55,6 +75,15 @@ namespace KohmaiWorks.Scroller
 
             backgroundImage.color = color;
 
+
+            if (data.nestLevel > 0)
+            {
+                separateLine.SetActive(false);
+            }
+            else
+            {
+                separateLine.SetActive(true);
+            }
             nestedLinePrevious.rectTransform.sizeDelta = new Vector2(4 * data.nestLevel, 136);
 
             if (nextData != null)
