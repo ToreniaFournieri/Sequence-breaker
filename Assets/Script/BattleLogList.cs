@@ -10,8 +10,11 @@ public class BattleLogClass
     public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, OrderClass order, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
     {
         OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance;
-        if (order != null) { Order =  order.Copy(); }  ; 
+        if (order != null) { Order =  order.Copy(); }   
         FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct;
+
+        IsHeaderInfo = false;
+        HeaderInfoText = null;
     }
 
     public OrderConditionClass OrderCondition { get; }
@@ -23,10 +26,13 @@ public class BattleLogClass
     public Affiliation WhichAffiliationAct { get; }
     public List<BattleUnit> Characters;
 
+    public bool IsHeaderInfo;
+    public string HeaderInfoText;
+
     /// <summary>
     /// We will store the cell size in the model so that the cell view can update it
     /// </summary>
-    public float cellSize;
+    //public float cellSize;
 }
 
 

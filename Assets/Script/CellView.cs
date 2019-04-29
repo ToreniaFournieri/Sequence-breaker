@@ -19,6 +19,11 @@ namespace KohmaiWorks.Scroller
         public Image hPBar;
         public Image shieldBar;
 
+        public GameObject headerContent;
+        public Text HeaderInfo;
+        public ShowTargetUnit showTargetUnit;
+
+
         /// <summary>
         /// A reference to the rect transform which will be
         /// updated by the content size fitter
@@ -36,6 +41,18 @@ namespace KohmaiWorks.Scroller
         {
             reactText.text = data.reactText;
 
+            if (data.isHeaderInfo)
+            {
+                HeaderInfo.text = data.headerText;
+                showTargetUnit.SetUnitInfo(data.characters);
+                headerContent.SetActive(true);
+            }
+            else
+            {
+                //Need to false incase recycle object.
+                headerContent.SetActive(false);
+                showTargetUnit.SetUnitInfo(data.characters);
+            }
 
             unitInfo.text = data.unitInfo;
             firstLine.text = data.firstLine;

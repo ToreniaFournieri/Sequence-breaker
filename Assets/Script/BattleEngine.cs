@@ -345,6 +345,7 @@ public class BattleEngine
                             List<OrderClass> orderForSort = new List<OrderClass>();
 
                             {
+                                
                                 string firstLine = null;
                                 string log = null; int orderNumber = 0;
                                 BattleLogClass battleLog;
@@ -356,11 +357,16 @@ public class BattleEngine
                                         environmentInfo.Phase = 0;
                                         //log += "------------------------------------\n";
                                         text = new FuncBattleConditionsText(currentTurn: turn, currentBattleWaves: currentBattleWaves, characters: characters);
-                                        firstLine = text.FirstLine();
-                                        log += text.Text();
-                                        orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
-                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        //firstLine = text.FirstLine();
+                                        //log += text.Text();
+                                        log += null;
 
+                                        orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
+                                        battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: Affiliation.none)
+                                        {
+                                            IsHeaderInfo = true,
+                                            HeaderInfoText = text.FirstLine()
+                                        };
                                         List<BattleUnit> copyedBattleUnit = (from BattleUnit character in characters
                                                                              select character.Copy()).ToList();
                                         battleLog.Characters = copyedBattleUnit;
@@ -372,7 +378,9 @@ public class BattleEngine
                                         firstLine = "[At beging phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
                                         battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog.HeaderInfoText = "[At beging phase] \n";
                                         battleLogList.Add(battleLog);
+
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
 
@@ -385,6 +393,7 @@ public class BattleEngine
                                         firstLine = "[Main action phase] \n";
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
                                         battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
+                                        battleLog.HeaderInfoText = "[Main action phase] \n";
                                         battleLogList.Add(battleLog);
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -422,6 +431,8 @@ public class BattleEngine
 
                                         break;
                                 }
+
+
                             }
                             //------------------------Action phase------------------------
                             //Action for each character by action order.

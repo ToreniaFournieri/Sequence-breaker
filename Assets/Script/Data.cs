@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 namespace KohmaiWorks.Scroller
 {
@@ -18,6 +20,11 @@ namespace KohmaiWorks.Scroller
 
         public float shieldRatio;
         public float hPRatio;
+
+        public string headerText;
+        public bool isHeaderInfo;
+        public List<BattleUnit> characters;
+
 
         public Affiliation affiliation;
     }

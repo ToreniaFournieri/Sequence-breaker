@@ -94,6 +94,11 @@ namespace KohmaiWorks.Scroller
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
+                if (_battle.logList[i].IsHeaderInfo)
+                {
+                    cellSize = 1200;
+                }
+
                 // _data set
                 string unitNameText = null;
                 string unitHealthText = null;
@@ -123,6 +128,13 @@ namespace KohmaiWorks.Scroller
 
                 }
 
+                List<BattleUnit> characters = null;
+                if (_battle.logList[i].Characters != null)
+                {
+                    characters = _battle.logList[i].Characters;
+                }
+
+
                 _data.Add(new Data()
                 {
                     cellSize = cellSize,
@@ -133,7 +145,10 @@ namespace KohmaiWorks.Scroller
                     affiliation = _battle.logList[i].WhichAffiliationAct,
                     nestLevel = _battle.logList[i].OrderCondition.Nest,
                     shieldRatio = shieldRatio,
-                    hPRatio = hPRatio
+                    hPRatio = hPRatio,
+                    isHeaderInfo = _battle.logList[i].IsHeaderInfo,
+                    headerText = _battle.logList[i].HeaderInfoText,
+                    characters = characters
                 });
             }
 
