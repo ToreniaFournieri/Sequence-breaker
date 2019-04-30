@@ -7,7 +7,8 @@ namespace KohmaiWorks.Scroller
     public class ShowTargetUnit : MonoBehaviour
     {
         //public int numberOfTargetUnit;
-        public GameObject unitIconPrefabs;
+        //public GameObject unitIconPrefabs;
+        public SimpleObjectPool unitIconObjectPool;
         //public List<IconSet> IconSetInfo;
 
         //void Start()
@@ -31,18 +32,26 @@ namespace KohmaiWorks.Scroller
         {
             if (battleUnits != null)
             {
-                Debug.Log("SetUnitInfo battleUnits count:" + battleUnits.Count);
-                //GameObject[] children = this.gameObject.GetComponentsInChildren<GameObject>(tag = "UnitHorizontalInfo");
-                GameObject[] children = GameObject.FindGameObjectsWithTag("UnitHorizontalInfo");
+                List<GameObject> children = new List<GameObject>();
 
-                for (int i = 0; i < children.Length; i++)
+                foreach (Transform child in this.transform)
                 {
-                    Destroy(children[i]);
+                    // [1]This didn't work.
+                    //GameObject toReturn = new GameObject();
+                    // toReturn = child.gameObject;
+                    //unitIconObjectPool.ReturnObject(toReturn);
+
+                    // [2]This also didn't work.
+                    //unitIconObjectPool.ReturnObject(child.gameObject);
+
+                    children.Add(child.gameObject);
                 }
-                //foreach (GameObject child in children)
-                //{
-                //    DestroyImmediate(child);
-                //}
+
+                // [3]Somehow, this works.
+                foreach (GameObject child in children)
+                {
+                    unitIconObjectPool.ReturnObject(child);
+                }
 
                 for (int i = 0; i < battleUnits.Count; i++)
                 {
@@ -56,7 +65,9 @@ namespace KohmaiWorks.Scroller
                     {
                         deteriorationText = "(Deterioration:" + (int)(battleUnits[i].Deterioration * 100) + "%) ";
                     }
-                    GameObject unitIcon = Instantiate(unitIconPrefabs);
+
+                    GameObject unitIcon = unitIconObjectPool.GetObject();
+                    //GameObject unitIcon = Instantiate(unitIconPrefabs);
                     unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShiledCurrent +
                         "(" + (int)(shiledRatio * 100) + "%)+"
                         + battleUnits[i].Combat.HitPointCurrent + "(" + (int)(hPRatio * 100) + "%)]"

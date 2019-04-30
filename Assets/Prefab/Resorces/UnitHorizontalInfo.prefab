@@ -401,7 +401,6 @@ GameObject:
   - component: {fileID: 2067937887979959087}
   - component: {fileID: 2784098514350106196}
   - component: {fileID: 2119964570834316418}
-  - component: {fileID: 6487430197982283418}
   - component: {fileID: 1684432553899754990}
   m_Layer: 5
   m_Name: UnitHorizontalBar
@@ -468,21 +467,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6487430197982283418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4982011043509718452}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3736c34a1174f46af3d7f59469996e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hPBar: {fileID: 3743909059250410839}
-  shieldBar: {fileID: 8186100178692681763}
-  UnitInfoText: {fileID: 0}
 --- !u!114 &1684432553899754990
 MonoBehaviour:
   m_ObjectHideFlags: 0

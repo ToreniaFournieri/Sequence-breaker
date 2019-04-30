@@ -1,16 +1,10 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Others.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/CellView.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="146" Column="44" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="265" Column="77" />
       <File FileName="Assets/Script/Data.cs" Line="26" Column="34" />
-      <File FileName="Assets/Script/CellView.cs" Line="45" Column="14" />
-      <File FileName="Assets/TurnStartView.cs" Line="12" Column="1" />
-      <File FileName="Assets/ShowTargetUnit.cs" Line="39" Column="128" />
-      <File FileName="Assets/Script/IconSet.cs" Line="9" Column="1" />
-      <File FileName="Assets/UnitInfoSet.cs" Line="12" Column="30" />
-      <File FileName="Assets/Script/BattleEngine.cs" Line="359" Column="65" />
-      <File FileName="Assets/Script/BattleLogList.cs" Line="10" Column="12" />
-      <File FileName="Assets/Script/Others.cs" Line="51" Column="176" />
+      <File FileName="Assets/Script/CellView.cs" Line="25" Column="51" />
+      <File FileName="Assets/ShowTargetUnit.cs" Line="37" Column="84" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

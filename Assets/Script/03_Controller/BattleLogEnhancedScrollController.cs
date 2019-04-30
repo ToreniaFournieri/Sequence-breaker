@@ -40,6 +40,7 @@ namespace KohmaiWorks.Scroller
         public Sprite allyImage;
         public Sprite enemyImage;
 
+        public SimpleObjectPool unitIconObjectPool;
 
         /// <summary>
         /// Battle Information
@@ -257,6 +258,7 @@ namespace KohmaiWorks.Scroller
         public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
         {
             CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
+            cellView.unitIconObjectPool = unitIconObjectPool;
 
             // tell the cell view to calculate its layout on the first pass,
             // otherwise just use the size set in the data.

@@ -22,6 +22,7 @@ namespace KohmaiWorks.Scroller
         public GameObject headerContent;
         public Text HeaderInfo;
         public ShowTargetUnit showTargetUnit;
+        public SimpleObjectPool unitIconObjectPool;
 
 
         /// <summary>
@@ -44,6 +45,7 @@ namespace KohmaiWorks.Scroller
             if (data.isHeaderInfo)
             {
                 HeaderInfo.text = data.headerText;
+                showTargetUnit.unitIconObjectPool = unitIconObjectPool;
                 showTargetUnit.SetUnitInfo(data.characters);
                 headerContent.SetActive(true);
             }
@@ -51,7 +53,6 @@ namespace KohmaiWorks.Scroller
             {
                 //Need to false incase recycle object.
                 headerContent.SetActive(false);
-                showTargetUnit.SetUnitInfo(data.characters);
             }
 
             unitInfo.text = data.unitInfo;
