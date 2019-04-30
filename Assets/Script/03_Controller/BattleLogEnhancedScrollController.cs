@@ -97,7 +97,7 @@ namespace KohmaiWorks.Scroller
 
                 if (_battle.logList[i].IsHeaderInfo)
                 {
-                    cellSize = 1200;
+                    cellSize = 1300;
                 }
 
                 // _data set

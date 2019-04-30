@@ -379,7 +379,7 @@ public class BattleEngine
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber, nest: 0, nestOrderNumber: 0);
                                         battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLog.HeaderInfoText = "[At beging phase] \n";
-                                        battleLogList.Add(battleLog);
+                                        //battleLogList.Add(battleLog);
 
 
                                         // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
@@ -394,7 +394,7 @@ public class BattleEngine
                                         orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
                                         battleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: null, firstLine: firstLine, log: null, importance: 1, whichAffiliationAct: Affiliation.none);
                                         battleLog.HeaderInfoText = "[Main action phase] \n";
-                                        battleLogList.Add(battleLog);
+                                        //battleLogList.Add(battleLog);
 
                                         for (int i = 0; i <= aliveCharacters.Count - 1; i++)
                                         {
