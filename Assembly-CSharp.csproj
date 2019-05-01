@@ -161,6 +161,7 @@
     <Compile Include="Assets\Script\GenerateBattleUnits.cs" />
     <Compile Include="Assets\Script\IconSet.cs" />
     <Compile Include="Assets\Script\ItemPanel.cs" />
+    <Compile Include="Assets\Script\OpenSearchBar.cs" />
     <Compile Include="Assets\Script\Others.cs" />
     <Compile Include="Assets\Script\SimpleObjectPool.cs" />
     <Compile Include="Assets\Script\StatusUpdate.cs" />

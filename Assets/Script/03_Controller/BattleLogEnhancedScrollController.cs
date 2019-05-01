@@ -50,6 +50,7 @@ namespace KohmaiWorks.Scroller
 
         private BattleEngine _battle = new BattleEngine();
 
+      
         void Start()
         {
             scroller.Delegate = this;
