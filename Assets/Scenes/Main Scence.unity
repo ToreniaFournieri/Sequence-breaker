@@ -1221,8 +1221,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480120961}
-  - {fileID: 291637267}
   - {fileID: 978793925}
+  - {fileID: 291637267}
   - {fileID: 1420324700}
   m_Father: {fileID: 1870001501}
   m_RootOrder: 0
@@ -1471,7 +1471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &291637267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1489,7 +1489,7 @@ RectTransform:
   - {fileID: 316265045}
   - {fileID: 1890904853}
   m_Father: {fileID: 156208636}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2922,7 +2922,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18717904}
+        m_MethodName: FilterBySearchText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 437885071}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -4392,7 +4403,7 @@ RectTransform:
   m_Children:
   - {fileID: 107787336}
   m_Father: {fileID: 156208636}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

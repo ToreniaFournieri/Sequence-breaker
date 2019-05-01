@@ -181,6 +181,28 @@ namespace KohmaiWorks.Scroller
         }
 
 
+        public void FilterBySearchText (Text searchText)
+        {
+            Debug.Log("attempt to search word: " + searchText.text );
+
+            List<Data> filteredData = new List<Data>();
+            foreach (Data data in _data)
+            {
+                if (data.mainText.Contains(searchText.text))
+                {
+                    filteredData.Add(data);
+                    Debug.Log("found word: " + searchText.text +" in " + data.mainText );
+                }
+            }
+
+            if (filteredData.Count > 0)
+            {
+
+            }
+
+        }
+
+
         /// <summary>
         /// This function adds a new record, resizing the scroller and calculating the sizes of all cells
         /// </summary>
