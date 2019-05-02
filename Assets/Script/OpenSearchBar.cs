@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenSearchBar : MonoBehaviour
+namespace KohmaiWorks.Scroller
 {
-    public bool IsOpen = false;
-
-    private void Awake()
+    public class OpenSearchBar : MonoBehaviour
     {
-        this.transform.gameObject.SetActive(false);
+        public bool IsOpen = false;
+
+        private void Awake()
+        {
+            this.transform.gameObject.SetActive(false);
+
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+        }
+
+
 
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-
-    public void SetSearchBarOpen (bool isOpen)
-    {
-        IsOpen = isOpen;
-        this.transform.gameObject.SetActive(IsOpen);
-    }
-
 
 }

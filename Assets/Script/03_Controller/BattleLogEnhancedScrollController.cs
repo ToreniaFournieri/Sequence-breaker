@@ -18,6 +18,8 @@ namespace KohmaiWorks.Scroller
     public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
         private List<Data> _data;
+        private List<Data> _dataOfAll;
+        private List<Data> _dataOfFiltered;
         //private List<BattleLogClass> battleLogLists;
 
         /// <summary>
@@ -42,6 +44,9 @@ namespace KohmaiWorks.Scroller
 
         public SimpleObjectPool unitIconObjectPool;
 
+        public GameObject searchBar;
+        public RectTransform log;
+
         /// <summary>
         /// Battle Information
         /// </summary>
@@ -50,10 +55,22 @@ namespace KohmaiWorks.Scroller
 
         private BattleEngine _battle = new BattleEngine();
 
-      
+
+
+        private void Awake()
+        {
+            searchBar.transform.gameObject.SetActive(false);
+
+        }
+
+
         void Start()
         {
             scroller.Delegate = this;
+            _data = new List<Data>();
+            _dataOfAll = new List<Data>();
+            _dataOfFiltered = new List<Data>(); ;
+
             LoadData();
             SetJumpIndex();
         }
@@ -63,10 +80,7 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         private void LoadData()
         {
-            _data = new List<Data>();
-
             _battle.Battle();
-
 
             //battleLogLists = battle.logList;
             //populate the scroller with some text
@@ -137,7 +151,7 @@ namespace KohmaiWorks.Scroller
                 }
 
 
-                _data.Add(new Data()
+                _dataOfAll.Add(new Data()
                 {
                     cellSize = cellSize,
                     reactText = reactText,
@@ -152,6 +166,9 @@ namespace KohmaiWorks.Scroller
                     headerText = _battle.logList[i].HeaderInfoText,
                     characters = characters
                 });
+
+                // set all of data to data (activate)
+                _data = _dataOfAll;
             }
 
             ResizeScroller();
@@ -181,24 +198,40 @@ namespace KohmaiWorks.Scroller
         }
 
 
-        public void FilterBySearchText (Text searchText)
+        public void FilterBySearchText(Text searchText)
         {
-            Debug.Log("attempt to search word: " + searchText.text );
+            //Debug.Log("attempt to search word: " + searchText.text);
 
             List<Data> filteredData = new List<Data>();
-            foreach (Data data in _data)
+            foreach (Data data in _dataOfAll)
             {
-                if (data.mainText.Contains(searchText.text))
+                bool isMatched = false;
+                if (data.mainText != null && data.mainText.Contains(searchText.text))
+                {
+                    isMatched = true;
+                    //Debug.Log("found word: " + searchText.text + " in " + data.mainText);
+                }
+
+                if (data.firstLine != null && data.firstLine.Contains(searchText.text))
+                {
+                    isMatched = true;
+                }
+
+
+
+                if (isMatched)
                 {
                     filteredData.Add(data);
-                    Debug.Log("found word: " + searchText.text +" in " + data.mainText );
                 }
             }
 
             if (filteredData.Count > 0)
             {
-
+                _dataOfFiltered = filteredData;
             }
+
+            _data = filteredData;
+            ResizeScroller();
 
         }
 
@@ -298,7 +331,33 @@ namespace KohmaiWorks.Scroller
             return cellView;
         }
 
-
         #endregion
+
+
+        public void SetSearchBarOpen()
+        {
+            if (searchBar.transform.gameObject.activeSelf == false)
+            {
+                RectTransform rectTransform = log;
+                rectTransform.offsetMin = new Vector2(log.offsetMin.x, log.offsetMin.y);
+                rectTransform.offsetMax = new Vector2(log.offsetMax.x, log.offsetMax.y - 100);
+                //log = rectTransform;
+                searchBar.transform.gameObject.SetActive(true);
+            }
+        }
+
+        public void SetSearchBarClose()
+        {
+            RectTransform rectTransform = log;
+            rectTransform.offsetMin = new Vector2(log.offsetMin.x, log.offsetMin.y);
+            rectTransform.offsetMax = new Vector2(log.offsetMax.x, log.offsetMax.y + 100);
+            //log = rectTransform;
+            searchBar.transform.gameObject.SetActive(false);
+            _data = _dataOfAll;
+            scroller.ReloadData();
+
+        }
+
+
     }
 }
