@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="202" Column="69" />
-      <File FileName="Assets/Script/Data.cs" Line="26" Column="34" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="329" Column="37" />
+      <File FileName="Assets/Script/Data.cs" Line="8" Column="20" />
       <File FileName="Assets/Script/CellView.cs" Line="49" Column="43" />
       <File FileName="Assets/ShowTargetUnit.cs" Line="66" Column="82" />
       <File FileName="Assets/Script/BattleEngine.cs" Line="397" Column="72" />

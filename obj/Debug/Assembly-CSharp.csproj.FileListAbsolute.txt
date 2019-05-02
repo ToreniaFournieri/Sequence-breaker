@@ -356,3 +356,7 @@
 /Users/celvena/Shop UI with Runtime Scroll Lists/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/celvena/Shop UI with Runtime Scroll Lists/obj/Debug/Assembly-CSharp.dll
 /Users/celvena/Shop UI with Runtime Scroll Lists/obj/Debug/Assembly-CSharp.pdb
+/Users/celvena/Shop UI with Runtime Scroll Lists/Temp/bin/Debug/Boo.Lang.dll
+/Users/celvena/Shop UI with Runtime Scroll Lists/Temp/bin/Debug/UnityEditor.UI.dll
+/Users/celvena/Shop UI with Runtime Scroll Lists/Temp/bin/Debug/UnityEditor.UI.dll.mdb
+/Users/celvena/Shop UI with Runtime Scroll Lists/Temp/bin/Debug/UnityEditor.UI.xml

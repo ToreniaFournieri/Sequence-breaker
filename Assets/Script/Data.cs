@@ -7,6 +7,7 @@ namespace KohmaiWorks.Scroller
 {
     public class Data
     {
+        public int index;
         public string reactText;
         public string unitInfo;
         public string firstLine;

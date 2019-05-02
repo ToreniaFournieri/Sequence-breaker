@@ -253,7 +253,7 @@ public class BattleEngine
             for (int i = 0; i <= 5; i++)
             {
                 featureNormal = new FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
-                characters.Add(new BattleUnit(uniqueID: i, name: "PIG" + (i + 1).ToString() + "-" + skillsMasters[i].Name.ToString().Substring(0, 7), affiliation: Affiliation.ally, unitType: UnitType.robot,
+                characters.Add(new BattleUnit(uniqueID: i, name: "PIG" + (i + 1).ToString() + "-" + "Attacker", affiliation: Affiliation.ally, unitType: UnitType.robot,
                  ability: abilities[i], combat: combats[i], feature: featureNormal,
                      offenseMagnification: offenseMagnification, defenseMagnification: defenseMagnification, skillMagnification: skillMagnificationOffenseDoubleTriggerTriple));
             }
@@ -269,7 +269,7 @@ public class BattleEngine
             {
                 featureNormal = new FeatureClass(absorbShieldInitial: 0.07, damageControlAssist: false, hateInitial: 10, hateMagnificationPerTurn: 0.666);
                 // pigs skill has 8 so  skillsMasters [i - 6 -1 ] collect
-                characters.Add(new BattleUnit(uniqueID: i, name: "ELD" + (i - 6).ToString() + "-" + skillsMasters[i - 7].Name.ToString().Substring(0, 7), affiliation: Affiliation.enemy, unitType: UnitType.cyborg,
+                characters.Add(new BattleUnit(uniqueID: i, name: "ELD" + (i - 6).ToString() + "-" + "Attacker", affiliation: Affiliation.enemy, unitType: UnitType.cyborg,
                  ability: abilities[i], combat: combats[i], feature: featureNormal,
                 offenseMagnification: offenseMagnification, defenseMagnification: defenseMagnification, skillMagnification: skillMagnificationOffenseDoubleTriggerTriple));
             }

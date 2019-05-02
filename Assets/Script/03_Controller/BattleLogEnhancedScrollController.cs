@@ -44,8 +44,15 @@ namespace KohmaiWorks.Scroller
 
         public SimpleObjectPool unitIconObjectPool;
 
+        // Searching
         public GameObject searchBar;
         public RectTransform log;
+        public Text searchResultText;
+        private (int number, int content) searchedCurrentIndex;
+        private List<int> searchedIndexList;
+        private Text previousSearchedText;
+
+
 
         /// <summary>
         /// Battle Information
@@ -60,7 +67,7 @@ namespace KohmaiWorks.Scroller
         private void Awake()
         {
             searchBar.transform.gameObject.SetActive(false);
-
+            searchResultText.text = null;
         }
 
 
@@ -153,6 +160,7 @@ namespace KohmaiWorks.Scroller
 
                 _dataOfAll.Add(new Data()
                 {
+                    index = i,
                     cellSize = cellSize,
                     reactText = reactText,
                     unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
@@ -200,41 +208,73 @@ namespace KohmaiWorks.Scroller
 
         public void FilterBySearchText(Text searchText)
         {
-            //Debug.Log("attempt to search word: " + searchText.text);
-
+            Debug.Log("attempt to search word: " + searchText.text);
+            searchedIndexList = new List<int>();
             List<Data> filteredData = new List<Data>();
             foreach (Data data in _dataOfAll)
             {
-                bool isMatched = false;
-                if (data.mainText != null && data.mainText.Contains(searchText.text))
-                {
-                    isMatched = true;
-                    //Debug.Log("found word: " + searchText.text + " in " + data.mainText);
-                }
+
+                // mainText if found, set is Matched true
+                bool isMatched = false || (data.mainText != null && data.mainText.Contains(searchText.text));
+
+                // firstLine if found set is Matched true
 
                 if (data.firstLine != null && data.firstLine.Contains(searchText.text))
                 {
                     isMatched = true;
                 }
 
-
-
                 if (isMatched)
                 {
                     filteredData.Add(data);
+                    searchedIndexList.Add(data.index);
+                } else
+                {
+                    searchResultText.text = "no result";
+
                 }
             }
 
-            if (filteredData.Count > 0)
+            if (previousSearchedText == null) { previousSearchedText = searchText; }
+
+            if (searchedIndexList.Count > 0)
             {
-                _dataOfFiltered = filteredData;
+                searchedCurrentIndex = (0, searchedIndexList[0]);
+                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
+                JumpButton_OnClick(searchedCurrentIndex.content);
             }
 
-            _data = filteredData;
-            ResizeScroller();
+
+            //// when filtered search system start.
+            //if (filteredData.Count > 0)
+            //{
+            //    _dataOfFiltered = filteredData;
+            //}
+            //_data = filteredData;
+            //ResizeScroller();
+            //// when filtered search system end.
 
         }
 
+        public void SetJumpNextSearchedText()
+        {
+            if (searchedIndexList.Count - 1 > searchedCurrentIndex.number)
+            {
+                searchedCurrentIndex = (searchedCurrentIndex.number + 1, searchedIndexList[searchedCurrentIndex.number + 1]);
+                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
+                JumpButton_OnClick(searchedCurrentIndex.content);
+            }
+        }
+
+        public void SetJumpPreviousSearchedText()
+        {
+            if (searchedCurrentIndex.number > 0)
+            {
+                searchedCurrentIndex = (searchedCurrentIndex.number - 1, searchedIndexList[searchedCurrentIndex.number - 1]);
+                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
+                JumpButton_OnClick(searchedCurrentIndex.content);
+            }
+        }
 
         /// <summary>
         /// This function adds a new record, resizing the scroller and calculating the sizes of all cells
@@ -353,8 +393,8 @@ namespace KohmaiWorks.Scroller
             rectTransform.offsetMax = new Vector2(log.offsetMax.x, log.offsetMax.y + 100);
             //log = rectTransform;
             searchBar.transform.gameObject.SetActive(false);
-            _data = _dataOfAll;
-            scroller.ReloadData();
+            //_data = _dataOfAll;
+            //scroller.ReloadData();
 
         }
 
