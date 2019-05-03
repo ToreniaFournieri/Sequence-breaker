@@ -109,11 +109,11 @@ namespace KohmaiWorks.Scroller
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                         float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
 
-                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 - 12));
+                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 ));
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
-                int cellSize = (count + 1) * 48 + 160;
+                int cellSize = (count + 1) * 48 + 190;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
