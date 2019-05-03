@@ -128,6 +128,8 @@ namespace KohmaiWorks.Scroller
                 string reactText = null;
                 float shieldRatio = 0f;
                 float hPRatio = 0f;
+                int barrierRemains = 0;
+                bool isDead = true;
                 if (_battle.logList[i].Order != null)
                 {
                     unitNameText = _battle.logList[i].Order.Actor.Name;
@@ -149,6 +151,13 @@ namespace KohmaiWorks.Scroller
                     shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
                     hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
 
+                    barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
+
+                    if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
+                    {
+                        isDead = false;
+                    }
+
                 }
 
                 List<BattleUnit> characters = null;
@@ -168,6 +177,8 @@ namespace KohmaiWorks.Scroller
                     mainText = _battle.logList[i].Log,
                     affiliation = _battle.logList[i].WhichAffiliationAct,
                     nestLevel = _battle.logList[i].OrderCondition.Nest,
+                    isDead = isDead,
+                    barrierRemains = barrierRemains,
                     shieldRatio = shieldRatio,
                     hPRatio = hPRatio,
                     isHeaderInfo = _battle.logList[i].IsHeaderInfo,

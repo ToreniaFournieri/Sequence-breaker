@@ -64,6 +64,7 @@ namespace KohmaiWorks.Scroller
                         vsIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = " vs ";
                         vsIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = 0f;
                         vsIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = 0f;
+                        vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
 
                         vsIcon.transform.parent = this.transform;
                         isSwitchedAffiliation = true;
@@ -79,10 +80,20 @@ namespace KohmaiWorks.Scroller
                     }
 
                     GameObject unitIcon = unitIconObjectPool.GetObject();
-                    unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShiledCurrent +
-                        "(" + (int)(shiledRatio * 100) + "%)+"
-                        + battleUnits[i].Combat.HitPointCurrent + "(" + (int)(hPRatio * 100) + "%)]"
-                        + deteriorationText;
+
+                    // set barrier remains icon
+                    unitIcon.GetComponent<UnitInfoSet>().barrierRemains.text = battleUnits[i].Buff.BarrierRemaining.ToString();
+                    if (battleUnits[i].Buff.BarrierRemaining > 0)
+                    { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(true); }
+                    else { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false); }
+
+                    //                unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShiledCurrent +
+                    //"(" + (int)(shiledRatio * 100) + "%)+"
+                    //+ battleUnits[i].Combat.HitPointCurrent + "(" + (int)(hPRatio * 100) + "%)]"
+                    //+ deteriorationText;
+
+                    unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShiledCurrent
+                        + "+"+ battleUnits[i].Combat.HitPointCurrent + "] " + deteriorationText;
                     unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shiledRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
                     //unitIcon.tag = "UnitHorizontalInfo";

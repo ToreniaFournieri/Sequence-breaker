@@ -19,6 +19,8 @@ namespace KohmaiWorks.Scroller
         public float cellSize;
         public int nestLevel;
 
+        public bool isDead;
+        public int barrierRemains;
         public float shieldRatio;
         public float hPRatio;
 

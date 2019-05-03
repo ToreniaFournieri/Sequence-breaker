@@ -14,10 +14,15 @@ namespace KohmaiWorks.Scroller
         public Image backgroundImage;
         public Image nestedLinePrevious;
         public Image nestedLine;
+
+        // Battle Unit icon
+        public GameObject mainUnit;
         public GameObject iconMask;
         public Image unitIcon;
         public Image hPBar;
         public Image shieldBar;
+        public GameObject barrierObject;
+        public Text barrierRemains;
 
         public GameObject headerContent;
         public Text HeaderInfo;
@@ -66,6 +71,14 @@ namespace KohmaiWorks.Scroller
 
             unitIcon.color = unitColor;
 
+            if (data.isDead == true)
+            {
+                mainUnit.SetActive(false);
+            } else
+            {
+                mainUnit.SetActive(true);
+            }
+
             if (unitSprite != null)
             {
                 unitIcon.sprite = unitSprite;
@@ -78,6 +91,13 @@ namespace KohmaiWorks.Scroller
 
             hPBar.fillAmount = data.hPRatio;
             shieldBar.fillAmount = data.shieldRatio;
+
+            //Set barrier remains 
+            if (data.barrierRemains > 0)
+            { barrierObject.SetActive(true); }
+            else
+            { barrierObject.SetActive(false); }
+            barrierRemains.text = data.barrierRemains.ToString();
 
             switch (data.affiliation)
             {

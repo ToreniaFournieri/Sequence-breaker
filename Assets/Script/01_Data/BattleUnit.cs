@@ -33,7 +33,7 @@ public class BattleUnit : ScriptableObject
     {
         BattleUnit other = (BattleUnit)this.MemberwiseClone();
         other.Combat = this.Combat.Copy();
-
+        other.Buff = this.Buff.Copy();
         return other;
     }
 
@@ -67,6 +67,12 @@ public class BattleUnit : ScriptableObject
             this.BarrierRemaining = 0; this.DefenseMagnification = 1.0; this.MobilityMagnification = 1.0; this.AttackMagnification = 1.0; this.AccuracyMagnification = 1.0;
             this.CriticalHitRateMagnification = 1.0; this.NumberOfAttackMagnification = 1.0; this.RangeMinCorrection = 0; this.RangeMaxCorrection = 0;
         }
+
+        public BuffClass Copy()
+        {
+            return (BuffClass)this.MemberwiseClone();
+        }
+
 
         public void InitializeBuff()
         {

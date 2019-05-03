@@ -10,6 +10,9 @@ public class UnitInfoSet : MonoBehaviour
     public Image hPBar;
     public Image shieldBar;
     public Text UnitInfoText;
+    public GameObject barrierObject;
+    public Text barrierRemains;
+
 
     // Start is called before the first frame update
     void Start()
