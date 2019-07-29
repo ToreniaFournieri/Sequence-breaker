@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Main Scence.unity
+- path: Assets/Asset_SuperScrollView/Demo/Scenes/ListView/LeftToRightDemo.unity
   isLoaded: 1
   isActive: 1

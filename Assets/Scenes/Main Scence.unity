@@ -752,7 +752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000008404492}
+  m_AnchoredPosition: {x: 0, y: 0.00005263879}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &114568832
@@ -3816,7 +3816,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439b3dcc2b7714c1e91776a9d161f6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_segments:
+  - {fileID: 114568837}
+  - {fileID: 2048156419}
+  - {fileID: 468849967}
+  - {fileID: 1562067747}
+  - {fileID: 1948106185}
+  - {fileID: 1069118456}
+  - {fileID: 642976322}
   m_separator: {fileID: 0}
+  m_separatorWidth: 0
   m_allowSwitchingOff: 0
   m_selectedSegmentIndex: -1
   m_onValueChanged:
@@ -3824,6 +3837,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Extensions.SegmentedControl+SegmentSelectedEvent, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
+  selectedSegment: {fileID: 0}
 --- !u!1 &815232888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,7 +4336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00006103484}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &952931269
@@ -5812,8 +5827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 35.9}
-  m_SizeDelta: {x: 43.6, y: -1228.7}
+  m_AnchoredPosition: {x: -0.00024414062, y: 39.53601}
+  m_SizeDelta: {x: 54.5, y: -1686.7}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1333312225
 MonoBehaviour:
@@ -7655,6 +7670,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -59.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045212493197589687, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613675386285869792, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613675386285869792, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752022546253667574, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507080659897650836, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.8100014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72a221d838d6421cb7cc865329eea79, type: 3}
