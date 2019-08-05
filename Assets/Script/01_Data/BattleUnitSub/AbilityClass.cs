@@ -32,4 +32,28 @@ public class AbilityClass : ScriptableObject
         return other;
     }
 
+    public AbilityClass (AbilityClass First, AbilityClass Second)
+    {
+        //AbilityClass AddUp = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+        this.Power = First.Power + Second.Power;
+        this.Generation = First.Generation + Second.Generation;
+        this.Stability = First.Stability + Second.Stability;
+        this.Responsiveness = First.Responsiveness + Second.Responsiveness;
+        this.Precision = First.Precision + Second.Precision;
+        this.Intelligence = First.Intelligence + Second.Intelligence;
+        this.Luck = First.Luck + Second.Luck;
+
+    }
+
+    public void AddUp (AbilityClass First, AbilityClass Second)
+    {
+        this.Power = First.Power + Second.Power;
+        this.Generation = First.Generation + Second.Generation;
+        this.Stability = First.Stability + Second.Stability;
+        this.Responsiveness = First.Responsiveness + Second.Responsiveness;
+        this.Precision = First.Precision + Second.Precision;
+        this.Intelligence = First.Intelligence + Second.Intelligence;
+        this.Luck = First.Luck + Second.Luck;
+    }
+
 }

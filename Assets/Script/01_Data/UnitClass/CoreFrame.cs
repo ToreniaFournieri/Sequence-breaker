@@ -10,7 +10,6 @@ public class CoreFrame : ScriptableObject
     [SerializeField] public FrameType FrameType;
     [SerializeField] public TuningStype TuningStype;
 
-
 }
 
 

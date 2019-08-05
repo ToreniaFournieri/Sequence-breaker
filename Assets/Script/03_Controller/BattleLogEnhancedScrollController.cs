@@ -76,7 +76,7 @@ namespace KohmaiWorks.Scroller
             scroller.Delegate = this;
             _data = new List<Data>();
             _dataOfAll = new List<Data>();
-            _dataOfFiltered = new List<Data>(); ;
+            _dataOfFiltered = new List<Data>();
 
             LoadData();
             SetJumpIndex();
