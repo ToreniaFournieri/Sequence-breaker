@@ -218,6 +218,7 @@
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\BattleUnitSub\UnitSkillMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\Equipments\Equipment.cs" />
+    <Compile Include="Assets\Script\01_Data\UnitClass\CalculateUnitStatus.cs" />
     <Compile Include="Assets\Script\01_Data\UnitClass\CoreFrame.cs" />
     <Compile Include="Assets\Script\01_Data\UnitClass\Pilot\Pilot.cs" />
     <Compile Include="Assets\Script\01_Data\UnitClass\UnitClass.cs" />

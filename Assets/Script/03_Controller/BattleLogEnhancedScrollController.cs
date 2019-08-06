@@ -44,6 +44,11 @@ namespace KohmaiWorks.Scroller
 
         public SimpleObjectPool unitIconObjectPool;
 
+        // sample implemented 2019.8.6
+        private CalculateUnitStatus calculateUnitStatus;
+        public UnitClass sampleUnit;
+        // end sanple implemented 2019.8.6
+
         // Searching
         public GameObject searchBar;
         public RectTransform log;
@@ -80,12 +85,22 @@ namespace KohmaiWorks.Scroller
 
             LoadData();
             SetJumpIndex();
-        }
 
-        /// <summary>
-        /// Populates the data with some random Lorum Ipsum text
-        /// </summary>
-        private void LoadData()
+            //sample implement 2019.8.6 should be deleted after this test.
+            calculateUnitStatus = new CalculateUnitStatus(sampleUnit);
+            Debug.Log( calculateUnitStatus.UnitClass.Name + "'s Generation:" + calculateUnitStatus.Ability.Generation
+                + " Power:" + calculateUnitStatus.Ability.Power
+
+                + " Luck:" + calculateUnitStatus.Ability.Luck
+                );
+            //end sanple implement 2019.8.6
+
+    }
+
+    /// <summary>
+    /// Populates the data with some random Lorum Ipsum text
+    /// </summary>
+    private void LoadData()
         {
             _battle.Battle();
 
@@ -191,7 +206,10 @@ namespace KohmaiWorks.Scroller
             }
 
             ResizeScroller();
-        }
+
+
+
+    }
 
         private void SetJumpIndex()
         {

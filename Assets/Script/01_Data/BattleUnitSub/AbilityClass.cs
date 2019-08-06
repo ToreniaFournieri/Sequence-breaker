@@ -45,15 +45,15 @@ public class AbilityClass : ScriptableObject
 
     }
 
-    public void AddUp (AbilityClass First, AbilityClass Second)
+    public void AddUp (AbilityClass addAbility)
     {
-        this.Power = First.Power + Second.Power;
-        this.Generation = First.Generation + Second.Generation;
-        this.Stability = First.Stability + Second.Stability;
-        this.Responsiveness = First.Responsiveness + Second.Responsiveness;
-        this.Precision = First.Precision + Second.Precision;
-        this.Intelligence = First.Intelligence + Second.Intelligence;
-        this.Luck = First.Luck + Second.Luck;
+        this.Power = this.Power + addAbility.Power;
+        this.Generation = this.Generation +  addAbility.Generation;
+        this.Stability = this.Stability + addAbility.Stability;
+        this.Responsiveness = this.Responsiveness + addAbility.Responsiveness;
+        this.Precision = this.Precision + addAbility.Precision;
+        this.Intelligence = this.Intelligence + addAbility.Intelligence;
+        this.Luck = this.Luck + addAbility.Luck;
     }
 
 }
