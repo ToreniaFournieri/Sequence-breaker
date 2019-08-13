@@ -10,6 +10,10 @@ public class CoreFrame : ScriptableObject
     [SerializeField] public FrameType FrameType;
     [SerializeField] public TuningStype TuningStype;
 
+    [SerializeField] public int Shield;
+    [SerializeField] public int HP;
+
+
 }
 
 

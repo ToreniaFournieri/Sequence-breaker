@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BattleLogList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="31" Column="23" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="93" Column="74" />
       <File FileName="Assets/Script/01_Data/UnitClass/UnitClass.cs" Line="18" Column="34" />
-      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="76" Column="1" />
+      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="87" Column="33" />
       <File FileName="Assets/Script/01_Data/UnitClass/CoreFrame.cs" Line="12" Column="1" />
-      <File FileName="Assets/Script/01_Data/UnitClass/Pilot/Pilot.cs" Line="19" Column="36" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/AbilityClass.cs" Line="56" Column="38" />
+      <File FileName="Assets/Script/01_Data/UnitClass/Pilot/Pilot.cs" Line="18" Column="48" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/AbilityClass.cs" Line="50" Column="15" />
       <File FileName="Assets/Script/BattleLogList.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs" Line="31" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

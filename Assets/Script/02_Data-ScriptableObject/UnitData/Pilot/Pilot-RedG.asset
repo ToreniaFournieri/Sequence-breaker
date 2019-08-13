@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
+  m_Name: Pilot-RedG
+  m_EditorClassIdentifier: 
+  Name: RedG
+  PilotStyle: 0
+  Race: 0
+  Preference: 0
+  PilotLevel: 12
+  AddAbility: {fileID: 11400000, guid: cc25b65c8e9c048c48df1b150148ab62, type: 2}

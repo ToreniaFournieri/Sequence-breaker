@@ -6,7 +6,7 @@ public class CalculateUnitStatus : MonoBehaviour
 {
 
     //Input data
-    public UnitClass UnitClass;
+    public UnitClass Unit;
 
     //Output data
     public AbilityClass Ability;
@@ -17,18 +17,20 @@ public class CalculateUnitStatus : MonoBehaviour
     private AbilityClass _tuningStypeAbility;
     private AbilityClass _summedItemsAddAbility;
 
+    private CombatClass _combatRaw;
+
     //public AmplifyEquipmentRate AmplifyEquipmentRate
     public CalculateUnitStatus(UnitClass unitClass)
     {
-        Ability = new AbilityClass(3,0,0,0,0,0,0);
+        Ability = new AbilityClass(3, 0, 0, 0, 0, 0, 0);
 
-        UnitClass = unitClass;
+        Unit = unitClass;
 
         //(1) Ability
         // (1-1) Ability caluculation -> CoreFrameAddAbility
         // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStype.AddAbility
 
-        switch (UnitClass.CoreFrame.FrameType)
+        switch (Unit.CoreFrame.FrameType)
         {
             case FrameType.caterpillar:
                 _frameTypeAbility = new AbilityClass(power: 6, generation: 3, stability: 6, responsiveness: 3, precision: 2, intelligence: 0, luck: 0);
@@ -46,13 +48,13 @@ public class CalculateUnitStatus : MonoBehaviour
                 _frameTypeAbility = new AbilityClass(power: 2, generation: 6, stability: 3, responsiveness: 4, precision: 2, intelligence: 0, luck: 3);
                 break;
             default:
-                Debug.Log("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + UnitClass.CoreFrame.FrameType);
+                Debug.Log("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + Unit.CoreFrame.FrameType);
                 break;
         }
         Ability.AddUp(_frameTypeAbility);
 
 
-        switch (UnitClass.CoreFrame.TuningStype)
+        switch (Unit.CoreFrame.TuningStype)
         {
             case TuningStype.assaultMelee:
                 _tuningStypeAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
@@ -61,28 +63,34 @@ public class CalculateUnitStatus : MonoBehaviour
                 _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                 break;
             default:
-                Debug.Log("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + UnitClass.CoreFrame.TuningStype);
+                Debug.Log("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
                 break;
         }
 
-        //Ability.AddUp(_tuningStypeAbility);
+        Ability.AddUp(_tuningStypeAbility);
 
         // (1-2) Ability caluculation -> SummedItemsAddAbility
         _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 1, 1); // This is dummy, need logic to collect data from UnitClass.ItemLists.
         // (1-3) Ability caluculation -> CaluculatedAbility
         // Formula:
         //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy
-
+        Ability.AddUp(Unit.Pilot.AddAbility);
         Ability.AddUp(_summedItemsAddAbility);
-
-
 
         //(2) Combat
         // (2-1) First Combat caluculation -> CombatRaw
         // Formula:
-        //    CombatRaw.Shield = CoreFrame.Hitpoint (fixed, independent on Level)
+        //    CombatRaw.Shield = CoreFrame.Shield (fixed, independent on Level)
         //    CombatRaw.HitPoint = CoreFrame.Hitpoint (fixed, independent on Level)
         //    CombatRaw.Others values: Level * Ability * coefficient(depend on others values)
+
+
+        _combatRaw = new CombatClass();
+
+        _combatRaw.ShiledMax = Unit.CoreFrame.Shield;
+        _combatRaw.HitPointMax = Unit.CoreFrame.HP;
+        _combatRaw.Attack = Unit.Level * Ability.Power + (int)(Mathf.Pow(Unit.Level, (float)1.3) * Ability.Power * 0.4) ;
+
 
         // (2-3)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
         // Formula:
@@ -99,6 +107,8 @@ public class CalculateUnitStatus : MonoBehaviour
         // (2-6)Finalize
         // Formula:
         //    CombatCaluculated = CombatItemEquiped
+
+        Combat = _combatRaw;
 
         //(3) Feature
         //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)

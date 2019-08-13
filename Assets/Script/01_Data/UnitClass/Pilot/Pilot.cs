@@ -11,12 +11,16 @@ public class Pilot : ScriptableObject
     [SerializeField] public Preference Preference;
     [SerializeField] public int PilotLevel;
 
-    [SerializeField] public int AddGeneration;
-    [SerializeField] public int AddStability;
-    [SerializeField] public int AddResponsiveness;
-    [SerializeField] public int AddPrecision;
-    [SerializeField] public int AddIntelligence;
-    [SerializeField] public int AddLuck;
+    [SerializeField] public AbilityClass AddAbility;
+
+    //[SerializeField] public int AddPower;
+    //[SerializeField] public int AddGeneration;
+    //[SerializeField] public int AddStability;
+    //[SerializeField] public int AddResponsiveness;
+    //[SerializeField] public int AddPrecision;
+    //[SerializeField] public int AddIntelligence;
+    //[SerializeField] public int AddLuck;
+
 
 
 }

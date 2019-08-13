@@ -88,10 +88,11 @@ namespace KohmaiWorks.Scroller
 
             //sample implement 2019.8.6 should be deleted after this test.
             calculateUnitStatus = new CalculateUnitStatus(sampleUnit);
-            Debug.Log( calculateUnitStatus.UnitClass.Name + "'s Generation:" + calculateUnitStatus.Ability.Generation
+            Debug.Log( calculateUnitStatus.Unit.Name + "'s Generation:" + calculateUnitStatus.Ability.Generation
                 + " Power:" + calculateUnitStatus.Ability.Power
-
+                + " Generation:" + calculateUnitStatus.Ability.Generation 
                 + " Luck:" + calculateUnitStatus.Ability.Luck
+                + " Attack:" + calculateUnitStatus.Combat.Attack
                 );
             //end sanple implement 2019.8.6
 

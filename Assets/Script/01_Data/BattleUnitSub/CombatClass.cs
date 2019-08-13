@@ -35,4 +35,10 @@ double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, i
         this.KineticAttackRatio = kineticAttackRatio; this.ChemicalAttackRatio = chemicalAttackRatio; this.ThermalAttackRatio = thermalAttackRatio; this.CriticalHit = criticalHit;
         this.NumberOfAttacks = numberOfAttacks; this.MinRange = minRange; this.MaxRange = maxRange; this.Accuracy = accuracy; this.Mobility = mobility; this.Deffense = deffense;
     }
+
+    public CombatClass()
+    {
+
+    }
+
 }
