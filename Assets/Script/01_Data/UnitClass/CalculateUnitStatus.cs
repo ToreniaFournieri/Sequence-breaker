@@ -12,6 +12,21 @@ public class CalculateUnitStatus : MonoBehaviour
     public AbilityClass Ability;
     public CombatClass Combat;
 
+    // Environment Parameter
+    // for combat status calculation
+    public float LevelCoefficient;
+    public float LevelPowLittle;
+    public float LevelPowBig;
+    public float AbilityCoefficient;
+    public float AbilityPowDenominator;
+
+    //efficient block
+    public float PowerCoefficient;
+    public float CriticalHitCoefficient;
+    public float NumberOfAttacksCoefficient;
+    public float AccuracyCoefficient;
+    public float MobilityCoefficient;
+    public float DefenseCoefficient;
     //middle data
     private AbilityClass _frameTypeAbility;
     private AbilityClass _tuningStypeAbility;
@@ -78,37 +93,98 @@ public class CalculateUnitStatus : MonoBehaviour
         Ability.AddUp(_summedItemsAddAbility);
 
         //(2) Combat
-        // (2-1) First Combat caluculation -> CombatRaw
+        // (2-1) Set environment values
+        LevelPowLittle = (float)0.372;
+        LevelPowBig = (float)1.475;
+        AbilityCoefficient = (float)2.6;
+
+        // each ability's coefficient
+        {
+            PowerCoefficient = (float)0.4;
+            DefenseCoefficient = (float)0.4;
+            MobilityCoefficient = (float)0.133;
+            AccuracyCoefficient = (float)0.233;
+            CriticalHitCoefficient = (float)0.01;
+        }
+        LevelCoefficient = (float)100.0;
+        AbilityPowDenominator = (float)20.0;
+
+        // (2-3) First Combat caluculation -> CombatRaw
         // Formula:
         //    CombatRaw.Shield = CoreFrame.Shield (fixed, independent on Level)
         //    CombatRaw.HitPoint = CoreFrame.Hitpoint (fixed, independent on Level)
-        //    CombatRaw.Others values: Level * Ability * coefficient(depend on others values)
-
-
+        //    CombatRaw.Others values: (
+        //                                  LevelCoefficient *(Level^LevelPowLittle)
+        //                                  +Level^LevelPowBig
+        //                                  +Level * Ability
+        //                                  +Level^(Ability / PowDenominator)*AbilityCoefficient
+        //                             )*XxxxxCoefficient
         _combatRaw = new CombatClass();
 
         _combatRaw.ShiledMax = Unit.CoreFrame.Shield;
         _combatRaw.HitPointMax = Unit.CoreFrame.HP;
-        _combatRaw.Attack = Unit.Level * Ability.Power + (int)(Mathf.Pow(Unit.Level, (float)1.3) * Ability.Power * 0.4) ;
+
+        _combatRaw.Attack = (int)((
+                                    (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, LevelPowBig)
+                                    + Unit.Level * Ability.Power
+                                    + Mathf.Pow(Unit.Level, (float)Ability.Power / AbilityPowDenominator) * AbilityCoefficient
+                                  ) * PowerCoefficient) ;
+
+        _combatRaw.Defense = (int)((
+                                    (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, LevelPowBig)
+                                    + Unit.Level * Ability.Stability
+                                    + Mathf.Pow(Unit.Level, (float)Ability.Stability / AbilityPowDenominator) * AbilityCoefficient
+                                  ) * DefenseCoefficient);
+
+        _combatRaw.Mobility = (int)((
+                            (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, LevelPowBig)
+                            + Unit.Level * Ability.Responsiveness
+                            + Mathf.Pow(Unit.Level, (float)Ability.Responsiveness / AbilityPowDenominator) * AbilityCoefficient
+                          ) * MobilityCoefficient);
+
+        _combatRaw.Accuracy = (int)((
+                            (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, LevelPowBig)
+                            + Unit.Level * Ability.Precision
+                            + Mathf.Pow(Unit.Level, (float)Ability.Precision / AbilityPowDenominator) * AbilityCoefficient
+                          ) * AccuracyCoefficient);
 
 
-        // (2-3)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
+        // critical hit = Level * Luck * CriticalHitCoefficient
+        _combatRaw.CriticalHit = (int)(
+                            (Unit.Level * Ability.Luck * CriticalHitCoefficient)
+                          );
+
+        // Number of attacks
+        _combatRaw.NumberOfAttacks = (int)( 1 );
+
+        // Min range and Max range, default are 1.
+        _combatRaw.MinRange = (int)(1);
+        _combatRaw.MaxRange = (int)(1);
+
+        // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
         // Formula:
         //    CombatCoreSkillConsidered.someValue = (CombatRaw.someValue + (CoreFrame and Pilot).skills.addCombat.someValue) * (CoreFrame and Pilot).skills.amplifyCombat.someValue
 
-        // (2-4)Skill consideration of items equiped -> CombatItemSkillConsidered
+        // some code here.
+
+        // (2-5)Skill consideration of items equiped -> CombatItemSkillConsidered
         // Formula:
         //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
 
-        // (2-5)Add combat value of items equiped -> CombatItemEquiped
+        // (2-6)Add combat value of items equiped -> CombatItemEquiped
         // Formula:
         //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
 
-        // (2-6)Finalize
+        // (2-7)Finalize
         // Formula:
         //    CombatCaluculated = CombatItemEquiped
 
         Combat = _combatRaw;
+
 
         //(3) Feature
         //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)

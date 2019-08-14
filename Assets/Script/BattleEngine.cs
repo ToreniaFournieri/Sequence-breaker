@@ -205,47 +205,47 @@ public class BattleEngine
             //Ally info
             combats[0] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 10000, hitPointMax: 10000,
              attack: (int)(542 * allyAttackMagnification), kineticAttackRatio: 0.5, chemicalAttackRatio: 0.1, thermalAttackRatio: 0.4, criticalHit: 30,
-            numberOfAttacks: 20, minRange: 5, maxRange: 6, accuracy: 28344, mobility: 1321, deffense: (int)(700 * allyDefenseMagnification));
+            numberOfAttacks: 20, minRange: 5, maxRange: 6, accuracy: 28344, mobility: 1321, defense: (int)(700 * allyDefenseMagnification));
             combats[1] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 13000, hitPointMax: 13000,
              attack: (int)(682 * allyAttackMagnification), kineticAttackRatio: 0.7, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.3, criticalHit: 30,
-            numberOfAttacks: 14, minRange: 3, maxRange: 3, accuracy: 1344, mobility: 1321, deffense: (int)(600 * allyDefenseMagnification));
+            numberOfAttacks: 14, minRange: 3, maxRange: 3, accuracy: 1344, mobility: 1321, defense: (int)(600 * allyDefenseMagnification));
             combats[2] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 9800, hitPointMax: 9800,
              attack: (int)(699 * allyAttackMagnification), kineticAttackRatio: 0.8, chemicalAttackRatio: 0.1, thermalAttackRatio: 0.1, criticalHit: 30,
-            numberOfAttacks: 20, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1321, deffense: (int)(700 * allyDefenseMagnification));
+            numberOfAttacks: 20, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1321, defense: (int)(700 * allyDefenseMagnification));
             combats[3] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 11200, hitPointMax: 11200,
              attack: (int)(832 * allyAttackMagnification), kineticAttackRatio: 1.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 9, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, deffense: (int)(600 * allyDefenseMagnification));
+            numberOfAttacks: 9, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, defense: (int)(600 * allyDefenseMagnification));
             combats[4] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 6000, hitPointMax: 6000,
              attack: (int)(592 * allyAttackMagnification), kineticAttackRatio: 0.6, chemicalAttackRatio: 0.4, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 10, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, deffense: (int)(700 * allyDefenseMagnification));
+            numberOfAttacks: 10, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, defense: (int)(700 * allyDefenseMagnification));
             combats[5] = new CombatClass(shiledCurrent: 4000, shiledMax: 4000, hitPointCurrent: 7800, hitPointMax: 7800,
              attack: (int)(688 * allyAttackMagnification), kineticAttackRatio: 0.8, chemicalAttackRatio: 0.1, thermalAttackRatio: 0.1, criticalHit: 30,
-            numberOfAttacks: 8, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1321, deffense: (int)(700 * allyDefenseMagnification));
+            numberOfAttacks: 8, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1321, defense: (int)(700 * allyDefenseMagnification));
             combats[6] = new CombatClass(shiledCurrent: 7000, shiledMax: 7000, hitPointCurrent: 6190, hitPointMax: 6190,
              attack: (int)(642 * allyAttackMagnification), kineticAttackRatio: 0.3, chemicalAttackRatio: 0.7, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 6, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, deffense: (int)(700 * allyDefenseMagnification));
+            numberOfAttacks: 6, minRange: 3, maxRange: 4, accuracy: 1344, mobility: 1300, defense: (int)(700 * allyDefenseMagnification));
             //Enemy info
             combats[7] = new CombatClass(shiledCurrent: 7000, shiledMax: 7000, hitPointCurrent: 12300, hitPointMax: 12300,
              attack: 800, kineticAttackRatio: 0.0, chemicalAttackRatio: 0.1, thermalAttackRatio: 0.9, criticalHit: 30,
-             numberOfAttacks: 12, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1200, deffense: 700);
+             numberOfAttacks: 12, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1200, defense: 700);
             combats[8] = new CombatClass(shiledCurrent: 6000, shiledMax: 6000, hitPointCurrent: 13400, hitPointMax: 13400,
              attack: 880, kineticAttackRatio: 0.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 1.0, criticalHit: 30,
-            numberOfAttacks: 11, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1321, deffense: 700);
+            numberOfAttacks: 11, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1321, defense: 700);
             combats[9] = new CombatClass(shiledCurrent: 6000, shiledMax: 6000, hitPointCurrent: 13100, hitPointMax: 13100,
              attack: 482, kineticAttackRatio: 1.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 20, minRange: 3, maxRange: 7, accuracy: 4344, mobility: 1300, deffense: 700);
+            numberOfAttacks: 20, minRange: 3, maxRange: 7, accuracy: 4344, mobility: 1300, defense: 700);
             combats[10] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 9840, hitPointMax: 9840,
              attack: 742, kineticAttackRatio: 1.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 5, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1300, deffense: 700);
+            numberOfAttacks: 5, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1300, defense: 700);
             combats[11] = new CombatClass(shiledCurrent: 5000, shiledMax: 5000, hitPointCurrent: 7640, hitPointMax: 7640,
              attack: 732, kineticAttackRatio: 1.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 3, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1321, deffense: 700);
+            numberOfAttacks: 3, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1321, defense: 700);
             combats[12] = new CombatClass(shiledCurrent: 4500, shiledMax: 4500, hitPointCurrent: 5600, hitPointMax: 5600,
              attack: 712, kineticAttackRatio: 1.0, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.0, criticalHit: 30,
-            numberOfAttacks: 7, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1300, deffense: 700);
+            numberOfAttacks: 7, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1300, defense: 700);
             combats[13] = new CombatClass(shiledCurrent: 7500, shiledMax: 7500, hitPointCurrent: 6210, hitPointMax: 6210,
              attack: 682, kineticAttackRatio: 0.8, chemicalAttackRatio: 0.0, thermalAttackRatio: 0.2, criticalHit: 30,
-            numberOfAttacks: 6, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1210, deffense: 700);
+            numberOfAttacks: 6, minRange: 3, maxRange: 7, accuracy: 1344, mobility: 1210, defense: 700);
 
             FeatureClass featureNormal;
             FeatureClass featureMedic;

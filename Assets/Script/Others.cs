@@ -870,7 +870,7 @@ public class AttackFunction
 
                         //Physical Attack damage calculation
                         double attackDamage = (double)order.Actor.Combat.Attack * environmentInfo.R.Next(40 + order.Actor.Ability.Luck, 100) / 100
-                        - (double)toTarget.Combat.Deffense * (1.00 - toTarget.Deterioration) * environmentInfo.R.Next(40 + toTarget.Ability.Luck - criticalReduction, 100 - criticalReduction) / 100;
+                        - (double)toTarget.Combat.Defense * (1.00 - toTarget.Deterioration) * environmentInfo.R.Next(40 + toTarget.Ability.Luck - criticalReduction, 100 - criticalReduction) / 100;
                         if (attackDamage < 0) { attackDamage = 1; }
 
                         //vs Magnification offense

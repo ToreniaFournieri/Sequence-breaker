@@ -21,7 +21,7 @@ public class CombatClass : ScriptableObject
     [SerializeField] public int MaxRange;
     [SerializeField] public int Accuracy;
     [SerializeField] public int Mobility;
-    [SerializeField] public int Deffense;
+    [SerializeField] public int Defense;
 
     public CombatClass Copy()
     {
@@ -29,11 +29,11 @@ public class CombatClass : ScriptableObject
     }
 
     public CombatClass(int shiledCurrent, int shiledMax, int hitPointCurrent, int hitPointMax, int attack, double kineticAttackRatio, double chemicalAttackRatio,
-double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, int maxRange, int accuracy, int mobility, int deffense)
+double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, int maxRange, int accuracy, int mobility, int defense)
     {
         this.ShiledCurrent = shiledCurrent; this.ShiledMax = shiledMax; this.HitPointCurrent = hitPointCurrent; this.HitPointMax = hitPointMax; this.Attack = attack;
         this.KineticAttackRatio = kineticAttackRatio; this.ChemicalAttackRatio = chemicalAttackRatio; this.ThermalAttackRatio = thermalAttackRatio; this.CriticalHit = criticalHit;
-        this.NumberOfAttacks = numberOfAttacks; this.MinRange = minRange; this.MaxRange = maxRange; this.Accuracy = accuracy; this.Mobility = mobility; this.Deffense = deffense;
+        this.NumberOfAttacks = numberOfAttacks; this.MinRange = minRange; this.MaxRange = maxRange; this.Accuracy = accuracy; this.Mobility = mobility; this.Defense = defense;
     }
 
     public CombatClass()
