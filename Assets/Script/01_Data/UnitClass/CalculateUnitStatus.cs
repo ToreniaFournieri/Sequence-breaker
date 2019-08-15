@@ -11,6 +11,10 @@ public class CalculateUnitStatus : MonoBehaviour
     //Output data
     public AbilityClass Ability;
     public CombatClass Combat;
+    public OffenseMagnificationClass OffenseMagnification;
+    public DefenseMagnificationClass DefenseMagnification;
+    public UnitSkillMagnificationClass UnitSkillMagnification;
+    public FeatureClass Feature;
 
     // Environment Parameter
     // for combat status calculation
@@ -27,12 +31,24 @@ public class CalculateUnitStatus : MonoBehaviour
     public float AccuracyCoefficient;
     public float MobilityCoefficient;
     public float DefenseCoefficient;
+
+
     //middle data
     private AbilityClass _frameTypeAbility;
     private AbilityClass _tuningStypeAbility;
     private AbilityClass _summedItemsAddAbility;
 
     private CombatClass _combatRaw;
+
+    private double _optimumRangeBonusDefault;
+    private double _criticalMagnificationDefault;
+    private ActionSkillClass _offenseEffectPowerActionSkill;
+    private ActionSkillClass _triggerPossibilityActionSkill;
+    private double _hateInitial;
+    private double _hateMagnificationPerTurn;
+    private double _absorbShieldRatio;
+    private bool _isDamageControlAssist;
+
 
     //public AmplifyEquipmentRate AmplifyEquipmentRate
     public CalculateUnitStatus(UnitClass unitClass)
@@ -129,7 +145,7 @@ public class CalculateUnitStatus : MonoBehaviour
                                     + Mathf.Pow(Unit.Level, LevelPowBig)
                                     + Unit.Level * Ability.Power
                                     + Mathf.Pow(Unit.Level, (float)Ability.Power / AbilityPowDenominator) * AbilityCoefficient
-                                  ) * PowerCoefficient) ;
+                                  ) * PowerCoefficient);
 
         _combatRaw.Defense = (int)((
                                     (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
@@ -159,7 +175,7 @@ public class CalculateUnitStatus : MonoBehaviour
                           );
 
         // Number of attacks
-        _combatRaw.NumberOfAttacks = (int)( 1 );
+        _combatRaw.NumberOfAttacks = (int)(1);
 
         // Min range and Max range, default are 1.
         _combatRaw.MinRange = (int)(1);
@@ -169,15 +185,20 @@ public class CalculateUnitStatus : MonoBehaviour
         // Formula:
         //    CombatCoreSkillConsidered.someValue = (CombatRaw.someValue + (CoreFrame and Pilot).skills.addCombat.someValue) * (CoreFrame and Pilot).skills.amplifyCombat.someValue
 
-        // some code here.
+        // some code here. omitted
+
 
         // (2-5)Skill consideration of items equiped -> CombatItemSkillConsidered
         // Formula:
         //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
 
+        // some code here. omitted
+
         // (2-6)Add combat value of items equiped -> CombatItemEquiped
         // Formula:
         //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
+
+        // some code here. omitted
 
         // (2-7)Finalize
         // Formula:
@@ -187,6 +208,15 @@ public class CalculateUnitStatus : MonoBehaviour
 
 
         //(3) Feature
+        // (3-1) Set environment values
+        _absorbShieldRatio = 0.0;
+        _hateInitial = 10;
+        _hateMagnificationPerTurn = 0.667;
+        _optimumRangeBonusDefault = 1.2;
+        _criticalMagnificationDefault = 1.5;
+        _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+        _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+        // (3-2) 
         //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
         // Formula:
         //   absorbShieldInitial = CoreFrame.addFeature.absorbShield + Pilot.addFeature.absorbShield
@@ -194,10 +224,31 @@ public class CalculateUnitStatus : MonoBehaviour
         //   hateInitial = (default value) + Pilot.addFeature.hate
         //   hateMagnificationPerTurn = (defalut value) * Pilot.addFeature.hateMagnificationPerTurn
 
-        //(4)Offense/Defense/UnitSkill Magnification
+        _isDamageControlAssist = false;
 
+        switch (Unit.CoreFrame.TuningStype)
+        {
+            case TuningStype.medic:
+                _isDamageControlAssist = true;
+                break;
+            default:
+                break;
+        }
+
+        Feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
+            hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
+
+
+        //(4)Offense/Defense/UnitSkill Magnification
+        OffenseMagnification = new OffenseMagnificationClass(optimumRangeBonus: _optimumRangeBonusDefault, critical: _criticalMagnificationDefault,
+            kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.0, vsTitan: 1.0);
+        DefenseMagnification = new DefenseMagnificationClass(critical: _criticalMagnificationDefault,
+            kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.0, vsTitan: 1.0);
+
+        UnitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
         //BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
+
         //OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
 
         //BattleUnit battleUnit = new BattleUnit();

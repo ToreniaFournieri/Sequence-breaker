@@ -259,26 +259,20 @@
     <None Include="Assets\Asset_obsolate_EnhancedScroller v2\Tutorials\readme.txt" />
     <None Include="Assets\Asset_obsolate_EnhancedScroller v2\ChangeLog.txt" />
     <None Include="Assets\Asset_obsolate_EnhancedScroller v2\readme.txt" />
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
@@ -291,6 +285,12 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>/Users/celvena/Shop UI with Runtime Scroll Lists/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>

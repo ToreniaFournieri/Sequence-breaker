@@ -1,21 +1,24 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Others.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="96" Column="19" />
-      <File FileName="Assets/Script/01_Data/UnitClass/UnitClass.cs" Line="19" Column="35" />
-      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="19" Column="38" />
-      <File FileName="Assets/Script/01_Data/UnitClass/CoreFrame.cs" Line="15" Column="1" />
-      <File FileName="Assets/Script/01_Data/UnitClass/Pilot/Pilot.cs" Line="18" Column="48" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/AbilityClass.cs" Line="9" Column="1" />
-      <File FileName="Assets/Script/BattleLogList.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs" Line="26" Column="20" />
-      <File FileName="Assets/Script/Others.cs" Line="873" Column="58" />
-      <File FileName="Assets/Script/BattleEngine.cs" Line="211" Column="1" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="65" Column="26" />
+      <File FileName="Assets/Script/01_Data/UnitClass/UnitClass.cs" Line="19" Column="36" />
+      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="235" Column="55" />
+      <File FileName="Assets/Script/BattleEngine.cs" Line="1224" Column="34" />
+      <File FileName="Assets/Script/01_Data/BattleUnit.cs" Line="45" Column="61" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/FeatureClass.cs" Line="10" Column="60" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/OffenseMagnificationClass.cs" Line="9" Column="62" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/ActionSkillClass.cs" Line="14" Column="48" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/UnitSkillMagnificationClass.cs" Line="12" Column="1" />
+      <File FileName="Assets/Script/Enumeration.cs" Line="8" Column="17" />
+      <File FileName="Assets/Script/01_Data/UnitClass/CoreFrame.cs" Line="6" Column="14" />
+      <File FileName="Assets/Script/BattleLogList.cs" Line="60" Column="40" />
+      <File FileName="Assets/Script/Others.cs" Line="945" Column="72" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9255f8f9-f271-4f03-b3bc-e2361f081f4b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="42d1449e-9c13-4703-a245-91008aeb76eb" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
