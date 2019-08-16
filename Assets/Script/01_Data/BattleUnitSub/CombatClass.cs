@@ -23,6 +23,10 @@ public class CombatClass : ScriptableObject
     [SerializeField] public int Mobility;
     [SerializeField] public int Defense;
 
+    //New since 2019/08/16 use intelligence, generation
+    [SerializeField] public int Counterintelligence;
+    [SerializeField] public int Repair;
+
     public CombatClass Copy()
     {
         return (CombatClass)this.MemberwiseClone();

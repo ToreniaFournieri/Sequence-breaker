@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Others.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="65" Column="26" />
-      <File FileName="Assets/Script/01_Data/UnitClass/UnitClass.cs" Line="19" Column="36" />
-      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="235" Column="55" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="75" Column="42" />
+      <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="138" Column="29" />
       <File FileName="Assets/Script/BattleEngine.cs" Line="1224" Column="34" />
       <File FileName="Assets/Script/01_Data/BattleUnit.cs" Line="45" Column="61" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/FeatureClass.cs" Line="10" Column="60" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/OffenseMagnificationClass.cs" Line="9" Column="62" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/ActionSkillClass.cs" Line="14" Column="48" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/UnitSkillMagnificationClass.cs" Line="12" Column="1" />
-      <File FileName="Assets/Script/Enumeration.cs" Line="8" Column="17" />
+      <File FileName="Assets/Script/Enumeration.cs" Line="10" Column="1" />
       <File FileName="Assets/Script/01_Data/UnitClass/CoreFrame.cs" Line="6" Column="14" />
       <File FileName="Assets/Script/BattleLogList.cs" Line="60" Column="40" />
-      <File FileName="Assets/Script/Others.cs" Line="945" Column="72" />
+      <File FileName="Assets/Script/Others.cs" Line="99" Column="16" />
+      <File FileName="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs" Line="39" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

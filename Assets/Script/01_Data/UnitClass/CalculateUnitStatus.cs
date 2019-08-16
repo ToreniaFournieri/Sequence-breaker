@@ -18,11 +18,26 @@ public class CalculateUnitStatus : MonoBehaviour
 
     // Environment Parameter
     // for combat status calculation
-    public float LevelCoefficient;
-    public float LevelPowLittle;
-    public float LevelPowBig;
-    public float AbilityCoefficient;
-    public float AbilityPowDenominator;
+    public float T4LevelCoefficient;
+    public float T4LevelPowLittle;
+    public float T4LevelPowBig;
+    public float T4AbilityCoefficient;
+    public float T4AbilityPowDenominator;
+
+    public float T3LevelCoefficient;
+    public float T3LevelPowLittle;
+    public float T3LevelPowBig;
+    public float T3AbilityCoefficient;
+    public float T3AbilityPowDenominator;
+    public float T3AbilityBasedCoefficient;
+
+    public float T2LevelCoefficient;
+    public float T2LevelPowLittle;
+    public float T2LevelPowBig;
+    public float T2AbilityCoefficient;
+    public float T2AbilityPowDenominator;
+    public float T2AbilityBasedCoefficient;
+
 
     //efficient block
     public float PowerCoefficient;
@@ -31,6 +46,9 @@ public class CalculateUnitStatus : MonoBehaviour
     public float AccuracyCoefficient;
     public float MobilityCoefficient;
     public float DefenseCoefficient;
+    public float CounterintelligenceCoefficient;
+    public float RepairCoefficient;
+
 
 
     //middle data
@@ -110,20 +128,13 @@ public class CalculateUnitStatus : MonoBehaviour
 
         //(2) Combat
         // (2-1) Set environment values
-        LevelPowLittle = (float)0.372;
-        LevelPowBig = (float)1.475;
-        AbilityCoefficient = (float)2.6;
+
 
         // each ability's coefficient
         {
-            PowerCoefficient = (float)0.4;
-            DefenseCoefficient = (float)0.4;
-            MobilityCoefficient = (float)0.133;
-            AccuracyCoefficient = (float)0.233;
+
             CriticalHitCoefficient = (float)0.01;
         }
-        LevelCoefficient = (float)100.0;
-        AbilityPowDenominator = (float)20.0;
 
         // (2-3) First Combat caluculation -> CombatRaw
         // Formula:
@@ -137,38 +148,81 @@ public class CalculateUnitStatus : MonoBehaviour
         //                             )*XxxxxCoefficient
         _combatRaw = new CombatClass();
 
-        _combatRaw.ShiledMax = Unit.CoreFrame.Shield;
         _combatRaw.HitPointMax = Unit.CoreFrame.HP;
+        _combatRaw.ShiledMax = Unit.CoreFrame.Shield;
+
+        //Tier 4
+        T4LevelPowLittle = (float)0.372;
+        T4LevelPowBig = (float)1.475;
+        T4AbilityCoefficient = (float)2.6;
+        T4LevelCoefficient = (float)100.0;
+        T4AbilityPowDenominator = (float)20.0;
+        PowerCoefficient = (float)0.4;
+        DefenseCoefficient = (float)0.4;
 
         _combatRaw.Attack = (int)((
-                                    (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, LevelPowBig)
+                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
                                     + Unit.Level * Ability.Power
-                                    + Mathf.Pow(Unit.Level, (float)Ability.Power / AbilityPowDenominator) * AbilityCoefficient
+                                    + Mathf.Pow(Unit.Level, (float)Ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
                                   ) * PowerCoefficient);
 
         _combatRaw.Defense = (int)((
-                                    (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, LevelPowBig)
+                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
                                     + Unit.Level * Ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)Ability.Stability / AbilityPowDenominator) * AbilityCoefficient
+                                    + Mathf.Pow(Unit.Level, (float)Ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
                                   ) * DefenseCoefficient);
 
+        // Tier 3
+        T3LevelPowLittle = (float)0.34;
+        T3LevelPowBig = (float)1.00;
+        T3AbilityCoefficient = (float)2.1;
+        T3LevelCoefficient = (float)100.0;
+        T3AbilityPowDenominator = (float)20.0;
+        T3AbilityBasedCoefficient = (float)0.3;
+        MobilityCoefficient = (float)0.233;
+        AccuracyCoefficient = (float)0.233;
+
         _combatRaw.Mobility = (int)((
-                            (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, LevelPowBig)
-                            + Unit.Level * Ability.Responsiveness
-                            + Mathf.Pow(Unit.Level, (float)Ability.Responsiveness / AbilityPowDenominator) * AbilityCoefficient
+                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
+                            + Unit.Level * Ability.Responsiveness * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)Ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
                           ) * MobilityCoefficient);
 
         _combatRaw.Accuracy = (int)((
-                            (LevelCoefficient * Mathf.Pow(Unit.Level, LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, LevelPowBig)
-                            + Unit.Level * Ability.Precision
-                            + Mathf.Pow(Unit.Level, (float)Ability.Precision / AbilityPowDenominator) * AbilityCoefficient
+                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
+                            + Unit.Level * Ability.Precision * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)Ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
                           ) * AccuracyCoefficient);
 
+        //Tier 2
+        T2LevelPowLittle = (float)0.1;
+        T2LevelPowBig = (float)0.7;
+        T2AbilityCoefficient = (float)2.1;
+        T2LevelCoefficient = (float)100.0;
+        T2AbilityPowDenominator = (float)20.0;
+        T2AbilityBasedCoefficient = (float)0.0;
+        CounterintelligenceCoefficient = (float)1.2;
+        RepairCoefficient = (float)1.2;
 
+        _combatRaw.Counterintelligence = (int)((
+                    (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
+                    + Mathf.Pow(Unit.Level, T2LevelPowBig)
+                    + Unit.Level * Ability.Intelligence * T2AbilityBasedCoefficient
+                    + Mathf.Pow(Unit.Level, (float)Ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
+                  ) * CounterintelligenceCoefficient);
+
+        _combatRaw.Repair = (int)((
+            (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
+            + Mathf.Pow(Unit.Level, T2LevelPowBig)
+            + Unit.Level * Ability.Generation * T2AbilityBasedCoefficient
+            + Mathf.Pow(Unit.Level, (float)Ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
+          ) * RepairCoefficient);
+
+        // Tier 1
         // critical hit = Level * Luck * CriticalHitCoefficient
         _combatRaw.CriticalHit = (int)(
                             (Unit.Level * Ability.Luck * CriticalHitCoefficient)

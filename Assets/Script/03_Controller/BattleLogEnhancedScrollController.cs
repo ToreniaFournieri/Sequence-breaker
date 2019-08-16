@@ -90,20 +90,42 @@ namespace KohmaiWorks.Scroller
             calculateUnitStatus = new CalculateUnitStatus(sampleUnit);
             Debug.Log(calculateUnitStatus.Unit.Name + "'s"
                 + " level" + calculateUnitStatus.Unit.Level
-                + " Generation:" + calculateUnitStatus.Ability.Generation
                 + " Power:" + calculateUnitStatus.Ability.Power
-                + " Generation:" + calculateUnitStatus.Ability.Generation
-                + " Luck:" + calculateUnitStatus.Ability.Luck
                 + " Attack:" + calculateUnitStatus.Combat.Attack
-                ) ;
-            //end sanple implement 2019.8.6
+                );
+            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+                + " level" + calculateUnitStatus.Unit.Level
+                + " Stability:" + calculateUnitStatus.Ability.Stability
+                + " Defense:" + calculateUnitStatus.Combat.Defense
+                );
+            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    + " level" + calculateUnitStatus.Unit.Level
+    + " Responsiveness:" + calculateUnitStatus.Ability.Responsiveness
+    + " Mobility:" + calculateUnitStatus.Combat.Mobility
+    );
+            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    + " level" + calculateUnitStatus.Unit.Level
+    + " Precision:" + calculateUnitStatus.Ability.Precision
+    + " Accuracy:" + calculateUnitStatus.Combat.Accuracy
+    );
+            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
++ " level" + calculateUnitStatus.Unit.Level
++ " Intelligence:" + calculateUnitStatus.Ability.Intelligence
++ " Counterintelligence:" + calculateUnitStatus.Combat.Counterintelligence
+);
+            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
++ " level" + calculateUnitStatus.Unit.Level
++ " Generation:" + calculateUnitStatus.Ability.Generation
++ " Repair:" + calculateUnitStatus.Combat.Repair
+);
+            //end sample implement 2019.8.6
 
-    }
+        }
 
-    /// <summary>
-    /// Populates the data with some random Lorum Ipsum text
-    /// </summary>
-    private void LoadData()
+        /// <summary>
+        /// Populates the data with some random Lorum Ipsum text
+        /// </summary>
+        private void LoadData()
         {
             _battle.Battle();
 
@@ -127,7 +149,7 @@ namespace KohmaiWorks.Scroller
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                         float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
 
-                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250 ));
+                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250));
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
@@ -212,7 +234,7 @@ namespace KohmaiWorks.Scroller
 
 
 
-    }
+        }
 
         private void SetJumpIndex()
         {
@@ -260,7 +282,8 @@ namespace KohmaiWorks.Scroller
                 {
                     filteredData.Add(data);
                     searchedIndexList.Add(data.index);
-                } else
+                }
+                else
                 {
                     searchResultText.text = "no result";
 
