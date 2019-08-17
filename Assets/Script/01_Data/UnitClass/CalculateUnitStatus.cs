@@ -242,6 +242,9 @@ public class CalculateUnitStatus : MonoBehaviour
         _combatRaw.MinRange = (int)(1);
         _combatRaw.MaxRange = (int)(6);
 
+        // Sample set kinetic Attack ratio
+        _combatRaw.KineticAttackRatio = 1.0;
+
         // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
         // Formula:
         //    CombatCoreSkillConsidered.someValue = (CombatRaw.someValue + (CoreFrame and Pilot).skills.addCombat.someValue) * (CoreFrame and Pilot).skills.amplifyCombat.someValue

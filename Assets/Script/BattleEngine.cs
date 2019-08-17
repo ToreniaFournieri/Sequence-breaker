@@ -342,7 +342,7 @@ public class BattleEngine
                 bool enemyFirstBlood = false; // Set up Phase
                 statisticsReporterFirstBlood.Add(new StatisticsReporterFirstBloodClass(battleWave: battleWave));
 
-                for (int i = 0; i < _numberOfCharacters; i++) //Shiled, HitPoint initialize
+                for (int i = 0; i < characters.Count; i++) //Shiled, HitPoint initialize
                 {
                     characters[i].Combat.ShiledCurrent = characters[i].Combat.ShiledMax;
                     characters[i].Combat.HitPointCurrent = characters[i].Combat.HitPointMax;
@@ -381,7 +381,7 @@ public class BattleEngine
                         if (battleEnd == true) { continue; } //continue turn.
 
                         //Effect/Buff initialize and Set again
-                        for (int i = 0; i < _numberOfCharacters; i++) { characters[i].Buff.InitializeBuff(); }
+                        for (int i = 0; i < characters.Count; i++) { characters[i].Buff.InitializeBuff(); }
                         foreach (EffectClass effect in effects) { effect.BuffToCharacter(currentTurn: turn); }
 
 
@@ -685,7 +685,7 @@ public class BattleEngine
 
                 } //battleEnd 
 
-                for (int i = 0; i < _numberOfCharacters; i++) //Shiled, HitPoint initialize
+                for (int i = 0; i < characters.Count; i++) //Shiled, HitPoint initialize
                 { characters[i].SetPermanentStatistics(statistics: characters[i].Statistics); }// set permanent statistics before initialize statistics.
             } //Battle waves
 
@@ -1042,7 +1042,7 @@ public class BattleEngine
         effects.Clear();
         //for (int i = effects.Count - 1; i >= 0; i--) { effects.RemoveAt(i); }
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i++)
         {
             TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i], character: characters[i]);
             OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i], character: characters[i]);
@@ -1051,101 +1051,101 @@ public class BattleEngine
             triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
             effects.Add(effect);
         }
-        for (int i = 7; i < 14; i++)
+        for (int i = characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i < characters.Count; i++)
         {
-            TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - 7], character: characters[i]);
-            OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - 7], character: characters[i]);
-            EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - 7], actionType: skillsMasters[i - 7].ActionType,
+            TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+            OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+            EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], actionType: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].ActionType,
              offenseEffectMagnification: OffenseEffectMagnification[i],
-            triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - 7].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+            triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
             effects.Add(effect);
         }
 
-        //Special add Eld4 5  6 and PIG 4,5,6 to counter skill
-        EffectClass secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        //Special add Eld4 5  6 and PIG 4,5,6 to counter skill
+//        EffectClass secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
-        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
-        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
-        // chain skill to ELD 4,5,6 pig 4,5,6secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
-        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-        offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[2], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        // chain skill to ELD 4,5,6 pig 4,5,6secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
+//        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//        offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[2], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
-        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[11], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[12], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
-        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[10],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[3], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[4], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[5], skill: skillsMasters[2], actionType: skillsMasters[1].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[10],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[1], character: characters[10]), isDamageControlAssistAble: false, usageCount: skillsMasters[1].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
 
-        //Special add to PIG7 and ELD7 to ShiledHealAll, ShiledHealSingle and ShiledHealPlusSingle
-        //ShiledHealAll
-        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[13], actionType: skillsMasters[13].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[6],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[13], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[13].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[13], actionType: skillsMasters[13].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[13],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[13], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[13].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        //ShiledHealSingle
-        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[12], actionType: skillsMasters[12].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[6],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[12], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[12].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[12], actionType: skillsMasters[12].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[12],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[12], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[12].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        //ShiledHealPlusSingle
-        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[11], actionType: skillsMasters[11].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[6],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[11].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
-        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[11], actionType: skillsMasters[12].ActionType,
-offenseEffectMagnification: OffenseEffectMagnification[12],
-triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[11].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        effects.Add(secondEffect);
+//        //Special add to PIG7 and ELD7 to ShiledHealAll, ShiledHealSingle and ShiledHealPlusSingle
+//        //ShiledHealAll
+//        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[13], actionType: skillsMasters[13].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[6],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[13], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[13].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[13], actionType: skillsMasters[13].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[13],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[13], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[13].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        //ShiledHealSingle
+//        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[12], actionType: skillsMasters[12].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[6],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[12], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[12].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[12], actionType: skillsMasters[12].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[12],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[12], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[12].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        //ShiledHealPlusSingle
+//        secondEffect = new EffectClass(character: characters[6], skill: skillsMasters[11], actionType: skillsMasters[11].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[6],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], character: characters[6]), isDamageControlAssistAble: true, usageCount: skillsMasters[11].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
+//        secondEffect = new EffectClass(character: characters[13], skill: skillsMasters[11], actionType: skillsMasters[12].ActionType,
+//offenseEffectMagnification: OffenseEffectMagnification[12],
+//triggeredPossibility: TriggerPossibilityRate(skillsMaster: skillsMasters[11], character: characters[13]), isDamageControlAssistAble: true, usageCount: skillsMasters[11].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+//        effects.Add(secondEffect);
 
 
         foreach (EffectClass effect in effects) { effect.BuffToCharacter(currentTurn: 1); }

@@ -142,7 +142,7 @@ namespace KohmaiWorks.Scroller
             CalculateCombatStatusFromUnit(sampleUnit);
 
             List<BattleUnit> allyBattleUnits = new List<BattleUnit>();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 1; i++)
             {
                 allyBattleUnits.Add(calculateUnitStatus.BattleUnit);
             }
@@ -151,7 +151,7 @@ namespace KohmaiWorks.Scroller
             CalculateCombatStatusFromUnit(sampleEnemyUnit);
 
             List<BattleUnit> enemyBattleUnits = new List<BattleUnit>();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 1; i++)
             {
                 //calculateUnitStatus.BattleUnit.Affiliation = Affiliation.enemy;
                 enemyBattleUnits.Add(calculateUnitStatus.BattleUnit);
