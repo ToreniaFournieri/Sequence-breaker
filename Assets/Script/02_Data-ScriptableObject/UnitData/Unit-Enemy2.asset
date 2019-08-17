@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: Unit-Ally2
+  m_Name: Unit-Enemy2
   m_EditorClassIdentifier: 
   UniqueID: 2
-  Name: PIG-02
-  Affiliation: 0
+  Name: ELD-02
+  Affiliation: 1
   UnitType: 3
   InitialAbility: {fileID: 11400000, guid: 6dddaf2d0c5e14335ac73a7d253d6645, type: 2}
   ItemCapacity: 2
@@ -29,5 +29,6 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
     ability: 0
     addAbility: 2
-  CoreFrame: {fileID: 0}
-  Pilot: {fileID: 0}
+  CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
+  Pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
+  Level: 30

@@ -308,6 +308,7 @@ MonoBehaviour:
   enemyImage: {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
   unitIconObjectPool: {fileID: 318717642}
   sampleUnit: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  sampleEnemyUnit: {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
@@ -5569,7 +5570,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1700506909}
   m_HandleRect: {fileID: 1700506908}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6159,8 +6160,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 46187994}
   m_HandleRect: {fileID: 46187993}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

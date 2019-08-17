@@ -9,12 +9,15 @@ public class CalculateUnitStatus : MonoBehaviour
     public UnitClass Unit;
 
     //Output data
-    public AbilityClass Ability;
-    public CombatClass Combat;
-    public OffenseMagnificationClass OffenseMagnification;
-    public DefenseMagnificationClass DefenseMagnification;
-    public UnitSkillMagnificationClass UnitSkillMagnification;
-    public FeatureClass Feature;
+    public BattleUnit BattleUnit;
+
+    //output middle data
+    private AbilityClass _ability;
+    private CombatClass _combat;
+    private OffenseMagnificationClass _offenseMagnification;
+    private DefenseMagnificationClass _defenseMagnification;
+    private UnitSkillMagnificationClass _unitSkillMagnification;
+    private FeatureClass _feature;
 
     // Environment Parameter
     // for combat status calculation
@@ -71,7 +74,7 @@ public class CalculateUnitStatus : MonoBehaviour
     //public AmplifyEquipmentRate AmplifyEquipmentRate
     public CalculateUnitStatus(UnitClass unitClass)
     {
-        Ability = new AbilityClass(3, 0, 0, 0, 0, 0, 0);
+        _ability = new AbilityClass(3, 0, 0, 0, 0, 0, 0);
 
         Unit = unitClass;
 
@@ -100,7 +103,7 @@ public class CalculateUnitStatus : MonoBehaviour
                 Debug.Log("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + Unit.CoreFrame.FrameType);
                 break;
         }
-        Ability.AddUp(_frameTypeAbility);
+        _ability.AddUp(_frameTypeAbility);
 
 
         switch (Unit.CoreFrame.TuningStype)
@@ -111,20 +114,24 @@ public class CalculateUnitStatus : MonoBehaviour
             case TuningStype.heavyTank:
                 _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                 break;
+
+            case TuningStype.chargeMelee:
+                _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                break;
             default:
                 Debug.Log("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
                 break;
         }
 
-        Ability.AddUp(_tuningStypeAbility);
+        _ability.AddUp(_tuningStypeAbility);
 
         // (1-2) Ability caluculation -> SummedItemsAddAbility
         _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 1, 1); // This is dummy, need logic to collect data from UnitClass.ItemLists.
         // (1-3) Ability caluculation -> CaluculatedAbility
         // Formula:
         //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy
-        Ability.AddUp(Unit.Pilot.AddAbility);
-        Ability.AddUp(_summedItemsAddAbility);
+        _ability.AddUp(Unit.Pilot.AddAbility);
+        _ability.AddUp(_summedItemsAddAbility);
 
         //(2) Combat
         // (2-1) Set environment values
@@ -163,15 +170,15 @@ public class CalculateUnitStatus : MonoBehaviour
         _combatRaw.Attack = (int)((
                                     (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
                                     + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * Ability.Power
-                                    + Mathf.Pow(Unit.Level, (float)Ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
+                                    + Unit.Level * _ability.Power
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
                                   ) * PowerCoefficient);
 
         _combatRaw.Defense = (int)((
                                     (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
                                     + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * Ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)Ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
+                                    + Unit.Level * _ability.Stability
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
                                   ) * DefenseCoefficient);
 
         // Tier 3
@@ -187,15 +194,15 @@ public class CalculateUnitStatus : MonoBehaviour
         _combatRaw.Mobility = (int)((
                             (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
                             + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * Ability.Responsiveness * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)Ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
+                            + Unit.Level * _ability.Responsiveness * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)_ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
                           ) * MobilityCoefficient);
 
         _combatRaw.Accuracy = (int)((
                             (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
                             + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * Ability.Precision * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)Ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
+                            + Unit.Level * _ability.Precision * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)_ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
                           ) * AccuracyCoefficient);
 
         //Tier 2
@@ -211,29 +218,29 @@ public class CalculateUnitStatus : MonoBehaviour
         _combatRaw.Counterintelligence = (int)((
                     (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
                     + Mathf.Pow(Unit.Level, T2LevelPowBig)
-                    + Unit.Level * Ability.Intelligence * T2AbilityBasedCoefficient
-                    + Mathf.Pow(Unit.Level, (float)Ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
+                    + Unit.Level * _ability.Intelligence * T2AbilityBasedCoefficient
+                    + Mathf.Pow(Unit.Level, (float)_ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
                   ) * CounterintelligenceCoefficient);
 
         _combatRaw.Repair = (int)((
             (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
             + Mathf.Pow(Unit.Level, T2LevelPowBig)
-            + Unit.Level * Ability.Generation * T2AbilityBasedCoefficient
-            + Mathf.Pow(Unit.Level, (float)Ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
+            + Unit.Level * _ability.Generation * T2AbilityBasedCoefficient
+            + Mathf.Pow(Unit.Level, (float)_ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
           ) * RepairCoefficient);
 
         // Tier 1
         // critical hit = Level * Luck * CriticalHitCoefficient
         _combatRaw.CriticalHit = (int)(
-                            (Unit.Level * Ability.Luck * CriticalHitCoefficient)
+                            (Unit.Level * _ability.Luck * CriticalHitCoefficient)
                           );
 
         // Number of attacks
-        _combatRaw.NumberOfAttacks = (int)(1);
+        _combatRaw.NumberOfAttacks = (int)(8);
 
         // Min range and Max range, default are 1.
         _combatRaw.MinRange = (int)(1);
-        _combatRaw.MaxRange = (int)(1);
+        _combatRaw.MaxRange = (int)(6);
 
         // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
         // Formula:
@@ -258,7 +265,7 @@ public class CalculateUnitStatus : MonoBehaviour
         // Formula:
         //    CombatCaluculated = CombatItemEquiped
 
-        Combat = _combatRaw;
+        _combat = _combatRaw;
 
 
         //(3) Feature
@@ -289,23 +296,24 @@ public class CalculateUnitStatus : MonoBehaviour
                 break;
         }
 
-        Feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
+        _feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
             hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
 
 
         //(4)Offense/Defense/UnitSkill Magnification
-        OffenseMagnification = new OffenseMagnificationClass(optimumRangeBonus: _optimumRangeBonusDefault, critical: _criticalMagnificationDefault,
+        _offenseMagnification = new OffenseMagnificationClass(optimumRangeBonus: _optimumRangeBonusDefault, critical: _criticalMagnificationDefault,
             kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.0, vsTitan: 1.0);
-        DefenseMagnification = new DefenseMagnificationClass(critical: _criticalMagnificationDefault,
+        _defenseMagnification = new DefenseMagnificationClass(critical: _criticalMagnificationDefault,
             kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.0, vsTitan: 1.0);
 
-        UnitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
+        _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
         //BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
 
-        //OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
+        BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
+            combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
+            defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification ) ;
 
-        //BattleUnit battleUnit = new BattleUnit();
 
     }
 

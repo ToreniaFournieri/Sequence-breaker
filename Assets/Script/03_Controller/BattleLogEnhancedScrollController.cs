@@ -47,6 +47,7 @@ namespace KohmaiWorks.Scroller
         // sample implemented 2019.8.6
         private CalculateUnitStatus calculateUnitStatus;
         public UnitClass sampleUnit;
+        public UnitClass sampleEnemyUnit;
         // end sanple implemented 2019.8.6
 
         // Searching
@@ -83,50 +84,82 @@ namespace KohmaiWorks.Scroller
             _dataOfAll = new List<Data>();
             _dataOfFiltered = new List<Data>();
 
+
+
+
             LoadData();
             SetJumpIndex();
 
+
+        }
+
+        private void CalculateCombatStatusFromUnit(UnitClass inputUnit)
+        {
             //sample implement 2019.8.6 should be deleted after this test.
-            calculateUnitStatus = new CalculateUnitStatus(sampleUnit);
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-                + " level" + calculateUnitStatus.Unit.Level
-                + " Power:" + calculateUnitStatus.Ability.Power
-                + " Attack:" + calculateUnitStatus.Combat.Attack
-                );
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-                + " level" + calculateUnitStatus.Unit.Level
-                + " Stability:" + calculateUnitStatus.Ability.Stability
-                + " Defense:" + calculateUnitStatus.Combat.Defense
-                );
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+            {
+                calculateUnitStatus = new CalculateUnitStatus(inputUnit);
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+                    + " level" + calculateUnitStatus.Unit.Level
+                    + " Power:" + calculateUnitStatus.BattleUnit.Ability.Power
+                    + " Attack:" + calculateUnitStatus.BattleUnit.Combat.Attack
+                    );
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+                    + " level" + calculateUnitStatus.Unit.Level
+                    + " Stability:" + calculateUnitStatus.BattleUnit.Ability.Stability
+                    + " Defense:" + calculateUnitStatus.BattleUnit.Combat.Defense
+                    );
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+        + " level" + calculateUnitStatus.Unit.Level
+        + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
+        + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
+        );
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+        + " level" + calculateUnitStatus.Unit.Level
+        + " Precision:" + calculateUnitStatus.BattleUnit.Ability.Precision
+        + " Accuracy:" + calculateUnitStatus.BattleUnit.Combat.Accuracy
+        );
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
     + " level" + calculateUnitStatus.Unit.Level
-    + " Responsiveness:" + calculateUnitStatus.Ability.Responsiveness
-    + " Mobility:" + calculateUnitStatus.Combat.Mobility
+    + " Intelligence:" + calculateUnitStatus.BattleUnit.Ability.Intelligence
+    + " Counterintelligence:" + calculateUnitStatus.BattleUnit.Combat.Counterintelligence
     );
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
     + " level" + calculateUnitStatus.Unit.Level
-    + " Precision:" + calculateUnitStatus.Ability.Precision
-    + " Accuracy:" + calculateUnitStatus.Combat.Accuracy
+    + " Generation:" + calculateUnitStatus.BattleUnit.Ability.Generation
+    + " Repair:" + calculateUnitStatus.BattleUnit.Combat.Repair
     );
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-+ " level" + calculateUnitStatus.Unit.Level
-+ " Intelligence:" + calculateUnitStatus.Ability.Intelligence
-+ " Counterintelligence:" + calculateUnitStatus.Combat.Counterintelligence
-);
-            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-+ " level" + calculateUnitStatus.Unit.Level
-+ " Generation:" + calculateUnitStatus.Ability.Generation
-+ " Repair:" + calculateUnitStatus.Combat.Repair
-);
+            }
             //end sample implement 2019.8.6
 
         }
+
 
         /// <summary>
         /// Populates the data with some random Lorum Ipsum text
         /// </summary>
         private void LoadData()
         {
+            CalculateCombatStatusFromUnit(sampleUnit);
+
+            List<BattleUnit> allyBattleUnits = new List<BattleUnit>();
+            for (int i = 0; i < 7; i++)
+            {
+                allyBattleUnits.Add(calculateUnitStatus.BattleUnit);
+            }
+            _battle.SetAllyBattleUnits(allyBattleUnits);
+
+            CalculateCombatStatusFromUnit(sampleEnemyUnit);
+
+            List<BattleUnit> enemyBattleUnits = new List<BattleUnit>();
+            for (int i = 0; i < 7; i++)
+            {
+                //calculateUnitStatus.BattleUnit.Affiliation = Affiliation.enemy;
+                enemyBattleUnits.Add(calculateUnitStatus.BattleUnit);
+            }
+
+            _battle.SetEnemyBattleUnits(enemyBattleUnits);
+
+            //_battle.SetUpSampleBattleUnits();
             _battle.Battle();
 
             //battleLogLists = battle.logList;

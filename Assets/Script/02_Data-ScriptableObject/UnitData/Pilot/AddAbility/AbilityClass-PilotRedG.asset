@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b5bc4271e8142c39be947c347f4f7b, type: 3}
   m_Name: AbilityClass-PilotRedG
   m_EditorClassIdentifier: 
-  Power: 0
+  Power: 12
   Generation: 0
   Stability: 1
   Responsiveness: 2
