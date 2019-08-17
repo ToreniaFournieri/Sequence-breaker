@@ -191,12 +191,12 @@ public class BattleEngine
         Console.WriteLine("start:" + startDateTime);
         // Battle environment setting
         int battleWavesSets = 1;
-        int battleWaves = 1; // one set of battle 
+        int battleWaves = 1000; // one set of battle 
         string navigatorName = "Navigator";
 
         //BattleWaveSet variables
-        double allyAttackMagnificationPerWavesSet = 0.20;
-        double allyDefenseMagnificationPerWavesSet = 0.20;
+        double allyAttackMagnificationPerWavesSet = 0.0;
+        double allyDefenseMagnificationPerWavesSet = 0.0;
 
         bool battleEnd = false;
         FuncBattleConditionsText text = null;
@@ -732,13 +732,14 @@ public class BattleEngine
 
         //Battle is over.
         List<BattleLogClass> battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battlelog displayed.
-        foreach (BattleLogClass battleLog in battleLogDisplayList)
-        {
+        //foreach (BattleLogClass battleLog in battleLogDisplayList)
+        //{
 
-            if (battleLog.IsNavigation == false)
-            { finalLog += "(" + battleLog.OrderCondition.Phase + "-" + battleLog.OrderCondition.OrderNumber + "-" + battleLog.OrderCondition.Nest + "-" + battleLog.OrderCondition.NestOrderNumber + ")" + battleLog.Log; }
-            else { finalLog += new string(' ', 5) + battleLog.Log; }
-        }
+        //    if (battleLog.IsNavigation == false)
+        //    { finalLog += "(" + battleLog.OrderCondition.Phase + "-" + battleLog.OrderCondition.OrderNumber + "-" + battleLog.OrderCondition.Nest + "-" + battleLog.OrderCondition.NestOrderNumber + ")" + battleLog.Log; }
+        //    else { finalLog += new string(' ', 5) + battleLog.Log; }
+        //}
+        //// delete battle display list to final log, because now meaningless.
 
         //finalLog += "------------------------------------\n";
         finalLog += "Battle is over. ";
@@ -755,6 +756,10 @@ public class BattleEngine
         finalLog += "finished:" + finishDateTime + " processed time:" + processedTimeSpan + " seed:" + seed + "\n";
 
         Console.WriteLine(finalLog);
+        OrderConditionClass finalorderCondition = new OrderConditionClass(wave: battleWaves, turn: totalturn, phase: 0, orderNumber: 0, nest: 0, nestOrderNumber: 0);
+        BattleLogClass finalLoglist = new BattleLogClass(orderCondition: finalorderCondition, isNavigation: true, order: null, firstLine: null, log: finalLog,
+            importance: 1, whichAffiliationAct: Affiliation.none) ;
+        battleLogDisplayList.Add(finalLoglist);
         logList = battleLogDisplayList;
     }
 

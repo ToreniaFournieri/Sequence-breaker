@@ -21,6 +21,12 @@ public class CalculateUnitStatus : MonoBehaviour
 
     // Environment Parameter
     // for combat status calculation
+    public float T5LevelCoefficient;
+    public float T5LevelPowLittle;
+    public float T5LevelPowBig;
+    public float T5AbilityCoefficient;
+    public float T5AbilityPowDenominator;
+
     public float T4LevelCoefficient;
     public float T4LevelPowLittle;
     public float T4LevelPowBig;
@@ -51,7 +57,8 @@ public class CalculateUnitStatus : MonoBehaviour
     public float DefenseCoefficient;
     public float CounterintelligenceCoefficient;
     public float RepairCoefficient;
-
+    public float ShieldCoefficient;
+    public float HPCoefficient;
 
 
     //middle data
@@ -140,7 +147,6 @@ public class CalculateUnitStatus : MonoBehaviour
         // each ability's coefficient
         {
 
-            CriticalHitCoefficient = (float)0.01;
         }
 
         // (2-3) First Combat caluculation -> CombatRaw
@@ -155,8 +161,34 @@ public class CalculateUnitStatus : MonoBehaviour
         //                             )*XxxxxCoefficient
         _combatRaw = new CombatClass();
 
-        _combatRaw.HitPointMax = Unit.CoreFrame.HP;
-        _combatRaw.ShiledMax = Unit.CoreFrame.Shield;
+
+        //Tier 5
+        T5LevelPowLittle = (float)0.372;
+        T5LevelPowBig = (float)1.475;
+        T5AbilityCoefficient = (float)2.6;
+        T5LevelCoefficient = (float)100.0;
+        T5AbilityPowDenominator = (float)20.0;
+        ShieldCoefficient = (float)0.82;
+        HPCoefficient = (float)0.67;
+
+        _combatRaw.ShiledMax =
+                                //Unit.CoreFrame.Shield +
+                                    (int)((
+                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
+                                    + Unit.Level * _ability.Generation
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Generation / T5AbilityPowDenominator) * T5AbilityCoefficient
+                                  ) * ShieldCoefficient);
+
+        _combatRaw.HitPointMax =
+                                //Unit.CoreFrame.HP +
+                                (int)((
+                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
+                                    + Unit.Level * _ability.Stability
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T5AbilityPowDenominator) * T5AbilityCoefficient
+                                  ) *HPCoefficient);
+
 
         //Tier 4
         T4LevelPowLittle = (float)0.372;
@@ -231,6 +263,8 @@ public class CalculateUnitStatus : MonoBehaviour
 
         // Tier 1
         // critical hit = Level * Luck * CriticalHitCoefficient
+        CriticalHitCoefficient = (float)0.01;
+
         _combatRaw.CriticalHit = (int)(
                             (Unit.Level * _ability.Luck * CriticalHitCoefficient)
                           );
@@ -256,6 +290,7 @@ public class CalculateUnitStatus : MonoBehaviour
         // Formula:
         //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
 
+        _combatRaw.CriticalHit = _combatRaw.CriticalHit + 18;
         // some code here. omitted
 
         // (2-6)Add combat value of items equiped -> CombatItemEquiped
@@ -273,11 +308,11 @@ public class CalculateUnitStatus : MonoBehaviour
 
         //(3) Feature
         // (3-1) Set environment values
-        _absorbShieldRatio = 0.0;
+        _absorbShieldRatio = 0.1;
         _hateInitial = 10;
         _hateMagnificationPerTurn = 0.667;
         _optimumRangeBonusDefault = 1.2;
-        _criticalMagnificationDefault = 1.5;
+        _criticalMagnificationDefault = 1.4;
         _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
         _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
         // (3-2) 
