@@ -125,6 +125,10 @@ public class CalculateUnitStatus : MonoBehaviour
             case TuningStype.chargeMelee:
                 _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                 break;
+            case TuningStype.medic:
+                _tuningStypeAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
+                break;
+
             default:
                 Debug.Log("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
                 break;
@@ -348,7 +352,7 @@ public class CalculateUnitStatus : MonoBehaviour
 
         //BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
 
-        BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
+        BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
             defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification ) ;
 

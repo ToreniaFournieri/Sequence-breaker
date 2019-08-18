@@ -46,8 +46,8 @@ namespace KohmaiWorks.Scroller
 
         // sample implemented 2019.8.6
         private CalculateUnitStatus calculateUnitStatus;
-        public UnitClass sampleUnit;
-        public UnitClass sampleEnemyUnit;
+        public List<UnitClass> AllyUnitList;
+        public List<UnitClass> EnemyUnitList;
         // end sanple implemented 2019.8.6
 
         // Searching
@@ -109,10 +109,10 @@ namespace KohmaiWorks.Scroller
                     + " Defense:" + calculateUnitStatus.BattleUnit.Combat.Defense
                     );
                 Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-        + " level" + calculateUnitStatus.Unit.Level
-        + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
-        + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
-        );
+            + " level" + calculateUnitStatus.Unit.Level
+            + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
+            + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
+            );
                 Debug.Log(calculateUnitStatus.Unit.Name + "'s"
         + " level" + calculateUnitStatus.Unit.Level
         + " Precision:" + calculateUnitStatus.BattleUnit.Ability.Precision
@@ -139,24 +139,22 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         private void LoadData()
         {
-            CalculateCombatStatusFromUnit(sampleUnit);
 
             List<BattleUnit> allyBattleUnits = new List<BattleUnit>();
-            for (int i = 0; i < 1; i++)
+
+            foreach (UnitClass unit in AllyUnitList)
             {
+                CalculateCombatStatusFromUnit(unit);
                 allyBattleUnits.Add(calculateUnitStatus.BattleUnit);
             }
             _battle.SetAllyBattleUnits(allyBattleUnits);
 
-            CalculateCombatStatusFromUnit(sampleEnemyUnit);
-
             List<BattleUnit> enemyBattleUnits = new List<BattleUnit>();
-            for (int i = 0; i < 1; i++)
+            foreach (UnitClass unit in EnemyUnitList)
             {
-                //calculateUnitStatus.BattleUnit.Affiliation = Affiliation.enemy;
+                CalculateCombatStatusFromUnit(unit);
                 enemyBattleUnits.Add(calculateUnitStatus.BattleUnit);
             }
-
             _battle.SetEnemyBattleUnits(enemyBattleUnits);
 
             //_battle.SetUpSampleBattleUnits();
