@@ -44,11 +44,6 @@ namespace KohmaiWorks.Scroller
 
         public SimpleObjectPool unitIconObjectPool;
 
-        // sample implemented 2019.8.6
-        private CalculateUnitStatus calculateUnitStatus;
-        public List<UnitClass> AllyUnitList;
-        public List<UnitClass> EnemyUnitList;
-        // end sanple implemented 2019.8.6
 
         // Searching
         public GameObject searchBar;
@@ -63,8 +58,17 @@ namespace KohmaiWorks.Scroller
         /// <summary>
         /// Battle Information
         /// </summary>
-        public List<BattleUnit> allyBattleUnitsList;
+        ///
+        // sample implemented 2019.8.6
+        private CalculateUnitStatus calculateUnitStatus;
+        public List<UnitClass> allyUnitList;
         public List<EffectClass> allySkillsList;
+
+        public List<UnitClass> enemyUnitList;
+        public List<EffectClass> enemySkillsList;
+
+        // end sanple implemented 2019.8.6
+
 
         private BattleEngine _battle = new BattleEngine();
 
@@ -142,20 +146,20 @@ namespace KohmaiWorks.Scroller
 
             List<BattleUnit> allyBattleUnits = new List<BattleUnit>();
 
-            foreach (UnitClass unit in AllyUnitList)
+            foreach (UnitClass unit in allyUnitList)
             {
                 CalculateCombatStatusFromUnit(unit);
                 allyBattleUnits.Add(calculateUnitStatus.BattleUnit);
             }
-            _battle.SetAllyBattleUnits(allyBattleUnits);
+            _battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
 
             List<BattleUnit> enemyBattleUnits = new List<BattleUnit>();
-            foreach (UnitClass unit in EnemyUnitList)
+            foreach (UnitClass unit in enemyUnitList)
             {
                 CalculateCombatStatusFromUnit(unit);
                 enemyBattleUnits.Add(calculateUnitStatus.BattleUnit);
             }
-            _battle.SetEnemyBattleUnits(enemyBattleUnits);
+            _battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
 
             //_battle.SetUpSampleBattleUnits();
             _battle.Battle();

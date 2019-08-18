@@ -24,13 +24,14 @@ public class BattleEngine
     AbilityClass[] abilities;
 
     //Skill make logic , test: one character per one skill
-    SkillsMasterStruct[] skillsMasters ;
-    List<SkillsMasterStruct> buffMasters = new List<SkillsMasterStruct>();
+    SkillsMasterClass[] skillsMasters ;
+    List<SkillsMasterClass> buffMasters = new List<SkillsMasterClass>();
 
     //Effect (permament skill) make logic, the effect has two meanings, one is permanent skill, the other is temporary skill (may call buff).
     List<EffectClass> effects = new List<EffectClass>();
 
-    public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits)
+    //Set up Ally's BattleUnit and EffectClass.
+    public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses)
     {
         foreach (BattleUnit allyBattleUnit in allyBattleUnits)
         {
@@ -39,12 +40,17 @@ public class BattleEngine
             allyBattleUnit.UniqueID = _count;
 
             characters.Add(allyBattleUnit);
-
             _count++;
         }
+
+        foreach (EffectClass allyEffectClass in allyEffectClasses)
+        {
+            effects.Add(allyEffectClass);
+        }
+
     }
 
-    public void SetEnemyBattleUnits(List<BattleUnit> enemyBattleUnits)
+    public void SetEnemyBattleUnits(List<BattleUnit> enemyBattleUnits, List<EffectClass> enemyEffectClasses)
     {
         foreach (BattleUnit enemyBattleUnit in enemyBattleUnits)
         {
@@ -54,9 +60,14 @@ public class BattleEngine
 
             characters.Add(enemyBattleUnit);
             _count++;
+        }
 
+        foreach (EffectClass enemyEffectClass in enemyEffectClasses)
+        {
+            effects.Add(enemyEffectClass);
         }
     }
+
 
     //This is Sample battle.
     public void SetUpSampleBattleUnits()
@@ -217,7 +228,7 @@ public class BattleEngine
         int enemyWinCount = 0;
         int drawCount = 0;
 
-        skillsMasters = new SkillsMasterStruct[_numberOfCharacters + 1];
+        skillsMasters = new SkillsMasterClass[_numberOfCharacters + 1];
 
 
 
@@ -281,44 +292,44 @@ public class BattleEngine
         DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
         attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);
 
-        skillsMasters[0] = new SkillsMasterStruct(name: SkillName.BarrierCounterAvoidManyTimes, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
-         triggerBase: triggerAccumulationMiddle, magnification: magnificationNone, triggerTarget: triggerTargetCounter, buffTarget: buffTargetSelf, callingBuffName: SkillName.Buffdefense12,
-             debuffTarget: debuffTargetNone);
-        skillsMasters[1] = new SkillsMasterStruct(name: SkillName.CounterNonCriticalAttack, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
-         triggerBase: triggerPossibilityBasic, magnification: magnificationSingleD05N05CR05AC05,
-             triggerTarget: triggerTargetCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[2] = new SkillsMasterStruct(name: SkillName.ChainAllysCounter, actionType: ActionType.Chain, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
-         triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD075N05CR05AC05, triggerTarget: triggerTargetChainCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
-         debuffTarget: debuffTargetNone);
-        skillsMasters[3] = new SkillsMasterStruct(name: SkillName.FutureSightShot, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
-         triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD10N10CR15AC20, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
-         debuffTarget: debuffTargetNone);
-        skillsMasters[4] = new SkillsMasterStruct(name: SkillName.ReAttackAfterCritical, actionType: ActionType.ReAttack, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
-         triggerBase: triggerPossibilityExpert, magnification: magnificationMultiD10N05CR05AC075, triggerTarget: triggerTargetCriticalReAttack,
-         buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[5] = new SkillsMasterStruct(name: SkillName.InterruptTargetCounterReduceAccuracy, actionType: ActionType.Interrupt, callSkillLogicName: CallSkillLogicName.ReduceAccuracy, isHeal: false, usageCount: 4, veiledTurn: 20, ability: Ability.intelligence,
-        triggerBase: triggerPossibilityMaster, magnification: magnificationNone, triggerTarget: triggerTargetInterrupt, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        // interrupt skill needs coding..
-        skillsMasters[6] = new SkillsMasterStruct(name: SkillName.ShiledHealAll, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealMulti, isHeal: false, usageCount: 1, veiledTurn: 20, ability: Ability.generation,
-         triggerBase: triggerPossibility100, magnification: magnificationNone, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //skillsMasters[0] = new SkillsMasterStruct(name: SkillName.BarrierCounterAvoidManyTimes, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
+        // triggerBase: triggerAccumulationMiddle, magnification: magnificationNone, triggerTarget: triggerTargetCounter, buffTarget: buffTargetSelf, callingBuffName: SkillName.Buffdefense12,
+        //     debuffTarget: debuffTargetNone);
+        //skillsMasters[1] = new SkillsMasterStruct(name: SkillName.CounterNonCriticalAttack, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
+        // triggerBase: triggerPossibilityBasic, magnification: magnificationSingleD05N05CR05AC05,
+        //     triggerTarget: triggerTargetCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //skillsMasters[2] = new SkillsMasterStruct(name: SkillName.ChainAllysCounter, actionType: ActionType.Chain, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.responsiveness,
+        // triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD075N05CR05AC05, triggerTarget: triggerTargetChainCounter, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
+        // debuffTarget: debuffTargetNone);
+        //skillsMasters[3] = new SkillsMasterStruct(name: SkillName.FutureSightShot, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
+        // triggerBase: triggerPossibilityNormal, magnification: magnificationMultiD10N10CR15AC20, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetNone, callingBuffName: SkillName.none,
+        // debuffTarget: debuffTargetNone);
+        //skillsMasters[4] = new SkillsMasterStruct(name: SkillName.ReAttackAfterCritical, actionType: ActionType.ReAttack, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 6, veiledTurn: 20, ability: Ability.power,
+        // triggerBase: triggerPossibilityExpert, magnification: magnificationMultiD10N05CR05AC075, triggerTarget: triggerTargetCriticalReAttack,
+        // buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //skillsMasters[5] = new SkillsMasterStruct(name: SkillName.InterruptTargetCounterReduceAccuracy, actionType: ActionType.Interrupt, callSkillLogicName: CallSkillLogicName.ReduceAccuracy, isHeal: false, usageCount: 4, veiledTurn: 20, ability: Ability.intelligence,
+        //triggerBase: triggerPossibilityMaster, magnification: magnificationNone, triggerTarget: triggerTargetInterrupt, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //// interrupt skill needs coding..
+        //skillsMasters[6] = new SkillsMasterStruct(name: SkillName.ShiledHealAll, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealMulti, isHeal: false, usageCount: 1, veiledTurn: 20, ability: Ability.generation,
+        // triggerBase: triggerPossibility100, magnification: magnificationNone, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
-        skillsMasters[11] = new SkillsMasterStruct(name: SkillName.ShiledHealplusSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 2, veiledTurn: 20, ability: Ability.generation,
-         triggerBase: triggerPossibility100, magnification: magnificationHeal40, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
-        skillsMasters[12] = new SkillsMasterStruct(name: SkillName.ShiledHealSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
-         triggerBase: triggerPossibility100, magnification: magnificationHeal20, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //skillsMasters[11] = new SkillsMasterStruct(name: SkillName.ShiledHealplusSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 2, veiledTurn: 20, ability: Ability.generation,
+        // triggerBase: triggerPossibility100, magnification: magnificationHeal40, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //skillsMasters[12] = new SkillsMasterStruct(name: SkillName.ShiledHealSingle, actionType: ActionType.Move, callSkillLogicName: CallSkillLogicName.ShieldHealSingle, isHeal: true, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
+        // triggerBase: triggerPossibility100, magnification: magnificationHeal20, triggerTarget: triggerTargetDamageControl, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
-        skillsMasters[13] = new SkillsMasterStruct(name: SkillName.BarrierAll, actionType: ActionType.AtBeginning, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 2, veiledTurn: 20, ability: Ability.none,
-        triggerBase: triggerPossibilityNormal, magnification: magnificationNone, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetMultiBarrier, callingBuffName: SkillName.Buffbarrier10, debuffTarget: debuffTargetNone);
+        //skillsMasters[13] = new SkillsMasterStruct(name: SkillName.BarrierAll, actionType: ActionType.AtBeginning, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 2, veiledTurn: 20, ability: Ability.none,
+        //triggerBase: triggerPossibilityNormal, magnification: magnificationNone, triggerTarget: triggerTargetIndependent, buffTarget: buffTargetMultiBarrier, callingBuffName: SkillName.Buffbarrier10, debuffTarget: debuffTargetNone);
 
-        // Special Normal attack skill
-        skillsMasters[14] = new SkillsMasterStruct(name: SkillName.normalAttack, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 1000, veiledTurn: 20, ability: Ability.none,
-         triggerBase: triggerPossibility100, magnification: magnificationNormal, triggerTarget: triggerTargetNone, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
+        //// Special Normal attack skill
+        //skillsMasters[14] = new SkillsMasterStruct(name: SkillName.normalAttack, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 1000, veiledTurn: 20, ability: Ability.none,
+        // triggerBase: triggerPossibility100, magnification: magnificationNormal, triggerTarget: triggerTargetNone, buffTarget: buffTargetNone, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone);
 
-        //Buff
-        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffdefense12, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
-        triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrierDefense12, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
-        buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffbarrier10, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
-        triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrier10, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
+        ////Buff
+        //buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffdefense12, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
+        //triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrierDefense12, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
+        //buffMasters.Add(new SkillsMasterStruct(name: SkillName.Buffbarrier10, actionType: ActionType.None, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 0, veiledTurn: 5, ability: Ability.none,
+        //triggerBase: triggerPossibilityNone, magnification: magnificationNone, triggerTarget: triggerTargetNone, buffTarget: buffBarrier10, callingBuffName: SkillName.none, debuffTarget: debuffTargetNone));
 
 
         //------------------------Battle Main Engine------------------------
@@ -354,7 +365,13 @@ public class BattleEngine
                 }
                 //foreach (EffectClass effect in effects) { effect.InitializeAccumulation(); }
 
-                EffectInitialize(effects: effects, skillsMasters: skillsMasters, characters: characters); //Effect/Buff initialize
+
+                //effects will be set by outside of this battle engine, so effect initialize make defferent.
+                foreach (EffectClass effect in effects)
+                {
+                    effect.InitializeEffect();
+                }
+                //EffectInitialize(effects: effects, skillsMasters: skillsMasters, characters: characters); //Effect/Buff initialize
 
                 if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
                 {
@@ -987,7 +1004,7 @@ public class BattleEngine
     }
 
     // Skills Possibility Rate calculation
-    public static double TriggerPossibilityRate(SkillsMasterStruct skillsMaster, BattleUnit character)
+    public static double TriggerPossibilityRate(SkillsMasterClass skillsMaster, BattleUnit character)
     {
         double abilityValue = 0.0;
         double magnificationRate = 1.0;
@@ -1022,7 +1039,7 @@ public class BattleEngine
     }
 
     // Skills offenseEffectMagnification calculation
-    public static double EffectPower(SkillsMasterStruct skillsMaster, BattleUnit character)
+    public static double EffectPower(SkillsMasterClass skillsMaster, BattleUnit character)
     {
         double magnificationRate = 1.0;
         switch (skillsMaster.ActionType)
@@ -1039,32 +1056,35 @@ public class BattleEngine
         return 1.0 * magnificationRate;
     }
 
-    public static void EffectInitialize(List<EffectClass> effects, SkillsMasterStruct[] skillsMasters, List<BattleUnit> characters)
-    {
-        double[] TriggerPossibility = new double[characters.Count];
-        double[] OffenseEffectMagnification = new double[characters.Count];
+    //public static void EffectInitialize(List<EffectClass> effects, SkillsMasterStruct[] skillsMasters, List<BattleUnit> characters)
+    //{
+        //double[] TriggerPossibility = new double[characters.Count];
+        //double[] OffenseEffectMagnification = new double[characters.Count];
         //Effect/Buff initialize
-        effects.Clear();
+
+
+
+
         //for (int i = effects.Count - 1; i >= 0; i--) { effects.RemoveAt(i); }
 
-        for (int i = 0; i < characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i++)
-        {
-            TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i], character: characters[i]);
-            OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i], character: characters[i]);
-            EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i], actionType: skillsMasters[i].ActionType,
-             offenseEffectMagnification: OffenseEffectMagnification[i],
-            triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-            effects.Add(effect);
-        }
-        for (int i = characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i < characters.Count; i++)
-        {
-            TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
-            OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
-            EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], actionType: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].ActionType,
-             offenseEffectMagnification: OffenseEffectMagnification[i],
-            triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-            effects.Add(effect);
-        }
+        //for (int i = 0; i < characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i++)
+        //{
+        //    TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i], character: characters[i]);
+        //    OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i], character: characters[i]);
+        //    EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i], actionType: skillsMasters[i].ActionType,
+        //     offenseEffectMagnification: OffenseEffectMagnification[i],
+        //    triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        //    effects.Add(effect);
+        //}
+        //for (int i = characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i < characters.Count; i++)
+        //{
+        //    TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+        //    OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+        //    EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], actionType: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].ActionType,
+        //     offenseEffectMagnification: OffenseEffectMagnification[i],
+        //    triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+        //    effects.Add(effect);
+        //}
 
 //        //Special add Eld4 5  6 and PIG 4,5,6 to counter skill
 //        EffectClass secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
@@ -1153,13 +1173,13 @@ public class BattleEngine
 //        effects.Add(secondEffect);
 
 
-        foreach (EffectClass effect in effects) { effect.BuffToCharacter(currentTurn: 1); }
-    }
+    //    foreach (EffectClass effect in effects) { effect.BuffToCharacter(currentTurn: 1); }
+    //}
 
     // Buff logic
-    public static (string firstLine, string log) BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterStruct> buffMasters, int turn)
+    public static (string firstLine, string log) BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterClass> buffMasters, int turn)
     {
-        SkillsMasterStruct addingBuff;
+        SkillsMasterClass addingBuff;
         List<EffectClass> addingEffect = new List<EffectClass>();
         string firstline = null;
         string log = null;

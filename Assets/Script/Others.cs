@@ -53,7 +53,7 @@ public class FuncBattleConditionsText
                 if (affiliationCharacters[i].Buff.DefenseMagnification > 1.01) { defenseText = "[Defense: x" + affiliationCharacters[i].Buff.DefenseMagnification + "]"; }
 
                 text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].Name
-                    + " (" + affiliationCharacters[i].Combat.ShiledCurrent.WithComma() + "+" 
+                    + " (" + affiliationCharacters[i].Combat.ShiledCurrent.WithComma() + "+"
                     + affiliationCharacters[i].Combat.HitPointCurrent.WithComma() + ")" +
                      " (" + new string(' ', shiledPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.ShiledCurrent / (double)affiliationCharacters[i].Combat.ShiledMax * 100), 0) + "%+"
                     + new string(' ', hPPercentSpace) + Math.Round(((double)affiliationCharacters[i].Combat.HitPointCurrent / (double)affiliationCharacters[i].Combat.HitPointMax * 100), 0) + "%) "
@@ -79,31 +79,7 @@ public class FuncBattleConditionsText
 }
 
 
-// SkillsMaster should be more Global class..
-public struct SkillsMasterStruct
-{
-    public SkillsMasterStruct(SkillName name, ActionType actionType, CallSkillLogicName callSkillLogicName, bool isHeal, int usageCount, int veiledTurn, Ability ability, TriggerBaseClass triggerBase,
-      SkillMagnificationClass magnification, TriggerTargetClass triggerTarget, BuffTargetParameterClass buffTarget, SkillName callingBuffName, DebuffTargetParameterClass debuffTarget)
-    {
-        this.Name = name; this.ActionType = actionType; this.CallSkillLogicName = callSkillLogicName; this.IsHeal = isHeal; this.UsageCount = usageCount; this.VeiledTurn = veiledTurn;
-        this.Ability = ability; this.TriggerBase = triggerBase; this.Magnification = magnification; this.TriggerTarget = triggerTarget;
-        this.BuffTarget = buffTarget; this.CallingBuffName = callingBuffName; this.DebuffTarget = debuffTarget;
-    }
 
-    public SkillName Name { get; }
-    public ActionType ActionType { get; }
-    public CallSkillLogicName CallSkillLogicName { get; }
-    public bool IsHeal { get; }
-    public int UsageCount { get; }
-    public int VeiledTurn { get; }
-    public Ability Ability { get; }
-    public TriggerBaseClass TriggerBase { get; }
-    public SkillMagnificationClass Magnification { get; }
-    public TriggerTargetClass TriggerTarget { get; }
-    public BuffTargetParameterClass BuffTarget { get; }
-    public SkillName CallingBuffName { get; }
-    public DebuffTargetParameterClass DebuffTarget { get; }
-}
 
 //[[Skill logic ]]
 public class SkillLogicShieldHealClass
@@ -113,7 +89,7 @@ public class SkillLogicShieldHealClass
     {
         string damageControlAssistText = null;
         if (order.IsDamageControlAssist) { damageControlAssistText = "[damage control assist] "; }
-        firstLine =  damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
+        firstLine = damageControlAssistText + order.SkillEffectChosen.Skill.Name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
         double healBase = order.Actor.Ability.Generation * order.SkillEffectChosen.Skill.Magnification.Heal * 10.0;
 
         // heal only same affiliation
@@ -176,86 +152,6 @@ public class SkillLogicShieldHealClass
     }
     public string firstLine { get; }
     public string Log { get; }
-}
-
-[Serializable]
-public class EffectClass
-{
-    public EffectClass(BattleUnit character, SkillsMasterStruct skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isDamageControlAssistAble, int usageCount,
-    int veiledFromTurn, int veiledToTurn)
-    {
-        this.Character = character; this.Skill = skill; this.ActionType = actionType; this.OffenseEffectMagnification = offenseEffectMagnification; this.TriggeredPossibility = triggeredPossibility;
-        this.IsDamageControlAssistAble = isDamageControlAssistAble; this.UsageCount = usageCount; this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
-        this.SpentCount = 0; this.AccumulationBaseRate = (int)skill.TriggerBase.AccumulationBaseRate; this.NextAccumulationCount = AccumulationBaseRate;
-        this.IsntTriggeredBecause = new IsntTriggeredBecauseClass();
-    }
-
-    //public void InitializeAccumulation()
-    //{
-    //    this.NextAccumulationCount = AccumulationBaseRate;
-    //}
-
-    public void BuffToCharacter(int currentTurn)
-    {
-        if (currentTurn <= VeiledToTurn && currentTurn >= VeiledFromTurn)
-        {
-            Character.Buff.DefenseMagnification *= Skill.BuffTarget.DefenseMagnification;
-            Character.Buff.MobilityMagnification *= Skill.BuffTarget.MobilityMagnification;
-            Character.Buff.AttackMagnification *= Skill.BuffTarget.AttackMagnification;
-            Character.Buff.AccuracyMagnification *= Skill.BuffTarget.AccuracyMagnification;
-            Character.Buff.CriticalHitRateMagnification *= Skill.BuffTarget.CriticalHitRateMagnification;
-            Character.Buff.NumberOfAttackMagnification *= Skill.BuffTarget.CriticalHitRateMagnification;
-            Character.Buff.RangeMinCorrection += Skill.BuffTarget.RangeMinCorrection;
-            Character.Buff.RangeMaxCorrection += Skill.BuffTarget.RangeMaxCorrection;
-        }
-    }
-
-    public class IsntTriggeredBecauseClass
-    {
-        public IsntTriggeredBecauseClass() { Initialize(); }
-        public void Initialize()
-        {
-            this.IsItCalled = false; this.TriggerCondition = false; this.AfterAllMoved = false; this.TriggerTargetCounter = false; this.TriggerTargetChain = false;
-            this.TriggerTargetReAttack = false; this.TriggerTargetMove = false; this.Critical = false; this.NonCritical = false;
-            this.OnlyWhenBeenHitMoreThanOnce = false; this.OnlyWhenAvoidMoreThanOnce = false; this.AccumulationAvoid = false; this.AccumulationAllHitCount = false;
-            this.AccumulationAllTotalBeenHit = false; this.AccumulationCriticalBeenHit = false; this.AccumulationCriticalHit = false; this.AccumulationSkillBeenHit = false;
-            this.AccumulationSkillHit = false; this.TriggeredPossibility = false;
-        }
-
-        public bool IsItCalled { get; set; }
-        public bool TriggerCondition { get; set; }
-        public bool AfterAllMoved { get; set; }
-        public bool TriggerTargetCounter { get; set; }
-        public bool TriggerTargetChain { get; set; }
-        public bool TriggerTargetReAttack { get; set; }
-        public bool TriggerTargetMove { get; set; }
-        public bool Critical { get; set; }
-        public bool NonCritical { get; set; }
-        public bool OnlyWhenBeenHitMoreThanOnce { get; set; }
-        public bool OnlyWhenAvoidMoreThanOnce { get; set; }
-        public bool AccumulationAvoid { get; set; }
-        public bool AccumulationAllHitCount { get; set; }
-        public bool AccumulationAllTotalBeenHit { get; set; }
-        public bool AccumulationCriticalBeenHit { get; set; }
-        public bool AccumulationCriticalHit { get; set; }
-        public bool AccumulationSkillBeenHit { get; set; }
-        public bool AccumulationSkillHit { get; set; }
-        public bool TriggeredPossibility { get; set; }
-    }
-
-    public IsntTriggeredBecauseClass IsntTriggeredBecause { get; set; }
-    public BattleUnit Character { get; }
-    public SkillsMasterStruct Skill { get; }
-    public ActionType ActionType { get; }
-    public double OffenseEffectMagnification { get; }
-    public double TriggeredPossibility { get; }
-    public bool IsDamageControlAssistAble { get; }
-    public int UsageCount { get; set; }
-    public int SpentCount { get; set; }
-    public int AccumulationBaseRate { get; set; }
-    public int NextAccumulationCount { get; set; }
-    public int VeiledFromTurn { get; }
-    public int VeiledToTurn { get; }
 }
 
 
@@ -410,7 +306,7 @@ public class OrderClass
         OrderClass other = (OrderClass)this.MemberwiseClone();
         other.Actor = this.Actor.Copy();
 
-        return  other;
+        return other;
     }
 
     public OrderConditionClass OrderCondition;
@@ -1023,13 +919,13 @@ public class AttackFunction
 
             string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
-            string firstLine =  criticalWords + skillName + skillTriggerPossibility + " "
+            string firstLine = criticalWords + skillName + skillTriggerPossibility + " "
 + order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
  " total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
 
             //string firstLine =  new string(' ', 0) + order.Actor.Name + "'s " + criticalWords + skillName + skillTriggerPossibility + " "
             //+ order.Actor.Combat.NumberOfAttacks + "time" + sNumberofAttacks +
-             //" total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
+            //" total hit" + snumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
 
             for (int fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
             {
@@ -1057,7 +953,7 @@ public class AttackFunction
                     int damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma().Length);
                     int damageRateSpace = (4 - sign.Length - damageRatio.ToString().Length);
 
-                    log +=  opponents[fTargetColumn].Name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
+                    log += opponents[fTargetColumn].Name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
                     + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
                     + totalIndivisualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
 
