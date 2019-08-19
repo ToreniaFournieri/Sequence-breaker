@@ -364,90 +364,10 @@ public class CalculationHateMagnificationPerTurnFunction
     public string Log { get; }
 }
 
-public class TriggerBaseClass
-{
-    public TriggerBaseClass(double possibilityBaseRate, double possibilityWeight, ReferenceStatistics accumulationReference, double accumulationBaseRate, double accumulationWeight)
-    {
-        this.PossibilityBaseRate = possibilityBaseRate; this.PossibilityWeight = possibilityWeight; this.AccumulationReference = accumulationReference;
-        this.AccumulationBaseRate = accumulationBaseRate; this.AccumulationWeight = accumulationWeight;
-    }
 
-    public double PossibilityBaseRate { get; }
-    public double PossibilityWeight { get; }
-    public ReferenceStatistics AccumulationReference { get; }
-    public double AccumulationBaseRate { get; }
-    public double AccumulationWeight { get; }
-}
 
-public class SkillMagnificationClass
-{
-    public SkillMagnificationClass(TargetType attackTarget, double damage, double kinetic,
-    double chemical, double thermal, double heal, double numberOfAttacks, double critical, double accuracy,
-         double optimumRangeMin, double optimumRangeMax)
-    {
-        this.AttackTarget = attackTarget; this.Damage = damage; this.Kinetic = kinetic; this.Chemical = chemical; this.Thermal = thermal; this.Heal = heal;
-        this.NumberOfAttacks = numberOfAttacks; this.Critical = critical; this.Accuracy = accuracy; this.OptimumRangeMin = optimumRangeMin; this.OptimumRangeMax = optimumRangeMax;
-    }
 
-    public TargetType AttackTarget { get; }
-    public double Damage { get; }
-    public double Kinetic { get; }
-    public double Chemical { get; }
-    public double Thermal { get; }
-    public double Heal { get; }
-    public double NumberOfAttacks { get; }
-    public double Critical { get; }
-    public double Accuracy { get; }
-    public double OptimumRangeMin { get; }
-    public double OptimumRangeMax { get; }
-}
 
-public class TriggerTargetClass
-{
-    public TriggerTargetClass(ActionType actionType, bool afterAllMoved, bool counter, bool chain,
-     bool reAttack, bool heal, bool move, Range optimumRange, AttackType majestyAttackType, CriticalOrNot critical, ActorOrTargetUnit whoCrushed, bool onlyWhenBeenHitMoreThanOnce, bool onlyWhenAvoidMoreThanOnce)
-    {
-        this.ActionType = actionType; this.AfterAllMoved = afterAllMoved; this.Counter = counter; this.Chain = chain; this.ReAttack = reAttack; this.Heal = Heal;
-        this.Move = move; this.OptimumRange = optimumRange; this.MajestyAttackType = majestyAttackType; this.Critical = critical; this.WhoCrushed = whoCrushed;
-        this.OnlyWhenBeenHitMoreThanOnce = onlyWhenBeenHitMoreThanOnce; this.OnlyWhenAvoidMoreThanOnce = onlyWhenAvoidMoreThanOnce;
-    }
-
-    public ActionType ActionType { get; }
-    public bool AfterAllMoved { get; }
-    public bool Counter { get; }
-    public bool Chain { get; }
-    public bool ReAttack { get; }
-    public bool Heal { get; }
-    public bool Move { get; }
-    public Range OptimumRange { get; }
-    public AttackType MajestyAttackType { get; }
-    public CriticalOrNot Critical { get; }
-    public ActorOrTargetUnit WhoCrushed { get; }
-    public bool OnlyWhenBeenHitMoreThanOnce { get; }
-    public bool OnlyWhenAvoidMoreThanOnce { get; }
-}
-
-public class BuffTargetParameterClass
-{
-    public BuffTargetParameterClass(TargetType targetType, int barrierRemaining, double defenseMagnification, double mobilityMagnification, double attackMagnification,
-     double accuracyMagnification, double criticalHitRateMagnification, double numberOfAttackMagnification, int rangeMinCorrection, int rangeMaxCorrection)
-    {
-        this.TargetType = targetType; this.BarrierRemaining = barrierRemaining; this.DefenseMagnification = defenseMagnification; this.MobilityMagnification = mobilityMagnification;
-        this.AttackMagnification = attackMagnification; this.AccuracyMagnification = accuracyMagnification; this.CriticalHitRateMagnification = criticalHitRateMagnification;
-        this.NumberOfAttackMagnification = numberOfAttackMagnification; this.RangeMinCorrection = rangeMinCorrection; this.RangeMaxCorrection = rangeMaxCorrection;
-    }
-
-    public TargetType TargetType { get; }
-    public int BarrierRemaining { get; }
-    public double DefenseMagnification { get; }
-    public double MobilityMagnification { get; }
-    public double AttackMagnification { get; }
-    public double AccuracyMagnification { get; }
-    public double CriticalHitRateMagnification { get; }
-    public double NumberOfAttackMagnification { get; }
-    public int RangeMinCorrection { get; }
-    public int RangeMaxCorrection { get; }
-}
 
 public class DebuffTargetParameterClass
 {

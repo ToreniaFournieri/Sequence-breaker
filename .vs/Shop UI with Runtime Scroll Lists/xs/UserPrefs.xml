@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/Skills/EffectClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/Skills/Subclass/BuffTargetParameterClass.cs">
     <Files>
       <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="162" Column="1" />
       <File FileName="Assets/Script/01_Data/UnitClass/CalculateUnitStatus.cs" Line="129" Column="143" />
-      <File FileName="Assets/Script/BattleEngine.cs" Line="1097" Column="25" />
+      <File FileName="Assets/Script/BattleEngine.cs" Line="290" Column="179" />
       <File FileName="Assets/Script/01_Data/BattleUnit.cs" Line="45" Column="61" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/FeatureClass.cs" Line="10" Column="60" />
       <File FileName="Assets/Script/01_Data/BattleUnitSub/OffenseMagnificationClass.cs" Line="9" Column="62" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/ActionSkillClass.cs" Line="14" Column="48" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/UnitSkillMagnificationClass.cs" Line="12" Column="1" />
-      <File FileName="Assets/Script/Enumeration.cs" Line="10" Column="1" />
-      <File FileName="Assets/Script/01_Data/UnitClass/CoreFrame.cs" Line="6" Column="14" />
-      <File FileName="Assets/Script/BattleLogList.cs" Line="60" Column="40" />
-      <File FileName="Assets/Script/Others.cs" Line="83" Column="33" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/CombatClass.cs" Line="28" Column="40" />
-      <File FileName="Assets/Script/01_Data/UnitClass/UnitClass.cs" Line="7" Column="14" />
-      <File FileName="Assets/Script/01_Data/BattleUnitSub/AbilityClass.cs" Line="6" Column="45" />
-      <File FileName="Assets/Script/01_Data/Skills/EffectClass.cs" Line="9" Column="47" />
-      <File FileName="Assets/Script/01_Data/Skills/SkillsMasterClass.cs" Line="19" Column="1" />
+      <File FileName="Assets/Script/01_Data/Skills/EffectClass.cs" Line="32" Column="67" />
+      <File FileName="Assets/Script/Others.cs" Line="368" Column="1" />
+      <File FileName="Assets/Script/01_Data/Skills/SkillsMasterClass.cs" Line="6" Column="50" />
+      <File FileName="Assets/Script/01_Data/Skills/Subclass/BuffTargetParameterClass.cs" Line="6" Column="70" />
+      <File FileName="Assets/Script/01_Data/Skills/Subclass/SkillMagnificationClass.cs" Line="5" Column="72" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -25,7 +19,7 @@
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="42d1449e-9c13-4703-a245-91008aeb76eb" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/celvena/Shop UI with Runtime Scroll Lists/Assets/Script/Others.cs" relfile="Assets/Script/Others.cs" line="792" column="1" />
+      <Breakpoint file="/Users/celvena/Shop UI with Runtime Scroll Lists/Assets/Script/Others.cs" relfile="Assets/Script/Others.cs" line="688" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

@@ -314,7 +314,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
-  allySkillsList: []
+  allySkillsList:
+  - {fileID: 0}
   enemyUnitList:
   - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
   - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}

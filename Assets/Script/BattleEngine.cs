@@ -235,59 +235,59 @@ public class BattleEngine
 
 
         //Skills
-        TriggerBaseClass triggerPossibilityNone = new TriggerBaseClass(possibilityBaseRate: 0.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerPossibilityBasic = new TriggerBaseClass(possibilityBaseRate: 0.149, possibilityWeight: 15, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerPossibilityNormal = new TriggerBaseClass(possibilityBaseRate: 0.122, possibilityWeight: 6, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerPossibilityExpert = new TriggerBaseClass(possibilityBaseRate: 0.060, possibilityWeight: 2, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerPossibilityMaster = new TriggerBaseClass(possibilityBaseRate: 0.002, possibilityWeight: 1, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerPossibility100 = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
-        TriggerBaseClass triggerAccumulationMiddle = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.AvoidCount, accumulationBaseRate: 10.0, accumulationWeight: 1.5);
-        TriggerBaseClass triggerAccumulationHit = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.AllTotalBeenHitCount, accumulationBaseRate: 10.0, accumulationWeight: 1.5);
+        //TriggerBaseClass triggerPossibilityNone = new TriggerBaseClass(possibilityBaseRate: 0.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerPossibilityBasic = new TriggerBaseClass(possibilityBaseRate: 0.149, possibilityWeight: 15, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerPossibilityNormal = new TriggerBaseClass(possibilityBaseRate: 0.122, possibilityWeight: 6, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerPossibilityExpert = new TriggerBaseClass(possibilityBaseRate: 0.060, possibilityWeight: 2, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerPossibilityMaster = new TriggerBaseClass(possibilityBaseRate: 0.002, possibilityWeight: 1, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerPossibility100 = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.none, accumulationBaseRate: 0.0, accumulationWeight: 0.0);
+        //TriggerBaseClass triggerAccumulationMiddle = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.AvoidCount, accumulationBaseRate: 10.0, accumulationWeight: 1.5);
+        //TriggerBaseClass triggerAccumulationHit = new TriggerBaseClass(possibilityBaseRate: 1.0, possibilityWeight: 0, accumulationReference: ReferenceStatistics.AllTotalBeenHitCount, accumulationBaseRate: 10.0, accumulationWeight: 1.5);
 
-        SkillMagnificationClass magnificationNone = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 1.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationNormal = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 1.0, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 1.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationHeal20 = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 2.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationHeal40 = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 4.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationSingleD05N05CR05AC05 = new SkillMagnificationClass(attackTarget: TargetType.single, damage: 0.5, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.5, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationMultiD075N05CR05AC05 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 0.75, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.5, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationMultiD10N05CR05AC075 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 0.75, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.75, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
-        SkillMagnificationClass magnificationMultiD10N10CR15AC20 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 1.00, kinetic: 1.0, chemical: 1.0,
-        thermal: 1.0, heal: 3.0, numberOfAttacks: 1.0, critical: 1.5, accuracy: 2.0, optimumRangeMin: 0.5, optimumRangeMax: 2.0);
+        //SkillMagnificationClass magnificationNone = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 1.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationNormal = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 1.0, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 1.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationHeal20 = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 2.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationHeal40 = new SkillMagnificationClass(attackTarget: TargetType.none, damage: 1.0, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 4.0, numberOfAttacks: 1.0, critical: 1.0, accuracy: 1.0, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationSingleD05N05CR05AC05 = new SkillMagnificationClass(attackTarget: TargetType.single, damage: 0.5, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.5, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationMultiD075N05CR05AC05 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 0.75, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.5, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationMultiD10N05CR05AC075 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 0.75, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 3.0, numberOfAttacks: 0.5, critical: 0.5, accuracy: 0.75, optimumRangeMin: 1.0, optimumRangeMax: 1.0);
+        //SkillMagnificationClass magnificationMultiD10N10CR15AC20 = new SkillMagnificationClass(attackTarget: TargetType.multi, damage: 1.00, kinetic: 1.0, chemical: 1.0,
+        //thermal: 1.0, heal: 3.0, numberOfAttacks: 1.0, critical: 1.5, accuracy: 2.0, optimumRangeMin: 0.5, optimumRangeMax: 2.0);
 
-        TriggerTargetClass triggerTargetNone = new TriggerTargetClass(actionType: ActionType.None, afterAllMoved: false, counter: false, chain: false, reAttack: false, heal: false, move: false,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetDamageControl = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: false, counter: true, chain: true, reAttack: true, heal: false, move: true,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetIndependent = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: false, reAttack: false, heal: false, move: false,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetCounter = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: true, chain: true, reAttack: true, heal: false, move: true,
-         optimumRange: Range.within, majestyAttackType: AttackType.any, critical: CriticalOrNot.nonCritical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: true, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetChainCounter = new TriggerTargetClass(actionType: ActionType.Counter, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: true,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetCriticalReAttack = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: true, reAttack: false, heal: false, move: true,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.critical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
-        TriggerTargetClass triggerTargetInterrupt = new TriggerTargetClass(actionType: ActionType.Interrupt, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: false,
-         optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetNone = new TriggerTargetClass(actionType: ActionType.None, afterAllMoved: false, counter: false, chain: false, reAttack: false, heal: false, move: false,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetDamageControl = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: false, counter: true, chain: true, reAttack: true, heal: false, move: true,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetIndependent = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: false, reAttack: false, heal: false, move: false,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetCounter = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: true, chain: true, reAttack: true, heal: false, move: true,
+        // optimumRange: Range.within, majestyAttackType: AttackType.any, critical: CriticalOrNot.nonCritical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: true, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetChainCounter = new TriggerTargetClass(actionType: ActionType.Counter, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: true,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetCriticalReAttack = new TriggerTargetClass(actionType: ActionType.Any, afterAllMoved: true, counter: false, chain: true, reAttack: false, heal: false, move: true,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.critical, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
+        //TriggerTargetClass triggerTargetInterrupt = new TriggerTargetClass(actionType: ActionType.Interrupt, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: false,
+        // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
 
-        BuffTargetParameterClass buffTargetNone = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-        attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-        BuffTargetParameterClass buffTargetSelf = new BuffTargetParameterClass(targetType: TargetType.self, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-        BuffTargetParameterClass buffTargetMulti = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-        BuffTargetParameterClass buffTargetMultiBarrier = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-        BuffTargetParameterClass buffBarrierDefense12 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 20, defenseMagnification: 1.1, mobilityMagnification: 1.0,
-       attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-        BuffTargetParameterClass buffBarrier10 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 6, defenseMagnification: 1.05, mobilityMagnification: 1.0,
-       attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffTargetNone = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+       // attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffTargetSelf = new BuffTargetParameterClass(targetType: TargetType.self, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffTargetMulti = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffTargetMultiBarrier = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffBarrierDefense12 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 20, defenseMagnification: 1.1, mobilityMagnification: 1.0,
+       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+       // BuffTargetParameterClass buffBarrier10 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 6, defenseMagnification: 1.05, mobilityMagnification: 1.0,
+       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
 
         DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
         attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);

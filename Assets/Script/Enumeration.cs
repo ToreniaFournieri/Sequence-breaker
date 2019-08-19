@@ -6,13 +6,13 @@ using System.Collections;
 public enum Affiliation { ally, enemy, none }
     //Enum: Unit type difinition (for vs check, deal additional bonus or delt additional reduction)
     public enum UnitType { beast, cyborg, drone, robot, titan }
-    public enum Ability { power, generation, stability, responsiveness, precision, intelligence, luck, none }
-    public enum ActionType { NormalAttack, Move, Counter, Chain, ReAttack, Interrupt, Buff, AtBeginning, AtEnding, Any, None }
-    public enum AttackType { kinetic, chemical, thermal, any }
-    public enum TargetType { self, single, multi, none }
-    public enum CriticalOrNot { critical, nonCritical, any }
-    public enum ActorOrTargetUnit { actorUnit, targetUnit, no }
-    public enum Range { within, without, any }
+    public enum Ability { none, power, generation, stability, responsiveness, precision, intelligence, luck }
+    public enum ActionType { None, Any, NormalAttack, Move, Counter, Chain, ReAttack, Interrupt, Buff, AtBeginning, AtEnding }
+    public enum AttackType { any, kinetic, chemical, thermal }
+    public enum TargetType { none, self, single, multi }
+    public enum CriticalOrNot { any, critical, nonCritical }
+    public enum ActorOrTargetUnit {no, actorUnit, targetUnit }
+    public enum Range { any,within, without }
     public enum WhichWin { allyWin, enemyWin, Draw }
     public enum SkillName
     {

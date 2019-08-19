@@ -9,6 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1dec9c6bb6b342faaf761635a572234, type: 3}
-  m_Name: Effect-
+  m_Script: {fileID: 11500000, guid: 73460e1a540e743ad8eddde48ac39150, type: 3}
+  m_Name: magnificationHeal20
   m_EditorClassIdentifier: 
+  AttackTarget: 3
+  Damage: 1
+  Kinetic: 1
+  Chemical: 1
+  Thermal: 1
+  Heal: 2
+  NumberOfAttacks: 1
+  Critical: 1
+  Accuracy: 1
+  OptimumRangeMin: 1
+  OptimumRangeMax: 1

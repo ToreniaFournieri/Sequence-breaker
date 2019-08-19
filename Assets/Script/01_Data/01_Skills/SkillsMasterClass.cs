@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill-", menuName = "Skill/SkillsMaster", order = 2)]
+[CreateAssetMenu(fileName = "SkillMaster-", menuName = "Skill/SkillsMaster", order = 2)]
 public class SkillsMasterClass : ScriptableObject
 {
 
@@ -15,18 +15,18 @@ public class SkillsMasterClass : ScriptableObject
     //}
 
     [SerializeField] public SkillName Name;
-    [SerializeField] public ActionType ActionType { get; }
-    [SerializeField] public CallSkillLogicName CallSkillLogicName { get; }
-    [SerializeField] public bool IsHeal { get; }
-    [SerializeField] public int UsageCount { get; }
-    [SerializeField] public int VeiledTurn { get; }
-    [SerializeField] public Ability Ability { get; }
-    [SerializeField] public TriggerBaseClass TriggerBase { get; }
-    [SerializeField] public SkillMagnificationClass Magnification { get; }
-    [SerializeField] public TriggerTargetClass TriggerTarget { get; }
-    [SerializeField] public BuffTargetParameterClass BuffTarget { get; }
-    [SerializeField] public SkillName CallingBuffName { get; }
-    [SerializeField] public DebuffTargetParameterClass DebuffTarget { get; }
+    [SerializeField] public ActionType ActionType;
+    [SerializeField] public CallSkillLogicName CallSkillLogicName;
+    [SerializeField] public bool IsHeal;
+    [SerializeField] public int UsageCount;
+    [SerializeField] public int VeiledTurn;
+    [SerializeField] public Ability Ability;
+    [SerializeField] public TriggerBaseClass TriggerBase;
+    [SerializeField] public SkillMagnificationClass Magnification;
+    [SerializeField] public TriggerTargetClass TriggerTarget;
+    [SerializeField] public BuffTargetParameterClass BuffTarget;
+    [SerializeField] public SkillName CallingBuffName;
+    [SerializeField] public DebuffTargetParameterClass DebuffTarget;
 
 
     public SkillsMasterClass DeepCopy()
