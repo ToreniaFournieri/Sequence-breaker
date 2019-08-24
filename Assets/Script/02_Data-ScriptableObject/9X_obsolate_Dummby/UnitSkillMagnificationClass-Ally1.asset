@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507bc5d734794dc6b38221c9f8115e7, type: 3}
+  m_Name: UnitSkillMagnificationClass-Ally1
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnit/SkillMagnificationClass
+  OffenseEffectPower: {fileID: 11400000, guid: eb919e9753cbf4304bda13e7d40fdbb1, type: 2}
+  TriggerPossibility: {fileID: 11400000, guid: c0645f332524b4b9b85d303f38eb1602, type: 2}

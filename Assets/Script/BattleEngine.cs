@@ -289,8 +289,8 @@ public class BattleEngine
        // BuffTargetParameterClass buffBarrier10 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 6, defenseMagnification: 1.05, mobilityMagnification: 1.0,
        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
 
-        DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-        attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);
+        //DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);
 
         //skillsMasters[0] = new SkillsMasterStruct(name: SkillName.BarrierCounterAvoidManyTimes, actionType: ActionType.Counter, callSkillLogicName: CallSkillLogicName.none, isHeal: false, usageCount: 3, veiledTurn: 20, ability: Ability.generation,
         // triggerBase: triggerAccumulationMiddle, magnification: magnificationNone, triggerTarget: triggerTargetCounter, buffTarget: buffTargetSelf, callingBuffName: SkillName.Buffdefense12,
@@ -1003,89 +1003,40 @@ public class BattleEngine
         return null;
     }
 
-    // Skills Possibility Rate calculation
-    public static double TriggerPossibilityRate(SkillsMasterClass skillsMaster, BattleUnit character)
-    {
-        double abilityValue = 0.0;
-        double magnificationRate = 1.0;
-        switch (skillsMaster.Ability)
-        {
-            case Ability.power: abilityValue = (double)character.Ability.Power; break;
-            case Ability.generation: abilityValue = (double)character.Ability.Generation; break;
-            case Ability.responsiveness: abilityValue = (double)character.Ability.Responsiveness; break;
-            case Ability.intelligence: abilityValue = (double)character.Ability.Intelligence; break;
-            case Ability.precision: abilityValue = (double)character.Ability.Precision; break;
-            case Ability.luck: abilityValue = (double)character.Ability.Luck; break;
-            case Ability.none: abilityValue = 0.0; break;
-            default: break;
-        }
 
-        switch (skillsMaster.ActionType)
-        {
-            case ActionType.Counter: magnificationRate = character.SkillMagnification.TriggerPossibility.Counter; break;
-            case ActionType.Chain: magnificationRate = character.SkillMagnification.TriggerPossibility.Chain; break;
-            case ActionType.ReAttack: magnificationRate = character.SkillMagnification.TriggerPossibility.ReAttack; break;
-            case ActionType.Move: magnificationRate = character.SkillMagnification.TriggerPossibility.Move; break;
-            case ActionType.Interrupt: magnificationRate = character.SkillMagnification.TriggerPossibility.Interrupt; break;
-            case ActionType.AtBeginning: magnificationRate = character.SkillMagnification.TriggerPossibility.AtBeginning; break;
-            case ActionType.AtEnding: magnificationRate = character.SkillMagnification.TriggerPossibility.AtEnding; break;
-            default: break;
-        }
 
-        double value = Math.Pow(((skillsMaster.TriggerBase.PossibilityBaseRate + abilityValue /
-                 (100.0 + abilityValue * 2 * skillsMaster.TriggerBase.PossibilityWeight)) * 100), 3.0) / 40000 * magnificationRate;
-        if (value > 1.0) { value = 1.0; }
-        return value;
-    }
 
-    // Skills offenseEffectMagnification calculation
-    public static double EffectPower(SkillsMasterClass skillsMaster, BattleUnit character)
-    {
-        double magnificationRate = 1.0;
-        switch (skillsMaster.ActionType)
-        {
-            case ActionType.Counter: magnificationRate = character.SkillMagnification.OffenseEffectPower.Counter; break;
-            case ActionType.Chain: magnificationRate = character.SkillMagnification.OffenseEffectPower.Chain; break;
-            case ActionType.ReAttack: magnificationRate = character.SkillMagnification.OffenseEffectPower.ReAttack; break;
-            case ActionType.Move: magnificationRate = character.SkillMagnification.OffenseEffectPower.Move; break;
-            case ActionType.Interrupt: magnificationRate = character.SkillMagnification.OffenseEffectPower.Interrupt; break;
-            case ActionType.AtBeginning: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtBeginning; break;
-            case ActionType.AtEnding: magnificationRate = character.SkillMagnification.OffenseEffectPower.AtEnding; break;
-            default: break;
-        }
-        return 1.0 * magnificationRate;
-    }
 
     //public static void EffectInitialize(List<EffectClass> effects, SkillsMasterStruct[] skillsMasters, List<BattleUnit> characters)
     //{
-        //double[] TriggerPossibility = new double[characters.Count];
-        //double[] OffenseEffectMagnification = new double[characters.Count];
-        //Effect/Buff initialize
+    //    double[] TriggerPossibility = new double[characters.Count];
+    //    double[] OffenseEffectMagnification = new double[characters.Count];
+    //    //Effect / Buff initialize
 
 
 
 
-        //for (int i = effects.Count - 1; i >= 0; i--) { effects.RemoveAt(i); }
+    //    for (int i = effects.Count - 1; i >= 0; i--) { effects.RemoveAt(i); }
 
-        //for (int i = 0; i < characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i++)
-        //{
-        //    TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i], character: characters[i]);
-        //    OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i], character: characters[i]);
-        //    EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i], actionType: skillsMasters[i].ActionType,
-        //     offenseEffectMagnification: OffenseEffectMagnification[i],
-        //    triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        //    effects.Add(effect);
-        //}
-        //for (int i = characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i < characters.Count; i++)
-        //{
-        //    TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
-        //    OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
-        //    EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], actionType: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].ActionType,
-        //     offenseEffectMagnification: OffenseEffectMagnification[i],
-        //    triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
-        //    effects.Add(effect);
-        //}
-
+    //    for (int i = 0; i < characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i++)
+    //    {
+    //        TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i], character: characters[i]);
+    //        OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i], character: characters[i]);
+    //        EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i], actionType: skillsMasters[i].ActionType,
+    //         offenseEffectMagnification: OffenseEffectMagnification[i],
+    //        triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+    //        effects.Add(effect);
+    //    }
+    //    for (int i = characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count; i < characters.Count; i++)
+    //    {
+    //        TriggerPossibility[i] = TriggerPossibilityRate(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+    //        OffenseEffectMagnification[i] = EffectPower(skillsMaster: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], character: characters[i]);
+    //        EffectClass effect = new EffectClass(character: characters[i], skill: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count], actionType: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].ActionType,
+    //         offenseEffectMagnification: OffenseEffectMagnification[i],
+    //        triggeredPossibility: TriggerPossibility[i], isDamageControlAssistAble: false, usageCount: skillsMasters[i - characters.FindAll(character1 => character1.Affiliation == Affiliation.ally).Count].UsageCount, veiledFromTurn: 1, veiledToTurn: 20);
+    //        effects.Add(effect);
+    //    }
+    //}
 //        //Special add Eld4 5  6 and PIG 4,5,6 to counter skill
 //        EffectClass secondEffect = new EffectClass(character: characters[10], skill: skillsMasters[1], actionType: skillsMasters[1].ActionType,
 //offenseEffectMagnification: OffenseEffectMagnification[10],

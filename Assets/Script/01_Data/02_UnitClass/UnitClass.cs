@@ -20,7 +20,7 @@ public class UnitClass : ScriptableObject
     [SerializeField] public Pilot Pilot;
     [SerializeField] public int Level;
 
-
+    [SerializeField] public List<SkillsMasterClass> skillsMaster;
 
 
 }

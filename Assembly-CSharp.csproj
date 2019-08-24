@@ -211,6 +211,7 @@
     <Compile Include="Assets\Script\01_Data\01_Skills\EffectClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\SkillsMasterClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\BuffTargetParameterClass.cs" />
+    <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\DebuffTargetParameterClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\SkillMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\TriggerBaseClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\TriggerTargetClass.cs" />

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55a5dc744da24fc4acea2ab3fce657c, type: 3}
+  m_Name: debuffTarget-None
+  m_EditorClassIdentifier: 
+  TargetType: 0
+  BarrierRemaining: 0
+  DefenseMagnification: 1
+  MobilityMagnification: 1
+  AttackMagnification: 1
+  AccuracyMagnification: 1
+  CriticalHitRateMagnification: 1
+  NumberOfAttackMagnification: 1

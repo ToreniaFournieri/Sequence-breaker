@@ -369,25 +369,6 @@ public class CalculationHateMagnificationPerTurnFunction
 
 
 
-public class DebuffTargetParameterClass
-{
-    public DebuffTargetParameterClass(TargetType targetType, double barrierRemaining, double defenseMagnification, double mobilityMagnification, double attackMagnification,
-     double accuracyMagnification, double criticalHitRateMagnification, double numberOfAttackMagnification)
-    {
-        this.TargetType = targetType; this.BarrierRemaining = barrierRemaining; this.DefenseMagnification = defenseMagnification; this.MobilityMagnification = mobilityMagnification;
-        this.AttackMagnification = attackMagnification; this.AccuracyMagnification = accuracyMagnification; this.CriticalHitRateMagnification = criticalHitRateMagnification;
-        this.NumberOfAttackMagnification = numberOfAttackMagnification;
-    }
-
-    public TargetType TargetType { get; }
-    public double BarrierRemaining { get; }
-    public double DefenseMagnification { get; }
-    public double MobilityMagnification { get; }
-    public double AttackMagnification { get; }
-    public double AccuracyMagnification { get; }
-    public double CriticalHitRateMagnification { get; }
-    public double NumberOfAttackMagnification { get; }
-}
 
 //Check wipe out and should continue the battle
 public class WipeOutCheck

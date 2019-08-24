@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73460e1a540e743ad8eddde48ac39150, type: 3}
+  m_Name: magnificationMultiD075N05CR05AC05
+  m_EditorClassIdentifier: 
+  AttackTarget: 2
+  Damage: 0.75
+  Kinetic: 1
+  Chemical: 1
+  Thermal: 1
+  Heal: 3
+  NumberOfAttacks: 0.5
+  Critical: 0.5
+  Accuracy: 0.5
+  OptimumRangeMin: 1
+  OptimumRangeMax: 1
