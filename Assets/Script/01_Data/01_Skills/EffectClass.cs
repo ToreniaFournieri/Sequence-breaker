@@ -11,12 +11,22 @@ public class EffectClass : ScriptableObject
     [SerializeField] public double TriggeredPossibility;
     [SerializeField] public int AccumulationBaseRate;
 
+    //private SkillsMasterClass _skill;
+
+    // for normal skill
     public EffectClass(BattleUnit character, SkillsMasterClass skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isDamageControlAssistAble, int usageCount,
     int veiledFromTurn, int veiledToTurn)
     {
-        this.Character = character; this.Skill = skill; this.ActionType = actionType; this.OffenseEffectMagnification = offenseEffectMagnification; this.TriggeredPossibility = triggeredPossibility;
-        this.IsDamageControlAssistAble = isDamageControlAssistAble; this.UsageCount = usageCount; this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
-        this.SpentCount = 0; this.AccumulationBaseRate = (int)skill.TriggerBase.AccumulationBaseRate; this.NextAccumulationCount = AccumulationBaseRate;
+
+        this.Character = character; this.Skill = skill; this.ActionType = actionType; this.OffenseEffectMagnification = offenseEffectMagnification;
+        this.TriggeredPossibility = triggeredPossibility;
+        this.IsDamageControlAssistAble = isDamageControlAssistAble; this.UsageCount = usageCount;
+        this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
+        this.SpentCount = 0;
+
+
+        this.AccumulationBaseRate = (int)skill.TriggerBase.AccumulationBaseRate;
+        this.NextAccumulationCount = AccumulationBaseRate;
         this.IsntTriggeredBecause = new IsntTriggeredBecauseClass();
     }
 

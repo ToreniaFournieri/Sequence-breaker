@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/02_UnitClass/UnitClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/01_Skills/EffectClass.cs">
     <Files>
-      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="162" Column="1" />
-      <File FileName="Assets/Script/BattleEngine.cs" Line="1275" Column="51" />
+      <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="155" Column="40" />
+      <File FileName="Assets/Script/BattleEngine.cs" Line="535" Column="1" />
       <File FileName="Assets/Script/01_Data/BattleUnit.cs" Line="45" Column="61" />
       <File FileName="Assets/Script/Others.cs" Line="407" Column="79" />
       <File FileName="Assets/Script/01_Data/01_Skills/SkillsMasterClass.cs" Line="20" Column="40" />
       <File FileName="Assets/Script/01_Data/01_Skills/Subclass/DebuffTargetParameterClass.cs" Line="22" Column="41" />
       <File FileName="Assets/Script/01_Data/01_Skills/Subclass/SkillMagnificationClass.cs" Line="6" Column="56" />
-      <File FileName="Assets/Script/01_Data/01_Skills/EffectClass.cs" Line="8" Column="50" />
-      <File FileName="Assets/Script/01_Data/02_UnitClass/UnitClass.cs" Line="23" Column="10" />
+      <File FileName="Assets/Script/01_Data/01_Skills/EffectClass.cs" Line="5" Column="83" />
+      <File FileName="Assets/Script/01_Data/02_UnitClass/UnitClass.cs" Line="23" Column="65" />
+      <File FileName="Assets/Script/BattleUnitList.cs" Line="9" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

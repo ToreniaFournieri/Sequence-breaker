@@ -24,11 +24,21 @@ public class BattleEngine
     AbilityClass[] abilities;
 
     //Skill make logic , test: one character per one skill
-    SkillsMasterClass[] skillsMasters ;
-    List<SkillsMasterClass> buffMasters = new List<SkillsMasterClass>();
+    //SkillsMasterClass[] skillsMasters ;
+    private SkillsMasterClass _normalAttackSkillMaster;
+    private List<SkillsMasterClass> _buffMasters;
+    //= new List<SkillsMasterClass>();
 
     //Effect (permament skill) make logic, the effect has two meanings, one is permanent skill, the other is temporary skill (may call buff).
     List<EffectClass> effects = new List<EffectClass>();
+
+    //Set up a battle environment.
+    public void SetUpEnvironment(SkillsMasterClass normalAttackSkillMaster, List<SkillsMasterClass> buffMasters )
+    {
+        _normalAttackSkillMaster = normalAttackSkillMaster;
+        _buffMasters = buffMasters;
+    }
+
 
     //Set up Ally's BattleUnit and EffectClass.
     public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses)
@@ -202,7 +212,7 @@ public class BattleEngine
         Console.WriteLine("start:" + startDateTime);
         // Battle environment setting
         int battleWavesSets = 1;
-        int battleWaves = 1000; // one set of battle 
+        int battleWaves = 1; // one set of battle 
         string navigatorName = "Navigator";
 
         //BattleWaveSet variables
@@ -228,7 +238,7 @@ public class BattleEngine
         int enemyWinCount = 0;
         int drawCount = 0;
 
-        skillsMasters = new SkillsMasterClass[_numberOfCharacters + 1];
+        //skillsMasters = new SkillsMasterClass[_numberOfCharacters + 1];
 
 
 
@@ -276,18 +286,18 @@ public class BattleEngine
         //TriggerTargetClass triggerTargetInterrupt = new TriggerTargetClass(actionType: ActionType.Interrupt, afterAllMoved: false, counter: true, chain: false, reAttack: false, heal: false, move: false,
         // optimumRange: Range.any, majestyAttackType: AttackType.any, critical: CriticalOrNot.any, whoCrushed: ActorOrTargetUnit.no, onlyWhenBeenHitMoreThanOnce: false, onlyWhenAvoidMoreThanOnce: false);
 
-       // BuffTargetParameterClass buffTargetNone = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       // attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-       // BuffTargetParameterClass buffTargetSelf = new BuffTargetParameterClass(targetType: TargetType.self, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-       // BuffTargetParameterClass buffTargetMulti = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-       // BuffTargetParameterClass buffTargetMultiBarrier = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
-       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-       // BuffTargetParameterClass buffBarrierDefense12 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 20, defenseMagnification: 1.1, mobilityMagnification: 1.0,
-       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
-       // BuffTargetParameterClass buffBarrier10 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 6, defenseMagnification: 1.05, mobilityMagnification: 1.0,
-       //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffTargetNone = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+        // attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffTargetSelf = new BuffTargetParameterClass(targetType: TargetType.self, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffTargetMulti = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffTargetMultiBarrier = new BuffTargetParameterClass(targetType: TargetType.multi, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffBarrierDefense12 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 20, defenseMagnification: 1.1, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
+        // BuffTargetParameterClass buffBarrier10 = new BuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 6, defenseMagnification: 1.05, mobilityMagnification: 1.0,
+        //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0, rangeMinCorrection: 0, rangeMaxCorrection: 0);
 
         //DebuffTargetParameterClass debuffTargetNone = new DebuffTargetParameterClass(targetType: TargetType.none, barrierRemaining: 0, defenseMagnification: 1.0, mobilityMagnification: 1.0,
         //attackMagnification: 1.0, accuracyMagnification: 1.0, criticalHitRateMagnification: 1.0, numberOfAttackMagnification: 1.0);
@@ -472,7 +482,7 @@ public class BattleEngine
                                             orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: 0, nest: 0, nestOrderNumber: 0);
 
                                             // Add normal attack skills
-                                            EffectClass normalAttackEffect = new EffectClass(character: aliveCharacters[i], skill: skillsMasters[14], actionType: ActionType.NormalAttack, offenseEffectMagnification: 1.0,
+                                            EffectClass normalAttackEffect = new EffectClass(character: aliveCharacters[i], skill: _normalAttackSkillMaster, actionType: ActionType.NormalAttack, offenseEffectMagnification: 1.0,
                                             triggeredPossibility: 1.0, isDamageControlAssistAble: false, usageCount: 1000, veiledFromTurn: 1, veiledToTurn: 20);
                                             effectList.Add(normalAttackEffect);
                                             orderForSort.Add(new OrderClass(orderCondition: orderCondition, actor: aliveCharacters[i], actionType: ActionType.Move, skillEffectProposed: ref effectList,
@@ -546,7 +556,7 @@ public class BattleEngine
                                 }
                                 if (willSkip != true)
                                 {
-                                    (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: buffMasters, turn: turn); //Buff, debuff action
+                                    (firstLine, log) = BuffDebuffFunction(order: order, characters: characters, effects: effects, buffMasters: _buffMasters, turn: turn); //Buff, debuff action
                                     if (firstLine != null)
                                     {
                                         battleLog = new BattleLogClass(orderCondition: order.OrderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);

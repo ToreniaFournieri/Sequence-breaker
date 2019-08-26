@@ -314,13 +314,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
-  allySkillsList:
-  - {fileID: 0}
   enemyUnitList:
   - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
   - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
   - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
-  enemySkillsList: []
+  normalAttackSkillsMaster: {fileID: 11400000, guid: a67a728cf2b884375826f8227c7a05a0,
+    type: 2}
+  buffMasters:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &32351577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6462,7 +6464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19, y: -94.99999}
+  m_AnchoredPosition: {x: 18.999939, y: -95}
   m_SizeDelta: {x: 28.1, y: -941}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!114 &1420324701

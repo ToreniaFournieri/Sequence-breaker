@@ -65,6 +65,10 @@ namespace KohmaiWorks.Scroller
 
         public List<UnitClass> enemyUnitList;
 
+        // environment setting
+        public SkillsMasterClass normalAttackSkillsMaster;
+        public List<SkillsMasterClass> buffMasters;
+
         // These EffectClasses are be calculated by Unitclass.skillsMaster
         private List<EffectClass> allySkillsList;
         private List<EffectClass> enemySkillsList;
@@ -146,6 +150,8 @@ namespace KohmaiWorks.Scroller
         {
 
             allyBattleUnits = new List<BattleUnit>();
+
+            _battle.SetUpEnvironment(normalAttackSkillMaster: normalAttackSkillsMaster, buffMasters: buffMasters );
 
             (allyBattleUnits, allySkillsList) =  SetUpBattleUnitFromUnit(allyUnitList);
             _battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
