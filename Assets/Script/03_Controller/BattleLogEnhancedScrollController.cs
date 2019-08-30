@@ -107,36 +107,36 @@ namespace KohmaiWorks.Scroller
             //sample implement 2019.8.6 should be deleted after this test.
             {
                 calculateUnitStatus = new CalculateUnitStatus(inputUnit);
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-                    + " level" + calculateUnitStatus.Unit.Level
-                    + " Power:" + calculateUnitStatus.BattleUnit.Ability.Power
-                    + " Attack:" + calculateUnitStatus.BattleUnit.Combat.Attack
-                    );
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-                    + " level" + calculateUnitStatus.Unit.Level
-                    + " Stability:" + calculateUnitStatus.BattleUnit.Ability.Stability
-                    + " Defense:" + calculateUnitStatus.BattleUnit.Combat.Defense
-                    );
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-            + " level" + calculateUnitStatus.Unit.Level
-            + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
-            + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
-            );
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-        + " level" + calculateUnitStatus.Unit.Level
-        + " Precision:" + calculateUnitStatus.BattleUnit.Ability.Precision
-        + " Accuracy:" + calculateUnitStatus.BattleUnit.Combat.Accuracy
-        );
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    + " level" + calculateUnitStatus.Unit.Level
-    + " Intelligence:" + calculateUnitStatus.BattleUnit.Ability.Intelligence
-    + " Counterintelligence:" + calculateUnitStatus.BattleUnit.Combat.Counterintelligence
-    );
-                Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    + " level" + calculateUnitStatus.Unit.Level
-    + " Generation:" + calculateUnitStatus.BattleUnit.Ability.Generation
-    + " Repair:" + calculateUnitStatus.BattleUnit.Combat.Repair
-    );
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //                + " level" + calculateUnitStatus.Unit.Level
+    //                + " Power:" + calculateUnitStatus.BattleUnit.Ability.Power
+    //                + " Attack:" + calculateUnitStatus.BattleUnit.Combat.Attack
+    //                );
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //                + " level" + calculateUnitStatus.Unit.Level
+    //                + " Stability:" + calculateUnitStatus.BattleUnit.Ability.Stability
+    //                + " Defense:" + calculateUnitStatus.BattleUnit.Combat.Defense
+    //                );
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //        + " level" + calculateUnitStatus.Unit.Level
+    //        + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
+    //        + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
+    //        );
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //    + " level" + calculateUnitStatus.Unit.Level
+    //    + " Precision:" + calculateUnitStatus.BattleUnit.Ability.Precision
+    //    + " Accuracy:" + calculateUnitStatus.BattleUnit.Combat.Accuracy
+    //    );
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //+ " level" + calculateUnitStatus.Unit.Level
+    //+ " Intelligence:" + calculateUnitStatus.BattleUnit.Ability.Intelligence
+    //+ " Counterintelligence:" + calculateUnitStatus.BattleUnit.Combat.Counterintelligence
+    //);
+    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
+    //+ " level" + calculateUnitStatus.Unit.Level
+    //+ " Generation:" + calculateUnitStatus.BattleUnit.Ability.Generation
+    //+ " Repair:" + calculateUnitStatus.BattleUnit.Combat.Repair
+    //);
             }
             //end sample implement 2019.8.6
 
@@ -352,7 +352,7 @@ namespace KohmaiWorks.Scroller
         private void SetJumpIndex()
         {
             int maxCount = _battle.logList.Count;
-            int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn;
+            int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn + 1;
 
             for (int i = 1; i <= maxTurn; i++)
             {

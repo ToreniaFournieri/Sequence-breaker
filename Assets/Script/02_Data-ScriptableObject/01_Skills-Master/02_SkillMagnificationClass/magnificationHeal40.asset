@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73460e1a540e743ad8eddde48ac39150, type: 3}
   m_Name: magnificationHeal40
   m_EditorClassIdentifier: 
-  AttackTarget: 3
+  AttackTarget: 0
   Damage: 1
   Kinetic: 1
   Chemical: 1

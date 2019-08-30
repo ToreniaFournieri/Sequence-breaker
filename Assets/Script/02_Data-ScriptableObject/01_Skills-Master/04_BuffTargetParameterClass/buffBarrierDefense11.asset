@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: buffBarrierDefense11
   m_EditorClassIdentifier: 
   TargetType: 0
-  BarrierRemaining: 20
+  BarrierRemaining: 10
   DefenseMagnification: 1.1
   MobilityMagnification: 1
   AttackMagnification: 1

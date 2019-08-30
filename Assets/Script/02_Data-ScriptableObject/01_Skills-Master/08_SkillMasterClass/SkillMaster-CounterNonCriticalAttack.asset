@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillMaster-CounterNonCriticalAttack
   m_EditorClassIdentifier: 
   Name: 3
-  ActionType: 5
+  ActionType: 4
   CallSkillLogicName: 0
   IsHeal: 0
   UsageCount: 6

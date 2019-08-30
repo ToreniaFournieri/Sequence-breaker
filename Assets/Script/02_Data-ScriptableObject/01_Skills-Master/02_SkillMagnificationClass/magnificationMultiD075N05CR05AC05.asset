@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73460e1a540e743ad8eddde48ac39150, type: 3}
   m_Name: magnificationMultiD075N05CR05AC05
   m_EditorClassIdentifier: 
-  AttackTarget: 2
+  AttackTarget: 3
   Damage: 0.75
   Kinetic: 1
   Chemical: 1
