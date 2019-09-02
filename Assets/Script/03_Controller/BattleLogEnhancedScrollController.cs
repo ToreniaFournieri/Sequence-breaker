@@ -99,6 +99,8 @@ namespace KohmaiWorks.Scroller
             _dataOfAll = new List<Data>();
             _dataOfFiltered = new List<Data>();
 
+            //_data = null;
+            //_dataOfAll = null;
 
             //LoadData();
             //SetJumpIndex();
@@ -121,6 +123,7 @@ namespace KohmaiWorks.Scroller
         public void DrawBattleLog()
         {
             Start();
+
 
             _battle = new BattleEngine();
 
