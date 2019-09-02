@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using KohmaiWorks.Scroller;
+
 
 [System.Serializable]
 public class TabController : MonoBehaviour
@@ -14,6 +16,9 @@ public class TabController : MonoBehaviour
     public GameObject playTab;
     public GameObject homeTab;
 
+    // Battle log generate 2019/9/2 for test
+    public GameObject BattleLogEnhancedScrollController;
+
     public void ActivateTab(string toActivateTab)
     {
         switch (toActivateTab)
@@ -22,6 +27,9 @@ public class TabController : MonoBehaviour
                 timelineTab.SetActive(true);
                 playTab.SetActive(false);
                 homeTab.SetActive(false);
+
+                BattleLogEnhancedScrollController.GetComponent<BattleLogEnhancedScrollController>().DrawBattleLog();
+
                 break;
             case "PlayTab":
                 playTab.SetActive(true);

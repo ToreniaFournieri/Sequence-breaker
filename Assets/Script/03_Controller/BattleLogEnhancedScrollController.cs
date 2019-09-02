@@ -60,24 +60,28 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         ///
         // sample implemented 2019.8.6
-        private CalculateUnitStatus calculateUnitStatus;
-        public List<UnitClass> allyUnitList;
 
-        public List<UnitClass> enemyUnitList;
+        public GameObject Battle;
+
+        //private CalculateUnitStatus calculateUnitStatus;
+        //public List<UnitClass> allyUnitList;
+        //public List<UnitClass> enemyUnitList;
 
         // environment setting
-        public SkillsMasterClass normalAttackSkillsMaster;
-        public List<SkillsMasterClass> buffMasters;
+        //public SkillsMasterClass normalAttackSkillsMaster;
+        //public List<SkillsMasterClass> buffMasters;
 
         // These EffectClasses are be calculated by Unitclass.skillsMaster
-        private List<EffectClass> allySkillsList;
-        private List<EffectClass> enemySkillsList;
-        private List<BattleUnit> allyBattleUnits;
-        private List<BattleUnit> enemyBattleUnits;
+        //private List<EffectClass> allySkillsList;
+        //private List<EffectClass> enemySkillsList;
+        //private List<BattleUnit> allyBattleUnits;
+        //private List<BattleUnit> enemyBattleUnits;
+
+        //private RunBattle _runBattle;
         // end sanple implemented 2019.8.6
 
 
-        private BattleEngine _battle = new BattleEngine();
+        private BattleEngine _battle;
 
 
 
@@ -96,49 +100,9 @@ namespace KohmaiWorks.Scroller
             _dataOfFiltered = new List<Data>();
 
 
-            LoadData();
-            SetJumpIndex();
+            //LoadData();
+            //SetJumpIndex();
 
-
-        }
-
-        private void CalculateCombatStatusFromUnit(UnitClass inputUnit)
-        {
-            //sample implement 2019.8.6 should be deleted after this test.
-            {
-                calculateUnitStatus = new CalculateUnitStatus(inputUnit);
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //                + " level" + calculateUnitStatus.Unit.Level
-    //                + " Power:" + calculateUnitStatus.BattleUnit.Ability.Power
-    //                + " Attack:" + calculateUnitStatus.BattleUnit.Combat.Attack
-    //                );
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //                + " level" + calculateUnitStatus.Unit.Level
-    //                + " Stability:" + calculateUnitStatus.BattleUnit.Ability.Stability
-    //                + " Defense:" + calculateUnitStatus.BattleUnit.Combat.Defense
-    //                );
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //        + " level" + calculateUnitStatus.Unit.Level
-    //        + " Responsiveness:" + calculateUnitStatus.BattleUnit.Ability.Responsiveness
-    //        + " Mobility:" + calculateUnitStatus.BattleUnit.Combat.Mobility
-    //        );
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //    + " level" + calculateUnitStatus.Unit.Level
-    //    + " Precision:" + calculateUnitStatus.BattleUnit.Ability.Precision
-    //    + " Accuracy:" + calculateUnitStatus.BattleUnit.Combat.Accuracy
-    //    );
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //+ " level" + calculateUnitStatus.Unit.Level
-    //+ " Intelligence:" + calculateUnitStatus.BattleUnit.Ability.Intelligence
-    //+ " Counterintelligence:" + calculateUnitStatus.BattleUnit.Combat.Counterintelligence
-    //);
-    //            Debug.Log(calculateUnitStatus.Unit.Name + "'s"
-    //+ " level" + calculateUnitStatus.Unit.Level
-    //+ " Generation:" + calculateUnitStatus.BattleUnit.Ability.Generation
-    //+ " Repair:" + calculateUnitStatus.BattleUnit.Combat.Repair
-    //);
-            }
-            //end sample implement 2019.8.6
 
         }
 
@@ -149,225 +113,151 @@ namespace KohmaiWorks.Scroller
         private void LoadData()
         {
 
-            allyBattleUnits = new List<BattleUnit>();
-
-            _battle.SetUpEnvironment(normalAttackSkillMaster: normalAttackSkillsMaster, buffMasters: buffMasters );
-
-            (allyBattleUnits, allySkillsList) =  SetUpBattleUnitFromUnit(allyUnitList);
-            _battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
-
-            enemyBattleUnits = new List<BattleUnit>();
-            (enemyBattleUnits, enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitList);
-            _battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
-
-            //_battle.SetUpSampleBattleUnits();
-            _battle.Battle();
-
-            //battleLogLists = battle.logList;
-            //populate the scroller with some text
-            for (var i = 0; i < _battle.logList.Count; i++)
-            {
-
-                // Get canvas width
-                float widthOfCanvas = canvasToGetWidth.rect.width;
-                int count = 1;
-                if (_battle.logList[i].Log != null)
-                {
-                    string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    count = lines.Length;
-
-                    for (int j = 0; j < lines.Length; j++)
-                    {
-                        TextGenerator textGen = new TextGenerator();
-                        TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
-                            (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
-                        float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
-
-                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250));
-                        if (numberOfNewLine >= 1) { count += numberOfNewLine; }
-                    }
-                }
-                int cellSize = (count + 1) * 48 + 190;
-                const int cellMinSize = 220;
-                if (cellSize < cellMinSize) { cellSize = cellMinSize; }
-
-                if (_battle.logList[i].IsHeaderInfo)
-                {
-                    cellSize = 1300;
-                }
-
-                // _data set
-                string unitNameText = null;
-                string unitHealthText = null;
-                string reactText = null;
-                float shieldRatio = 0f;
-                float hPRatio = 0f;
-                int barrierRemains = 0;
-                bool isDead = true;
-                if (_battle.logList[i].Order != null)
-                {
-                    unitNameText = _battle.logList[i].Order.Actor.Name;
-                    unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
-                        "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
-                    + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
-                    + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
-                     + "%)]";
-
-                    if (_battle.logList[i].Order.IndividualTarget != null)
-                    {
-                        string preposition = " to ";
-                        if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
-                        //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
-
-                        reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
-                    }
-
-                    shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
-                    hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
-
-                    barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
-
-                    if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
-                    {
-                        isDead = false;
-                    }
-
-                }
-
-                List<BattleUnit> characters = null;
-                if (_battle.logList[i].Characters != null)
-                {
-                    characters = _battle.logList[i].Characters;
-                }
-
-
-                _dataOfAll.Add(new Data()
-                {
-                    index = i,
-                    cellSize = cellSize,
-                    reactText = reactText,
-                    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
-                    firstLine = _battle.logList[i].FirstLine,
-                    mainText = _battle.logList[i].Log,
-                    affiliation = _battle.logList[i].WhichAffiliationAct,
-                    nestLevel = _battle.logList[i].OrderCondition.Nest,
-                    isDead = isDead,
-                    barrierRemains = barrierRemains,
-                    shieldRatio = shieldRatio,
-                    hPRatio = hPRatio,
-                    isHeaderInfo = _battle.logList[i].IsHeaderInfo,
-                    headerText = _battle.logList[i].HeaderInfoText,
-                    characters = characters
-                });
-
-                // set all of data to data (activate)
-                _data = _dataOfAll;
-            }
-
-            ResizeScroller();
-
 
 
         }
 
-        private (List<BattleUnit> BattleUnits, List<EffectClass> SkillsList) SetUpBattleUnitFromUnit(List<UnitClass> UnitList)
+
+        public void DrawBattleLog()
         {
-            List<BattleUnit> BattleUnits = new List<BattleUnit>();
-            List<EffectClass> SkillsList = new List<EffectClass>();
-            foreach (UnitClass unit in UnitList)
-            {
-                CalculateCombatStatusFromUnit(unit);
-                BattleUnits.Add(calculateUnitStatus.BattleUnit);
+            Start();
 
+            _battle = new BattleEngine();
 
-                EffectClass effectClass;
-                foreach (SkillsMasterClass skillMaster in unit.skillsMaster)
+            _battle = Battle.gameObject.GetComponent<RunBattle>().Battle;
+
+            if (_battle != null)
+            { 
+                //populate the scroller with some text
+                for (var i = 0; i < _battle.logList.Count; i++)
                 {
-                    // Skills offenseEffectMagnification calculation
-                    double magnificationRate = 1.0;
-                    switch (skillMaster.ActionType)
+
+                    // Get canvas width
+                    float widthOfCanvas = canvasToGetWidth.rect.width;
+                    int count = 1;
+                    if (_battle.logList[i].Log != null)
                     {
-                        case ActionType.Counter: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.Counter; break;
-                        case ActionType.Chain: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.Chain; break;
-                        case ActionType.ReAttack: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.ReAttack; break;
-                        case ActionType.Move: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.Move; break;
-                        case ActionType.Interrupt: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.Interrupt; break;
-                        case ActionType.AtBeginning: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.AtBeginning; break;
-                        case ActionType.AtEnding: magnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.OffenseEffectPower.AtEnding; break;
-                        default: break;
+                        string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        count = lines.Length;
+
+                        for (int j = 0; j < lines.Length; j++)
+                        {
+                            TextGenerator textGen = new TextGenerator();
+                            TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
+                                (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
+                            float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
+
+                            int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250));
+                            if (numberOfNewLine >= 1) { count += numberOfNewLine; }
+                        }
+                    }
+                    int cellSize = (count + 1) * 48 + 190;
+                    const int cellMinSize = 220;
+                    if (cellSize < cellMinSize) { cellSize = cellMinSize; }
+
+                    if (_battle.logList[i].IsHeaderInfo)
+                    {
+                        cellSize = 1300;
                     }
 
-                    // Skills Possibility Rate calculation
-                    double abilityValue = 0.0;
-                    double possibilityMagnificationRate = 1.0;
-                    switch (skillMaster.Ability)
+                    // _data set
+                    string unitNameText = null;
+                    string unitHealthText = null;
+                    string reactText = null;
+                    float shieldRatio = 0f;
+                    float hPRatio = 0f;
+                    int barrierRemains = 0;
+                    bool isDead = true;
+                    if (_battle.logList[i].Order != null)
                     {
-                        case Ability.power: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Power; break;
-                        case Ability.generation: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Generation; break;
-                        case Ability.responsiveness: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Responsiveness; break;
-                        case Ability.intelligence: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Intelligence; break;
-                        case Ability.precision: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Precision; break;
-                        case Ability.luck: abilityValue = (double)calculateUnitStatus.BattleUnit.Ability.Luck; break;
-                        case Ability.none: abilityValue = 0.0; break;
-                        default: break;
+                        unitNameText = _battle.logList[i].Order.Actor.Name;
+                        unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
+                            "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
+                        + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
+                        + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
+                         + "%)]";
+
+                        if (_battle.logList[i].Order.IndividualTarget != null)
+                        {
+                            string preposition = " to ";
+                            if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
+                            //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
+
+                            reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
+                        }
+
+                        shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
+                        hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
+
+                        barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
+
+                        if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
+                        {
+                            isDead = false;
+                        }
+
                     }
 
-                    switch (skillMaster.ActionType)
+                    List<BattleUnit> characters = null;
+                    if (_battle.logList[i].Characters != null)
                     {
-                        case ActionType.Counter: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.Counter; break;
-                        case ActionType.Chain: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.Chain; break;
-                        case ActionType.ReAttack: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.ReAttack; break;
-                        case ActionType.Move: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.Move; break;
-                        case ActionType.Interrupt: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.Interrupt; break;
-                        case ActionType.AtBeginning: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.AtBeginning; break;
-                        case ActionType.AtEnding: possibilityMagnificationRate = calculateUnitStatus.BattleUnit.SkillMagnification.TriggerPossibility.AtEnding; break;
-                        default: break;
+                        characters = _battle.logList[i].Characters;
                     }
 
-                    double triggeredPossibilityValue = Math.Pow(((skillMaster.TriggerBase.PossibilityBaseRate + abilityValue /
-                             (100.0 + abilityValue * 2 * skillMaster.TriggerBase.PossibilityWeight)) * 100), 3.0) / 40000 * magnificationRate;
-                    if (triggeredPossibilityValue > 1.0) { triggeredPossibilityValue = 1.0; }
 
-                    // damage control assist able check
-                    bool isDamageControlAssitAble = false;
-                    switch (unit.CoreFrame.TuningStype)
+                    _dataOfAll.Add(new Data()
                     {
-                        case TuningStype.medic: isDamageControlAssitAble = true; break;
-                        default: break;
-                    }
+                        index = i,
+                        cellSize = cellSize,
+                        reactText = reactText,
+                        unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
+                        firstLine = _battle.logList[i].FirstLine,
+                        mainText = _battle.logList[i].Log,
+                        affiliation = _battle.logList[i].WhichAffiliationAct,
+                        nestLevel = _battle.logList[i].OrderCondition.Nest,
+                        isDead = isDead,
+                        barrierRemains = barrierRemains,
+                        shieldRatio = shieldRatio,
+                        hPRatio = hPRatio,
+                        isHeaderInfo = _battle.logList[i].IsHeaderInfo,
+                        headerText = _battle.logList[i].HeaderInfoText,
+                        characters = characters
+                    });
 
-                    effectClass = new EffectClass(character: calculateUnitStatus.BattleUnit, skill: skillMaster, actionType: skillMaster.ActionType,
-                         offenseEffectMagnification: magnificationRate, triggeredPossibility: triggeredPossibilityValue, isDamageControlAssistAble: isDamageControlAssitAble,
-                         usageCount: skillMaster.UsageCount, veiledFromTurn: 1, veiledToTurn: skillMaster.VeiledTurn);
-
-                    SkillsList.Add(effectClass);
-
+                    // set all of data to data (activate)
+                    _data = _dataOfAll;
                 }
-            }
 
-            return (BattleUnits, SkillsList);
+                SetJumpIndex();
+
+            }
+            ResizeScroller();
         }
 
 
         private void SetJumpIndex()
         {
-            int maxCount = _battle.logList.Count;
-            int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn + 1;
-
-            for (int i = 1; i <= maxTurn; i++)
+            if (_battle != null)
             {
-                GameObject JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
-                int index = _battle.logList.FindIndex((obj) => obj.OrderCondition.Turn == i);
-                JumpIndex.GetComponentInChildren<Text>().text = i.ToString();
+                int maxCount = _battle.logList.Count;
+                int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn + 1;
 
-                EventTrigger trigger = GetComponentInParent<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry();
-                entry.eventID = EventTriggerType.PointerEnter;
+                for (int i = 1; i <= maxTurn; i++)
+                {
+                    GameObject JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
-                entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
+                    int index = _battle.logList.FindIndex((obj) => obj.OrderCondition.Turn == i);
+                    JumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
-                JumpIndex.GetComponent<EventTrigger>().triggers.Add(entry);
+                    EventTrigger trigger = GetComponentInParent<EventTrigger>();
+                    EventTrigger.Entry entry = new EventTrigger.Entry();
+                    entry.eventID = EventTriggerType.PointerEnter;
+
+                    entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
+
+                    JumpIndex.GetComponent<EventTrigger>().triggers.Add(entry);
+                }
             }
 
         }

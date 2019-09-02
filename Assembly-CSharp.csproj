@@ -208,6 +208,7 @@
     <Compile Include="Assets\Asset_SuperScrollView\Scripts\StaggeredGridView\LoopStaggeredGridViewItem.cs" />
     <Compile Include="Assets\Asset_SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemGroup.cs" />
     <Compile Include="Assets\Asset_SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemPool.cs" />
+    <Compile Include="Assets\script.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\EffectClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\SkillsMasterClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\BuffTargetParameterClass.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Assets\Script\08_Battle\BattleEngine.cs" />
     <Compile Include="Assets\Script\08_Battle\BattleLogList.cs" />
     <Compile Include="Assets\Script\08_Battle\BattleUnitList.cs" />
+    <Compile Include="Assets\Script\08_Battle\RunBattle.cs" />
     <Compile Include="Assets\Script\CellView.cs" />
     <Compile Include="Assets\Script\Data.cs" />
     <Compile Include="Assets\Script\EnhancedScrollCellView.cs" />
