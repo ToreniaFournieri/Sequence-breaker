@@ -310,19 +310,7 @@ MonoBehaviour:
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
-  allyUnitList:
-  - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
-  - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
-  - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
-  enemyUnitList:
-  - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
-  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
-  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
-  normalAttackSkillsMaster: {fileID: 11400000, guid: a67a728cf2b884375826f8227c7a05a0,
-    type: 2}
-  buffMasters:
-  - {fileID: 11400000, guid: 640f57ab3a2b44d498151a6417aeed14, type: 2}
-  - {fileID: 11400000, guid: b009f4f98d73b4351ace72f8fd374199, type: 2}
+  Battle: {fileID: 208688197}
 --- !u!1 &32351577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1442,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &208688197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208688198}
+  - component: {fileID: 208688199}
+  m_Layer: 0
+  m_Name: Battle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208688198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208688197}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 897.9372, y: 609.713, z: -557.3527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2123972852}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208688199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208688197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalAttackSkillsMaster: {fileID: 11400000, guid: a67a728cf2b884375826f8227c7a05a0,
+    type: 2}
+  buffMasters:
+  - {fileID: 11400000, guid: 640f57ab3a2b44d498151a6417aeed14, type: 2}
+  - {fileID: 11400000, guid: b009f4f98d73b4351ace72f8fd374199, type: 2}
+  allyUnitList:
+  - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
+  - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
+  enemyUnitList:
+  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
+  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
+  - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
 --- !u!1 &271997340
 GameObject:
   m_ObjectHideFlags: 0
@@ -5202,7 +5246,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1115645552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 208688199}
+        m_MethodName: Run
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1115645552
@@ -5257,7 +5312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1160069816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6047,7 +6102,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6464,7 +6519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18.999939, y: -95}
+  m_AnchoredPosition: {x: 19, y: -94.99999}
   m_SizeDelta: {x: 28.1, y: -941}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!114 &1420324701
@@ -6663,6 +6718,7 @@ MonoBehaviour:
   timelineTab: {fileID: 1870001500}
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
+  BattleLogEnhancedScrollController: {fileID: 18717902}
 --- !u!4 &1443377876
 Transform:
   m_ObjectHideFlags: 0
@@ -8315,7 +8371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1870001501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9172,6 +9228,7 @@ Transform:
   - {fileID: 867495295}
   - {fileID: 534089921}
   - {fileID: 2141671825}
+  - {fileID: 208688198}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
