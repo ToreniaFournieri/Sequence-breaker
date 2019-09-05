@@ -6,8 +6,9 @@ using System;
 public class RunBattle : MonoBehaviour
 {
 
+    //Output information
 
-    public BattleEngine Battle;
+    public List<KohmaiWorks.Scroller.Data> Data;
 
     // environment setting
     public SkillsMasterClass normalAttackSkillsMaster;
@@ -17,12 +18,17 @@ public class RunBattle : MonoBehaviour
     public List<UnitClass> allyUnitList;
     public List<UnitClass> enemyUnitList;
 
+
+    //Internal use
     private CalculateUnitStatus calculateUnitStatus;
 
     private List<EffectClass> allySkillsList;
     private List<EffectClass> enemySkillsList;
     private List<BattleUnit> allyBattleUnits;
     private List<BattleUnit> enemyBattleUnits;
+
+    private BattleEngine _battle;
+    private List<KohmaiWorks.Scroller.Data> _data;
 
 
     public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, SkillsMasterClass normalAttackSkillsMaster, List<SkillsMasterClass> buffMasters)
@@ -37,22 +43,105 @@ public class RunBattle : MonoBehaviour
 
     public void Run()
     {
-        Debug.Log("RunBattle.Run() has been activated!");
         allyBattleUnits = new List<BattleUnit>();
-        Battle = new BattleEngine();
+        _battle = new BattleEngine();
 
-        Battle.SetUpEnvironment(normalAttackSkillMaster: normalAttackSkillsMaster, buffMasters: buffMasters);
+        _battle.SetUpEnvironment(normalAttackSkillMaster: normalAttackSkillsMaster, buffMasters: buffMasters);
 
         (allyBattleUnits, allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
-        Battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
+        _battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
 
         enemyBattleUnits = new List<BattleUnit>();
         (enemyBattleUnits, enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitList);
-        Battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
+        _battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
 
-        Battle.Battle();
+        _battle.Battle();
 
+        SetBattleLogToData();
+        Debug.Log("battle loglist count:" + _battle.logList.Count);
+
+        Debug.Log("RunBattle.Run() has been activated! counts:" + Data.Count);
     }
+
+
+    private void SetBattleLogToData()
+    {
+        _data = new List<KohmaiWorks.Scroller.Data>();
+
+        //populate the scroller with some text
+        for (var i = 0; i < _battle.logList.Count; i++)
+        {
+            // _data set
+            string unitNameText = null;
+            string unitHealthText = null;
+            string reactText = null;
+            float shieldRatio = 0f;
+            float hPRatio = 0f;
+            int barrierRemains = 0;
+            bool isDead = true;
+            if (_battle.logList[i].Order != null)
+            {
+                unitNameText = _battle.logList[i].Order.Actor.Name;
+                unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
+                    "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
+                + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
+                + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
+                 + "%)]";
+
+                if (_battle.logList[i].Order.IndividualTarget != null)
+                {
+                    string preposition = " to ";
+                    if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
+                    //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
+
+                    reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
+                }
+
+                shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
+                hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
+
+                barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
+
+                if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
+                {
+                    isDead = false;
+                }
+
+            }
+
+            List<BattleUnit> characters = null;
+            if (_battle.logList[i].Characters != null)
+            {
+                characters = _battle.logList[i].Characters;
+            }
+
+
+
+            _data.Add(new KohmaiWorks.Scroller.Data()
+            {
+                index = i,
+                turn = _battle.logList[i].OrderCondition.Turn,
+                cellSize = 1300, // this is dummy, need to calculate later
+                reactText = reactText,
+                unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
+                firstLine = _battle.logList[i].FirstLine,
+                mainText = _battle.logList[i].Log,
+                affiliation = _battle.logList[i].WhichAffiliationAct,
+                nestLevel = _battle.logList[i].OrderCondition.Nest,
+                isDead = isDead,
+                barrierRemains = barrierRemains,
+                shieldRatio = shieldRatio,
+                hPRatio = hPRatio,
+                isHeaderInfo = _battle.logList[i].IsHeaderInfo,
+                headerText = _battle.logList[i].HeaderInfoText,
+                characters = characters
+            });
+
+            // set all of data to data (activate)
+            Data = _data;
+        }
+    }
+
 
     public (List<BattleUnit> BattleUnits, List<EffectClass> SkillsList) SetUpBattleUnitFromUnit(List<UnitClass> UnitList)
     {

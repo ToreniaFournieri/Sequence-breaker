@@ -17,9 +17,10 @@ namespace KohmaiWorks.Scroller
     /// </summary>
     public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
+        public List<DataList> DataList; // Data from outside to show the log. 
         private List<Data> _data;
-        private List<Data> _dataOfAll;
-        private List<Data> _dataOfFiltered;
+        //private List<Data> _dataOfAll;
+        //private List<Data> _dataOfFiltered;
         //private List<BattleLogClass> battleLogLists;
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace KohmaiWorks.Scroller
         // end sanple implemented 2019.8.6
 
 
-        private BattleEngine _battle;
+        //private BattleEngine _battle;
 
 
 
@@ -100,36 +101,36 @@ namespace KohmaiWorks.Scroller
         {
             scroller.Delegate = this;
             _data = new List<Data>();
-            _data = null;
-            _dataOfAll = new List<Data>();
-            _dataOfFiltered = new List<Data>();
 
-            _battle = new BattleEngine();
-            _battle = null;
-            _battle = Battle.gameObject.GetComponent<RunBattle>().Battle;
+            _data = Battle.gameObject.GetComponent<RunBattle>().Data;
 
-            if (_battle != null)
+            DataList _setDatalist = new DataList();
+            _setDatalist.Data = _data;
+
+            DataList.Add(_setDatalist);
+
+            if (_data != null)
             {
-
-                PopulateScrollerWithText();
+                GetCanvasSize();
                 SetJumpIndex();
-
             }
             ResizeScroller();
         }
 
-        private void PopulateScrollerWithText()
+        private void GetCanvasSize()
         {
             //populate the scroller with some text
-            for (var i = 0; i < _battle.logList.Count; i++)
+            for (var i = 0; i < _data.Count; i++)
             {
 
                 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
-                if (_battle.logList[i].Log != null)
+                if (_data[i].mainText != null)
                 {
-                    string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    //string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] lines = _data[i].mainText.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     count = lines.Length;
 
                     for (int j = 0; j < lines.Length; j++)
@@ -147,87 +148,91 @@ namespace KohmaiWorks.Scroller
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
-                if (_battle.logList[i].IsHeaderInfo)
+                if (_data[i].isHeaderInfo)
                 {
                     cellSize = 1300;
                 }
 
-                // _data set
-                string unitNameText = null;
-                string unitHealthText = null;
-                string reactText = null;
-                float shieldRatio = 0f;
-                float hPRatio = 0f;
-                int barrierRemains = 0;
-                bool isDead = true;
-                if (_battle.logList[i].Order != null)
-                {
-                    unitNameText = _battle.logList[i].Order.Actor.Name;
-                    unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
-                        "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
-                    + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
-                    + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
-                     + "%)]";
-
-                    if (_battle.logList[i].Order.IndividualTarget != null)
-                    {
-                        string preposition = " to ";
-                        if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
-                        //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
-
-                        reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
-                    }
-
-                    shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
-                    hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
-
-                    barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
-
-                    if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
-                    {
-                        isDead = false;
-                    }
-
-                }
-
-                List<BattleUnit> characters = null;
-                if (_battle.logList[i].Characters != null)
-                {
-                    characters = _battle.logList[i].Characters;
-                }
+                //could be index is incorrect. 2019.9.5
+                _data[i].cellSize = cellSize;
 
 
-                _dataOfAll.Add(new Data()
-                {
-                    index = i,
-                    cellSize = cellSize,
-                    reactText = reactText,
-                    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
-                    firstLine = _battle.logList[i].FirstLine,
-                    mainText = _battle.logList[i].Log,
-                    affiliation = _battle.logList[i].WhichAffiliationAct,
-                    nestLevel = _battle.logList[i].OrderCondition.Nest,
-                    isDead = isDead,
-                    barrierRemains = barrierRemains,
-                    shieldRatio = shieldRatio,
-                    hPRatio = hPRatio,
-                    isHeaderInfo = _battle.logList[i].IsHeaderInfo,
-                    headerText = _battle.logList[i].HeaderInfoText,
-                    characters = characters
-                });
+                //// _data set
+                //string unitNameText = null;
+                //string unitHealthText = null;
+                //string reactText = null;
+                //float shieldRatio = 0f;
+                //float hPRatio = 0f;
+                //int barrierRemains = 0;
+                //bool isDead = true;
+                //if (_battle.logList[i].Order != null)
+                //{
+                //    unitNameText = _battle.logList[i].Order.Actor.Name;
+                //    unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
+                //        "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
+                //    + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
+                //    + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
+                //     + "%)]";
 
-                // set all of data to data (activate)
-                _data = _dataOfAll;
+                //    if (_battle.logList[i].Order.IndividualTarget != null)
+                //    {
+                //        string preposition = " to ";
+                //        if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
+                //        //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
+
+                //        reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
+                //    }
+
+                //    shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
+                //    hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
+
+                //    barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
+
+                //    if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
+                //    {
+                //        isDead = false;
+                //    }
+
+                //}
+
+                //List<BattleUnit> characters = null;
+                //if (_battle.logList[i].Characters != null)
+                //{
+                //    characters = _battle.logList[i].Characters;
+                //}
+
+
+                //_dataOfAll.Add(new Data()
+                //{
+                //    index = i,
+                //    cellSize = cellSize,
+                //    reactText = reactText,
+                //    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
+                //    firstLine = _battle.logList[i].FirstLine,
+                //    mainText = _battle.logList[i].Log,
+                //    affiliation = _battle.logList[i].WhichAffiliationAct,
+                //    nestLevel = _battle.logList[i].OrderCondition.Nest,
+                //    isDead = isDead,
+                //    barrierRemains = barrierRemains,
+                //    shieldRatio = shieldRatio,
+                //    hPRatio = hPRatio,
+                //    isHeaderInfo = _battle.logList[i].IsHeaderInfo,
+                //    headerText = _battle.logList[i].HeaderInfoText,
+                //    characters = characters
+                //});
+
+                //// set all of data to data (activate)
+                //_data = _dataOfAll;
             }
         }
 
         private void SetJumpIndex()
         {
-            if (_battle != null)
+            if (_data != null)
             {
 
-                int maxCount = _battle.logList.Count;
-                int maxTurn = _battle.logList[maxCount - 1].OrderCondition.Turn + 1;
+                int maxCount = _data.Count;
+                int maxTurn = _data[maxCount - 1].turn + 1;
 
                 foreach (Transform child in parentJumpIndex)
                 {
@@ -241,7 +246,7 @@ namespace KohmaiWorks.Scroller
                     JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
 
-                    int index = _battle.logList.FindIndex((obj) => obj.OrderCondition.Turn == i);
+                    int index = _data.FindIndex((obj) => obj.turn == i);
                     JumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                     EventTrigger trigger = GetComponentInParent<EventTrigger>();
@@ -263,7 +268,7 @@ namespace KohmaiWorks.Scroller
             Debug.Log("attempt to search word: " + searchText.text);
             searchedIndexList = new List<int>();
             List<Data> filteredData = new List<Data>();
-            foreach (Data data in _dataOfAll)
+            foreach (Data data in _data)
             {
 
                 // mainText if found, set is Matched true

@@ -5,9 +5,11 @@ using System.Collections.Generic;
 
 namespace KohmaiWorks.Scroller
 {
-    public class Data
+    [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
+    public class Data : ScriptableObject
     {
         public int index;
+        public int turn;
         public string reactText;
         public string unitInfo;
         public string firstLine;

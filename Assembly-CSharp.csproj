@@ -244,6 +244,7 @@
     <Compile Include="Assets\Script\08_Battle\RunBattle.cs" />
     <Compile Include="Assets\Script\CellView.cs" />
     <Compile Include="Assets\Script\Data.cs" />
+    <Compile Include="Assets\Script\DataList.cs" />
     <Compile Include="Assets\Script\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\Script\Enumeration.cs" />
     <Compile Include="Assets\Script\GenerateBattleUnits.cs" />
