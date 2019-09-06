@@ -1497,9 +1497,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   enemyUnitList:
-  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
-  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
   - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
+  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
+  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
 --- !u!1 &271997340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,12 +2913,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
-  - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
-  - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
-  - {fileID: 11400000, guid: 7ee3a8ac767d54d09aa3f97825392b63, type: 2}
-  - {fileID: 11400000, guid: 84143ec96e37e42fb94babb508bf74e4, type: 2}
-  - {fileID: 11400000, guid: 1a218f93949e8415596a794a97d7bfd0, type: 2}
+  - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
+  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
+  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
+  - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
   statusUpdate: {fileID: 196171032}
   inventoryScrollListUnit: {fileID: 952931269}
 --- !u!1 &551656187
@@ -4867,7 +4866,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6,
+          m_ObjectArgument: {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0
@@ -7263,7 +7262,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567,
+          m_ObjectArgument: {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0
