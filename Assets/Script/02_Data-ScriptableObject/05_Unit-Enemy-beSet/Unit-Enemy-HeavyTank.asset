@@ -16,19 +16,8 @@ MonoBehaviour:
   Name: '[Enemy]HeavyTank'
   Affiliation: 1
   UnitType: 3
-  InitialAbility: {fileID: 11400000, guid: 6dddaf2d0c5e14335ac73a7d253d6645, type: 2}
-  ItemCapacity: 2
-  itemList:
-  - itemName: 'Wooden Helm '
-    itemDescription: 'Stability +2 '
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 2
-    addAbility: 2
-  - itemName: 'Wooden Sword '
-    itemDescription: 'Power +2 '
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 0
-    addAbility: 2
+  ItemCapacity: 3
+  itemList: []
   CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   Pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
   Level: 20

@@ -3,15 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class Item
-{
-    public string itemName;
-    public string itemDescription;
-    public Sprite icon;
-    public Ability ability;
-    public int addAbility;
-}
+
 
 public class InventoryScrollList : MonoBehaviour
 {

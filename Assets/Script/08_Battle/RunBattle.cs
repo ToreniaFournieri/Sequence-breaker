@@ -37,9 +37,7 @@ public class RunBattle : MonoBehaviour
         this.enemyUnitList = enemyUnitList;
         this.normalAttackSkillsMaster = normalAttackSkillsMaster;
         this.buffMasters = buffMasters;
-
     }
-
 
     public void Run()
     {

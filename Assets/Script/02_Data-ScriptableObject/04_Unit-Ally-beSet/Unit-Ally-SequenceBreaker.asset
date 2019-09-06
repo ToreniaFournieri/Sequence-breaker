@@ -18,17 +18,7 @@ MonoBehaviour:
   UnitType: 3
   InitialAbility: {fileID: 11400000, guid: d604653b15b3f4a40b95a2492145e3b7, type: 2}
   ItemCapacity: 2
-  itemList:
-  - itemName: 'Wooden Helm '
-    itemDescription: 'Stability +2 '
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 2
-    addAbility: 2
-  - itemName: 'Wooden Sword '
-    itemDescription: 'Power +2 '
-    icon: {fileID: 21300000, guid: 28643c05b2f474320ad779e7413d4075, type: 3}
-    ability: 0
-    addAbility: 2
+  itemList: []
   CoreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   Pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
   Level: 20

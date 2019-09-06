@@ -16,8 +16,7 @@ MonoBehaviour:
   Name: '[Enemy]Charge'
   Affiliation: 1
   UnitType: 3
-  InitialAbility: {fileID: 0}
-  ItemCapacity: 0
+  ItemCapacity: 3
   itemList: []
   CoreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   Pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}

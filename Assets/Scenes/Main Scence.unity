@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2807ca4373f049cb874a5265f09c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DataList: []
   scroller: {fileID: 978793930}
   cellViewPrefab: {fileID: 7490457186660506657, guid: e72a221d838d6421cb7cc865329eea79,
     type: 3}
@@ -1485,6 +1486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: []
   normalAttackSkillsMaster: {fileID: 11400000, guid: a67a728cf2b884375826f8227c7a05a0,
     type: 2}
   buffMasters:
@@ -3241,159 +3243,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583540291}
   m_CullTransparentMesh: 0
---- !u!1 &642976320
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 642976321}
-  - component: {fileID: 642976325}
-  - component: {fileID: 642976324}
-  - component: {fileID: 642976323}
-  - component: {fileID: 642976322}
-  m_Layer: 5
-  m_Name: Ally7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &642976321
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642976320}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 815034217}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &642976322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642976320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
-    m_HighlightedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
-    m_PressedColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
-    m_SelectedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
-    m_DisabledColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 642976324}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1a218f93949e8415596a794a97d7bfd0,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &642976323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642976320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 20
-  m_MinHeight: 20
-  m_PreferredWidth: 70
-  m_PreferredHeight: 70
-  m_FlexibleWidth: 100
-  m_FlexibleHeight: 100
-  m_LayoutPriority: 1
---- !u!114 &642976324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642976320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 24dbcaae6a757431e82661400baaaaab, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &642976325
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642976320}
-  m_CullTransparentMesh: 0
 --- !u!1 &711849925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,7 +3666,6 @@ RectTransform:
   - {fileID: 1562067746}
   - {fileID: 1948106184}
   - {fileID: 1069118455}
-  - {fileID: 642976321}
   m_Father: {fileID: 383143919}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5019,7 +4867,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 84143ec96e37e42fb94babb508bf74e4,
+          m_ObjectArgument: {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0
@@ -5312,7 +5160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1160069816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6803,8 +6651,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "10 Power\n10 Generation\n10 Stability\n10 Responsiveness \n10 Precision
-    \n10 Intelligence \n10 Luck"
+  m_Text: "9999 Shiled \n9999 HP\n9999 Attack \n9999 Accuracy \n9999 Mobility \n9999
+    Defense\n(P:35 G:35 S:35 R:35 P:35 I:35 L:35)"
 --- !u!222 &1445117521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7415,7 +7263,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b,
+          m_ObjectArgument: {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0
@@ -8695,7 +8543,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 7ee3a8ac767d54d09aa3f97825392b63,
+          m_ObjectArgument: {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0
@@ -9060,7 +8908,7 @@ MonoBehaviour:
         m_MethodName: ActivateUnitToDisplay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6,
+          m_ObjectArgument: {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
           m_IntArgument: 0

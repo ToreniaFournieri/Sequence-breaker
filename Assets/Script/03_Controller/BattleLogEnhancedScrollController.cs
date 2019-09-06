@@ -72,21 +72,16 @@ namespace KohmaiWorks.Scroller
 
 
         //private BattleEngine _battle;
-
-
-
         private void Awake()
         {
             searchBar.transform.gameObject.SetActive(false);
             searchResultText.text = null;
         }
 
-
         void Start()
         {
 
         }
-
 
         /// <summary>
         /// Populates the data with some random Lorum Ipsum text
