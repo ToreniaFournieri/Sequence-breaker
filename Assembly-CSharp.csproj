@@ -216,7 +216,10 @@
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\SkillMagnificationClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\TriggerBaseClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\TriggerTargetClass.cs" />
-    <Compile Include="Assets\Script\01_Data\02_Items\Item.cs" />
+    <Compile Include="Assets\Script\01_Data\02_Items\01_ItemMaster\AddAbilityClass.cs" />
+    <Compile Include="Assets\Script\01_Data\02_Items\01_ItemMaster\ItemBaseMaster.cs" />
+    <Compile Include="Assets\Script\01_Data\02_Items\01_ItemMaster\MagnificationMasterClass.cs" />
+    <Compile Include="Assets\Script\01_Data\02_Items\Item\Item.cs" />
     <Compile Include="Assets\Script\01_Data\03_UnitClass\CalculateUnitStatus.cs" />
     <Compile Include="Assets\Script\01_Data\03_UnitClass\CoreFrame.cs" />
     <Compile Include="Assets\Script\01_Data\03_UnitClass\Pilot\Pilot.cs" />
