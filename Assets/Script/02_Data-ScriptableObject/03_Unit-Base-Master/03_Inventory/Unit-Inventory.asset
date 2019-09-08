@@ -16,10 +16,8 @@ MonoBehaviour:
   Name: Inventory
   Affiliation: 2
   UnitType: 3
-  InitialAbility: {fileID: 0}
   ItemCapacity: 2000
   itemList:
-  - {fileID: 11400000, guid: 532c934ea13ad40e682e4f3a71186a4f, type: 2}
   - {fileID: 11400000, guid: de1d59a570f584b93bd79c10ca3c2de4, type: 2}
   CoreFrame: {fileID: 0}
   Pilot: {fileID: 0}

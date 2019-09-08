@@ -16,7 +16,7 @@ public class InventoryScrollList : MonoBehaviour
     public RefreshController refreshController;
     public Text abilityText;
     public SimpleObjectPool itemObjectPool;
-
+    public ItemDetailViewController itemDetailViewController;
 
     void Start()
     {
@@ -71,7 +71,7 @@ public class InventoryScrollList : MonoBehaviour
             newPanel.transform.SetParent(contentPanel);
 
             ItemPanel itemPanel = newPanel.GetComponent<ItemPanel>();
-            itemPanel.Setup(item, this);
+            itemPanel.Setup(item, this, itemDetailViewController);
         }
     }
 

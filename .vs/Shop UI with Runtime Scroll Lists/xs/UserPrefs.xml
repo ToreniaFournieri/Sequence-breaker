@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/01_Data/02_Items/Item/Item.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Enumeration.cs">
     <Files>
       <File FileName="Assets/Script/03_Controller/BattleLogEnhancedScrollController.cs" Line="126" Column="1" />
-      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="26" Column="80" />
-      <File FileName="Assets/Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/01_Data/BattleUnit.cs" Line="28" Column="39" />
-      <File FileName="Assets/Script/01_Data/08_BattleUnitSub/CombatClass.cs" Line="7" Column="14" />
-      <File FileName="Assets/Script/01_Data/08_BattleUnitSub/FeatureClass.cs" Line="11" Column="1" />
-      <File FileName="Assets/Script/01_Data/08_BattleUnitSub/OffenseMagnificationClass.cs" Line="12" Column="53" />
-      <File FileName="Assets/Script/Enumeration.cs" Line="32" Column="1" />
-      <File FileName="Assets/Script/01_Data/08_BattleUnitSub/AbilityClass.cs" Line="9" Column="1" />
-      <File FileName="Assets/Script/01_Data/01_Skills/SkillsMasterClass.cs" Line="6" Column="31" />
-      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/MagnificationMaster.cs" Line="6" Column="57" />
-      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/AbilityAddClass.cs" Line="6" Column="48" />
-      <File FileName="Assets/Script/01_Data/02_Items/Item/Item.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/01_Data/01_Skills/SkillsMasterClass.cs" Line="18" Column="1" />
+      <File FileName="Assets/Script/01_Data/02_Items/Item/Item.cs" Line="53" Column="59" />
+      <File FileName="Assets/Script/03_Controller/ItemDetailViewController.cs" Line="14" Column="6" />
+      <File FileName="Assets/Script/03_Controller/TabController.cs" Line="46" Column="10" />
+      <File FileName="Assets/Script/ItemPanel.cs" Line="47" Column="76" />
+      <File FileName="Assets/Script/03_Controller/InventoryScrollList.cs" Line="74" Column="65" />
+      <File FileName="Assets/Script/05_Unit_Calculation/StatusUpdate.cs" Line="48" Column="76" />
+      <File FileName="Assets/Script/05_Unit_Calculation/SwitchLayer.cs" Line="12" Column="1" />
+      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="62" Column="71" />
+      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/AddAbilityClass.cs" Line="6" Column="14" />
+      <File FileName="Assets/Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="17" Column="76" />
+      <File FileName="Assets/Script/Enumeration.cs" Line="47" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

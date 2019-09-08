@@ -44,8 +44,8 @@ public enum MagnificationTarget
 
 public enum MagnificationFixedRatio
 {
-    oneFirst, twoThird, threeFourths, fourFifths, fiveSixths,
-    sixFifths, fiveFourths, fourThirds, threeSeconds, twoFirst, oneTenth, oneHundredth
+    oneOverOne, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
+    sixOverFive, fiveOverFour, fourOverThree, threeOverTwo, twoOverOne, oneOverTen, oneOverHundred
 }
 public enum MagnificationPercent { zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen }
 

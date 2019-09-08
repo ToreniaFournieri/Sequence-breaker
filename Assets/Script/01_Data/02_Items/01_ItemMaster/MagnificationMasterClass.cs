@@ -14,7 +14,7 @@ public class MagnificationMasterClass : ScriptableObject
 
 
     // Value itself. [CAUTIONS] it depend which value is used by MagnificationType.
-    [SerializeField] public MagnificationFixedRatio MagnificationFixedRatio = MagnificationFixedRatio.oneFirst;
+    [SerializeField] public MagnificationFixedRatio MagnificationFixedRatio = MagnificationFixedRatio.oneOverOne;
     [Range(0.5f, 3.0f)] [SerializeField] public double MagnificationRatio = 1.0f;
     [SerializeField] public MagnificationPercent MagnificationPercent = MagnificationPercent.zero;
 

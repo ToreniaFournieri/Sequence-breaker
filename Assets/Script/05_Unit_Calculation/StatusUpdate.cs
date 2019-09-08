@@ -45,7 +45,7 @@ public class StatusUpdate : MonoBehaviour
         if (content != null)
         {
             items = content.itemList;
-            Debug.Log("in inventory, contents is exist: " + items.Count);
+            //Debug.Log("in inventory, contents is exist: " + items.Count);
         }
         UnitNameUpdate();
         CalculateAbility();

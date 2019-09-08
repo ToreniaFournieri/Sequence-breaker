@@ -15,9 +15,8 @@ MonoBehaviour:
   itemName: Assult Rifle
   itemDescription: Attack +100, Power+2, Kinetic +7%
   icon: {fileID: 0}
-  SkillsMaster: []
-  AddAbility: {fileID: 11400000, guid: 5010b421dea214930ba6e2000c80bbba, type: 2}
-  CombatBaseValue: {fileID: 11400000, guid: 25857db323e894911af3b9c6d18f6742, type: 2}
-  CombatMagnificationCoefficient: 1
-  MagnificationMaster:
-  - {fileID: 11400000, guid: e7139fe027a964b6baaee53d6ebfde97, type: 2}
+  CombatBaseValue: {fileID: 11400000, guid: de2d10bfc6c3c41bcaa6f88dec78898e, type: 2}
+  CombatMagnificationCoefficient: 2
+  SkillsMasterList: []
+  AddAbilityList: []
+  MagnificationMasterList: []
