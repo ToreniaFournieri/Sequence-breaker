@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c62290da9824a99a6cd4c7c00cf381, type: 3}
   m_Name: Magnification-Criticalx1.01
   m_EditorClassIdentifier: 
-  MagnificationType: 0
-  MagnificationTarget: 0
+  MagnificationType: 2
+  MagnificationTarget: 1
   MagnificationFixedRatio: 0
-  MagnificationRatio: 1
+  MagnificationRatio: 1.0099999904632568
   MagnificationPercent: 0

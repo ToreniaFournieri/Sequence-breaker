@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9a82933707b49fead2f08bb8d36128, type: 3}
   m_Name: AddAbility-Luck1
   m_EditorClassIdentifier: 
-  Ability: 0
-  ValueOfAbility: 0
+  Ability: 7
+  ValueOfAbility: 1

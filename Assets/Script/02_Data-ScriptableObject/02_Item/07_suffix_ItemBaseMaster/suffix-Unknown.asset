@@ -20,4 +20,6 @@ MonoBehaviour:
   SkillsMasterList:
   - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
   AddAbilityList: []
-  MagnificationMasterList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: a8a0c9ff4442c44f9a48bd93cf0eca3c, type: 2}
+  - {fileID: 11400000, guid: 3ab9e027d520d4895b590b1bab4d6be6, type: 2}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5c62290da9824a99a6cd4c7c00cf381, type: 3}
-  m_Name: Magnification-OP5over4
+  m_Name: Magnification-OPB5over4
   m_EditorClassIdentifier: 
-  MagnificationType: 0
-  MagnificationTarget: 0
-  MagnificationFixedRatio: 0
+  MagnificationType: 1
+  MagnificationTarget: 10
+  MagnificationFixedRatio: 6
   MagnificationRatio: 1
   MagnificationPercent: 0
