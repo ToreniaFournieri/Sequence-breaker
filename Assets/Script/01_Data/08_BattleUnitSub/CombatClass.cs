@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,62 @@ public class CombatClass : ScriptableObject
     {
         return (CombatClass)this.MemberwiseClone();
     }
+
+
+    public CombatClass Add(CombatClass combatFrom)
+    {
+        this.ShiledCurrent += combatFrom.ShiledCurrent;
+        this.ShiledMax += combatFrom.ShiledMax;
+        this.HitPointCurrent += combatFrom.HitPointCurrent;
+        this.HitPointMax += combatFrom.HitPointMax;
+        this.Attack += combatFrom.Attack;
+        this.KineticAttackRatio += combatFrom.KineticAttackRatio;
+        this.ChemicalAttackRatio += combatFrom.ChemicalAttackRatio;
+        this.ThermalAttackRatio += combatFrom.ThermalAttackRatio;
+        this.CriticalHit += combatFrom.CriticalHit;
+        this.NumberOfAttacks += combatFrom.NumberOfAttacks;
+
+        //Note: MinRange and MaxRange is not be add up.
+        //combatAdded.MinRange;
+        //combatAdded.MaxRange;
+        this.Accuracy += combatFrom.Accuracy;
+        this.Mobility += combatFrom.Mobility;
+        this.Defense += combatFrom.Defense;
+        this.Counterintelligence += combatFrom.Counterintelligence;
+        this.Repair += combatFrom.Repair;
+
+        return this;
+    }
+
+    public CombatClass Pow(int specifies)
+    {
+        double raised = 1.2; // need to be think later. this value is temp.
+
+        this.ShiledCurrent = (int)(this.ShiledCurrent * Math.Pow(raised, specifies));
+        this.ShiledMax = (int)(this.ShiledMax * Math.Pow(raised, specifies));
+        this.HitPointCurrent = (int)(this.HitPointCurrent * Math.Pow(raised, specifies));
+        this.HitPointMax = (int)(this.HitPointMax * Math.Pow(raised, specifies));
+        this.Attack = (int)(this.Attack * Math.Pow(raised, specifies));
+        this.KineticAttackRatio = (int)(this.KineticAttackRatio * Math.Pow(raised, specifies));
+        this.ChemicalAttackRatio = (int)(this.ChemicalAttackRatio * Math.Pow(raised, specifies));
+        this.ThermalAttackRatio = (int)(this.ThermalAttackRatio * Math.Pow(raised, specifies));
+        this.CriticalHit = (int)(this.CriticalHit * Math.Pow(raised, specifies));
+        this.NumberOfAttacks = (int)(this.NumberOfAttacks * Math.Pow(raised, specifies));
+
+        //Note: MinRange and MaxRange is not be add up.
+        //combatAdded.MinRange;
+        //combatAdded.MaxRange;
+        this.Accuracy = (int)(this.Accuracy * Math.Pow(raised, specifies));
+        this.Mobility = (int)(this.Mobility * Math.Pow(raised, specifies));
+        this.Defense = (int)(this.Defense * Math.Pow(raised, specifies));
+        this.Counterintelligence = (int)(this.Counterintelligence * Math.Pow(raised, specifies));
+        this.Repair = (int)(this.Repair * Math.Pow(raised, specifies));
+
+
+        return this;
+    }
+
+
 
     public CombatClass(int shiledCurrent, int shiledMax, int hitPointCurrent, int hitPointMax, int attack, double kineticAttackRatio, double chemicalAttackRatio,
 double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, int maxRange, int accuracy, int mobility, int defense)

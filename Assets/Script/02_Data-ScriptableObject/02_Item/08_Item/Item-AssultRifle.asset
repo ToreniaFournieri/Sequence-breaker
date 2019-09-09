@@ -17,6 +17,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   ability: 0
   addAbility: 0
-  itembaseMaster: {fileID: 11400000, guid: c5fac9036d037491481e185500990272, type: 2}
+  baseItem: {fileID: 11400000, guid: c5fac9036d037491481e185500990272, type: 2}
   prefixItem: {fileID: 0}
   suffixItem: {fileID: 0}

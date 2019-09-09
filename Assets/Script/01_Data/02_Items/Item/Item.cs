@@ -13,8 +13,9 @@ public class Item : ScriptableObject
     public int addAbility;
 
 
+
     // base of this item
-    public ItemBaseMaster itembaseMaster;
+    public ItemBaseMaster baseItem;
 
     // prefix
     public ItemBaseMaster prefixItem;
@@ -22,38 +23,84 @@ public class Item : ScriptableObject
     // suffix, super-rare
     public ItemBaseMaster suffixItem;
 
+    // Item enhanced
+    public int enhancedValue;
+
+    //Calculated
+    public CombatClass TotaledCombat()
+    {
+        CombatClass _combat = new CombatClass();
+
+        CombatClass _itemBaseCombat = new CombatClass();
+        if (baseItem != null) { _itemBaseCombat = baseItem.CalculatedCombatValue().Copy(); }
+
+        CombatClass _prefixCombat = new CombatClass();
+        if (prefixItem != null) { _prefixCombat = prefixItem.CalculatedCombatValue().Copy(); }
+
+        CombatClass _suffixCombat = new CombatClass();
+        if (suffixItem != null) { _suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
+
+        _combat.Add(_itemBaseCombat);
+        _combat.Add(_prefixCombat);
+        _combat.Add(_suffixCombat);
+
+        _combat.Pow(enhancedValue);
+
+        return _combat;
+    }
+
+    public string TotaledCombatDescription()
+    {
+        string _descrption = null;
+        CombatClass _totaledCombat = this.TotaledCombat();
+
+        if (_totaledCombat.ShiledMax != 0) { _descrption += "Shiled +" + _totaledCombat.ShiledMax + "\n"; }
+        if (_totaledCombat.HitPointMax != 0) { _descrption += "HP +" + _totaledCombat.HitPointMax + "\n"; }
+        if (_totaledCombat.Attack != 0) { _descrption += "Attack +" + _totaledCombat.Attack + "\n"; }
+        if (_totaledCombat.Accuracy != 0) { _descrption += "Accuracy +" + _totaledCombat.Accuracy + "\n"; }
+        if (_totaledCombat.Mobility != 0) { _descrption += "Mobility +" + _totaledCombat.Mobility + "\n"; }
+        if (_totaledCombat.Defense != 0) { _descrption += "Defense +" + _totaledCombat.Defense + "\n"; }
+
+
+        return _descrption;
+    }
+
+
     public string GetItemDetailDescription()
     {
         string _detailDescription = null;
-
         // Set Name
         string _nameOfTrueItem;
 
         string _coefficient = null;
-        if (itembaseMaster.CombatMagnificationCoefficient > 1.0f)
+        if (enhancedValue > 1)
         {
-            _coefficient = "+" + (int)(itembaseMaster.CombatMagnificationCoefficient);
+            _coefficient = "+" + enhancedValue;
         }
 
         string _prefix = null;
         if (prefixItem != null) { _prefix = prefixItem.itemName; }
 
         string _itemBase = null;
-        if (itembaseMaster != null) { _itemBase = itembaseMaster.itemName; }
+        if (baseItem != null) { _itemBase = baseItem.itemName; }
 
         string _suffix = null;
         if (suffixItem != null) { _suffix = "of " +  suffixItem.itemName; }
 
         _nameOfTrueItem = "<b>" + _coefficient + " " + _prefix + " " + _itemBase + " " + _suffix + "</b> \n";
 
+        // Totaled combat status
+        string _totaledCombat = this.TotaledCombatDescription();
+
+
         //description detail
         string _description = null;
-        if (itembaseMaster != null) { _description += itembaseMaster.DetailDescription(); }
-        if (prefixItem != null) { _description += "\n <b>Prefix: </b> " + prefixItem.DetailDescription(); }
-        if (suffixItem != null) { _description += "\n <b>Suffix: </b> " + suffixItem.DetailDescription(); }
+        if (baseItem != null) { _description += "<b>Item: </b>" + baseItem.DetailDescription() + "\n"; }
+        if (prefixItem != null) { _description += "<b>Prefix: </b> " + prefixItem.DetailDescription() + "\n"; }
+        if (suffixItem != null) { _description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
 
 
-        _detailDescription = _nameOfTrueItem + "\n" + _description;
+        _detailDescription = _nameOfTrueItem + "\n" + _totaledCombat + "\n" + _description;
         return _detailDescription;
     }
 

@@ -17,6 +17,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   ability: 1
   addAbility: 3
-  itembaseMaster: {fileID: 11400000, guid: c5fac9036d037491481e185500990272, type: 2}
+  baseItem: {fileID: 11400000, guid: c5fac9036d037491481e185500990272, type: 2}
   prefixItem: {fileID: 11400000, guid: 8616f3d6f27ea497fa83aa75160f260b, type: 2}
   suffixItem: {fileID: 11400000, guid: 83cb9edbbd4ad4cc8bb9314ba9edf4a0, type: 2}

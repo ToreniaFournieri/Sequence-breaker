@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,8 @@ public class ItemBaseMaster : ScriptableObject
     //1. CombatBaseValues
     [SerializeField] public CombatClass CombatBaseValue;
 
-    // Coefficient is like x1.05
-    [SerializeField] public double CombatMagnificationCoefficient = 1.0f;
+    // item level like 2, 3...
+    [SerializeField] public int Level = 1;
 
     //2. Skill add
     [SerializeField] public List<SkillsMasterClass> SkillsMasterList;
@@ -25,29 +26,65 @@ public class ItemBaseMaster : ScriptableObject
     //4. Offense or defense magnification set
     [SerializeField] public List<MagnificationMasterClass> MagnificationMasterList;
 
+
+    // be calculated by coefficient
+    public CombatClass CalculatedCombatValue()
+    {
+
+        CombatClass _calculated = CombatBaseValue.Copy();
+
+        _calculated.Pow(Level);
+
+        //_calculated.ShiledCurrent = (int)(CombatBaseValue.ShiledCurrent * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.ShiledMax = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.HitPointCurrent = (int)(CombatBaseValue.HitPointCurrent * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.HitPointMax = (int)(CombatBaseValue.HitPointMax * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.Attack = (int)(CombatBaseValue.Attack * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.KineticAttackRatio = (int)(CombatBaseValue.KineticAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.ChemicalAttackRatio = (int)(CombatBaseValue.ChemicalAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.ThermalAttackRatio = (int)(CombatBaseValue.ThermalAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.CriticalHit = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
+        //_calculated.NumberOfAttacks = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
+
+        ////Note: MinRange and MaxRange is not be add up.
+        ////combatAdded.MinRange;
+        ////combatAdded.MaxRange;
+        //_calculated.Accuracy = (int)(CombatBaseValue.Accuracy * Math.Pow(1.2, Level));
+        //_calculated.Mobility = (int)(CombatBaseValue.Mobility * Math.Pow(1.2, Level));
+        //_calculated.Defense = (int)(CombatBaseValue.Defense * Math.Pow(1.2, Level));
+        //_calculated.Counterintelligence = (int)(CombatBaseValue.Counterintelligence * Math.Pow(1.2, Level));
+        //_calculated.Repair = (int)(CombatBaseValue.Repair * Math.Pow(1.2, Level));
+
+        return _calculated;
+    }
+
+
+
     public string DetailDescription()
     {
-        string _detailDescrption = null;
+        string _descrption = null;
+
+        _descrption += itemName + "\n";
 
         //1. CombatBase Value
-        _detailDescrption += itemName + "\n";
-        if (CombatBaseValue.ShiledMax != 0) { _detailDescrption += "Shiled +" + CombatBaseValue.ShiledMax + "\n"; }
-        if (CombatBaseValue.HitPointMax != 0) { _detailDescrption += "HP +" + CombatBaseValue.HitPointMax + "\n"; }
-        if (CombatBaseValue.Attack != 0) { _detailDescrption += "Attack +" + CombatBaseValue.Attack + "\n"; }
-        if (CombatBaseValue.Accuracy != 0) { _detailDescrption += "Accuracy +" + CombatBaseValue.Accuracy + "\n"; }
-        if (CombatBaseValue.Mobility != 0) { _detailDescrption += "Mobility +" + CombatBaseValue.Mobility + "\n"; }
-        if (CombatBaseValue.Defense != 0) { _detailDescrption += "Defense +" + CombatBaseValue.Defense + "\n"; }
+        if (CombatBaseValue.ShiledMax != 0) { _descrption += "(Shiled +" + CalculatedCombatValue().ShiledMax + ")\n"; }
+        if (CombatBaseValue.HitPointMax != 0) { _descrption += "(HP +" + CalculatedCombatValue().HitPointMax + ")\n"; }
+        if (CombatBaseValue.Attack != 0) { _descrption += "(Attack +" + CalculatedCombatValue().Attack + ")\n"; }
+        if (CombatBaseValue.Accuracy != 0) { _descrption += "(Accuracy +" + CalculatedCombatValue().Accuracy + ")\n"; }
+        if (CombatBaseValue.Mobility != 0) { _descrption += "(Mobility +" + CalculatedCombatValue().Mobility + ")\n"; }
+        if (CombatBaseValue.Defense != 0) { _descrption += "(Defense +" + CalculatedCombatValue().Defense + ")\n"; }
+
 
         //2. Skill content
         foreach (SkillsMasterClass skill in SkillsMasterList)
         {
-            _detailDescrption += "[Skill acuisition] " + skill.name + "\n";
+            _descrption += "[Skill acuisition] " + skill.name + "\n";
         }
 
         //3. Ability
         foreach (AddAbilityClass addAbility in AddAbilityList)
         {
-            _detailDescrption += addAbility.Ability + " +" + addAbility.ValueOfAbility + "\n";
+            _descrption += addAbility.Ability + " +" + addAbility.ValueOfAbility + "\n";
         }
 
         //4. offense or defense magnification
@@ -66,42 +103,18 @@ public class ItemBaseMaster : ScriptableObject
                     _offenseOrDefense += "Offense ";
                     switch (magnification.MagnificationFixedRatio)
                     {
-                        case MagnificationFixedRatio.fiveOverFour:
-                            _magnificationDetail += "5/4";
-                            break;
-                        case MagnificationFixedRatio.fiveOverSix:
-                            _magnificationDetail += "5/6";
-                            break;
-                        case MagnificationFixedRatio.fourOverFive:
-                            _magnificationDetail += "4/5";
-                            break;
-                        case MagnificationFixedRatio.fourOverThree:
-                            _magnificationDetail += "4/3";
-                            break;
-                        case MagnificationFixedRatio.oneOverHundred:
-                            _magnificationDetail += "1/100";
-                            break;
-                        case MagnificationFixedRatio.oneOverOne:
-                            _magnificationDetail += "1/1";
-                            break;
-                        case MagnificationFixedRatio.oneOverTen:
-                            _magnificationDetail += "1/10";
-                            break;
-                        case MagnificationFixedRatio.sixOverFive:
-                            _magnificationDetail += "6/5";
-                            break;
-                        case MagnificationFixedRatio.threeOverFour:
-                            _magnificationDetail += "3/4";
-                            break;
-                        case MagnificationFixedRatio.threeOverTwo:
-                            _magnificationDetail += "3/2";
-                            break;
-                        case MagnificationFixedRatio.twoOverOne:
-                            _magnificationDetail += "2/1";
-                            break;
-                        case MagnificationFixedRatio.twoOverThree:
-                            _magnificationDetail += "2/3";
-                            break;
+                        case MagnificationFixedRatio.fiveOverFour: _magnificationDetail += "5/4"; break;
+                        case MagnificationFixedRatio.fiveOverSix: _magnificationDetail += "5/6"; break;
+                        case MagnificationFixedRatio.fourOverFive: _magnificationDetail += "4/5"; break;
+                        case MagnificationFixedRatio.fourOverThree: _magnificationDetail += "4/3"; break;
+                        case MagnificationFixedRatio.oneOverHundred: _magnificationDetail += "1/100"; break;
+                        case MagnificationFixedRatio.oneOverOne: _magnificationDetail += "1/1"; break;
+                        case MagnificationFixedRatio.oneOverTen: _magnificationDetail += "1/10"; break;
+                        case MagnificationFixedRatio.sixOverFive: _magnificationDetail += "6/5"; break;
+                        case MagnificationFixedRatio.threeOverFour: _magnificationDetail += "3/4"; break;
+                        case MagnificationFixedRatio.threeOverTwo: _magnificationDetail += "3/2"; break;
+                        case MagnificationFixedRatio.twoOverOne: _magnificationDetail += "2/1"; break;
+                        case MagnificationFixedRatio.twoOverThree: _magnificationDetail += "2/3"; break;
                         default:
                             Debug.Log("ItemBaseMaster, in MagnificationFixedRatio, unexpected :" + magnification.MagnificationFixedRatio);
                             break;
@@ -138,42 +151,18 @@ public class ItemBaseMaster : ScriptableObject
                     _offenseOrDefense += "Defense ";
                     switch (magnification.MagnificationFixedRatio)
                     {
-                        case MagnificationFixedRatio.fiveOverFour:
-                            _magnificationDetail += "5/4";
-                            break;
-                        case MagnificationFixedRatio.fiveOverSix:
-                            _magnificationDetail += "5/6";
-                            break;
-                        case MagnificationFixedRatio.fourOverFive:
-                            _magnificationDetail += "4/5";
-                            break;
-                        case MagnificationFixedRatio.fourOverThree:
-                            _magnificationDetail += "4/3";
-                            break;
-                        case MagnificationFixedRatio.oneOverHundred:
-                            _magnificationDetail += "1/100";
-                            break;
-                        case MagnificationFixedRatio.oneOverOne:
-                            _magnificationDetail += "1/1";
-                            break;
-                        case MagnificationFixedRatio.oneOverTen:
-                            _magnificationDetail += "1/10";
-                            break;
-                        case MagnificationFixedRatio.sixOverFive:
-                            _magnificationDetail += "6/5";
-                            break;
-                        case MagnificationFixedRatio.threeOverFour:
-                            _magnificationDetail += "3/4";
-                            break;
-                        case MagnificationFixedRatio.threeOverTwo:
-                            _magnificationDetail += "3/2";
-                            break;
-                        case MagnificationFixedRatio.twoOverOne:
-                            _magnificationDetail += "2/1";
-                            break;
-                        case MagnificationFixedRatio.twoOverThree:
-                            _magnificationDetail += "2/3";
-                            break;
+                        case MagnificationFixedRatio.fiveOverFour: _magnificationDetail += "5/4"; break;
+                        case MagnificationFixedRatio.fiveOverSix: _magnificationDetail += "5/6"; break;
+                        case MagnificationFixedRatio.fourOverFive: _magnificationDetail += "4/5"; break;
+                        case MagnificationFixedRatio.fourOverThree: _magnificationDetail += "4/3"; break;
+                        case MagnificationFixedRatio.oneOverHundred: _magnificationDetail += "1/100"; break;
+                        case MagnificationFixedRatio.oneOverOne: _magnificationDetail += "1/1"; break;
+                        case MagnificationFixedRatio.oneOverTen: _magnificationDetail += "1/10"; break;
+                        case MagnificationFixedRatio.sixOverFive: _magnificationDetail += "6/5"; break;
+                        case MagnificationFixedRatio.threeOverFour: _magnificationDetail += "3/4"; break;
+                        case MagnificationFixedRatio.threeOverTwo: _magnificationDetail += "3/2"; break;
+                        case MagnificationFixedRatio.twoOverOne: _magnificationDetail += "2/1"; break;
+                        case MagnificationFixedRatio.twoOverThree: _magnificationDetail += "2/3"; break;
                         default:
                             Debug.Log("ItemBaseMaster, in MagnificationFixedRatio, unexpected :" + magnification.MagnificationFixedRatio);
                             break;
@@ -183,19 +172,19 @@ public class ItemBaseMaster : ScriptableObject
                     _offenseOrDefense += "Defense ";
                     switch (magnification.MagnificationPercent)
                     {
-                        case MagnificationPercent.one: _magnificationDetail += "-1%"; break;
-                        case MagnificationPercent.two: _magnificationDetail += "-2%"; break;
-                        case MagnificationPercent.three: _magnificationDetail += "-3%"; break;
-                        case MagnificationPercent.four: _magnificationDetail += "-4%"; break;
-                        case MagnificationPercent.five: _magnificationDetail += "-5%"; break;
-                        case MagnificationPercent.six: _magnificationDetail += "-6%"; break;
-                        case MagnificationPercent.seven: _magnificationDetail += "-7%"; break;
-                        case MagnificationPercent.eight: _magnificationDetail += "-8%"; break;
-                        case MagnificationPercent.nine: _magnificationDetail += "-9%"; break;
-                        case MagnificationPercent.ten: _magnificationDetail += "-10%"; break;
-                        case MagnificationPercent.eleven: _magnificationDetail += "-11%"; break;
-                        case MagnificationPercent.twelve: _magnificationDetail += "-12%"; break;
-                        case MagnificationPercent.thirteen: _magnificationDetail += "-13%"; break;
+                        case MagnificationPercent.one: _magnificationDetail += "+1%"; break;
+                        case MagnificationPercent.two: _magnificationDetail += "+2%"; break;
+                        case MagnificationPercent.three: _magnificationDetail += "+3%"; break;
+                        case MagnificationPercent.four: _magnificationDetail += "+4%"; break;
+                        case MagnificationPercent.five: _magnificationDetail += "+5%"; break;
+                        case MagnificationPercent.six: _magnificationDetail += "+6%"; break;
+                        case MagnificationPercent.seven: _magnificationDetail += "+7%"; break;
+                        case MagnificationPercent.eight: _magnificationDetail += "+8%"; break;
+                        case MagnificationPercent.nine: _magnificationDetail += "+9%"; break;
+                        case MagnificationPercent.ten: _magnificationDetail += "+10%"; break;
+                        case MagnificationPercent.eleven: _magnificationDetail += "+11%"; break;
+                        case MagnificationPercent.twelve: _magnificationDetail += "+12%"; break;
+                        case MagnificationPercent.thirteen: _magnificationDetail += "+13%"; break;
                         default:
                             Debug.Log("ItemBaseMaster, in MagnificationPercent, unexpected: " + magnification.MagnificationPercent);
                             break;
@@ -209,11 +198,11 @@ public class ItemBaseMaster : ScriptableObject
 
             }
 
-            _detailDescrption += _offenseOrDefense + " " + magnification.MagnificationTarget + " [" + _magnificationDetail + "] \n";
+            _descrption += _offenseOrDefense + " " + magnification.MagnificationTarget + " [" + _magnificationDetail + "] \n";
         }
 
 
-        return _detailDescrption;
+        return _descrption;
     }
 
 }

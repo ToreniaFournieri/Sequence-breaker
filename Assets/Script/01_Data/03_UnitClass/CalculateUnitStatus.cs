@@ -107,7 +107,7 @@ public class CalculateUnitStatus : MonoBehaviour
                 _frameTypeAbility = new AbilityClass(power: 2, generation: 6, stability: 3, responsiveness: 4, precision: 2, intelligence: 0, luck: 3);
                 break;
             default:
-                Debug.Log("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + Unit.CoreFrame.FrameType);
+                Debug.LogError("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + Unit.CoreFrame.FrameType);
                 break;
         }
         _ability.AddUp(_frameTypeAbility);
@@ -130,7 +130,7 @@ public class CalculateUnitStatus : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
+                Debug.LogError("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
                 break;
         }
 
@@ -171,8 +171,10 @@ public class CalculateUnitStatus : MonoBehaviour
                 case Ability.luck:
                     _itemLuck += item.addAbility;
                     break;
+                case Ability.none:
+                    break;
                 default:
-                    Debug.Log("In item calculation, item.ability is unexpected. unit.Name:" + Unit.Name + " ability:" + item.ability);
+                    Debug.LogError("In item calculation, item.ability is unexpected. unit.Name:" + Unit.Name + " ability:" + item.ability);
                     break;
             }
         }
