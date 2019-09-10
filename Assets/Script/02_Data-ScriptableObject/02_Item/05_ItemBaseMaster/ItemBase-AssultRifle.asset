@@ -16,11 +16,10 @@ MonoBehaviour:
   itemDescription: 
   icon: {fileID: 0}
   CombatBaseValue: {fileID: 11400000, guid: de2d10bfc6c3c41bcaa6f88dec78898e, type: 2}
-  CombatMagnificationCoefficient: 2
+  Level: 1
   SkillsMasterList: []
   AddAbilityList:
   - {fileID: 11400000, guid: 18b4fb040fc434b7ba5bffc8d9d67db2, type: 2}
-  - {fileID: 11400000, guid: e86b5797aae4b451ebf0e21946160a27, type: 2}
   MagnificationMasterList:
   - {fileID: 11400000, guid: e7139fe027a964b6baaee53d6ebfde97, type: 2}
   - {fileID: 11400000, guid: 7070e9ba11e1a4144bab927607fd2a1c, type: 2}

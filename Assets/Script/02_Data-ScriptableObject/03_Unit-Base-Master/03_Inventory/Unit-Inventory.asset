@@ -18,8 +18,9 @@ MonoBehaviour:
   UnitType: 3
   ItemCapacity: 2000
   itemList:
+  - {fileID: 11400000, guid: 34d0da44846c94cb4ae10ea89bebd9c6, type: 2}
   - {fileID: 11400000, guid: de1d59a570f584b93bd79c10ca3c2de4, type: 2}
-  - {fileID: 11400000, guid: 532c934ea13ad40e682e4f3a71186a4f, type: 2}
+  - {fileID: 11400000, guid: 3c65764ee885349fbb6ccbc8b2afeef9, type: 2}
   - {fileID: 11400000, guid: 4230cf1a24fdd4079997ab9f993f69a2, type: 2}
   CoreFrame: {fileID: 0}
   Pilot: {fileID: 0}

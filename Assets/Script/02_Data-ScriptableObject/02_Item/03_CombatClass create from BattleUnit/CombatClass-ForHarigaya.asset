@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfc709caf5744ff59a5788601fec086, type: 3}
   m_Name: CombatClass-ForHarigaya
   m_EditorClassIdentifier: 
-  ShiledCurrent: 0
-  ShiledMax: 50
+  ShieldCurrent: 0
+  ShieldMax: 10
   HitPointCurrent: 0
   HitPointMax: 50
   Attack: 40
