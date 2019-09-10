@@ -70,7 +70,7 @@ namespace KohmaiWorks.Scroller
                         isSwitchedAffiliation = true;
                     }
 
-                    float shiledRatio = ((float)battleUnits[i].Combat.ShiledCurrent / (float)battleUnits[i].Combat.ShiledMax);
+                    float shieldRatio = ((float)battleUnits[i].Combat.ShieldCurrent / (float)battleUnits[i].Combat.ShieldMax);
                     float hPRatio = ((float)battleUnits[i].Combat.HitPointCurrent / (float)battleUnits[i].Combat.HitPointMax);
 
                     string deteriorationText = null;
@@ -92,9 +92,9 @@ namespace KohmaiWorks.Scroller
                     //+ battleUnits[i].Combat.HitPointCurrent + "(" + (int)(hPRatio * 100) + "%)]"
                     //+ deteriorationText;
 
-                    unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShiledCurrent
-                        + "+"+ battleUnits[i].Combat.HitPointCurrent + "] " + deteriorationText;
-                    unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shiledRatio;
+                    unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShieldCurrent
+                        + "+" + battleUnits[i].Combat.HitPointCurrent + "] " + deteriorationText;
+                    unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
                     //unitIcon.tag = "UnitHorizontalInfo";
                     unitIcon.transform.parent = this.transform;

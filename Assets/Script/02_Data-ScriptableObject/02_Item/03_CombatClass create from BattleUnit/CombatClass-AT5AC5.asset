@@ -16,7 +16,7 @@ MonoBehaviour:
   ShiledMax: 0
   HitPointCurrent: 0
   HitPointMax: 0
-  Attack: 0
+  Attack: 5
   KineticAttackRatio: 0
   ChemicalAttackRatio: 0
   ThermalAttackRatio: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   NumberOfAttacks: 0
   MinRange: 0
   MaxRange: 0
-  Accuracy: 0
+  Accuracy: 5
   Mobility: 0
   Defense: 0
   Counterintelligence: 0

@@ -17,8 +17,8 @@ public class AttackFunction
 
         // Initialize battle environment: Hit, Failed Hit, Damage for each opponent.
         int totalDealtDamageSum = 0;
-        int totalDealtToShiledDamageSum = 0;
-        int healedByAbsorbShiled = 0;
+        int totalDealtToShieldDamageSum = 0;
+        int healedByAbsorbShield = 0;
         int numberOfHitTotal = 0;
         int numberOfSuccessAttacks = 0;
         List<BattleUnit> opponents = characters.FindAll(character1 => character1.Affiliation == toTargetAffiliation && character1.Combat.HitPointCurrent > 0);
@@ -217,13 +217,13 @@ public class AttackFunction
                         if (dealtDamage <= 0) { dealtDamage = 1; }
                         totalDealtDamageSum += dealtDamage;
 
-                        //Damage calclations 1st shiled, and 2nd hitPoint.
-                        if (toTarget.Combat.ShiledCurrent >= dealtDamage) { toTarget.Combat.ShiledCurrent -= dealtDamage; totalDealtToShiledDamageSum += dealtDamage; }// Only shiled damaged
-                        else // shiled break
+                        //Damage calclations 1st shield, and 2nd hitPoint.
+                        if (toTarget.Combat.ShieldCurrent >= dealtDamage) { toTarget.Combat.ShieldCurrent -= dealtDamage; totalDealtToShieldDamageSum += dealtDamage; }// Only shield damaged
+                        else // shield break
                         {
-                            int remainsDamage = dealtDamage - toTarget.Combat.ShiledCurrent;
-                            totalDealtToShiledDamageSum += toTarget.Combat.ShiledCurrent;
-                            toTarget.Combat.ShiledCurrent = 0;
+                            int remainsDamage = dealtDamage - toTarget.Combat.ShieldCurrent;
+                            totalDealtToShieldDamageSum += toTarget.Combat.ShieldCurrent;
+                            toTarget.Combat.ShieldCurrent = 0;
                             if (toTarget.Combat.HitPointCurrent > remainsDamage) // hitPoint damage
                             {
                                 toTarget.Combat.HitPointCurrent -= remainsDamage;
@@ -245,15 +245,15 @@ public class AttackFunction
                 numberOfHitTotal++;
             }
             //Absorb calculation HERE!!
-            if (totalDealtToShiledDamageSum > 0 && order.Actor.Feature.AbsorbShieldRatioCurrent > 0) //only when to shiled damage exist and absorb exist.
+            if (totalDealtToShieldDamageSum > 0 && order.Actor.Feature.AbsorbShieldRatioCurrent > 0) //only when to shield damage exist and absorb exist.
             {
-                if (order.Actor.Combat.ShiledCurrent < order.Actor.Combat.ShiledMax) // when actor is not full shiled 
+                if (order.Actor.Combat.ShieldCurrent < order.Actor.Combat.ShieldMax) // when actor is not full shield 
                 {
-                    healedByAbsorbShiled = (int)(totalDealtToShiledDamageSum * order.Actor.Feature.AbsorbShieldRatioCurrent);
-                    if (healedByAbsorbShiled > order.Actor.Combat.ShiledMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent) // reached max absorb ratio
-                    { healedByAbsorbShiled = (int)(order.Actor.Combat.ShiledMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent); }
-                    order.Actor.Combat.ShiledCurrent += healedByAbsorbShiled;
-                    if (order.Actor.Combat.ShiledCurrent > order.Actor.Combat.ShiledMax) { order.Actor.Combat.ShiledCurrent = order.Actor.Combat.ShiledMax; }
+                    healedByAbsorbShield = (int)(totalDealtToShieldDamageSum * order.Actor.Feature.AbsorbShieldRatioCurrent);
+                    if (healedByAbsorbShield > order.Actor.Combat.ShieldMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent) // reached max absorb ratio
+                    { healedByAbsorbShield = (int)(order.Actor.Combat.ShieldMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent); }
+                    order.Actor.Combat.ShieldCurrent += healedByAbsorbShield;
+                    if (order.Actor.Combat.ShieldCurrent > order.Actor.Combat.ShieldMax) { order.Actor.Combat.ShieldCurrent = order.Actor.Combat.ShieldMax; }
                     // log should show expected total amount of healed value, not actural healed amount.
                 }
             }
@@ -343,15 +343,15 @@ public class AttackFunction
                     if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [Barrier Broken]"; }
                     else if (opponents[fTargetColumn].Buff.BarrierRemaining > 0) { barrierWords = " [Barriered(" + opponents[fTargetColumn].Buff.BarrierRemaining + ")]"; }
 
-                    double shiledRatio = Math.Round(((double)opponents[fTargetColumn].Combat.ShiledCurrent / (double)opponents[fTargetColumn].Combat.ShiledMax * 100), 0);
+                    double shieldRatio = Math.Round(((double)opponents[fTargetColumn].Combat.ShieldCurrent / (double)opponents[fTargetColumn].Combat.ShieldMax * 100), 0);
                     double hpRatio = Math.Round(((double)opponents[fTargetColumn].Combat.HitPointCurrent / (double)opponents[fTargetColumn].Combat.HitPointMax * 100), 0);
                     double damageRatio = Math.Round(((double)totalDealtDamages[opponents[fTargetColumn].UniqueID]
-                                        / ((double)opponents[fTargetColumn].Combat.ShiledMax + (double)opponents[fTargetColumn].Combat.HitPointMax) * 100), 0);
+                                        / ((double)opponents[fTargetColumn].Combat.ShieldMax + (double)opponents[fTargetColumn].Combat.HitPointMax) * 100), 0);
                     string sign = " "; if (damageRatio > 0) { sign = "-"; }
 
                     string s = null;
                     if (totalIndivisualHits[opponents[fTargetColumn].UniqueID] != 1) { s = "s"; }
-                    int shiledPercentSpace = (3 - shiledRatio.WithComma().Length);
+                    int shieldPercentSpace = (3 - shieldRatio.WithComma().Length);
                     int hPPercentSpace = (3 - hpRatio.WithComma().Length);
                     int damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma().Length);
                     int damageRateSpace = (4 - sign.Length - damageRatio.ToString().Length);
@@ -375,7 +375,7 @@ public class AttackFunction
             if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + "All attacks missed...  \n"; }
 
             //Absorb log
-            if (healedByAbsorbShiled > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShiled + ". \n"; }
+            if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
 
             OrderConditionClass orderCondition = order.OrderCondition;
             BattleLog = new BattleLogClass(orderCondition: orderCondition, isNavigation: false, order: order, firstLine: firstLine, log: log, importance: 1, whichAffiliationAct: order.Actor.Affiliation);

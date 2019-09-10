@@ -18,7 +18,7 @@ public enum SkillName
 {
     none, normalAttack, BarrierCounterAvoidManyTimes, CounterNonCriticalAttack, ChainAllysCounter, FutureSightShot, ReAttackAfterCritical,
     InterruptTargetCounterReduceAccuracy, BarrierAll, Buffdefense12, Buffbarrier10,
-    ShiledHealSingle, ShiledHealplusSingle, ShiledHealAll
+    ShieldHealSingle, ShieldHealplusSingle, ShieldHealAll
 }
 public enum ReferenceStatistics { none, AllHitCount, CriticalHitCount, SkillHitCount, AllTotalBeenHitCount, CriticalBeenHitCount, SkillBeenHitCount, AvoidCount }
 public enum CallSkillLogicName { none, ShieldHealSingle, ShieldHealMulti, ReduceAccuracy }

@@ -67,7 +67,7 @@ public class ItemBaseMaster : ScriptableObject
         _descrption += itemName + "\n";
 
         //1. CombatBase Value
-        if (CombatBaseValue.ShiledMax != 0) { _descrption += "(Shiled +" + CalculatedCombatValue().ShiledMax + ")\n"; }
+        if (CombatBaseValue.ShieldMax != 0) { _descrption += "(Shield +" + CalculatedCombatValue().ShieldMax + ")\n"; }
         if (CombatBaseValue.HitPointMax != 0) { _descrption += "(HP +" + CalculatedCombatValue().HitPointMax + ")\n"; }
         if (CombatBaseValue.Attack != 0) { _descrption += "(Attack +" + CalculatedCombatValue().Attack + ")\n"; }
         if (CombatBaseValue.Accuracy != 0) { _descrption += "(Accuracy +" + CalculatedCombatValue().Accuracy + ")\n"; }
@@ -78,7 +78,7 @@ public class ItemBaseMaster : ScriptableObject
         //2. Skill content
         foreach (SkillsMasterClass skill in SkillsMasterList)
         {
-            _descrption += "[Skill acuisition] " + skill.name + "\n";
+            _descrption += "[Skill acquisition] " + skill.name + "\n";
         }
 
         //3. Ability

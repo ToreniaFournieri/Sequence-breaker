@@ -80,8 +80,8 @@ public class RunBattle : MonoBehaviour
             if (_battle.logList[i].Order != null)
             {
                 unitNameText = _battle.logList[i].Order.Actor.Name;
-                unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
-                    "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
+                unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShieldCurrent +
+                    "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShieldCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShieldMax) + "%)+"
                 + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
                 + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
                  + "%)]";
@@ -95,7 +95,7 @@ public class RunBattle : MonoBehaviour
                     reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
                 }
 
-                shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
+                shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShieldCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShieldMax;
                 hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
 
                 barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;

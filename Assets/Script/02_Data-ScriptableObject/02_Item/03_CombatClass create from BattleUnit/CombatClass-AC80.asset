@@ -24,7 +24,7 @@ MonoBehaviour:
   NumberOfAttacks: 0
   MinRange: 0
   MaxRange: 0
-  Accuracy: 0
+  Accuracy: 80
   Mobility: 0
   Defense: 0
   Counterintelligence: 0

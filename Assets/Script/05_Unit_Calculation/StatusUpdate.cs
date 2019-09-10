@@ -97,7 +97,7 @@ public class StatusUpdate : MonoBehaviour
     void AbilityTextUpdate()
     {
         abilityText.text =
-            calculateUnitStatus.BattleUnit.Combat.ShiledMax + " Shiled \n"
+            calculateUnitStatus.BattleUnit.Combat.ShieldMax + " Shield \n"
             + calculateUnitStatus.BattleUnit.Combat.HitPointMax + " HP\n"
             + calculateUnitStatus.BattleUnit.Combat.Attack + " Attack \n"
             + calculateUnitStatus.BattleUnit.Combat.Accuracy + " Accuracy \n"

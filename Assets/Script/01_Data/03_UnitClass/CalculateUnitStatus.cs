@@ -218,7 +218,7 @@ public class CalculateUnitStatus : MonoBehaviour
         ShieldCoefficient = (float)0.82;
         HPCoefficient = (float)0.67;
 
-        _combatRaw.ShiledMax =
+        _combatRaw.ShieldMax =
                                     //Unit.CoreFrame.Shield +
                                     (int)((
                                     (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))

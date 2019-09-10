@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1156d654177f84b92a2fb1364c5b0b46, type: 3}
   m_Name: Item-AdditionalArmorOfHarigaya
   m_EditorClassIdentifier: 
-  itemName: Additional armor of "Harigaya"
+  itemName: +5 Additional armor
   itemDescription: 
   icon: {fileID: 0}
   ability: 3
   addAbility: 8
   baseItem: {fileID: 11400000, guid: e72377e61636a44e7872658e06830518, type: 2}
   prefixItem: {fileID: 0}
-  suffixItem: {fileID: 11400000, guid: 59d6a3fd2e6c74aa3b4fef436416418b, type: 2}
-  enhancedValue: 2
+  suffixItem: {fileID: 0}
+  enhancedValue: 5

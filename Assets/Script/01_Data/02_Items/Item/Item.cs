@@ -54,7 +54,7 @@ public class Item : ScriptableObject
         string _descrption = null;
         CombatClass _totaledCombat = this.TotaledCombat();
 
-        if (_totaledCombat.ShiledMax != 0) { _descrption += "Shiled +" + _totaledCombat.ShiledMax + "\n"; }
+        if (_totaledCombat.ShieldMax != 0) { _descrption += "Shield +" + _totaledCombat.ShieldMax + "\n"; }
         if (_totaledCombat.HitPointMax != 0) { _descrption += "HP +" + _totaledCombat.HitPointMax + "\n"; }
         if (_totaledCombat.Attack != 0) { _descrption += "Attack +" + _totaledCombat.Attack + "\n"; }
         if (_totaledCombat.Accuracy != 0) { _descrption += "Accuracy +" + _totaledCombat.Accuracy + "\n"; }
