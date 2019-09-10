@@ -16,7 +16,7 @@ public class StatusUpdate : MonoBehaviour
     public InventoryScrollList content;
     private Text[] newText;
     private List<Text> textList = new List<Text>();
-    private List<Item> items = new List<Item>();
+    //private List<Item> items = new List<Item>(); // this may not needed
 
     private CalculateUnitStatus calculateUnitStatus;
 
@@ -44,42 +44,23 @@ public class StatusUpdate : MonoBehaviour
     {
         if (content != null)
         {
-            items = content.itemList;
+            //items = content.itemList;
             //Debug.Log("in inventory, contents is exist: " + items.Count);
+            unit.itemList = content.itemList;
         }
         UnitNameUpdate();
-        CalculateAbility();
+        CalculateUnitStatus();
         AbilityTextUpdate();
         CapacityTextUpdate();
         refreshController.NeedToRefresh = false;
     }
 
-    void CalculateAbility()
+    void CalculateUnitStatus()
     {
         if (unit != null)
         {
             calculateUnitStatus = new CalculateUnitStatus(unit);
             unit.Ability = calculateUnitStatus.BattleUnit.Ability;
-
-            //unit.Ability = unit.InitialAbility.DeepCopy();
-            //if (items.Count > 0)
-            //{
-            //    for (int i = 0; i < items.Count; i++)
-            //    {
-            //        Item item = items[i];
-            //        switch (item.ability)
-            //        {
-            //            case Ability.power:
-            //                unit.Ability.Power += item.addAbility;
-            //                break;
-            //            case Ability.stability:
-            //                unit.Ability.Stability += item.addAbility;
-            //                break;
-            //            default:
-            //                break;
-            //        }
-            //    }
-            //}
         }
 
     }

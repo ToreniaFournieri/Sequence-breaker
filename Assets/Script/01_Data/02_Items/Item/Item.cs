@@ -49,6 +49,59 @@ public class Item : ScriptableObject
         return _combat;
     }
 
+    //Calculated
+    public AbilityClass TotaledAbility()
+    {
+        AbilityClass _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+
+        List<ItemBaseMaster> _itemBasesList = new List<ItemBaseMaster>();
+
+        if (baseItem != null) { _itemBasesList.Add(baseItem); }
+        if (prefixItem != null) { _itemBasesList.Add(prefixItem); }
+        if (suffixItem != null) { _itemBasesList.Add(suffixItem); }
+
+        foreach (ItemBaseMaster _itemBase in _itemBasesList)
+        {
+            //Set itemBase, prefix, suffix ability
+            foreach (AddAbilityClass _addAbility in _itemBase.AddAbilityList)
+            {
+                switch (_addAbility.Ability)
+                {
+                    case Ability.generation:
+                        _ability.Generation += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.intelligence:
+                        _ability.Intelligence += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.luck:
+                        _ability.Luck += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.none:
+                        break;
+                    case Ability.power:
+                        _ability.Power += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.precision:
+                        _ability.Precision += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.responsiveness:
+                        _ability.Precision += _addAbility.ValueOfAbility;
+                        break;
+                    case Ability.stability:
+                        _ability.Stability += _addAbility.ValueOfAbility;
+                        break;
+                    default:
+                        Debug.LogError( "unexpected Ability: " + _addAbility.Ability );
+                        break;
+
+
+                }
+            }
+        }
+
+        return _ability;
+    }
+
     public string TotaledCombatDescription()
     {
         string _descrption = null;
@@ -85,7 +138,7 @@ public class Item : ScriptableObject
         if (baseItem != null) { _itemBase = baseItem.itemName; }
 
         string _suffix = null;
-        if (suffixItem != null) { _suffix = "of " +  suffixItem.itemName; }
+        if (suffixItem != null) { _suffix = "of " + suffixItem.itemName; }
 
         _nameOfTrueItem = "<b>" + _coefficient + " " + _prefix + " " + _itemBase + " " + _suffix + "</b> \n";
 

@@ -67,6 +67,7 @@ public class CalculateUnitStatus : MonoBehaviour
     private AbilityClass _summedItemsAddAbility;
 
     private CombatClass _combatRaw;
+    private CombatClass _combatItems;
 
     private double _optimumRangeBonusDefault;
     private double _criticalMagnificationDefault;
@@ -81,7 +82,7 @@ public class CalculateUnitStatus : MonoBehaviour
     //public AmplifyEquipmentRate AmplifyEquipmentRate
     public CalculateUnitStatus(UnitClass unitClass)
     {
-        _ability = new AbilityClass(3, 0, 0, 0, 0, 0, 0);
+        _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
         Unit = unitClass;
 
@@ -137,50 +138,12 @@ public class CalculateUnitStatus : MonoBehaviour
         _ability.AddUp(_tuningStypeAbility);
 
         // (1-2) Ability caluculation -> SummedItemsAddAbility
+        _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
-        int _itemPower = 0;
-        int _itemGeneration = 0;
-        int _itemStability = 0;
-        int _itemResponsiveness = 0;
-        int _itemPrecision = 0;
-        int _itemIntelligence = 0;
-        int _itemLuck = 0;
-
-        foreach (Item item in Unit.itemList)
+        foreach (Item _item in Unit.itemList)
         {
-            switch (item.ability)
-            {
-                case Ability.power:
-                    _itemPower += item.addAbility;
-                    break;
-                case Ability.generation:
-                    _itemGeneration += item.addAbility;
-                    break;
-                case Ability.stability:
-                    _itemStability += item.addAbility;
-                    break;
-                case Ability.responsiveness:
-                    _itemResponsiveness += item.addAbility;
-                    break;
-                case Ability.precision:
-                    _itemPrecision += item.addAbility;
-                    break;
-                case Ability.intelligence:
-                    _itemIntelligence += item.addAbility;
-                    break;
-                case Ability.luck:
-                    _itemLuck += item.addAbility;
-                    break;
-                case Ability.none:
-                    break;
-                default:
-                    Debug.LogError("In item calculation, item.ability is unexpected. unit.Name:" + Unit.Name + " ability:" + item.ability);
-                    break;
-            }
+            _summedItemsAddAbility.AddUp(_item.TotaledAbility());
         }
-
-        _summedItemsAddAbility = new AbilityClass(_itemPower, _itemGeneration, _itemStability,
-            _itemResponsiveness, _itemPrecision, _itemIntelligence, _itemLuck); // This is dummy, need logic to collect data from UnitClass.ItemLists.
         // (1-3) Ability caluculation -> CaluculatedAbility
         // Formula:
         //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy
@@ -344,13 +307,22 @@ public class CalculateUnitStatus : MonoBehaviour
         // Formula:
         //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
 
+        _combatItems = new CombatClass();
+
+        foreach (Item _item in Unit.itemList)
+        {
+            _combatItems.Add(_item.TotaledCombat());
+        }
+
         // some code here. omitted
 
         // (2-7)Finalize
         // Formula:
         //    CombatCaluculated = CombatItemEquiped
 
-        _combat = _combatRaw;
+        _combat = new CombatClass();
+        _combat.Add(_combatRaw);
+        if (_combatItems != null) { _combat.Add(_combatItems); }
 
 
         //(3) Feature
