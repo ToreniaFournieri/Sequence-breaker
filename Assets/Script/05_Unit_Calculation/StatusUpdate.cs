@@ -61,6 +61,7 @@ public class StatusUpdate : MonoBehaviour
         {
             calculateUnitStatus = new CalculateUnitStatus(unit);
             unit.Ability = calculateUnitStatus.BattleUnit.Ability;
+
         }
 
     }

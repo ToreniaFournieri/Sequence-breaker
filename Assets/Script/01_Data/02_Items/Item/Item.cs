@@ -65,6 +65,8 @@ public class Item : ScriptableObject
             //Set itemBase, prefix, suffix ability
             foreach (AddAbilityClass _addAbility in _itemBase.AddAbilityList)
             {
+
+
                 switch (_addAbility.Ability)
                 {
                     case Ability.generation:
