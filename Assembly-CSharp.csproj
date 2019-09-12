@@ -134,6 +134,17 @@
     <Compile Include="Assets\00_Asset_SuperScrollView\Scripts\StaggeredGridView\LoopStaggeredGridViewItem.cs" />
     <Compile Include="Assets\00_Asset_SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemGroup.cs" />
     <Compile Include="Assets\00_Asset_SuperScrollView\Scripts\StaggeredGridView\StaggeredGridItemPool.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\CAbstractViewsHolder.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\ClassicSRIA.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\ClassicGridViewExample.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\Common\CUtil.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\Common\DemoUI.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\Common\SimpleClientModels.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\Common\SimpleClientViewsHolders.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\HorizontalClassicListViewExample.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Examples\VerticalClassicListViewExample.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Util\CExpandCollapseOnClick.cs" />
+    <Compile Include="Assets\01_Asset_ClassicSRIA\Scripts\Util\CLoadSceneOnClick.cs" />
     <Compile Include="Assets\Asset_GUIPack-Clean&amp;Minimalist\Demo\Scripts\BasicButton.cs" />
     <Compile Include="Assets\Asset_GUIPack-Clean&amp;Minimalist\Demo\Scripts\Popup.cs" />
     <Compile Include="Assets\Asset_GUIPack-Clean&amp;Minimalist\Demo\Scripts\PopupOpener.cs" />
@@ -208,7 +219,6 @@
     <Compile Include="Assets\Asset_obsolate_EnhancedScroller v2\Plugins\EnhancedScrollerCellView.cs" />
     <Compile Include="Assets\Asset_obsolate_EnhancedScroller v2\Plugins\IEnhancedScrollerDelegate.cs" />
     <Compile Include="Assets\Asset_obsolate_EnhancedScroller v2\Plugins\SmallList.cs" />
-    <Compile Include="Assets\script.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\EffectClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\SkillsMasterClass.cs" />
     <Compile Include="Assets\Script\01_Data\01_Skills\Subclass\BuffTargetParameterClass.cs" />
@@ -268,6 +278,9 @@
     <Compile Include="Assets\TEST_08\CellView.cs" />
     <Compile Include="Assets\TEST_08\Controller.cs" />
     <Compile Include="Assets\TEST_08\Data.cs" />
+    <Compile Include="Assets\TEST_ScrollViewAdapter\DemoUI.cs" />
+    <Compile Include="Assets\TEST_ScrollViewAdapter\MyClassicSRIA.cs" />
+    <Compile Include="Assets\TEST_ScrollViewAdapter\MyItemViewsHolder.cs" />
     <Compile Include="Assets\TurnStartView.cs" />
     <Compile Include="Assets\UnitInfoSet.cs" />
     <None Include="Assets\Asset_GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />
