@@ -1,18 +1,20 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ShowTargetUnit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/07_Play/MissionUpdateText.cs">
     <Files>
-      <File FileName="Assets/Asset_SuperScrollView/Demo/Scripts/Common/DataSourceMgr.cs" Line="224" Column="2" />
-      <File FileName="Assets/Asset_SuperScrollView/Demo/Scripts/ListView/ChangeItemHeightDemoScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/TEST_ScrollViewAdapter/MyItemViewsHolder.cs" Line="17" Column="1" />
-      <File FileName="Assets/TEST_ScrollViewAdapter/MyClassicSRIA.cs" Line="60" Column="33" />
-      <File FileName="Assets/ShowTargetUnit.cs" Line="7" Column="18" />
+      <File FileName="Assets/ShowTargetUnit.cs" Line="14" Column="23" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="1" Column="1" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="1" Column="1" />
+      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyItemViewsHolder.cs" Line="66" Column="1" />
+      <File FileName="Assets/00_Asset/02_Asset_ClassicSRIA/Scripts/Util/CExpandCollapseOnClick.cs" Line="29" Column="37" />
+      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyClassicSRIA.cs" Line="67" Column="46" />
+      <File FileName="Assets/06_Script/07_Play/MissionUpdateText.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Assets/Script/01_Data/01_Skills/EffectClass.cs" line="15" offsetX="-1" offsetY="-1" expression="skill.TriggerBase.AccumulationBaseRate" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4adc9f33-8c9c-4ef4-9841-af52a9e6f8a5" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ff21d380-8ef5-466e-b2e0-0a106f637204" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

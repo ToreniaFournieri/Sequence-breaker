@@ -11,8 +11,11 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public LayoutElement layoutElement;
     public Image averageScoreFillImage;
     public Text nameText, locationText, averageScoreText;
-    public RectTransform availability01Slider, contractChance01Slider, longTermClient01Slider;
-    public Text statusText;
+    //public RectTransform levelOfMission;
+    public Slider levelOfMissionSlider;
+
+        //contractChance01Slider, longTermClient01Slider;
+    public Text levelOfMissionText;
 
 
     /// <inheritdoc/>
@@ -23,18 +26,15 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         layoutElement = root.GetComponent<LayoutElement>();
 
         var mainPanel = root.GetChild(0);
-        statusText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
+        levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
         nameText = mainPanel.Find("NameAndLocationPanel/NameText").GetComponent<Text>();
         locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
-        //var ratingPanel = root.Find("RatingPanel/Panel").GetComponent<RectTransform>();
-        //averageScoreFillImage = ratingPanel.Find("Foreground").GetComponent<Image>();
-        //averageScoreText = ratingPanel.Find("Text").GetComponent<Text>();
 
-        var ratingBreakdownPanel = root.Find("RatingBreakdownPanel").GetComponent<RectTransform>();
-        availability01Slider = ratingBreakdownPanel.Find("AvailabilityPanel/Slider").GetComponent<RectTransform>();
-        contractChance01Slider = ratingBreakdownPanel.Find("ContractChancePanel/Slider").GetComponent<RectTransform>();
-        longTermClient01Slider = ratingBreakdownPanel.Find("LongTermClientPanel/Slider").GetComponent<RectTransform>();
+        //var ratingBreakdownPanel = root.Find("RatingBreakdownPanel").GetComponent<RectTransform>();
+
+        //levelOfMissionSlider = ratingBreakdownPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
+
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
@@ -42,35 +42,14 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         nameText.text = dataModel.clientName + "(#" + ItemIndex + ")";
         locationText.text = "  " + dataModel.location;
         UpdateScores(dataModel);
-        if (dataModel.isOnline)
-        {
-            statusText.text = "Online";
-            statusText.color = Color.green;
-        }
-        else
-        {
-            statusText.text = "Offline";
-            statusText.color = Color.white * .8f;
-        }
+
     }
 
     void UpdateScores(SimpleClientModel dataModel)
     {
-        var scale = availability01Slider.localScale;
-        scale.x = dataModel.availability01;
-        availability01Slider.localScale = scale;
 
-        scale = contractChance01Slider.localScale;
-        scale.x = dataModel.contractChance01;
-        contractChance01Slider.localScale = scale;
+        //levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value ;
 
-        scale = longTermClient01Slider.localScale;
-        scale.x = dataModel.longTermClient01;
-        longTermClient01Slider.localScale = scale;
-
-        //float avgScore = dataModel.AverageScore01;
-        //averageScoreFillImage.fillAmount = avgScore;
-        //averageScoreText.text = (int)(avgScore * 100) + "%";
     }
 }
 

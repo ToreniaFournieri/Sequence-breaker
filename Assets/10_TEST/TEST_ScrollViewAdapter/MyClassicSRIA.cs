@@ -130,10 +130,10 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
         {
             clientName = sampleFirstNames[1],
             location = sampleLocations[1],
-            nonExpandedSize = 100
+            //nonExpandedSize = 100
             //clientName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
             //location = sampleLocations[CUtil.Rand(sampleLocations.Length)],
-            //nonExpandedSize = _PrefabLayoutElement.preferredHeight
+            nonExpandedSize = _PrefabLayoutElement.preferredHeight
         };
         model.SetRandom();
 
