@@ -95,7 +95,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 		{
 			var model = new SimpleClientModel()
 			{
-				clientName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
+				missionName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
 				location = sampleLocations[CUtil.Rand(sampleLocations.Length)],
 			};
 			model.SetRandom();

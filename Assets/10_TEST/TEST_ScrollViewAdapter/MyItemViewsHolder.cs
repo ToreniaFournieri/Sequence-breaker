@@ -13,6 +13,12 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public Text nameText, locationText, averageScoreText;
     //public RectTransform levelOfMission;
     public Slider levelOfMissionSlider;
+    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
+
+
+    //Battle object
+    public GameObject battle;
+    public GoScript goScript;
 
         //contractChance01Slider, longTermClient01Slider;
     public Text levelOfMissionText;
@@ -27,21 +33,28 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 
         var mainPanel = root.GetChild(0);
         levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
-        nameText = mainPanel.Find("NameAndLocationPanel/NameText").GetComponent<Text>();
+        nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
         locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
 
-        //var ratingBreakdownPanel = root.Find("RatingBreakdownPanel").GetComponent<RectTransform>();
+    }
 
-        //levelOfMissionSlider = ratingBreakdownPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
+    public void SetBattle()
+    {
+        //Set battle gameobject to activate GO button
+        var go = root.GetChild(2);
+        goScript = go.GetComponent<GoScript>();
 
+        goScript.Battle = battle;
+        goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
     {
-        nameText.text = dataModel.clientName + "(#" + ItemIndex + ")";
+        nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
         locationText.text = "  " + dataModel.location;
         UpdateScores(dataModel);
+        SetBattle();
 
     }
 
@@ -68,8 +81,10 @@ public static class CUtil
 
 public class SimpleClientModel
 {
-    public string clientName;
+    public string missionName;
     public string location;
+
+    //Obsolate
     public float availability01, contractChance01, longTermClient01;
     public bool isOnline;
 

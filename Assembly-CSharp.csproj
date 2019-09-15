@@ -255,9 +255,11 @@
     <Compile Include="Assets\06_Script\05_Unit_Calculation\StatusUpdate.cs" />
     <Compile Include="Assets\06_Script\05_Unit_Calculation\SwitchLayer.cs" />
     <Compile Include="Assets\06_Script\06_Generator\UnitGenerator.cs" />
+    <Compile Include="Assets\06_Script\07_Play\GoScript.cs" />
     <Compile Include="Assets\06_Script\07_Play\MissionUpdateText.cs" />
     <Compile Include="Assets\06_Script\08_Battle\AttackFunction.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleEngine.cs" />
+    <Compile Include="Assets\06_Script\08_Battle\BattleEnvironment.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleLogList.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleUnitList.cs" />
     <Compile Include="Assets\06_Script\08_Battle\OpenSearchBar.cs" />

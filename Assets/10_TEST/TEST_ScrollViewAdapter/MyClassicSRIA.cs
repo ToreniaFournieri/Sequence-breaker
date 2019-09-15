@@ -8,10 +8,16 @@ using frame8.ScrollRectItemsAdapter.Classic.Util;
 
 
 public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+
 {
-    public RectTransform itemPrefab;
-    public string[] sampleFirstNames;//, sampleLastNames;
-    public string[] sampleLocations;
+    //for battle calculation
+    public List<GameObject> battleList;
+	//for log
+	public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController;
+
+	public RectTransform itemPrefab;
+    //public string[] sampleFirstNames;//, sampleLastNames;
+    //public string[] sampleLocations;
     public DemoUI demoUI;
 
     public List<ExpandableSimpleClientModel> Data { get; private set; }
@@ -34,7 +40,10 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
     {
         base.Start();
 
-        ChangeModelsAndReset(3);
+        if (battleList.Count > 0)
+        {
+            ChangeModelsAndReset(battleList.Count);
+        }
 
         //demoUI.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
         //demoUI.scrollToButton.onClick.AddListener(OnScrollToRequested);
@@ -43,7 +52,12 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
         //demoUI.removeOneTailButton.onClick.AddListener(() => OnRemoveItemRequested(true));
         //demoUI.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
 
+
+
         StartCoroutine(DelayedClick());
+
+
+
     }
 
     IEnumerator DelayedClick()
@@ -59,6 +73,11 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
         var instance = new MyItemViewsHolder();
         instance.Init(itemPrefab, itemIndex);
         instance.expandCollapseComponent.sizeChangesHandler = this;
+
+        //Set battle gameObject to each instanced itemPrefab
+        instance.battle = battleList[itemIndex];
+        instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+
         _MapRootToViewsHolder[instance.root] = instance;
 
         return instance;
@@ -128,14 +147,14 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
     {
         var model = new ExpandableSimpleClientModel()
         {
-            clientName = sampleFirstNames[1],
-            location = sampleLocations[1],
-            //nonExpandedSize = 100
-            //clientName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
-            //location = sampleLocations[CUtil.Rand(sampleLocations.Length)],
+            missionName = battleList[index].GetComponent<RunBattle>().missionText,
+            location = battleList[index].GetComponent<RunBattle>().location,
+
             nonExpandedSize = _PrefabLayoutElement.preferredHeight
         };
         model.SetRandom();
+
+
 
         return model;
     }
@@ -145,26 +164,26 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
 
 
 
-	public class SimpleExpandableClientViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
-	{
-		public CExpandCollapseOnClick expandCollapseComponent;
+public class SimpleExpandableClientViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
+{
+    public CExpandCollapseOnClick expandCollapseComponent;
 
 
-		public override void CollectViews()
-		{
-			base.CollectViews();
+    public override void CollectViews()
+    {
+        base.CollectViews();
 
-			expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
-		}
+        expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
+    }
 
-		public override void UpdateViews(ExpandableSimpleClientModel dataModel)
-		{
-			base.UpdateViews(dataModel);
+    public override void UpdateViews(ExpandableSimpleClientModel dataModel)
+    {
+        base.UpdateViews(dataModel);
 
-			if (expandCollapseComponent)
-			{
-				expandCollapseComponent.expanded = dataModel.expanded;
-				expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
-			}
-		}
-	}
+        if (expandCollapseComponent)
+        {
+            expandCollapseComponent.expanded = dataModel.expanded;
+            expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
+        }
+    }
+}

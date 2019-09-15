@@ -128,14 +128,20 @@ public class SkillLogicShieldHealClass
             { character.Combat.HitPointCurrent = (int)(character.Combat.HitPointMax * 0.01); }
 
             int shieldPercentSpace = (3 - Math.Round(((double)character.Combat.ShieldCurrent / (double)character.Combat.ShieldMax * 100), 0).WithComma().Length);
+            if (shieldPercentSpace < 0) { shieldPercentSpace = 0; }
             int hPPercentSpace = (3 - Math.Round(((double)character.Combat.HitPointCurrent / (double)character.Combat.HitPointMax * 100), 0).WithComma().Length);
+            if (hPPercentSpace < 0) { hPPercentSpace = 0; }
             int healSpace = (6 - healValue.WithComma().Length);
+            if (healSpace < 0) { healSpace = 0; }
+
 
             // check overflow of shield current.
             if (character.Combat.ShieldCurrent > character.Combat.ShieldMax) { character.Combat.ShieldCurrent = character.Combat.ShieldMax; }
-            Log += new string(' ', 4) + character.Name + " (Sh" + new string(' ', shieldPercentSpace) + Math.Round(((double)character.Combat.ShieldCurrent
-                    / (double)character.Combat.ShieldMax * 100), 0).WithComma() + "% HP" + new string(' ', hPPercentSpace) + Math.Round(((double)character.Combat.HitPointCurrent
-                    / (double)character.Combat.HitPointMax * 100), 0).WithComma() + "%)" + " is healed its shield by " + (int)healValue + "\n";
+            Log += new string(' ', 4) + character.Name + " (Sh" + new string(' ', shieldPercentSpace)
+                    + Math.Round(((double)character.Combat.ShieldCurrent / (double)character.Combat.ShieldMax * 100), 0).WithComma()
+                    + "% HP" + new string(' ', hPPercentSpace)
+                    + Math.Round(((double)character.Combat.HitPointCurrent / (double)character.Combat.HitPointMax * 100), 0).WithComma()
+                    + "%)" + " is healed its shield by " + (int)healValue + "\n";
         }
         foreach (BattleUnit character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 

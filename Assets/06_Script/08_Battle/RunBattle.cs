@@ -5,14 +5,17 @@ using System;
 
 public class RunBattle : MonoBehaviour
 {
+    // Mission infomation
+    public string missionText;
+    public string location;
 
     //Output information
-
     public List<KohmaiWorks.Scroller.Data> Data;
 
     // environment setting
-    public SkillsMasterClass normalAttackSkillsMaster;
-    public List<SkillsMasterClass> buffMasters;
+    public BattleEnvironment battleEnvironment;
+    //public SkillsMasterClass normalAttackSkillsMaster;
+    //public List<SkillsMasterClass> buffMasters;
 
     // Input data, Units list
     public List<UnitClass> allyUnitList;
@@ -30,27 +33,41 @@ public class RunBattle : MonoBehaviour
     private BattleEngine _battle;
     private List<KohmaiWorks.Scroller.Data> _data;
 
+    //public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, SkillsMasterClass normalAttackSkillsMaster, List<SkillsMasterClass> buffMasters)
 
-    public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, SkillsMasterClass normalAttackSkillsMaster, List<SkillsMasterClass> buffMasters)
+    public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, BattleEnvironment battleEnvironment)
     {
         this.allyUnitList = allyUnitList;
         this.enemyUnitList = enemyUnitList;
-        this.normalAttackSkillsMaster = normalAttackSkillsMaster;
-        this.buffMasters = buffMasters;
+        this.battleEnvironment = battleEnvironment;
     }
 
-    public void Run()
+    public void Run(int enemyLevel)
     {
         allyBattleUnits = new List<BattleUnit>();
         _battle = new BattleEngine();
 
-        _battle.SetUpEnvironment(normalAttackSkillMaster: normalAttackSkillsMaster, buffMasters: buffMasters);
+        _battle.SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
 
         (allyBattleUnits, allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
         _battle.SetAllyBattleUnits(allyBattleUnits, allySkillsList);
 
+
+        //adjust enemy level
+        foreach (UnitClass unit in enemyUnitList)
+        {
+            unit.Level = enemyLevel;
+
+        }
         enemyBattleUnits = new List<BattleUnit>();
         (enemyBattleUnits, enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitList);
+
+        //set name with levels
+        foreach (BattleUnit battleUnit in enemyBattleUnits)
+        {
+            battleUnit.Name = battleUnit.Name + " (Lv:" + enemyLevel + ")";
+        }
+
         _battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
 
         _battle.Battle();
@@ -58,7 +75,6 @@ public class RunBattle : MonoBehaviour
         SetBattleLogToData();
         Debug.Log("battle loglist count:" + _battle.logList.Count);
 
-        Debug.Log("RunBattle.Run() has been activated! counts:" + Data.Count);
     }
 
 
