@@ -14,6 +14,8 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
     public List<GameObject> battleList;
 	//for log
 	public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController;
+    //for transparent message
+    public GameObject transparentMessageController;
 
 	public RectTransform itemPrefab;
     //public string[] sampleFirstNames;//, sampleLastNames;
@@ -77,6 +79,7 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
         //Set battle gameObject to each instanced itemPrefab
         instance.battle = battleList[itemIndex];
         instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        instance.transparentMessageController = transparentMessageController;
 
         _MapRootToViewsHolder[instance.root] = instance;
 

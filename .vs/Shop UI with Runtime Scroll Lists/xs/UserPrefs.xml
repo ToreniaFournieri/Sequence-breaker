@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/08_Battle/Others.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TransparentMessageController.cs">
     <Files>
       <File FileName="Assets/ShowTargetUnit.cs" Line="14" Column="23" />
       <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="22" Column="26" />
       <File FileName="Assets/06_Script/08_Battle/RunBattle.cs" Line="68" Column="69" />
-      <File FileName="Assets/06_Script/08_Battle/Others.cs" Line="136" Column="16" />
+      <File FileName="Assets/06_Script/08_Battle/Others.cs" Line="136" Column="1" />
       <File FileName="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs" Line="11" Column="31" />
       <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyClassicSRIA.cs" Line="71" Column="41" />
       <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyItemViewsHolder.cs" Line="49" Column="87" />
       <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="15" Column="1" />
       <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="1273" Column="1" />
+      <File FileName="Assets/TransparentMessageController.cs" Line="18" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

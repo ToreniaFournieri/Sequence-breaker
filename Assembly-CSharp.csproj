@@ -284,6 +284,7 @@
     <Compile Include="Assets\10_TEST\TEST_ScrollViewAdapter\MyClassicSRIA.cs" />
     <Compile Include="Assets\10_TEST\TEST_ScrollViewAdapter\MyItemViewsHolder.cs" />
     <Compile Include="Assets\ShowTargetUnit.cs" />
+    <Compile Include="Assets\TransparentMessageController.cs" />
     <Compile Include="Assets\TurnStartView.cs" />
     <Compile Include="Assets\UnitInfoSet.cs" />
     <None Include="Assets\00_Asset\03_Asset_GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />

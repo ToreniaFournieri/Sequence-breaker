@@ -14,7 +14,8 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     //public RectTransform levelOfMission;
     public Slider levelOfMissionSlider;
     public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
-
+    public GameObject transparentMessageController; // to display transparent message
+     
 
     //Battle object
     public GameObject battle;
@@ -47,6 +48,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 
         goScript.Battle = battle;
         goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        goScript.transparentMessageController = transparentMessageController;
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
