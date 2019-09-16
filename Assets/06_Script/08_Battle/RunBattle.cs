@@ -8,6 +8,7 @@ public class RunBattle : MonoBehaviour
     // Mission infomation
     public string missionText;
     public string location;
+    public int missionLevel;
 
     //Output information
     public List<KohmaiWorks.Scroller.Data> Data;
@@ -66,6 +67,7 @@ public class RunBattle : MonoBehaviour
         foreach (BattleUnit battleUnit in enemyBattleUnits)
         {
             battleUnit.Name = battleUnit.Name + " (Lv:" + enemyLevel + ")";
+            missionLevel = enemyLevel;
         }
 
         _battle.SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);

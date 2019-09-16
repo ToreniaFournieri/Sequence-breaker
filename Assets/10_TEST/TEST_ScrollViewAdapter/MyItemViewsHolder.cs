@@ -48,7 +48,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 
         goScript.Battle = battle;
         goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        goScript.transparentMessageController = transparentMessageController;
+        goScript.transparentMessage = transparentMessageController;
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
