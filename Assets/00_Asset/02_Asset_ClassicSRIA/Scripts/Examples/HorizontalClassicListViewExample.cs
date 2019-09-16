@@ -5,14 +5,14 @@ using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
 namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 {
     /// <summary>Same as <see cref="VerticalClassicListViewExample"/> except it's horizontal, the items are not resize-able</summary>
-    public class HorizontalClassicListViewExample : ClassicSRIA<SimpleClientViewsHolder>
+    public class HorizontalClassicListViewExample : ClassicSRIA<LogClientViewsHolder>
 	{
 		public RectTransform itemPrefab;
 		public string[] sampleFirstNames;//, sampleLastNames;
 		public string[] sampleLocations;
 		public DemoUI demoUI;
 
-		public List<SimpleClientModel> Data { get; private set; }
+		public List<LogBaseClientModel> Data { get; private set; }
 
 
 		#region ClassicSRIA implementation
@@ -20,7 +20,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 		{
 			base.Awake();
 
-			Data = new List<SimpleClientModel>();
+			Data = new List<LogBaseClientModel>();
 		}
 
 		protected override void Start()
@@ -37,15 +37,15 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 			demoUI.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
 		}
 		
-		protected override SimpleClientViewsHolder CreateViewsHolder(int itemIndex)
+		protected override LogClientViewsHolder CreateViewsHolder(int itemIndex)
 		{
-			var instance = new SimpleClientViewsHolder();
+			var instance = new LogClientViewsHolder();
 			instance.Init(itemPrefab, itemIndex);
 
 			return instance;
 		}
 
-		protected override void UpdateViewsHolder(SimpleClientViewsHolder vh) { vh.UpdateViews(Data[vh.ItemIndex]); }
+		protected override void UpdateViewsHolder(LogClientViewsHolder vh) { vh.UpdateViews(Data[vh.ItemIndex]); }
 		#endregion
 
 		#region events from DrawerCommandPanel
@@ -91,9 +91,9 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 			ResetItems(Data.Count);
 		}
 
-		SimpleClientModel CreateNewModel(int index)
+        LogBaseClientModel CreateNewModel(int index)
 		{
-			var model = new SimpleClientModel()
+			var model = new LogBaseClientModel()
 			{
 				missionName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
 				location = sampleLocations[CUtil.Rand(sampleLocations.Length)],

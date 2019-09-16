@@ -13,7 +13,7 @@ public enum TargetType { none, self, single, multi }
 public enum CriticalOrNot { any, critical, nonCritical }
 public enum ActorOrTargetUnit { no, actorUnit, targetUnit }
 public enum Range { any, within, without }
-public enum WhichWin { allyWin, enemyWin, Draw }
+public enum WhichWin { none, allyWin, enemyWin, Draw }
 public enum SkillName
 {
     none, normalAttack, BarrierCounterAvoidManyTimes, CounterNonCriticalAttack, ChainAllysCounter, FutureSightShot, ReAttackAfterCritical,

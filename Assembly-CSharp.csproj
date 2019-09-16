@@ -257,6 +257,8 @@
     <Compile Include="Assets\06_Script\06_Generator\UnitGenerator.cs" />
     <Compile Include="Assets\06_Script\07_Play\GoScript.cs" />
     <Compile Include="Assets\06_Script\07_Play\MissionUpdateText.cs" />
+    <Compile Include="Assets\06_Script\07_Play\MyClassicSRIA.cs" />
+    <Compile Include="Assets\06_Script\07_Play\MyItemViewsHolder.cs" />
     <Compile Include="Assets\06_Script\08_Battle\AttackFunction.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleEngine.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleEnvironment.cs" />
@@ -265,6 +267,9 @@
     <Compile Include="Assets\06_Script\08_Battle\OpenSearchBar.cs" />
     <Compile Include="Assets\06_Script\08_Battle\Others.cs" />
     <Compile Include="Assets\06_Script\08_Battle\RunBattle.cs" />
+    <Compile Include="Assets\06_Script\09_Log\LogListSRIA.cs" />
+    <Compile Include="Assets\06_Script\09_Log\LogViewsHolder.cs" />
+    <Compile Include="Assets\06_Script\09_Log\ShowDetailButon.cs" />
     <Compile Include="Assets\06_Script\CellView.cs" />
     <Compile Include="Assets\06_Script\Data.cs" />
     <Compile Include="Assets\06_Script\DataList.cs" />
@@ -281,8 +286,6 @@
     <Compile Include="Assets\10_TEST\TEST_08\Controller.cs" />
     <Compile Include="Assets\10_TEST\TEST_08\Data.cs" />
     <Compile Include="Assets\10_TEST\TEST_ScrollViewAdapter\DemoUI.cs" />
-    <Compile Include="Assets\10_TEST\TEST_ScrollViewAdapter\MyClassicSRIA.cs" />
-    <Compile Include="Assets\10_TEST\TEST_ScrollViewAdapter\MyItemViewsHolder.cs" />
     <Compile Include="Assets\ShowTargetUnit.cs" />
     <Compile Include="Assets\TransparentMessageController.cs" />
     <Compile Include="Assets\TurnStartView.cs" />

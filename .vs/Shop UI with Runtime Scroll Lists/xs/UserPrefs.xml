@@ -1,22 +1,19 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/08_Battle/Others.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/09_Log/LogViewsHolder.cs">
     <Files>
       <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="22" Column="26" />
-      <File FileName="Assets/06_Script/08_Battle/RunBattle.cs" Line="78" Column="1" />
-      <File FileName="Assets/06_Script/08_Battle/Others.cs" Line="136" Column="1" />
-      <File FileName="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs" Line="11" Column="31" />
-      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyClassicSRIA.cs" Line="82" Column="17" />
-      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/MyItemViewsHolder.cs" Line="51" Column="1" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="22" Column="33" />
-      <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="81" Column="1" />
-      <File FileName="Assets/TransparentMessageController.cs" Line="20" Column="1" />
+      <File FileName="Assets/06_Script/09_Log/LogListSRIA.cs" Line="83" Column="1" />
+      <File FileName="Assets/06_Script/09_Log/LogViewsHolder.cs" Line="64" Column="85" />
+      <File FileName="Assets/06_Script/08_Battle/RunBattle.cs" Line="79" Column="17" />
+      <File FileName="Assets/06_Script/07_Play/MyClassicSRIA.cs" Line="148" Column="1" />
+      <File FileName="Assets/06_Script/03_Controller/00_Grobal/TabController.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Assets/Script/01_Data/01_Skills/EffectClass.cs" line="15" offsetX="-1" offsetY="-1" expression="skill.TriggerBase.AccumulationBaseRate" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ff21d380-8ef5-466e-b2e0-0a106f637204" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="52fd723c-1451-4342-8cf5-0a43ecc07802" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

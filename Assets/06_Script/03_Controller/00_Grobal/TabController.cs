@@ -19,6 +19,8 @@ public class TabController : MonoBehaviour
     // Battle log generate 2019/9/2 for test
     public GameObject BattleLogEnhancedScrollController;
 
+    // Log list update
+
     public void ActivateTab(string toActivateTab)
     {
         switch (toActivateTab)

@@ -6,7 +6,9 @@ using System.Linq;
 
 public class BattleEngine
 {
+    //For output result
     public List<BattleLogClass> logList;
+    public WhichWin whichWin = WhichWin.none; // get only last one
 
     public List<BattleUnit> allyBattleUnitsList;
     public List<EffectClass> allySkillsList;
@@ -390,9 +392,18 @@ public class BattleEngine
                                 if (battleEnd == false)
                                 {
                                     battleEnd = battleResult.BattleEnd;
-                                    if (battleResult.IsAllyWin == true) { allyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.allyWin; }
-                                    if (battleResult.IsEnemyWin) { enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.enemyWin; }
-                                    if (battleResult.IsDraw) { drawCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.Draw; }
+                                    if (battleResult.IsAllyWin == true)
+                                    {
+                                        allyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.allyWin;
+                                        whichWin = WhichWin.allyWin;
+                                    }
+                                    if (battleResult.IsEnemyWin) { enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.enemyWin;
+                                        whichWin = WhichWin.enemyWin;
+
+                                    }
+                                    if (battleResult.IsDraw) { drawCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.Draw;
+                                        whichWin = WhichWin.Draw;
+                                    }
                                 }
 
                                 OrderStatusClass orderStatus = new OrderStatusClass(); orderStatus.Initialize();
@@ -459,9 +470,9 @@ public class BattleEngine
                         if (battleEnd == false)
                         {
                             wipeOutCheck = new WipeOutCheck(characters);
-                            if (wipeOutCheck.IsAllyWin) { allyWinCount++; }
-                            if (wipeOutCheck.IsEnemyWin) { enemyWinCount++; }
-                            if (wipeOutCheck.IsDraw) { drawCount++; }
+                            if (wipeOutCheck.IsAllyWin) { allyWinCount++; whichWin = WhichWin.allyWin; }
+                            if (wipeOutCheck.IsEnemyWin) { enemyWinCount++; whichWin = WhichWin.enemyWin; }
+                            if (wipeOutCheck.IsDraw) { drawCount++; whichWin = WhichWin.Draw; }
                             battleEnd = wipeOutCheck.BatleEnd;
                         }
                         totalturn = turn; // If battle end, set total turn for show end log.
@@ -475,6 +486,7 @@ public class BattleEngine
                     if (battleEnd == false)
                     {
                         drawCount++; battleEnd = true;
+                        whichWin = WhichWin.Draw;
 
                         string log = "Time over. \n";
                         OrderConditionClass orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: 4, orderNumber: 0, nest: 0, nestOrderNumber: 0);
@@ -564,7 +576,7 @@ public class BattleEngine
         //// delete battle display list to final log, because now meaningless.
 
         //finalLog += "------------------------------------\n";
-        finalLog += "Battle is over. ";
+        finalLog += "Battle is over. " + whichWin + "\n";
         text = new FuncBattleConditionsText(currentTurn: totalturn, currentBattleWaves: currentBattleWaves, characters: characters);
         finalLog += text.Text();
 

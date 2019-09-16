@@ -9,6 +9,7 @@ public class RunBattle : MonoBehaviour
     public string missionText;
     public string location;
     public int missionLevel;
+    public WhichWin whichWin;
 
     //Output information
     public List<KohmaiWorks.Scroller.Data> Data;
@@ -74,7 +75,10 @@ public class RunBattle : MonoBehaviour
 
         _battle.Battle();
 
-        SetBattleLogToData();
+
+        whichWin = _battle.whichWin;
+
+            SetBattleLogToData();
 
     }
 
