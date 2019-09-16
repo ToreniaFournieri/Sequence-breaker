@@ -75,7 +75,6 @@ public class RunBattle : MonoBehaviour
         _battle.Battle();
 
         SetBattleLogToData();
-        Debug.Log("battle loglist count:" + _battle.logList.Count);
 
     }
 

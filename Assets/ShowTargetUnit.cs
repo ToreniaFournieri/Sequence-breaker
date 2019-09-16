@@ -6,27 +6,7 @@ namespace KohmaiWorks.Scroller
 {
     public class ShowTargetUnit : MonoBehaviour
     {
-        //public int numberOfTargetUnit;
-        //public GameObject unitIconPrefabs;
         public SimpleObjectPool unitIconObjectPool;
-        //public List<IconSet> IconSetInfo;
-
-        //void Start()
-        //{
-        //    if (unitIconPrefabs != null)
-        //    {
-
-        //        for (int i = 0; i < numberOfTargetUnit; i++)
-        //        {
-        //            GameObject unitIcon = Instantiate(unitIconPrefabs);
-        //            unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = 0.4f;
-        //            unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = 0.7f;
-
-        //            unitIcon.transform.parent = this.transform;
-        //        }
-
-        //    }
-        //}
 
         public void SetUnitInfo(List<BattleUnit> battleUnits)
         {

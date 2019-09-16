@@ -16,7 +16,6 @@ public class TransparentMessageController : MonoBehaviour
     {
         transparentMessage.SetActive(false);
         transparentMessage.GetComponentInChildren<Text>().text = null;
-
     }
 
 
