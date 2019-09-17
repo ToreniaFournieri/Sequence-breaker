@@ -11,7 +11,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public LayoutElement layoutElement;
     public Image averageScoreFillImage;
     public Text nameText, locationText, averageScoreText;
-    //public RectTransform levelOfMission;
+
     public Slider levelOfMissionSlider;
     //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
     public GameObject transparentMessageController; // to display transparent message
@@ -21,9 +21,10 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public GameObject battle;
     public GoScript goScript;
 
-        //contractChance01Slider, longTermClient01Slider;
     public Text levelOfMissionText;
 
+    //to add battle log into log list
+    public LogListSRIA logList;
 
     /// <inheritdoc/>
     public override void CollectViews()
@@ -46,27 +47,32 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         var go = root.GetChild(2);
         goScript = go.GetComponent<GoScript>();
 
-        goScript.Battle = battle;
+        goScript.battle = battle;
         //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         goScript.transparentMessage = transparentMessageController;
+
+        goScript.logList = logList;
+
+
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
     {
         nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
         locationText.text = "  " + dataModel.location;
-        UpdateScores(dataModel);
+        //UpdateScores(dataModel);
         SetBattle();
 
 
-    }
-
-    void UpdateScores(SimpleClientModel dataModel)
-    {
-
-        //levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value ;
 
     }
+
+    //void UpdateScores(SimpleClientModel dataModel)
+    //{
+
+    //    //levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value ;
+
+    //}
 }
 
 public class SimpleClientViewsHolder : BaseClientViewsHolder<SimpleClientModel>
@@ -111,7 +117,7 @@ public class ExpandableSimpleClientModel : SimpleClientModel
 }
 
 
-public class MyItemViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
+public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 {
     public CExpandCollapseOnClick expandCollapseComponent;
 

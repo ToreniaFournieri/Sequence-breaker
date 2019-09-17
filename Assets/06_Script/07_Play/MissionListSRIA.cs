@@ -7,28 +7,27 @@ using frame8.ScrollRectItemsAdapter.Classic.Util;
 
 
 
-public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
 {
     //for battle calculation
     public List<GameObject> battleList;
-    //for log
-    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController;
-    //for 
+    //for adding BattleLog to log list 
+    public LogListSRIA logList;
+
+
 
     //for transparent message
     public GameObject transparentMessageController;
 
     public RectTransform itemPrefab;
-    //public string[] sampleFirstNames;//, sampleLastNames;
-    //public string[] sampleLocations;
     public DemoUI demoUI;
 
     public List<ExpandableSimpleClientModel> Data { get; private set; }
 
     LayoutElement _PrefabLayoutElement;
     // Used to quickly retrieve the views holder given the gameobject
-    Dictionary<RectTransform, MyItemViewsHolder> _MapRootToViewsHolder = new Dictionary<RectTransform, MyItemViewsHolder>();
+    Dictionary<RectTransform, MissionViewsHolder> _MapRootToViewsHolder = new Dictionary<RectTransform, MissionViewsHolder>();
 
 
     #region ClassicSRIA implementation
@@ -72,9 +71,9 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
             viewsHolders[Mathf.Min(3, Data.Count - 1)].expandCollapseComponent.OnClicked();
     }
 
-    protected override MyItemViewsHolder CreateViewsHolder(int itemIndex)
+    protected override MissionViewsHolder CreateViewsHolder(int itemIndex)
     {
-        var instance = new MyItemViewsHolder();
+        var instance = new MissionViewsHolder();
         instance.Init(itemPrefab, itemIndex);
         instance.expandCollapseComponent.sizeChangesHandler = this;
 
@@ -83,12 +82,14 @@ public class MyClassicSRIA : ClassicSRIA<MyItemViewsHolder>, CExpandCollapseOnCl
         //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         instance.transparentMessageController = transparentMessageController;
 
+
+
         _MapRootToViewsHolder[instance.root] = instance;
 
         return instance;
     }
 
-    protected override void UpdateViewsHolder(MyItemViewsHolder vh) { vh.UpdateViews(Data[vh.ItemIndex]); }
+    protected override void UpdateViewsHolder(MissionViewsHolder vh) { vh.UpdateViews(Data[vh.ItemIndex]); }
     #endregion
 
     #region events from DrawerCommandPanel

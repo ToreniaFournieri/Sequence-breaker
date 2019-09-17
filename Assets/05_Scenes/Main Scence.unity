@@ -1680,6 +1680,7 @@ MonoBehaviour:
   battleList:
   - {fileID: 208688197}
   - {fileID: 465871540}
+  logList: {fileID: 461805080}
   transparentMessageController: {fileID: 1663717958}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
@@ -2641,7 +2642,7 @@ GameObject:
   - component: {fileID: 461805081}
   - component: {fileID: 461805080}
   m_Layer: 5
-  m_Name: VerticalListView
+  m_Name: LogListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2683,6 +2684,7 @@ MonoBehaviour:
   viewport: {fileID: 1925332001}
   battleList:
   - {fileID: 208688197}
+  - {fileID: 465871540}
   - {fileID: 465871540}
   battleLogEnhancedScrollController: {fileID: 18717904}
   battleLog: {fileID: 709966976}
