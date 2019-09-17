@@ -10,14 +10,15 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
 {
     //for battle calculation
     public List<GameObject> battleList;
-    //for log
-    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController;
-    //for transparent message
-    public GameObject transparentMessageController;
+    //for log 
+    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController;
+    public GameObject battleLog;
+    public GameObject logList;
 
+
+    public GameObject transparentMessageController;
     public RectTransform itemPrefab;
-    //public string[] sampleFirstNames;//, sampleLastNames;
-    //public string[] sampleLocations;
+
     public DemoUI demoUI;
 
     public List<LogClientModel> Data { get; private set; }
@@ -80,6 +81,9 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
         instance.transparentMessageController = transparentMessageController;
 
         instance.whichWin = battleList[itemIndex].GetComponent<RunBattle>().whichWin;
+        instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        instance.battleLog = battleLog;
+        instance.logList = logList;
 
         _MapRootToViewsHolder[instance.root] = instance;
 

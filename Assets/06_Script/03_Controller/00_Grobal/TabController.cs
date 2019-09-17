@@ -17,7 +17,7 @@ public class TabController : MonoBehaviour
     public GameObject homeTab;
 
     // Battle log generate 2019/9/2 for test
-    public GameObject BattleLogEnhancedScrollController;
+    //public GameObject BattleLogEnhancedScrollController;
 
     // Log list update
 
@@ -30,7 +30,8 @@ public class TabController : MonoBehaviour
                 playTab.SetActive(false);
                 homeTab.SetActive(false);
 
-                BattleLogEnhancedScrollController.GetComponent<BattleLogEnhancedScrollController>().DrawBattleLog();
+
+                //BattleLogEnhancedScrollController.GetComponent<BattleLogEnhancedScrollController>().DrawBattleLog();
 
                 break;
             case "PlayTab":

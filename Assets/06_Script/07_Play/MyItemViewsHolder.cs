@@ -13,7 +13,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public Text nameText, locationText, averageScoreText;
     //public RectTransform levelOfMission;
     public Slider levelOfMissionSlider;
-    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
+    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
     public GameObject transparentMessageController; // to display transparent message
      
 
@@ -47,7 +47,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         goScript = go.GetComponent<GoScript>();
 
         goScript.Battle = battle;
-        goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         goScript.transparentMessage = transparentMessageController;
     }
 

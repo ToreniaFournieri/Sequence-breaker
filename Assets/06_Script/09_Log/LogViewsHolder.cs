@@ -15,13 +15,16 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
     //public Text averageScoreText;
     //public RectTransform levelOfMission;
     public Slider levelOfMissionSlider;
-    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
     public GameObject transparentMessageController; // to display transparent message
 
+    //Show detail button objects
+    public ShowDetailButton detailButton;
 
-    //Battle object
+    // Log related values
+    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
+    public GameObject battleLog;
+    public GameObject logList;
     public GameObject battle;
-    //public GoScript goScript;
 
     public Text levelOfMissionText;
     public Text resultText;
@@ -42,6 +45,8 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
         nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();        
         locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
+        Transform showDetailPanel = root.GetChild(2);
+        detailButton = showDetailPanel.GetComponent<ShowDetailButton>();
 
     }
 
@@ -61,27 +66,37 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
         nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
         locationText.text = "  " + dataModel.location;
 
-        Debug.Log("which win? :" + battle.GetComponent<RunBattle>().whichWin + " in " + battle.GetComponent<RunBattle>().missionText) ;
+        //ShowDetailButton showDetailButton = detailButton.GetComponent<ShowDetailButton>();
 
-        resultText.text = null;
-        switch (whichWin)
-        {
-            case WhichWin.none:
-                break;
-            case WhichWin.allyWin:
-                resultText.text = "[Win]";
-                break;
-            case WhichWin.enemyWin:
-                resultText.text = "[Lose]";
-                break;
-            case WhichWin.Draw:
-                resultText.text = "[Draw]";
-                break;
-            default:
-                Debug.LogError("Unexpected value :" + battle.GetComponent<RunBattle>().whichWin);
-                break;
+        detailButton.battle = battle;
+        detailButton.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        detailButton.battleLog = battleLog;
+        detailButton.logList = logList;
 
-        }
+        
+
+
+        //Debug.Log("which win? :" + battle.GetComponent<RunBattle>().whichWin + " in " + battle.GetComponent<RunBattle>().missionText) ;
+
+        //resultText.text = null;
+        //switch (whichWin)
+        //{
+        //    case WhichWin.none:
+        //        break;
+        //    case WhichWin.allyWin:
+        //        resultText.text = "[Win]";
+        //        break;
+        //    case WhichWin.enemyWin:
+        //        resultText.text = "[Lose]";
+        //        break;
+        //    case WhichWin.Draw:
+        //        resultText.text = "[Draw]";
+        //        break;
+        //    default:
+        //        Debug.LogError("Unexpected value :" + battle.GetComponent<RunBattle>().whichWin);
+        //        break;
+
+        //}
         //UpdateScores(dataModel);
         //SetBattle();
 
