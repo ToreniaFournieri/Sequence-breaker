@@ -35,7 +35,27 @@ public class RunBattle : MonoBehaviour
     private BattleEngine _battle;
     private List<KohmaiWorks.Scroller.Data> _data;
 
-    //public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, SkillsMasterClass normalAttackSkillsMaster, List<SkillsMasterClass> buffMasters)
+    public RunBattle Copy()
+    {
+        return (RunBattle)this.MemberwiseClone();
+
+    }
+
+    public void Set(RunBattle runBattle)
+    {
+        RunBattle _runbattle = runBattle.Copy();
+
+        this.missionText = _runbattle.missionText;
+        this.location = _runbattle.location;
+        this.missionLevel = _runbattle.missionLevel;
+        this.whichWin = _runbattle.whichWin;
+        this.Data = _runbattle.Data;
+        this.battleEnvironment = _runbattle.battleEnvironment;
+        this.allyUnitList = _runbattle.allyUnitList;
+        this.enemyUnitList = _runbattle.enemyUnitList;
+
+    }
+
 
     public RunBattle(List<UnitClass> allyUnitList, List<UnitClass> enemyUnitList, BattleEnvironment battleEnvironment)
     {

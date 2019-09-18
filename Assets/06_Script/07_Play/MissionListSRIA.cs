@@ -82,7 +82,7 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         instance.transparentMessageController = transparentMessageController;
 
-
+        instance.logList = logList;
 
         _MapRootToViewsHolder[instance.root] = instance;
 

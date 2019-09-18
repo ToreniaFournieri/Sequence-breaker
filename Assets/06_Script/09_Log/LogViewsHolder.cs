@@ -63,8 +63,29 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
 
     public virtual void UpdateViews(TClientModel dataModel)
     {
-        nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
+        nameText.text = dataModel.missionName + " (lv:" + battle.GetComponent<RunBattle>().missionLevel + ")";
         locationText.text = "  " + dataModel.location;
+
+        string _resultText = null;
+
+        switch (whichWin)
+        {
+            case WhichWin.allyWin:
+                _resultText = "[Win]";
+                break;
+            case WhichWin.enemyWin:
+                _resultText = "[Lose]";
+                break;
+            case WhichWin.Draw:
+                _resultText = "[Draw]";
+                break;
+            case WhichWin.none:
+                break;
+            default:
+                Debug.LogError(" unexpected value :" + whichWin);
+                break;
+        }
+        resultText.text = _resultText;
 
         //ShowDetailButton showDetailButton = detailButton.GetComponent<ShowDetailButton>();
 
@@ -72,34 +93,7 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
         detailButton.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         detailButton.battleLog = battleLog;
         detailButton.logList = logList;
-
         
-
-
-        //Debug.Log("which win? :" + battle.GetComponent<RunBattle>().whichWin + " in " + battle.GetComponent<RunBattle>().missionText) ;
-
-        //resultText.text = null;
-        //switch (whichWin)
-        //{
-        //    case WhichWin.none:
-        //        break;
-        //    case WhichWin.allyWin:
-        //        resultText.text = "[Win]";
-        //        break;
-        //    case WhichWin.enemyWin:
-        //        resultText.text = "[Lose]";
-        //        break;
-        //    case WhichWin.Draw:
-        //        resultText.text = "[Draw]";
-        //        break;
-        //    default:
-        //        Debug.LogError("Unexpected value :" + battle.GetComponent<RunBattle>().whichWin);
-        //        break;
-
-        //}
-        //UpdateScores(dataModel);
-        //SetBattle();
-
     }
 
     //void UpdateScores(LogList1ClientModel dataModel)
@@ -128,6 +122,7 @@ public class LogBaseClientModel
     public string missionName;
     public string location;
     public WhichWin whichWin;
+    public string resultText;
 
     //Obsolate
     public float availability01, contractChance01, longTermClient01;

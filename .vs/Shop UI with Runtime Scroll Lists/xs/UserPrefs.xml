@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/10_TEST/TEST_ScrollViewAdapter/DemoUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/09_Log/LogViewsHolder.cs">
     <Files>
       <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="22" Column="26" />
-      <File FileName="Assets/06_Script/09_Log/LogListSRIA.cs" Line="22" Column="18" />
-      <File FileName="Assets/06_Script/07_Play/MissionListSRIA.cs" Line="83" Column="46" />
-      <File FileName="Assets/06_Script/07_Play/MissionViewsHolder.cs" Line="50" Column="1" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="30" Column="38" />
-      <File FileName="Assets/06_Script/09_Log/ShowDetailButton.cs" Line="20" Column="56" />
-      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/DemoUI.cs" Line="8" Column="34" />
+      <File FileName="Assets/06_Script/09_Log/LogListSRIA.cs" Line="161" Column="1" />
+      <File FileName="Assets/06_Script/09_Log/LogViewsHolder.cs" Line="66" Column="51" />
+      <File FileName="Assets/06_Script/07_Play/MissionListSRIA.cs" Line="48" Column="50" />
+      <File FileName="Assets/06_Script/07_Play/MissionViewsHolder.cs" Line="28" Column="1" />
+      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="33" Column="13" />
+      <File FileName="Assets/06_Script/09_Log/ShowDetailButton.cs" Line="14" Column="1" />
+      <File FileName="Assets/10_TEST/TEST_ScrollViewAdapter/DemoUI.cs" Line="17" Column="2" />
+      <File FileName="Assets/06_Script/08_Battle/RunBattle.cs" Line="12" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

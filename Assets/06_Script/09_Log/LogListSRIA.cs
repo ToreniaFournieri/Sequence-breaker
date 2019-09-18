@@ -56,10 +56,13 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
 
 
         StartCoroutine(DelayedClick());
-
-
-
     }
+
+    //public void AddBattleList(GameObject _battle)
+    //{
+    //    battleList.Add(_battle);
+    //}
+
 
     IEnumerator DelayedClick()
     {
@@ -111,6 +114,7 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
         Data.RemoveAt(index);
         RemoveItems(index, 1, demoUI.freezeContentEndEdge.isOn);
     }
+
     void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUI.SetCountValue); }
     void OnScrollToRequested()
     {
@@ -138,7 +142,8 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
     }
     #endregion
 
-    void ChangeModelsAndReset(int newCount)
+    // modify ChangeModelsAndReset to public  
+    public void ChangeModelsAndReset(int newCount)
     {
         Data.Clear();
         Data.Capacity = newCount;
@@ -153,11 +158,13 @@ public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.I
 
     LogClientModel CreateNewModel(int index)
     {
+
+
         var model = new LogClientModel()
         {
             missionName = battleList[index].GetComponent<RunBattle>().missionText,
             location = battleList[index].GetComponent<RunBattle>().location,
-
+            whichWin = battleList[index].GetComponent<RunBattle>().whichWin,
             nonExpandedSize = _PrefabLayoutElement.preferredHeight
         };
         model.SetRandom();
