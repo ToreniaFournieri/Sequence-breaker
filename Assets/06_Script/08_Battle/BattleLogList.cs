@@ -10,7 +10,7 @@ public class BattleLogClass
     public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, OrderClass order, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
     {
         OrderCondition = orderCondition; IsNavigation = isNavigation; Importance = importance;
-        if (order != null) { Order =  order.Copy(); }   
+        if (order != null) { Order = order.Copy(); }
         FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct;
 
         IsHeaderInfo = false;
