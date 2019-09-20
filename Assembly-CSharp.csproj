@@ -278,6 +278,9 @@
     <Compile Include="Assets\06_Script\08_Battle\Others.cs" />
     <Compile Include="Assets\06_Script\08_Battle\RunBattle.cs" />
     <Compile Include="Assets\06_Script\08_Battle\UnitInfoSet.cs" />
+    <Compile Include="Assets\06_Script\09_Drop\DropedItem.cs" />
+    <Compile Include="Assets\06_Script\09_Drop\DropEngine.cs" />
+    <Compile Include="Assets\06_Script\09_Drop\InventoryManager.cs" />
     <Compile Include="Assets\06_Script\10_Global\TransparentMessageController.cs" />
     <Compile Include="Assets\06_Script\Enumeration.cs" />
     <Compile Include="Assets\06_Script\ItemPanel.cs" />

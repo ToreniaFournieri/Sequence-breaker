@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: suffix-Harigaya
+  m_EditorClassIdentifier: 
+  itemName: '"Harigaya"'
+  itemDescription: 
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: ac2a154f1a29d4203bb47640cb40e607, type: 2}
+  Level: 3
+  SkillsMasterList:
+  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
+  AddAbilityList:
+  - {fileID: 11400000, guid: 9b84dcb8a28954aae88225fb5cfec1cf, type: 2}
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: b02506232f66b4b0c962d992c4e7ee85, type: 2}
+  - {fileID: 11400000, guid: da9913c917fcd4f8e9891a2b845ed7a2, type: 2}
+  - {fileID: 11400000, guid: 218880546ce8f42bb89e7f052f554b93, type: 2}
+  - {fileID: 11400000, guid: 0370e685ec0be44ea9a5625e1aa91c32, type: 2}
+  - {fileID: 11400000, guid: 1b365594bb514422baa3d47ed5706af2, type: 2}

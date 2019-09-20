@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: suffix-Unknown
+  m_EditorClassIdentifier: 
+  itemName: Unknown
+  itemDescription: 'Skill: Counter non critical attack'
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: 2d77f8d5a42a64ab78a3e42d1c926027, type: 2}
+  CombatMagnificationCoefficient: 1
+  SkillsMasterList:
+  - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
+  AddAbilityList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: a8a0c9ff4442c44f9a48bd93cf0eca3c, type: 2}
+  - {fileID: 11400000, guid: 3ab9e027d520d4895b590b1bab4d6be6, type: 2}

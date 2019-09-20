@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b5bc4271e8142c39be947c347f4f7b, type: 3}
+  m_Name: AbilityClass-Initial-Ally1
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnit/AbilityClass
+  Power: 11
+  Generation: 6
+  Stability: 8
+  Responsiveness: 6
+  Precision: 8
+  Intelligence: 9
+  Luck: 8

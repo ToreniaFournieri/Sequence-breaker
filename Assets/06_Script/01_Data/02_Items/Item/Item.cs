@@ -26,6 +26,14 @@ public class Item : ScriptableObject
     // Item enhanced
     public int enhancedValue;
 
+    //Copy
+    public Item Copy()
+    {
+        Item other = (Item)this.MemberwiseClone();
+        return other;
+    }
+
+
     //Calculated
     public CombatClass TotaledCombat()
     {

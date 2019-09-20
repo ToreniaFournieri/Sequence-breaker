@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1156d654177f84b92a2fb1364c5b0b46, type: 3}
+  m_Name: Item-ThrowingNeedleOfHariyaga
+  m_EditorClassIdentifier: 
+  itemName: +4 Throwing Needle of Hariyaga
+  itemDescription: 
+  icon: {fileID: 0}
+  ability: 1
+  addAbility: 2
+  baseItem: {fileID: 11400000, guid: 1c44bfcd3b61b47768c97ca551e03591, type: 2}
+  prefixItem: {fileID: 11400000, guid: e2e5df8ee008b4f4f9b8d71ce2012f07, type: 2}
+  suffixItem: {fileID: 11400000, guid: 59d6a3fd2e6c74aa3b4fef436416418b, type: 2}
+  enhancedValue: 4

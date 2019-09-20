@@ -15,7 +15,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public Slider levelOfMissionSlider;
     //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
     public GameObject transparentMessageController; // to display transparent message
-     
+    public GameObject inventoryManager;
 
     //Battle object
     public GameObject battle;
@@ -51,6 +51,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         goScript.transparentMessage = transparentMessageController;
 
+        goScript.inventoryManager = inventoryManager;
         goScript.logList = logList;
 
 

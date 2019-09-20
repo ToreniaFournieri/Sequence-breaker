@@ -14,7 +14,8 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
     public List<GameObject> battleList;
     //for adding BattleLog to log list 
     public LogListSRIA logList;
-
+    //for Inventory update
+    public GameObject inventoryManager;
 
 
     //for transparent message
@@ -81,6 +82,7 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         instance.battle = battleList[itemIndex];
         //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         instance.transparentMessageController = transparentMessageController;
+        instance.inventoryManager = inventoryManager;
 
         instance.logList = logList;
 

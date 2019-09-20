@@ -14,6 +14,9 @@ public class GoScript : MonoBehaviour
     //for adding battle log to log list
     public LogListSRIA logList;
 
+    //for item drop
+    public GameObject inventoryManager;
+
     private List<GameObject> battleForLogList;
 
     public void GoBattle()
@@ -37,10 +40,30 @@ public class GoScript : MonoBehaviour
         _battleCopy.GetComponent<RunBattle>().Set(_runbattle);
         logList.battleList.Add(_battleCopy);
 
-
         logList.ChangeModelsAndReset(logList.battleList.Count + 1 - 1);
 
+        // Drop list
+        List<Item> itemList = new List<Item>();
+        DropEngine dropEngine = new DropEngine();
+        if (_battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.allyWin)
+        {
+            int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
+            itemList = dropEngine.GetDropedItems(enemyUnitList: _battleCopy.GetComponent<RunBattle>().enemyUnitList, seed: seed);
+        }
         transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission start: " + missionName + missionLevel;
+
+
+        foreach (Item item in itemList)
+        {
+            Item copyedItem = new Item();
+            copyedItem = item.Copy();
+            GameObject itemObject = new GameObject();
+            itemObject.gameObject.AddComponent<DropedItem>();
+            itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
+            transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
+            inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList.Add(itemObject.GetComponent<DropedItem>().item);
+        }
+
         transparentMessage.SetActive(true);
     }
 }
