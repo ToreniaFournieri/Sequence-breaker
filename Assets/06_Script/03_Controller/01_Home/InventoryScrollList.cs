@@ -10,6 +10,9 @@ public class InventoryScrollList : MonoBehaviour
     public float capacity = 200f;
     public UnitClass unit;
 
+    // initial inventory master;
+    public UnitClass initialInventoryUnit;
+
     public Transform contentPanel;
     public InventoryScrollList otherInventory;
     public RefreshController refreshController;
@@ -19,6 +22,20 @@ public class InventoryScrollList : MonoBehaviour
 
     void Start()
     {
+        if (initialInventoryUnit != null)
+        {
+            unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
+
+            unit.itemList.Clear();
+
+            foreach (Item item in initialInventoryUnit.itemList)
+            {
+                Item copyedItem = Instantiate(item.Copy());
+                unit.itemList.Add(copyedItem);
+            }
+
+        }
+
         RefreshDisplay();
     }
 

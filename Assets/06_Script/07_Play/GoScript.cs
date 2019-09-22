@@ -55,13 +55,16 @@ public class GoScript : MonoBehaviour
 
         foreach (Item item in itemList)
         {
-            Item copyedItem = new Item();
-            copyedItem = item.Copy();
+            //Item copyedItem = (Item)ScriptableObject.CreateInstance<Item>();
+
+            Item copyedItem = Instantiate(item.Copy());
+            //copyedItem = item.Copy();
             GameObject itemObject = new GameObject();
             itemObject.gameObject.AddComponent<DropedItem>();
             itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
             transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
             inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList.Add(itemObject.GetComponent<DropedItem>().item);
+            inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.RefreshDisplay();
         }
 
         transparentMessage.SetActive(true);

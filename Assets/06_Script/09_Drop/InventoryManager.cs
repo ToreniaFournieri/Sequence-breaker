@@ -15,8 +15,8 @@ public class InventoryManager : MonoBehaviour
             inventoryScrollList.itemList.Add(item);
         }
 
-        inventoryScrollList.RefreshDisplay();
-        inventoryScrollList.otherInventory.RefreshDisplay();
+        //inventoryScrollList.RefreshDisplay();
+        //inventoryScrollList.otherInventory.RefreshDisplay();
     }
 
 }

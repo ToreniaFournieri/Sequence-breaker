@@ -4470,7 +4470,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList: []
   capacity: 200
-  unit: {fileID: 11400000, guid: 665bc0158bc694bfeb91f3d9696719f1, type: 2}
+  unit: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
+  initialInventoryUnit: {fileID: 11400000, guid: 665bc0158bc694bfeb91f3d9696719f1,
+    type: 2}
   contentPanel: {fileID: 734063309}
   otherInventory: {fileID: 952931269}
   refreshController: {fileID: 903368331}
@@ -5626,6 +5628,7 @@ MonoBehaviour:
   itemList: []
   capacity: 200
   unit: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  initialInventoryUnit: {fileID: 0}
   contentPanel: {fileID: 952931268}
   otherInventory: {fileID: 734063312}
   refreshController: {fileID: 903368331}
