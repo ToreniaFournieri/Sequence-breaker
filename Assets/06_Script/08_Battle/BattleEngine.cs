@@ -9,12 +9,16 @@ public class BattleEngine
     //For output result
     public List<BattleLogClass> logList;
     public WhichWin whichWin = WhichWin.none; // get only last one
+    public string winRatio = "[0%]"; //2019.9.22 to get win ratio to show the possibility.
 
+    // input data
     public List<BattleUnit> allyBattleUnitsList;
     public List<EffectClass> allySkillsList;
 
     public List<BattleUnit> enemyBattleUnitsList;
     public List<EffectClass> enemySkillsList;
+
+
     private static int _numberOfCharacters = 14;
     private static double _allyAttackMagnification = 1.0;
     private static double _allyDefenseMagnification = 1.0;
@@ -595,6 +599,12 @@ public class BattleEngine
             importance: 1, whichAffiliationAct: Affiliation.none);
         battleLogDisplayList.Add(finalLoglist);
         logList = battleLogDisplayList;
+
+        //Set win ratio
+        winRatio = "[" + (int)(100 * allyWinCount / battleWaves) + "%]";
+ 
+   
+
     }
 
     // Skill check method

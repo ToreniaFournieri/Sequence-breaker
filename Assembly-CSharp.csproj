@@ -219,6 +219,7 @@
     <Compile Include="Assets\00_Asset\Asset_obsolate_EnhancedScroller v2\Plugins\EnhancedScrollerCellView.cs" />
     <Compile Include="Assets\00_Asset\Asset_obsolate_EnhancedScroller v2\Plugins\IEnhancedScrollerDelegate.cs" />
     <Compile Include="Assets\00_Asset\Asset_obsolate_EnhancedScroller v2\Plugins\SmallList.cs" />
+    <Compile Include="Assets\06_Script\00_System\FixedRatioCalculator.cs" />
     <Compile Include="Assets\06_Script\01_Data\01_Skills\EffectClass.cs" />
     <Compile Include="Assets\06_Script\01_Data\01_Skills\SkillsMasterClass.cs" />
     <Compile Include="Assets\06_Script\01_Data\01_Skills\Subclass\BuffTargetParameterClass.cs" />

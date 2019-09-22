@@ -31,8 +31,12 @@ public enum CallSkillLogicName { none, ShieldHealSingle, ShieldHealMulti, Reduce
 // none should not be selected.
 public enum MagnificationType
 {
-    none, OffenseMagnificationFixedRatio, OffenseMagnificationRatio, OffenseAdditionalPercent,
-    DefenseMagnificationFixedRatio, DefenseMagnificationRatio, DefenseAdditionalPercent
+    none, MagnificationFixedRatio, MagnificationRatio, AdditionalPercent,
+}
+
+public enum OffenseOrDefense
+{
+    none, Offense, Defense
 }
 
 //for Item Master, tell the Magnification Id

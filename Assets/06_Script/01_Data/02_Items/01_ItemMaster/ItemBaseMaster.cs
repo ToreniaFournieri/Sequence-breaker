@@ -93,14 +93,28 @@ public class ItemBaseMaster : ScriptableObject
             string _offenseOrDefense = null;
             string _magnificationDetail = null;
 
+            switch (magnification.OffenseOrDefense)
+            {
+                case OffenseOrDefense.none:
+                    _offenseOrDefense = null;
+                    break;
+                case OffenseOrDefense.Offense:
+                    _offenseOrDefense = "Offense";
+                    break;
+                case OffenseOrDefense.Defense:
+                    _offenseOrDefense = "Defense";
+                    break;
+                default:
+                    Debug.LogError("unexpected OffenseOrDefense value:" + magnification.OffenseOrDefense);
+                    break;
+            }
+
             switch (magnification.MagnificationType)
             {
-                case MagnificationType.OffenseMagnificationRatio:
-                    _offenseOrDefense += "Offense ";
+                case MagnificationType.MagnificationRatio:
                     _magnificationDetail += "x" + magnification.MagnificationRatio.ToString("F2");
                     break;
-                case MagnificationType.OffenseMagnificationFixedRatio:
-                    _offenseOrDefense += "Offense ";
+                case MagnificationType.MagnificationFixedRatio:
                     switch (magnification.MagnificationFixedRatio)
                     {
                         case MagnificationFixedRatio.fiveOverFour: _magnificationDetail += "5/4"; break;
@@ -120,56 +134,7 @@ public class ItemBaseMaster : ScriptableObject
                             break;
                     }
                     break;
-                case MagnificationType.OffenseAdditionalPercent:
-                    _offenseOrDefense += "Offense ";
-                    switch (magnification.MagnificationPercent)
-                    {
-                        case MagnificationPercent.one: _magnificationDetail += "+1%"; break;
-                        case MagnificationPercent.two: _magnificationDetail += "+2%"; break;
-                        case MagnificationPercent.three: _magnificationDetail += "+3%"; break;
-                        case MagnificationPercent.four: _magnificationDetail += "+4%"; break;
-                        case MagnificationPercent.five: _magnificationDetail += "+5%"; break;
-                        case MagnificationPercent.six: _magnificationDetail += "+6%"; break;
-                        case MagnificationPercent.seven: _magnificationDetail += "+7%"; break;
-                        case MagnificationPercent.eight: _magnificationDetail += "+8%"; break;
-                        case MagnificationPercent.nine: _magnificationDetail += "+9%"; break;
-                        case MagnificationPercent.ten: _magnificationDetail += "+10%"; break;
-                        case MagnificationPercent.eleven: _magnificationDetail += "+11%"; break;
-                        case MagnificationPercent.twelve: _magnificationDetail += "+12%"; break;
-                        case MagnificationPercent.thirteen: _magnificationDetail += "+13%"; break;
-                        default:
-                            Debug.Log("ItemBaseMaster, in MagnificationPercent, unexpected: " + magnification.MagnificationPercent);
-                            break;
-                    }
-                    break;
-                case MagnificationType.DefenseMagnificationRatio:
-                    _offenseOrDefense += "Defense ";
-
-                    _magnificationDetail += "x" + magnification.MagnificationRatio.ToString("F2");
-                    break;
-                case MagnificationType.DefenseMagnificationFixedRatio:
-                    _offenseOrDefense += "Defense ";
-                    switch (magnification.MagnificationFixedRatio)
-                    {
-                        case MagnificationFixedRatio.fiveOverFour: _magnificationDetail += "5/4"; break;
-                        case MagnificationFixedRatio.fiveOverSix: _magnificationDetail += "5/6"; break;
-                        case MagnificationFixedRatio.fourOverFive: _magnificationDetail += "4/5"; break;
-                        case MagnificationFixedRatio.fourOverThree: _magnificationDetail += "4/3"; break;
-                        case MagnificationFixedRatio.oneOverHundred: _magnificationDetail += "1/100"; break;
-                        case MagnificationFixedRatio.oneOverOne: _magnificationDetail += "1/1"; break;
-                        case MagnificationFixedRatio.oneOverTen: _magnificationDetail += "1/10"; break;
-                        case MagnificationFixedRatio.sixOverFive: _magnificationDetail += "6/5"; break;
-                        case MagnificationFixedRatio.threeOverFour: _magnificationDetail += "3/4"; break;
-                        case MagnificationFixedRatio.threeOverTwo: _magnificationDetail += "3/2"; break;
-                        case MagnificationFixedRatio.twoOverOne: _magnificationDetail += "2/1"; break;
-                        case MagnificationFixedRatio.twoOverThree: _magnificationDetail += "2/3"; break;
-                        default:
-                            Debug.Log("ItemBaseMaster, in MagnificationFixedRatio, unexpected :" + magnification.MagnificationFixedRatio);
-                            break;
-                    }
-                    break;
-                case MagnificationType.DefenseAdditionalPercent:
-                    _offenseOrDefense += "Defense ";
+                case MagnificationType.AdditionalPercent:
                     switch (magnification.MagnificationPercent)
                     {
                         case MagnificationPercent.one: _magnificationDetail += "+1%"; break;

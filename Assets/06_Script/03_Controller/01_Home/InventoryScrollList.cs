@@ -24,6 +24,7 @@ public class InventoryScrollList : MonoBehaviour
     {
         if (initialInventoryUnit != null)
         {
+            // inventory 
             unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
 
             unit.itemList.Clear();
@@ -35,6 +36,9 @@ public class InventoryScrollList : MonoBehaviour
             }
 
         }
+       
+
+       
 
         RefreshDisplay();
     }

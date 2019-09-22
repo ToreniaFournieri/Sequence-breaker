@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c62290da9824a99a6cd4c7c00cf381, type: 3}
   m_Name: Magnification-DefCritical4Over5
   m_EditorClassIdentifier: 
-  MagnificationType: 4
+  OffenseOrDefense: 2
+  MagnificationType: 1
   MagnificationTarget: 1
   MagnificationFixedRatio: 3
   MagnificationRatio: 1

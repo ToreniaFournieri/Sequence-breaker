@@ -50,7 +50,11 @@ public class GoScript : MonoBehaviour
             int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
             itemList = dropEngine.GetDropedItems(enemyUnitList: _battleCopy.GetComponent<RunBattle>().enemyUnitList, seed: seed);
         }
-        transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission start: " + missionName + missionLevel;
+
+        transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + missionName + missionLevel
+
+        //transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + _battleCopy.GetComponent<RunBattle>().missionText + missionLevel
+            + " [" + _battleCopy.GetComponent<RunBattle>().whichWin +  "] " + _battleCopy.GetComponent<RunBattle>().winRatio;
 
 
         foreach (Item item in itemList)
@@ -60,6 +64,8 @@ public class GoScript : MonoBehaviour
             Item copyedItem = Instantiate(item.Copy());
             //copyedItem = item.Copy();
             GameObject itemObject = new GameObject();
+            itemObject.transform.parent = inventoryManager.transform;
+            itemObject.name =  copyedItem.name + " got:" + DateTime.Now;
             itemObject.gameObject.AddComponent<DropedItem>();
             itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
             transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;

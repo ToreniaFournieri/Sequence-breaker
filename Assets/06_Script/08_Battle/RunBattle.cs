@@ -10,6 +10,7 @@ public class RunBattle : MonoBehaviour
     public string location;
     public int missionLevel;
     public WhichWin whichWin;
+    public string winRatio;
 
     //Output information
     public List<KohmaiWorks.Scroller.Data> Data;
@@ -53,6 +54,7 @@ public class RunBattle : MonoBehaviour
         this.battleEnvironment = _runbattle.battleEnvironment;
         this.allyUnitList = _runbattle.allyUnitList;
         this.enemyUnitList = _runbattle.enemyUnitList;
+        this.winRatio = _runbattle.winRatio;
 
     }
 
@@ -95,10 +97,10 @@ public class RunBattle : MonoBehaviour
 
         _battle.Battle();
 
-
         whichWin = _battle.whichWin;
+        winRatio = _battle.winRatio;
 
-            SetBattleLogToData();
+        SetBattleLogToData();
 
     }
 

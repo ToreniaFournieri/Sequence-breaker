@@ -17,10 +17,11 @@ MonoBehaviour:
   Affiliation: 1
   UnitType: 3
   ItemCapacity: 3
-  itemList: []
+  itemList:
+  - {fileID: 11400000, guid: 34d0da44846c94cb4ae10ea89bebd9c6, type: 2}
   CoreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   Pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
-  Level: 71
+  Level: 13
   skillsMaster:
   - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
   - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}

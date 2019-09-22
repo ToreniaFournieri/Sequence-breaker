@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class CalculateUnitStatus : MonoBehaviour
 {
@@ -142,7 +144,11 @@ public class CalculateUnitStatus : MonoBehaviour
 
         foreach (Item _item in Unit.itemList)
         {
-            _summedItemsAddAbility.AddUp(_item.TotaledAbility());
+            if (_item != null)
+            {
+                _summedItemsAddAbility.AddUp(_item.TotaledAbility());
+            }
+
         }
         // (1-3) Ability caluculation -> CaluculatedAbility
         // Formula:
@@ -311,7 +317,10 @@ public class CalculateUnitStatus : MonoBehaviour
 
         foreach (Item _item in Unit.itemList)
         {
-            _combatItems.Add(_item.TotaledCombat());
+            if (_item != null)
+            {
+                _combatItems.Add(_item.TotaledCombat());
+            }
         }
 
         // some code here. omitted
@@ -358,6 +367,82 @@ public class CalculateUnitStatus : MonoBehaviour
 
 
         //(4)Offense/Defense/UnitSkill Magnification
+
+        List<MagnificationMasterClass> _itemMagnificationMasterList = new List<MagnificationMasterClass>();
+        foreach (Item _item in Unit.itemList)
+        {
+            if (_item != null)
+            {
+                //item has prefix, base and suffix. each one has magnification master calss list. collect them all
+                if (_item.prefixItem != null)
+                {
+                    foreach (MagnificationMasterClass _magnificationMaster in _item.prefixItem.MagnificationMasterList)
+                    {
+                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                    }
+                }
+
+                if (_item.baseItem != null)
+                {
+                    foreach (MagnificationMasterClass _magnificationMaster in _item.baseItem.MagnificationMasterList)
+                    {
+                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                    }
+                }
+
+                if (_item.suffixItem != null)
+                {
+                    foreach (MagnificationMasterClass _magnificationMaster in _item.suffixItem.MagnificationMasterList)
+                    {
+                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                    }
+                }
+            }
+        }
+
+        // Deduplication
+        MagnificationComparer Comparer = new MagnificationComparer();
+        IEnumerable<MagnificationMasterClass> _deduplicationedMagnification = _itemMagnificationMasterList.Distinct(Comparer);
+
+        string _debuMagnificationText = null;
+        int _percentSummed = 0;
+        double _fixedRatioSummed = 1.0;
+        double _ratioSummed = 1.0;
+
+
+        foreach (MagnificationMasterClass magnificationClass in _deduplicationedMagnification)
+        {
+            //fortest
+            _debuMagnificationText += "[" + magnificationClass.MagnificationType + "-" + magnificationClass.MagnificationTarget
+                + "-" + magnificationClass.MagnificationPercent + "]";
+
+            switch (magnificationClass.OffenseOrDefense)
+            {
+                case OffenseOrDefense.none:
+                    break;
+                case OffenseOrDefense.Offense:
+                    switch (magnificationClass.MagnificationTarget)
+                    {
+                        //[2019.9.23] need to make a good way to set each offense or defense values of Magnification target
+                        // hint: (int)enum sounds good, isn't it? 
+                    }
+
+                    (_percentSummed, _fixedRatioSummed, _ratioSummed) = MagnificationTypeModule(magnificationClass);
+                    break;
+                case OffenseOrDefense.Defense:
+                    (_percentSummed, _fixedRatioSummed, _ratioSummed) = MagnificationTypeModule(magnificationClass);
+                    break;
+                default:
+                    Debug.LogError("unexpected OffenseOrDefense Value:" + magnificationClass.OffenseOrDefense);
+                    break;
+            }
+
+        }
+        Debug.Log(" percent:" + _percentSummed);
+
+
+
+
         _offenseMagnification = new OffenseMagnificationClass(optimumRangeBonus: _optimumRangeBonusDefault, critical: _criticalMagnificationDefault,
             kinetic: 1.0, chemical: 1.0, thermal: 1.0, vsBeast: 1.0, vsCyborg: 1.0, vsDrone: 1.0, vsRobot: 1.0, vsTitan: 1.0);
         _defenseMagnification = new DefenseMagnificationClass(critical: _criticalMagnificationDefault,
@@ -372,6 +457,61 @@ public class CalculateUnitStatus : MonoBehaviour
             defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
 
 
+    }
+
+    private (int _percent, double _fixedRatio, double _ratio) MagnificationTypeModule(MagnificationMasterClass magnificationClass)
+    {
+        int _percentSummed = 0;
+        double _fixedRatioSummed = 1.0;
+        double _ratioSummed = 1.0;
+        switch (magnificationClass.MagnificationType)
+        {
+            case MagnificationType.none:
+                break;
+            case MagnificationType.AdditionalPercent:
+                // values and Enum ID is equal
+                _percentSummed += (int)magnificationClass.MagnificationPercent;
+                break;
+            case MagnificationType.MagnificationFixedRatio:
+                FixedRatioCalculator _fix = new FixedRatioCalculator(magnificationClass.MagnificationFixedRatio);
+                _fixedRatioSummed = _fix.value;
+                break;
+            case MagnificationType.MagnificationRatio:
+                _ratioSummed *= magnificationClass.MagnificationRatio;
+                break;
+            default:
+                Debug.Log("unexpected value:" + magnificationClass.MagnificationType);
+                break;
+        }
+
+        return (_percentSummed, _fixedRatioSummed, _ratioSummed);
+    }
+
+
+    private class MagnificationComparer : IEqualityComparer<MagnificationMasterClass>
+    {
+        public bool Equals(MagnificationMasterClass i_lhs, MagnificationMasterClass i_rhs)
+        {
+            if (i_lhs.MagnificationFixedRatio == i_rhs.MagnificationFixedRatio &&
+                i_lhs.MagnificationPercent == i_rhs.MagnificationPercent &&
+                System.Math.Abs(i_lhs.MagnificationRatio - i_rhs.MagnificationRatio) < System.Double.Epsilon &&
+                i_lhs.MagnificationTarget == i_rhs.MagnificationTarget &&
+                i_lhs.MagnificationType == i_rhs.MagnificationType
+                )
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public int GetHashCode(MagnificationMasterClass i_obj)
+        {
+            return i_obj.MagnificationFixedRatio.GetHashCode()
+                ^ i_obj.MagnificationPercent.GetHashCode()
+                ^ i_obj.MagnificationRatio.GetHashCode()
+                ^ i_obj.MagnificationTarget.GetHashCode()
+                ^ i_obj.MagnificationType.GetHashCode();
+        }
     }
 
 }

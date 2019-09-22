@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c62290da9824a99a6cd4c7c00cf381, type: 3}
   m_Name: Magnification-OffKinetic7percent
   m_EditorClassIdentifier: 
+  OffenseOrDefense: 1
   MagnificationType: 3
   MagnificationTarget: 2
   MagnificationFixedRatio: 0

@@ -41,9 +41,12 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
 
         var mainPanel = root.GetChild(0);
         resultText = mainPanel.Find("NameAndLocationPanel/Result").GetComponent<Text>();
-        levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
-        nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();        
+
+        levelOfMissionText = mainPanel.Find("MissionImage/LevelText2").GetComponent<Text>();
+        //levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
+        nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
         locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
+
 
         Transform showDetailPanel = root.GetChild(2);
         detailButton = showDetailPanel.GetComponent<ShowDetailButton>();
@@ -65,6 +68,9 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
     {
         nameText.text = dataModel.missionName + " (lv:" + battle.GetComponent<RunBattle>().missionLevel + ")";
         locationText.text = "  " + dataModel.location;
+
+
+        levelOfMissionText.text = "Lv: " + battle.GetComponent<RunBattle>().missionLevel;
 
         string _resultText = null;
 
@@ -93,7 +99,7 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
         detailButton.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         detailButton.battleLog = battleLog;
         detailButton.logList = logList;
-        
+
     }
 
     //void UpdateScores(LogList1ClientModel dataModel)
