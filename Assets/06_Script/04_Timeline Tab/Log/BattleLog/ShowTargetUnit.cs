@@ -24,7 +24,10 @@ namespace KohmaiWorks.Scroller
                     // [2]This also didn't work.
                     //unitIconObjectPool.ReturnObject(child.gameObject);
 
+                    child.transform.localScale = new Vector3(1f, 1f, 1f);
+
                     children.Add(child.gameObject);
+
                 }
 
                 // [3]Somehow, this works.
@@ -77,6 +80,7 @@ namespace KohmaiWorks.Scroller
                     unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
                     //unitIcon.tag = "UnitHorizontalInfo";
+                    //unitIcon.transform.localScale = new Vector3(1f, 1f, 1f); // didnt work
                     unitIcon.transform.parent = this.transform;
                 }
 
