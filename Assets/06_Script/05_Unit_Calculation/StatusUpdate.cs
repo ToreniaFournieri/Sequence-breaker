@@ -82,6 +82,8 @@ public class StatusUpdate : MonoBehaviour
         // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
 
 
+
+
         abilityText.text =
             calculateUnitStatus.BattleUnit.Combat.ShieldMax + " Shield \n"
             + calculateUnitStatus.BattleUnit.Combat.HitPointMax + " HP\n"
@@ -98,44 +100,70 @@ public class StatusUpdate : MonoBehaviour
 
             + "<Offense> \n"
             + "[Critical:" + Math.Round(calculateUnitStatus.BattleUnit.OffenseMagnification.Critical * 100) + "%] "
-            + " (+" + calculateUnitStatus.summedOffenseList[1].percentValue + "% "
+            + " ("
             + "x" + Math.Round(calculateUnitStatus.summedOffenseList[1].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[1].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[1].ratioValue, 3)
+            + calculateUnitStatus.summedOffenseList[1].percentValue + "% "
+            + " {" + calculateUnitStatus.summedOffenseList[1].percents + "}) \n"
             + "[Kinetic:" + Math.Round(calculateUnitStatus.BattleUnit.OffenseMagnification.Kinetic * 100) + "%] "
-            + " (+" + calculateUnitStatus.summedOffenseList[2].percentValue + "% "
+            + " (+"
             + "x" + Math.Round(calculateUnitStatus.summedOffenseList[2].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[2].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[2].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedOffenseList[2].percentValue + "% "
+            + " {" + calculateUnitStatus.summedOffenseList[2].percents + "}) \n"
+
             + "[Chemical:" + Math.Round(calculateUnitStatus.BattleUnit.OffenseMagnification.Chemical * 100) + "%] "
-            + " (+" + calculateUnitStatus.summedOffenseList[3].percentValue + "% "
+            + " ("
             + "x" + Math.Round(calculateUnitStatus.summedOffenseList[3].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[3].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[3].ratioValue, 3)
+            + " +" +calculateUnitStatus.summedOffenseList[3].percentValue + "% "
+            + " {" + calculateUnitStatus.summedOffenseList[3].percents + "}) \n"
+
             + "[Thermal:" + Math.Round(calculateUnitStatus.BattleUnit.OffenseMagnification.Thermal * 100) + "%] "
-            + " (+" + calculateUnitStatus.summedOffenseList[4].percentValue + "% "
+            + " ("
             + "x" + Math.Round(calculateUnitStatus.summedOffenseList[4].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[4].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[4].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedOffenseList[4].percentValue + "% "
+            + " {" + calculateUnitStatus.summedOffenseList[4].percents + "}) \n"
+
             + "[OptimumRangeBonus:" + Math.Round(calculateUnitStatus.BattleUnit.OffenseMagnification.OptimumRangeBonus * 100) + "%] "
-                        + " (+" + calculateUnitStatus.summedOffenseList[10].percentValue + "% "
+                        + " ("
             + "x" + Math.Round(calculateUnitStatus.summedOffenseList[10].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[10].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedOffenseList[10].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedOffenseList[10].percentValue + "% "
+            + " {" + calculateUnitStatus.summedOffenseList[10].percents + "}) \n"
+
             + " \n"
 
             + "<Deffense> \n"
             + "[Critical:" + Math.Round(calculateUnitStatus.BattleUnit.DefenseMagnification.Critical * 100) + "%] "
-                        + " (+" + calculateUnitStatus.summedDefenseList[1].percentValue + "% "
+            + " ("
             + "x" + Math.Round(calculateUnitStatus.summedDefenseList[1].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[1].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[1].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedDefenseList[1].percentValue + "% "
+            + " {" + calculateUnitStatus.summedDefenseList[1].percents + "}) \n"
+
             + "[Kinetic:" + Math.Round(calculateUnitStatus.BattleUnit.DefenseMagnification.Kinetic * 100) + "%] "
-                        + " (+" + calculateUnitStatus.summedDefenseList[2].percentValue + "% "
+            + " ("
             + "x" + Math.Round(calculateUnitStatus.summedDefenseList[2].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[2].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[2].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedDefenseList[2].percentValue + "% "
+            + " {" + calculateUnitStatus.summedDefenseList[2].percents + "}) \n"
+
             + "[Chemical:" + Math.Round(calculateUnitStatus.BattleUnit.DefenseMagnification.Chemical * 100) + "%] "
-                        + " (+" + calculateUnitStatus.summedDefenseList[3].percentValue + "% "
+                        + " ("
             + "x" + Math.Round(calculateUnitStatus.summedDefenseList[3].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[3].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[3].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedDefenseList[3].percentValue + "% "
+            + " {" + calculateUnitStatus.summedDefenseList[3].percents + "}) \n"
+
             + "[Thermal:" + Math.Round(calculateUnitStatus.BattleUnit.DefenseMagnification.Thermal * 100) + "%]"
-                        + " (+" + calculateUnitStatus.summedDefenseList[4].percentValue + "% "
+                        + " ("
             + "x" + Math.Round(calculateUnitStatus.summedDefenseList[4].fixedRatioValue, 3)
-            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[4].ratioValue, 3) + ") \n"
+            + " x" + Math.Round(calculateUnitStatus.summedDefenseList[4].ratioValue, 3)
+            + " +" + calculateUnitStatus.summedDefenseList[4].percentValue + "% "
+            + " {" + calculateUnitStatus.summedDefenseList[4].percents + "}) \n"
+
 
             ;
 
