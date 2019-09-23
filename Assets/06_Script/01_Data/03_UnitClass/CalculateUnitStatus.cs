@@ -13,9 +13,9 @@ public class CalculateUnitStatus : MonoBehaviour
     //Output data
     public BattleUnit BattleUnit;
 
-    // Output data to show magnification data 
-    public List<(int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed)> magnificationOffenseList;
-    public List<(int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed)> magnificationDefenseList;
+    // Output data to show magnification data
+    public List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue)> summedOffenseList;
+    public List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue)> summedDefenseList;
 
 
     //output middle data
@@ -409,16 +409,25 @@ public class CalculateUnitStatus : MonoBehaviour
         MagnificationComparer Comparer = new MagnificationComparer();
         IEnumerable<MagnificationMasterClass> _deduplicationedMagnification = _itemMagnificationMasterList.Distinct(Comparer);
 
-        string _debuMagnificationText = null;
 
         // this List is magnificationTarget
-        // magnificationTargetID is stand for enum magnificationTarget. 
+        // magnificationTargetID is stand for enum magnificationTarget.
+
+        List<(int magnificationTargetID, int _percent, double _fixedRatio, double _ratio)> magnificationOffenseList;
+        List<(int magnificationTargetID, int _percent, double _fixedRatio, double _ratio)> magnificationDefenseList;
+
         magnificationOffenseList = new List<(int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed)>();
         magnificationDefenseList = new List<(int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed)>();
 
         // calculated values
-        List<(int magnificationTargetID, double magnificationValue)> calculatedMagOffenseList = new List<(int magnificationTargetID, double magnificationValue)>();
-        List<(int magnificationTargetID, double magnificationValue)> calculatedMagDefenseList = new List<(int magnificationTargetID, double magnificationValue)>();
+        List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagOffenseList
+            = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
+        List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagDefenseList
+            = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
+
+        // final value
+        summedOffenseList = new List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue)>();
+        summedDefenseList = new List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue)>();
 
 
         // get length of enum magnification Target
@@ -429,28 +438,44 @@ public class CalculateUnitStatus : MonoBehaviour
         {
             magnificationOffenseList.Add((i, 0, 1.0, 1.0));
             magnificationDefenseList.Add((i, 0, 1.0, 1.0));
-            calculatedMagOffenseList.Add((i, 1.0));
-            calculatedMagDefenseList.Add((i, 1.0));
-
+            calculatedMagOffenseList.Add((i, 0, 1.0, 1.0));
+            calculatedMagDefenseList.Add((i, 0, 1.0, 1.0));
+            summedOffenseList.Add((i, 0, 1.0, 1.0, 1.0));
+            summedDefenseList.Add((i, 0, 1.0, 1.0, 1.0));
         }
 
-
+        //string _debuMagnificationText = null;
         foreach (MagnificationMasterClass magnificationClass in _deduplicationedMagnification)
         {
             //fortest
-            //_debuMagnificationText += "[" + magnificationClass.MagnificationType + "-" + magnificationClass.MagnificationTarget
-            //    + "-" + magnificationClass.MagnificationPercent + "]";
+            (int magnificationTargetID, int _percent, double _fixedRatio, double _ratio) magnification;
 
             switch (magnificationClass.OffenseOrDefense)
             {
                 case OffenseOrDefense.none:
                     break;
                 case OffenseOrDefense.Offense:
-                    magnificationOffenseList[(int)magnificationClass.MagnificationTarget] = MagnificationTypeModule(magnificationClass);
+                    magnification = MagnificationTypeModule(magnificationClass);
+
+                    magnification = (magnification.magnificationTargetID,
+                        magnificationOffenseList[magnification.magnificationTargetID]._percent + magnification._percent,
+                        magnificationOffenseList[magnification.magnificationTargetID]._fixedRatio * magnification._fixedRatio,
+                        magnificationOffenseList[magnification.magnificationTargetID]._ratio * magnification._ratio
+                        );
+
+                    magnificationOffenseList[magnification.magnificationTargetID] = magnification;
 
                     break;
                 case OffenseOrDefense.Defense:
-                    magnificationDefenseList[(int)magnificationClass.MagnificationTarget] = MagnificationTypeModule(magnificationClass);
+                    magnification = MagnificationTypeModule(magnificationClass);
+                    magnification = (magnification.magnificationTargetID,
+                        magnificationDefenseList[magnification.magnificationTargetID]._percent + magnification._percent,
+                        magnificationDefenseList[magnification.magnificationTargetID]._fixedRatio * magnification._fixedRatio,
+                        magnificationDefenseList[magnification.magnificationTargetID]._ratio * magnification._ratio
+                        );
+
+                    magnificationDefenseList[magnification.magnificationTargetID] = magnification;
+
 
                     break;
                 default:
@@ -458,30 +483,89 @@ public class CalculateUnitStatus : MonoBehaviour
                     break;
             }
 
+            //_debuMagnificationText += "[" + magnificationDefenseList[(int)magnificationClass.MagnificationTarget] + " percent: "
+            //   + magnificationDefenseList[(int)magnificationClass.MagnificationTarget]._percent + "\n";
+
         }
-        //Debug.Log(" percent:" + _percentSummed);
+
+        //Debug.Log(" :" + _debuMagnificationText);
+        //_debuMagnificationText = null;
+
+
 
 
         // Offense calculation
-        foreach ((int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed) magnification in magnificationOffenseList)
+        foreach ((int magnificationTargetID, int _percent, double _fixedRatio, double _ratio) magnification in magnificationOffenseList)
         {
-            if (magnification._percentSummed >= 100)
+            if (magnification._percent >= 100)
             {
-                Debug.LogError("overflow >= 100 magnification._percentSummed :" + magnification._percentSummed);
+                Debug.LogError("overflow >= 100 magnification._percentSummed :" + magnification._percent);
             }
-            calculatedMagOffenseList[(int)magnification.magnificationTargetID] = (magnification.magnificationTargetID,
-                1.0 / (1.0 - magnification._percentSummed) * magnification._fixedRatioSummed * magnification._ratioSummed);
+            //double _magnificationValue = 1.0 / (1.0 - magnification._percentSummed * 0.01) * magnification._fixedRatioSummed * magnification._ratioSummed;
+            //double _magnificationValue = magnification._fixedRatio * magnification._ratio;
+            calculatedMagOffenseList[(int)magnification.magnificationTargetID] =
+                (magnification.magnificationTargetID,
+                calculatedMagOffenseList[(int)magnification.magnificationTargetID].percentValue + magnification._percent,
+                calculatedMagOffenseList[(int)magnification.magnificationTargetID].fixedValue * magnification._fixedRatio,
+                (calculatedMagOffenseList[(int)magnification.magnificationTargetID].ratioValue * magnification._ratio));
         }
 
+
         // Defense calculation
-        foreach ((int magnificationTargetID, int _percentSummed, double _fixedRatioSummed, double _ratioSummed) magnification in magnificationDefenseList)
+        foreach ((int magnificationTargetID, int _percent, double _fixedRatio, double _ratio) magnification in magnificationDefenseList)
         {
-            if (magnification._percentSummed >= 100)
+            if (magnification._percent >= 100)
             {
-                Debug.LogError("overflow >= 100 magnification._percentSummed :" + magnification._percentSummed);
+                Debug.LogError("overflow >= 100 magnification._percentSummed :" + magnification._percent);
             }
-            calculatedMagDefenseList[(int)magnification.magnificationTargetID] = (magnification.magnificationTargetID,
-               (1.0 - magnification._percentSummed * 0.01 ) * magnification._fixedRatioSummed * magnification._ratioSummed);
+            //double _magnificationValue = (1.0 - magnification._percentSummed * 0.01) * magnification._fixedRatioSummed * magnification._ratioSummed;
+            //double _magnificationValue = magnification._fixedRatio * magnification._ratio;
+
+            //_debuMagnificationText += "before:" + calculatedMagDefenseList[(int)magnification.magnificationTargetID]
+            //    + " percent:" + calculatedMagDefenseList[(int)magnification.magnificationTargetID].percentValue + "\n";
+
+
+            calculatedMagDefenseList[(int)magnification.magnificationTargetID] =
+                (magnification.magnificationTargetID,
+               calculatedMagDefenseList[(int)magnification.magnificationTargetID].percentValue + magnification._percent,
+               calculatedMagDefenseList[(int)magnification.magnificationTargetID].fixedValue * magnification._fixedRatio,
+               (calculatedMagDefenseList[(int)magnification.magnificationTargetID].ratioValue * magnification._ratio));
+
+            //_debuMagnificationText += "after:" + calculatedMagDefenseList[(int)magnification.magnificationTargetID]
+            //    + " percent:" + calculatedMagDefenseList[(int)magnification.magnificationTargetID].percentValue + "\n";
+        }
+
+
+        //Debug.Log(" ::" + _debuMagnificationText);
+
+
+
+        foreach ((int magnificationTargetID, int percentValue, double fixedValue, double ratioValue) calculated in calculatedMagOffenseList)
+        {
+            double total = 1.0 / (1.0 - calculated.percentValue * 0.01) * calculated.fixedValue * calculated.ratioValue;
+
+            summedOffenseList[calculated.magnificationTargetID] =
+                (
+                calculated.magnificationTargetID,
+                calculated.percentValue,
+                calculated.fixedValue,
+                calculated.ratioValue,
+                total
+                );
+        }
+
+        foreach ((int magnificationTargetID, int percentValue, double fixedValue, double ratioValue) calculated in calculatedMagDefenseList)
+        {
+            double total = (1.0 - calculated.percentValue * 0.01) * calculated.fixedValue * calculated.ratioValue;
+
+            summedDefenseList[calculated.magnificationTargetID] =
+                (
+                calculated.magnificationTargetID,
+                calculated.percentValue,
+                calculated.fixedValue,
+                calculated.ratioValue,
+                total
+                );
         }
 
         // 2019.9.23 MagnificationTarget
@@ -489,26 +573,26 @@ public class CalculateUnitStatus : MonoBehaviour
         //  
 
         _offenseMagnification = new OffenseMagnificationClass(
-            optimumRangeBonus: calculatedMagOffenseList[10].magnificationValue,
-            critical: calculatedMagOffenseList[1].magnificationValue,
-            kinetic: calculatedMagOffenseList[2].magnificationValue,
-            chemical: calculatedMagOffenseList[3].magnificationValue,
-            thermal: calculatedMagOffenseList[4].magnificationValue,
-            vsBeast: calculatedMagOffenseList[5].magnificationValue,
-            vsCyborg: calculatedMagOffenseList[6].magnificationValue,
-            vsDrone: calculatedMagOffenseList[7].magnificationValue,
-            vsRobot: calculatedMagOffenseList[8].magnificationValue,
-            vsTitan: calculatedMagOffenseList[9].magnificationValue);
+            optimumRangeBonus: summedOffenseList[10].totalValue,
+            critical: summedOffenseList[1].totalValue,
+            kinetic: summedOffenseList[2].totalValue,
+            chemical: summedOffenseList[3].totalValue,
+            thermal: summedOffenseList[4].totalValue,
+            vsBeast: summedOffenseList[5].totalValue,
+            vsCyborg: summedOffenseList[6].totalValue,
+            vsDrone: summedOffenseList[7].totalValue,
+            vsRobot: summedOffenseList[8].totalValue,
+            vsTitan: summedOffenseList[9].totalValue);
         _defenseMagnification = new DefenseMagnificationClass(
-            critical: calculatedMagDefenseList[1].magnificationValue,
-            kinetic: calculatedMagDefenseList[2].magnificationValue,
-            chemical: calculatedMagDefenseList[3].magnificationValue,
-            thermal: calculatedMagDefenseList[4].magnificationValue,
-            vsBeast: calculatedMagDefenseList[5].magnificationValue,
-            vsCyborg: calculatedMagDefenseList[6].magnificationValue,
-            vsDrone: calculatedMagDefenseList[7].magnificationValue,
-            vsRobot: calculatedMagDefenseList[8].magnificationValue,
-            vsTitan: calculatedMagDefenseList[9].magnificationValue);
+            critical: summedDefenseList[1].totalValue,
+            kinetic: summedDefenseList[2].totalValue,
+            chemical: summedDefenseList[3].totalValue,
+            thermal: summedDefenseList[4].totalValue,
+            vsBeast: summedDefenseList[5].totalValue,
+            vsCyborg: summedDefenseList[6].totalValue,
+            vsDrone: summedDefenseList[7].totalValue,
+            vsRobot: summedDefenseList[8].totalValue,
+            vsTitan: summedDefenseList[9].totalValue);
 
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
@@ -534,10 +618,11 @@ public class CalculateUnitStatus : MonoBehaviour
             case MagnificationType.AdditionalPercent:
                 // values and Enum ID is equal
                 _percentSummed += (int)magnificationClass.MagnificationPercent;
+                //Debug.Log(magnificationClass.MagnificationPercent + " is "+ (int)magnificationClass.MagnificationPercent);
                 break;
             case MagnificationType.MagnificationFixedRatio:
                 FixedRatioCalculator _fix = new FixedRatioCalculator(magnificationClass.MagnificationFixedRatio);
-                //Debug.Log(" magnificationFixedRatio: "+ magnificationClass.MagnificationFixedRatio + " value:" +_fix.value);
+                //Debug.Log( magnificationClass.MagnificationTarget + " magnificationFixedRatio: " + magnificationClass.MagnificationFixedRatio + " value:" + _fix.value);
                 _fixedRatioSummed = _fix.value;
                 break;
             case MagnificationType.MagnificationRatio:

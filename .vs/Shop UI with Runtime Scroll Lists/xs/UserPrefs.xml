@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/00_System/FixedRatioCalculator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs">
     <Files>
       <File FileName="Assets/06_Script/09_Drop/DropEngine.cs" Line="29" Column="44" />
       <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" />
-      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="539" Column="59" />
-      <File FileName="Assets/06_Script/Enumeration.cs" Line="44" Column="13" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/00_System/FixedRatioCalculator.cs" Line="10" Column="12" />
+      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="416" Column="33" />
+      <File FileName="Assets/06_Script/05_Unit_Calculation/StatusUpdate.cs" Line="140" Column="21" />
+      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="148" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
