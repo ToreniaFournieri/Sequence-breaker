@@ -24,7 +24,7 @@ namespace KohmaiWorks.Scroller
                     // [2]This also didn't work.
                     //unitIconObjectPool.ReturnObject(child.gameObject);
 
-                    child.transform.localScale = new Vector3(1f, 1f, 1f);
+                    //child.transform.localScale = new Vector3(1f, 1f, 1f);
 
                     children.Add(child.gameObject);
 

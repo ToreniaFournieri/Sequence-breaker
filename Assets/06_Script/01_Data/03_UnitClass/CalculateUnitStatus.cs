@@ -537,6 +537,7 @@ public class CalculateUnitStatus : MonoBehaviour
                 break;
             case MagnificationType.MagnificationFixedRatio:
                 FixedRatioCalculator _fix = new FixedRatioCalculator(magnificationClass.MagnificationFixedRatio);
+                //Debug.Log(" magnificationFixedRatio: "+ magnificationClass.MagnificationFixedRatio + " value:" +_fix.value);
                 _fixedRatioSummed = _fix.value;
                 break;
             case MagnificationType.MagnificationRatio:
