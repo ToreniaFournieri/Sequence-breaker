@@ -59,6 +59,33 @@ public class ItemBaseMaster : ScriptableObject
     }
 
 
+    public string OneLineDescription()
+    {
+        //1. CombatBase Value
+
+        string _descrption = null;
+        if (CombatBaseValue.ShieldMax != 0) { _descrption += "Shield +" + CalculatedCombatValue().ShieldMax + " "; }
+        if (CombatBaseValue.HitPointMax != 0) { _descrption += "HP +" + CalculatedCombatValue().HitPointMax + " "; }
+        if (CombatBaseValue.Attack != 0) { _descrption += "Attack +" + CalculatedCombatValue().Attack + " "; }
+        if (CombatBaseValue.Accuracy != 0) { _descrption += "Accuracy +" + CalculatedCombatValue().Accuracy + " "; }
+        if (CombatBaseValue.Mobility != 0) { _descrption += "Mobility +" + CalculatedCombatValue().Mobility + " "; }
+        if (CombatBaseValue.Defense != 0) { _descrption += "Defense +" + CalculatedCombatValue().Defense + " "; }
+
+        //2. Skill content
+        foreach (SkillsMasterClass skill in SkillsMasterList)
+        {
+            _descrption += "[Skill: " + skill.name + "] ";
+        }
+
+        //3. Ability
+        foreach (AddAbilityClass addAbility in AddAbilityList)
+        {
+            _descrption += addAbility.Ability + " +" + addAbility.ValueOfAbility + " ";
+        }
+
+        return _descrption;
+
+    }
 
     public string DetailDescription()
     {

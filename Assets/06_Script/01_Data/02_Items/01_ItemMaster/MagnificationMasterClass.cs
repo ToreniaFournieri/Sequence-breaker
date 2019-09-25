@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Magnification-", menuName = "Item/MagnificationMaster", order = 5)]
+[CreateAssetMenu(fileName = "", menuName = "Item/MagnificationMaster", order = 5)]
 public class MagnificationMasterClass : ScriptableObject
 {
     //Offense or defense

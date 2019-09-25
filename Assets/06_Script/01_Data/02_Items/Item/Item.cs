@@ -1,16 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item-", menuName = "Item/Item", order = 10)]
 public class Item : ScriptableObject
 {
-    public string itemName;
-    public string itemDescription;
+    public string itemName
+    {
+        get
+        {
+            return GetName();
+        }
+    }
+    public string itemDescription
+    {
+        get
+        {
+            return GetItemOneLineDescription();
+        }
+    }
 
-    public Sprite icon;
-    public Ability ability;
-    public int addAbility;
+    //public Sprite icon;
+    //public Ability ability;
+    //public int addAbility;
 
 
 
@@ -101,7 +112,7 @@ public class Item : ScriptableObject
                         _ability.Stability += _addAbility.ValueOfAbility;
                         break;
                     default:
-                        Debug.LogError( "unexpected Ability: " + _addAbility.Ability );
+                        Debug.LogError("unexpected Ability: " + _addAbility.Ability);
                         break;
 
 
@@ -128,13 +139,8 @@ public class Item : ScriptableObject
         return _descrption;
     }
 
-
-    public string GetItemDetailDescription()
+    private string GetName()
     {
-        string _detailDescription = null;
-        // Set Name
-        string _nameOfTrueItem;
-
         string _coefficient = null;
         if (enhancedValue > 1)
         {
@@ -150,7 +156,25 @@ public class Item : ScriptableObject
         string _suffix = null;
         if (suffixItem != null) { _suffix = "of " + suffixItem.itemName; }
 
-        _nameOfTrueItem = "<b>" + _coefficient + " " + _prefix + " " + _itemBase + " " + _suffix + "</b> \n";
+        return _coefficient + " " + _prefix + " " + _itemBase + " " + _suffix;
+    }
+
+    private string GetItemOneLineDescription()
+    {
+        string _description = null;
+        if (baseItem != null) { _description += baseItem.OneLineDescription(); }
+        if (prefixItem != null) { _description += prefixItem.OneLineDescription(); }
+        if (suffixItem != null) { _description += suffixItem.OneLineDescription(); }
+
+
+        return _description;
+    }
+
+    public string GetItemDetailDescription()
+    {
+        string _detailDescription = null;
+
+        string _name = "<b>" + GetName() + "</b> \n";
 
         // Totaled combat status
         string _totaledCombat = this.TotaledCombatDescription();
@@ -163,7 +187,9 @@ public class Item : ScriptableObject
         if (suffixItem != null) { _description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
 
 
-        _detailDescription = _nameOfTrueItem + "\n" + _totaledCombat + "\n" + _description;
+        _detailDescription = _name + "\n" + _totaledCombat + "\n" + _description;
+
+
         return _detailDescription;
     }
 

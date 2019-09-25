@@ -42,6 +42,8 @@ public enum OffenseOrDefense
 //for Item Master, tell the Magnification Id
 // none should not be selected.
 //[CAUTION] Change this values or order will cause serious trouble in CalculateUnitStatus. because it use (int)MagnificationTarget.
+//    0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
+
 public enum MagnificationTarget
 {
     none, Critical, Kinetic, Chemical, Thermal, VsBeast, VsCyborg, VsDrone, VsRobot, VsTitan, OptimumRangeBonus
@@ -49,7 +51,7 @@ public enum MagnificationTarget
 
 public enum MagnificationFixedRatio
 {
-    oneOverOne, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
+    oneOverOne, oneOverTwo, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
     sixOverFive, fiveOverFour, fourOverThree, threeOverTwo, twoOverOne, oneOverTen, oneOverHundred
 }
 public enum MagnificationPercent { zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen }
