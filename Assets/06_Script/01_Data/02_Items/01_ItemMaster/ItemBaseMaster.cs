@@ -30,10 +30,14 @@ public class ItemBaseMaster : ScriptableObject
     // be calculated by coefficient
     public CombatClass CalculatedCombatValue()
     {
+        CombatClass _calculated = new CombatClass();
+        if (CombatBaseValue != null)
+        {
+            _calculated = CombatBaseValue.Copy();
+            _calculated.Pow(Level);
 
-        CombatClass _calculated = CombatBaseValue.Copy();
+        }
 
-        _calculated.Pow(Level);
 
         //_calculated.ShiledCurrent = (int)(CombatBaseValue.ShiledCurrent * Math.Pow(1.2, CombatMagnificationCoefficient));
         //_calculated.ShiledMax = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
@@ -64,13 +68,15 @@ public class ItemBaseMaster : ScriptableObject
         //1. CombatBase Value
 
         string _descrption = null;
-        if (CombatBaseValue.ShieldMax != 0) { _descrption += "Shield +" + CalculatedCombatValue().ShieldMax + " "; }
-        if (CombatBaseValue.HitPointMax != 0) { _descrption += "HP +" + CalculatedCombatValue().HitPointMax + " "; }
-        if (CombatBaseValue.Attack != 0) { _descrption += "Attack +" + CalculatedCombatValue().Attack + " "; }
-        if (CombatBaseValue.Accuracy != 0) { _descrption += "Accuracy +" + CalculatedCombatValue().Accuracy + " "; }
-        if (CombatBaseValue.Mobility != 0) { _descrption += "Mobility +" + CalculatedCombatValue().Mobility + " "; }
-        if (CombatBaseValue.Defense != 0) { _descrption += "Defense +" + CalculatedCombatValue().Defense + " "; }
-
+        if (CombatBaseValue != null)
+        {
+            if (CombatBaseValue.ShieldMax != 0) { _descrption += "Shield +" + CalculatedCombatValue().ShieldMax + " "; }
+            if (CombatBaseValue.HitPointMax != 0) { _descrption += "HP +" + CalculatedCombatValue().HitPointMax + " "; }
+            if (CombatBaseValue.Attack != 0) { _descrption += "Attack +" + CalculatedCombatValue().Attack + " "; }
+            if (CombatBaseValue.Accuracy != 0) { _descrption += "Accuracy +" + CalculatedCombatValue().Accuracy + " "; }
+            if (CombatBaseValue.Mobility != 0) { _descrption += "Mobility +" + CalculatedCombatValue().Mobility + " "; }
+            if (CombatBaseValue.Defense != 0) { _descrption += "Defense +" + CalculatedCombatValue().Defense + " "; }
+        }
         //2. Skill content
         foreach (SkillsMasterClass skill in SkillsMasterList)
         {
@@ -94,13 +100,15 @@ public class ItemBaseMaster : ScriptableObject
         _descrption += itemName + "\n";
 
         //1. CombatBase Value
-        if (CombatBaseValue.ShieldMax != 0) { _descrption += "(Shield +" + CalculatedCombatValue().ShieldMax + ")\n"; }
-        if (CombatBaseValue.HitPointMax != 0) { _descrption += "(HP +" + CalculatedCombatValue().HitPointMax + ")\n"; }
-        if (CombatBaseValue.Attack != 0) { _descrption += "(Attack +" + CalculatedCombatValue().Attack + ")\n"; }
-        if (CombatBaseValue.Accuracy != 0) { _descrption += "(Accuracy +" + CalculatedCombatValue().Accuracy + ")\n"; }
-        if (CombatBaseValue.Mobility != 0) { _descrption += "(Mobility +" + CalculatedCombatValue().Mobility + ")\n"; }
-        if (CombatBaseValue.Defense != 0) { _descrption += "(Defense +" + CalculatedCombatValue().Defense + ")\n"; }
-
+        if (CombatBaseValue != null)
+        {
+            if (CombatBaseValue.ShieldMax != 0) { _descrption += "(Shield +" + CalculatedCombatValue().ShieldMax + ")\n"; }
+            if (CombatBaseValue.HitPointMax != 0) { _descrption += "(HP +" + CalculatedCombatValue().HitPointMax + ")\n"; }
+            if (CombatBaseValue.Attack != 0) { _descrption += "(Attack +" + CalculatedCombatValue().Attack + ")\n"; }
+            if (CombatBaseValue.Accuracy != 0) { _descrption += "(Accuracy +" + CalculatedCombatValue().Accuracy + ")\n"; }
+            if (CombatBaseValue.Mobility != 0) { _descrption += "(Mobility +" + CalculatedCombatValue().Mobility + ")\n"; }
+            if (CombatBaseValue.Defense != 0) { _descrption += "(Defense +" + CalculatedCombatValue().Defense + ")\n"; }
+        }
 
         //2. Skill content
         foreach (SkillsMasterClass skill in SkillsMasterList)

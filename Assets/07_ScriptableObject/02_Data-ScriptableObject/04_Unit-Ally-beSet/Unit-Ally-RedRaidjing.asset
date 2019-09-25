@@ -16,10 +16,8 @@ MonoBehaviour:
   Name: '[Ally]RedRaiding'
   Affiliation: 0
   UnitType: 3
-  InitialAbility: {fileID: 11400000, guid: 9baa37e1ab539449594b0953dc34696a, type: 2}
-  ItemCapacity: 4
-  itemList:
-  - {fileID: 11400000, guid: 3c65764ee885349fbb6ccbc8b2afeef9, type: 2}
+  ItemCapacity: 10
+  itemList: []
   CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   Pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
   Level: 20

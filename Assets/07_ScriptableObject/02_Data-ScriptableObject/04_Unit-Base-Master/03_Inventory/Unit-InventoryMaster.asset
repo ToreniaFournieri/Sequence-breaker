@@ -25,6 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f2fcd4e5c2814f2991f6509eff5ae1c, type: 2}
   - {fileID: 11400000, guid: 4230cf1a24fdd4079997ab9f993f69a2, type: 2}
   - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
+  - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
+  - {fileID: 11400000, guid: 84650363cdc7e499eace1c66701874b9, type: 2}
+  - {fileID: 11400000, guid: 3c2b20075e80c47afba296d71bd8613d, type: 2}
   CoreFrame: {fileID: 0}
   Pilot: {fileID: 0}
   Level: 0
