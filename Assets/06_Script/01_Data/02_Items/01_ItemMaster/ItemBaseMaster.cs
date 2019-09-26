@@ -37,28 +37,6 @@ public class ItemBaseMaster : ScriptableObject
             _calculated.Pow(Level);
 
         }
-
-
-        //_calculated.ShiledCurrent = (int)(CombatBaseValue.ShiledCurrent * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.ShiledMax = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.HitPointCurrent = (int)(CombatBaseValue.HitPointCurrent * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.HitPointMax = (int)(CombatBaseValue.HitPointMax * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.Attack = (int)(CombatBaseValue.Attack * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.KineticAttackRatio = (int)(CombatBaseValue.KineticAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.ChemicalAttackRatio = (int)(CombatBaseValue.ChemicalAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.ThermalAttackRatio = (int)(CombatBaseValue.ThermalAttackRatio * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.CriticalHit = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
-        //_calculated.NumberOfAttacks = (int)(CombatBaseValue.ShiledMax * Math.Pow(1.2, CombatMagnificationCoefficient));
-
-        ////Note: MinRange and MaxRange is not be add up.
-        ////combatAdded.MinRange;
-        ////combatAdded.MaxRange;
-        //_calculated.Accuracy = (int)(CombatBaseValue.Accuracy * Math.Pow(1.2, Level));
-        //_calculated.Mobility = (int)(CombatBaseValue.Mobility * Math.Pow(1.2, Level));
-        //_calculated.Defense = (int)(CombatBaseValue.Defense * Math.Pow(1.2, Level));
-        //_calculated.Counterintelligence = (int)(CombatBaseValue.Counterintelligence * Math.Pow(1.2, Level));
-        //_calculated.Repair = (int)(CombatBaseValue.Repair * Math.Pow(1.2, Level));
-
         return _calculated;
     }
 

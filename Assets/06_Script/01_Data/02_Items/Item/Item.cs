@@ -19,12 +19,6 @@ public class Item : ScriptableObject
         }
     }
 
-    //public Sprite icon;
-    //public Ability ability;
-    //public int addAbility;
-
-
-
     // base of this item
     public ItemBaseMaster baseItem;
 
