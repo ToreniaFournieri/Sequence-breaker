@@ -26,15 +26,17 @@ public class ItemPanel : MonoBehaviour
     {
         item = currentItem;
         scrollList = currentScrollList;
-        nameLabel.text = item.itemName;
-        //iconImage.sprite = item.icon;
-        descriptionLabel.text = item.itemDescription;
-        //scrollList = currentScrollList;
+        if (item != null)
+        {
+            nameLabel.text = item.itemName;
+            //iconImage.sprite = item.icon;
+            descriptionLabel.text = item.itemDescription;
+            //scrollList = currentScrollList;
+        }
+            _itemDetailViewController = itemDetailViewController;
 
-        _itemDetailViewController = itemDetailViewController;
-
-        this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
-
+            this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        
     }
 
     public void HandleClick()

@@ -31,12 +31,13 @@ public class InventoryScrollList : MonoBehaviour
 
             foreach (Item item in initialInventoryUnit.itemList)
             {
-                Item copyedItem = Instantiate(item.Copy());
-                unit.itemList.Add(copyedItem);
+                    Item copyedItem = Instantiate(item.Copy());
+                    unit.itemList.Add(copyedItem);
             }
 
         }
-       
+
+
 
        
 
@@ -46,6 +47,22 @@ public class InventoryScrollList : MonoBehaviour
 
     public void RefreshDisplay()
     {
+
+        // to Delete empty itemList
+        for (int i = unit.itemList.Count - 1 ; i >= 0; i--)
+        {
+            //Debug.Log(unit.Name + " " + i + " item count:" + unit.itemList.Count);
+
+            if (i >= 0)
+            {
+                if (unit.itemList[i] == null)
+                {
+                    unit.itemList.RemoveAt(i);
+                }
+            }
+        }
+
+
         if (unit != null)
         {
             capacity = unit.ItemCapacity;
@@ -54,6 +71,7 @@ public class InventoryScrollList : MonoBehaviour
         refreshController.NeedToRefresh = true;
         RemovePanels();
         AddPanels();
+
 
     }
 
@@ -87,12 +105,15 @@ public class InventoryScrollList : MonoBehaviour
     {
         for (int i = 0; i < itemList.Count; i++)
         {
-            Item item = itemList[i];
-            GameObject newPanel = itemObjectPool.GetObject();
-            newPanel.transform.SetParent(contentPanel);
+            if (itemList[i] != null)
+            {
+                Item item = itemList[i];
+                GameObject newPanel = itemObjectPool.GetObject();
+                newPanel.transform.SetParent(contentPanel);
 
-            ItemPanel itemPanel = newPanel.GetComponent<ItemPanel>();
-            itemPanel.Setup(item, this, itemDetailViewController);
+                ItemPanel itemPanel = newPanel.GetComponent<ItemPanel>();
+                itemPanel.Setup(item, this, itemDetailViewController);
+            }
         }
     }
 

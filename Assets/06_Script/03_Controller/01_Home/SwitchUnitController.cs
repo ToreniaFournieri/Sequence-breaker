@@ -18,13 +18,13 @@ public class SwitchUnitController : MonoBehaviour
 
         if (unit != null){
             statusUpdate.unit = unit;
-            Debug.Log("ActivateUnitToDisplay " + unit.Name);
+            //Debug.Log("ActivateUnitToDisplay " + unit.Name);
             inventoryScrollListUnit.unit = unit;
             inventoryScrollListUnit.refreshController.NeedToRefresh = true;
             inventoryScrollListUnit.RefreshDisplay();
             statusUpdate.Refresh();
 
-            Debug.Log(inventoryScrollListUnit.abilityText.text);
+            //Debug.Log(inventoryScrollListUnit.abilityText.text);
         }
 
     }

@@ -180,6 +180,7 @@ public class CalculateUnitStatus : MonoBehaviour
         //                                  +Level * Ability
         //                                  +Level^(Ability / PowDenominator)*AbilityCoefficient
         //                             )*XxxxxCoefficient
+        //     + Unit.CoreFrame.Shield or HitPoint;
         _combatRaw = new CombatClass();
 
 
@@ -199,7 +200,8 @@ public class CalculateUnitStatus : MonoBehaviour
                                     + Mathf.Pow(Unit.Level, T5LevelPowBig)
                                     + Unit.Level * _ability.Generation
                                     + Mathf.Pow(Unit.Level, (float)_ability.Generation / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * ShieldCoefficient);
+                                  ) * ShieldCoefficient
+                                    + Unit.CoreFrame.Shield);
 
         _combatRaw.HitPointMax =
                                 //Unit.CoreFrame.HP +
@@ -208,7 +210,9 @@ public class CalculateUnitStatus : MonoBehaviour
                                     + Mathf.Pow(Unit.Level, T5LevelPowBig)
                                     + Unit.Level * _ability.Stability
                                     + Mathf.Pow(Unit.Level, (float)_ability.Stability / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * HPCoefficient);
+                                  ) * HPCoefficient
+                                   + Unit.CoreFrame.HP
+                                  );
 
 
         //Tier 4
@@ -635,7 +639,9 @@ public class CalculateUnitStatus : MonoBehaviour
     {
         public bool Equals(MagnificationMasterClass i_lhs, MagnificationMasterClass i_rhs)
         {
-            if (i_lhs.MagnificationFixedRatio == i_rhs.MagnificationFixedRatio &&
+            if (
+                i_lhs.OffenseOrDefense == i_rhs.OffenseOrDefense &&
+                i_lhs.MagnificationFixedRatio == i_rhs.MagnificationFixedRatio &&
                 i_lhs.MagnificationPercent == i_rhs.MagnificationPercent &&
                 System.Math.Abs(i_lhs.MagnificationRatio - i_rhs.MagnificationRatio) < System.Double.Epsilon &&
                 i_lhs.MagnificationTarget == i_rhs.MagnificationTarget &&
@@ -649,7 +655,8 @@ public class CalculateUnitStatus : MonoBehaviour
 
         public int GetHashCode(MagnificationMasterClass i_obj)
         {
-            return i_obj.MagnificationFixedRatio.GetHashCode()
+            return i_obj.OffenseOrDefense.GetHashCode()
+                ^ i_obj.MagnificationFixedRatio.GetHashCode()
                 ^ i_obj.MagnificationPercent.GetHashCode()
                 ^ i_obj.MagnificationRatio.GetHashCode()
                 ^ i_obj.MagnificationTarget.GetHashCode()

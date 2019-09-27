@@ -16,9 +16,15 @@ MonoBehaviour:
   Name: '[Ally]SequenceBreaker'
   Affiliation: 0
   UnitType: 3
-  InitialAbility: {fileID: 11400000, guid: d604653b15b3f4a40b95a2492145e3b7, type: 2}
-  ItemCapacity: 2
-  itemList: []
+  ItemCapacity: 20
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CoreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   Pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
   Level: 20
