@@ -581,9 +581,9 @@ public class CalculateUnitStatus : MonoBehaviour
                 );
         }
 
-        // 2019.9.23 MagnificationTarget
         // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
-        //
+        // after 11, should only affect status, so use OffenseOrDefense.none
+        // 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 18:Attack, 19:Defence
 
 
         _offenseMagnification = new OffenseMagnificationClass(
@@ -613,7 +613,9 @@ public class CalculateUnitStatus : MonoBehaviour
             minRange: summedDefenseList[14].totalValue,
             maxRange: summedDefenseList[15].totalValue,
             accuracy: summedDefenseList[16].totalValue,
-            mobility: summedDefenseList[17].totalValue
+            mobility: summedDefenseList[17].totalValue,
+            attack: summedDefenseList[18].totalValue,
+            defence: summedDefenseList[19].totalValue
             );
 
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
@@ -629,7 +631,8 @@ public class CalculateUnitStatus : MonoBehaviour
         _combat.MaxRange = (int)(_combat.MaxRange * _defenseMagnification.maxRange);
         _combat.Accuracy = (int)(_combat.Accuracy * _defenseMagnification.accuracy);
         _combat.Mobility = (int)(_combat.Mobility * _defenseMagnification.mobility);
-
+        _combat.Attack = (int)(_combat.Attack * _defenseMagnification.attack);
+        _combat.Defense = (int)(_combat.Defense * _defenseMagnification.defence);
 
         BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,

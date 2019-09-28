@@ -46,12 +46,12 @@ public enum OffenseOrDefense
 //[CAUTION] Change this values or order will cause serious trouble in CalculateUnitStatus. because it use (int)MagnificationTarget.
 // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
 // after 11, should only affect status, so use OffenseOrDefense.none
-// 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 
+// 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 18:Attack, 19:Defence
 
 public enum MagnificationTarget
 {
     none, Critical, Kinetic, Chemical, Thermal, VsBeast, VsCyborg, VsDrone, VsRobot, VsTitan, OptimumRangeBonus,
-    Shield, HitPoint, NumberOfAttacks, MiniRange, MaxRange, Accuracy, Mobility
+    Shield, HitPoint, NumberOfAttacks, MiniRange, MaxRange, Accuracy, Mobility, Attack, Defence
 }
 
 public enum MagnificationPercent { zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen }
