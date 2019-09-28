@@ -29,9 +29,8 @@ public class ItemPanel : MonoBehaviour
         if (item != null)
         {
             nameLabel.text = item.itemName;
-            //iconImage.sprite = item.icon;
             descriptionLabel.text = item.itemDescription;
-            //scrollList = currentScrollList;
+
         }
             _itemDetailViewController = itemDetailViewController;
 

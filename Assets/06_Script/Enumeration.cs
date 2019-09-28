@@ -51,11 +51,6 @@ public enum MagnificationTarget
     none, Critical, Kinetic, Chemical, Thermal, VsBeast, VsCyborg, VsDrone, VsRobot, VsTitan, OptimumRangeBonus
 }
 
-//public enum MagnificationFixedRatio
-//{
-//    oneOverOne, oneOverTwo, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
-//    sixOverFive, fiveOverFour, fourOverThree, threeOverTwo, twoOverOne, oneOverTen, oneOverHundred
-//}
 public enum MagnificationPercent { zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen }
 
 

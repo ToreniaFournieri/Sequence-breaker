@@ -18,8 +18,6 @@ public class BattleEngine
     public List<BattleUnit> enemyBattleUnitsList;
     public List<EffectClass> enemySkillsList;
 
-
-    private static int _numberOfCharacters = 14;
     private static double _allyAttackMagnification = 1.0;
     private static double _allyDefenseMagnification = 1.0;
 
