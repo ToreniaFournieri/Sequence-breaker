@@ -615,7 +615,7 @@ public class CalculateUnitStatus : MonoBehaviour
             accuracy: summedDefenseList[16].totalValue,
             mobility: summedDefenseList[17].totalValue,
             attack: summedDefenseList[18].totalValue,
-            defence: summedDefenseList[19].totalValue
+            defense: summedDefenseList[19].totalValue
             );
 
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
@@ -632,7 +632,7 @@ public class CalculateUnitStatus : MonoBehaviour
         _combat.Accuracy = (int)(_combat.Accuracy * _defenseMagnification.accuracy);
         _combat.Mobility = (int)(_combat.Mobility * _defenseMagnification.mobility);
         _combat.Attack = (int)(_combat.Attack * _defenseMagnification.attack);
-        _combat.Defense = (int)(_combat.Defense * _defenseMagnification.defence);
+        _combat.Defense = (int)(_combat.Defense * _defenseMagnification.defense);
 
         BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,

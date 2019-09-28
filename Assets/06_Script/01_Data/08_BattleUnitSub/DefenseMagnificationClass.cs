@@ -14,7 +14,7 @@ public class DefenseMagnificationClass : MagnificationClass
     public DefenseMagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast,
         double vsCyborg, double vsDrone, double vsRobot, double vsTitan,
         double shield, double hitPoint, double numberOfAttacks, double minRange, double maxRange, double accuracy, double mobility,
-        double attack, double defence)
+        double attack, double defense)
      : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan)
     {
         this.shield = shield;
@@ -25,7 +25,7 @@ public class DefenseMagnificationClass : MagnificationClass
         this.accuracy = accuracy;
         this.mobility = mobility;
         this.attack = attack;
-        this.defence = defence;
+        this.defense = defense;
     }
 
     public double shield;
@@ -36,6 +36,6 @@ public class DefenseMagnificationClass : MagnificationClass
     public double accuracy;
     public double mobility;
     public double attack;
-    public double defence;
+    public double defense;
 
 }
