@@ -1,21 +1,14 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/07_Play/GoScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/05_Unit_Calculation/StatusUpdate.cs">
     <Files>
       <File FileName="Assets/06_Script/09_Drop/DropEngine.cs" Line="29" Column="44" />
-      <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="22" Column="23" />
-      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="207" Column="54" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="5" Column="30" />
-      <File FileName="Assets/06_Script/Enumeration.cs" Line="54" Column="28" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" Line="20" Column="6" />
-      <File FileName="Assets/06_Script/01_Data/03_UnitClass/UnitClass.cs" Line="15" Column="1" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="39" Column="10" />
-      <File FileName="Assets/06_Script/ItemPanel.cs" Line="25" Column="20" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/SwitchUnitController.cs" Line="27" Column="67" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="51" Column="36" />
-      <File FileName="Assets/06_Script/03_Controller/02_Play/MissionController.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/08_Battle/RunBattle.cs" Line="74" Column="1" />
-      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="146" Column="37" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="43" Column="56" />
+      <File FileName="Assets/06_Script/Enumeration.cs" Line="35" Column="9" />
+      <File FileName="Assets/06_Script/00_System/FixedRatioCalculator.cs" Line="8" Column="24" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="19" Column="19" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="148" Column="24" />
+      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="629" Column="21" />
+      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="148" Column="1" />
+      <File FileName="Assets/06_Script/05_Unit_Calculation/StatusUpdate.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

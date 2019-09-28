@@ -31,7 +31,9 @@ public enum CallSkillLogicName { none, ShieldHealSingle, ShieldHealMulti, Reduce
 // none should not be selected.
 public enum MagnificationType
 {
-    none, MagnificationFixedRatio, MagnificationRatio, AdditionalPercent,
+    //none, MagnificationFixedRatio, MagnificationRatio, AdditionalPercent,
+    none, MagnificationRatio, AdditionalPercent,
+
 }
 
 public enum OffenseOrDefense
@@ -49,11 +51,11 @@ public enum MagnificationTarget
     none, Critical, Kinetic, Chemical, Thermal, VsBeast, VsCyborg, VsDrone, VsRobot, VsTitan, OptimumRangeBonus
 }
 
-public enum MagnificationFixedRatio
-{
-    oneOverOne, oneOverTwo, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
-    sixOverFive, fiveOverFour, fourOverThree, threeOverTwo, twoOverOne, oneOverTen, oneOverHundred
-}
+//public enum MagnificationFixedRatio
+//{
+//    oneOverOne, oneOverTwo, twoOverThree, threeOverFour, fourOverFive, fiveOverSix,
+//    sixOverFive, fiveOverFour, fourOverThree, threeOverTwo, twoOverOne, oneOverTen, oneOverHundred
+//}
 public enum MagnificationPercent { zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen }
 
 
