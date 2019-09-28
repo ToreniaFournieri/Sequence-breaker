@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
+  m_Name: E2-Medic
+  m_EditorClassIdentifier: 
+  UniqueID: 0
+  Name: '[Enemy]Medic'
+  Affiliation: 1
+  UnitType: 0
+  ItemCapacity: 7
+  itemList:
+  - {fileID: 11400000, guid: 26e28d7ea5c834128b7c2135cd07f6d1, type: 2}
+  - {fileID: 11400000, guid: 2aac03f5d025e4e06897bea590e1d9d7, type: 2}
+  - {fileID: 11400000, guid: afa1f4503abda455b98616126749633f, type: 2}
+  - {fileID: 11400000, guid: 211b9b73a740b43d2aad2e46c522adc5, type: 2}
+  - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
+  - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
+  - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
+  CoreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
+  Pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
+  Level: 10
+  skillsMaster:
+  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
+  - {fileID: 11400000, guid: af4303c9780904f27a5d2152343267a4, type: 2}

@@ -11,6 +11,7 @@ public class InventoryScrollList : MonoBehaviour
     public UnitClass unit;
 
     // initial inventory master;
+    public bool doesSetInitialInventory;
     public UnitClass initialInventoryUnit;
 
     public Transform contentPanel;
@@ -22,7 +23,7 @@ public class InventoryScrollList : MonoBehaviour
 
     void Start()
     {
-        if (initialInventoryUnit != null)
+        if (doesSetInitialInventory && initialInventoryUnit != null)
         {
             // inventory 
             unit.ItemCapacity = initialInventoryUnit.ItemCapacity;

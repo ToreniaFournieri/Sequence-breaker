@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: 
   icon: {fileID: 0}
   CombatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
-  Level: 6
+  Level: 15
   SkillsMasterList: []
   AddAbilityList: []
   MagnificationMasterList:

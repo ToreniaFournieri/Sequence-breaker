@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: ArmorT2KIN11
   m_EditorClassIdentifier: 
-  itemName: Armor T3KIN11
+  itemName: Armor T2KIN11
   itemDescription: 
   icon: {fileID: 0}
   CombatBaseValue: {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
-  Level: 2
+  Level: 6
   SkillsMasterList: []
   AddAbilityList: []
   MagnificationMasterList:
