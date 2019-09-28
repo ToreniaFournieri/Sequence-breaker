@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: DefKin8Percent
   m_EditorClassIdentifier: 
   OffenseOrDefense: 2
-  MagnificationType: 3
+  MagnificationType: 2
   MagnificationTarget: 2
-  MagnificationFixedRatio: 0
   MagnificationRatio: 1
   MagnificationPercent: 8

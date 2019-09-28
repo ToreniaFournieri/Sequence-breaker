@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: DefCri13Percent
   m_EditorClassIdentifier: 
   OffenseOrDefense: 2
-  MagnificationType: 3
+  MagnificationType: 2
   MagnificationTarget: 1
-  MagnificationFixedRatio: 0
   MagnificationRatio: 1
   MagnificationPercent: 13

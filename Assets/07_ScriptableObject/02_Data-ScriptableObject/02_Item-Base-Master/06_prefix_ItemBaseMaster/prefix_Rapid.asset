@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: Rapid
   itemDescription: 'Responsiveness +1 '
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 2d77f8d5a42a64ab78a3e42d1c926027, type: 2}
-  CombatMagnificationCoefficient: 1
+  CombatBaseValue: {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
+  Level: 1
   SkillsMasterList: []
   AddAbilityList:
   - {fileID: 11400000, guid: 9d0095f55375345d3b97f5a647fb4e26, type: 2}

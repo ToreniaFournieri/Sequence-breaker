@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: Unknown
   itemDescription: 'Skill: Counter non critical attack'
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 2d77f8d5a42a64ab78a3e42d1c926027, type: 2}
-  CombatMagnificationCoefficient: 1
+  CombatBaseValue: {fileID: 0}
+  Level: 1
   SkillsMasterList:
   - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
   AddAbilityList: []

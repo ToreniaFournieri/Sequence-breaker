@@ -4553,7 +4553,7 @@ MonoBehaviour:
   itemList: []
   capacity: 200
   unit: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
-  doesSetInitialInventory: 0
+  doesSetInitialInventory: 1
   initialInventoryUnit: {fileID: 11400000, guid: 665bc0158bc694bfeb91f3d9696719f1,
     type: 2}
   contentPanel: {fileID: 734063309}
