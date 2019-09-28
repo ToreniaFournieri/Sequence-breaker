@@ -120,13 +120,13 @@ public class ItemBaseMaster : ScriptableObject
 			switch (magnification.OffenseOrDefense)
 			{
 				case OffenseOrDefense.none:
-					_offenseOrDefense = null;
+					_offenseOrDefense = "[";
 					break;
 				case OffenseOrDefense.Offense:
-					if (isShortText) { _offenseOrDefense = "[O"; } else { _offenseOrDefense = "[Offense"; }
+					if (isShortText) { _offenseOrDefense = "[O "; } else { _offenseOrDefense = "[Offense "; }
 					break;
 				case OffenseOrDefense.Defense:
-					if (isShortText) { _offenseOrDefense = "[D"; } else { _offenseOrDefense = "[Defense"; }
+					if (isShortText) { _offenseOrDefense = "[D "; } else { _offenseOrDefense = "[Defense "; }
 					break;
 				default:
 					Debug.LogError("unexpected OffenseOrDefense value:" + magnification.OffenseOrDefense);
@@ -149,7 +149,7 @@ public class ItemBaseMaster : ScriptableObject
 
 			}
 
-			_description += _offenseOrDefense + " " + magnification.MagnificationTarget + " " + _magnificationDetail + "]";
+			_description += _offenseOrDefense + magnification.MagnificationTarget + " " + _magnificationDetail + "]";
             if (!isShortText) { _description += "\n"; }
 
 		}

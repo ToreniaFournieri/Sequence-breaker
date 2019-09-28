@@ -430,7 +430,7 @@ public class CalculateUnitStatus : MonoBehaviour
             = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
 
         // final value
-        summedOffenseList = new List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue, string )>();
+        summedOffenseList = new List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue, string)>();
         summedDefenseList = new List<(int magnificationTargetID, int percentValue, double fixedRatioValue, double ratioValue, double totalValue, string)>();
 
 
@@ -564,7 +564,8 @@ public class CalculateUnitStatus : MonoBehaviour
 
         // 2019.9.23 MagnificationTarget
         // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
-        //  
+        //
+
 
         _offenseMagnification = new OffenseMagnificationClass(
             optimumRangeBonus: summedOffenseList[10].totalValue,
@@ -586,11 +587,30 @@ public class CalculateUnitStatus : MonoBehaviour
             vsCyborg: summedDefenseList[6].totalValue,
             vsDrone: summedDefenseList[7].totalValue,
             vsRobot: summedDefenseList[8].totalValue,
-            vsTitan: summedDefenseList[9].totalValue);
+            vsTitan: summedDefenseList[9].totalValue,
+            shield: summedDefenseList[11].totalValue,
+            hitPoint: summedDefenseList[12].totalValue,
+            numberOfAttacks: summedDefenseList[13].totalValue,
+            minRange: summedDefenseList[14].totalValue,
+            maxRange: summedDefenseList[15].totalValue,
+            accuracy: summedDefenseList[16].totalValue,
+            mobility: summedDefenseList[17].totalValue
+            );
 
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
-        //BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
+
+        // this is for only Defense magnification. 2019.9.28
+        // 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 
+
+        _combat.ShieldMax = (int)(_combat.ShieldMax * _defenseMagnification.shield);
+        _combat.HitPointMax = (int)(_combat.HitPointMax * _defenseMagnification.hitPoint);
+        _combat.NumberOfAttacks = (int)(_combat.NumberOfAttacks * _defenseMagnification.numberOfAttacks);
+        _combat.MinRange = (int)(_combat.MinRange * _defenseMagnification.minRange);
+        _combat.MaxRange = (int)(_combat.MaxRange * _defenseMagnification.maxRange);
+        _combat.Accuracy = (int)(_combat.Accuracy * _defenseMagnification.accuracy);
+        _combat.Mobility = (int)(_combat.Mobility * _defenseMagnification.mobility);
+
 
         BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,

@@ -18,12 +18,12 @@ MonoBehaviour:
   UnitType: 3
   ItemCapacity: 2000
   itemList:
-  - {fileID: 11400000, guid: 5f2fcd4e5c2814f2991f6509eff5ae1c, type: 2}
-  - {fileID: 11400000, guid: 532c934ea13ad40e682e4f3a71186a4f, type: 2}
-  - {fileID: 11400000, guid: 34d0da44846c94cb4ae10ea89bebd9c6, type: 2}
-  - {fileID: 11400000, guid: 3c65764ee885349fbb6ccbc8b2afeef9, type: 2}
-  - {fileID: 11400000, guid: 5f2fcd4e5c2814f2991f6509eff5ae1c, type: 2}
-  - {fileID: 11400000, guid: 4230cf1a24fdd4079997ab9f993f69a2, type: 2}
+  - {fileID: 11400000, guid: eeff4a5ea2ee44d9380945264b5dcedc, type: 2}
+  - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
+  - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
+  - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
+  - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
+  - {fileID: 11400000, guid: e4c34dcf58a2542a98de733e6a5fd253, type: 2}
   - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
   - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
   - {fileID: 11400000, guid: 84650363cdc7e499eace1c66701874b9, type: 2}
@@ -46,6 +46,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
   - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
   - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
+  - {fileID: 11400000, guid: 0cfa9681800244012b0322ccf2b863c6, type: 2}
   CoreFrame: {fileID: 0}
   Pilot: {fileID: 0}
   Level: 0
