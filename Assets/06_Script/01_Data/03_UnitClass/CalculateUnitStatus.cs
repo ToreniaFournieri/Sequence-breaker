@@ -161,219 +161,8 @@ public class CalculateUnitStatus : MonoBehaviour
         _ability.AddUp(Unit.Pilot.AddAbility);
         _ability.AddUp(_summedItemsAddAbility);
 
-        //(2) Combat
-        // (2-1) Set environment values
 
-
-        // each ability's coefficient
-        {
-
-        }
-
-        // (2-3) First Combat caluculation -> CombatRaw
-        // Formula:
-        //    CombatRaw.Shield = CoreFrame.Shield (fixed, independent on Level)
-        //    CombatRaw.HitPoint = CoreFrame.Hitpoint (fixed, independent on Level)
-        //    CombatRaw.Others values: (
-        //                                  LevelCoefficient *(Level^LevelPowLittle)
-        //                                  +Level^LevelPowBig
-        //                                  +Level * Ability
-        //                                  +Level^(Ability / PowDenominator)*AbilityCoefficient
-        //                             )*XxxxxCoefficient
-        //     + Unit.CoreFrame.Shield or HitPoint;
-        _combatRaw = new CombatClass();
-
-
-        //Tier 5
-        T5LevelPowLittle = (float)0.372;
-        T5LevelPowBig = (float)1.475;
-        T5AbilityCoefficient = (float)2.6;
-        T5LevelCoefficient = (float)100.0;
-        T5AbilityPowDenominator = (float)20.0;
-        ShieldCoefficient = (float)0.82;
-        HPCoefficient = (float)0.67;
-
-        _combatRaw.ShieldMax =
-                                    //Unit.CoreFrame.Shield +
-                                    (int)((
-                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
-                                    + Unit.Level * _ability.Generation
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Generation / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * ShieldCoefficient
-                                    + Unit.CoreFrame.Shield);
-
-        _combatRaw.HitPointMax =
-                                //Unit.CoreFrame.HP +
-                                (int)((
-                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
-                                    + Unit.Level * _ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * HPCoefficient
-                                   + Unit.CoreFrame.HP
-                                  );
-
-
-        //Tier 4
-        T4LevelPowLittle = (float)0.372;
-        T4LevelPowBig = (float)1.475;
-        T4AbilityCoefficient = (float)2.6;
-        T4LevelCoefficient = (float)100.0;
-        T4AbilityPowDenominator = (float)20.0;
-        PowerCoefficient = (float)0.4;
-        DefenseCoefficient = (float)0.4;
-
-        _combatRaw.Attack = (int)((
-                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * _ability.Power
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
-                                  ) * PowerCoefficient);
-
-        _combatRaw.Defense = (int)((
-                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * _ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
-                                  ) * DefenseCoefficient);
-
-        // Tier 3
-        T3LevelPowLittle = (float)0.34;
-        T3LevelPowBig = (float)1.00;
-        T3AbilityCoefficient = (float)2.1;
-        T3LevelCoefficient = (float)100.0;
-        T3AbilityPowDenominator = (float)20.0;
-        T3AbilityBasedCoefficient = (float)0.3;
-        MobilityCoefficient = (float)0.233;
-        AccuracyCoefficient = (float)0.233;
-
-        _combatRaw.Mobility = (int)((
-                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * _ability.Responsiveness * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)_ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
-                          ) * MobilityCoefficient);
-
-        _combatRaw.Accuracy = (int)((
-                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * _ability.Precision * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)_ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
-                          ) * AccuracyCoefficient);
-
-        //Tier 2
-        T2LevelPowLittle = (float)0.1;
-        T2LevelPowBig = (float)0.7;
-        T2AbilityCoefficient = (float)2.1;
-        T2LevelCoefficient = (float)100.0;
-        T2AbilityPowDenominator = (float)20.0;
-        T2AbilityBasedCoefficient = (float)0.0;
-        CounterintelligenceCoefficient = (float)1.2;
-        RepairCoefficient = (float)1.2;
-
-        _combatRaw.Counterintelligence = (int)((
-                    (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
-                    + Mathf.Pow(Unit.Level, T2LevelPowBig)
-                    + Unit.Level * _ability.Intelligence * T2AbilityBasedCoefficient
-                    + Mathf.Pow(Unit.Level, (float)_ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
-                  ) * CounterintelligenceCoefficient);
-
-        _combatRaw.Repair = (int)((
-            (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
-            + Mathf.Pow(Unit.Level, T2LevelPowBig)
-            + Unit.Level * _ability.Generation * T2AbilityBasedCoefficient
-            + Mathf.Pow(Unit.Level, (float)_ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
-          ) * RepairCoefficient);
-
-        // Tier 1
-        // critical hit = Level * Luck * CriticalHitCoefficient
-        CriticalHitCoefficient = (float)0.01;
-
-        _combatRaw.CriticalHit = (int)(
-                            (Unit.Level * _ability.Luck * CriticalHitCoefficient)
-                          );
-
-        // Number of attacks
-        _combatRaw.NumberOfAttacks = (int)(8);
-
-        // Min range and Max range, default are 1.
-        _combatRaw.MinRange = (int)(1);
-        _combatRaw.MaxRange = (int)(6);
-
-        // Sample set kinetic Attack ratio
-        _combatRaw.KineticAttackRatio = 1.0;
-
-        // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
-        // Formula:
-        //    CombatCoreSkillConsidered.someValue = (CombatRaw.someValue + (CoreFrame and Pilot).skills.addCombat.someValue) * (CoreFrame and Pilot).skills.amplifyCombat.someValue
-
-        // some code here. omitted
-
-
-        // (2-5)Skill consideration of items equiped -> CombatItemSkillConsidered
-        // Formula:
-        //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
-
-        _combatRaw.CriticalHit = _combatRaw.CriticalHit + 18;
-        // some code here. omitted
-
-        // (2-6)Add combat value of items equiped -> CombatItemEquiped
-        // Formula:
-        //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
-
-        _combatItems = new CombatClass();
-
-        foreach (Item _item in Unit.itemList)
-        {
-            if (_item != null)
-            {
-                _combatItems.Add(_item.TotaledCombat());
-            }
-        }
-
-        // some code here. omitted
-
-        // (2-7)Finalize
-        // Formula:
-        //    CombatCaluculated = CombatItemEquiped
-
-        _combat = new CombatClass();
-        _combat.Add(_combatRaw);
-        if (_combatItems != null) { _combat.Add(_combatItems); }
-
-
-        //(3) Feature
-        // (3-1) Set environment values
-        _absorbShieldRatio = 0.1;
-        _hateInitial = 10;
-        _hateMagnificationPerTurn = 0.667;
-        //_optimumRangeBonusDefault = 1.2;
-        //_criticalMagnificationDefault = 1.4; this will obsolate
-        _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
-        _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
-        // (3-2) 
-        //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
-        // Formula:
-        //   absorbShieldInitial = CoreFrame.addFeature.absorbShield + Pilot.addFeature.absorbShield
-        //   damageControlAssist = CoreFrame.TuningStype.damageControlAssist
-        //   hateInitial = (default value) + Pilot.addFeature.hate
-        //   hateMagnificationPerTurn = (defalut value) * Pilot.addFeature.hateMagnificationPerTurn
-
-        _isDamageControlAssist = false;
-
-        switch (Unit.CoreFrame.TuningStype)
-        {
-            case TuningStype.medic:
-                _isDamageControlAssist = true;
-                break;
-            default:
-                break;
-        }
-
-        _feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
-            hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
-
+        // (1-4) Offense/Defense/UnitSkill Magnification
 
         //(4)Offense/Defense/UnitSkill Magnification
 
@@ -558,7 +347,7 @@ public class CalculateUnitStatus : MonoBehaviour
 
         foreach ((int magnificationTargetID, int percentValue, double ratioValue, List<int> percentList) calculated in magnificationDefenseList)
         {
-            double total = (1.0 - calculated.percentValue * 0.01)  * calculated.ratioValue;
+            double total = (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
 
             string _percents = null;
             if (calculated.percentList != null)
@@ -621,18 +410,240 @@ public class CalculateUnitStatus : MonoBehaviour
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
 
-        // this is for only Defense magnification. 2019.9.28
-        // 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 
+        //(2) Combat
+        // (2-1) Set environment values
 
-        _combat.ShieldMax = (int)(_combat.ShieldMax * _defenseMagnification.shield);
-        _combat.HitPointMax = (int)(_combat.HitPointMax * _defenseMagnification.hitPoint);
-        _combat.NumberOfAttacks = (int)(_combat.NumberOfAttacks * _defenseMagnification.numberOfAttacks);
-        _combat.MinRange = (int)(_combat.MinRange * _defenseMagnification.minRange);
-        _combat.MaxRange = (int)(_combat.MaxRange * _defenseMagnification.maxRange);
-        _combat.Accuracy = (int)(_combat.Accuracy * _defenseMagnification.accuracy);
-        _combat.Mobility = (int)(_combat.Mobility * _defenseMagnification.mobility);
-        _combat.Attack = (int)(_combat.Attack * _defenseMagnification.attack);
-        _combat.Defense = (int)(_combat.Defense * _defenseMagnification.defense);
+
+        // each ability's coefficient
+        {
+
+        }
+
+        // (2-3) First Combat caluculation -> CombatRaw
+        // Formula:
+        //    CombatRaw.Shield = CoreFrame.Shield (fixed, independent on Level)
+        //    CombatRaw.HitPoint = CoreFrame.Hitpoint (fixed, independent on Level)
+        //    CombatRaw.Others values: (
+        //                                  LevelCoefficient *(Level^LevelPowLittle)
+        //                                  +Level^LevelPowBig
+        //                                  +Level * Ability
+        //                                  +Level^(Ability / PowDenominator)*AbilityCoefficient
+        //                             )*XxxxxCoefficient
+        //     + Unit.CoreFrame.Shield or HitPoint;
+        _combatRaw = new CombatClass();
+
+
+        //Tier 5
+        T5LevelPowLittle = (float)0.372;
+        T5LevelPowBig = (float)1.475;
+        T5AbilityCoefficient = (float)2.6;
+        T5LevelCoefficient = (float)100.0;
+        T5AbilityPowDenominator = (float)20.0;
+        ShieldCoefficient = (float)0.82;
+        HPCoefficient = (float)0.67;
+
+        _combatRaw.ShieldMax =
+                                    //Unit.CoreFrame.Shield +
+                                    (int)((
+                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
+                                    + Unit.Level * _ability.Generation
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Generation / T5AbilityPowDenominator) * T5AbilityCoefficient
+                                  ) * ShieldCoefficient
+                                    + Unit.CoreFrame.Shield);
+
+        _combatRaw.HitPointMax =
+                                //Unit.CoreFrame.HP +
+                                (int)((
+                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
+                                    + Unit.Level * _ability.Stability
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T5AbilityPowDenominator) * T5AbilityCoefficient
+                                  ) * HPCoefficient
+                                   + Unit.CoreFrame.HP
+                                  );
+
+
+        //Tier 4
+        T4LevelPowLittle = (float)0.372;
+        T4LevelPowBig = (float)1.475;
+        T4AbilityCoefficient = (float)2.6;
+        T4LevelCoefficient = (float)100.0;
+        T4AbilityPowDenominator = (float)20.0;
+        PowerCoefficient = (float)0.4;
+        DefenseCoefficient = (float)0.4;
+
+        _combatRaw.Attack = (int)((
+                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
+                                    + Unit.Level * _ability.Power
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
+                                  ) * PowerCoefficient);
+
+        _combatRaw.Defense = (int)((
+                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
+                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
+                                    + Unit.Level * _ability.Stability
+                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
+                                  ) * DefenseCoefficient);
+
+        // Tier 3
+        T3LevelPowLittle = (float)0.34;
+        T3LevelPowBig = (float)1.00;
+        T3AbilityCoefficient = (float)2.1;
+        T3LevelCoefficient = (float)100.0;
+        T3AbilityPowDenominator = (float)20.0;
+        T3AbilityBasedCoefficient = (float)0.3;
+        MobilityCoefficient = (float)0.233;
+        AccuracyCoefficient = (float)0.233;
+
+        _combatRaw.Mobility = (int)((
+                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
+                            + Unit.Level * _ability.Responsiveness * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)_ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
+                          ) * MobilityCoefficient);
+
+        _combatRaw.Accuracy = (int)((
+                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
+                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
+                            + Unit.Level * _ability.Precision * T3AbilityBasedCoefficient
+                            + Mathf.Pow(Unit.Level, (float)_ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
+                          ) * AccuracyCoefficient);
+
+        //Tier 2
+        T2LevelPowLittle = (float)0.1;
+        T2LevelPowBig = (float)0.7;
+        T2AbilityCoefficient = (float)2.1;
+        T2LevelCoefficient = (float)100.0;
+        T2AbilityPowDenominator = (float)20.0;
+        T2AbilityBasedCoefficient = (float)0.0;
+        CounterintelligenceCoefficient = (float)1.2;
+        RepairCoefficient = (float)1.2;
+
+        _combatRaw.Counterintelligence = (int)((
+                    (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
+                    + Mathf.Pow(Unit.Level, T2LevelPowBig)
+                    + Unit.Level * _ability.Intelligence * T2AbilityBasedCoefficient
+                    + Mathf.Pow(Unit.Level, (float)_ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
+                  ) * CounterintelligenceCoefficient);
+
+        _combatRaw.Repair = (int)((
+            (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
+            + Mathf.Pow(Unit.Level, T2LevelPowBig)
+            + Unit.Level * _ability.Generation * T2AbilityBasedCoefficient
+            + Mathf.Pow(Unit.Level, (float)_ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
+          ) * RepairCoefficient);
+
+        // Tier 1
+        // critical hit = Level * Luck * CriticalHitCoefficient
+        CriticalHitCoefficient = (float)0.01;
+
+        _combatRaw.CriticalHit = (int)(
+                            (Unit.Level * _ability.Luck * CriticalHitCoefficient)
+                          );
+
+        // Number of attacks
+        _combatRaw.NumberOfAttacks = (int)(8);
+
+        // Min range and Max range, default are 1.
+        _combatRaw.MinRange = (int)(1);
+        _combatRaw.MaxRange = (int)(6);
+
+        // Sample set kinetic Attack ratio
+        _combatRaw.KineticAttackRatio = 1.0;
+
+        // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
+        // Formula:
+        //    CombatCoreSkillConsidered.someValue = (CombatRaw.someValue + (CoreFrame and Pilot).skills.addCombat.someValue) * (CoreFrame and Pilot).skills.amplifyCombat.someValue
+
+        // some code here. omitted
+
+
+        // (2-5)Skill consideration of items equiped -> CombatItemSkillConsidered
+        // Formula:
+        //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
+
+        _combatRaw.CriticalHit = _combatRaw.CriticalHit + 18;
+        // some code here. omitted
+
+        // (2-6)Base Magnification 
+
+
+
+        // this is for only Defense magnification. 2019.9.29
+        // 11:BaseShield, 12:BaseHitPoint, 13:BaseNumberOfAttacks, 14:MiniRange, 15:MaxRange, 16:BaseAccuracy, 17:BaseMobility, 18:BaseAttack, 19:BaseDefense
+
+        _combatRaw.ShieldMax = (int)(_combatRaw.ShieldMax * _defenseMagnification.shield);
+        _combatRaw.HitPointMax = (int)(_combatRaw.HitPointMax * _defenseMagnification.hitPoint);
+        _combatRaw.NumberOfAttacks = (int)(_combatRaw.NumberOfAttacks * _defenseMagnification.numberOfAttacks);
+        _combatRaw.MinRange = (int)(_combatRaw.MinRange * _defenseMagnification.minRange);
+        _combatRaw.MaxRange = (int)(_combatRaw.MaxRange * _defenseMagnification.maxRange);
+        _combatRaw.Accuracy = (int)(_combatRaw.Accuracy * _defenseMagnification.accuracy);
+        _combatRaw.Mobility = (int)(_combatRaw.Mobility * _defenseMagnification.mobility);
+        _combatRaw.Attack = (int)(_combatRaw.Attack * _defenseMagnification.attack);
+        _combatRaw.Defense = (int)(_combatRaw.Defense * _defenseMagnification.defense);
+
+        // (2-7)Add combat value of items equiped -> CombatItemEquiped
+        // Formula:
+        //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
+
+        _combatItems = new CombatClass();
+
+        foreach (Item _item in Unit.itemList)
+        {
+            if (_item != null)
+            {
+                _combatItems.Add(_item.TotaledCombat());
+            }
+        }
+
+        // some code here. omitted
+
+        // (2-8)Finalize
+        // Formula:
+        //    CombatCaluculated = CombatItemEquiped
+
+        _combat = new CombatClass();
+        _combat.Add(_combatRaw);
+        if (_combatItems != null) { _combat.Add(_combatItems); }
+
+
+        //(3) Feature
+        // (3-1) Set environment values
+        _absorbShieldRatio = 0.1;
+        _hateInitial = 10;
+        _hateMagnificationPerTurn = 0.667;
+        //_optimumRangeBonusDefault = 1.2;
+        //_criticalMagnificationDefault = 1.4; this will obsolate
+        _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+        _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+        // (3-2) 
+        //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
+        // Formula:
+        //   absorbShieldInitial = CoreFrame.addFeature.absorbShield + Pilot.addFeature.absorbShield
+        //   damageControlAssist = CoreFrame.TuningStype.damageControlAssist
+        //   hateInitial = (default value) + Pilot.addFeature.hate
+        //   hateMagnificationPerTurn = (defalut value) * Pilot.addFeature.hateMagnificationPerTurn
+
+        _isDamageControlAssist = false;
+
+        switch (Unit.CoreFrame.TuningStype)
+        {
+            case TuningStype.medic:
+                _isDamageControlAssist = true;
+                break;
+            default:
+                break;
+        }
+
+        _feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
+            hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
+
+
+
+
+
 
         BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
