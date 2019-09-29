@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class InventoryScrollList : MonoBehaviour
@@ -12,6 +14,7 @@ public class InventoryScrollList : MonoBehaviour
 
     // initial inventory master;
     public bool doesSetInitialInventory;
+    public bool isLoadFromFile;
     public UnitClass initialInventoryUnit;
 
     public Transform contentPanel;
@@ -23,21 +26,31 @@ public class InventoryScrollList : MonoBehaviour
 
     void Start()
     {
-        if (doesSetInitialInventory && initialInventoryUnit != null)
+        if (isLoadFromFile)
         {
-            // inventory 
-            unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            itemList = (List<Item>)bf.Deserialize(file);
+            file.Close();
+        }
+        else
+        {
 
-            unit.itemList.Clear();
-
-            foreach (Item item in initialInventoryUnit.itemList)
+            if (doesSetInitialInventory && initialInventoryUnit != null)
             {
+                // inventory 
+                unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
+
+                unit.itemList.Clear();
+
+                foreach (Item item in initialInventoryUnit.itemList)
+                {
                     Item copyedItem = Instantiate(item.Copy());
                     unit.itemList.Add(copyedItem);
+                }
+
             }
-
         }
-
 
 
        

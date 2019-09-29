@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 public class GoScript : MonoBehaviour
 {
@@ -74,5 +77,11 @@ public class GoScript : MonoBehaviour
         }
 
         transparentMessage.SetActive(true);
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList);
+        file.Close();
+
     }
 }

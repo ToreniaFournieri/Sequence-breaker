@@ -4554,6 +4554,7 @@ MonoBehaviour:
   capacity: 200
   unit: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
   doesSetInitialInventory: 1
+  isLoadFromFile: 0
   initialInventoryUnit: {fileID: 11400000, guid: 665bc0158bc694bfeb91f3d9696719f1,
     type: 2}
   contentPanel: {fileID: 734063309}
@@ -5712,6 +5713,7 @@ MonoBehaviour:
   capacity: 200
   unit: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
   doesSetInitialInventory: 0
+  isLoadFromFile: 0
   initialInventoryUnit: {fileID: 0}
   contentPanel: {fileID: 952931268}
   otherInventory: {fileID: 734063312}
@@ -12091,8 +12093,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 853.9963, y: -46.7}
-  m_SizeDelta: {x: 1342.989, y: 93.4}
+  m_AnchoredPosition: {x: 851.8662, y: -46.7}
+  m_SizeDelta: {x: 1347.249, y: 93.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5346212096862621419
 GameObject:
@@ -12810,8 +12812,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.91089, y: -46.7}
-  m_SizeDelta: {x: 153.82178, y: 63.68399}
+  m_AnchoredPosition: {x: 79.78087, y: -46.7}
+  m_SizeDelta: {x: 149.56174, y: 61.236176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5346212097920059514
 GameObject:

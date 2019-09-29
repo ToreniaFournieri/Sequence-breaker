@@ -407,6 +407,10 @@ public class CalculateUnitStatus : MonoBehaviour
             defense: summedDefenseList[19].totalValue
             );
 
+        _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+        _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+
+
         _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
 
 
@@ -616,8 +620,6 @@ public class CalculateUnitStatus : MonoBehaviour
         _hateMagnificationPerTurn = 0.667;
         //_optimumRangeBonusDefault = 1.2;
         //_criticalMagnificationDefault = 1.4; this will obsolate
-        _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
-        _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
         // (3-2) 
         //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
         // Formula:
