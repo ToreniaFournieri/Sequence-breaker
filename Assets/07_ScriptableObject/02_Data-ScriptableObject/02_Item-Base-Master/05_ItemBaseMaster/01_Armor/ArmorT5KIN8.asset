@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: ArmorT5KIN8
   m_EditorClassIdentifier: 
+  itemID: 10107
   itemName: Armor T5KIN8
   itemDescription: 
   icon: {fileID: 0}

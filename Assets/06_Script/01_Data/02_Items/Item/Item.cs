@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 [CreateAssetMenu(fileName = "Item-", menuName = "Item/Item", order = 10)]
 public class Item : ScriptableObject
 {
+
     public string itemName
     {
         get
@@ -20,16 +23,16 @@ public class Item : ScriptableObject
     }
 
     // base of this item
-    public ItemBaseMaster baseItem;
+    [SerializeField] public ItemBaseMaster baseItem;
 
     // prefix
-    public ItemBaseMaster prefixItem;
+    [SerializeField] public ItemBaseMaster prefixItem;
 
     // suffix, super-rare
-    public ItemBaseMaster suffixItem;
+    [SerializeField] public ItemBaseMaster suffixItem;
 
     // Item enhanced
-    public int enhancedValue;
+    [SerializeField]  public int enhancedValue;
 
     //Copy
     public Item Copy()

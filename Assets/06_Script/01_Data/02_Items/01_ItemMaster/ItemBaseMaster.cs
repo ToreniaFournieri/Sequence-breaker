@@ -6,7 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemBase-", menuName = "Item/ItemBase", order = 1)]
 public class ItemBaseMaster : ScriptableObject
 {
-	public string itemName;
+    public int itemID;
+
+    public string itemName;
 	public string itemDescription;
 	public Sprite icon;
 

@@ -30,8 +30,28 @@ public class InventoryScrollList : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-            itemList = (List<Item>)bf.Deserialize(file);
+
+            List<ItemForSave> _itemForSaveList = (List<ItemForSave>)bf.Deserialize(file);
             file.Close();
+
+            List<Item> _itemList = new List<Item>();
+            foreach (ItemForSave _itemForSave in _itemForSaveList)
+            {
+                Item _item = new Item();
+                ItemBaseMaster _BaseItem = new ItemBaseMaster();
+                ItemBaseMaster _PrefixItem = new ItemBaseMaster();
+                ItemBaseMaster _SuffixItem = new ItemBaseMaster();
+
+                //test implement
+                _BaseItem = initialInventoryUnit.itemList.Find(obj => obj.baseItem.itemID == _itemForSave.bI).baseItem;
+
+                _item.baseItem = _BaseItem;
+
+                unit.itemList.Add(_item);
+
+            }
+
+
         }
         else
         {

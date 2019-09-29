@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: R3SubmachineGun
   m_EditorClassIdentifier: 
+  itemID: 10304
   itemName: Submachine gun P4
   itemDescription: 
   icon: {fileID: 0}

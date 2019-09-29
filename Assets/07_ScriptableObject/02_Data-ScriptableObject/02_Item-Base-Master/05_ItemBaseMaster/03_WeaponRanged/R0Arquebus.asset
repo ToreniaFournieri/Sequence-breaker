@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: R0Arquebus
   m_EditorClassIdentifier: 
+  itemID: 10301
   itemName: Arquebus P1
   itemDescription: 
   icon: {fileID: 0}
