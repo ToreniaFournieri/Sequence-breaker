@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{5AF53399-BBFA-DC3D-25CA-9C44FCFAE481}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs">
     <Files>
       <File FileName="Assets/06_Script/09_Drop/DropEngine.cs" Line="29" Column="44" />
-      <File FileName="Assets/06_Script/Enumeration.cs" Line="50" Column="1" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="11" Column="70" />
-      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="148" Column="1" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="98" Column="1" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="13" Column="27" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" Line="25" Column="43" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/Item/ItemForSave.cs" Line="12" Column="40" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="7" Column="14" />
+      <File FileName="Assets/06_Script/Enumeration.cs" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" />
+      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" />
+      <File FileName="Assets/06_Script/07_Play/GoScript.cs" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="62" Column="6" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/SwitchUnitController.cs" Line="23" Column="54" />
+      <File FileName="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs" Line="73" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="../../../Assets/Script/01_Data/01_Skills/EffectClass.cs" line="15" offsetX="-1" offsetY="-1" expression="skill.TriggerBase.AccumulationBaseRate" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d972fa4e-77a2-4a53-94dc-53ab3a253093" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

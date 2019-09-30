@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: Unit-InventoryMaster
   m_EditorClassIdentifier: 
-  UniqueID: 0
+  UniqueID: 100
   Name: InventoryMaster
   Affiliation: 2
   UnitType: 3

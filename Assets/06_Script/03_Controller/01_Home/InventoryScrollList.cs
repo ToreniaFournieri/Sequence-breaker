@@ -2,8 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class InventoryScrollList : MonoBehaviour
@@ -17,6 +15,9 @@ public class InventoryScrollList : MonoBehaviour
     public bool isLoadFromFile;
     public UnitClass initialInventoryUnit;
 
+    // Global item master
+    public ItemDataBase itemDataBase;
+
     public Transform contentPanel;
     public InventoryScrollList otherInventory;
     public RefreshController refreshController;
@@ -24,59 +25,51 @@ public class InventoryScrollList : MonoBehaviour
     public SimpleObjectPool itemObjectPool;
     public ItemDetailViewController itemDetailViewController;
 
+    // 
+
     void Start()
     {
-        if (isLoadFromFile)
+        if (unit != null)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-
-            List<ItemForSave> _itemForSaveList = (List<ItemForSave>)bf.Deserialize(file);
-            file.Close();
-
-            List<Item> _itemList = new List<Item>();
-            foreach (ItemForSave _itemForSave in _itemForSaveList)
-            {
-                Item _item = new Item();
-                ItemBaseMaster _BaseItem = new ItemBaseMaster();
-                ItemBaseMaster _PrefixItem = new ItemBaseMaster();
-                ItemBaseMaster _SuffixItem = new ItemBaseMaster();
-
-                //test implement
-                _BaseItem = initialInventoryUnit.itemList.Find(obj => obj.baseItem.itemID == _itemForSave.bI).baseItem;
-
-                _item.baseItem = _BaseItem;
-
-                unit.itemList.Add(_item);
-
-            }
-
-
+            unit.itemList = itemDataBase.LoadItemList("item-" + unit.UniqueID);
         }
-        else
-        {
+        //if (isLoadFromFile)
+        //{
+        //}
+        //else
+        //{
 
-            if (doesSetInitialInventory && initialInventoryUnit != null)
-            {
-                // inventory 
-                unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
+        //    if (doesSetInitialInventory && initialInventoryUnit != null)
+        //    {
+        //        // inventory 
+        //        unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
 
-                unit.itemList.Clear();
+        //        unit.itemList.Clear();
 
-                foreach (Item item in initialInventoryUnit.itemList)
-                {
-                    Item copyedItem = Instantiate(item.Copy());
-                    unit.itemList.Add(copyedItem);
-                }
+        //        foreach (Item item in initialInventoryUnit.itemList)
+        //        {
+        //            Item copyedItem = Instantiate(item.Copy());
+        //            unit.itemList.Add(copyedItem);
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
        
 
         RefreshDisplay();
     }
+
+    public void SwitchUnit(UnitClass _unit)
+    {
+        this.unit = _unit;
+        if (unit != null)
+        {
+            unit.itemList = itemDataBase.LoadItemList("item-" + unit.UniqueID);
+        }
+    }
+
 
 
     public void RefreshDisplay()
@@ -151,9 +144,21 @@ public class InventoryScrollList : MonoBehaviour
         }
     }
 
+    //Add item of public object
+    public void AddItemAndSave(Item item)
+    {
+        AddItem(item, this);
+
+        //itemList.Add(item);
+        //itemDataBase.SaveItemList("item-" + unit.UniqueID, itemList);
+    }
+
+    // private object
     private void AddItem(Item itemToAdd, InventoryScrollList inventoryList)
     {
         inventoryList.itemList.Add(itemToAdd);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+
     }
 
     private void RemoveItem(Item itemToRemove, InventoryScrollList inventoryList)
@@ -165,6 +170,8 @@ public class InventoryScrollList : MonoBehaviour
                 inventoryList.itemList.RemoveAt(i);
             }
         }
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+
     }
 
 }

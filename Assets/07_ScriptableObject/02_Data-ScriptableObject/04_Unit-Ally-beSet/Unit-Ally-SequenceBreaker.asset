@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: Unit-Ally-SequenceBreaker
   m_EditorClassIdentifier: 
-  UniqueID: 2
+  UniqueID: 100003
   Name: '[Ally]SequenceBreaker'
   Affiliation: 0
   UnitType: 3
   ItemCapacity: 20
   itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

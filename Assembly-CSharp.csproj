@@ -245,6 +245,7 @@
     <Compile Include="Assets\06_Script\01_Data\08_BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\06_Script\01_Data\08_BattleUnitSub\UnitSkillMagnificationClass.cs" />
     <Compile Include="Assets\06_Script\01_Data\BattleUnit.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\00_Grobal\ItemDataBase.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\TabController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryScrollList.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\ItemDetailViewController.cs" />

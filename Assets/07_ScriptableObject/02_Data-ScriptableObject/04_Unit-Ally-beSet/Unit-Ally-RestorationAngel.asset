@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: Unit-Ally-RestorationAngel
   m_EditorClassIdentifier: 
-  UniqueID: 2
+  UniqueID: 100002
   Name: '[Ally]RestorationAngel'
   Affiliation: 0
   UnitType: 3
-  InitialAbility: {fileID: 11400000, guid: 54adb35e8ecf14ceca2575776001ab6d, type: 2}
   ItemCapacity: 6
-  itemList: []
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CoreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
   Pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
   Level: 20

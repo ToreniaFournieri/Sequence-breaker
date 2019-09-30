@@ -72,34 +72,35 @@ public class GoScript : MonoBehaviour
             itemObject.gameObject.AddComponent<DropedItem>();
             itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
             transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
-            inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList.Add(itemObject.GetComponent<DropedItem>().item);
+            inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.AddItemAndSave(itemObject.GetComponent<DropedItem>().item);
+            //inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList.Add(itemObject.GetComponent<DropedItem>().item);
             inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.RefreshDisplay();
         }
 
         transparentMessage.SetActive(true);
 
 
-        // Data save test implement.
-        List<ItemForSave> _itemForSaveList = new List<ItemForSave>();
+        //// Data save test implement.
+        //List<ItemForSave> _itemForSaveList = new List<ItemForSave>();
 
-        foreach (Item _item in inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList)
-        {
-            ItemForSave _itemForSave = new ItemForSave();
-            // 0 means no ItemID
-            if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
-            if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
-            if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
-            _itemForSave.eV = _item.enhancedValue;
+        //foreach (Item _item in inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList)
+        //{
+        //    ItemForSave _itemForSave = new ItemForSave();
+        //    // 0 means no ItemID
+        //    if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
+        //    if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
+        //    if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
+        //    _itemForSave.eV = _item.enhancedValue;
 
-            _itemForSaveList.Add(_itemForSave);
-        }
+        //    _itemForSaveList.Add(_itemForSave);
+        //}
 
-        BinaryFormatter bf = new BinaryFormatter();
-        //File.Delete(Application.persistentDataPath + "/gamesave.save");
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        //BinaryFormatter bf = new BinaryFormatter();
+        ////File.Delete(Application.persistentDataPath + "/gamesave.save");
+        //FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
 
-        bf.Serialize(file, _itemForSaveList);
-        file.Close();
+        //bf.Serialize(file, _itemForSaveList);
+        //file.Close();
 
     }
 }

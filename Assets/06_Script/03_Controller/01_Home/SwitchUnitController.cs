@@ -20,6 +20,7 @@ public class SwitchUnitController : MonoBehaviour
             statusUpdate.unit = unit;
             //Debug.Log("ActivateUnitToDisplay " + unit.Name);
             inventoryScrollListUnit.unit = unit;
+            inventoryScrollListUnit.SwitchUnit(unit);
             inventoryScrollListUnit.refreshController.NeedToRefresh = true;
             inventoryScrollListUnit.RefreshDisplay();
             statusUpdate.Refresh();
