@@ -71,7 +71,7 @@ public class ItemDataBase :MonoBehaviour
         bf.Serialize(file, _itemForSaveList);
         file.Close();
 
-        Debug.Log("Saved: " + savedFileName);
+        //Debug.Log("Saved: " + savedFileName);
 
     }
 

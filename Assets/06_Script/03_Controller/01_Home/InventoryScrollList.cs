@@ -31,32 +31,8 @@ public class InventoryScrollList : MonoBehaviour
     {
         if (unit != null)
         {
-            unit.itemList = itemDataBase.LoadItemList("item-" + unit.UniqueID);
+            unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + unit.UniqueID);
         }
-        //if (isLoadFromFile)
-        //{
-        //}
-        //else
-        //{
-
-        //    if (doesSetInitialInventory && initialInventoryUnit != null)
-        //    {
-        //        // inventory 
-        //        unit.ItemCapacity = initialInventoryUnit.ItemCapacity;
-
-        //        unit.itemList.Clear();
-
-        //        foreach (Item item in initialInventoryUnit.itemList)
-        //        {
-        //            Item copyedItem = Instantiate(item.Copy());
-        //            unit.itemList.Add(copyedItem);
-        //        }
-
-        //    }
-        //}
-
-
-       
 
         RefreshDisplay();
     }
@@ -66,11 +42,9 @@ public class InventoryScrollList : MonoBehaviour
         this.unit = _unit;
         if (unit != null)
         {
-            unit.itemList = itemDataBase.LoadItemList("item-" + unit.UniqueID);
+            unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + "-"+ unit.UniqueID);
         }
     }
-
-
 
     public void RefreshDisplay()
     {
@@ -157,7 +131,7 @@ public class InventoryScrollList : MonoBehaviour
     private void AddItem(Item itemToAdd, InventoryScrollList inventoryList)
     {
         inventoryList.itemList.Add(itemToAdd);
-        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
 
     }
 
@@ -170,7 +144,7 @@ public class InventoryScrollList : MonoBehaviour
                 inventoryList.itemList.RemoveAt(i);
             }
         }
-        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
 
     }
 
