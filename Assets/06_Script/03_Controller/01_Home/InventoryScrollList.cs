@@ -31,7 +31,7 @@ public class InventoryScrollList : MonoBehaviour
     {
         if (unit != null)
         {
-            unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + unit.UniqueID);
+            unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation +"-" + unit.UniqueID);
         }
 
         RefreshDisplay();
