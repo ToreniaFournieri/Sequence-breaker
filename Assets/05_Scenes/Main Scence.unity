@@ -5716,7 +5716,7 @@ MonoBehaviour:
   doesSetInitialInventory: 0
   isLoadFromFile: 0
   initialInventoryUnit: {fileID: 0}
-  itemDataBase: {fileID: 0}
+  itemDataBase: {fileID: 996112117}
   contentPanel: {fileID: 952931268}
   otherInventory: {fileID: 734063312}
   refreshController: {fileID: 903368331}
