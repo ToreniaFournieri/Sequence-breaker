@@ -52,11 +52,26 @@ public class GoScript : MonoBehaviour
         {
             int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
             itemList = dropEngine.GetDropedItems(enemyUnitList: _battleCopy.GetComponent<RunBattle>().enemyUnitList, seed: seed);
+
+        }
+
+
+        // Exp gain, not use copy data! lost reference means worthlesss.
+        int _experience = 0;
+        foreach (UnitClass _enemyUnit in _runBattle.GetComponent<RunBattle>().enemyUnitList)
+        {
+            _experience += _enemyUnit.ExperienceFromBeaten();
+        }
+
+        // Distribution, not use copied data! lost reference means worthlesss.
+        _experience = (int)(_experience / _runBattle.GetComponent<RunBattle>().allyUnitList.Count);
+
+        foreach (UnitClass _allyUnit in _runBattle.GetComponent<RunBattle>().allyUnitList)
+        {
+            _allyUnit.GainExperience(_experience);
         }
 
         transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + missionName + missionLevel
-
-        //transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + _battleCopy.GetComponent<RunBattle>().missionText + missionLevel
             + " [" + _battleCopy.GetComponent<RunBattle>().whichWin + "] " + _battleCopy.GetComponent<RunBattle>().winRatio;
 
 
@@ -73,34 +88,11 @@ public class GoScript : MonoBehaviour
             itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
             transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
             inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.AddItemAndSave(itemObject.GetComponent<DropedItem>().item);
-            //inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList.Add(itemObject.GetComponent<DropedItem>().item);
             inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.RefreshDisplay();
         }
 
         transparentMessage.SetActive(true);
 
-
-        //// Data save test implement.
-        //List<ItemForSave> _itemForSaveList = new List<ItemForSave>();
-
-        //foreach (Item _item in inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.itemList)
-        //{
-        //    ItemForSave _itemForSave = new ItemForSave();
-        //    // 0 means no ItemID
-        //    if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
-        //    if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
-        //    if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
-        //    _itemForSave.eV = _item.enhancedValue;
-
-        //    _itemForSaveList.Add(_itemForSave);
-        //}
-
-        //BinaryFormatter bf = new BinaryFormatter();
-        ////File.Delete(Application.persistentDataPath + "/gamesave.save");
-        //FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
-
-        //bf.Serialize(file, _itemForSaveList);
-        //file.Close();
 
     }
 }

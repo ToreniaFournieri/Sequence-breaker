@@ -354,11 +354,15 @@ public class AttackFunction
                     int shieldPercentSpace = (3 - shieldRatio.WithComma().Length);
                     int hPPercentSpace = (3 - hpRatio.WithComma().Length);
                     int damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma().Length);
+                    if (damageSpace < 0) { damageSpace = 0; }
                     int damageRateSpace = (4 - sign.Length - damageRatio.ToString().Length);
+                    if (damageRateSpace < 0) { damageRateSpace = 0; }
 
                     log += opponents[fTargetColumn].Name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
-                    + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
-                    + totalIndivisualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
++ new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
++ totalIndivisualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
+
+
 
                     if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                 }
