@@ -97,10 +97,8 @@ namespace KohmaiWorks.Scroller
             scroller.Delegate = this;
             _data = new List<Data>();
 
+            //2019.10.3 always DataList is set 0.
             _data = Battle.gameObject.GetComponent<RunBattle>().DataList[0];
-
-            _data = Battle.gameObject.GetComponent<RunBattle>().DataList[1];
-
 
             DataList _setDatalist = new DataList();
             _setDatalist.Data = _data;

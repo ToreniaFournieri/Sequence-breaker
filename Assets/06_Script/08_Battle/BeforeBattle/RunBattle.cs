@@ -39,9 +39,34 @@ public class RunBattle : MonoBehaviour
 
     public RunBattle Copy()
     {
-        return (RunBattle)this.MemberwiseClone();
+        RunBattle _deepCopyRunbattle = new RunBattle(this.allyUnitList,this.enemyUnitSetList,this.battleEnvironment);
+        _deepCopyRunbattle.missionText = this.missionText;
+        _deepCopyRunbattle.location = this.location;
+        _deepCopyRunbattle.whichWin = this.whichWin;
+        _deepCopyRunbattle.winRatio = this.winRatio;
+        _deepCopyRunbattle.DataList = this.DataList;
+
+        return _deepCopyRunbattle;
+        //return (RunBattle)this.MemberwiseClone();
 
     }
+
+    public RunBattle Copy(int wave)
+    {
+        RunBattle _deepCopyRunbattle = new RunBattle(this.allyUnitList, this.enemyUnitSetList, this.battleEnvironment);
+        _deepCopyRunbattle.missionText = this.missionText;
+        _deepCopyRunbattle.location = this.location;
+        _deepCopyRunbattle.whichWin = this.whichWin;
+        _deepCopyRunbattle.winRatio = this.winRatio;
+        _deepCopyRunbattle.DataList = new List<List<KohmaiWorks.Scroller.Data>>();
+        _deepCopyRunbattle.DataList.Add(this.DataList[wave]);
+
+        return _deepCopyRunbattle;
+
+    }
+
+
+
 
     public void Set(RunBattle runBattle)
     {
