@@ -1530,7 +1530,7 @@ GameObject:
   - component: {fileID: 208688198}
   - component: {fileID: 208688199}
   m_Layer: 0
-  m_Name: Battle-SoylentPlant
+  m_Name: Battle-E1-Elle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1562,12 +1562,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: Defend the Soylent plant
-  location: Soylent Plant
+  missionText: Village escorts
+  location: Elle vilage
   missionLevel: 0
   whichWin: 0
   winRatio: 
-  Data: []
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   allyUnitList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
@@ -1576,6 +1575,10 @@ MonoBehaviour:
   enemyUnitList:
   - {fileID: 11400000, guid: 01419ad684dc04bc7be61b6246880927, type: 2}
   - {fileID: 11400000, guid: c00f11bcf4b2e4549968ff4c2eb09f4c, type: 2}
+  enemyUnitSetList:
+  - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
+  - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
+  - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
 --- !u!1 &240124707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,7 +2820,7 @@ GameObject:
   - component: {fileID: 465871541}
   - component: {fileID: 465871542}
   m_Layer: 0
-  m_Name: Battle-vsAkaG
+  m_Name: Battle-E2-SoylentPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2849,12 +2852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: 'AkaG '
-  location: Colosseum
+  missionText: Defend the Soylent plant
+  location: Soylent Plant
   missionLevel: 0
   whichWin: 0
   winRatio: 
-  Data: []
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   allyUnitList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
@@ -2865,6 +2867,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
   - {fileID: 11400000, guid: d24f2fd72b920423c8da56a786cbb7a8, type: 2}
   - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
+  enemyUnitSetList: []
 --- !u!1 &468849965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6489,7 +6492,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8246,7 +8249,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10550,7 +10553,7 @@ GameObject:
   - component: {fileID: 1742020150}
   - component: {fileID: 1742020151}
   m_Layer: 0
-  m_Name: Battle-LuBu
+  m_Name: Battle-E3-LuBu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10587,7 +10590,6 @@ MonoBehaviour:
   missionLevel: 10
   whichWin: 0
   winRatio: 
-  Data: []
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   allyUnitList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
@@ -10595,6 +10597,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   enemyUnitList:
   - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
+  enemyUnitSetList: []
 --- !u!1 &1783927002
 GameObject:
   m_ObjectHideFlags: 0
@@ -11954,7 +11957,7 @@ GameObject:
   - component: {fileID: 2101349859}
   - component: {fileID: 2101349862}
   m_Layer: 5
-  m_Name: LogListView2
+  m_Name: LogListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

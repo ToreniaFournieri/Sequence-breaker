@@ -276,9 +276,10 @@
     <Compile Include="Assets\06_Script\08_Battle\BattleEnvironment.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleLogList.cs" />
     <Compile Include="Assets\06_Script\08_Battle\BattleUnitList.cs" />
+    <Compile Include="Assets\06_Script\08_Battle\BeforeBattle\EnemyUnitSet.cs" />
+    <Compile Include="Assets\06_Script\08_Battle\BeforeBattle\RunBattle.cs" />
     <Compile Include="Assets\06_Script\08_Battle\OpenSearchBar.cs" />
     <Compile Include="Assets\06_Script\08_Battle\Others.cs" />
-    <Compile Include="Assets\06_Script\08_Battle\RunBattle.cs" />
     <Compile Include="Assets\06_Script\08_Battle\UnitInfoSet.cs" />
     <Compile Include="Assets\06_Script\09_Drop\DropedItem.cs" />
     <Compile Include="Assets\06_Script\09_Drop\DropEngine.cs" />
