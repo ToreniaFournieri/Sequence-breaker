@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class GoScript : MonoBehaviour
 {
     public Slider levelOfMissionSlider;
     public GameObject battle;
-    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
     public GameObject transparentMessage;
 
     //for adding battle log to log list
@@ -25,7 +22,6 @@ public class GoScript : MonoBehaviour
     public void GoBattle()
     {
         battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value);
-        //battleLogEnhancedScrollController.Battle = Battle;
 
         //Not works well
         RunBattle _runbattle = battle.GetComponent<RunBattle>();
@@ -33,20 +29,9 @@ public class GoScript : MonoBehaviour
         string missionName = _runbattle.missionText;
         string missionLevel = " (lv:" + _runbattle.missionLevel.ToString() + ")";
 
-
-        // copy, set, for log list
-        //GameObject _battleCopy = new GameObject();
-
-        //_battleCopy.transform.parent = battle.transform;
-        //_battleCopy.name = battle.name + " log:" + DateTime.Now;
-        //_battleCopy.gameObject.AddComponent<RunBattle>();
-        //_battleCopy.GetComponent<RunBattle>().Set(_runbattle);
         List<GameObject> _battleCopyList = new List<GameObject>();
 
 
-
-        //text backup
-        //string _missionText = _battleCopy.GetComponent<RunBattle>().missionText;
 
         int _wave = 0;
         foreach (List<KohmaiWorks.Scroller.Data> _data in _runbattle.DataList)
@@ -119,10 +104,8 @@ public class GoScript : MonoBehaviour
 
         foreach (Item item in itemList)
         {
-            //Item copyedItem = (Item)ScriptableObject.CreateInstance<Item>();
 
             Item copyedItem = Instantiate(item.Copy());
-            //copyedItem = item.Copy();
             GameObject itemObject = new GameObject();
             itemObject.transform.parent = inventoryManager.transform;
             itemObject.name = copyedItem.name + " got:" + DateTime.Now;
