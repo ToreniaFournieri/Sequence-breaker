@@ -102,12 +102,28 @@ public class RunBattle : MonoBehaviour
 
         (allyBattleUnits, allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
 
+        List<BattleUnit> _previousAllyUnitList = new List<BattleUnit>();
+        _previousAllyUnitList = allyBattleUnits;
+
         int _wave = 0;
-        foreach (EnemyUnitSet _enemyUnitSet in enemyUnitSetList)
+        foreach (EnemyUnitSet _enemyUnitSet in enemyUnitSetList )
         {
+
+
             _battleList.Add(new BattleEngine());
             _battleList[_wave].SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
-            _battleList[_wave].SetAllyBattleUnits(allyBattleUnits, allySkillsList);
+
+            foreach (BattleUnit _unit in _previousAllyUnitList)
+            {
+                BattleUnit allyBattleUnit = allyBattleUnits.Find(obj => obj.UniqueID == _unit.UniqueID);
+                allyBattleUnit.Combat.ShieldCurrent = _unit.Combat.ShieldCurrent;
+                allyBattleUnit.Combat.HitPointCurrent = _unit.Combat.HitPointCurrent;
+
+            }
+
+            bool isFirstWave = false;
+            if(_wave == 0) { isFirstWave = true; }
+            _battleList[_wave].SetAllyBattleUnits(allyBattleUnits, allySkillsList, isFirstWave);
 
             //adjust enemy level
             foreach (UnitClass unit in _enemyUnitSet.enemyUnitList)
@@ -127,10 +143,14 @@ public class RunBattle : MonoBehaviour
 
             _battleList[_wave].SetEnemyBattleUnits(enemyBattleUnits, enemySkillsList);
 
+
+            //[Battle start!!]
             _battleList[_wave].Battle();
 
             whichWin = _battleList[_wave].whichWin;
             winRatio = _battleList[_wave].winRatio;
+
+            _previousAllyUnitList = _battleList[_wave].allyBattleUnitsList;
 
             DataList.Add(new List<KohmaiWorks.Scroller.Data>());
             SetBattleLogToData(_wave);

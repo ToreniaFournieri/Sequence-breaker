@@ -11,7 +11,7 @@ public class BattleEngine
     public WhichWin whichWin = WhichWin.none; // get only last one
     public string winRatio = "[0%]"; //2019.9.22 to get win ratio to show the possibility.
 
-    // input data
+    // output data for sequence battle.
     public List<BattleUnit> allyBattleUnitsList;
     public List<EffectClass> allySkillsList;
 
@@ -45,13 +45,21 @@ public class BattleEngine
 
 
     //Set up Ally's BattleUnit and EffectClass.
-    public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses)
+    public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses, bool isFirstWave)
     {
+        
+
         foreach (BattleUnit allyBattleUnit in allyBattleUnits)
         {
             // Forced update Affiliation to ally(not worked?)
             allyBattleUnit.Affiliation = Affiliation.ally;
             allyBattleUnit.UniqueID = _count;
+
+            if (isFirstWave)
+            {
+                allyBattleUnit.Combat.ShieldCurrent = allyBattleUnit.Combat.ShieldMax;
+                allyBattleUnit.Combat.HitPointCurrent = allyBattleUnit.Combat.HitPointMax;
+            }
 
             characters.Add(allyBattleUnit);
             _count++;
@@ -66,11 +74,15 @@ public class BattleEngine
 
     public void SetEnemyBattleUnits(List<BattleUnit> enemyBattleUnits, List<EffectClass> enemyEffectClasses)
     {
+
         foreach (BattleUnit enemyBattleUnit in enemyBattleUnits)
         {
             // Forced update Affiliation to enemy (not worked?)
             enemyBattleUnit.Affiliation = Affiliation.enemy;
             enemyBattleUnit.UniqueID = _count;
+            enemyBattleUnit.Combat.ShieldCurrent = enemyBattleUnit.Combat.ShieldMax;
+            enemyBattleUnit.Combat.HitPointCurrent = enemyBattleUnit.Combat.HitPointMax;
+
 
             characters.Add(enemyBattleUnit);
             _count++;
@@ -141,8 +153,9 @@ public class BattleEngine
 
                 for (int i = 0; i < characters.Count; i++) //Shield, HitPoint initialize
                 {
-                    characters[i].Combat.ShieldCurrent = characters[i].Combat.ShieldMax;
-                    characters[i].Combat.HitPointCurrent = characters[i].Combat.HitPointMax;
+                    //Stop healing
+                    //characters[i].Combat.ShieldCurrent = characters[i].Combat.ShieldMax;
+                    //characters[i].Combat.HitPointCurrent = characters[i].Combat.HitPointMax;
                     characters[i].Deterioration = 0.0; //Deterioration initialize to 0.0
                     characters[i].Buff.InitializeBuff(); //Buff initialize
                     characters[i].Buff.BarrierRemaining = 0; //Barrier initialize
@@ -564,6 +577,10 @@ public class BattleEngine
                                                  select character.Copy()).ToList();
         battleLogFinal.Characters = copyedBattleUnitLast;
         battleLogList.Add(battleLogFinal);
+
+
+        //Set ally units for next battle
+        allyBattleUnitsList = battleLogFinal.Characters.FindAll(unit => unit.Affiliation == Affiliation.ally);
 
 
 
