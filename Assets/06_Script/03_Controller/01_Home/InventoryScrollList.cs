@@ -52,7 +52,6 @@ public class InventoryScrollList : MonoBehaviour
         // to Delete empty itemList
         for (int i = unit.itemList.Count - 1 ; i >= 0; i--)
         {
-            //Debug.Log(unit.Name + " " + i + " item count:" + unit.itemList.Count);
 
             if (i >= 0)
             {
@@ -123,8 +122,6 @@ public class InventoryScrollList : MonoBehaviour
     {
         AddItem(item, this);
 
-        //itemList.Add(item);
-        //itemDataBase.SaveItemList("item-" + unit.UniqueID, itemList);
     }
 
     // private object

@@ -251,6 +251,7 @@
     <Compile Include="Assets\06_Script\03_Controller\01_Home\ItemDetailViewController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\SwitchUnitController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\02_Play\MissionController.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\02_Play\PartyStatusIcons.cs" />
     <Compile Include="Assets\06_Script\03_Controller\03_Log\BattleLogEnhancedScrollController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\RefreshController.cs" />
     <Compile Include="Assets\06_Script\04_Timeline Tab\Log\BackPreviousView.cs" />

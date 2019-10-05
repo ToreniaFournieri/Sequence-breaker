@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/02_Asset_ClassicSRIA/Scripts/ClassicSRIA.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/08_Battle/BattleEngine.cs">
     <Files>
       <File FileName="Assets/06_Script/03_Controller/01_Home/ItemDetailViewController.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/08_Battle/BeforeBattle/RunBattle.cs" Line="126" Column="1" />
-      <File FileName="Assets/06_Script/08_Battle/BeforeBattle/EnemyUnitSet.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/04_Timeline Tab/Log/BattleLog/Data.cs" Line="6" Column="11" />
-      <File FileName="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs" Line="100" Column="50" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="24" Column="1" />
-      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="88" Column="35" />
-      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogViewsHolder.cs" Line="157" Column="14" />
-      <File FileName="Assets/06_Script/09_Drop/DropEngine.cs" Line="14" Column="38" />
-      <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="58" Column="1" />
-      <File FileName="Assets/00_Asset/02_Asset_ClassicSRIA/Scripts/ClassicSRIA.cs" Line="51" Column="1" />
+      <File FileName="Assets/06_Script/08_Battle/BeforeBattle/RunBattle.cs" Line="160" Column="33" />
+      <File FileName="Assets/06_Script/03_Controller/02_Play/PartyStatusIcons.cs" Line="50" Column="26" />
+      <File FileName="Assets/06_Script/07_Play/MissionListSRIA.cs" Line="80" Column="38" />
+      <File FileName="Assets/06_Script/07_Play/MissionViewsHolder.cs" Line="56" Column="54" />
+      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogViewsHolder.cs" Line="69" Column="79" />
+      <File FileName="Assets/06_Script/04_Timeline Tab/Log/LogListSRIA.cs" Line="86" Column="39" />
+      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="23" Column="47" />
+      <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="99" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -21,9 +19,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d972fa4e-77a2-4a53-94dc-53ab3a253093" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/celvena/Sequence breaker/Assets/06_Script/08_Battle/BattleEngine.cs" relfile="Assets/06_Script/08_Battle/BattleEngine.cs" line="58" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

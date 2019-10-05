@@ -10,7 +10,8 @@ public class RunBattle : MonoBehaviour
     public string location;
     public int missionLevel;
     public WhichWin whichWin;
-    public string winRatio;
+    public List<WhichWin> whichWinEachWaves;
+    //public string winRatio;
 
     //Output information
     //public List<KohmaiWorks.Scroller.Data> Data;
@@ -24,6 +25,9 @@ public class RunBattle : MonoBehaviour
     public List<UnitClass> enemyUnitList;
 
     public List<EnemyUnitSet> enemyUnitSetList;
+
+    // to get current Ally Battle unit
+    public List<BattleUnit> currentAllyUnitList;
 
 
     //Internal use
@@ -43,8 +47,10 @@ public class RunBattle : MonoBehaviour
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
         _deepCopyRunbattle.whichWin = this.whichWin;
-        _deepCopyRunbattle.winRatio = this.winRatio;
+        //_deepCopyRunbattle.winRatio = this.winRatio;
         _deepCopyRunbattle.DataList = this.DataList;
+        _deepCopyRunbattle.currentAllyUnitList = this.currentAllyUnitList;
+        _deepCopyRunbattle.whichWinEachWaves = this.whichWinEachWaves;
 
         return _deepCopyRunbattle;
         //return (RunBattle)this.MemberwiseClone();
@@ -56,10 +62,14 @@ public class RunBattle : MonoBehaviour
         RunBattle _deepCopyRunbattle = new RunBattle(this.allyUnitList, this.enemyUnitSetList, this.battleEnvironment);
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
-        _deepCopyRunbattle.whichWin = this.whichWin;
-        _deepCopyRunbattle.winRatio = this.winRatio;
+        //_deepCopyRunbattle.whichWin = this.whichWin;
+        _deepCopyRunbattle.whichWin = this.whichWinEachWaves[wave];
+        //_deepCopyRunbattle.winRatio = this.winRatio;
         _deepCopyRunbattle.DataList = new List<List<KohmaiWorks.Scroller.Data>>();
         _deepCopyRunbattle.DataList.Add(this.DataList[wave]);
+        _deepCopyRunbattle.currentAllyUnitList = this.currentAllyUnitList;
+        _deepCopyRunbattle.whichWinEachWaves = this.whichWinEachWaves;
+
 
         return _deepCopyRunbattle;
 
@@ -81,7 +91,9 @@ public class RunBattle : MonoBehaviour
         this.allyUnitList = _runbattle.allyUnitList;
         this.enemyUnitList = _runbattle.enemyUnitList;
         this.enemyUnitSetList = _runbattle.enemyUnitSetList;
-        this.winRatio = _runbattle.winRatio;
+        //this.winRatio = _runbattle.winRatio;
+        this.whichWinEachWaves = _runbattle.whichWinEachWaves;
+
 
     }
 
@@ -98,12 +110,13 @@ public class RunBattle : MonoBehaviour
     {
         allyBattleUnits = new List<BattleUnit>();
         _battleList = new List<BattleEngine>();
+        whichWinEachWaves = new List<WhichWin>();
         DataList = new List<List<KohmaiWorks.Scroller.Data>>();
 
         (allyBattleUnits, allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
 
-        List<BattleUnit> _previousAllyUnitList = new List<BattleUnit>();
-        _previousAllyUnitList = allyBattleUnits;
+        currentAllyUnitList = new List<BattleUnit>();
+        currentAllyUnitList = allyBattleUnits;
 
         int _wave = 0;
         foreach (EnemyUnitSet _enemyUnitSet in enemyUnitSetList )
@@ -113,7 +126,7 @@ public class RunBattle : MonoBehaviour
             _battleList.Add(new BattleEngine());
             _battleList[_wave].SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
 
-            foreach (BattleUnit _unit in _previousAllyUnitList)
+            foreach (BattleUnit _unit in currentAllyUnitList)
             {
                 BattleUnit allyBattleUnit = allyBattleUnits.Find(obj => obj.UniqueID == _unit.UniqueID);
                 allyBattleUnit.Combat.ShieldCurrent = _unit.Combat.ShieldCurrent;
@@ -148,12 +161,21 @@ public class RunBattle : MonoBehaviour
             _battleList[_wave].Battle();
 
             whichWin = _battleList[_wave].whichWin;
-            winRatio = _battleList[_wave].winRatio;
+            whichWinEachWaves.Add(_battleList[_wave].whichWin);
+            //winRatio = _battleList[_wave].winRatio;
 
-            _previousAllyUnitList = _battleList[_wave].allyBattleUnitsList;
+            currentAllyUnitList = _battleList[_wave].allyBattleUnitsList;
 
             DataList.Add(new List<KohmaiWorks.Scroller.Data>());
             SetBattleLogToData(_wave);
+
+            if (currentAllyUnitList.Find(unit => unit.Combat.HitPointCurrent > 0) == null)
+
+                //if (currentAllyUnitList.FindAll(unit => unit.Combat.HitPointCurrent > 0).Count <= 0)
+            {
+                // all ally units has been slain.
+                break;
+            }
 
             _wave += 1;
         }

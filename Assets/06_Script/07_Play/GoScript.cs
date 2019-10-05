@@ -14,6 +14,9 @@ public class GoScript : MonoBehaviour
     //for adding battle log to log list
     public LogListSRIA logList;
 
+    // for party status update
+    public GameObject partyStatusIcons;
+
     //for item drop
     public GameObject inventoryManager;
 
@@ -49,9 +52,15 @@ public class GoScript : MonoBehaviour
             logList.battleList.Add(_battleCopyList[_wave]);
             logList.ChangeModelsAndReset(logList.battleList.Count + 1 - 1);
 
+            partyStatusIcons.GetComponent<PartyStatusIcons>().partyBattleUnitList = _localRunBattle.currentAllyUnitList;
+
             _wave += 1;
 
         }
+
+        partyStatusIcons.GetComponent<PartyStatusIcons>().UpdateStatus();
+
+
 
         // Drop list
         List<Item> itemList = new List<Item>();
@@ -90,9 +99,10 @@ public class GoScript : MonoBehaviour
                 }
 
             }
+
             transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + missionName + missionLevel
                 + " wave:" + (_wave + 1)
-    + " [" + _battleCopy.GetComponent<RunBattle>().whichWin + "] " + _battleCopy.GetComponent<RunBattle>().winRatio;
+    + " [" + _battleCopy.GetComponent<RunBattle>().whichWinEachWaves[_wave] + "] " ;
 
 
             _wave += 1;
