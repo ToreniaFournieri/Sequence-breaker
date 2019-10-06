@@ -6,16 +6,20 @@ using UnityEngine.UI;
 public class TransparentMessageController : MonoBehaviour
 {
     public GameObject transparentMessage;
+    public Text transparentText;
 
     public void UpdateMessage(string message)
     {
-        transparentMessage.GetComponent<Text>().text += message;
+        transparentText.text += message;
+        //transparentMessage.GetComponent<Text>().text += message;
     }
 
     public void CloseMessage()
     {
         transparentMessage.SetActive(false);
-        transparentMessage.GetComponentInChildren<Text>().text = null;
+
+        transparentText.text = null;
+        //transparentMessage.GetComponentInChildren<Text>().text = null;
     }
 
 

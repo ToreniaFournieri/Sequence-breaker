@@ -14,12 +14,12 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 
     public Slider levelOfMissionSlider;
     //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
-    public GameObject transparentMessageController; // to display transparent message
-    public GameObject inventoryManager;
+    //public GameObject transparentMessageController; // to display transparent message
+    //public GameObject inventoryManager;
 
     public MissionController missionController;
 
-    public GameObject partyStatusIcons;
+    //public GameObject partyStatusIcons;
 
     //Battle object
     public GameObject battle;
@@ -28,7 +28,7 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public Text levelOfMissionText;
 
     //to add battle log into log list
-    public LogListSRIA logList;
+    //public LogListSRIA logList;
 
     /// <inheritdoc/>
     public override void CollectViews()
@@ -53,14 +53,14 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 
         goScript.battle = battle;
         //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        goScript.transparentMessage = transparentMessageController;
+        //goScript.transparentMessage = transparentMessageController;
 
         goScript.missionController = missionController;
 
-        goScript.partyStatusIcons = partyStatusIcons;
+        //goScript.partyStatusIcons = partyStatusIcons;
 
-        goScript.inventoryManager = inventoryManager;
-        goScript.logList = logList;
+        //goScript.inventoryManager = inventoryManager;
+        //goScript.logList = logList;
 
 
     }

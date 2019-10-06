@@ -17,16 +17,16 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
     public MissionController missionController;
 
     //for adding BattleLog to log list 
-    public LogListSRIA logList;
+    //public LogListSRIA logList;
     //for Inventory update
-    public GameObject inventoryManager;
+    //public GameObject inventoryManager;
 
 
     //for party status update
-    public GameObject partyStatusIcons;
+    //public GameObject partyStatusIcons;
 
     //for transparent message
-    public GameObject transparentMessageController;
+    //public GameObject transparentMessageController;
 
     public RectTransform itemPrefab;
     public DemoUI demoUI;
@@ -88,13 +88,14 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         //Set battle gameObject to each instanced itemPrefab
         instance.battle = battleList[itemIndex];
         //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        instance.transparentMessageController = transparentMessageController;
-        instance.inventoryManager = inventoryManager;
-        instance.partyStatusIcons = partyStatusIcons;
+        //instance.transparentMessageController = transparentMessageController;
+        //instance.inventoryManager = inventoryManager;
+        //instance.inventoryManager = missionController.inventoryManager;
+        //instance.partyStatusIcons = partyStatusIcons;
 
         instance.missionController = missionController;
 
-        instance.logList = logList;
+        //instance.logList = logList;
 
         _MapRootToViewsHolder[instance.root] = instance;
 

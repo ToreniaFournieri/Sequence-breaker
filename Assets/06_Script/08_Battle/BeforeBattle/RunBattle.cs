@@ -11,18 +11,15 @@ public class RunBattle : MonoBehaviour
     public int missionLevel;
     public WhichWin whichWin;
     public List<WhichWin> whichWinEachWaves;
-    //public string winRatio;
 
     //Output information
-    //public List<KohmaiWorks.Scroller.Data> Data;
     public List<List<KohmaiWorks.Scroller.Data>> DataList;
 
     // environment setting
     public BattleEnvironment battleEnvironment;
 
     // Input data, Units list
-    //private List<UnitClass> _allyUnitList;
-    public List<UnitClass> enemyUnitList;
+    //public List<UnitClass> enemyUnitList;
 
     public List<EnemyUnitSet> enemyUnitSetList;
 
@@ -44,34 +41,27 @@ public class RunBattle : MonoBehaviour
     public RunBattle Copy()
     {
         RunBattle _deepCopyRunbattle = new RunBattle();
-        //RunBattle _deepCopyRunbattle = new RunBattle(this._allyUnitList,this.enemyUnitSetList,this.battleEnvironment);
         _deepCopyRunbattle.enemyUnitSetList = this.enemyUnitSetList;
         _deepCopyRunbattle.battleEnvironment = this.battleEnvironment;
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
         _deepCopyRunbattle.whichWin = this.whichWin;
-        //_deepCopyRunbattle.winRatio = this.winRatio;
         _deepCopyRunbattle.DataList = this.DataList;
         _deepCopyRunbattle.currentAllyUnitList = this.currentAllyUnitList;
         _deepCopyRunbattle.whichWinEachWaves = this.whichWinEachWaves;
 
         return _deepCopyRunbattle;
-        //return (RunBattle)this.MemberwiseClone();
 
     }
 
     public RunBattle Copy(int wave)
     {
         RunBattle _deepCopyRunbattle = new RunBattle();
-
-        //RunBattle _deepCopyRunbattle = new RunBattle(this._allyUnitList, this.enemyUnitSetList, this.battleEnvironment);
         _deepCopyRunbattle.enemyUnitSetList = this.enemyUnitSetList;
         _deepCopyRunbattle.battleEnvironment = this.battleEnvironment;
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
-        //_deepCopyRunbattle.whichWin = this.whichWin;
         _deepCopyRunbattle.whichWin = this.whichWinEachWaves[wave];
-        //_deepCopyRunbattle.winRatio = this.winRatio;
         _deepCopyRunbattle.DataList = new List<List<KohmaiWorks.Scroller.Data>>();
         _deepCopyRunbattle.DataList.Add(this.DataList[wave]);
         _deepCopyRunbattle.currentAllyUnitList = this.currentAllyUnitList;
@@ -95,27 +85,12 @@ public class RunBattle : MonoBehaviour
         this.whichWin = _runbattle.whichWin;
         this.DataList = _runbattle.DataList;
         this.battleEnvironment = _runbattle.battleEnvironment;
-        //this.allyUnitList = _runbattle.allyUnitList;
-        this.enemyUnitList = _runbattle.enemyUnitList;
+        //this.enemyUnitList = _runbattle.enemyUnitList;
         this.enemyUnitSetList = _runbattle.enemyUnitSetList;
-        //this.winRatio = _runbattle.winRatio;
         this.whichWinEachWaves = _runbattle.whichWinEachWaves;
 
 
     }
-
-    public RunBattle()
-    {
-
-    }
-
-    //public RunBattle(List<UnitClass> _allyUnitList, List<EnemyUnitSet> _enemyUnitSetList, BattleEnvironment _battleEnvironment)
-    //{
-    //    //this._allyUnitList = _allyUnitList;
-    //    //this.enemyUnitList = _enemyUnitList; // this should not be used 
-    //    this.enemyUnitSetList = _enemyUnitSetList;
-    //    this.battleEnvironment = _battleEnvironment;
-    //}
 
     public void Run(int enemyLevel, List<UnitClass> allyUnitList)
     {
@@ -173,7 +148,6 @@ public class RunBattle : MonoBehaviour
 
             whichWin = _battleList[_wave].whichWin;
             whichWinEachWaves.Add(_battleList[_wave].whichWin);
-            //winRatio = _battleList[_wave].winRatio;
 
             currentAllyUnitList = _battleList[_wave].allyBattleUnitsList;
 

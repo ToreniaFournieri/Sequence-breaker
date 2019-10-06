@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PartyStatusIcons : MonoBehaviour
 {
+    public MissionController missionController;
     public List<BattleUnit> partyBattleUnitList;
     public SimpleObjectPool allyUnitIconObjectPool;
     public Transform contentPanel;
