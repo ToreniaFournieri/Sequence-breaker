@@ -11,6 +11,10 @@ public class GoScript : MonoBehaviour
     public GameObject battle;
     public GameObject transparentMessage;
 
+
+    // for mission controller
+    public MissionController missionController;
+
     //for adding battle log to log list
     public LogListSRIA logList;
 
@@ -24,7 +28,7 @@ public class GoScript : MonoBehaviour
 
     public void GoBattle()
     {
-        battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value);
+        battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
         //Not works well
         RunBattle _runbattle = battle.GetComponent<RunBattle>();
@@ -89,9 +93,10 @@ public class GoScript : MonoBehaviour
                     }
 
                     // Distribution, not use copied data! lost reference means worthlesss.
-                    _experience = (int)(_experience / _runbattle.GetComponent<RunBattle>().allyUnitList.Count);
+                    //_experience = (int)(_experience / _runbattle.GetComponent<RunBattle>().allyUnitList.Count);
+                    _experience = (int)(_experience / missionController.allyUnitList.Count);
 
-                    foreach (UnitClass _allyUnit in _runbattle.GetComponent<RunBattle>().allyUnitList)
+                    foreach (UnitClass _allyUnit in missionController.allyUnitList)
                     {
                         _allyUnit.GainExperience(_experience);
                     }

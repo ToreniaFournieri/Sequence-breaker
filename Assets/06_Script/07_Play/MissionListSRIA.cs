@@ -12,6 +12,10 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
 {
     //for battle calculation
     public List<GameObject> battleList;
+
+    // Mission Controller (ally unit list and battle engine)
+    public MissionController missionController;
+
     //for adding BattleLog to log list 
     public LogListSRIA logList;
     //for Inventory update
@@ -87,6 +91,8 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         instance.transparentMessageController = transparentMessageController;
         instance.inventoryManager = inventoryManager;
         instance.partyStatusIcons = partyStatusIcons;
+
+        instance.missionController = missionController;
 
         instance.logList = logList;
 

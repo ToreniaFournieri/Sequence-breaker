@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MissionController : MonoBehaviour
 {
+    // ally unit list
+    public List<UnitClass> allyUnitList;
+
+
     // Start is called before the first frame update
     void Start()
     {

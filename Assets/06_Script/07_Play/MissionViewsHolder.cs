@@ -17,6 +17,8 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     public GameObject transparentMessageController; // to display transparent message
     public GameObject inventoryManager;
 
+    public MissionController missionController;
+
     public GameObject partyStatusIcons;
 
     //Battle object
@@ -52,6 +54,8 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         goScript.battle = battle;
         //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
         goScript.transparentMessage = transparentMessageController;
+
+        goScript.missionController = missionController;
 
         goScript.partyStatusIcons = partyStatusIcons;
 

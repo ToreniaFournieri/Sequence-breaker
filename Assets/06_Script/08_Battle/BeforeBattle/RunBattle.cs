@@ -21,7 +21,7 @@ public class RunBattle : MonoBehaviour
     public BattleEnvironment battleEnvironment;
 
     // Input data, Units list
-    public List<UnitClass> allyUnitList;
+    //private List<UnitClass> _allyUnitList;
     public List<UnitClass> enemyUnitList;
 
     public List<EnemyUnitSet> enemyUnitSetList;
@@ -43,7 +43,10 @@ public class RunBattle : MonoBehaviour
 
     public RunBattle Copy()
     {
-        RunBattle _deepCopyRunbattle = new RunBattle(this.allyUnitList,this.enemyUnitSetList,this.battleEnvironment);
+        RunBattle _deepCopyRunbattle = new RunBattle();
+        //RunBattle _deepCopyRunbattle = new RunBattle(this._allyUnitList,this.enemyUnitSetList,this.battleEnvironment);
+        _deepCopyRunbattle.enemyUnitSetList = this.enemyUnitSetList;
+        _deepCopyRunbattle.battleEnvironment = this.battleEnvironment;
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
         _deepCopyRunbattle.whichWin = this.whichWin;
@@ -59,7 +62,11 @@ public class RunBattle : MonoBehaviour
 
     public RunBattle Copy(int wave)
     {
-        RunBattle _deepCopyRunbattle = new RunBattle(this.allyUnitList, this.enemyUnitSetList, this.battleEnvironment);
+        RunBattle _deepCopyRunbattle = new RunBattle();
+
+        //RunBattle _deepCopyRunbattle = new RunBattle(this._allyUnitList, this.enemyUnitSetList, this.battleEnvironment);
+        _deepCopyRunbattle.enemyUnitSetList = this.enemyUnitSetList;
+        _deepCopyRunbattle.battleEnvironment = this.battleEnvironment;
         _deepCopyRunbattle.missionText = this.missionText;
         _deepCopyRunbattle.location = this.location;
         //_deepCopyRunbattle.whichWin = this.whichWin;
@@ -88,7 +95,7 @@ public class RunBattle : MonoBehaviour
         this.whichWin = _runbattle.whichWin;
         this.DataList = _runbattle.DataList;
         this.battleEnvironment = _runbattle.battleEnvironment;
-        this.allyUnitList = _runbattle.allyUnitList;
+        //this.allyUnitList = _runbattle.allyUnitList;
         this.enemyUnitList = _runbattle.enemyUnitList;
         this.enemyUnitSetList = _runbattle.enemyUnitSetList;
         //this.winRatio = _runbattle.winRatio;
@@ -97,16 +104,20 @@ public class RunBattle : MonoBehaviour
 
     }
 
-
-    public RunBattle(List<UnitClass> _allyUnitList, List<EnemyUnitSet> _enemyUnitSetList, BattleEnvironment _battleEnvironment)
+    public RunBattle()
     {
-        this.allyUnitList = _allyUnitList;
-        //this.enemyUnitList = _enemyUnitList; // this should not be used 
-        this.enemyUnitSetList = _enemyUnitSetList;
-        this.battleEnvironment = _battleEnvironment;
+
     }
 
-    public void Run(int enemyLevel)
+    //public RunBattle(List<UnitClass> _allyUnitList, List<EnemyUnitSet> _enemyUnitSetList, BattleEnvironment _battleEnvironment)
+    //{
+    //    //this._allyUnitList = _allyUnitList;
+    //    //this.enemyUnitList = _enemyUnitList; // this should not be used 
+    //    this.enemyUnitSetList = _enemyUnitSetList;
+    //    this.battleEnvironment = _battleEnvironment;
+    //}
+
+    public void Run(int enemyLevel, List<UnitClass> allyUnitList)
     {
         allyBattleUnits = new List<BattleUnit>();
         _battleList = new List<BattleEngine>();
