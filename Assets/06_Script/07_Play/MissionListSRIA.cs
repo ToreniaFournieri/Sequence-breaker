@@ -12,21 +12,10 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
 {
     //for battle calculation
     public List<GameObject> battleList;
+    public List<RunBattle> runbattleList;
 
     // Mission Controller (ally unit list and battle engine)
     public MissionController missionController;
-
-    //for adding BattleLog to log list 
-    //public LogListSRIA logList;
-    //for Inventory update
-    //public GameObject inventoryManager;
-
-
-    //for party status update
-    //public GameObject partyStatusIcons;
-
-    //for transparent message
-    //public GameObject transparentMessageController;
 
     public RectTransform itemPrefab;
     public DemoUI demoUI;
@@ -54,6 +43,10 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         if (battleList.Count > 0)
         {
             ChangeModelsAndReset(battleList.Count);
+        }
+        if (runbattleList.Count > 0)
+        {
+            ChangeModelsAndReset(runbattleList.Count);
         }
 
         //demoUI.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
@@ -86,16 +79,13 @@ public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseO
         instance.expandCollapseComponent.sizeChangesHandler = this;
 
         //Set battle gameObject to each instanced itemPrefab
-        instance.battle = battleList[itemIndex];
-        //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        //instance.transparentMessageController = transparentMessageController;
-        //instance.inventoryManager = inventoryManager;
-        //instance.inventoryManager = missionController.inventoryManager;
-        //instance.partyStatusIcons = partyStatusIcons;
-
+        instance.runbattle = runbattleList[itemIndex];
         instance.missionController = missionController;
 
-        //instance.logList = logList;
+        instance.levelOfMissionSlider.minValue = runbattleList[itemIndex].missionLevel;
+        instance.levelOfMissionSlider.maxValue = runbattleList[itemIndex].missionLevel + 30;
+        instance.levelOfMissionSlider.value = runbattleList[itemIndex].missionLevel;
+
 
         _MapRootToViewsHolder[instance.root] = instance;
 

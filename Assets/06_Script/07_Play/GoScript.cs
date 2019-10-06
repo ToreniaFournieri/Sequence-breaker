@@ -8,30 +8,19 @@ using UnityEngine.UI;
 public class GoScript : MonoBehaviour
 {
     public Slider levelOfMissionSlider;
-    public GameObject battle;
-    //public GameObject transparentMessage;
-
+    //public GameObject battle;
+    public RunBattle runBattle;
 
     // for mission controller
     public MissionController missionController;
 
-    //for adding battle log to log list
-    //public LogListSRIA logList;
-
-    // for party status update
-    //public GameObject partyStatusIcons;
-
-    //for item drop
-    //public GameObject inventoryManager;
-
-    private List<GameObject> battleForLogList;
-
     public void GoBattle()
     {
-        battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+        runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+        //battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
         //Not works well
-        RunBattle _runbattle = battle.GetComponent<RunBattle>();
+        RunBattle _runbattle = runBattle;
         //get Mission name
         string missionName = _runbattle.missionText;
         string missionLevel = " (lv:" + _runbattle.missionLevel.ToString() + ")";
@@ -44,31 +33,24 @@ public class GoScript : MonoBehaviour
         foreach (List<KohmaiWorks.Scroller.Data> _data in _runbattle.DataList)
         {
             _battleCopyList.Add(new GameObject());
-            _battleCopyList[_wave].transform.parent = battle.transform;
-            _battleCopyList[_wave].name = battle.name + " log:" + DateTime.Now;
+            _battleCopyList[_wave].transform.parent = runBattle.transform;
+            _battleCopyList[_wave].name = runBattle.name + " log:" + DateTime.Now;
             _battleCopyList[_wave].gameObject.AddComponent<RunBattle>();
 
             RunBattle _localRunBattle = _runbattle.Copy(_wave);
 
             _battleCopyList[_wave].GetComponent<RunBattle>().Set(_localRunBattle);
 
-            _battleCopyList[_wave].GetComponent<RunBattle>().missionText +=  " [wave:" + (_wave + 1) + "]";
+            _battleCopyList[_wave].GetComponent<RunBattle>().missionText += " [wave:" + (_wave + 1) + "]";
             missionController.logList.battleList.Add(_battleCopyList[_wave]);
-            //logList.battleList.Add(_battleCopyList[_wave]);
             missionController.logList.ChangeModelsAndReset(missionController.logList.battleList.Count + 1 - 1);
-            
-            //logList.ChangeModelsAndReset(logList.battleList.Count + 1 - 1);
 
             missionController.allyCurrentBattleUnitList = _localRunBattle.currentAllyUnitList;
             missionController.UpdatePartyStatus();
-            //partyStatusIcons.GetComponent<PartyStatusIcons>().partyBattleUnitList = _localRunBattle.currentAllyUnitList;
 
             _wave += 1;
 
         }
-
-        //partyStatusIcons.GetComponent<PartyStatusIcons>().UpdateStatus();
-
 
 
         // Drop list
@@ -110,9 +92,7 @@ public class GoScript : MonoBehaviour
             }
 
             missionController.TransparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
-            //transparentMessage.GetComponentInChildren<Text>().text += "\n " + "Mission: " + missionName + missionLevel
-                + " wave:" + (_wave + 1)
-    + " [" + _battleCopy.GetComponent<RunBattle>().whichWinEachWaves[_wave] + "] " ;
+                + " wave:" + (_wave + 1) + " [" + _battleCopy.GetComponent<RunBattle>().whichWinEachWaves[_wave] + "] ";
 
 
             _wave += 1;
@@ -132,15 +112,12 @@ public class GoScript : MonoBehaviour
             itemObject.gameObject.AddComponent<DropedItem>();
             itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
             missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
-            //transparentMessage.GetComponentInChildren<Text>().text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
             missionController.inventoryManager.inventoryScrollList.AddItemAndSave(itemObject.GetComponent<DropedItem>().item);
             missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
-            //inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.AddItemAndSave(itemObject.GetComponent<DropedItem>().item);
-            //inventoryManager.GetComponent<InventoryManager>().inventoryScrollList.RefreshDisplay();
+
         }
 
         missionController.TransparentMessageController.transparentMessage.SetActive(true);
-        //transparentMessage.SetActive(true);
 
 
     }

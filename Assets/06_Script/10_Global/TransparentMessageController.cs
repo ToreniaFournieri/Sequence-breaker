@@ -11,15 +11,13 @@ public class TransparentMessageController : MonoBehaviour
     public void UpdateMessage(string message)
     {
         transparentText.text += message;
-        //transparentMessage.GetComponent<Text>().text += message;
     }
 
     public void CloseMessage()
     {
         transparentMessage.SetActive(false);
-
         transparentText.text = null;
-        //transparentMessage.GetComponentInChildren<Text>().text = null;
+
     }
 
 

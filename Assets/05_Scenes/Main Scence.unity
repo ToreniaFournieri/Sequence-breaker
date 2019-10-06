@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionText: Village Patrol
   location: Elle vilage
-  missionLevel: 0
+  missionLevel: 1
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -1430,6 +1430,10 @@ MonoBehaviour:
   - {fileID: 208688197}
   - {fileID: 465871540}
   - {fileID: 1742020149}
+  runbattleList:
+  - {fileID: 208688199}
+  - {fileID: 465871542}
+  - {fileID: 1742020151}
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
@@ -2513,7 +2517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionText: Defend the Soylent plant
   location: Soylent Plant
-  missionLevel: 0
+  missionLevel: 5
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -4179,7 +4183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fe7a8b805f84511b827a4ae1f88fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionController: {fileID: 0}
+  missionController: {fileID: 738102034}
   partyBattleUnitList: []
   allyUnitIconObjectPool: {fileID: 2091460946}
   contentPanel: {fileID: 766314196}

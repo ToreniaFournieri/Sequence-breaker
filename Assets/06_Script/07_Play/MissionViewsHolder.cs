@@ -10,25 +10,21 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
 {
     public LayoutElement layoutElement;
     public Image averageScoreFillImage;
-    public Text nameText, locationText, averageScoreText;
+    public Text nameText, locationText;
+    //averageScoreText;
 
     public Slider levelOfMissionSlider;
-    //public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
-    //public GameObject transparentMessageController; // to display transparent message
-    //public GameObject inventoryManager;
 
     public MissionController missionController;
 
-    //public GameObject partyStatusIcons;
-
     //Battle object
     public GameObject battle;
+    public RunBattle runbattle;
+
     public GoScript goScript;
 
     public Text levelOfMissionText;
 
-    //to add battle log into log list
-    //public LogListSRIA logList;
 
     /// <inheritdoc/>
     public override void CollectViews()
@@ -42,6 +38,8 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
         locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
+        var secondPanel = root.GetChild(1);
+        levelOfMissionSlider = secondPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
 
     }
 
@@ -51,16 +49,8 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
         var go = root.GetChild(2);
         goScript = go.GetComponent<GoScript>();
 
-        goScript.battle = battle;
-        //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        //goScript.transparentMessage = transparentMessageController;
-
+        goScript.runBattle = runbattle;
         goScript.missionController = missionController;
-
-        //goScript.partyStatusIcons = partyStatusIcons;
-
-        //goScript.inventoryManager = inventoryManager;
-        //goScript.logList = logList;
 
 
     }
@@ -69,19 +59,12 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     {
         nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
         locationText.text = "  " + dataModel.location;
-        //UpdateScores(dataModel);
         SetBattle();
 
 
 
     }
 
-    //void UpdateScores(SimpleClientModel dataModel)
-    //{
-
-    //    //levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value ;
-
-    //}
 }
 
 public class SimpleClientViewsHolder : BaseClientViewsHolder<SimpleClientModel>
@@ -129,6 +112,7 @@ public class ExpandableSimpleClientModel : SimpleClientModel
 public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 {
     public CExpandCollapseOnClick expandCollapseComponent;
+
 
 
     public override void CollectViews()

@@ -17,7 +17,8 @@ public class PartyStatusIcons : MonoBehaviour
 
     private void Start()
     {
-
+        missionController.UpdatePartyStatus();
+        UpdateStatus();
 
 
 
@@ -32,7 +33,8 @@ public class PartyStatusIcons : MonoBehaviour
             allyUnitIconObjectPool.ReturnObject(toRemove);
         }
 
-        foreach (BattleUnit _battleUnit in partyBattleUnitList)
+        foreach (BattleUnit _battleUnit in missionController.allyCurrentBattleUnitList)
+            //foreach (BattleUnit _battleUnit in partyBattleUnitList)
         {
             GameObject newPanel = allyUnitIconObjectPool.GetObject();
             newPanel.transform.SetParent(contentPanel);

@@ -1164,7 +1164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOfMissionSlider: {fileID: 1806972370249178240}
-  Battle: {fileID: 0}
+  runBattle: {fileID: 0}
+  missionController: {fileID: 0}
 --- !u!1 &1806972371694038911
 GameObject:
   m_ObjectHideFlags: 0

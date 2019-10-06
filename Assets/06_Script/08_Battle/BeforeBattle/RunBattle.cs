@@ -19,8 +19,6 @@ public class RunBattle : MonoBehaviour
     public BattleEnvironment battleEnvironment;
 
     // Input data, Units list
-    //public List<UnitClass> enemyUnitList;
-
     public List<EnemyUnitSet> enemyUnitSetList;
 
     // to get current Ally Battle unit
@@ -85,7 +83,6 @@ public class RunBattle : MonoBehaviour
         this.whichWin = _runbattle.whichWin;
         this.DataList = _runbattle.DataList;
         this.battleEnvironment = _runbattle.battleEnvironment;
-        //this.enemyUnitList = _runbattle.enemyUnitList;
         this.enemyUnitSetList = _runbattle.enemyUnitSetList;
         this.whichWinEachWaves = _runbattle.whichWinEachWaves;
 
@@ -155,8 +152,6 @@ public class RunBattle : MonoBehaviour
             SetBattleLogToData(_wave);
 
             if (currentAllyUnitList.Find(unit => unit.Combat.HitPointCurrent > 0) == null)
-
-                //if (currentAllyUnitList.FindAll(unit => unit.Combat.HitPointCurrent > 0).Count <= 0)
             {
                 // all ally units has been slain.
                 break;
@@ -198,7 +193,6 @@ public class RunBattle : MonoBehaviour
                 {
                     string preposition = " to ";
                     if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
-                    //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
 
                     reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
                 }
