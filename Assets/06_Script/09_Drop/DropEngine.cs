@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropEngine 
 {
-    // This values are temporary.
+    // This value is temporary.
     private double itemDropRatio = 0.100;
 
     // Internal infomation
