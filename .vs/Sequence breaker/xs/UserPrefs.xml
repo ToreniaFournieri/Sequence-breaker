@@ -2,10 +2,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs">
     <Files>
       <File FileName="Assets/06_Script/03_Controller/01_Home/ItemDetailViewController.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="32" Column="1" />
-      <File FileName="Assets/06_Script/00_System/StartUp.cs" Line="6" Column="2" />
-      <File FileName="Assets/00_Asset/06_I2_Localization/Localization/Examples/Common/Scripts/Example_LocalizedString.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="6" Column="28" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" />
+      <File FileName="Assets/06_Script/00_System/StartUp.cs" />
+      <File FileName="Assets/00_Asset/06_I2_Localization/Localization/Examples/Common/Scripts/Example_LocalizedString.cs" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" />
       <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="169" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -14,7 +14,7 @@
     <String>Assembly-CSharp-Editor.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d972fa4e-77a2-4a53-94dc-53ab3a253093" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6d512c4e-9ee2-439e-99bd-830da8898567" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
