@@ -16,7 +16,7 @@ public class ItemBaseMaster : ScriptableObject
 	[SerializeField] public CombatClass CombatBaseValue;
 
 	// item level like 2, 3...
-	[SerializeField] public int Level = 1;
+	[SerializeField] public int Level = 0;
 
 	//2. Skill add
 	[SerializeField] public List<SkillsMasterClass> SkillsMasterList;

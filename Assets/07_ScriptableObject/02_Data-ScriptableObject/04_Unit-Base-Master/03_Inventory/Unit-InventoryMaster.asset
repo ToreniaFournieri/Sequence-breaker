@@ -17,39 +17,10 @@ MonoBehaviour:
   Affiliation: 2
   UnitType: 3
   ItemCapacity: 2000
-  itemList:
-  - {fileID: 11400000, guid: eeff4a5ea2ee44d9380945264b5dcedc, type: 2}
-  - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
-  - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
-  - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
-  - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
-  - {fileID: 11400000, guid: e4c34dcf58a2542a98de733e6a5fd253, type: 2}
-  - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
-  - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
-  - {fileID: 11400000, guid: 84650363cdc7e499eace1c66701874b9, type: 2}
-  - {fileID: 11400000, guid: 3c2b20075e80c47afba296d71bd8613d, type: 2}
-  - {fileID: 11400000, guid: e41f7828b8775422b93b7dcd0c0d346b, type: 2}
-  - {fileID: 11400000, guid: c164ea4856d30408897c3a9797886f6f, type: 2}
-  - {fileID: 11400000, guid: 9b196f7063ff342e08af220d1351a930, type: 2}
-  - {fileID: 11400000, guid: 211b9b73a740b43d2aad2e46c522adc5, type: 2}
-  - {fileID: 11400000, guid: 2aac03f5d025e4e06897bea590e1d9d7, type: 2}
-  - {fileID: 11400000, guid: 26e28d7ea5c834128b7c2135cd07f6d1, type: 2}
-  - {fileID: 11400000, guid: afa1f4503abda455b98616126749633f, type: 2}
-  - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
-  - {fileID: 11400000, guid: e4c34dcf58a2542a98de733e6a5fd253, type: 2}
-  - {fileID: 11400000, guid: c3637008d4c0640999dd6f2072516618, type: 2}
-  - {fileID: 11400000, guid: c5b3e51b4bea84c8b9e61153dad04e57, type: 2}
-  - {fileID: 11400000, guid: 6e8258f177fc14a96a84d387814fa967, type: 2}
-  - {fileID: 11400000, guid: 35d19f523194b4698b6fd650d4f23dd9, type: 2}
-  - {fileID: 11400000, guid: ce9206ed4f34b4e6885318b4aaae35ed, type: 2}
-  - {fileID: 11400000, guid: eeff4a5ea2ee44d9380945264b5dcedc, type: 2}
-  - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
-  - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
-  - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
-  - {fileID: 11400000, guid: 0cfa9681800244012b0322ccf2b863c6, type: 2}
-  - {fileID: 11400000, guid: 4c5ed699158f0443fa1bac08fb922059, type: 2}
-  - {fileID: 11400000, guid: cc798b97594cd40d383f0462d6f57221, type: 2}
+  itemList: []
   CoreFrame: {fileID: 0}
   Pilot: {fileID: 0}
   Level: 0
+  Experience: 0
+  ToNextLevel: 0
   skillsMaster: []

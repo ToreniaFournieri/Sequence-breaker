@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs">
     <Files>
       <File FileName="Assets/06_Script/03_Controller/01_Home/ItemDetailViewController.cs" Line="1" Column="1" />
       <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" />
@@ -7,6 +7,8 @@
       <File FileName="Assets/00_Asset/06_I2_Localization/Localization/Examples/Common/Scripts/Example_LocalizedString.cs" />
       <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" />
       <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="169" Column="14" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/ItemBaseMaster.cs" Line="19" Column="39" />
+      <File FileName="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -14,7 +16,7 @@
     <String>Assembly-CSharp-Editor.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6d512c4e-9ee2-439e-99bd-830da8898567" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="32dfc980-1b83-4e72-8825-3e7cdb22ef31" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

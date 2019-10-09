@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 000_ThermalGunW0The11
+  m_EditorClassIdentifier: 
+  itemID: 524000
+  itemName: Thermal Gun W0The11
+  itemDescription: 
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  Level: 0
+  SkillsMasterList: []
+  AddAbilityList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: e693de8eea847483faefaa2c82bc3aac, type: 2}
+  - {fileID: 11400000, guid: 5ba8ca00318e34abca98383aa89b8406, type: 2}
