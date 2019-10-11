@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 03_M6SubmachineGun
+  m_EditorClassIdentifier: 
+  itemID: 10311
+  itemName: Submachine gun M3
+  itemDescription: 
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  Level: 18
+  SkillsMasterList: []
+  AddAbilityList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: 5a7e8d2adfd17401ca7beb3eb297f195, type: 2}
+  - {fileID: 11400000, guid: 6a084de4fec2f400a8dd8c90f2a2c75a, type: 2}

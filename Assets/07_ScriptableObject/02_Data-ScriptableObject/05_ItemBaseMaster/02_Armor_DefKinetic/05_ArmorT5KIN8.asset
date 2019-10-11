@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 05_ArmorT5KIN8
+  m_EditorClassIdentifier: 
+  itemID: 50205
+  itemName: Armor T5KIN8
+  itemDescription: 
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
+  Level: 15
+  SkillsMasterList: []
+  AddAbilityList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: b2701ab04d8dd473e85f92353ed7bd96, type: 2}
+  - {fileID: 11400000, guid: 7a4977b7dc79c465e9d0d65743c6aedc, type: 2}
