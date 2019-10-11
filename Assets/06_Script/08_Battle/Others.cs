@@ -15,7 +15,8 @@ public class FuncBattleConditionsText
 
     public string FirstLine()
     {
-        return "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
+        return "Turn " + CurrentTurn + "\n";
+        //return "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
     }
 
     public string Text()
