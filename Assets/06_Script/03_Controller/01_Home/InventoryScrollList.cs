@@ -118,9 +118,16 @@ public class InventoryScrollList : MonoBehaviour
     }
 
     //Add item of public object
-    public void AddItemAndSave(Item item)
+    public void AddItem(Item item)
     {
         AddItem(item, this);
+
+    }
+
+    //Public save order
+    public void Save(InventoryScrollList inventoryList)
+    {
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
 
     }
 
@@ -128,7 +135,7 @@ public class InventoryScrollList : MonoBehaviour
     private void AddItem(Item itemToAdd, InventoryScrollList inventoryList)
     {
         inventoryList.itemList.Add(itemToAdd);
-        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        //inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
 
     }
 

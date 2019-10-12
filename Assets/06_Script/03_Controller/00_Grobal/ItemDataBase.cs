@@ -11,7 +11,7 @@ public class ItemDataBase :MonoBehaviour
     public List<ItemBaseMaster> prefixItemBaseMasterList;
     public List<ItemBaseMaster> suffixItemBaseMasterList;
 
-
+    // save flag
 
     public List<Item> LoadItemList(string savedFileName)
     {

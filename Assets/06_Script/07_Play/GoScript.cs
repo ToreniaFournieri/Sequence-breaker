@@ -101,21 +101,29 @@ public class GoScript : MonoBehaviour
 
 
 
+        Item copyedItem = new Item();
+        GameObject itemObject = new GameObject();
+        itemObject.gameObject.AddComponent<DropedItem>();
+        DropedItem dropedItem = itemObject.gameObject.GetComponent<DropedItem>();
 
         foreach (Item item in itemList)
         {
-
-            Item copyedItem = Instantiate(item.Copy());
-            GameObject itemObject = new GameObject();
+            copyedItem = Instantiate(item.Copy());
+            //itemObject = new GameObject();
             itemObject.transform.parent = missionController.inventoryManager.transform;
             itemObject.name = copyedItem.name + " got:" + DateTime.Now;
-            itemObject.gameObject.AddComponent<DropedItem>();
-            itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
-            missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
-            missionController.inventoryManager.inventoryScrollList.AddItemAndSave(itemObject.GetComponent<DropedItem>().item);
+            //itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
+            //missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
+            //missionController.inventoryManager.inventoryScrollList.AddItem(itemObject.GetComponent<DropedItem>().item);
+            dropedItem.item = null;
+            dropedItem.SetItem(copyedItem);
+            missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + dropedItem.item.itemName;
+            missionController.inventoryManager.inventoryScrollList.AddItem(dropedItem.item);
             missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
 
         }
+
+        missionController.inventoryManager.inventoryScrollList.Save(missionController.inventoryManager.inventoryScrollList);
 
         missionController.TransparentMessageController.transparentMessage.SetActive(true);
 
