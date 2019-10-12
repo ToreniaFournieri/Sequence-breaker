@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
   - {fileID: 11400000, guid: e4c34dcf58a2542a98de733e6a5fd253, type: 2}
   - {fileID: 11400000, guid: c3637008d4c0640999dd6f2072516618, type: 2}
+  - {fileID: 11400000, guid: 97776a162e9354677b4ed59383cbc1f0, type: 2}
   CoreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   Pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
   Level: 10

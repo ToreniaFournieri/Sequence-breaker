@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 13_HeadJ7AC7
+  m_EditorClassIdentifier: 
+  itemID: 51613
+  itemName: Head J7AC7
+  itemDescription: 
+  icon: {fileID: 0}
+  CombatBaseValue: {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
+  Level: 21
+  SkillsMasterList: []
+  AddAbilityList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: e5d67e523a61f4836b6b00a8b55bb29a, type: 2}

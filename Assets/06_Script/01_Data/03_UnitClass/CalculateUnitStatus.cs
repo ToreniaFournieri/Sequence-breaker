@@ -16,6 +16,7 @@ public class CalculateUnitStatus : MonoBehaviour
     // Output data to show magnification data
     public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedOffenseList;
     public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedDefenseList;
+    //public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedNoneList;
 
 
     //output middle data
@@ -208,19 +209,24 @@ public class CalculateUnitStatus : MonoBehaviour
 
         List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationOffenseList;
         List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationDefenseList;
+        List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationNoneList;
 
         magnificationOffenseList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
         magnificationDefenseList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
+        magnificationNoneList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
 
         // calculated values
-        List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagOffenseList
-            = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
-        List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagDefenseList
-            = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
+        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagOffenseList
+        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
+        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagDefenseList
+        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
+        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagNoneList
+        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
 
         // final value
         summedOffenseList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
         summedDefenseList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
+        //summedNoneList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
 
 
         // get length of enum magnification Target
@@ -231,10 +237,14 @@ public class CalculateUnitStatus : MonoBehaviour
         {
             magnificationOffenseList.Add((i, 0, 1.0, null));
             magnificationDefenseList.Add((i, 0, 1.0, null));
+            magnificationNoneList.Add((i, 0, 1.0, null));
+
             //calculatedMagOffenseList.Add((i, 0, 1.0, 1.0));
             //calculatedMagDefenseList.Add((i, 0, 1.0, 1.0));
             summedOffenseList.Add((i, 0, 1.0, 1.0, null));
             summedDefenseList.Add((i, 0, 1.0, 1.0, null));
+            //summedNoneList.Add((i, 0, 1.0, 1.0, null));
+
         }
 
         //string _debuMagnificationText = null;
@@ -289,6 +299,7 @@ public class CalculateUnitStatus : MonoBehaviour
                     break;
                 case OffenseOrDefense.none:
                     // It is none however, act as if defense. none means, affect to status. Just want not to show [Deffense] word.
+                    // Use magnificationNoneList NOne!
                     magnification = MagnificationTypeModule(magnificationClass);
                     if (magnificationDefenseList[magnification.magnificationTargetID]._percentList != null)
                     {
@@ -303,7 +314,13 @@ public class CalculateUnitStatus : MonoBehaviour
                         magnification._percentList
                         );
 
-                    magnificationDefenseList[magnification.magnificationTargetID] = magnification;
+                    magnificationNoneList[magnification.magnificationTargetID] = magnification;
+                    //magnificationDefenseList[magnification.magnificationTargetID] = magnification;
+
+                    //Debug.Log(" none :" + magnificationClass.MagnificationRatio + " " + magnificationClass.MagnificationTarget + " " +magnificationClass.MagnificationPercent );
+
+                    //Debug.Log(" none :" + magnificationDefenseList[magnification.magnificationTargetID]._percent + " " +
+                    //    magnificationDefenseList[magnification.magnificationTargetID]._ratio );
 
 
                     break;
@@ -314,8 +331,6 @@ public class CalculateUnitStatus : MonoBehaviour
 
 
         }
-
-
 
 
         foreach ((int magnificationTargetID, int percentValue, double ratioValue, List<int> percentList) calculated in magnificationOffenseList)
@@ -369,6 +384,33 @@ public class CalculateUnitStatus : MonoBehaviour
                 _percents
                 );
         }
+
+        foreach ((int magnificationTargetID, int percentValue, double ratioValue, List<int> percentList) calculated in magnificationNoneList)
+        {
+            double total = 1.0 / (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
+
+            string _percents = null;
+            if (calculated.percentList != null)
+            {
+                calculated.percentList.Sort();
+                foreach (int i in calculated.percentList)
+                {
+                    _percents += i + " ";
+                }
+            }
+            //summedNoneList[calculated.magnificationTargetID] =
+
+            summedDefenseList[calculated.magnificationTargetID] =
+                (
+                calculated.magnificationTargetID,
+                calculated.percentValue,
+                //calculated.fixedValue,
+                calculated.ratioValue,
+                total,
+                _percents
+                );
+        }
+
 
         // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
         // after 11, should only affect status, so use OffenseOrDefense.none

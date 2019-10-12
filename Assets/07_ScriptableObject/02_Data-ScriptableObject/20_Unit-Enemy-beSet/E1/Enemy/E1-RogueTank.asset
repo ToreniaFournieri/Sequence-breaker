@@ -20,8 +20,14 @@ MonoBehaviour:
   itemList:
   - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
   - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
-  - {fileID: 11400000, guid: 84650363cdc7e499eace1c66701874b9, type: 2}
+  - {fileID: 11400000, guid: b7a49d141fa6d48d18bc5ab2f7a6651f, type: 2}
   - {fileID: 11400000, guid: 211b9b73a740b43d2aad2e46c522adc5, type: 2}
+  - {fileID: 11400000, guid: 97776a162e9354677b4ed59383cbc1f0, type: 2}
+  - {fileID: 11400000, guid: 999efc556e5e4400593f9949633269e1, type: 2}
+  - {fileID: 11400000, guid: 66cce773f134443afaf0f52bdd56954a, type: 2}
+  - {fileID: 11400000, guid: 5d1e0149df66f4d4188454b9ccafcbfd, type: 2}
+  - {fileID: 11400000, guid: 747b30a0001424ddba49a6fba96de69c, type: 2}
+  - {fileID: 11400000, guid: fb3b12c4982dc4d889268a18862e919a, type: 2}
   CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   Pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
   Level: 10

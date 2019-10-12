@@ -4,6 +4,10 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 
+//2019.10.12 TreeViewWithStickyHeadDemo is preferdred.
+// 
+
+
 public class InventoryScrollList : MonoBehaviour
 {
     public List<Item> itemList;
@@ -49,19 +53,6 @@ public class InventoryScrollList : MonoBehaviour
     public void RefreshDisplay()
     {
         unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + "-" + unit.UniqueID);
-
-        //// to Delete empty itemList
-        //for (int i = unit.itemList.Count - 1 ; i >= 0; i--)
-        //{
-
-        //    if (i >= 0)
-        //    {
-        //        if (unit.itemList[i] == null)
-        //        {
-        //            unit.itemList.RemoveAt(i);
-        //        }
-        //    }
-        //}
 
 
         if (unit != null)
