@@ -48,19 +48,20 @@ public class InventoryScrollList : MonoBehaviour
 
     public void RefreshDisplay()
     {
+        unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + "-" + unit.UniqueID);
 
-        // to Delete empty itemList
-        for (int i = unit.itemList.Count - 1 ; i >= 0; i--)
-        {
+        //// to Delete empty itemList
+        //for (int i = unit.itemList.Count - 1 ; i >= 0; i--)
+        //{
 
-            if (i >= 0)
-            {
-                if (unit.itemList[i] == null)
-                {
-                    unit.itemList.RemoveAt(i);
-                }
-            }
-        }
+        //    if (i >= 0)
+        //    {
+        //        if (unit.itemList[i] == null)
+        //        {
+        //            unit.itemList.RemoveAt(i);
+        //        }
+        //    }
+        //}
 
 
         if (unit != null)
@@ -90,8 +91,8 @@ public class InventoryScrollList : MonoBehaviour
         {
 
 
-            AddItem(item, otherInventory);
-            RemoveItem(item, this);
+            AddItemTo(item, otherInventory);
+            RemoveItemFrom(item, this);
 
 
 
@@ -120,35 +121,40 @@ public class InventoryScrollList : MonoBehaviour
     //Add item of public object
     public void AddItem(Item item)
     {
-        AddItem(item, this);
+
+        AddItemTo(item, this);
 
     }
 
     //Public save order
     public void Save(InventoryScrollList inventoryList)
     {
-        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.unit.itemList);
 
     }
 
     // private object
-    private void AddItem(Item itemToAdd, InventoryScrollList inventoryList)
+    private void AddItemTo(Item itemToAdd, InventoryScrollList inventoryList)
     {
-        inventoryList.itemList.Add(itemToAdd);
-        //inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        //Debug.Log("in inventoryScroll before: " + itemToAdd.itemName + " Number of List: "+ inventoryList.itemList.Count);
+
+        inventoryList.unit.itemList.Add(itemToAdd);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.unit.itemList);
+
+        //Debug.Log("in inventoryScroll after: " + itemToAdd.itemName + " Number of List: " + inventoryList.itemList.Count);
 
     }
 
-    private void RemoveItem(Item itemToRemove, InventoryScrollList inventoryList)
+    private void RemoveItemFrom(Item itemToRemove, InventoryScrollList inventoryList)
     {
         for (int i = inventoryList.itemList.Count - 1; i >= 0; i--)
         {
             if (inventoryList.itemList[i] == itemToRemove)
             {
-                inventoryList.itemList.RemoveAt(i);
+                inventoryList.unit.itemList.RemoveAt(i);
             }
         }
-        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.itemList);
+        inventoryList.itemDataBase.SaveItemList("item-" + inventoryList.unit.Affiliation + "-" + inventoryList.unit.UniqueID, inventoryList.unit.itemList);
 
     }
 

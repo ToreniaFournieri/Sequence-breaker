@@ -17,7 +17,6 @@ public class GoScript : MonoBehaviour
     public void GoBattle()
     {
         runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
-        //battle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
         //Not works well
         RunBattle _runbattle = runBattle;
@@ -26,7 +25,6 @@ public class GoScript : MonoBehaviour
         string missionLevel = " (lv:" + _runbattle.missionLevel.ToString() + ")";
 
         List<GameObject> _battleCopyList = new List<GameObject>();
-
 
 
         int _wave = 0;
@@ -99,33 +97,29 @@ public class GoScript : MonoBehaviour
         }
 
 
+        //Item copyedItem = new Item();
+        //GameObject itemObject = new GameObject();
+        //itemObject.gameObject.AddComponent<DropedItem>();
+        //itemObject.transform.parent = missionController.inventoryManager.transform;
 
-
-        Item copyedItem = new Item();
-        GameObject itemObject = new GameObject();
-        itemObject.gameObject.AddComponent<DropedItem>();
-        DropedItem dropedItem = itemObject.gameObject.GetComponent<DropedItem>();
+        //DropedItem dropedItem = itemObject.gameObject.GetComponent<DropedItem>();
 
         foreach (Item item in itemList)
         {
-            copyedItem = Instantiate(item.Copy());
-            //itemObject = new GameObject();
-            itemObject.transform.parent = missionController.inventoryManager.transform;
-            itemObject.name = copyedItem.name + " got:" + DateTime.Now;
-            //itemObject.GetComponent<DropedItem>().SetItem(copyedItem);
-            //missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + itemObject.GetComponent<DropedItem>().item.itemName;
-            //missionController.inventoryManager.inventoryScrollList.AddItem(itemObject.GetComponent<DropedItem>().item);
-            dropedItem.item = null;
-            dropedItem.SetItem(copyedItem);
-            missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + dropedItem.item.itemName;
-            missionController.inventoryManager.inventoryScrollList.AddItem(dropedItem.item);
-            missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
+            //copyedItem = null;
+            //copyedItem = item.Copy();
+            //dropedItem.item = null;
+            //dropedItem.SetItem(item);
+            missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + item.itemName;
+            missionController.inventoryManager.inventoryScrollList.AddItem(item.Copy());
+            //Debug.Log(" Droped:" + item.itemName);
 
         }
-
+        missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
         missionController.inventoryManager.inventoryScrollList.Save(missionController.inventoryManager.inventoryScrollList);
 
         missionController.TransparentMessageController.transparentMessage.SetActive(true);
+
 
 
     }

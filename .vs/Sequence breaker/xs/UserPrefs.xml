@@ -5,8 +5,10 @@
       <File FileName="Assets/06_Script/09_Drop/InventoryManager.cs" Line="1" Column="1" />
       <File FileName="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs" Line="16" Column="1" />
       <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="152" Column="1" />
-      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="111" Column="1" />
+      <File FileName="Assets/06_Script/07_Play/GoScript.cs" Line="101" Column="11" />
       <File FileName="Assets/06_Script/09_Drop/DropedItem.cs" Line="13" Column="1" />
+      <File FileName="Assets/06_Script/08_Battle/BattleEngine.cs" Line="608" Column="52" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" Line="7" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
