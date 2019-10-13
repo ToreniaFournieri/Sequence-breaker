@@ -987,7 +987,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 491030844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43ee094849563b4997d57173bfc8bff, type: 3}
+  m_Script: {fileID: 11500000, guid: ea58c63c930594522a781b1bc72f984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &491030846
@@ -2141,6 +2141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070085406}
   - component: {fileID: 1070085405}
+  - component: {fileID: 1070085407}
   m_Layer: 0
   m_Name: DemoMain
   m_TagString: Untagged
@@ -2155,7 +2156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070085404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a8a37614741ad14db6dc18da7c8b6bf, type: 3}
   m_Name: 
@@ -2176,6 +2177,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070085407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070085404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1bf7459ee5341399ee1de6e2fbff86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mLoopListView: {fileID: 677621451}
+  mStickeyHeadItem: {fileID: 106415160}
 --- !u!1 &1106470351
 GameObject:
   m_ObjectHideFlags: 0

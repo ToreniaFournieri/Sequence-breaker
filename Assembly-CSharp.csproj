@@ -370,6 +370,8 @@
     <Compile Include="Assets\06_Script\Enumeration.cs" />
     <Compile Include="Assets\06_Script\ItemPanel.cs" />
     <Compile Include="Assets\06_Script\SimpleObjectPool.cs" />
+    <Compile Include="Assets\10_TEST\TreeViewWithStickyHeadDemoTEST\TreeViewDataSourceMgrTEST.cs" />
+    <Compile Include="Assets\10_TEST\TreeViewWithStickyHeadDemoTEST\TreeViewWithStickyHeadTESTScript.cs" />
     <None Include="Assets\00_Asset\03_Asset_GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

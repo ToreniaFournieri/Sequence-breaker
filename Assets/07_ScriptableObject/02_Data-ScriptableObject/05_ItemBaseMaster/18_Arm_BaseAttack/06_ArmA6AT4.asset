@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
-  m_Name: 00_ArmA0ATK10
+  m_Name: 06_ArmA6AT4
   m_EditorClassIdentifier: 
-  itemID: 51800
-  itemName: Arm A0ATK10
+  itemID: 51806
+  itemName: Arm A6AT4
   itemDescription: 
   icon: {fileID: 0}
   CombatBaseValue: {fileID: 11400000, guid: 32197bf36d9144b2aa6bf34461c1e8b9, type: 2}
-  Level: 0
+  Level: 18
   SkillsMasterList: []
   AddAbilityList: []
   MagnificationMasterList:
   - {fileID: 11400000, guid: dce3148370060454497929e398cf559d, type: 2}
-  - {fileID: 11400000, guid: d63a44eb582fa42d89193415edf9295f, type: 2}
+  - {fileID: 11400000, guid: 0a5b1052daebd4710853645a4db08486, type: 2}

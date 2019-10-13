@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
-  m_Name: 01_ShieldA1Sh9
+  m_Name: 01_ShieldA1SH9
   m_EditorClassIdentifier: 
   itemID: 51101
-  itemName: 
+  itemName: Shield A1SH9
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 0}
-  Level: 0
+  CombatBaseValue: {fileID: 11400000, guid: 3e71f98e69ed54250a523f6dbf66017a, type: 2}
+  Level: 3
   SkillsMasterList: []
   AddAbilityList: []
-  MagnificationMasterList: []
+  MagnificationMasterList:
+  - {fileID: 11400000, guid: 0dc66a1271b354bcf9eb85d18f6a308e, type: 2}
+  - {fileID: 11400000, guid: 780dfe249e6ac400b9ef3b8a3cb99cdf, type: 2}

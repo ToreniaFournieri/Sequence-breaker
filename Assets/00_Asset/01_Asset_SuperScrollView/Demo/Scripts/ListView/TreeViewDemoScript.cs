@@ -20,11 +20,11 @@ namespace SuperScrollView
         // Use this for initialization
         void Start()
         {
-            int count = TreeViewDataSourceMgr.Get.TreeViewItemCount;
+            int count = TreeViewDataSourceMgrTEST.Get.TreeViewItemCount;
             //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
             for (int i = 0; i < count; ++i)
             {
-                int childCount = TreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
+                int childCount = TreeViewDataSourceMgrTEST.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
                 mTreeItemCountMgr.AddTreeItem(childCount, true);
             }
@@ -86,7 +86,7 @@ namespace SuperScrollView
             */
 
             TreeViewItemCountData countData = mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
-            if(countData == null)
+            if (countData == null)
             {
                 return null;
             }
@@ -131,12 +131,12 @@ namespace SuperScrollView
                 itemScript.SetItemData(itemData, treeItemIndex, childIndex);
                 return item;
             }
-            
+
         }
         public void OnExpandClicked(int index)
         {
             mTreeItemCountMgr.ToggleItemExpand(index);
-            mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(),false);
+            mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
         }
         void OnJumpBtnClicked()
@@ -157,7 +157,7 @@ namespace SuperScrollView
                 childIndex = 0;
             }
             TreeViewItemCountData itemCountData = mTreeItemCountMgr.GetTreeItem(itemIndex);
-            if(itemCountData == null)
+            if (itemCountData == null)
             {
                 return;
             }
@@ -168,7 +168,7 @@ namespace SuperScrollView
             }
             else
             {
-                if(childIndex > childCount)
+                if (childIndex > childCount)
                 {
                     childIndex = childCount;
                 }
