@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 00_BodyA0HP10
   m_EditorClassIdentifier: 
   itemID: 51200
-  itemName: Body A0HP12
+  itemName: Body A0HP10
   itemDescription: 
   icon: {fileID: 0}
   CombatBaseValue: {fileID: 11400000, guid: 88b3ef6d164ad4b53831d6db0ae7b595, type: 2}

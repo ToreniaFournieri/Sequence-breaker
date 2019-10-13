@@ -4,8 +4,9 @@
       <File FileName="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs" Line="16" Column="1" IsPinned="True" />
       <File FileName="Assets/06_Script/01_Data/02_Items/Item/Item.cs" Line="40" Column="48" />
       <File FileName="Assets/06_Script/07_Play/MissionListSRIA.cs" Line="1" Column="1" />
-      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="335" Column="46" />
+      <File FileName="Assets/06_Script/01_Data/03_UnitClass/CalculateUnitStatus.cs" Line="203" Column="22" />
       <File FileName="Assets/06_Script/Enumeration.cs" Line="1" Column="1" />
+      <File FileName="Assets/06_Script/01_Data/02_Items/01_ItemMaster/MagnificationMasterClass.cs" Line="6" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

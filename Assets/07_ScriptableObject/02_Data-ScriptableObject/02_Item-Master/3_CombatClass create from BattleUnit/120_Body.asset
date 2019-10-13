@@ -15,7 +15,7 @@ MonoBehaviour:
   ShieldCurrent: 0
   ShieldMax: 0
   HitPointCurrent: 0
-  HitPointMax: 10
+  HitPointMax: 0
   Attack: 0
   KineticAttackRatio: 0
   ChemicalAttackRatio: 0
