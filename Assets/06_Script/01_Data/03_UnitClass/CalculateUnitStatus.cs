@@ -77,8 +77,6 @@ public class CalculateUnitStatus : MonoBehaviour
     private CombatClass _combatRaw;
     private CombatClass _combatItems;
 
-    //private double _optimumRangeBonusDefault;
-    //private double _criticalMagnificationDefault;
     private ActionSkillClass _offenseEffectPowerActionSkill;
     private ActionSkillClass _triggerPossibilityActionSkill;
     private double _hateInitial;
@@ -86,8 +84,6 @@ public class CalculateUnitStatus : MonoBehaviour
     private double _absorbShieldRatio;
     private bool _isDamageControlAssist;
 
-
-    //public AmplifyEquipmentRate AmplifyEquipmentRate
     public CalculateUnitStatus(UnitClass unitClass)
     {
         _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
@@ -215,14 +211,6 @@ public class CalculateUnitStatus : MonoBehaviour
         magnificationDefenseList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
         magnificationNoneList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
 
-        // calculated values
-        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagOffenseList
-        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
-        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagDefenseList
-        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
-        //List<(int magnificationTargetID, int percentValue, double fixedValue, double ratioValue)> calculatedMagNoneList
-        //    = new List<(int magnificationTargetID, int percentValue, double fixedValue, double magnificationValue)>();
-
         // final value
         summedOffenseList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
         summedDefenseList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
@@ -239,8 +227,6 @@ public class CalculateUnitStatus : MonoBehaviour
             magnificationDefenseList.Add((i, 0, 1.0, null));
             magnificationNoneList.Add((i, 0, 1.0, null));
 
-            //calculatedMagOffenseList.Add((i, 0, 1.0, 1.0));
-            //calculatedMagDefenseList.Add((i, 0, 1.0, 1.0));
             summedOffenseList.Add((i, 0, 1.0, 1.0, null));
             summedDefenseList.Add((i, 0, 1.0, 1.0, null));
             summedNoneList.Add((i, 0, 1.0, 1.0, null));
@@ -310,16 +296,7 @@ public class CalculateUnitStatus : MonoBehaviour
                         magnification._percentList
                         );
 
-
                     magnificationNoneList[magnification.magnificationTargetID] = magnification;
-
-                    //magnificationDefenseList[magnification.magnificationTargetID] = magnification;
-
-                    //Debug.Log(" none :" + magnificationClass.MagnificationRatio + " " + magnificationClass.MagnificationTarget + " " +magnificationClass.MagnificationPercent );
-
-                    //Debug.Log(" none :" + magnificationDefenseList[magnification.magnificationTargetID]._percent + " " +
-                    //    magnificationDefenseList[magnification.magnificationTargetID]._ratio );
-
 
                     break;
                 default:
@@ -351,7 +328,6 @@ public class CalculateUnitStatus : MonoBehaviour
                 (
                 calculated.magnificationTargetID,
                 calculated.percentValue,
-                //calculated.fixedValue,
                 calculated.ratioValue,
                 total,
                 _percents
@@ -376,7 +352,6 @@ public class CalculateUnitStatus : MonoBehaviour
                 (
                 calculated.magnificationTargetID,
                 calculated.percentValue,
-                //calculated.fixedValue,
                 calculated.ratioValue,
                 total,
                 _percents
@@ -397,20 +372,14 @@ public class CalculateUnitStatus : MonoBehaviour
                 }
             }
             summedNoneList[calculated.magnificationTargetID] =
-            //summedDefenseList[calculated.magnificationTargetID] =
                 (
                 calculated.magnificationTargetID,
                 calculated.percentValue,
-                //calculated.fixedValue,
                 calculated.ratioValue,
                 total,
                 _percents
                 );
         }
-
-        //Debug.Log("Kinetic total value:" + summedDefenseList[2].totalValue + " percent: " + summedDefenseList[2].percents + " ratio: " + summedDefenseList[2].ratioValue);
-
-        Debug.Log("HP total value:" + summedNoneList[12].totalValue + " percent: " + summedNoneList[12].percents + " ratio: " + summedNoneList[12].ratioValue);
 
         // 0:none, 1:Critical, 2:Kinetic, 3:Chemical, 4:Thermal, 5:VsBeast, 6:VsCyborg, 7:VsDrone, 8:VsRobot, 9:VsTitan, 10:OptimumRangeBonus
         // after 11, should only affect status, so use OffenseOrDefense.none
