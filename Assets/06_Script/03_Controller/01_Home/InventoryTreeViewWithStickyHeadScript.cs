@@ -7,6 +7,7 @@ using SuperScrollView;
 public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
 {
 
+  
 
     public LoopListView2 mLoopListView;
     Button mScrollToButton;
@@ -21,6 +22,9 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
     public InventoryListItemSubTitle mStickeyHeadItem;
     RectTransform mStickeyHeadItemRf;
     float mStickeyHeadItemHeight = -1;
+
+
+
     // Use this for initialization
     void Start()
     {
@@ -126,26 +130,28 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
             //for example, TreeChildItem0_0 is the 0'th child of TreeItem0
             //and TreeChildItem1_2 is the 2'th child of TreeItem1
             int childIndex = countData.GetChildIndex(index);
-            ItemData itemData = treeViewItemData.GetChild(childIndex);
-            if (itemData == null)
+
+            Item item = treeViewItemData.GetChild(childIndex);
+            //ItemData itemData = treeViewItemData.GetChild(childIndex);
+            if (item == null)
             {
                 return null;
             }
             //get a new TreeChildItem
-            LoopListViewItem2 item = listView.NewListViewItem("Content");
-            InventoryListItemContent itemScript = item.GetComponent<InventoryListItemContent>();
+            LoopListViewItem2 loopListItem = listView.NewListViewItem("Content");
+            InventoryListItemContent itemScript = loopListItem.GetComponent<InventoryListItemContent>();
 
             //ListItem13 itemScript = item.GetComponent<ListItem13>();
-            if (item.IsInitHandlerCalled == false)
+            if (loopListItem.IsInitHandlerCalled == false)
             {
-                item.IsInitHandlerCalled = true;
+                loopListItem.IsInitHandlerCalled = true;
                 itemScript.Init();
             }
             //update the TreeChildItem's content
-            item.UserIntData1 = treeItemIndex;
-            item.UserIntData2 = childIndex;
-            itemScript.SetItemData(itemData, treeItemIndex, childIndex);
-            return item;
+            loopListItem.UserIntData1 = treeItemIndex;
+            loopListItem.UserIntData2 = childIndex;
+            itemScript.SetItemData(item, treeItemIndex, childIndex);
+            return loopListItem;
         }
 
     }
@@ -300,8 +306,6 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
         if (mStickeyHeadItem.TreeItemIndex != itemIndex)
         {
             InventoryTreeViewItemData treeViewItemData = InventoryTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
-
-            //TreeViewItemDataTEST treeViewItemData = TreeViewDataSourceMgrTEST.Get.GetItemDataByIndex(itemIndex);
             mStickeyHeadItem.mText.text = treeViewItemData.mName;
             mStickeyHeadItem.SetItemData(itemIndex, countData.mIsExpand);
         }

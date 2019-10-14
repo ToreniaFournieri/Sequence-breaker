@@ -8,18 +8,18 @@ public class InventoryTreeViewItemData
 {
     public string mName;
     public string mIcon;
-    List<ItemData> mChildItemDataList = new List<ItemData>();
+    List<Item> mChildItemDataList = new List<Item>();
 
     public int ChildCount
     {
         get { return mChildItemDataList.Count; }
     }
 
-    public void AddChild(ItemData data)
+    public void AddChild(Item data)
     {
         mChildItemDataList.Add(data);
     }
-    public ItemData GetChild(int index)
+    public Item GetChild(int index)
     {
         if (index < 0 || index >= mChildItemDataList.Count)
         {
@@ -31,12 +31,19 @@ public class InventoryTreeViewItemData
 
 public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 {
+    // Item data base 
+    public ItemDataBase itemDataBase;
+
 
     List<InventoryTreeViewItemData> mItemDataList = new List<InventoryTreeViewItemData>();
 
     static InventoryTreeViewDataSourceMgr instance = null;
-    int mTreeViewItemCount = 20;
-    int mTreeViewChildItemCount = 30;
+    int mTreeViewItemCount = 10;
+    //int mTreeViewChildItemCount = 10;
+
+
+    //int mTreeViewItemCount = 20;
+    //int mTreeViewChildItemCount = 30;
 
     public static InventoryTreeViewDataSourceMgr Get
     {
@@ -71,7 +78,7 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
         return mItemDataList[index];
     }
 
-    public ItemData GetItemChildDataByIndex(int itemIndex, int childIndex)
+    public Item GetItemChildDataByIndex(int itemIndex, int childIndex)
     {
         InventoryTreeViewItemData data = GetItemDataByIndex(itemIndex);
         if (data == null)
@@ -114,17 +121,21 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
             tData.mIcon = "1";
             mItemDataList.Add(tData);
-            int childCount = mTreeViewChildItemCount;
-            for (int j = 1; j <= childCount; ++j)
+            //int childCount = mTreeViewChildItemCount;
+
+            int childCount = itemDataBase.itemBaseMasterList.Count;
+            for (int j = 0; j < childCount; ++j)
             {
-                ItemData childItemData = new ItemData();
-                childItemData.mName = "Item" + i + ":Child" + j;
-                childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                //childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                childItemData.mIcon = "1";
-                childItemData.mStarCount = Random.Range(0, 6);
-                childItemData.mFileSize = Random.Range(20, 999);
-                tData.AddChild(childItemData);
+                Item item = new Item();
+                item.baseItem = itemDataBase.itemBaseMasterList[j];
+                //ItemData childItemData = new ItemData();
+                //childItemData.mName = "Item" + i + ":Child" + j;
+                //childItemData.mDesc = "Item Desc For " + childItemData.mName;
+                ////childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                //childItemData.mIcon = "1";
+                //childItemData.mStarCount = Random.Range(0, 6);
+                //childItemData.mFileSize = Random.Range(20, 999);
+                tData.AddChild(item);
             }
         }
     }

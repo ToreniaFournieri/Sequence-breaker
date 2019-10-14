@@ -1,15 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/01_Home/InventoryTreeViewWithStickyHeadScript.cs">
     <Files>
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Demo/Scripts/Common/ResManager.cs" Line="46" Column="1" />
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Demo/Scripts/Common/DataSourceMgr.cs" Line="14" Column="28" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryTreeViewDataSourceMgr.cs" Line="7" Column="39" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryTreeViewWithStickyHeadScript.cs" Line="134" Column="71" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryListItem.cs" Line="7" Column="37" />
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Demo/Scripts/Common/ListItem12.cs" Line="17" Column="1" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryListItem13.cs" Line="8" Column="38" />
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Demo/Scripts/Common/ListItem13.cs" Line="8" Column="23" />
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Scripts/ListView/LoopListViewItem2.cs" Line="8" Column="18" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryListItem13.cs" Line="50" Column="32" IsPinned="True" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryListItemSubTitle.cs" Line="49" Column="23" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryTreeViewDataSourceMgr.cs" Line="127" Column="32" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryTreeViewWithStickyHeadScript.cs" Line="162" Column="21" />
+      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Demo/Scripts/Common/TreeViewItemCountMgr.cs" Line="83" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
