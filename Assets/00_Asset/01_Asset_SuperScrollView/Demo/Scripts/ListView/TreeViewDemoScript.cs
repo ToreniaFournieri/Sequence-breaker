@@ -20,11 +20,11 @@ namespace SuperScrollView
         // Use this for initialization
         void Start()
         {
-            int count = TreeViewDataSourceMgrTEST.Get.TreeViewItemCount;
+            int count = TreeViewDataSourceMgr.Get.TreeViewItemCount;
             //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
             for (int i = 0; i < count; ++i)
             {
-                int childCount = TreeViewDataSourceMgrTEST.Get.GetItemDataByIndex(i).ChildCount;
+                int childCount = TreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
                 mTreeItemCountMgr.AddTreeItem(childCount, true);
             }

@@ -31,7 +31,7 @@ namespace SuperScrollView
 
         void OnStarClicked(int index)
         {
-            ItemData data = TreeViewDataSourceMgrTEST.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
+            ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
             if (data == null)
             {
                 return;

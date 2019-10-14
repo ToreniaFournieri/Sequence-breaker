@@ -327,7 +327,11 @@
     <Compile Include="Assets\06_Script\01_Data\BattleUnit.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\ItemDataBase.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\TabController.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryListItemContent.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryListItemSubTitle.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryScrollList.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryTreeViewDataSourceMgr.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryTreeViewWithStickyHeadScript.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\ItemDetailViewController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\SwitchUnitController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\02_Play\MissionController.cs" />
@@ -370,8 +374,6 @@
     <Compile Include="Assets\06_Script\Enumeration.cs" />
     <Compile Include="Assets\06_Script\ItemPanel.cs" />
     <Compile Include="Assets\06_Script\SimpleObjectPool.cs" />
-    <Compile Include="Assets\10_TEST\TreeViewWithStickyHeadDemoTEST\TreeViewDataSourceMgrTEST.cs" />
-    <Compile Include="Assets\10_TEST\TreeViewWithStickyHeadDemoTEST\TreeViewWithStickyHeadTESTScript.cs" />
     <None Include="Assets\00_Asset\03_Asset_GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

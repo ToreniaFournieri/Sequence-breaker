@@ -222,7 +222,7 @@ namespace SuperScrollView
             int count = mLoopListView.ShownItemCount;
             if (count == 0)
             {
-                if(isHeadItemVisible)
+                if (isHeadItemVisible)
                 {
                     mStickeyHeadItem.gameObject.SetActive(false);
                 }
@@ -282,7 +282,7 @@ namespace SuperScrollView
                 }
                 return;
             }
-            if(countData.mIsExpand == false || countData.mChildCount == 0)
+            if (countData.mIsExpand == false || countData.mChildCount == 0)
             {
                 if (isHeadItemVisible)
                 {
@@ -294,7 +294,7 @@ namespace SuperScrollView
             {
                 mStickeyHeadItem.gameObject.SetActive(true);
             }
-            if(mStickeyHeadItem.TreeItemIndex != itemIndex)
+            if (mStickeyHeadItem.TreeItemIndex != itemIndex)
             {
                 TreeViewItemData treeViewItemData = TreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.mName;
@@ -303,11 +303,11 @@ namespace SuperScrollView
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;
             float lastChildPosAbs = -end;
             float lastPadding = targetItem.Padding;
-            if(lastChildPosAbs - lastPadding >= mStickeyHeadItemHeight)
+            if (lastChildPosAbs - lastPadding >= mStickeyHeadItemHeight)
             {
                 return;
             }
-            for (int i = targetItemShownIndex+1; i < count; ++i)
+            for (int i = targetItemShownIndex + 1; i < count; ++i)
             {
                 LoopListViewItem2 item = mLoopListView.GetShownItemByIndexWithoutCheck(i);
                 if (item.UserIntData1 != itemIndex)
