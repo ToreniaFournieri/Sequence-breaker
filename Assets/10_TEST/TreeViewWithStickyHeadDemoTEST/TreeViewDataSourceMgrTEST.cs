@@ -111,7 +111,8 @@ public class TreeViewDataSourceMgrTEST : MonoBehaviour
         {
             TreeViewItemDataTEST tData = new TreeViewItemDataTEST();
             tData.mName = "Item" + i;
-            tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+            //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+            tData.mIcon = "1";
             mItemDataList.Add(tData);
             int childCount = mTreeViewChildItemCount;
             for (int j = 1; j <= childCount; ++j)
@@ -119,7 +120,8 @@ public class TreeViewDataSourceMgrTEST : MonoBehaviour
                 ItemData childItemData = new ItemData();
                 childItemData.mName = "Item" + i + ":Child" + j;
                 childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                //childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                childItemData.mIcon = "1";
                 childItemData.mStarCount = Random.Range(0, 6);
                 childItemData.mFileSize = Random.Range(20, 999);
                 tData.AddChild(childItemData);

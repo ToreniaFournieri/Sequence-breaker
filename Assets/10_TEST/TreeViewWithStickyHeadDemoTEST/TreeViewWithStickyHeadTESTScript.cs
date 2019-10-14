@@ -37,16 +37,16 @@ public class TreeViewWithStickyHeadTESTScript : MonoBehaviour
             //mTreeItemCountMgr.GetTotalItemAndChildCount() return the total items count in the TreeView, include all TreeItems and all TreeChildItems.
             mLoopListView.InitListView(mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
-            mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mCollapseAllButton = GameObject.Find("ButtonPanel/buttonGroup3/CollapseAllButton").GetComponent<Button>();
-            mScrollToInputItem = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldItem").GetComponent<InputField>();
-            mScrollToInputChild = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldChild").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
-            mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
-            mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
+            //mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
+            //mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            //mCollapseAllButton = GameObject.Find("ButtonPanel/buttonGroup3/CollapseAllButton").GetComponent<Button>();
+            //mScrollToInputItem = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldItem").GetComponent<InputField>();
+            //mScrollToInputChild = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldChild").GetComponent<InputField>();
+            //mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            //mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            //mBackButton.onClick.AddListener(OnBackBtnClicked);
+            //mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
+            //mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
             mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
 
