@@ -327,11 +327,13 @@
     <Compile Include="Assets\06_Script\01_Data\BattleUnit.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\ItemDataBase.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\TabController.cs" />
-    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryListItemContent.cs" />
-    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryListItemSubTitle.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Character\CharacterTreeViewDataSourceMgr.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Character\CharacterTreeViewWithStickyHeadScript.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Inventory\InventoryTreeViewDataSourceMgr.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Inventory\InventoryTreeViewWithStickyHeadScript.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Inventory\layout\InventoryListItemContent.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Inventory\layout\InventoryListItemSubTitle.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryScrollList.cs" />
-    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryTreeViewDataSourceMgr.cs" />
-    <Compile Include="Assets\06_Script\03_Controller\01_Home\InventoryTreeViewWithStickyHeadScript.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\ItemDetailViewController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\SwitchUnitController.cs" />
     <Compile Include="Assets\06_Script\03_Controller\02_Play\MissionController.cs" />
