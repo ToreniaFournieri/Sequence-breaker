@@ -632,7 +632,9 @@ MonoBehaviour:
   mIcon: {fileID: 1843266919}
   mDescriptionText: {fileID: 507024387}
   mContentRootObj: {fileID: 0}
-  detailButton: {fileID: 1787373577}
+  detailFlag: {fileID: 1787373577}
+  item: {fileID: 0}
+  itemDetailView: {fileID: 2073615706}
 --- !u!114 &57300773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11822,7 +11824,7 @@ GameObject:
   - component: {fileID: 1787373575}
   - component: {fileID: 1787373577}
   m_Layer: 5
-  m_Name: DetailButton
+  m_Name: DetailFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11897,7 +11899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -14228,7 +14230,7 @@ GameObject:
   - component: {fileID: 2113156145}
   - component: {fileID: 2113156146}
   m_Layer: 0
-  m_Name: ItemDetailViewController2
+  m_Name: NewItemDetailViewController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14260,8 +14262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dbcc35bb3a0490491d0fcdac72d0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDetailViewGameObject: {fileID: 681182473}
-  ItemdetailViewText: {fileID: 1838683910}
+  ItemDetailViewGameObject: {fileID: 2073615706}
+  ItemdetailViewText: {fileID: 812320862}
   ItemDetailViewButton: {fileID: 0}
 --- !u!1 &2123972851
 GameObject:

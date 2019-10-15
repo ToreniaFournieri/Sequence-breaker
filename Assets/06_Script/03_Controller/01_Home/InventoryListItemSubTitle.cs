@@ -31,6 +31,8 @@ public class InventoryListItemSubTitle : MonoBehaviour
         if (mClickHandler != null)
         {
             mClickHandler(mTreeItemIndex);
+
+            //Debug.Log("mClickHandler is clicked! value: " + mTreeItemIndex);
         }
 
     }

@@ -26,6 +26,10 @@ public class InventoryListItemContent : MonoBehaviour
     public Item item;
 
 
+    // Show Item detail View
+    public GameObject itemDetailView;
+
+
     int mItemDataIndex = -1;
     int mChildDataIndex = -1;
 
@@ -52,12 +56,20 @@ public class InventoryListItemContent : MonoBehaviour
 
     void OnButtonClicked()
     {
+
         if (mClickItemDetailHandler != null)
         {
-            mClickItemDetailHandler(item);
+
+            // Popup message set
+            Text _detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
+            _detailText.text = item.GetItemDetailDescription();
+            itemDetailView.SetActive(true);
+                
+
         }
 
     }
+
 
     void OnStarClicked(int index)
     {
@@ -106,3 +118,4 @@ public class InventoryListItemContent : MonoBehaviour
 
 
 }
+

@@ -146,6 +146,8 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
             {
                 loopListItem.IsInitHandlerCalled = true;
                 itemScript.Init();
+                itemScript.SetClickCallBack(OnItemDetailClicked);
+
             }
             //update the TreeChildItem's content
             loopListItem.UserIntData1 = treeItemIndex;
@@ -155,6 +157,14 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
         }
 
     }
+
+    public void OnItemDetailClicked(Item item)
+    {
+        //mTreeItemCountMgr.ToggleItemExpand();
+        //mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+        //mLoopListView.RefreshAllShownItem();
+    }
+
     public void OnExpandClicked(int index)
     {
         mTreeItemCountMgr.ToggleItemExpand(index);
