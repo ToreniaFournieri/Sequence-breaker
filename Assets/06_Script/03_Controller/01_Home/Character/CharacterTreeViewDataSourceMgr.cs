@@ -143,7 +143,7 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             {
                 if (_item != null)
                 {
-                    Debug.Log("characterStatusDisplay.itemList :" + _item.itemName);
+                    //Debug.Log("characterStatusDisplay.itemList :" + _item.itemName);
                     tData.AddChild(_item);
                 }
             }

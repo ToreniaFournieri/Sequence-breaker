@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterStatusDisplay : MonoBehaviour
 {
+
+    public ItemDataBase itemDataBase;
     public List<UnitClass> UnitList;
 
     public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
@@ -31,14 +33,17 @@ public class CharacterStatusDisplay : MonoBehaviour
 
         if (UnitList != null && _selectedUnitNo < UnitList.Count)
         {
+            // updating
             selectedUnitNo = _selectedUnitNo;
 
-            characterNameText.text = UnitList[selectedUnitNo].Name;
+            characterNameText.text = UnitList[selectedUnitNo].Name + " (Level:" + UnitList[selectedUnitNo].Level + ")";
             itemAmountText.text = UnitList[selectedUnitNo].itemList.Count + "/" + UnitList[selectedUnitNo].ItemCapacity;
 
             CalculateUnitStatus _calculateUnitStatus = new CalculateUnitStatus(UnitList[selectedUnitNo]);
             AbilityText.text = _calculateUnitStatus.detailAbilityString;
-            itemList = UnitList[selectedUnitNo].itemList;
+
+            // load from saved data
+            itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
             characterTreeViewDataSourceMgr.Show();
             characterTreeViewWithStickyHeadScript.Initialization();
