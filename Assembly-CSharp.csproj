@@ -298,6 +298,8 @@
     <Compile Include="Assets\00_Asset\06_I2_Localization\Localization\Scripts\Utils\SetLanguage.cs" />
     <Compile Include="Assets\00_Asset\06_I2_Localization\Localization\Scripts\Utils\SetLanguageDropdown.cs" />
     <Compile Include="Assets\00_Asset\06_I2_Localization\Localization\Scripts\Utils\StringObfuscator.cs" />
+    <Compile Include="Assets\06_Script\00_System\Enumeration.cs" />
+    <Compile Include="Assets\06_Script\00_System\SimpleObjectPool.cs" />
     <Compile Include="Assets\06_Script\00_System\StartUp.cs" />
     <Compile Include="Assets\06_Script\01_Data\01_Skills\EffectClass.cs" />
     <Compile Include="Assets\06_Script\01_Data\01_Skills\SkillsMasterClass.cs" />
@@ -327,6 +329,7 @@
     <Compile Include="Assets\06_Script\01_Data\BattleUnit.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\ItemDataBase.cs" />
     <Compile Include="Assets\06_Script\03_Controller\00_Grobal\TabController.cs" />
+    <Compile Include="Assets\06_Script\03_Controller\01_Home\Character\CharacterStatusDisplay.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\Character\CharacterTreeViewDataSourceMgr.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\Character\CharacterTreeViewWithStickyHeadScript.cs" />
     <Compile Include="Assets\06_Script\03_Controller\01_Home\Inventory\InventoryTreeViewDataSourceMgr.cs" />
@@ -373,9 +376,7 @@
     <Compile Include="Assets\06_Script\09_Drop\DropEngine.cs" />
     <Compile Include="Assets\06_Script\09_Drop\InventoryManager.cs" />
     <Compile Include="Assets\06_Script\10_Global\TransparentMessageController.cs" />
-    <Compile Include="Assets\06_Script\Enumeration.cs" />
     <Compile Include="Assets\06_Script\ItemPanel.cs" />
-    <Compile Include="Assets\06_Script\SimpleObjectPool.cs" />
     <None Include="Assets\00_Asset\03_Asset_GUIPack-Clean&amp;Minimalist\Demo\Shader\Gradient.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

@@ -64,7 +64,7 @@ public class InventoryListItemContent : MonoBehaviour
             Text _detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
             _detailText.text = item.GetItemDetailDescription();
             itemDetailView.SetActive(true);
-                
+            itemDetailView.transform.SetAsLastSibling();
 
         }
 

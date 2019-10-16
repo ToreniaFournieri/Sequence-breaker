@@ -8,7 +8,12 @@ public class CharacterTreeViewItemData
 {
     public string mName;
     public string mIcon;
+
     List<Item> mChildItemDataList = new List<Item>();
+
+    //public CharacterStatusDisplay characterStatusDisplay;
+
+    //List<Item> mChildItemDataList = new List<Item>();
 
     public int ChildCount
     {
@@ -33,8 +38,9 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
 {
     // Item data base 
     public ItemDataBase itemDataBase;
-    public List<Item> itemList;
+    //public List<Item> itemList;
 
+    public CharacterStatusDisplay characterStatusDisplay;
 
     List<CharacterTreeViewItemData> mItemDataList = new List<CharacterTreeViewItemData>();
 
@@ -68,7 +74,15 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     public void Init()
     {
         DoRefreshDataSource();
+
     }
+
+    public void Show()
+    {
+        DoRefreshDataSource();
+
+    }
+
 
     public CharacterTreeViewItemData GetItemDataByIndex(int index)
     {
@@ -125,9 +139,13 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             //int childCount = mTreeViewChildItemCount;
 
 
-        foreach (Item _item in itemList)
+        foreach (Item _item in characterStatusDisplay.itemList)
             {
-                tData.AddChild(_item);
+                if (_item != null)
+                {
+                    Debug.Log("characterStatusDisplay.itemList :" + _item.itemName);
+                    tData.AddChild(_item);
+                }
             }
 
                 //int childCount = itemDataBase.itemBaseMasterList.Count;

@@ -27,6 +27,7 @@ public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        mTreeItemCountMgr.Clear();
         int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
         //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
         for (int i = 0; i < count; ++i)
@@ -35,7 +36,6 @@ public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
             //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
             mTreeItemCountMgr.AddTreeItem(childCount, true);
         }
-
         //initialize the InitListView
         //mTreeItemCountMgr.GetTotalItemAndChildCount() return the total items count in the TreeView, include all TreeItems and all TreeChildItems.
         mLoopListView.InitListView(mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
@@ -60,7 +60,30 @@ public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 
         mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
         UpdateStickeyHeadPos();
+
     }
+
+
+    public void Initialization()
+    {
+        mTreeItemCountMgr.Clear();
+        int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
+        //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
+        for (int i = 0; i < count; ++i)
+        {
+            int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
+            //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
+            mTreeItemCountMgr.AddTreeItem(childCount, true);
+        }
+
+        UpdateStickeyHeadPos();
+
+
+        mTreeItemCountMgr.ToggleItemExpand(0);
+        OnExpandClicked(0);
+
+    }
+
 
     void OnBackBtnClicked()
     {
@@ -159,9 +182,7 @@ public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 
     public void OnItemDetailClicked(Item item)
     {
-        //mTreeItemCountMgr.ToggleItemExpand();
-        //mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
-        //mLoopListView.RefreshAllShownItem();
+
     }
 
     public void OnExpandClicked(int index)

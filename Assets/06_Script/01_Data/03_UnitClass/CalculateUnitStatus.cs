@@ -18,6 +18,8 @@ public class CalculateUnitStatus : MonoBehaviour
     public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedDefenseList;
     public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedNoneList;
 
+    //output Ability Detail Text
+    public string detailAbilityString;
 
     //output middle data
     private AbilityClass _ability;
@@ -26,6 +28,7 @@ public class CalculateUnitStatus : MonoBehaviour
     private DefenseMagnificationClass _defenseMagnification;
     private UnitSkillMagnificationClass _unitSkillMagnification;
     private FeatureClass _feature;
+
 
     // Environment Parameter
     // for combat status calculation
@@ -661,6 +664,71 @@ public class CalculateUnitStatus : MonoBehaviour
         BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
             defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
+
+
+
+        //set detail Ability strings
+        detailAbilityString =
+        BattleUnit.Combat.ShieldMax + " Shield \n"
+            + BattleUnit.Combat.HitPointMax + " HP\n"
+            + BattleUnit.Combat.Attack + " Attack \n"
+            + BattleUnit.Combat.Accuracy + " Accuracy \n"
+            + BattleUnit.Combat.Mobility + " Mobility \n"
+            + BattleUnit.Combat.Defense + " Defense\n"
+
+            + "(P:" + BattleUnit.Ability.Power + " G:" + BattleUnit.Ability.Generation
+            + " S:" + BattleUnit.Ability.Stability + " R:" + BattleUnit.Ability.Responsiveness
+            + " P:" + BattleUnit.Ability.Precision + " I:" + BattleUnit.Ability.Intelligence
+            + " L:" + BattleUnit.Ability.Luck + ")\n"
+            + " \n"
+
+            + "<Offense> \n"
+            + "[Critical: x" + Math.Round(BattleUnit.OffenseMagnification.Critical * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
+            + " & {" + summedOffenseList[1].percents + "}) \n"
+            + "[Kinetic: x" + Math.Round(BattleUnit.OffenseMagnification.Kinetic * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
+            + " & {" + summedOffenseList[2].percents + "}) \n"
+
+            + "[Chemical: x" + Math.Round(BattleUnit.OffenseMagnification.Chemical * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
+            + " & {" + summedOffenseList[3].percents + "}) \n"
+
+            + "[Thermal: x" + Math.Round(BattleUnit.OffenseMagnification.Thermal * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
+            + " & {" + summedOffenseList[4].percents + "}) \n"
+
+            + "[OptimumRangeBonus: x" + Math.Round(BattleUnit.OffenseMagnification.OptimumRangeBonus * 100) / 100 + "] "
+                        + " ("
+            + " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
+            + " & {" + summedOffenseList[10].percents + "}) \n"
+
+            + " \n"
+
+            + "<Deffense> \n"
+            + "[Critical: x" + Math.Round(BattleUnit.DefenseMagnification.Critical * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
+            + " & {" + summedDefenseList[1].percents + "}) \n"
+
+            + "[Kinetic: x" + Math.Round(BattleUnit.DefenseMagnification.Kinetic * 100) / 100 + "] "
+            + " ("
+            + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
+            + " & {" + summedDefenseList[2].percents + "}) \n"
+
+            + "[Chemical: x" + Math.Round(BattleUnit.DefenseMagnification.Chemical * 100) / 100 + "] "
+                        + " ("
+            + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
+            + " & {" + summedDefenseList[3].percents + "}) \n"
+
+            + "[Thermal: x" + Math.Round(BattleUnit.DefenseMagnification.Thermal * 100) / 100 + "]"
+                        + " ("
+            + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
+            + " & {" + summedDefenseList[4].percents + "}) \n";
 
 
     }

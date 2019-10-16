@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 96789976}
   - component: {fileID: 96789975}
   m_Layer: 5
-  m_Name: Ally4
+  m_Name: Unit3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,14 +910,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1074,7 +1073,7 @@ GameObject:
   - component: {fileID: 104907099}
   - component: {fileID: 104907098}
   m_Layer: 5
-  m_Name: Ally3
+  m_Name: Unit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1142,14 +1141,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1628,7 +1626,7 @@ GameObject:
   - component: {fileID: 143907256}
   - component: {fileID: 143907255}
   m_Layer: 5
-  m_Name: Ally1
+  m_Name: Unit0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1696,13 +1694,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3185,6 +3182,158 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361423054}
   m_CullTransparentMesh: 0
+--- !u!1 &372037682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372037683}
+  - component: {fileID: 372037687}
+  - component: {fileID: 372037686}
+  - component: {fileID: 372037685}
+  - component: {fileID: 372037684}
+  m_Layer: 5
+  m_Name: Unit6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &372037683
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372037682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1874391408}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &372037684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372037682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+    m_HighlightedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    m_PressedColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    m_SelectedColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    m_DisabledColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 372037686}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &372037685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372037682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 20
+  m_MinHeight: 20
+  m_PreferredWidth: 70
+  m_PreferredHeight: 70
+  m_FlexibleWidth: 100
+  m_FlexibleHeight: 100
+  m_LayoutPriority: 1
+--- !u!114 &372037686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372037682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 24dbcaae6a757431e82661400baaaaab, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &372037687
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372037682}
+  m_CullTransparentMesh: 0
 --- !u!1 &383143918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,7 +3896,7 @@ GameObject:
   - component: {fileID: 450598572}
   - component: {fileID: 450598571}
   m_Layer: 5
-  m_Name: Ally2
+  m_Name: Unit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3815,14 +3964,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4257,7 +4405,7 @@ GameObject:
   - component: {fileID: 470334785}
   - component: {fileID: 470334784}
   m_Layer: 5
-  m_Name: Ally6
+  m_Name: Unit5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4325,14 +4473,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5152,7 +5299,7 @@ GameObject:
   - component: {fileID: 534089921}
   - component: {fileID: 534089922}
   m_Layer: 0
-  m_Name: SwitchAllyUnitController
+  m_Name: (Obsolate)SwitchAllyUnitController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10469,6 +10616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1252398279}
+  - component: {fileID: 1252398280}
   m_Layer: 5
   m_Name: 3_Character
   m_TagString: Untagged
@@ -10499,6 +10647,26 @@ RectTransform:
   m_AnchoredPosition: {x: -0.80029297, y: 0}
   m_SizeDelta: {x: -1.6000061, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1252398280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252398278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29079019d1ea14206bca56eb93f04481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitList:
+  - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  characterTreeViewDataSourceMgr: {fileID: 1469652865}
+  characterTreeViewWithStickyHeadScript: {fileID: 356212688}
+  characterNameText: {fileID: 1687822852}
+  itemAmountText: {fileID: 1642664218}
+  AbilityText: {fileID: 707987500}
+  itemList: []
 --- !u!1 &1261208422
 GameObject:
   m_ObjectHideFlags: 0
@@ -10853,7 +11021,7 @@ GameObject:
   - component: {fileID: 1306242413}
   - component: {fileID: 1306242412}
   m_Layer: 5
-  m_Name: Ally5
+  m_Name: Unit4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10921,14 +11089,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534089922}
-        m_MethodName: ActivateUnitToDisplay
-        m_Mode: 2
+      - m_Target: {fileID: 1252398280}
+        m_MethodName: SetCharacterStatus
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnitClass, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12506,9 +12673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
-  itemList:
-  - {fileID: 11400000, guid: 9b196f7063ff342e08af220d1351a930, type: 2}
-  - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
+  characterStatusDisplay: {fileID: 1252398280}
 --- !u!1 &1471982452
 GameObject:
   m_ObjectHideFlags: 0
@@ -15808,7 +15973,6 @@ GameObject:
   - component: {fileID: 1874391412}
   - component: {fileID: 1874391411}
   - component: {fileID: 1874391410}
-  - component: {fileID: 1874391409}
   m_Layer: 5
   m_Name: UnitList
   m_TagString: Untagged
@@ -15833,6 +15997,7 @@ RectTransform:
   - {fileID: 96789974}
   - {fileID: 1306242411}
   - {fileID: 470334783}
+  - {fileID: 372037683}
   m_Father: {fileID: 1039313768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15841,18 +16006,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &1874391409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874391407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 439b3dcc2b7714c1e91776a9d161f6ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1874391410
 MonoBehaviour:
   m_ObjectHideFlags: 0
