@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,8 +18,13 @@ public class CharacterStatusDisplay : MonoBehaviour
     public Text itemAmountText;
     public Text AbilityText;
     public List<Item> itemList;
-    private int selectedUnitNo;
 
+    //for data save
+    public Affiliation affiliation;
+    public int uniqueID;
+    public int itemCapacity;
+    public int selectedUnitNo;
+    
 
     public void Init()
     {
@@ -42,6 +46,11 @@ public class CharacterStatusDisplay : MonoBehaviour
             CalculateUnitStatus _calculateUnitStatus = new CalculateUnitStatus(UnitList[selectedUnitNo]);
             AbilityText.text = _calculateUnitStatus.detailAbilityString;
 
+            //for data save
+            itemCapacity = UnitList[selectedUnitNo].ItemCapacity;
+            affiliation = UnitList[selectedUnitNo].Affiliation;
+            uniqueID = UnitList[selectedUnitNo].UniqueID;
+
             // load from saved data
             itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
@@ -51,6 +60,7 @@ public class CharacterStatusDisplay : MonoBehaviour
         }
 
     }
+
 
 
 }

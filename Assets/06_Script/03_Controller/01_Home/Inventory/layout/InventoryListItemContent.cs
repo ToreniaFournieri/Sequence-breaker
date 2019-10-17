@@ -23,6 +23,17 @@ public class InventoryListItemContent : MonoBehaviour
     Action<Item> mClickItemDetailHandler;
     // button in detailFlag
     public Button detailFlag;
+
+    //button to select to transfer
+    Action<Item> mClickItemContentHandler;
+    public Button itemContent;
+
+    //ItemList Character
+    public bool isCharacterInventory;
+    public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
+    public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
+
+
     public Item item;
 
 
@@ -44,7 +55,7 @@ public class InventoryListItemContent : MonoBehaviour
         //}
 
         detailFlag.onClick.AddListener(OnButtonClicked);
-        //detailFlag.onClick.AddListener(OnButtonClicked());
+        itemContent.onClick.AddListener(OnContentClicked);
 
 
     }
@@ -54,6 +65,7 @@ public class InventoryListItemContent : MonoBehaviour
         mClickItemDetailHandler = clickHandler;
     }
 
+    // item detail button clicked
     void OnButtonClicked()
     {
 
@@ -69,6 +81,34 @@ public class InventoryListItemContent : MonoBehaviour
         }
 
     }
+
+    public void SetClickContentCallBack(Action<Item> clickHandler)
+    {
+        mClickItemContentHandler = clickHandler;
+    }
+
+    // item content button clicked
+    void OnContentClicked()
+    {
+
+        if (mClickItemContentHandler != null)
+        {
+            if (isCharacterInventory)
+            {
+                characterTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
+                Debug.Log("character content is clicked!" + item.itemName);
+
+            }
+            else
+            {
+                inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
+                Debug.Log("inventory content is clicked!" + item.itemName);
+
+            }
+
+        }
+    }
+
 
 
     void OnStarClicked(int index)
@@ -101,6 +141,8 @@ public class InventoryListItemContent : MonoBehaviour
     //        mStarArray[i].color = mGrayStarColor;
     //    }
     //}
+
+
 
     public void SetItemData(Item _item, int itemIndex, int childIndex)
     {

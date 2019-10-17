@@ -36,6 +36,10 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     public bool isDebugModeForInventory;
     public List<Item> itemList;
 
+    // Other Inventory, whitch means character 
+    public CharacterTreeViewDataSourceMgr otherCharacterTreeViewDataSourceMgr;
+
+
 
     List<InventoryTreeViewItemData> mItemDataList = new List<InventoryTreeViewItemData>();
 
@@ -113,7 +117,35 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     }
 
 
-    void DoRefreshDataSource()
+    public void TryTransferItemToOtherInventory(Item item)
+    {
+        if (otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemCapacity > otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList.Count)
+        {
+
+            //add item
+            otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList.Add(item);
+            itemDataBase.SaveItemList("item-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.affiliation
+                + "-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.uniqueID,
+                otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList);
+
+            //remove from other inventory
+            for (int i = itemList.Count - 1; i >= 0; i--)
+            {
+                if (itemList[i] == item)
+                {
+                    itemList.RemoveAt(i);
+                }
+            }
+            itemDataBase.SaveItemList("item-" + "inventory", itemList);
+
+            DoRefreshDataSource();
+            otherCharacterTreeViewDataSourceMgr.DoRefreshDataSource();
+        }
+    }
+
+
+
+    public void DoRefreshDataSource()
     {
         mItemDataList.Clear();
         for (int i = 0; i < mTreeViewItemCount; ++i)

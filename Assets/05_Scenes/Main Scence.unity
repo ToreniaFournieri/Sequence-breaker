@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 57300774}
   - component: {fileID: 57300773}
   - component: {fileID: 57300772}
+  - component: {fileID: 57300775}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -633,6 +634,10 @@ MonoBehaviour:
   mDescriptionText: {fileID: 507024387}
   mContentRootObj: {fileID: 0}
   detailFlag: {fileID: 1787373577}
+  itemContent: {fileID: 57300775}
+  isCharacterInventory: 0
+  characterTreeViewDataSourceMgr: {fileID: 0}
+  inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
   item: {fileID: 0}
   itemDetailView: {fileID: 2073615706}
 --- !u!114 &57300773
@@ -672,6 +677,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57300770}
   m_CullTransparentMesh: 0
+--- !u!114 &57300775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57300770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 57300773}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &83265943
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,6 +6206,7 @@ GameObject:
   - component: {fileID: 688497177}
   - component: {fileID: 688497176}
   - component: {fileID: 688497175}
+  - component: {fileID: 688497178}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -6203,6 +6254,10 @@ MonoBehaviour:
   mDescriptionText: {fileID: 325491727}
   mContentRootObj: {fileID: 0}
   detailFlag: {fileID: 1619599486}
+  itemContent: {fileID: 688497178}
+  isCharacterInventory: 1
+  characterTreeViewDataSourceMgr: {fileID: 1469652865}
+  inventoryTreeViewDataSourceMgr: {fileID: 0}
   item: {fileID: 0}
   itemDetailView: {fileID: 2073615706}
 --- !u!114 &688497176
@@ -6242,6 +6297,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688497173}
   m_CullTransparentMesh: 0
+--- !u!114 &688497178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688497173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 688497176}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &701110539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9809,6 +9909,7 @@ MonoBehaviour:
   itemDataBase: {fileID: 996112117}
   isDebugModeForInventory: 1
   itemList: []
+  otherCharacterTreeViewDataSourceMgr: {fileID: 1469652865}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
@@ -10659,14 +10760,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29079019d1ea14206bca56eb93f04481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemDataBase: {fileID: 996112117}
   UnitList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
+  - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
+  - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   characterTreeViewDataSourceMgr: {fileID: 1469652865}
   characterTreeViewWithStickyHeadScript: {fileID: 356212688}
   characterNameText: {fileID: 1687822852}
   itemAmountText: {fileID: 1642664218}
   AbilityText: {fileID: 707987500}
   itemList: []
+  affiliation: 0
+  uniqueID: 0
+  itemCapacity: 0
+  selectedUnitNo: 0
 --- !u!1 &1261208422
 GameObject:
   m_ObjectHideFlags: 0
@@ -11781,7 +11889,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 46187994}
   m_HandleRect: {fileID: 46187993}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12674,6 +12782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
   characterStatusDisplay: {fileID: 1252398280}
+  otherInventoryTreeViewDataSourceMgr: {fileID: 1101192372}
 --- !u!1 &1471982452
 GameObject:
   m_ObjectHideFlags: 0
@@ -13301,8 +13410,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427428887}
   m_HandleRect: {fileID: 1427428886}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

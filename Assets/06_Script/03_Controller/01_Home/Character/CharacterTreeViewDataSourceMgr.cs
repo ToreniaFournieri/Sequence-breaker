@@ -42,6 +42,9 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
 
     public CharacterStatusDisplay characterStatusDisplay;
 
+    // other inventory
+    public InventoryTreeViewDataSourceMgr otherInventoryTreeViewDataSourceMgr;
+
     List<CharacterTreeViewItemData> mItemDataList = new List<CharacterTreeViewItemData>();
 
     static CharacterTreeViewDataSourceMgr instance = null;
@@ -125,8 +128,33 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
         }
     }
 
+    public void TryTransferItemToOtherInventory(Item item)
+    {
+        //inventory is infinity
 
-    void DoRefreshDataSource()
+        //add item
+        otherInventoryTreeViewDataSourceMgr.itemList.Add(item);
+        itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
+
+        //remove from other inventory
+        for (int i = characterStatusDisplay.itemList.Count - 1; i >= 0; i--)
+        {
+            if (characterStatusDisplay.itemList[i] == item)
+            {
+                characterStatusDisplay.itemList.RemoveAt(i);
+            }
+        }
+        itemDataBase.SaveItemList("item-" + characterStatusDisplay.affiliation
+            + "-" + characterStatusDisplay.uniqueID, characterStatusDisplay.itemList);
+
+
+        DoRefreshDataSource();
+        otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+
+    }
+
+
+    public void DoRefreshDataSource()
     {
         mItemDataList.Clear();
         for (int i = 0; i < mTreeViewItemCount; ++i)
@@ -139,7 +167,7 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             //int childCount = mTreeViewChildItemCount;
 
 
-        foreach (Item _item in characterStatusDisplay.itemList)
+            foreach (Item _item in characterStatusDisplay.itemList)
             {
                 if (_item != null)
                 {
@@ -148,20 +176,20 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
                 }
             }
 
-                //int childCount = itemDataBase.itemBaseMasterList.Count;
-                //for (int j = 0; j < childCount; ++j)
-                //{
-                //    Item _item = new Item();
-                //    _item.baseItem = itemDataBase.itemBaseMasterList[j];
-                //    //ItemData childItemData = new ItemData();
-                //    //childItemData.mName = "Item" + i + ":Child" + j;
-                //    //childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                //    ////childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                //    //childItemData.mIcon = "1";
-                //    //childItemData.mStarCount = Random.Range(0, 6);
-                //    //childItemData.mFileSize = Random.Range(20, 999);
-                //    tData.AddChild(_item);
-                //}
+            //int childCount = itemDataBase.itemBaseMasterList.Count;
+            //for (int j = 0; j < childCount; ++j)
+            //{
+            //    Item _item = new Item();
+            //    _item.baseItem = itemDataBase.itemBaseMasterList[j];
+            //    //ItemData childItemData = new ItemData();
+            //    //childItemData.mName = "Item" + i + ":Child" + j;
+            //    //childItemData.mDesc = "Item Desc For " + childItemData.mName;
+            //    ////childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+            //    //childItemData.mIcon = "1";
+            //    //childItemData.mStarCount = Random.Range(0, 6);
+            //    //childItemData.mFileSize = Random.Range(20, 999);
+            //    tData.AddChild(_item);
+            //}
             //}
 
         }

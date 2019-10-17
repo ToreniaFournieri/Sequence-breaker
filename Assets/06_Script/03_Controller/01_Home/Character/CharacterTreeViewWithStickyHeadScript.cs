@@ -169,6 +169,7 @@ public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
                 loopListItem.IsInitHandlerCalled = true;
                 itemScript.Init();
                 itemScript.SetClickCallBack(OnItemDetailClicked);
+                itemScript.SetClickContentCallBack(OnItemDetailClicked);
 
             }
             //update the TreeChildItem's content
