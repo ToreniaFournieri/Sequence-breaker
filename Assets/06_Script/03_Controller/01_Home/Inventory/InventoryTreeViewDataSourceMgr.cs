@@ -138,8 +138,8 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             }
             itemDataBase.SaveItemList("item-" + "inventory", itemList);
 
-            DoRefreshDataSource();
-            otherCharacterTreeViewDataSourceMgr.DoRefreshDataSource();
+            //DoRefreshDataSource();
+            //otherCharacterTreeViewDataSourceMgr.DoRefreshDataSource();
         }
     }
 

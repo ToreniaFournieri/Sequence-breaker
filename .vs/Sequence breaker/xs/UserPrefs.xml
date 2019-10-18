@@ -1,10 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewDataSourceMgr.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewWithStickyHeadScript.cs">
     <Files>
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryListItem13.cs" Line="32" Column="12" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/InventoryScrollList.cs" Line="118" Column="6" />
       <File FileName="Assets/06_Script/03_Controller/00_Grobal/ItemDataBase.cs" Line="7" Column="14" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewDataSourceMgr.cs" Line="141" Column="10" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewDataSourceMgr.cs" Line="43" Column="57" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewWithStickyHeadScript.cs" Line="150" Column="75" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewDataSourceMgr.cs" Line="75" Column="28" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/layout/InventoryListItemContent.cs" Line="85" Column="40" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Character/CharacterStatusDisplay.cs" Line="32" Column="6" />
+      <File FileName="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewWithStickyHeadScript.cs" Line="172" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

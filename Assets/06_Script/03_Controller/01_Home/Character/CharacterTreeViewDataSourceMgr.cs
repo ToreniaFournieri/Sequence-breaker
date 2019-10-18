@@ -148,8 +148,8 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             + "-" + characterStatusDisplay.uniqueID, characterStatusDisplay.itemList);
 
 
-        DoRefreshDataSource();
-        otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+        //DoRefreshDataSource();
+        //otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
     }
 

@@ -25,7 +25,7 @@ public class InventoryListItemContent : MonoBehaviour
     public Button detailFlag;
 
     //button to select to transfer
-    Action<Item> mClickItemContentHandler;
+    //Action<Item> mClickItemContentHandler;
     public Button itemContent;
 
     //ItemList Character
@@ -82,52 +82,53 @@ public class InventoryListItemContent : MonoBehaviour
 
     }
 
-    public void SetClickContentCallBack(Action<Item> clickHandler)
-    {
-        mClickItemContentHandler = clickHandler;
-    }
+    //public void SetClickContentCallBack(Action<Item> clickHandler)
+    //{
+    //    mClickItemContentHandler = clickHandler;
+    //}
 
     // item content button clicked
     void OnContentClicked()
     {
-
-        if (mClickItemContentHandler != null)
+        if (item != null)
         {
+
             if (isCharacterInventory)
             {
                 characterTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-                Debug.Log("character content is clicked!" + item.itemName);
-
             }
             else
             {
                 inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-                Debug.Log("inventory content is clicked!" + item.itemName);
-
             }
-
         }
+        Debug.Log("sample");
+
+        //if (mClickItemContentHandler != null)
+        //{
+
+        //}
     }
 
 
 
-    void OnStarClicked(int index)
-    {
-        ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
-        if (data == null)
-        {
-            return;
-        }
-        if (index == 0 && data.mStarCount == 1)
-        {
-            data.mStarCount = 0;
-        }
-        else
-        {
-            data.mStarCount = index + 1;
-        }
-        //SetStarCount(data.mStarCount);
-    }
+    //void OnStarClicked(int index)
+    //{
+    //    ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
+    //    if (data == null)
+    //    {
+    //        return;
+    //    }
+    //    if (index == 0 && data.mStarCount == 1)
+    //    {
+    //        data.mStarCount = 0;
+    //    }
+    //    else
+    //    {
+    //        data.mStarCount = index + 1;
+    //    }
+    //    //SetStarCount(data.mStarCount);
+    //}
 
     //public void SetStarCount(int count)
     //{
