@@ -85,7 +85,7 @@ sealed public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
         UpdateStickeyHeadPos();
 
 
-        Debug.Log("initialized in InventoryTree");
+        //Debug.Log("initialized in InventoryTree");
 
         if (isStarted == true)
         {

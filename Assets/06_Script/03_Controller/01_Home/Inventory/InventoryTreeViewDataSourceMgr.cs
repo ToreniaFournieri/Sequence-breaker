@@ -197,7 +197,7 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
                     tData.AddChild(_item);
                 }
 
-                Debug.Log("tData count:" + tData.ChildCount);
+                //Debug.Log("tData count:" + tData.ChildCount);
 
             }
 
