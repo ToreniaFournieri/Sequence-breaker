@@ -4,7 +4,7 @@ using UnityEngine;
 using SuperScrollView;
 
 
-public class CharacterTreeViewItemData
+sealed public class CharacterTreeViewItemData
 {
     public string mName;
     public string mIcon;
@@ -34,7 +34,7 @@ public class CharacterTreeViewItemData
     }
 }
 
-public class CharacterTreeViewDataSourceMgr : MonoBehaviour
+sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
 {
     // Item data base 
     public ItemDataBase itemDataBase;

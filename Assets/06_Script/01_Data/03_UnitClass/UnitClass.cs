@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
-public class UnitClass : ScriptableObject
+sealed public class UnitClass : ScriptableObject
 {
     [SerializeField] public int UniqueID;
     [SerializeField] public string Name;
@@ -60,6 +60,7 @@ public class UnitClass : ScriptableObject
         return (int)((Mathf.Pow(1.26f - 0.001f * Level, Level) + 100 + Level * 20 )/30);
 
     }
+
 
 
 }

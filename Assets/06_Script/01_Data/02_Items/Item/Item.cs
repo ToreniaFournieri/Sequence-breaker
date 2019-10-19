@@ -4,7 +4,7 @@ using System;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Item-", menuName = "Item/Item", order = 10)]
-public class Item : ScriptableObject
+sealed public class Item : ScriptableObject
 {
 
     public string itemName

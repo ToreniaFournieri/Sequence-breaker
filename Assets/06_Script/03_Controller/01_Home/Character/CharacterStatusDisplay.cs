@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterStatusDisplay : MonoBehaviour
+sealed public class CharacterStatusDisplay : MonoBehaviour
 {
 
     public ItemDataBase itemDataBase;
@@ -28,7 +28,7 @@ public class CharacterStatusDisplay : MonoBehaviour
 
     public void Init()
     {
-        GetItemList();
+        //GetItemList();
         RefleshCharacterStatusAndItemList();
 
     }
@@ -74,30 +74,36 @@ public class CharacterStatusDisplay : MonoBehaviour
 
     public void AddAndSaveItem(Item _item)
     {
-        List<Item> _itemList = GetItemList();
-        _itemList.Add(_item);
-        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID, _itemList);
+        //List<Item> _itemList = GetItemList();
+        UnitList[selectedUnitNo].itemList.Add(_item);
+        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID,
+            UnitList[selectedUnitNo].itemList);
 
     }
 
     public void RemoveAndSaveItem(Item _item)
     {
-        List<Item> _itemList = GetItemList();
+        //List<Item> _itemList = GetItemList();
 
-        for (int i = _itemList.Count - 1; i >= 0; i--)
+        for (int i = UnitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
         {
-            if (_itemList[i] == _item)
+            if (UnitList[selectedUnitNo].itemList[i] == _item)
             {
-                _itemList.RemoveAt(i);
+                UnitList[selectedUnitNo].itemList.RemoveAt(i);
                 continue;
             }
         }
-        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID, _itemList);
+        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID,
+            UnitList[selectedUnitNo].itemList);
     }
 
+
+    // for outernal use
     public List<Item> GetItemList()
     {
-        return itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
+        return UnitList[selectedUnitNo].itemList;
+
+        //return itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
     }
 
