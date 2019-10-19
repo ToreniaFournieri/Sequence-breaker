@@ -6,7 +6,7 @@ using KohmaiWorks.Scroller;
 
 
 [System.Serializable]
-public class TabController : MonoBehaviour
+sealed public class TabController : MonoBehaviour
 {
     public Button timelineButton;
     public Button playButton;

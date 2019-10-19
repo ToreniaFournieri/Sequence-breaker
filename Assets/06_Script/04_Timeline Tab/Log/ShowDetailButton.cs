@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowDetailButton : MonoBehaviour
+sealed public class ShowDetailButton : MonoBehaviour
 {
     public GameObject battle;
     public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value

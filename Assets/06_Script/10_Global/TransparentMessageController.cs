@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TransparentMessageController : MonoBehaviour
+sealed public class TransparentMessageController : MonoBehaviour
 {
     public GameObject transparentMessage;
     public Text transparentText;

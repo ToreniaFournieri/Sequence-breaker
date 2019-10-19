@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+sealed public class InventoryManager : MonoBehaviour
 {
     //public UnitClass inventory;
     //public InventoryScrollList inventoryScrollList;

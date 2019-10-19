@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ActionSkillClass-", menuName = "BattleUnit/ActionSkillClass", order = 20)]
-public class ActionSkillClass : ScriptableObject
+sealed public class ActionSkillClass : ScriptableObject
 {
     [SerializeField] public double Move;
     [SerializeField] public double Heal;

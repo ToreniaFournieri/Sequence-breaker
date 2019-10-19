@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class RefreshController : MonoBehaviour
+sealed public class RefreshController : MonoBehaviour
 {
     public bool NeedToRefresh = false;
 }

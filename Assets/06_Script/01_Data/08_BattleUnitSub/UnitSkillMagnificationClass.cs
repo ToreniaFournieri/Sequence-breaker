@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SkillMagnificationClass-", menuName = "BattleUnit/SkillMagnificationClass", order = 24)]
-public class UnitSkillMagnificationClass : ScriptableObject
+sealed public class UnitSkillMagnificationClass : ScriptableObject
 {
     [SerializeField] public ActionSkillClass OffenseEffectPower;
     [SerializeField] public ActionSkillClass TriggerPossibility;

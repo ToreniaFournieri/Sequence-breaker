@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "FeatureClass-", menuName = "BattleUnit/FeatureClass", order = 18)]
-public class FeatureClass : ScriptableObject
+sealed public class FeatureClass : ScriptableObject
 {
     [SerializeField] public double AbsorbShieldRatioInitial;
     [SerializeField] public double AbsorbShieldRatioCurrent;

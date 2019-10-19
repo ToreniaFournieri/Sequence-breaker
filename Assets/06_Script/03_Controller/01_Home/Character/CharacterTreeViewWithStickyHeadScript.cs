@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using SuperScrollView;
 
 
-public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
+sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 {
 
     public LoopListView2 mLoopListView;

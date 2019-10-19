@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "", menuName = "Item/MagnificationMaster", order = 5)]
-public class MagnificationMasterClass : ScriptableObject
+sealed public class MagnificationMasterClass : ScriptableObject
 {
     //Offense or defense
     [SerializeField] public OffenseOrDefense OffenseOrDefense = OffenseOrDefense.none;

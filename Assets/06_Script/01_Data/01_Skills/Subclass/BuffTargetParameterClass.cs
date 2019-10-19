@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "buffTarget", menuName = "Skill/SubClass/BuffTargetParameterClass", order = 10)]
-public class BuffTargetParameterClass : ScriptableObject
+sealed public class BuffTargetParameterClass : ScriptableObject
 {
 
     //public BuffTargetParameterClass(TargetType targetType, int barrierRemaining, double defenseMagnification, double mobilityMagnification, double attackMagnification,

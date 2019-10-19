@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KohmaiWorks.Scroller
 {
-    public class OpenSearchBar : MonoBehaviour
+    sealed public class OpenSearchBar : MonoBehaviour
     {
         public bool IsOpen = false;
 

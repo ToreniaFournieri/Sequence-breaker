@@ -101,7 +101,7 @@ public class SimpleClientModel
 }
 
 
-public class ExpandableSimpleClientModel : SimpleClientModel
+sealed public class ExpandableSimpleClientModel : SimpleClientModel
 {
     // View size related
     public bool expanded;
@@ -109,7 +109,7 @@ public class ExpandableSimpleClientModel : SimpleClientModel
 }
 
 
-public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
+sealed public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 {
     public CExpandCollapseOnClick expandCollapseComponent;
 

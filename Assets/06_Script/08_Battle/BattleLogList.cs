@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class BattleLogClass
+sealed public class BattleLogClass
 {
     public BattleLogClass() { } // for null call
     public BattleLogClass(OrderConditionClass orderCondition, bool isNavigation, OrderClass order, string firstLine, string log, int importance, Affiliation whichAffiliationAct)
@@ -36,7 +36,7 @@ public class BattleLogClass
 }
 
 
-public class BattleLogList : MonoBehaviour
+sealed public class BattleLogList : MonoBehaviour
 {
     public List<BattleLogClass> battleLogList;
     public Transform contentPanel;

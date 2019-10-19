@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropEngine 
+sealed public class DropEngine 
 {
     // This value is temporary.
     private double itemDropRatio = 0.100;

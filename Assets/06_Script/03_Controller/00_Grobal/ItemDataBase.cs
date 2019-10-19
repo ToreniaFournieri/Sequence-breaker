@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class ItemDataBase :MonoBehaviour
+sealed public class ItemDataBase :MonoBehaviour
 {
 
     public List<ItemBaseMaster> itemBaseMasterList;

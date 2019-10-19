@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace KohmaiWorks.Scroller
 {
     [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
-    public class Data : ScriptableObject
+    sealed public class Data : ScriptableObject
     {
         public int index;
         public int turn;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "triggerTarget", menuName = "Skill/SubClass/TriggerTargetClass", order = 6)]
-public class TriggerTargetClass : ScriptableObject
+sealed public class TriggerTargetClass : ScriptableObject
 {
 
     //public TriggerTargetClass(ActionType actionType, bool afterAllMoved, bool counter, bool chain,

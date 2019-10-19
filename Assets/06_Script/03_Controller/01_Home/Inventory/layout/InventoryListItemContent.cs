@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using SuperScrollView;
 using System;
 
-public class InventoryListItemContent : MonoBehaviour
+sealed public class InventoryListItemContent : MonoBehaviour
 {
     public Text mNameText;
     public Image mIcon;

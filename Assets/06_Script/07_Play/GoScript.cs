@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GoScript : MonoBehaviour
+sealed public class GoScript : MonoBehaviour
 {
     public Slider levelOfMissionSlider;
     //public GameObject battle;

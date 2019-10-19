@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class IconSet : ScriptableObject
+sealed public class IconSet : ScriptableObject
 {
     public GameObject iconMask;
     public Image unitIcon;

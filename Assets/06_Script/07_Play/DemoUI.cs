@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DemoUI : MonoBehaviour
+sealed public class DemoUI : MonoBehaviour
 {
     public Button setCountButton;
     public Text countText;

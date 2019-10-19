@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 
 // FUNCTION SEGUMENT
-public class AttackFunction
+sealed public class AttackFunction
 {
     public AttackFunction(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
     {

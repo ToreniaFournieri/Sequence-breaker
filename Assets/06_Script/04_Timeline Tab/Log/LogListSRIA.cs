@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using frame8.ScrollRectItemsAdapter.Classic;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
 
-public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
 {
     //for battle calculation

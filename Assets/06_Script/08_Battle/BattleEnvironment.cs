@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "battleEnvironment", menuName = "Battle/Environment", order = 2)]
-public class BattleEnvironment : ScriptableObject
+sealed public class BattleEnvironment : ScriptableObject
 {
     // Environment values
     public SkillsMasterClass normalAttackSkillsMaster;

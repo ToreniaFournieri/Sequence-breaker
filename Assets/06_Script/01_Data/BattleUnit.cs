@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [CreateAssetMenu(fileName = "BattleUnit-", menuName = "BattleUnit/BattleUnit", order = 3)]
-public class BattleUnit : ScriptableObject
+sealed public class BattleUnit : ScriptableObject
 {
     [SerializeField] public int UniqueID;
     [SerializeField] public string Name;

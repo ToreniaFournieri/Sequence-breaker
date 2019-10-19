@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class BattleEngine
+sealed public class BattleEngine
 {
     //For output result
     public List<BattleLogClass> logList;

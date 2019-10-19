@@ -7,7 +7,7 @@ using frame8.ScrollRectItemsAdapter.Classic.Util;
 
 
 
-public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
 {
     //for battle calculation

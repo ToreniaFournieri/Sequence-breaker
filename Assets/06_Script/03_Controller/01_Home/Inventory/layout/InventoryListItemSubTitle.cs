@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class InventoryListItemSubTitle : MonoBehaviour
+sealed public class InventoryListItemSubTitle : MonoBehaviour
 {
     public Text mText;
     public GameObject mArrow;

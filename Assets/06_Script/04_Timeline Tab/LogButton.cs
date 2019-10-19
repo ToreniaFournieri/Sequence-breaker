@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LogButton : MonoBehaviour
+sealed  public class LogButton : MonoBehaviour
 {
     public Button button;
     public Text orderCondition;

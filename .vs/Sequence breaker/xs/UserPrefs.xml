@@ -1,10 +1,7 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewWithStickyHeadScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs">
     <Files>
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewDataSourceMgr.cs" Line="204" Column="51" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewWithStickyHeadScript.cs" Line="89" Column="1" />
-      <File FileName="Assets/00_Asset/01_Asset_SuperScrollView/Scripts/ListView/LoopListView2.cs" Line="392" Column="28" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Character/CharacterTreeViewWithStickyHeadScript.cs" Line="83" Column="1" />
+      <File FileName="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs" Line="18" Column="12" IsPinned="True" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

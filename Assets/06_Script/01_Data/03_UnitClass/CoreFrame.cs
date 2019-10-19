@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CoreFrame-", menuName = "Unit/CoreFrame", order = 3)]
-public class CoreFrame : ScriptableObject
+sealed public class CoreFrame : ScriptableObject
 {
     [SerializeField] public string Name;
 

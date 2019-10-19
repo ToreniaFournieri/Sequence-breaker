@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [Serializable]
-public class ItemForSave
+sealed public class ItemForSave
 {
 
     // base of this item: baseItemId

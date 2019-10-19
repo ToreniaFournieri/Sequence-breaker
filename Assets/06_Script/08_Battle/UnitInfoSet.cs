@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnitInfoSet : MonoBehaviour
+sealed public class UnitInfoSet : MonoBehaviour
 {
     //public GameObject iconMask;
     //public Image unitIcon;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Offense magnification
 [CreateAssetMenu(fileName = "OffenseMagnificationClass-", menuName = "BattleUnit/OffenseMagnificationClass", order = 20)]
-public class OffenseMagnificationClass : MagnificationClass
+sealed public class OffenseMagnificationClass : MagnificationClass
 {
     public OffenseMagnificationClass(double optimumRangeBonus, double critical, double kinetic, double chemical, double thermal, double vsBeast, double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
     : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan)

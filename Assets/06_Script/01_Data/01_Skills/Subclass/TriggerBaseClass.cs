@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TriggerBase-", menuName = "Skill/SubClass/TriggerBaseClass", order = 5)]
-public class TriggerBaseClass : ScriptableObject
+sealed public class TriggerBaseClass : ScriptableObject
 {
     [SerializeField] public double PossibilityBaseRate;
     [SerializeField] public double PossibilityWeight;

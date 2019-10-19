@@ -15,7 +15,7 @@ namespace KohmaiWorks.Scroller
     /// This can be good for cases where you do not know how large each cell will need to be until the contents are
     /// populated. An example of this would be text cells containing unknown information.
     /// </summary>
-    public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
+    sealed public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
         public List<DataList> DataList; // Data from outside to show the log. 
         private List<Data> _data;

@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class CalculateUnitStatus : MonoBehaviour
+sealed public class CalculateUnitStatus : MonoBehaviour
 {
 
     //Input data

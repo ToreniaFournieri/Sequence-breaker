@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryItemList : MonoBehaviour
+sealed public class InventoryItemList : MonoBehaviour
 {
     public List<Item> itemList;
     public ItemDataBase itemDataBase;

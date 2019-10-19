@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackPreviousView : MonoBehaviour
+sealed  public class BackPreviousView : MonoBehaviour
 {
     public GameObject currentView;
     public GameObject previousView;

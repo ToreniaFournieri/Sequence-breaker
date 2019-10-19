@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PartyStatusIcons : MonoBehaviour
+sealed public class PartyStatusIcons : MonoBehaviour
 {
     public MissionController missionController;
     public List<BattleUnit> partyBattleUnitList;

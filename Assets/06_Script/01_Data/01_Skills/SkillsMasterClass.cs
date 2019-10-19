@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SkillMaster-", menuName = "Skill/SkillsMaster", order = 2)]
-public class SkillsMasterClass : ScriptableObject
+sealed public class SkillsMasterClass : ScriptableObject
 {
 
     //public SkillsMasterStruct(SkillName name, ActionType actionType, CallSkillLogicName callSkillLogicName, bool isHeal, int usageCount, int veiledTurn, Ability ability, TriggerBaseClass triggerBase,

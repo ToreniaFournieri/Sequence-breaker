@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemBase-", menuName = "Item/ItemBase", order = 1)]
-public class ItemBaseMaster : ScriptableObject
+sealed public class ItemBaseMaster : ScriptableObject
 {
     public int itemID;
 

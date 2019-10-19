@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "magnification", menuName = "Skill/SubClass/SkillMagnificationClass", order = 7)]
-public class SkillMagnificationClass : ScriptableObject
+sealed public class SkillMagnificationClass : ScriptableObject
 {
 
     //public SkillMagnificationClass(TargetType attackTarget, double damage, double kinetic,

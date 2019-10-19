@@ -8,7 +8,7 @@ public static class ObjectExtensions { public static string WithComma(this objec
 
 
 //Function, dhisplay battle condition text
-public class FuncBattleConditionsText
+sealed public class FuncBattleConditionsText
 {
     public FuncBattleConditionsText(int currentTurn, int currentBattleWaves, List<BattleUnit> characters)
     { this.CurrentTurn = currentTurn; this.Characters = characters; this.CurrentBattleWaves = currentBattleWaves; }
@@ -76,7 +76,7 @@ public class FuncBattleConditionsText
 
 
 //[[Skill logic ]]
-public class SkillLogicShieldHealClass
+sealed public class SkillLogicShieldHealClass
 {
     // heal shiled all actor's affiliation characters.
     public SkillLogicShieldHealClass(OrderClass order, List<BattleUnit> characters, bool isMulti, EnvironmentInfoClass environmentInfo)
@@ -157,7 +157,7 @@ public class SkillLogicShieldHealClass
 
 
 //Report for struct
-public class StatisticsReporterFirstBloodClass
+sealed public class StatisticsReporterFirstBloodClass
 {
     public StatisticsReporterFirstBloodClass(int battleWave)
     {
@@ -202,7 +202,7 @@ public class StatisticsReporterFirstBloodClass
 }
 
 //Action order class
-public class OrderClass
+sealed public class OrderClass
 {
     public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, BattleUnit individualTarget, bool isDamageControlAssist)
     {
@@ -319,7 +319,7 @@ public class OrderClass
     public bool IsDamageControlAssist;
 }
 
-public class OrderStatusClass
+sealed public class OrderStatusClass
 {
     public OrderStatusClass() { Initialize(); }
     public void Initialize() { this.CounterSkillCount = 0; this.ChainSkillCount = 0; this.ReAttackSkillCount = 0; this.DamageControlAssistCount = 0; }
@@ -330,7 +330,7 @@ public class OrderStatusClass
     public int DamageControlAssistCount { get; set; }
 }
 
-public class ShieldHealFunction
+sealed public class ShieldHealFunction
 {
     public ShieldHealFunction(List<BattleUnit> characters)
     {
@@ -357,7 +357,7 @@ public class ShieldHealFunction
     public string Log { get; }
 }
 
-public class CalculationHateMagnificationPerTurnFunction
+sealed public class CalculationHateMagnificationPerTurnFunction
 {
     public CalculationHateMagnificationPerTurnFunction(List<BattleUnit> characters)
     { foreach (BattleUnit character in characters) { character.Feature.HateCurrent *= character.Feature.HateMagnificationPerTurn; } }
@@ -371,7 +371,7 @@ public class CalculationHateMagnificationPerTurnFunction
 
 
 //Check wipe out and should continue the battle
-public class WipeOutCheck
+sealed public class WipeOutCheck
 {
     public WipeOutCheck(List<BattleUnit> characters)
     {
@@ -391,7 +391,7 @@ public class WipeOutCheck
 }
 
 //NavigatorReaction
-public class NavigatorSpeechAfterMoveClass
+sealed public class NavigatorSpeechAfterMoveClass
 {
     public NavigatorSpeechAfterMoveClass(string navigatorName, OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, OrderStatusClass orderStatus,
      EnvironmentInfoClass environmentInfo)
@@ -462,7 +462,7 @@ public class NavigatorSpeechAfterMoveClass
 
 }
 
-public class OrderConditionClass
+sealed public class OrderConditionClass
 {
     public OrderConditionClass(int wave, int turn, int phase, int orderNumber, int nest, int nestOrderNumber)
     { Wave = wave; Turn = turn; Phase = phase; OrderNumber = orderNumber; Nest = nest; NestOrderNumber = nestOrderNumber; }
@@ -478,7 +478,7 @@ public class OrderConditionClass
 
 }
 
-public class BattleResultClass
+sealed public class BattleResultClass
 {
     public BattleResultClass()
     {
@@ -496,7 +496,7 @@ public class BattleResultClass
     public List<BattleUnit> AvoidMoreThanOnceCharacters;
 }
 
-public class EnvironmentInfoClass
+sealed public class EnvironmentInfoClass
 {
     public EnvironmentInfoClass(int wave, int turn, int phase, int randomSeed, System.Random r)
     { Wave = wave; Turn = turn; Phase = phase; RandomSeed = randomSeed; R = r; }

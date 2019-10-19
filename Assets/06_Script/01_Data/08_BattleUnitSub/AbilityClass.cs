@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AbilityClass-", menuName = "BattleUnit/AbilityClass", order = 12)]
-public class AbilityClass : ScriptableObject
+sealed public class AbilityClass : ScriptableObject
 {
     // Range is between 5 to 35
     [SerializeField] public int Power;

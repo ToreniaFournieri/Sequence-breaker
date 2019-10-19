@@ -4,7 +4,7 @@ using EnhancedUI.EnhancedScroller;
 
 namespace KohmaiWorks.Scroller
     {
-    public class EnhancedScrollCellView : EnhancedScrollerCellView
+    sealed public class EnhancedScrollCellView : EnhancedScrollerCellView
     {
         public Text cellText;
 

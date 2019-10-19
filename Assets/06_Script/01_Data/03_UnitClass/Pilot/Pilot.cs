@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Pilot-", menuName = "Unit/Pilot", order = 3)]
-public class Pilot : ScriptableObject
+sealed public class Pilot : ScriptableObject
 {
     [SerializeField] public string Name;
     [SerializeField] public PilotStyle PilotStyle;

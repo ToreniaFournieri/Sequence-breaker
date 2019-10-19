@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SuperScrollView;
 
-public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
+sealed public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
 {
 
   

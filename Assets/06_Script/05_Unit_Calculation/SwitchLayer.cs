@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class SwitchLayer : MonoBehaviour
+sealed public class SwitchLayer : MonoBehaviour
 {
     public GameObject translucentLayer;
     public void SwitchLayerToFront (GameObject activeLayer)

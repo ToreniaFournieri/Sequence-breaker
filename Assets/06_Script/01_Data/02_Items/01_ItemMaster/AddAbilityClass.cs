@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "AddAbility-", menuName = "Item/AddAbility", order = 7)]
-public class AddAbilityClass : ScriptableObject
+sealed public class AddAbilityClass : ScriptableObject
 {
 
     [SerializeField] public Ability Ability;

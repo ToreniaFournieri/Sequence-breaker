@@ -4,7 +4,7 @@ using EnhancedUI.EnhancedScroller;
 
 namespace KohmaiWorks.Scroller
 {
-    public class CellView : EnhancedScrollerCellView
+    sealed public class CellView : EnhancedScrollerCellView
     {
         public Text reactText;
         public GameObject separateLine;

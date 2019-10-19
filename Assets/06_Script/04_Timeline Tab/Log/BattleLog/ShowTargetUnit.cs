@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace KohmaiWorks.Scroller
 {
-    public class ShowTargetUnit : MonoBehaviour
+    sealed public class ShowTargetUnit : MonoBehaviour
     {
         public SimpleObjectPool unitIconObjectPool;
 

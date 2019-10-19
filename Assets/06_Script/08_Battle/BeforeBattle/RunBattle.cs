@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class RunBattle : MonoBehaviour
+sealed public class RunBattle : MonoBehaviour
 {
     // Mission infomation
     public string missionText;

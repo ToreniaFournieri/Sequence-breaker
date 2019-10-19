@@ -4,7 +4,7 @@ using UnityEngine;
 using SuperScrollView;
 
 
-public class InventoryTreeViewItemData
+sealed public class InventoryTreeViewItemData
 {
     public string mName;
     public string mIcon;
@@ -29,7 +29,7 @@ public class InventoryTreeViewItemData
     }
 }
 
-public class InventoryTreeViewDataSourceMgr : MonoBehaviour
+sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 {
     // Item data base 
     public ItemDataBase itemDataBase;

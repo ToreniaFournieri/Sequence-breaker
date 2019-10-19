@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class ItemDetailViewController : MonoBehaviour
+sealed public class ItemDetailViewController : MonoBehaviour
 {
     public GameObject ItemDetailViewGameObject;
     public GameObject ItemdetailViewText;
