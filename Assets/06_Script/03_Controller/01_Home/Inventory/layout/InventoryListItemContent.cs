@@ -90,6 +90,8 @@ public class InventoryListItemContent : MonoBehaviour
     // item content button clicked
     void OnContentClicked()
     {
+
+
         if (item != null)
         {
 
@@ -102,7 +104,7 @@ public class InventoryListItemContent : MonoBehaviour
                 inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
             }
         }
-        Debug.Log("sample");
+        //Debug.Log("sample");
 
         //if (mClickItemContentHandler != null)
         //{

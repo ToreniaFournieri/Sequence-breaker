@@ -17,26 +17,37 @@ public class CharacterStatusDisplay : MonoBehaviour
     public Text characterNameText;
     public Text itemAmountText;
     public Text AbilityText;
-    public List<Item> itemList;
+    //public List<Item> itemList;
 
     //for data save
     public Affiliation affiliation;
     public int uniqueID;
     public int itemCapacity;
-    public int selectedUnitNo;
+    public int selectedUnitNo = 0;
     
 
     public void Init()
     {
-        SetCharacterStatus(0);
+        GetItemList();
+        RefleshCharacterStatusAndItemList();
+
+    }
+
+    // reflesh character status display
+    public void RefleshCharacterStatusAndItemList()
+    {
+        //Debug.Log("show character: " + UnitList[selectedUnitNo].Name);
+        SetCharacterStatus(selectedUnitNo);
     }
 
 
     public void SetCharacterStatus(int _selectedUnitNo)
     {
+        //Debug.Log("in SetCharacterStatus: " + UnitList[_selectedUnitNo].Name);
 
         if (UnitList != null && _selectedUnitNo < UnitList.Count)
         {
+
             // updating
             selectedUnitNo = _selectedUnitNo;
 
@@ -52,7 +63,7 @@ public class CharacterStatusDisplay : MonoBehaviour
             uniqueID = UnitList[selectedUnitNo].UniqueID;
 
             // load from saved data
-            itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
+            //itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
             characterTreeViewDataSourceMgr.Show();
             characterTreeViewWithStickyHeadScript.Initialization();
@@ -61,6 +72,34 @@ public class CharacterStatusDisplay : MonoBehaviour
 
     }
 
+    public void AddAndSaveItem(Item _item)
+    {
+        List<Item> _itemList = GetItemList();
+        _itemList.Add(_item);
+        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID, _itemList);
+
+    }
+
+    public void RemoveAndSaveItem(Item _item)
+    {
+        List<Item> _itemList = GetItemList();
+
+        for (int i = _itemList.Count - 1; i >= 0; i--)
+        {
+            if (_itemList[i] == _item)
+            {
+                _itemList.RemoveAt(i);
+                continue;
+            }
+        }
+        itemDataBase.SaveItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID, _itemList);
+    }
+
+    public List<Item> GetItemList()
+    {
+        return itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
+
+    }
 
 
 }

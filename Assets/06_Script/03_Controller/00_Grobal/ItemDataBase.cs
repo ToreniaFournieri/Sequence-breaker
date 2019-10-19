@@ -55,14 +55,18 @@ public class ItemDataBase :MonoBehaviour
 
         foreach (Item _item in itemList)
         {
-            ItemForSave _itemForSave = new ItemForSave();
-            // 0 means no ItemID
-            if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
-            if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
-            if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
-            _itemForSave.eV = _item.enhancedValue;
+            if (_item != null)
+            {
 
-            _itemForSaveList.Add(_itemForSave);
+                ItemForSave _itemForSave = new ItemForSave();
+                // 0 means no ItemID
+                if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
+                if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
+                if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
+                _itemForSave.eV = _item.enhancedValue;
+
+                _itemForSaveList.Add(_itemForSave);
+            }
         }
 
         BinaryFormatter bf = new BinaryFormatter();

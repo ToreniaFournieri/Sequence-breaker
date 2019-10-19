@@ -137,25 +137,30 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
         itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
 
         //remove from other inventory
-        for (int i = characterStatusDisplay.itemList.Count - 1; i >= 0; i--)
-        {
-            if (characterStatusDisplay.itemList[i] == item)
-            {
-                characterStatusDisplay.itemList.RemoveAt(i);
-            }
-        }
-        itemDataBase.SaveItemList("item-" + characterStatusDisplay.affiliation
-            + "-" + characterStatusDisplay.uniqueID, characterStatusDisplay.itemList);
+        characterStatusDisplay.RemoveAndSaveItem(item);
+        //for (int i = characterStatusDisplay.GetItemList().Count - 1; i >= 0; i--)
+        //{
+        //    if (characterStatusDisplay.GetItemList()[i] == item)
+        //    {
+        //        characterStatusDisplay.GetItemList().RemoveAt(i);
+        //        continue;
+        //    }
+        //}
+        //itemDataBase.SaveItemList("item-" + characterStatusDisplay.affiliation
+        //    + "-" + characterStatusDisplay.uniqueID, characterStatusDisplay.GetItemList());
 
 
-        //DoRefreshDataSource();
-        //otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+        characterStatusDisplay.RefleshCharacterStatusAndItemList();
+        otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
     }
 
 
-    public void DoRefreshDataSource()
+    // this method is called from CharacterStatus Display . SetCharacterStatus
+    private void DoRefreshDataSource()
     {
+
+
         mItemDataList.Clear();
         for (int i = 0; i < mTreeViewItemCount; ++i)
         {
@@ -167,7 +172,7 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             //int childCount = mTreeViewChildItemCount;
 
 
-            foreach (Item _item in characterStatusDisplay.itemList)
+            foreach (Item _item in characterStatusDisplay.GetItemList())
             {
                 if (_item != null)
                 {
@@ -193,6 +198,13 @@ public class CharacterTreeViewDataSourceMgr : MonoBehaviour
             //}
 
         }
+
+        //if (characterStatusDisplay.UnitList != null)
+        //{
+        //    characterStatusDisplay.RefleshCharacterStatus();
+        //}
+
+
     }
 
 

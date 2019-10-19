@@ -44,7 +44,7 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     List<InventoryTreeViewItemData> mItemDataList = new List<InventoryTreeViewItemData>();
 
     static InventoryTreeViewDataSourceMgr instance = null;
-    int mTreeViewItemCount = 10;
+    int mTreeViewItemCount = 2;
     //int mTreeViewChildItemCount = 10;
 
 
@@ -119,14 +119,16 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 
     public void TryTransferItemToOtherInventory(Item item)
     {
-        if (otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemCapacity > otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList.Count)
+        if (otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemCapacity > otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList().Count)
         {
 
             //add item
-            otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList.Add(item);
-            itemDataBase.SaveItemList("item-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.affiliation
-                + "-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.uniqueID,
-                otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemList);
+            otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.AddAndSaveItem(item);
+
+            //otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList().Add(item);
+            //itemDataBase.SaveItemList("item-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.affiliation
+            //    + "-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.uniqueID,
+            //    otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList());
 
             //remove from other inventory
             for (int i = itemList.Count - 1; i >= 0; i--)
@@ -134,12 +136,13 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
                 if (itemList[i] == item)
                 {
                     itemList.RemoveAt(i);
+                    continue;
                 }
             }
             itemDataBase.SaveItemList("item-" + "inventory", itemList);
 
-            //DoRefreshDataSource();
-            //otherCharacterTreeViewDataSourceMgr.DoRefreshDataSource();
+            DoRefreshDataSource();
+            otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();
         }
     }
 
@@ -177,6 +180,8 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             }
             else
             {
+                itemList = itemDataBase.LoadItemList("item-" + "inventory");
+
                 foreach (Item _item in itemList)
                 {
                     tData.AddChild(_item);
