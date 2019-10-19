@@ -3,48 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemPanel : MonoBehaviour
-{
-    public Button button;
-    public Text nameLabel;
-    public Text descriptionLabel;
+//public class ItemPanel : MonoBehaviour
+//{
+//    public Button button;
+//    public Text nameLabel;
+//    public Text descriptionLabel;
 
-	//to show item detail view, tell button objet
-	public Button itemDetailViewButton;
-	private ItemDetailViewController _itemDetailViewController;
-	//public Image iconImage;
+//	//to show item detail view, tell button objet
+//	public Button itemDetailViewButton;
+//	private ItemDetailViewController _itemDetailViewController;
+//	//public Image iconImage;
 
-	private Item item;
-    private InventoryScrollList scrollList;
+//	private Item item;
+//    private InventoryScrollList scrollList;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        button.onClick.AddListener(HandleClick);
-    }
-    public void Setup(Item currentItem, InventoryScrollList currentScrollList, ItemDetailViewController itemDetailViewController)
-    {
-        item = currentItem;
-        scrollList = currentScrollList;
-        if (item != null)
-        {
-            nameLabel.text = item.itemName;
-            descriptionLabel.text = item.itemDescription;
+//    // Start is called before the first frame update
+//    void Start()
+//    {
+//        button.onClick.AddListener(HandleClick);
+//    }
+//    public void Setup(Item currentItem, InventoryScrollList currentScrollList, ItemDetailViewController itemDetailViewController)
+//    {
+//        item = currentItem;
+//        scrollList = currentScrollList;
+//        if (item != null)
+//        {
+//            nameLabel.text = item.itemName;
+//            descriptionLabel.text = item.itemDescription;
 
-        }
-            _itemDetailViewController = itemDetailViewController;
+//        }
+//            _itemDetailViewController = itemDetailViewController;
 
-            this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+//            this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
         
-    }
+//    }
 
-    public void HandleClick()
-    {
-        scrollList.TryTransferItemToOtherInventory(item);
-    }
+//    public void HandleClick()
+//    {
+//        scrollList.TryTransferItemToOtherInventory(item);
+//    }
 
-    public void ItemDetailIsClicked()
-    {
-        _itemDetailViewController.OpenView(item.GetItemDetailDescription());
-    }
-}
+//    public void ItemDetailIsClicked()
+//    {
+//        _itemDetailViewController.OpenView(item.GetItemDetailDescription());
+//    }
+//}

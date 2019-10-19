@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Skill-", menuName = "Skill/EffectClass", order = 10)]
-public class EffectClass : ScriptableObject
+sealed public class EffectClass : ScriptableObject
 {
     [SerializeField] public BattleUnit Character;
     [SerializeField] public SkillsMasterClass Skill;
@@ -64,7 +64,7 @@ public class EffectClass : ScriptableObject
         }
     }
 
-    public class IsntTriggeredBecauseClass
+    sealed public class IsntTriggeredBecauseClass
     {
         public IsntTriggeredBecauseClass() { Initialize(); }
         public void Initialize()

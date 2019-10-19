@@ -34,17 +34,25 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     // Item data base 
     public ItemDataBase itemDataBase;
     public bool isDebugModeForInventory;
-    public List<Item> itemList;
+    //public List<Item> itemList;
+
+    // inventory
+    public InventoryItemList inventoryItemList;
+
+
 
     // Other Inventory, whitch means character 
     public CharacterTreeViewDataSourceMgr otherCharacterTreeViewDataSourceMgr;
 
 
+    //For update graphics
+    public InventoryTreeViewWithStickyHeadScript InventoryTreeViewWithStickyHeadScript;
+
 
     List<InventoryTreeViewItemData> mItemDataList = new List<InventoryTreeViewItemData>();
 
     static InventoryTreeViewDataSourceMgr instance = null;
-    int mTreeViewItemCount = 2;
+    int mTreeViewItemCount = 1;
     //int mTreeViewChildItemCount = 10;
 
 
@@ -131,15 +139,17 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             //    otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList());
 
             //remove from other inventory
-            for (int i = itemList.Count - 1; i >= 0; i--)
-            {
-                if (itemList[i] == item)
-                {
-                    itemList.RemoveAt(i);
-                    continue;
-                }
-            }
-            itemDataBase.SaveItemList("item-" + "inventory", itemList);
+            inventoryItemList.removeItemAndSave(item);
+
+            //for (int i = inventoryItemList.itemList.Count - 1; i >= 0; i--)
+            //{
+            //    if (inventoryItemList.itemList[i] == item)
+            //    {
+            //        inventoryItemList.itemList.RemoveAt(i);
+            //        continue;
+            //    }
+            //}
+            //itemDataBase.SaveItemList("item-" + "inventory", inventoryItemList.itemList);
 
             DoRefreshDataSource();
             otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();
@@ -154,7 +164,7 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
         for (int i = 0; i < mTreeViewItemCount; ++i)
         {
             InventoryTreeViewItemData tData = new InventoryTreeViewItemData();
-            tData.mName = "Item" + i;
+            tData.mName = "Main Item Cateory: " + i;
             //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
             tData.mIcon = "1";
             mItemDataList.Add(tData);
@@ -180,14 +190,21 @@ public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             }
             else
             {
-                itemList = itemDataBase.LoadItemList("item-" + "inventory");
 
-                foreach (Item _item in itemList)
+                inventoryItemList.init();
+                foreach (Item _item in inventoryItemList.itemList)
                 {
                     tData.AddChild(_item);
                 }
+
+                Debug.Log("tData count:" + tData.ChildCount);
+
             }
+
+            InventoryTreeViewWithStickyHeadScript.Initialization();
         }
+
+
     }
 
 

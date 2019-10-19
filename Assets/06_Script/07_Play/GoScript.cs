@@ -111,12 +111,14 @@ public class GoScript : MonoBehaviour
             //dropedItem.item = null;
             //dropedItem.SetItem(item);
             missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + item.itemName;
-            missionController.inventoryManager.inventoryScrollList.AddItem(item.Copy());
+            //missionController.inventoryManager.inventoryScrollList.AddItem(item.Copy());
             //Debug.Log(" Droped:" + item.itemName);
-
         }
-        missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
-        missionController.inventoryManager.inventoryScrollList.Save(missionController.inventoryManager.inventoryScrollList);
+        missionController.inventoryItemList.AddItemListAndSave(itemList);
+        missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+
+        //missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
+        //missionController.inventoryManager.inventoryScrollList.Save(missionController.inventoryManager.inventoryScrollList);
 
         missionController.TransparentMessageController.transparentMessage.SetActive(true);
 

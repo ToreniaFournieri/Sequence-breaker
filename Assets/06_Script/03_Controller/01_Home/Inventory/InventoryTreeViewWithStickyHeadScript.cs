@@ -23,11 +23,12 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
     RectTransform mStickeyHeadItemRf;
     float mStickeyHeadItemHeight = -1;
 
-
+    bool isStarted = false;
 
     // Use this for initialization
     void Start()
     {
+        mTreeItemCountMgr.Clear();
         int count = InventoryTreeViewDataSourceMgr.Get.TreeViewItemCount;
         //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
         for (int i = 0; i < count; ++i)
@@ -61,7 +62,45 @@ public class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
 
         mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
         UpdateStickeyHeadPos();
+
+        isStarted = true;
     }
+
+
+    public void Initialization()
+    {
+        mTreeItemCountMgr.Clear();
+        int count = InventoryTreeViewDataSourceMgr.Get.TreeViewItemCount;
+        //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
+        for (int i = 0; i < count; ++i)
+        {
+            int childCount = InventoryTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
+            //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
+            mTreeItemCountMgr.AddTreeItem(childCount, true);
+        }
+
+
+        //mTreeItemCountMgr.ToggleItemExpand(0);
+
+        UpdateStickeyHeadPos();
+
+
+        Debug.Log("initialized in InventoryTree");
+
+        if (isStarted == true)
+        {
+            mTreeItemCountMgr.ToggleItemExpand(0);
+            OnExpandClicked(0);
+        }
+
+
+        //mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+        //mLoopListView.RefreshAllShownItem();
+
+
+
+    }
+
 
     void OnBackBtnClicked()
     {

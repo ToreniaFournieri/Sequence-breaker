@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissionController : MonoBehaviour
+sealed public class MissionController : MonoBehaviour
 {
     // ally unit list
     public List<UnitClass> allyUnitList;
     public List<BattleUnit> allyCurrentBattleUnitList;
     public PartyStatusIcons partystatusIcons;
-    public InventoryManager inventoryManager;
+
+    // inventory
+    public InventoryItemList inventoryItemList;
+
+    public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
+    //public InventoryManager inventoryManager;
     public LogListSRIA logList;
     public TransparentMessageController TransparentMessageController;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartUp : MonoBehaviour
+sealed public class StartUp : MonoBehaviour
 {
 
     //For inventory management

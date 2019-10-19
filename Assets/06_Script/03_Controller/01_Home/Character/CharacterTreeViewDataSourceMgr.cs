@@ -133,8 +133,8 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
         //inventory is infinity
 
         //add item
-        otherInventoryTreeViewDataSourceMgr.itemList.Add(item);
-        itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
+        otherInventoryTreeViewDataSourceMgr.inventoryItemList.AddItemAndSave(item);
+        //itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
 
         //remove from other inventory
         characterStatusDisplay.RemoveAndSaveItem(item);

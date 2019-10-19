@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 // A very simple object pooling class
-public class SimpleObjectPool : MonoBehaviour
+sealed public class SimpleObjectPool : MonoBehaviour
 {
     // the prefab that this object pool returns instances of
     public GameObject prefab;
@@ -63,7 +63,7 @@ public class SimpleObjectPool : MonoBehaviour
 }
 
 // a component that simply identifies the pool that a GameObject came from
-public class PooledObject : MonoBehaviour
+sealed public class PooledObject : MonoBehaviour
 {
     public SimpleObjectPool pool;
 }

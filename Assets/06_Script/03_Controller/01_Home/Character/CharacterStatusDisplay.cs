@@ -63,7 +63,7 @@ sealed public class CharacterStatusDisplay : MonoBehaviour
             uniqueID = UnitList[selectedUnitNo].UniqueID;
 
             // load from saved data
-            //itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
+            UnitList[selectedUnitNo].itemList = itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
             characterTreeViewDataSourceMgr.Show();
             characterTreeViewWithStickyHeadScript.Initialization();
