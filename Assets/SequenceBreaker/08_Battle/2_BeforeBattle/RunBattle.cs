@@ -211,9 +211,9 @@ sealed public class RunBattle : MonoBehaviour
             }
 
             List<BattleUnit> characters = null;
-            if (_battle.LogList[i].Characters != null)
+            if (_battle.LogList[i].characters != null)
             {
-                characters = _battle.LogList[i].Characters;
+                characters = _battle.LogList[i].characters;
             }
 
 
@@ -233,8 +233,8 @@ sealed public class RunBattle : MonoBehaviour
                 barrierRemains = barrierRemains,
                 shieldRatio = shieldRatio,
                 hPRatio = hPRatio,
-                isHeaderInfo = _battle.LogList[i].IsHeaderInfo,
-                headerText = _battle.LogList[i].HeaderInfoText,
+                isHeaderInfo = _battle.LogList[i].isHeaderInfo,
+                headerText = _battle.LogList[i].headerInfoText,
                 characters = characters
             });
 

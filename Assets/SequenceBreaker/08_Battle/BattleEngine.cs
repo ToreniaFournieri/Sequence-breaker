@@ -229,15 +229,15 @@ namespace SequenceBreaker._08_Battle
 
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, false, null, firstLine, log, 1,
+                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, log,
                                                 Affiliation.none)
                                             {
-                                                IsHeaderInfo = true,
-                                                HeaderInfoText = text.FirstLine()
+                                                isHeaderInfo = true,
+                                                headerInfoText = text.FirstLine()
                                             };
                                             var copiedBattleUnit = (from BattleUnit character in _characters
                                                 select character.Copy()).ToList();
-                                            battleLog.Characters = copiedBattleUnit;
+                                            battleLog.characters = copiedBattleUnit;
                                             battleLogList.Add(battleLog);
                                             break;
                                         }
@@ -274,9 +274,8 @@ namespace SequenceBreaker._08_Battle
                                             firstLine = "[Main action phase] \n";
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, false, null, firstLine, null, 1,
-                                                Affiliation.none);
-                                            battleLog.HeaderInfoText = "[Main action phase] \n";
+                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
+                                                Affiliation.none) {headerInfoText = "[Main action phase] \n"};
                                             //battleLogList.Add(battleLog);
 
                                             for (var i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -330,7 +329,7 @@ namespace SequenceBreaker._08_Battle
 
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, false, null, null, log, 1,
+                                            battleLog = new BattleLogClass(orderCondition, null, null, log,
                                                 Affiliation.none);
                                             battleLogList.Add(battleLog);
                                             break;
@@ -372,7 +371,7 @@ namespace SequenceBreaker._08_Battle
                                     (firstLine, log) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include damage control assist.
                                     if (firstLine != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, false, order, firstLine, log, 1, order.Actor.Affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
                                         battleLogList.Add(battleLog);
                                         willSkip = true;
                                     }
@@ -381,7 +380,7 @@ namespace SequenceBreaker._08_Battle
                                         (firstLine, log) = BuffDebuffFunction(order, _characters, _effects, _buffMasters, turn); //Buff, debuff action
                                         if (firstLine != null)
                                         {
-                                            battleLog = new BattleLogClass(order.OrderCondition, false, order, firstLine, log, 1, order.Actor.Affiliation);
+                                            battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
                                             battleLogList.Add(battleLog);
                                         }
                                     }
@@ -391,7 +390,7 @@ namespace SequenceBreaker._08_Battle
 
                                     if (log != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, false, order, firstLine, log, 1, order.Actor.Affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
                                         battleLogList.Add(battleLog);
                                     }
 
@@ -499,7 +498,7 @@ namespace SequenceBreaker._08_Battle
                                     var navigationLog = navigatorSpeechAfterMove.Log;
                                     if (navigationLog == null) continue;
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(order.OrderCondition, true, null, null, navigationLog, 1, order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.Affiliation);
                                     battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
@@ -534,7 +533,7 @@ namespace SequenceBreaker._08_Battle
 
                             const string log = "Time over. \n";
                             var orderCondition = new OrderConditionClass(environmentInfo.Wave, environmentInfo.Turn, 4, 0, 0, 0);
-                            var battleLog = new BattleLogClass(orderCondition, false, null, log, null, 1, Affiliation.none);
+                            var battleLog = new BattleLogClass(orderCondition, null, log, null, Affiliation.none);
                             battleLogList.Add(battleLog);
                         }
 
@@ -597,19 +596,19 @@ namespace SequenceBreaker._08_Battle
             //string log = null;
 
             var orderConditionFinal = new OrderConditionClass(currentBattleWaves, totalTurn + 1, 0, 0, 0, 0);
-            var battleLogFinal = new BattleLogClass(orderConditionFinal, false, null, null, null, 1, Affiliation.none)
+            var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.none)
             {
-                IsHeaderInfo = true,
-                HeaderInfoText = text.FirstLine()
+                isHeaderInfo = true,
+                headerInfoText = text.FirstLine()
             };
             var copiedBattleUnitLast = (from BattleUnit character in _characters
                 select character.Copy()).ToList();
-            battleLogFinal.Characters = copiedBattleUnitLast;
+            battleLogFinal.characters = copiedBattleUnitLast;
             battleLogList.Add(battleLogFinal);
 
 
             //Set ally units for next battle
-            AllyBattleUnitsList = battleLogFinal.Characters.FindAll(unit => unit.Affiliation == Affiliation.ally);
+            AllyBattleUnitsList = battleLogFinal.characters.FindAll(unit => unit.Affiliation == Affiliation.ally);
 
 
 
@@ -639,8 +638,7 @@ namespace SequenceBreaker._08_Battle
 
             Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0);
-            var finalLogList = new BattleLogClass(finalOrderCondition, true, null, null, finalLog,
-                1, Affiliation.none);
+            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.none);
             battleLogDisplayList.Add(finalLogList);
             LogList = battleLogDisplayList;
 
