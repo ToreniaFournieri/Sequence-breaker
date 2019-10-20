@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-sealed public class SwitchLayer : MonoBehaviour
+namespace SequenceBreaker._05_Unit_Calculation
 {
-    public GameObject translucentLayer;
-    public void SwitchLayerToFront (GameObject activeLayer)
+    [System.Serializable]
+    public sealed class SwitchLayer : MonoBehaviour
     {
-        translucentLayer.transform.SetAsLastSibling();
-        activeLayer.transform.SetAsLastSibling();
+        public GameObject translucentLayer;
+        public void SwitchLayerToFront (GameObject activeLayer)
+        {
+            translucentLayer.transform.SetAsLastSibling();
+            activeLayer.transform.SetAsLastSibling();
+        }
+
+
     }
-
-
 }

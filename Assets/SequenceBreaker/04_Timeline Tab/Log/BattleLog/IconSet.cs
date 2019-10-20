@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-sealed public class IconSet : ScriptableObject
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 {
-    public GameObject iconMask;
-    public Image unitIcon;
-    public Image hPBar;
-    public Image shieldBar;
+    [System.Serializable]
+    public sealed class IconSet : ScriptableObject
+    {
+        public GameObject iconMask;
+        public Image unitIcon;
+        public Image hPBar;
+        public Image shieldBar;
+    }
 }

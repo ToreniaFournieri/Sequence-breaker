@@ -49,8 +49,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
-namespace I2.Loc.SimpleJSON
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Google
 {
 	public enum JsonBinaryTag
 	{

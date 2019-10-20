@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Util
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Util
 {
 	/// <summary>Added to a GameObject that has a Button component, it loads <see cref="sceneName"/> scene when the button is clicked</summary>
 	public class CLoadSceneOnClick : MonoBehaviour

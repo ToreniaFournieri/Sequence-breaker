@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
+using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using UnityEngine;
 using UnityEngine.Networking;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Utils
 {
     public static class I2Utils
     {

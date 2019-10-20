@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Google
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 

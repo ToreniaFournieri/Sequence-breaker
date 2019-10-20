@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections;
+using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Utils;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {
@@ -121,7 +123,7 @@ namespace I2.Loc
             {
                 return;
             }
-			I2.Loc.CoroutineManager.Start(Coroutine_LocalizeAll());
+			CoroutineManager.Start(Coroutine_LocalizeAll());
 		}
 
 		static IEnumerator Coroutine_LocalizeAll()

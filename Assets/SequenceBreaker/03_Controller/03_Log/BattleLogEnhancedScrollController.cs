@@ -1,19 +1,22 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
+﻿using System;
 using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
-using System;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using SequenceBreaker._00_System;
+using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
+using SequenceBreaker._08_Battle._2_BeforeBattle;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._03_Controller._03_Log
 {
     /// <summary>
     /// This demo shows how you can use the calculated size of the cell view to drive the scroller's cell sizes.
     /// This can be good for cases where you do not know how large each cell will need to be until the contents are
     /// populated. An example of this would be text cells containing unknown information.
     /// </summary>
-    sealed public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
+    public sealed class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
         [FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
         private List<Data> _data;

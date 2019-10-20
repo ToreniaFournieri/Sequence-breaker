@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Targets;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {

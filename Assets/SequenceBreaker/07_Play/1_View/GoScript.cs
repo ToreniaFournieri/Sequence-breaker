@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._01_Data._03_UnitClass;
+using SequenceBreaker._03_Controller._02_Play;
+using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
+using SequenceBreaker._08_Battle._2_BeforeBattle;
 using SequenceBreaker._09_Drop;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +35,7 @@ namespace SequenceBreaker._07_Play._1_View
 
 
             int wave = 0;
-            foreach (List<KohmaiWorks.Scroller.Data> unused in runBattle1.dataList)
+            foreach (List<Data> unused in runBattle1.dataList)
             {
                 battleCopyList.Add(new GameObject());
                 battleCopyList[wave].transform.parent = runBattle.transform;

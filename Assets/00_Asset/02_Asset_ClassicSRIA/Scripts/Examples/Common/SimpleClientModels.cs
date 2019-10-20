@@ -1,6 +1,6 @@
 ﻿
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples.Common
 {
 	public class SimpleClientModel
 	{

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.Common;
+using _00_Asset._01_Asset_SuperScrollView.Scripts.StaggeredGridView;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.StaggeredGridView
 {
 
     public class StaggeredGridViewTopToBottomDemoScript : MonoBehaviour

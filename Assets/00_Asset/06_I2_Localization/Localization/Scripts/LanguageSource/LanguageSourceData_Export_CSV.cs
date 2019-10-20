@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Text;
+﻿using System.Text;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Google;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource
 {
 	public partial class LanguageSourceData
 	{

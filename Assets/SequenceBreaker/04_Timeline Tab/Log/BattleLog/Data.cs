@@ -1,11 +1,12 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data;
+using UnityEngine;
 
-
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 {
     [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
-    sealed public class Data : ScriptableObject
+    public sealed class Data : ScriptableObject
     {
         public int index;
         public int turn;

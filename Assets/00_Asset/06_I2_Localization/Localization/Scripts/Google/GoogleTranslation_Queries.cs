@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.RegularExpressions;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Configurables;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Utils;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Google
 {
 	using TranslationDictionary = Dictionary<string, TranslationQuery>;
 

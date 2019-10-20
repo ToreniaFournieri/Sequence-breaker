@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EnhancedScrollerDemos.RemoteResourcesDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._05_Remote_Resources
 {
     public class Data
     {

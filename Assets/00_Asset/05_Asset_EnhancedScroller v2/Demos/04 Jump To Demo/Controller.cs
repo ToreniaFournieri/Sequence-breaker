@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.JumpToDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._04_Jump_To_Demo
 {
     /// <summary>
     /// This demo shows how to jump to an index in the scroller. You can jump to a position before

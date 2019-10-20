@@ -1,12 +1,13 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
-using System.Collections;
-#if UNITY_2017_4_OR_NEWER
+﻿using System.Collections;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+#if UNITY_2017_4_OR_NEWER
+
 #endif
 
-namespace EnhancedScrollerDemos.RemoteResourcesDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._05_Remote_Resources
 {
     public class CellView : EnhancedScrollerCellView
     {

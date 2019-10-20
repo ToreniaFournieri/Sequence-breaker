@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Collections.Generic;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts
 {
 	public class LocalizationReader 
 	{

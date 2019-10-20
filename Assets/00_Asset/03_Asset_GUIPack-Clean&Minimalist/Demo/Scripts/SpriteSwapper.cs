@@ -5,7 +5,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     // Utility class for swapping the sprite of a UI Image between two predefined values.
     public class SpriteSwapper : MonoBehaviour

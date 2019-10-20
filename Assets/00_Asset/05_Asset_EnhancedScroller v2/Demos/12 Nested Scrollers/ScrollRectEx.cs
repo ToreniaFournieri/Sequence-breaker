@@ -3,13 +3,13 @@ CaptainSchnittchen
 https://forum.unity.com/threads/nested-scrollrect.268551/
 */
 
-namespace EnhancedScrollerDemos.NestedScrollers
-{
-    using UnityEngine;
-    using UnityEngine.UI;
-    using System;
-    using UnityEngine.EventSystems;
+using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._12_Nested_Scrollers
+{
     public class ScrollRectEx : ScrollRect
     {
 

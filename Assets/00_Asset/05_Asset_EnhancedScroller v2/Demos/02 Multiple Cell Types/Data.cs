@@ -1,4 +1,4 @@
-﻿namespace EnhancedScrollerDemos.MultipleCellTypesDemo
+﻿namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._02_Multiple_Cell_Types
 {
     /// <summary>
     /// This set of classes store information about the different rows.

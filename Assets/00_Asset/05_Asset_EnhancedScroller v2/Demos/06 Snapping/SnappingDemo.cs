@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.SnappingDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._06_Snapping
 {
     /// <summary>
     /// This demo shows how you can use snapping to lock a slot cell to a particular

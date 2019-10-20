@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._01_Data._01_Skills;
 using UnityEngine;
 
 namespace SequenceBreaker._08_Battle

@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Util
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Util
 {
     /// <summary>
 	/// Utility to expand an item when it's clicked, dispatching the size change request via <see cref="ISizeChangesHandler"/> for increased flexibility. 

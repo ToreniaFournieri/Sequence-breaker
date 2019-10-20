@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.MultipleCellTypesDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._02_Multiple_Cell_Types
 {
     public class MultipleCellTypesDemo : MonoBehaviour, IEnhancedScrollerDelegate
     {

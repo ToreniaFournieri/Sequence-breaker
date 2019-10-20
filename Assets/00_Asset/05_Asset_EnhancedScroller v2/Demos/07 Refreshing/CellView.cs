@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.RefreshDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._07_Refreshing
 {
     /// <summary>
     /// This is the view of our cell which handles how the cell looks.

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EnhancedScrollerDemos.NestedLinkedScrollers
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos
 {
     /// <summary>
     /// Main cell view data

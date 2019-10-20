@@ -1,4 +1,4 @@
-﻿namespace SuperScrollView
+﻿namespace _00_Asset._01_Asset_SuperScrollView.Scripts.GridView
 {
     //if GridFixedType is GridFixedType.ColumnCountFixed, then the GridItemGroup is one row of the gridview
     //if GridFixedType is GridFixedType.RowCountFixed, then the GridItemGroup is one column of the gridview

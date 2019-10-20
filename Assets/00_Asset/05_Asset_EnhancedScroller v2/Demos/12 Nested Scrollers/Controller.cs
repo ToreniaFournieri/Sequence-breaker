@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
+﻿using System.Collections.Generic;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.NestedScrollers
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._12_Nested_Scrollers
 {
     /// <summary>
     /// This example scene shows one way you could set up nested scrollers. 

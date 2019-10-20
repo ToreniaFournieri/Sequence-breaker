@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 {
     [CreateAssetMenu(fileName = "DataList-", menuName = "Data/data", order = 5)]
-    sealed public class DataList : ScriptableObject
+    public sealed class DataList : ScriptableObject
     {
         [FormerlySerializedAs("Data")] public List<Data> data;
 

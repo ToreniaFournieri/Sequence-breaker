@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System.Linq;
+using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {

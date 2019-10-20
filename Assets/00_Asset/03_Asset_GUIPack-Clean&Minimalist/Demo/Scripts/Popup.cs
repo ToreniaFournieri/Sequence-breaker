@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     // This class is responsible for popup management. Popups follow the traditional behavior of
     // automatically blocking the input on elements behind it and adding a background texture.

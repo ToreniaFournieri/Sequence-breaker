@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Scripts.Common
 {
     public class ClickEventListener : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {

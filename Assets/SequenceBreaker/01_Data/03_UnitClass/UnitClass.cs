@@ -1,67 +1,74 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data._01_Skills;
+using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._01_Data._08_BattleUnitSub;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
-sealed public class UnitClass : ScriptableObject
+namespace SequenceBreaker._01_Data._03_UnitClass
 {
-    [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
-    [FormerlySerializedAs("Name")] [SerializeField] public string name;
-    [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
-    [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
-    //[SerializeField] public AbilityClass InitialAbility;
-    [FormerlySerializedAs("ItemCapacity")] [SerializeField] public int itemCapacity;
-
-    [SerializeField] public List<Item> itemList;
-
-    public AbilityClass Ability { get; set; }
-    [FormerlySerializedAs("CoreFrame")] [SerializeField] public CoreFrame coreFrame;
-    [FormerlySerializedAs("Pilot")] [SerializeField] public Pilot pilot;
-    [FormerlySerializedAs("Level")] [SerializeField] public int level;
-    [FormerlySerializedAs("Experience")] [SerializeField] public int experience;
-    [FormerlySerializedAs("ToNextLevel")] public int toNextLevel;
-
-    [SerializeField] public List<SkillsMasterClass> skillsMaster;
-
-
-    public void GainExperience (int experienceAdd)
+    [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
+    public sealed class UnitClass : ScriptableObject
     {
-        experience += experienceAdd;
-        CalculateLevel();
-    }
+        [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
+        [FormerlySerializedAs("Name")] [SerializeField] public string name;
+        [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
+        [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
+        //[SerializeField] public AbilityClass InitialAbility;
+        [FormerlySerializedAs("ItemCapacity")] [SerializeField] public int itemCapacity;
+
+        [SerializeField] public List<Item> itemList;
+
+        public AbilityClass Ability { get; set; }
+        [FormerlySerializedAs("CoreFrame")] [SerializeField] public CoreFrame coreFrame;
+        [FormerlySerializedAs("Pilot")] [SerializeField] public Pilot.Pilot pilot;
+        [FormerlySerializedAs("Level")] [SerializeField] public int level;
+        [FormerlySerializedAs("Experience")] [SerializeField] public int experience;
+        [FormerlySerializedAs("ToNextLevel")] public int toNextLevel;
+
+        [SerializeField] public List<SkillsMasterClass> skillsMaster;
 
 
-    private void CalculateLevel ()
-    {
-        int level = 1;
-        int remainder = experience;
-        while (remainder > 0)
+        public void GainExperience (int experienceAdd)
         {
-
-            //Sample implement.
-            int step = (int)(Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20) ;
-            toNextLevel = step - remainder;
-            remainder -= step;
-
-            if (remainder > 0)
-            {
-                level++;
-            }
-            
+            experience += experienceAdd;
+            CalculateLevel();
         }
 
-        level = level;
+
+        private void CalculateLevel ()
+        {
+            int level = 1;
+            int remainder = experience;
+            while (remainder > 0)
+            {
+
+                //Sample implement.
+                int step = (int)(Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20) ;
+                toNextLevel = step - remainder;
+                remainder -= step;
+
+                if (remainder > 0)
+                {
+                    level++;
+                }
+            
+            }
+
+            level = level;
+        }
+
+        public int ExperienceFromBeaten()
+        {
+            //Sample implement.
+            return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20 )/30);
+
+        }
+
+
+
     }
-
-    public int ExperienceFromBeaten()
-    {
-        //Sample implement.
-        return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20 )/30);
-
-    }
-
-
-
 }
 
 

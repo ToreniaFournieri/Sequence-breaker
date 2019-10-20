@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
 
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
     {
-    sealed public class EnhancedScrollCellView : EnhancedScrollerCellView
+    public sealed class EnhancedScrollCellView : EnhancedScrollerCellView
     {
         public Text cellText;
 

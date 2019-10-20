@@ -2,6 +2,10 @@
 using UnityEditor;
 using System;
 using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Google;
+using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Utils;
 using UnityEngine.Networking;
 
 namespace I2.Loc
@@ -441,7 +445,7 @@ namespace I2.Loc
 
             try
             {
-                var data = SimpleJSON.Json.Parse(Result).AsObject;
+                var data = Json.Parse(Result).AsObject;
 				int version = 0;
 				if (!int.TryParse(data["script_version"], out version))
 					version = 0;
@@ -640,7 +644,7 @@ namespace I2.Loc
 
             try
             {
-				var data = SimpleJSON.Json.Parse(Result).AsObject;
+				var data = Json.Parse(Result).AsObject;
 
 				string name = data["name"];
 				string key = data["id"];
@@ -699,8 +703,8 @@ namespace I2.Loc
             try
 			{
 				mGoogleSpreadsheets.Clear();
-				var data = SimpleJSON.Json.Parse(Result).AsObject;
-				foreach (KeyValuePair<string, SimpleJSON.JsonNode> element in data)
+				var data = Json.Parse(Result).AsObject;
+				foreach (KeyValuePair<string, JsonNode> element in data)
 					mGoogleSpreadsheets[element.Key] = element.Value;
 			}
 			catch(Exception e)

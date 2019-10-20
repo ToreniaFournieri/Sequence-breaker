@@ -1,9 +1,12 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
-[Serializable]
-sealed public class RefreshController : MonoBehaviour
+namespace SequenceBreaker._03_Controller
 {
-    [FormerlySerializedAs("NeedToRefresh")] public bool needToRefresh = false;
+    [Serializable]
+    public sealed class RefreshController : MonoBehaviour
+    {
+        [FormerlySerializedAs("NeedToRefresh")] public bool needToRefresh = false;
+    }
 }

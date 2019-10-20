@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using _00_Asset._06_I2_Localization.Localization.Scripts.Utils;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 

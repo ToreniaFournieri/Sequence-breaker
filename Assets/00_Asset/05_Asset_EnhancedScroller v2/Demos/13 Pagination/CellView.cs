@@ -1,7 +1,7 @@
-﻿using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine.UI;
 
-namespace EnhancedScrollerDemos.Pagination
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._13_Pagination
 {
     /// <summary>
     /// This is the view of our cell which handles how the cell looks.

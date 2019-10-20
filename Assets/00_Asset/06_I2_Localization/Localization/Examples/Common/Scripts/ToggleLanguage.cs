@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Examples.Common.Scripts
 {
 	public class ToggleLanguage : MonoBehaviour 
 	{

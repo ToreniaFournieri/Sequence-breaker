@@ -1,4 +1,4 @@
-﻿namespace EnhancedScrollerDemos.SuperSimpleDemo
+﻿namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._01_Simple_Demo
 {
     /// <summary>
     /// Super simple data class to hold information for each cell.

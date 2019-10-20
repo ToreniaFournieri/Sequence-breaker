@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.SuperSimpleDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._01_Simple_Demo
 {
     /// <summary>
     /// Set up our demo script as a delegate for the scroller by inheriting from the IEnhancedScrollerDelegate interface

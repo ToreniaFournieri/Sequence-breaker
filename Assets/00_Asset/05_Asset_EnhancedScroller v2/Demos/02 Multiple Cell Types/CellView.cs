@@ -1,6 +1,6 @@
-﻿using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
 
-namespace EnhancedScrollerDemos.MultipleCellTypesDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._02_Multiple_Cell_Types
 {
     /// <summary>
     /// This is the base class for the different cell types. We use a base class

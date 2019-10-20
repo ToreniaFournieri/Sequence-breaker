@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using UnityEngine;
 using UnityEditor;
 
 namespace I2.Loc

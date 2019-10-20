@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EnhancedScrollerDemos.SnappingDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._06_Snapping
 {
     /// <summary>
     /// This class represents a slot cell

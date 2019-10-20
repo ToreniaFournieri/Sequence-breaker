@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using _00_Asset._01_Asset_SuperScrollView.Scripts.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Scripts.StaggeredGridView
 {
 
     public class StaggeredGridItemGroup

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
+﻿using System.Collections.Generic;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.ViewDrivenCellSizes
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._08_View_Driven_Cell_Sizes
 {
     /// <summary>
     /// This demo shows how you can use the calculated size of the cell view to drive the scroller's cell sizes.

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Scripts.GridView
 {
     public class GridItemPool
     {

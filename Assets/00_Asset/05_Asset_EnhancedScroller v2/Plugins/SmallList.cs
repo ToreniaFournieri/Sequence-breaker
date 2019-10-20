@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EnhancedUI
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
 {
     /// <summary>
     /// This is a super light implementation of an array that 

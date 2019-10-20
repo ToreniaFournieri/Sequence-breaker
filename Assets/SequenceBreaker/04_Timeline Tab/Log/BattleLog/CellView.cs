@@ -1,11 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using SequenceBreaker._00_System;
+using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 {
-    sealed public class CellView : EnhancedScrollerCellView
+    public sealed class CellView : EnhancedScrollerCellView
     {
         public Text reactText;
         public GameObject separateLine;

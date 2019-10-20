@@ -1,7 +1,6 @@
-﻿using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
 
-namespace EnhancedScrollerDemos.GridSelection
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._10b_Grid_Selection
 {
     /// <summary>
     /// This delegate handles the UI's button click

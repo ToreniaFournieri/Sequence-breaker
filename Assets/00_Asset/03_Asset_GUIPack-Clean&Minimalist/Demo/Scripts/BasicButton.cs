@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     /// <summary>
     /// Basic button class used throughout the demo.

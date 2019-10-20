@@ -1,7 +1,6 @@
-﻿using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
 
-namespace EnhancedScrollerDemos.GridSimulation
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._10_Grid_Simulation
 {
     /// <summary>
     /// This is the view of our cell which handles how the cell looks.

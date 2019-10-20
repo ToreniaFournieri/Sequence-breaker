@@ -1,70 +1,75 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._03_Controller._00_Grobal;
 using UnityEngine;
 
-sealed public class InventoryItemList : MonoBehaviour
+namespace SequenceBreaker._03_Controller._01_Home.Inventory
 {
-    public List<Item> itemList;
-    public ItemDataBase itemDataBase;
-
-    private void Start()
+    public sealed class InventoryItemList : MonoBehaviour
     {
-        //load from db
-        Init();
+        public List<Item> itemList;
+        public ItemDataBase itemDataBase;
 
-    }
-
-
-    //for initialize, can activate from outside
-    public void Init()
-    {
-        LoadFile();
-    }
-
-    public void AddItemAndSave(Item item)
-    {
-        itemList.Add(item);
-        SaveFile();
-    }
-
-    //reccomend to use this method
-    public void AddItemListAndSave(List<Item> itemList)
-    {
-        foreach (Item item in itemList)
+        private void Start()
         {
-            this.itemList.Add(item);
+            //load from db
+            Init();
 
         }
 
-        SaveFile();
 
-    }
-
-    public void RemoveItemAndSave(Item removedItem)
-    {
-        for (int i = itemList.Count - 1; i >= 0; i--)
+        //for initialize, can activate from outside
+        public void Init()
         {
-            if (itemList[i] == removedItem)
+            LoadFile();
+        }
+
+        public void AddItemAndSave(Item item)
+        {
+            itemList.Add(item);
+            SaveFile();
+        }
+
+        //reccomend to use this method
+        public void AddItemListAndSave(List<Item> itemList)
+        {
+            foreach (Item item in itemList)
             {
-                itemList.RemoveAt(i);
-                continue;
+                this.itemList.Add(item);
+
             }
+
+            SaveFile();
+
         }
 
-        SaveFile();
+        public void RemoveItemAndSave(Item removedItem)
+        {
+            for (int i = itemList.Count - 1; i >= 0; i--)
+            {
+                if (itemList[i] == removedItem)
+                {
+                    itemList.RemoveAt(i);
+                    continue;
+                }
+            }
+
+            SaveFile();
+        }
+
+
+        private void SaveFile()
+        {
+            itemDataBase.SaveItemList("item-" + "inventory", itemList);
+
+        }
+
+        private void LoadFile()
+        {
+            itemList = itemDataBase.LoadItemList("item-" + "inventory");
+
+        }
+
+
     }
-
-
-    private void SaveFile()
-    {
-        itemDataBase.SaveItemList("item-" + "inventory", itemList);
-
-    }
-
-    private void LoadFile()
-    {
-        itemList = itemDataBase.LoadItemList("item-" + "inventory");
-
-    }
-
-
 }

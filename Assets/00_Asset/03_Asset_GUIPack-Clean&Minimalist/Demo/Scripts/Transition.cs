@@ -4,10 +4,10 @@
 
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     // This class is responsible for managing the transitions between scenes that are performed
     // in the demo via a classic fade.

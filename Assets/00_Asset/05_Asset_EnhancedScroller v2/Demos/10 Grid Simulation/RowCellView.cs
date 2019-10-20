@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace EnhancedScrollerDemos.GridSimulation
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._10_Grid_Simulation
 {
     /// <summary>
     /// This is the sub cell of the row cell

@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.NestedLinkedScrollers
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos
 {
     /// <summary>
     /// The master cell view contains a detail EnhancedScroller

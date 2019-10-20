@@ -1,13 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
 using System.Collections.Generic;
-using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
-using frame8.ScrollRectItemsAdapter.Classic.Util;
-using System.Collections;
+using _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples.Common;
+using _00_Asset._02_Asset_ClassicSRIA.Scripts.Util;
+using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using CUtil = SequenceBreaker._07_Play._1_View.CUtil;
+using ExpandableSimpleClientModel = SequenceBreaker._07_Play._1_View.ExpandableSimpleClientModel;
 using SimpleExpandableClientViewsHolder = SequenceBreaker._07_Play._1_View.SimpleExpandableClientViewsHolder;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Examples
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples
 {
     /// <summary>Class (initially) implemented during this YouTube tutorial: https://youtu.be/aoqq_j-aV8I (which is now too old to relate). It demonstrates a simple use case with items that expand/collapse on click</summary>
     public class VerticalClassicListViewExample : ClassicSria<SimpleExpandableClientViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.Common;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Demo.Scripts
 {
     public class SceneNameInfo
     {

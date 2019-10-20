@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
 using System.Collections;
-using System;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace EnhancedUI.EnhancedScroller
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
 {
     /// <summary>
     /// This delegate handles the visibility changes of cell views

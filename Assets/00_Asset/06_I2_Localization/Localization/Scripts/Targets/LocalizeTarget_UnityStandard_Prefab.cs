@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+using UnityEngine;
+
 #pragma warning disable 618
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Targets
 {
     public class LocalizeTargetDescPrefab : LocalizeTargetDesc<LocalizeTargetUnityStandardPrefab>
     {

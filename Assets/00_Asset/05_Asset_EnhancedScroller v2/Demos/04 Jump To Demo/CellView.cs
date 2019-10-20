@@ -1,7 +1,7 @@
-﻿using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine.UI;
 
-namespace EnhancedScrollerDemos.JumpToDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._04_Jump_To_Demo
 {
     public class CellView : EnhancedScrollerCellView
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.Common
 {
     public class ListItem10 : MonoBehaviour
     {

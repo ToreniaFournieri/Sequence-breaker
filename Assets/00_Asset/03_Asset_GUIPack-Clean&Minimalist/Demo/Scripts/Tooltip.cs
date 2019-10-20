@@ -5,7 +5,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     /// <summary>
     /// Basic tooltip class used throughout the demo.

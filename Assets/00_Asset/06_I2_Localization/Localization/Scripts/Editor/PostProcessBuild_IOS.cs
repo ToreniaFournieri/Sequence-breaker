@@ -1,4 +1,6 @@
-﻿#if UNITY_IOS || UNITY_IPHONE
+﻿
+using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+#if UNITY_IOS || UNITY_IPHONE
 using UnityEditor.Callbacks;
 using System.Collections;
 using UnityEditor.iOS_I2Loc.Xcode;

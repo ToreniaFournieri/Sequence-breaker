@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data;
 using SequenceBreaker._08_Battle;
 using UnityEngine;
 
-namespace KohmaiWorks.Scroller
+namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 {
-    sealed public class ShowTargetUnit : MonoBehaviour
+    public sealed class ShowTargetUnit : MonoBehaviour
     {
         public SimpleObjectPool unitIconObjectPool;
 

@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts;
 
 namespace I2.Loc
 {

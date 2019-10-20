@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using _00_Asset._01_Asset_SuperScrollView.Scripts.Common;
+using UnityEngine;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Scripts.ListView
 {
 
     public class LoopListViewItem2 : MonoBehaviour

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
+﻿using System.Collections.Generic;
+using _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples.Common;
+using SequenceBreaker._04_Timeline_Tab.Log;
+using UnityEngine;
 using UnityEngine.Serialization;
+using CUtil = SequenceBreaker._07_Play._1_View.CUtil;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Examples
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples
 {
     /// <summary>Same as <see cref="VerticalClassicListViewExample"/> except it's horizontal, the items are not resize-able</summary>
     public class HorizontalClassicListViewExample : ClassicSria<LogClientViewsHolder>

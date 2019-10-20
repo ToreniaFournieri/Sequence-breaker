@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._01_Data._03_UnitClass;
 
 namespace SequenceBreaker._09_Drop
 {

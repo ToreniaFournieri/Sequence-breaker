@@ -1,9 +1,11 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Utils;
+using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts
 {
 	#if !UNITY_5_0 && !UNITY_5_1
     [AddComponentMenu("I2/Localization/Localize Dropdown")]

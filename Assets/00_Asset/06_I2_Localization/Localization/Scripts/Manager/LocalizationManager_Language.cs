@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Globalization;
+using System.Linq;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Configurables;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Google;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {

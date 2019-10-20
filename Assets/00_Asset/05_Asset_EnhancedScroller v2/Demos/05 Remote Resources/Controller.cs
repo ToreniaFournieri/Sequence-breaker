@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace EnhancedScrollerDemos.RemoteResourcesDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._05_Remote_Resources
 {
     /// <summary>
     /// This demo shows how you can remotely load resources, calling the set data function when

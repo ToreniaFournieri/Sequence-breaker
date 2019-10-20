@@ -1,9 +1,11 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
+using _00_Asset._06_I2_Localization.Localization.Scripts.Configurables;
+using _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource;
+using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts
 {
 	public enum ETermType 
 	{ 

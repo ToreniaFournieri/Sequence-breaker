@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Utils
 {
 	// This class is used to spawn coroutines from outside of MonoBehaviors
 	public class CoroutineManager : MonoBehaviour 

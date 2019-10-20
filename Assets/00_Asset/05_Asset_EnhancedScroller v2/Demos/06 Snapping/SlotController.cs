@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.SnappingDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._06_Snapping
 {
     /// <summary>
     /// This class controls one slot scroller. We could have shared the slot data between the 

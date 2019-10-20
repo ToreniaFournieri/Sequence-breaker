@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 
-sealed  public class BackPreviousView : MonoBehaviour
+namespace SequenceBreaker._04_Timeline_Tab.Log
 {
-    public GameObject currentView;
-    public GameObject previousView;
-
-
-    public void Close()
+    public  sealed class BackPreviousView : MonoBehaviour
     {
-        previousView.SetActive(true);
-        currentView.SetActive(false);
-    }
+        public GameObject currentView;
+        public GameObject previousView;
 
+
+        public void Close()
+        {
+            previousView.SetActive(true);
+            currentView.SetActive(false);
+        }
+
+    }
 }

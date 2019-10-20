@@ -1,23 +1,27 @@
-﻿using UnityEngine;
+﻿using SequenceBreaker._03_Controller._03_Log;
+using UnityEngine;
 
-sealed public class ShowDetailButton : MonoBehaviour
+namespace SequenceBreaker._04_Timeline_Tab.Log
 {
-    public GameObject battle;
-    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
-
-    //active Battle log and inactive loglist
-    public GameObject battleLog;
-    public GameObject logList;
-
-
-    public void ShowDetail()
+    public sealed class ShowDetailButton : MonoBehaviour
     {
-        // pass the value of the result of Battle
-        battleLogEnhancedScrollController.battle = battle;
-        battleLogEnhancedScrollController.DrawBattleLog();
+        public GameObject battle;
+        public BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
 
-        battleLog.SetActive(true);
-        logList.SetActive(false);       
+        //active Battle log and inactive loglist
+        public GameObject battleLog;
+        public GameObject logList;
 
+
+        public void ShowDetail()
+        {
+            // pass the value of the result of Battle
+            battleLogEnhancedScrollController.battle = battle;
+            battleLogEnhancedScrollController.DrawBattleLog();
+
+            battleLog.SetActive(true);
+            logList.SetActive(false);       
+
+        }
     }
 }

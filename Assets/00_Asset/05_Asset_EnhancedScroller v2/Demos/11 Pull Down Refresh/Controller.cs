@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.PullDownRefresh
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._11_Pull_Down_Refresh
 {
     /// <summary>
     /// This example shows one way you can implement a pull down to refresh feature. 

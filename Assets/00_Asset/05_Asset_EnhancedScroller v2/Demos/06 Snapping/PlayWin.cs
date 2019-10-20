@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-namespace EnhancedScrollerDemos.SnappingDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._06_Snapping
 {
     /// <summary>
     /// This class displays a popup panel when the user wins some credits

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.ViewDrivenCellSizes
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._08_View_Driven_Cell_Sizes
 {
     public class CellView : EnhancedScrollerCellView
     {

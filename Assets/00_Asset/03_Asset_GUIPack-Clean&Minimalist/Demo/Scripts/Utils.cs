@@ -5,7 +5,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     /// <summary>
     /// Miscellaneous utilities.

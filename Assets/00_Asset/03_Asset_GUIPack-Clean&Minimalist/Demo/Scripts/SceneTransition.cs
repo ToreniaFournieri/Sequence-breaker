@@ -4,7 +4,7 @@
 
 using UnityEngine;
 
-namespace Ricimi
+namespace _00_Asset.Demo.Scripts
 {
     // This class is responsible for loading the next scene in a transition (the core of
     // this work is performed in the Transition class, though).

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace EnhancedScollerDemos.MainMenu
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos.Main_Menu
 {
     public class MainMenu : MonoBehaviour
     {

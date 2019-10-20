@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
+﻿using System.Collections;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.Pagination
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._13_Pagination
 {
     /// <summary>
     /// This demo shows how you can load small chunks of data when the user reaches the end of the scroller

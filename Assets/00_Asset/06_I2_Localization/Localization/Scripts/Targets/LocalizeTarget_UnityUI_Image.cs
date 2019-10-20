@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._06_I2_Localization.Localization.Scripts.Manager;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.Targets
 {
     #if UNITY_EDITOR
     [UnityEditor.InitializeOnLoad] 

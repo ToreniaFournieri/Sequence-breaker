@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace frame8.ScrollRectItemsAdapter.Classic
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 {
     /// <summary>Class (initially) implemented during this YouTube tutorial: https://youtu.be/aoqq_j-aV8I (which is now too old to relate). It demonstrates a simple use case with items that expand/collapse on click</summary>
     public abstract class ClassicSria<TViewsHolder> : MonoBehaviour where TViewsHolder : CAbstractViewsHolder

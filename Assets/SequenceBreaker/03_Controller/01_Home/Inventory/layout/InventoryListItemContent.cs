@@ -1,163 +1,168 @@
-﻿using UnityEngine;
+﻿using System;
+using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._03_Controller._01_Home.Character;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
 
-sealed public class InventoryListItemContent : MonoBehaviour
+namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
 {
-    public Text mNameText;
-    public Image mIcon;
-
-    //public Image[] mStarArray;
-    //public Text mDescText;
-    public Text mDescriptionText;
-    //public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
-    //public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
-    public GameObject mContentRootObj;
-
-    // Detail button = Detail Flag, handler
-    //public GameObject detailFlag;
-    // detail Flag click
-    Action<Item> _mClickItemDetailHandler;
-    // button in detailFlag
-    public Button detailFlag;
-
-    //button to select to transfer
-    //Action<Item> mClickItemContentHandler;
-    public Button itemContent;
-
-    //ItemList Character
-    public bool isCharacterInventory;
-    public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
-    public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
-
-
-    public Item item;
-
-
-    // Show Item detail View
-    public GameObject itemDetailView;
-
-
-    int _mItemDataIndex = -1;
-    int _mChildDataIndex = -1;
-
-    public void Init()
+    public sealed class InventoryListItemContent : MonoBehaviour
     {
+        public Text mNameText;
+        public Image mIcon;
 
-        //for (int i = 0; i < mStarArray.Length; ++i)
-        //{
-        //    int index = i;
-        //ClickEventListener listener = ClickEventListener.Get(detailFlag.gameObject);
-        //listener.SetClickEventHandler(delegate (GameObject obj) { OnButtonClicked(); });
-        //}
+        //public Image[] mStarArray;
+        //public Text mDescText;
+        public Text mDescriptionText;
+        //public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
+        //public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
+        public GameObject mContentRootObj;
 
-        detailFlag.onClick.AddListener(OnButtonClicked);
-        itemContent.onClick.AddListener(OnContentClicked);
+        // Detail button = Detail Flag, handler
+        //public GameObject detailFlag;
+        // detail Flag click
+        Action<Item> _mClickItemDetailHandler;
+        // button in detailFlag
+        public Button detailFlag;
+
+        //button to select to transfer
+        //Action<Item> mClickItemContentHandler;
+        public Button itemContent;
+
+        //ItemList Character
+        public bool isCharacterInventory;
+        public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
+        public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
 
 
-    }
+        public Item item;
 
-    public void SetClickCallBack(Action<Item> clickHandler)
-    {
-        _mClickItemDetailHandler = clickHandler;
-    }
 
-    // item detail button clicked
-    void OnButtonClicked()
-    {
+        // Show Item detail View
+        public GameObject itemDetailView;
 
-        if (_mClickItemDetailHandler != null)
+
+        int _mItemDataIndex = -1;
+        int _mChildDataIndex = -1;
+
+        public void Init()
         {
 
-            // Popup message set
-            Text detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
-            detailText.text = item.GetItemDetailDescription();
-            itemDetailView.SetActive(true);
-            itemDetailView.transform.SetAsLastSibling();
+            //for (int i = 0; i < mStarArray.Length; ++i)
+            //{
+            //    int index = i;
+            //ClickEventListener listener = ClickEventListener.Get(detailFlag.gameObject);
+            //listener.SetClickEventHandler(delegate (GameObject obj) { OnButtonClicked(); });
+            //}
+
+            detailFlag.onClick.AddListener(OnButtonClicked);
+            itemContent.onClick.AddListener(OnContentClicked);
+
 
         }
 
-    }
+        public void SetClickCallBack(Action<Item> clickHandler)
+        {
+            _mClickItemDetailHandler = clickHandler;
+        }
 
-    //public void SetClickContentCallBack(Action<Item> clickHandler)
-    //{
-    //    mClickItemContentHandler = clickHandler;
-    //}
-
-    // item content button clicked
-    void OnContentClicked()
-    {
-
-
-        if (item != null)
+        // item detail button clicked
+        void OnButtonClicked()
         {
 
-            if (isCharacterInventory)
+            if (_mClickItemDetailHandler != null)
             {
-                characterTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
+
+                // Popup message set
+                Text detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
+                detailText.text = item.GetItemDetailDescription();
+                itemDetailView.SetActive(true);
+                itemDetailView.transform.SetAsLastSibling();
+
             }
-            else
-            {
-                inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-            }
+
         }
-        //Debug.Log("sample");
 
-        //if (mClickItemContentHandler != null)
+        //public void SetClickContentCallBack(Action<Item> clickHandler)
         //{
-
+        //    mClickItemContentHandler = clickHandler;
         //}
+
+        // item content button clicked
+        void OnContentClicked()
+        {
+
+
+            if (item != null)
+            {
+
+                if (isCharacterInventory)
+                {
+                    characterTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
+                }
+                else
+                {
+                    inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
+                }
+            }
+            //Debug.Log("sample");
+
+            //if (mClickItemContentHandler != null)
+            //{
+
+            //}
+        }
+
+
+
+        //void OnStarClicked(int index)
+        //{
+        //    ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
+        //    if (data == null)
+        //    {
+        //        return;
+        //    }
+        //    if (index == 0 && data.mStarCount == 1)
+        //    {
+        //        data.mStarCount = 0;
+        //    }
+        //    else
+        //    {
+        //        data.mStarCount = index + 1;
+        //    }
+        //    //SetStarCount(data.mStarCount);
+        //}
+
+        //public void SetStarCount(int count)
+        //{
+        //    int i = 0;
+        //    for (; i < count; ++i)
+        //    {
+        //        mStarArray[i].color = mRedStarColor;
+        //    }
+        //    for (; i < mStarArray.Length; ++i)
+        //    {
+        //        mStarArray[i].color = mGrayStarColor;
+        //    }
+        //}
+
+
+
+        public void SetItemData(Item item, int itemIndex, int childIndex)
+        {
+            _mItemDataIndex = itemIndex;
+            _mChildDataIndex = childIndex;
+            mNameText.text = item.ItemName;
+            //mDescText.text = itemData.mFileSize.ToString() + "KB";
+            mDescriptionText.text = item.ItemDescription;
+            //mIcon.sprite = null;
+
+            this.item = item;
+            //mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
+            //SetStarCount(itemData.mStarCount);
+        }
+
+
     }
-
-
-
-    //void OnStarClicked(int index)
-    //{
-    //    ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
-    //    if (data == null)
-    //    {
-    //        return;
-    //    }
-    //    if (index == 0 && data.mStarCount == 1)
-    //    {
-    //        data.mStarCount = 0;
-    //    }
-    //    else
-    //    {
-    //        data.mStarCount = index + 1;
-    //    }
-    //    //SetStarCount(data.mStarCount);
-    //}
-
-    //public void SetStarCount(int count)
-    //{
-    //    int i = 0;
-    //    for (; i < count; ++i)
-    //    {
-    //        mStarArray[i].color = mRedStarColor;
-    //    }
-    //    for (; i < mStarArray.Length; ++i)
-    //    {
-    //        mStarArray[i].color = mGrayStarColor;
-    //    }
-    //}
-
-
-
-    public void SetItemData(Item item, int itemIndex, int childIndex)
-    {
-        _mItemDataIndex = itemIndex;
-        _mChildDataIndex = childIndex;
-        mNameText.text = item.ItemName;
-        //mDescText.text = itemData.mFileSize.ToString() + "KB";
-        mDescriptionText.text = item.ItemDescription;
-        //mIcon.sprite = null;
-
-        this.item = item;
-        //mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-        //SetStarCount(itemData.mStarCount);
-    }
-
-
 }
 

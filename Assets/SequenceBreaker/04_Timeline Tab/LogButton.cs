@@ -2,37 +2,40 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-sealed  public class LogButton : MonoBehaviour
+namespace SequenceBreaker._04_Timeline_Tab
 {
-    public Button button;
-    public Text orderCondition;
-    public Text log;
-    public Image iconImage;
-
-    private BattleLogClass _battleLog;
-
-    //InventoryScrollList scrollList;
-
-    // Start is called before the first frame update
-    void Start()
+    public  sealed class LogButton : MonoBehaviour
     {
-        //button.onClick.AddListener(HandleClick);
+        public Button button;
+        public Text orderCondition;
+        public Text log;
+        public Image iconImage;
+
+        private BattleLogClass _battleLog;
+
+        //InventoryScrollList scrollList;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            //button.onClick.AddListener(HandleClick);
+        }
+        public void Setup(BattleLogClass currentLog)
+        {
+            _battleLog = currentLog;
+            //scrollList = currentScrollList;
+            orderCondition.text = _battleLog.OrderCondition.ToString();
+            //iconImage.sprite = item.icon;
+            log.text = _battleLog.Log;
+            //scrollList = currentScrollList;
+
+            this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+
+        }
+
+        //public void HandleClick()
+        //{
+        //    scrollList.TryTransferItemToOtherInventory(item);
+        //}
     }
-    public void Setup(BattleLogClass currentLog)
-    {
-        _battleLog = currentLog;
-        //scrollList = currentScrollList;
-        orderCondition.text = _battleLog.OrderCondition.ToString();
-        //iconImage.sprite = item.icon;
-        log.text = _battleLog.Log;
-        //scrollList = currentScrollList;
-
-        this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
-
-    }
-
-    //public void HandleClick()
-    //{
-    //    scrollList.TryTransferItemToOtherInventory(item);
-    //}
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource
 {
     [CreateAssetMenu(fileName = "I2Languages", menuName = "I2 Localization/LanguageSource", order = 1)]
     public class LanguageSourceAsset : ScriptableObject, ILanguageSource

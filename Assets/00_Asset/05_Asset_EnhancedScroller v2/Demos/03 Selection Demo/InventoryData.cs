@@ -1,4 +1,4 @@
-﻿namespace EnhancedScrollerDemos.SelectionDemo
+﻿namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._03_Selection_Demo
 {
     /// <summary>
     /// This delegate handles any changes to the selection state of the data

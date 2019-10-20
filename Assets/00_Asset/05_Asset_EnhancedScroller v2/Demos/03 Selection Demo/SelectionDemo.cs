@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
 
-namespace EnhancedScrollerDemos.SelectionDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._03_Selection_Demo
 {
     /// <summary>
     /// This class sets up the data for the inventory and handles the EnhancedScrollers'

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
-using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
+﻿using System.Collections.Generic;
+using _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples.Common;
+using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using CUtil = SequenceBreaker._07_Play._1_View.CUtil;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Examples
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples
 {
     public class ClassicGridViewExample : ClassicSria<CellViewsHolder>
 	{

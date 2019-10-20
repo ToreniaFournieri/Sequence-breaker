@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 
-namespace EnhancedUI.EnhancedScroller
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
 {
     /// <summary>
     /// This is the base class that all cell views should derive from

@@ -1,8 +1,7 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace frame8.ScrollRectItemsAdapter.Classic
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 {
 	/// <summary>
 	/// Class representing the concept of a Views Holder, i.e. a class that references some views and the id of the data displayed by those views. 

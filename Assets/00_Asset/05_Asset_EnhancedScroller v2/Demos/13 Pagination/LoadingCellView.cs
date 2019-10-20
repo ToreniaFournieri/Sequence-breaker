@@ -1,6 +1,6 @@
-﻿using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
 
-namespace EnhancedScrollerDemos.Pagination
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._13_Pagination
 {
     /// <summary>
     /// This is the simple loading cell view

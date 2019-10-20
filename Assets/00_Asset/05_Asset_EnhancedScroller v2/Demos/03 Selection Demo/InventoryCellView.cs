@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
 
-namespace EnhancedScrollerDemos.SelectionDemo
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._03_Selection_Demo
 {
     /// <summary>
     /// This delegate handles the UI's button click

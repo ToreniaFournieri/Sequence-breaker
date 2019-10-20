@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.GridSimulation
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._10_Grid_Simulation
 {
     /// <summary>
     /// This example shows how to simulate a grid with a fixed number of cells per row

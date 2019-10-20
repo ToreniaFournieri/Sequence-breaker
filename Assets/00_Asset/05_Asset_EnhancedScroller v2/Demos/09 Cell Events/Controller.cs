@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using EnhancedUI.EnhancedScroller;
+﻿using System.Collections.Generic;
+using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine;
 
-namespace EnhancedScrollerDemos.CellEvents
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._09_Cell_Events
 {
     /// <summary>
     /// This demo shows how you can respond to events from your cells views using delegates

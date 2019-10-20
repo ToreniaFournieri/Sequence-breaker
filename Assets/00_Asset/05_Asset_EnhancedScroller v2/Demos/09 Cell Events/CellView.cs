@@ -1,7 +1,7 @@
-﻿using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
+﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using UnityEngine.UI;
 
-namespace EnhancedScrollerDemos.CellEvents
+namespace _00_Asset._05_Asset_EnhancedScroller_v2.Demos._09_Cell_Events
 {
     /// <summary>
     /// These delegates will publish events when a button is clicked

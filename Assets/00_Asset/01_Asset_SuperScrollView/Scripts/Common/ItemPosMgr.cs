@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SuperScrollView
+namespace _00_Asset._01_Asset_SuperScrollView.Scripts.Common
 {
 
     public class ItemSizeGroup

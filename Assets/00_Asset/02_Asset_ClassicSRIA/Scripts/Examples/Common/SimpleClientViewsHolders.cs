@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset._02_Asset_ClassicSRIA.Scripts.Util;
+using UnityEngine;
 using UnityEngine.UI;
-using frame8.ScrollRectItemsAdapter.Classic.Util;
 
-namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
+namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Examples.Common
 {
 	public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TClientModel : SimpleClientModel
 	{

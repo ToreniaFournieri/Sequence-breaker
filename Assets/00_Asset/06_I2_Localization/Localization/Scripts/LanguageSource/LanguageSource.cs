@@ -1,9 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
-namespace I2.Loc
+namespace _00_Asset._06_I2_Localization.Localization.Scripts.LanguageSource
 {
     [AddComponentMenu("I2/Localization/Source")]
     [ExecuteInEditMode]
