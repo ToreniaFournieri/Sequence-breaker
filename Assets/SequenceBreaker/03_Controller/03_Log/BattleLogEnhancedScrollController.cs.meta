@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: f2807ca4373f049cb874a5265f09c71e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - scroller: {instanceID: 0}
+  - cellViewPrefab: {instanceID: 0}
+  - cellTurnStartPrefab: {instanceID: 0}
+  - parentJumpIndex: {instanceID: 0}
+  - jumpIndexPrefab: {instanceID: 0}
+  - canvasToGetWidth: {instanceID: 0}
+  - allyImage: {instanceID: 0}
+  - enemyImage: {instanceID: 0}
+  - unitIconObjectPool: {instanceID: 0}
+  - sampleUnit: {instanceID: 0}
+  - sampleEnemyUnit: {instanceID: 0}
+  - searchBar: {instanceID: 0}
+  - log: {instanceID: 0}
+  - searchResultText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_Sequence breaker.-771383056.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="00_Asset" t="Include">
+          <e p="01_Asset_SuperScrollView" t="Include">
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Common" t="Include">
+                  <e p="AutoSetAnchorPosForIphonex.cs" t="Include" />
+                  <e p="ChatMsgDataSourceMgr.cs" t="Include" />
+                  <e p="DataSourceMgr.cs" t="Include" />
+                  <e p="DragChangSizeScript.cs" t="Include" />
+                  <e p="DragEventHelper.cs" t="Include" />
+                  <e p="FPSDisplay.cs" t="Include" />
+                  <e p="ListItem0.cs" t="Include" />
+                  <e p="ListItem1.cs" t="Include" />
+                  <e p="ListItem10.cs" t="Include" />
+                  <e p="ListItem11.cs" t="Include" />
+                  <e p="ListItem12.cs" t="Include" />
+                  <e p="ListItem13.cs" t="Include" />
+                  <e p="ListItem14.cs" t="Include" />
+                  <e p="ListItem15.cs" t="Include" />
+                  <e p="ListItem16.cs" t="Include" />
+                  <e p="ListItem17.cs" t="Include" />
+                  <e p="ListItem18.cs" t="Include" />
+                  <e p="ListItem19.cs" t="Include" />
+                  <e p="ListItem2.cs" t="Include" />
+                  <e p="ListItem3.cs" t="Include" />
+                  <e p="ListItem4.cs" t="Include" />
+                  <e p="ListItem5.cs" t="Include" />
+                  <e p="ListItem6.cs" t="Include" />
+                  <e p="ListItem7.cs" t="Include" />
+                  <e p="ListItem8.cs" t="Include" />
+                  <e p="ListItem9.cs" t="Include" />
+                  <e p="ResManager.cs" t="Include" />
+                  <e p="RotateScript.cs" t="Include" />
+                  <e p="TreeViewDataSourceMgr.cs" t="Include" />
+                  <e p="TreeViewItemCountMgr.cs" t="Include" />
+                </e>
+                <e p="GridView" t="Include">
+                  <e p="GridViewDeleteItemDemoScript2.cs" t="Include" />
+                  <e p="GridViewDemoScript2.cs" t="Include" />
+                </e>
+                <e p="ListView" t="Include">
+                  <e p="BottomToTopDemoScript.cs" t="Include" />
+                  <e p="ChangeItemHeightDemoScript.cs" t="Include" />
+                  <e p="ChatMsgListViewDemoScript.cs" t="Include" />
+                  <e p="ClickAndLoadMoreDemoScript.cs" t="Include" />
+                  <e p="DeleteItemDemoScript.cs" t="Include" />
+                  <e p="GridViewDeleteItemDemoScript.cs" t="Include" />
+                  <e p="GridViewDemoScript.cs" t="Include" />
+                  <e p="GridViewSampleDemo.cs" t="Include" />
+                  <e p="HorizontalGalleryDemoScript.cs" t="Include" />
+                  <e p="LeftToRightDemoScript.cs" t="Include" />
+                  <e p="PageViewDemoScript.cs" t="Include" />
+                  <e p="PullToLoadMoreDemoScript.cs" t="Include" />
+                  <e p="PullToRefreshAndLoadMoreDemoScript.cs" t="Include" />
+                  <e p="PullToRefreshDemoScript.cs" t="Include" />
+                  <e p="ResponsiveGridViewDemoScript.cs" t="Include" />
+                  <e p="ResponsiveGridViewDemoScript2.cs" t="Include" />
+                  <e p="RightToLeftDemoScript.cs" t="Include" />
+                  <e p="SpinDatePickerDemoScript.cs" t="Include" />
+                  <e p="TopToBottomDemoScript.cs" t="Include" />
+                  <e p="TopToBottomSampleDemoScript.cs" t="Include" />
+                  <e p="TreeViewDemoScript.cs" t="Include" />
+                  <e p="TreeViewWithStickyHeadDemoScript.cs" t="Include" />
+                  <e p="VerticalGalleryDemoScript.cs" t="Include" />
+                </e>
+                <e p="MenuSceneScript.cs" t="Include" />
+                <e p="StaggeredGridView" t="Include">
+                  <e p="StaggeredGridView_LeftToRightDemoScript.cs" t="Include" />
+                  <e p="StaggeredGridView_TopToBottomDemoScript.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="LoopGridViewEditor.cs" t="Include" />
+              <e p="LoopListViewEditor2.cs" t="Include" />
+              <e p="LoopStaggeredGridViewEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Common" t="Include">
+                <e p="ClickEventListener.cs" t="Include" />
+                <e p="CommonDefine.cs" t="Include" />
+                <e p="ItemPosMgr.cs" t="Include" />
+              </e>
+              <e p="GridView" t="Include">
+                <e p="GridItemGroup.cs" t="Include" />
+                <e p="LoopGridItemPool.cs" t="Include" />
+                <e p="LoopGridView.cs" t="Include" />
+                <e p="LoopGridViewItem.cs" t="Include" />
+              </e>
+              <e p="ListView" t="Include">
+                <e p="LoopListItemPool.cs" t="Include" />
+                <e p="LoopListView2.cs" t="Include" />
+                <e p="LoopListViewItem2.cs" t="Include" />
+              </e>
+              <e p="StaggeredGridView" t="Include">
+                <e p="LoopStaggeredGridView.cs" t="Include" />
+                <e p="LoopStaggeredGridViewItem.cs" t="Include" />
+                <e p="StaggeredGridItemGroup.cs" t="Include" />
+                <e p="StaggeredGridItemPool.cs" t="Include" />
+              </e>
+              <e p="Version 2.4.0.txt" t="Include" />
+            </e>
+          </e>
+          <e p="02_Asset_ClassicSRIA" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CAbstractViewsHolder.cs" t="Include" />
+              <e p="ClassicSRIA.cs" t="Include" />
+              <e p="Examples" t="Include">
+                <e p="ClassicGridViewExample.cs" t="Include" />
+                <e p="Common" t="Include">
+                  <e p="CUtil.cs" t="Include" />
+                  <e p="DemoUI.cs" t="Include" />
+                  <e p="SimpleClientModels.cs" t="Include" />
+                  <e p="SimpleClientViewsHolders.cs" t="Include" />
+                </e>
+                <e p="HorizontalClassicListViewExample.cs" t="Include" />
+                <e p="VerticalClassicListViewExample.cs" t="Include" />
+              </e>
+              <e p="Util" t="Include">
+                <e p="CExpandCollapseOnClick.cs" t="Include" />
+                <e p="CLoadSceneOnClick.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="03_Asset_GUIPack-Clean&amp;Minimalist" t="Include">
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="BasicButton.cs" t="Include" />
+                <e p="Popup.cs" t="Include" />
+                <e p="PopupOpener.cs" t="Include" />
+                <e p="SceneTransition.cs" t="Include" />
+                <e p="SpriteSwapper.cs" t="Include" />
+                <e p="Tooltip.cs" t="Include" />
+                <e p="Transition.cs" t="Include" />
+                <e p="Utils.cs" t="Include" />
+              </e>
+              <e p="Shader" t="Include">
+                <e p="Gradient.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="04_Asset_TextMesh Pro" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="LiberationSans - OFL.txt" t="Include" />
+            </e>
+            <e p="Resources" t="Include">
+              <e p="LineBreaking Following Characters.txt" t="Include" />
+              <e p="LineBreaking Leading Characters.txt" t="Include" />
+              <e p="Shaders" t="Include">
+                <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+                <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+                <e p="TMP_Bitmap.shader" t="Include" />
+                <e p="TMP_SDF Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface.shader" t="Include" />
+                <e p="TMP_SDF.shader" t="Include" />
+                <e p="TMP_Sprite.shader" t="Include" />
+                <e p="TMPro.cginc" t="Include" />
+                <e p="TMPro_Properties.cginc" t="Include" />
+                <e p="TMPro_Surface.cginc" t="Include" />
+              </e>
+            </e>
+            <e p="Sprites" t="Include">
+              <e p="EmojiOne Attribution.txt" t="Include" />
+            </e>
+          </e>
+          <e p="05_Asset_EnhancedScroller v2" t="Include">
+            <e p="ChangeLog.txt" t="Include" />
+            <e p="Demos" t="Include">
+              <e p="01 Simple Demo" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="SimpleDemo.cs" t="Include" />
+              </e>
+              <e p="02 Multiple Cell Types" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="CellViewFooter.cs" t="Include" />
+                <e p="CellViewHeader.cs" t="Include" />
+                <e p="CellViewRow.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="MultipleCellTypesDemo.cs" t="Include" />
+              </e>
+              <e p="03 Selection Demo" t="Include">
+                <e p="InventoryCellView.cs" t="Include" />
+                <e p="InventoryData.cs" t="Include" />
+                <e p="SelectionDemo.cs" t="Include" />
+              </e>
+              <e p="04 Jump To Demo" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+              </e>
+              <e p="05 Remote Resources" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="ImageList.cs" t="Include" />
+              </e>
+              <e p="06 Snapping" t="Include">
+                <e p="PlayWin.cs" t="Include" />
+                <e p="SlotCellView.cs" t="Include" />
+                <e p="SlotController.cs" t="Include" />
+                <e p="SlotData.cs" t="Include" />
+                <e p="SnappingDemo.cs" t="Include" />
+              </e>
+              <e p="07 Refreshing" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+              </e>
+              <e p="08 View Driven Cell Sizes" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+              </e>
+              <e p="09 Cell Events" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+              </e>
+              <e p="10 Grid Simulation" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="RowCellView.cs" t="Include" />
+              </e>
+              <e p="10b Grid Selection" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="RowCellView.cs" t="Include" />
+              </e>
+              <e p="11 Pull Down Refresh" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+              </e>
+              <e p="12 Nested Scrollers" t="Include">
+                <e p="Controller.cs" t="Include" />
+                <e p="DetailCellView.cs" t="Include" />
+                <e p="DetailData.cs" t="Include" />
+                <e p="MasterCellView.cs" t="Include" />
+                <e p="MasterData.cs" t="Include" />
+                <e p="ScrollRectEx.cs" t="Include" />
+              </e>
+              <e p="12b Nested Linked Scrollers (Alternate Grid)" t="Include">
+                <e p="Controller.cs" t="Include" />
+                <e p="DetailCellView.cs" t="Include" />
+                <e p="DetailData.cs" t="Include" />
+                <e p="MasterCellView.cs" t="Include" />
+                <e p="MasterData.cs" t="Include" />
+                <e p="ScrollRectEx.cs" t="Include" />
+              </e>
+              <e p="13 Pagination" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Controller.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="LoadingCellView.cs" t="Include" />
+              </e>
+              <e p="Main Menu" t="Include">
+                <e p="MainMenu.cs" t="Include" />
+                <e p="ReturnToMainMenu.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Plugins" t="Include">
+              <e p="EnhancedScroller.cs" t="Include" />
+              <e p="EnhancedScrollerCellView.cs" t="Include" />
+              <e p="IEnhancedScrollerDelegate.cs" t="Include" />
+              <e p="SmallList.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+            <e p="Tutorials" t="Include">
+              <e p="readme.txt" t="Include" />
+            </e>
+            <e p="upgrading from 1.x to 2.x.txt" t="Include" />
+          </e>
+          <e p="06_I2_Localization" t="Include">
+            <e p="Localization" t="Include">
+              <e p="Examples" t="Include">
+                <e p="Common" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="CallbackNotification.cs" t="Include" />
+                    <e p="Example_ChangeLanguage.cs" t="Include" />
+                    <e p="Example_LocalizedString.cs" t="Include" />
+                    <e p="GlobalParametersExample.cs" t="Include" />
+                    <e p="NGUI_LanguagePopup.cs" t="Include" />
+                    <e p="RealTimeTranslation.cs" t="Include" />
+                    <e p="RegisterBundlesManager.cs" t="Include" />
+                    <e p="ToggleLanguage.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="I2 Localization - Readme.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="Configurables" t="Include">
+                  <e p="PersistentStorage.cs" t="Include" />
+                  <e p="SpecializationManager.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="EditorTools.cs" t="Include" />
+                  <e p="Inspectors" t="Include">
+                    <e p="LanguageSourceAssetInspector.cs" t="Include" />
+                    <e p="LanguageSourceInspector.cs" t="Include" />
+                    <e p="LocalizationEditor.cs" t="Include" />
+                    <e p="LocalizationParamsManagerInspector.cs" t="Include" />
+                    <e p="LocalizeDropdownInspector.cs" t="Include" />
+                    <e p="LocalizeInspector.cs" t="Include" />
+                    <e p="ResourceManagerInspector.cs" t="Include" />
+                    <e p="SetLanguageInspector.cs" t="Include" />
+                    <e p="TermsPopup_Drawer.cs" t="Include" />
+                  </e>
+                  <e p="Localization" t="Include">
+                    <e p="LocalizationEditor.cs" t="Include" />
+                    <e p="LocalizationEditor_Languages.cs" t="Include" />
+                    <e p="LocalizationEditor_Spreadsheet_Google.cs" t="Include" />
+                    <e p="LocalizationEditor_Spreadsheet_Local.cs" t="Include" />
+                    <e p="LocalizationEditor_Terms.cs" t="Include" />
+                    <e p="LocalizationEditor_Terms_Description.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_Categorize.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_CharSet.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_MergeTerms.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_NoLocalized.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_ParseTerms.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_Scenes.cs" t="Include" />
+                    <e p="LocalizationEditor_Tools_Script.cs" t="Include" />
+                    <e p="LocalizationEditor_Warnings.cs" t="Include" />
+                  </e>
+                  <e p="PostProcessBuild_ANDROID.cs" t="Include" />
+                  <e p="PostProcessBuild_IOS.cs" t="Include" />
+                  <e p="PostProcessBuild_UnloadLanguages.cs" t="Include" />
+                  <e p="Unity XCode" t="Include">
+                    <e p="Xcode.txt" t="Include" />
+                  </e>
+                  <e p="UpgradeManager.cs" t="Include" />
+                </e>
+                <e p="EventCallback.cs" t="Include" />
+                <e p="Google" t="Include">
+                  <e p="GoogleLanguages.cs" t="Include" />
+                  <e p="GoogleTranslation.cs" t="Include" />
+                  <e p="GoogleTranslation_Post.cs" t="Include" />
+                  <e p="GoogleTranslation_Queries.cs" t="Include" />
+                  <e p="SimpleJSON.cs" t="Include" />
+                  <e p="TranslationJob.cs" t="Include" />
+                  <e p="TranslationJob_GET.cs" t="Include" />
+                  <e p="TranslationJob_Main.cs" t="Include" />
+                  <e p="TranslationJob_POST.cs" t="Include" />
+                  <e p="TranslationJob_WEB.cs" t="Include" />
+                </e>
+                <e p="LanguageData.cs" t="Include" />
+                <e p="LanguageSource" t="Include">
+                  <e p="LanguageSource.cs" t="Include" />
+                  <e p="LanguageSourceAsset.cs" t="Include" />
+                  <e p="LanguageSourceData.cs" t="Include" />
+                  <e p="LanguageSourceData_Assets.cs" t="Include" />
+                  <e p="LanguageSourceData_Export_CSV.cs" t="Include" />
+                  <e p="LanguageSourceData_Export_Google.cs" t="Include" />
+                  <e p="LanguageSourceData_Import_CSV.cs" t="Include" />
+                  <e p="LanguageSourceData_Import_Google.cs" t="Include" />
+                  <e p="LanguageSourceData_Languages.cs" t="Include" />
+                  <e p="LanguageSourceData_Misc.cs" t="Include" />
+                  <e p="LanguageSourceData_Terms.cs" t="Include" />
+                </e>
+                <e p="LocalizationReader.cs" t="Include" />
+                <e p="Localize.cs" t="Include" />
+                <e p="LocalizeDropdown.cs" t="Include" />
+                <e p="Manager" t="Include">
+                  <e p="LocalizationManager.cs" t="Include" />
+                  <e p="LocalizationManager_Language.cs" t="Include" />
+                  <e p="LocalizationManager_Parameters.cs" t="Include" />
+                  <e p="LocalizationManager_RTL.cs" t="Include" />
+                  <e p="LocalizationManager_Sources.cs" t="Include" />
+                  <e p="LocalizationManager_SystemLanguage.cs" t="Include" />
+                  <e p="LocalizationManager_Targets.cs" t="Include" />
+                  <e p="LocalizationManager_Translation.cs" t="Include" />
+                </e>
+                <e p="Targets" t="Include">
+                  <e p="ILocalizeTarget.cs" t="Include" />
+                  <e p="ILocalizeTargetDesc.cs" t="Include" />
+                  <e p="LocalizeTarget_2DToolKit_Label.cs" t="Include" />
+                  <e p="LocalizeTarget_2DToolKit_Sprite.cs" t="Include" />
+                  <e p="LocalizeTarget_NGUI_Label.cs" t="Include" />
+                  <e p="LocalizeTarget_NGUI_Sprite.cs" t="Include" />
+                  <e p="LocalizeTarget_NGUI_Texture.cs" t="Include" />
+                  <e p="LocalizeTarget_SVGImporter_Image.cs" t="Include" />
+                  <e p="LocalizeTarget_SVGImporter_Renderer.cs" t="Include" />
+                  <e p="LocalizeTarget_TextMeshPro_Label.cs" t="Include" />
+                  <e p="LocalizeTarget_TextMeshPro_UGUI.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_AudioSource.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_Child.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_MeshRenderer.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_Prefab.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_SpriteRenderer.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityStandard_TextMesh.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityUI_Image.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityUI_RawImage.cs" t="Include" />
+                  <e p="LocalizeTarget_UnityUI_Text.cs" t="Include" />
+                </e>
+                <e p="TermData.cs" t="Include" />
+                <e p="Utils" t="Include">
+                  <e p="AutoChangeCultureInfo.cs" t="Include" />
+                  <e p="CoroutineManager.cs" t="Include" />
+                  <e p="CustomLocalizeCallback.cs" t="Include" />
+                  <e p="HindiFixer.cs" t="Include" />
+                  <e p="I2Utils.cs" t="Include" />
+                  <e p="LocalizationParamsManager.cs" t="Include" />
+                  <e p="LocalizedString.cs" t="Include" />
+                  <e p="RegisterGlobalParameters.cs" t="Include" />
+                  <e p="ResourceManager.cs" t="Include" />
+                  <e p="RTLFixer.cs" t="Include" />
+                  <e p="SetLanguage.cs" t="Include" />
+                  <e p="SetLanguageDropdown.cs" t="Include" />
+                  <e p="StringObfuscator.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="SequenceBreaker" t="Include">
+          <e p="00_System" t="Include">
+            <e p="Enumeration.cs" t="Include" />
+            <e p="SimpleObjectPool.cs" t="Include" />
+            <e p="StartUp.cs" t="Include" />
+          </e>
+          <e p="01_Data" t="Include">
+            <e p="01_Skills" t="Include">
+              <e p="EffectClass.cs" t="Include" />
+              <e p="SkillsMasterClass.cs" t="Include" />
+              <e p="Subclass" t="Include">
+                <e p="BuffTargetParameterClass.cs" t="Include" />
+                <e p="DebuffTargetParameterClass.cs" t="Include" />
+                <e p="SkillMagnificationClass.cs" t="Include" />
+                <e p="TriggerBaseClass.cs" t="Include" />
+                <e p="TriggerTargetClass.cs" t="Include" />
+              </e>
+            </e>
+            <e p="02_Items" t="Include">
+              <e p="01_ItemMaster" t="Include">
+                <e p="AddAbilityClass.cs" t="Include" />
+                <e p="ItemBaseMaster.cs" t="Include" />
+                <e p="MagnificationMasterClass.cs" t="Include" />
+              </e>
+              <e p="Item" t="Include">
+                <e p="Item.cs" t="Include" />
+                <e p="ItemForSave.cs" t="Include" />
+              </e>
+            </e>
+            <e p="03_UnitClass" t="Include">
+              <e p="CalculateUnitStatus.cs" t="Include" />
+              <e p="CoreFrame.cs" t="Include" />
+              <e p="Pilot" t="Include">
+                <e p="Pilot.cs" t="Include" />
+              </e>
+              <e p="UnitClass.cs" t="Include" />
+            </e>
+            <e p="07_Equipments" t="Include">
+              <e p="Equipment.cs" t="Include" />
+            </e>
+            <e p="08_BattleUnitSub" t="Include">
+              <e p="AbilityClass.cs" t="Include" />
+              <e p="ActionSkillClass.cs" t="Include" />
+              <e p="CombatClass.cs" t="Include" />
+              <e p="DefenseMagnificationClass.cs" t="Include" />
+              <e p="FeatureClass.cs" t="Include" />
+              <e p="MagnificationClass.cs" t="Include" />
+              <e p="OffenseMagnificationClass.cs" t="Include" />
+              <e p="UnitSkillMagnificationClass.cs" t="Include" />
+            </e>
+            <e p="BattleUnit.cs" t="Include" />
+          </e>
+          <e p="03_Controller" t="Include">
+            <e p="00_Grobal" t="Include">
+              <e p="ItemDataBase.cs" t="Include" />
+              <e p="TabController.cs" t="Include" />
+            </e>
+            <e p="01_Home" t="Include">
+              <e p="Character" t="Include">
+                <e p="CharacterStatusDisplay.cs" t="Include" />
+                <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
+                <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
+              </e>
+              <e p="Inventory" t="Include">
+                <e p="InventoryItemList.cs" t="Include" />
+                <e p="InventoryTreeViewDataSourceMgr.cs" t="Include" />
+                <e p="InventoryTreeViewWithStickyHeadScript.cs" t="Include" />
+                <e p="layout" t="Include">
+                  <e p="InventoryListItemContent.cs" t="Include" />
+                  <e p="InventoryListItemSubTitle.cs" t="Include" />
+                </e>
+              </e>
+              <e p="ItemDetailViewController.cs" t="Include" />
+            </e>
+            <e p="02_Play" t="Include">
+              <e p="MissionController.cs" t="Include" />
+              <e p="PartyStatusIcons.cs" t="Include" />
+            </e>
+            <e p="03_Log" t="Include">
+              <e p="BattleLogEnhancedScrollController.cs" t="Include" />
+            </e>
+            <e p="RefreshController.cs" t="Include" />
+          </e>
+          <e p="04_Timeline Tab" t="Include">
+            <e p="Log" t="Include">
+              <e p="BackPreviousView.cs" t="Include" />
+              <e p="BattleLog" t="Include">
+                <e p="CellView.cs" t="Include" />
+                <e p="Data.cs" t="Include" />
+                <e p="DataList.cs" t="Include" />
+                <e p="EnhancedScrollCellView.cs" t="Include" />
+                <e p="IconSet.cs" t="Include" />
+                <e p="ShowTargetUnit.cs" t="Include" />
+              </e>
+              <e p="LogListSRIA.cs" t="Include" />
+              <e p="LogViewsHolder.cs" t="Include" />
+              <e p="ShowDetailButton.cs" t="Include" />
+            </e>
+            <e p="LogButton.cs" t="Include" />
+          </e>
+          <e p="05_Unit_Calculation" t="Include">
+            <e p="SwitchLayer.cs" t="Include" />
+          </e>
+          <e p="07_Play" t="Include">
+            <e p="1_View" t="Include">
+              <e p="DemoUI.cs" t="Include" />
+              <e p="GoScript.cs" t="Include" />
+              <e p="MissionListSRIA.cs" t="Include" />
+              <e p="MissionUpdateText.cs" t="Include" />
+              <e p="MissionViewsHolder.cs" t="Include" />
+            </e>
+          </e>
+          <e p="08_Battle" t="Include">
+            <e p="2_BeforeBattle" t="Include">
+              <e p="EnemyUnitSet.cs" t="Include" />
+              <e p="RunBattle.cs" t="Include" />
+            </e>
+            <e p="AttackFunction.cs" t="Include" />
+            <e p="BattleEngine.cs" t="Include" />
+            <e p="BattleEnvironment.cs" t="Include" />
+            <e p="BattleLogList.cs" t="Include" />
+            <e p="BattleUnitList.cs" t="Include" />
+            <e p="OpenSearchBar.cs" t="Include" />
+            <e p="Others.cs" t="Include" />
+            <e p="UnitInfoSet.cs" t="Include" />
+          </e>
+          <e p="09_Drop" t="Include">
+            <e p="DropedItem.cs" t="Include" />
+            <e p="DropEngine.cs" t="Include" />
+            <e p="InventoryManager.cs" t="Include" />
+          </e>
+          <e p="10_Global" t="Include">
+            <e p="TransparentMessageController.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Sequence breaker.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
