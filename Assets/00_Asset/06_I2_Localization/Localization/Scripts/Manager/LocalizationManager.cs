@@ -26,7 +26,7 @@ namespace I2.Loc
                 #endif
             #endif
 
-            if (string.IsNullOrEmpty(mCurrentLanguage) || Sources.Count == 0)
+            if (string.IsNullOrEmpty(_mCurrentLanguage) || Sources.Count == 0)
             {
                 AutoLoadGlobalParamManagers();
                 UpdateSources();
@@ -44,15 +44,15 @@ namespace I2.Loc
 			return 5;
 		}
 
-		public static string GetWebServiceURL( LanguageSourceData source = null )
+		public static string GetWebServiceUrl( LanguageSourceData source = null )
 		{
-			if (source != null && !string.IsNullOrEmpty(source.Google_WebServiceURL))
-				return source.Google_WebServiceURL;
+			if (source != null && !string.IsNullOrEmpty(source.googleWebServiceUrl))
+				return source.googleWebServiceUrl;
 
             InitializeIfNeeded();
 			for (int i = 0; i < Sources.Count; ++i)
-				if (Sources[i] != null && !string.IsNullOrEmpty(Sources[i].Google_WebServiceURL))
-					return Sources[i].Google_WebServiceURL;
+				if (Sources[i] != null && !string.IsNullOrEmpty(Sources[i].googleWebServiceUrl))
+					return Sources[i].googleWebServiceUrl;
 			return string.Empty;
 		}
 

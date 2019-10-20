@@ -106,9 +106,9 @@ namespace I2.Loc
 
 				if (oldTerm!=null)
 				{
-					termData.TermType 		= oldTerm.TermType;
-					termData.Description	= oldTerm.Description;
-					System.Array.Copy(oldTerm.Languages, termData.Languages, oldTerm.Languages.Length);
+					termData.termType 		= oldTerm.termType;
+					termData.description	= oldTerm.description;
+					System.Array.Copy(oldTerm.languages, termData.languages, oldTerm.languages.Length);
 				}
 			}
 

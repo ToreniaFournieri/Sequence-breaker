@@ -12,11 +12,11 @@ namespace Ricimi
     {
         public GameObject popupPrefab;
 
-        protected Canvas m_canvas;
+        protected Canvas MCanvas;
 
         protected void Start()
         {
-            m_canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            MCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         }
 
         public virtual void OpenPopup()
@@ -24,7 +24,7 @@ namespace Ricimi
             var popup = Instantiate(popupPrefab) as GameObject;
             popup.SetActive(true);
             popup.transform.localScale = Vector3.zero;
-            popup.transform.SetParent(m_canvas.transform, false);
+            popup.transform.SetParent(MCanvas.transform, false);
             popup.GetComponent<Popup>().Open();
         }
     }

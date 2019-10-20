@@ -72,8 +72,8 @@ namespace I2.Loc
 			GUI_SelectedTerm = 0;
 			mNewKeyName = mLocalize.Term;
 
-			if (mLocalize.Source != null)
-				LocalizationEditor.mLanguageSource = mLocalize.Source.SourceData;
+			if (mLocalize.source != null)
+				LocalizationEditor.mLanguageSource = mLocalize.source.SourceData;
             else
             {
 				if (LocalizationManager.Sources.Count==0)
@@ -160,7 +160,7 @@ namespace I2.Loc
 
 					OnGUI_References();
 
-				if (mLocalize.mGUI_ShowReferences || mLocalize.mGUI_ShowCallback) GUILayout.Space(10);
+				if (mLocalize.mGuiShowReferences || mLocalize.mGuiShowCallback) GUILayout.Space(10);
 
 					//Localize loc = target as Localize;
 
@@ -201,7 +201,7 @@ namespace I2.Loc
 
 		void OnGUI_References()
 		{
-			if (mLocalize.mGUI_ShowReferences = GUITools.DrawHeader ("References", mLocalize.mGUI_ShowReferences))
+			if (mLocalize.mGuiShowReferences = GUITools.DrawHeader ("References", mLocalize.mGuiShowReferences))
 			{
 				GUITools.BeginContents();
 
@@ -226,8 +226,8 @@ namespace I2.Loc
 
         void RemoveUnusedReferences(Localize cmp)
         {
-            cmp.TranslatedObjects.RemoveAll(x => !IsUsingReference(LocalizationManager.GetTermData(cmp.Term), x) && !IsUsingReference(LocalizationManager.GetTermData(cmp.SecondaryTerm), x));
-            if (cmp.TranslatedObjects.Count != cmp.mAssetDictionary.Count)
+            cmp.translatedObjects.RemoveAll(x => !IsUsingReference(LocalizationManager.GetTermData(cmp.Term), x) && !IsUsingReference(LocalizationManager.GetTermData(cmp.SecondaryTerm), x));
+            if (cmp.translatedObjects.Count != cmp.MAssetDictionary.Count)
                 cmp.UpdateAssetDictionary();
         }
 
@@ -236,7 +236,7 @@ namespace I2.Loc
             if (obj == null || termData==null) return false;
 
             string objName = obj.name;
-            foreach (string translation in termData.Languages)
+            foreach (string translation in termData.languages)
             {
                 if (translation != null && translation.Contains(objName))
                     return true;
@@ -253,7 +253,7 @@ namespace I2.Loc
         int GUI_SelectedTerm = 0;
 		void OnGUI_Terms()
 		{
-			if (mLocalize.mGUI_ShowTems=GUITools.DrawHeader ("Terms", mLocalize.mGUI_ShowTems))
+			if (mLocalize.mGuiShowTems=GUITools.DrawHeader ("Terms", mLocalize.mGuiShowTems))
 			{
 				//--[ tabs: Main and Secondary Terms ]----------------
 				int oldTab = GUI_SelectedTerm;
@@ -277,7 +277,7 @@ namespace I2.Loc
 				GUITools.EndContents();
 
 				//--[ Modifier ]-------------
-				if (mLocalize.Term != "-" && termData!=null && termData.TermType==eTermType.Text)
+				if (mLocalize.Term != "-" && termData!=null && termData.termType==ETermType.Text)
 				{
 					EditorGUI.BeginChangeCheck();
 					GUILayout.BeginHorizontal();
@@ -299,7 +299,7 @@ namespace I2.Loc
 						};
 					}
                     EditorGUI.BeginChangeCheck();
-                    int val = EditorGUILayout.Popup("Modifier", GUI_SelectedTerm == 0 ? (int)mLocalize.PrimaryTermModifier : (int)mLocalize.SecondaryTermModifier, System.Enum.GetNames(typeof(Localize.TermModification)));
+                    int val = EditorGUILayout.Popup("Modifier", GUI_SelectedTerm == 0 ? (int)mLocalize.primaryTermModifier : (int)mLocalize.secondaryTermModifier, System.Enum.GetNames(typeof(Localize.TermModification)));
                     if (EditorGUI.EndChangeCheck())
                     {
                         serializedObject.FindProperty(GUI_SelectedTerm == 0 ? "PrimaryTermModifier" : "SecondaryTermModifier").enumValueIndex = val;
@@ -325,7 +325,7 @@ namespace I2.Loc
                 //GUILayout.EndHorizontal();
 
                 //--[ Right To Left ]-------------
-                if (!mLocalize.IgnoreRTL && mLocalize.Term!="-" &&  termData != null && termData.TermType == eTermType.Text)
+                if (!mLocalize.ignoreRtl && mLocalize.Term!="-" &&  termData != null && termData.termType == ETermType.Text)
 				{ 
 					GUILayout.BeginVertical("Box");
                         //GUILayout.BeginHorizontal();
@@ -438,9 +438,9 @@ namespace I2.Loc
 			if (/*newIndex != Index && newIndex>=0*/GUI.changed)
 			{
 				GUI.changed = false;
-                if (mLocalize.Source != null && newIndex == mTermsArray.Length - 4)  //< show terms from all sources >
+                if (mLocalize.source != null && newIndex == mTermsArray.Length - 4)  //< show terms from all sources >
                 {
-                    mLocalize.Source = null;
+                    mLocalize.source = null;
                     mTermsArray = null;
                 }
                 else
@@ -467,9 +467,9 @@ namespace I2.Loc
 			{
 				if (Inherited)
 					bChanged = true; // if the term its inferred and a matching term its found, then use that
-				eTermType NewType = (eTermType)EditorGUILayout.EnumPopup(termData.TermType, GUILayout.Width(90));
-				if (termData.TermType != NewType)
-					termData.TermType = NewType;
+				ETermType NewType = (ETermType)EditorGUILayout.EnumPopup(termData.termType, GUILayout.Width(90));
+				if (termData.termType != NewType)
+					termData.termType = NewType;
 			}
 			
 			GUILayout.EndHorizontal();
@@ -508,16 +508,16 @@ namespace I2.Loc
 
 					LanguageSourceData Source = null;
 					#if UNITY_EDITOR
-					if (mLocalize.Source!=null)
-						Source = mLocalize.Source.SourceData;
+					if (mLocalize.source!=null)
+						Source = mLocalize.source.SourceData;
 					#endif
 
 					if (Source==null)
 						Source = LocalizationManager.Sources[0];
                     Term = mNewKeyName;
-                    var data = Source.AddTerm( mNewKeyName, eTermType.Text, false );
-					if (data.Languages.Length > 0)
-						data.Languages[0] = mLocalize.GetMainTargetsText();
+                    var data = Source.AddTerm( mNewKeyName, ETermType.Text, false );
+					if (data.languages.Length > 0)
+						data.languages[0] = mLocalize.GetMainTargetsText();
 					Source.Editor_SetDirty();
 					AssetDatabase.SaveAssets();
 					mAllowEditKeyName = false;
@@ -533,8 +533,8 @@ namespace I2.Loc
 					mAllowEditKeyName = false;
 					bChanged = true;
 					LocalizationEditor.TermReplacements = new Dictionary<string, string>(System.StringComparer.Ordinal);
-					LocalizationEditor.TermReplacements[ termData.Term ] = mNewKeyName;
-					termData.Term = mNewKeyName;
+					LocalizationEditor.TermReplacements[ termData.term ] = mNewKeyName;
+					termData.term = mNewKeyName;
 					source.UpdateDictionary(true);
 					LocalizationEditor.ReplaceTermsInCurrentScene();
 					GUIUtility.keyboardControl = 0;
@@ -552,7 +552,7 @@ namespace I2.Loc
 
 		void UpdateTermsList( string currentTerm )
 		{
-			List<string> Terms = mLocalize.Source==null ? LocalizationManager.GetTermsList() : mLocalize.Source.SourceData.GetTermsList();
+			List<string> Terms = mLocalize.source==null ? LocalizationManager.GetTermsList() : mLocalize.source.SourceData.GetTermsList();
 			
 			// If there is a filter, remove all terms not matching that filter
 			if (mAllowEditKeyName && !string.IsNullOrEmpty(mNewKeyName)) 
@@ -569,7 +569,7 @@ namespace I2.Loc
 
 			Terms.Sort(System.StringComparer.OrdinalIgnoreCase);
 			Terms.Add("");
-            if (mLocalize.Source != null)
+            if (mLocalize.source != null)
             {
                 Terms.Add("< Show Terms from all sources >");
                 Terms.Add("");
@@ -642,7 +642,7 @@ namespace I2.Loc
 
 			mLocalize.FindTarget();
 
-            foreach (var desc in LocalizationManager.mLocalizeTargets)
+            foreach (var desc in LocalizationManager.MLocalizeTargets)
             {
                 if (desc.CanLocalize(mLocalize))
                 {
@@ -676,7 +676,7 @@ namespace I2.Loc
                         DestroyImmediate(cmp.mLocalizeTarget);
                     cmp.mLocalizeTarget = null;
 
-                    foreach (var desc in LocalizationManager.mLocalizeTargets)
+                    foreach (var desc in LocalizationManager.MLocalizeTargets)
                     {
                         if (desc.Name == TargetTypes[index])
                         {
@@ -699,11 +699,11 @@ namespace I2.Loc
 		{
 			GUILayout.BeginHorizontal();
 
-				ILanguageSource currentSource  = mLocalize.Source;
+				ILanguageSource currentSource  = mLocalize.source;
                 if (currentSource==null)
 				{
                     LanguageSourceData source = LocalizationManager.GetSourceContaining(mLocalize.Term);
-                    currentSource = source==null ? null : source.owner;
+                    currentSource = source==null ? null : source.Owner;
 				}
 
 				if (GUILayout.Button("Open Source", EditorStyles.toolbarButton, GUILayout.Width (100)))
@@ -720,7 +720,7 @@ namespace I2.Loc
 
 				GUILayout.BeginHorizontal(EditorStyles.toolbar);
 					EditorGUI.BeginChangeCheck ();
-					if (mLocalize.Source == null)
+					if (mLocalize.source == null)
 					{
 						GUI.contentColor = Color.Lerp (Color.gray, Color.yellow, 0.1f);
 					}
@@ -734,7 +734,7 @@ namespace I2.Loc
                             NewSource = (obj as GameObject).GetComponent<LanguageSource>();
                         }
 
-                        mLocalize.Source = NewSource;
+                        mLocalize.source = NewSource;
                         string sTerm, sSecondary;
                         mLocalize.GetFinalTerms(out sTerm, out sSecondary);
                         if (GUI_SelectedTerm == 1) sTerm = sSecondary;
@@ -748,7 +748,7 @@ namespace I2.Loc
                         if (GUI_SelectedTerm == 1) sTerm = sSecondary;
 
                         var data = LocalizationManager.GetSourceContaining(sTerm, false);
-                        mLocalize.Source = data==null ? null : data.owner;
+                        mLocalize.source = data==null ? null : data.Owner;
                         mTermsArray = null;
                     }
             GUILayout.EndHorizontal();

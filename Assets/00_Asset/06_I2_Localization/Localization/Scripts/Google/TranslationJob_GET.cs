@@ -11,55 +11,55 @@ namespace I2.Loc
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 
-    public class TranslationJob_GET : TranslationJob_WWW
+    public class TranslationJobGet : TranslationJobWww
     {
         TranslationDictionary _requests;
-        GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
-        List<string> mQueries;
-        public string mErrorMessage;
+        GoogleTranslation.FnOnTranslationReady _onTranslationReady;
+        List<string> _mQueries;
+        public string MErrorMessage;
 
-        public TranslationJob_GET(TranslationDictionary requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
+        public TranslationJobGet(TranslationDictionary requests, GoogleTranslation.FnOnTranslationReady onTranslationReady)
         {
             _requests = requests;
-            _OnTranslationReady = OnTranslationReady;
+            _onTranslationReady = onTranslationReady;
 
-            mQueries = GoogleTranslation.ConvertTranslationRequest(requests, true);
+            _mQueries = GoogleTranslation.ConvertTranslationRequest(requests, true);
 
             GetState();
         }
 
         void ExecuteNextQuery()
         {
-            if (mQueries.Count == 0)
+            if (_mQueries.Count == 0)
             {
-                mJobState = eJobState.Succeeded;
+                MJobState = EJobState.Succeeded;
                 return;
             }
 
-            int lastQuery = mQueries.Count - 1;
-            var query = mQueries[lastQuery];
-            mQueries.RemoveAt(lastQuery);
+            int lastQuery = _mQueries.Count - 1;
+            var query = _mQueries[lastQuery];
+            _mQueries.RemoveAt(lastQuery);
 
-            string url = string.Format("{0}?action=Translate&list={1}", LocalizationManager.GetWebServiceURL(), query);
-            www = UnityWebRequest.Get(url);
-            I2Utils.SendWebRequest(www);
+            string url = string.Format("{0}?action=Translate&list={1}", LocalizationManager.GetWebServiceUrl(), query);
+            Www = UnityWebRequest.Get(url);
+            I2Utils.SendWebRequest(Www);
         }
 
-        public override eJobState GetState()
+        public override EJobState GetState()
         {
-            if (www != null && www.isDone)
+            if (Www != null && Www.isDone)
             {
-                ProcessResult(www.downloadHandler.data, www.error);
-                www.Dispose();
-                www = null;
+                ProcessResult(Www.downloadHandler.data, Www.error);
+                Www.Dispose();
+                Www = null;
             }
 
-            if (www==null)
+            if (Www==null)
             {
                 ExecuteNextQuery();
             }
 
-            return mJobState;
+            return MJobState;
         }
 
         public void ProcessResult(byte[] bytes, string errorMsg)
@@ -71,14 +71,14 @@ namespace I2.Loc
 
                 if (string.IsNullOrEmpty(errorMsg))
                 {
-                    if (_OnTranslationReady!=null)
-                        _OnTranslationReady(_requests, null);
+                    if (_onTranslationReady!=null)
+                        _onTranslationReady(_requests, null);
                     return;
                 }
             }
 
-            mJobState = eJobState.Failed;
-            mErrorMessage = errorMsg;
+            MJobState = EJobState.Failed;
+            MErrorMessage = errorMsg;
         }
     }
 }

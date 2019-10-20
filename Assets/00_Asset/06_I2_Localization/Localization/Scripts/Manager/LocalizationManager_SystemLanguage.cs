@@ -9,14 +9,14 @@ namespace I2.Loc
 {
     public static partial class LocalizationManager
     {
-        static string mCurrentDeviceLanguage;
+        static string _mCurrentDeviceLanguage;
 
         public static string GetCurrentDeviceLanguage( bool force = false )
         {
-            if (force || string.IsNullOrEmpty(mCurrentDeviceLanguage))
+            if (force || string.IsNullOrEmpty(_mCurrentDeviceLanguage))
                 DetectDeviceLanguage();
 
-            return mCurrentDeviceLanguage;
+            return _mCurrentDeviceLanguage;
         }
 
         static void DetectDeviceLanguage()
@@ -41,9 +41,9 @@ namespace I2.Loc
             }
             #endif
 
-            mCurrentDeviceLanguage = Application.systemLanguage.ToString();
-            if (mCurrentDeviceLanguage == "ChineseSimplified") mCurrentDeviceLanguage = "Chinese (Simplified)";
-            if (mCurrentDeviceLanguage == "ChineseTraditional") mCurrentDeviceLanguage = "Chinese (Traditional)";
+            _mCurrentDeviceLanguage = Application.systemLanguage.ToString();
+            if (_mCurrentDeviceLanguage == "ChineseSimplified") _mCurrentDeviceLanguage = "Chinese (Simplified)";
+            if (_mCurrentDeviceLanguage == "ChineseTraditional") _mCurrentDeviceLanguage = "Chinese (Traditional)";
         }
     }
 }

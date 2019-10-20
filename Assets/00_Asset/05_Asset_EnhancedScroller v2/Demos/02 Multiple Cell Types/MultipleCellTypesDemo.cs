@@ -45,27 +45,27 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
 
             _data = new SmallList<Data>();
 
-            _data.Add(new HeaderData() { category = "Platinum Players" });
-            _data.Add(new RowData() { userName = "John Smith", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 21323199 });
-            _data.Add(new RowData() { userName = "Jane Doe", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 20793219 });
-            _data.Add(new RowData() { userName = "Julie Prost", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 19932132 });
+            _data.Add(new HeaderData() { Category = "Platinum Players" });
+            _data.Add(new RowData() { UserName = "John Smith", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 21323199 });
+            _data.Add(new RowData() { UserName = "Jane Doe", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 20793219 });
+            _data.Add(new RowData() { UserName = "Julie Prost", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 19932132 });
             _data.Add(new FooterData());
 
-            _data.Add(new HeaderData() { category = "Gold Players" });
-            _data.Add(new RowData() { userName = "Jim Bob", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 1002132 });
-            _data.Add(new RowData() { userName = "Susan Anthony", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 991234 });
+            _data.Add(new HeaderData() { Category = "Gold Players" });
+            _data.Add(new RowData() { UserName = "Jim Bob", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 1002132 });
+            _data.Add(new RowData() { UserName = "Susan Anthony", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 991234 });
             _data.Add(new FooterData());
 
-            _data.Add(new HeaderData() { category = "Silver Players" });
-            _data.Add(new RowData() { userName = "Gary Richards", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 905723 });
-            _data.Add(new RowData() { userName = "John Doe", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 702318 });
-            _data.Add(new RowData() { userName = "Lisa Ford", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 697767 });
-            _data.Add(new RowData() { userName = "Jacob Morris", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 409393 });
-            _data.Add(new RowData() { userName = "Carolyn Shephard", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 104352 });
-            _data.Add(new RowData() { userName = "Guy Wilson", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 88321 });
-            _data.Add(new RowData() { userName = "Jackie Jones", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 20826 });
-            _data.Add(new RowData() { userName = "Sally Brewer", userAvatarSpritePath = resourcePath + "/avatar_female", userHighScore = 17389 });
-            _data.Add(new RowData() { userName = "Joe West", userAvatarSpritePath = resourcePath + "/avatar_male", userHighScore = 2918 });
+            _data.Add(new HeaderData() { Category = "Silver Players" });
+            _data.Add(new RowData() { UserName = "Gary Richards", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 905723 });
+            _data.Add(new RowData() { UserName = "John Doe", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 702318 });
+            _data.Add(new RowData() { UserName = "Lisa Ford", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 697767 });
+            _data.Add(new RowData() { UserName = "Jacob Morris", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 409393 });
+            _data.Add(new RowData() { UserName = "Carolyn Shephard", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 104352 });
+            _data.Add(new RowData() { UserName = "Guy Wilson", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 88321 });
+            _data.Add(new RowData() { UserName = "Jackie Jones", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 20826 });
+            _data.Add(new RowData() { UserName = "Sally Brewer", UserAvatarSpritePath = resourcePath + "/avatar_female", UserHighScore = 17389 });
+            _data.Add(new RowData() { UserName = "Joe West", UserAvatarSpritePath = resourcePath + "/avatar_male", UserHighScore = 2918 });
             _data.Add(new FooterData());
 
             // tell the scroller to reload now that we have the data
@@ -134,7 +134,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
                 cellView = scroller.GetCellView(headerCellViewPrefab) as CellViewHeader;
 
                 // optional for clarity: set the cell's name to something to indicate this is a header row
-                cellView.name = "[Header] " + (_data[dataIndex] as HeaderData).category;
+                cellView.name = "[Header] " + (_data[dataIndex] as HeaderData).Category;
             }
             else if (_data[dataIndex] is RowData)
             {
@@ -142,7 +142,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
                 cellView = scroller.GetCellView(rowCellViewPrefab) as CellViewRow;
 
                 // optional for clarity: set the cell's name to something to indicate this is a row
-                cellView.name = "[Row] " + (_data[dataIndex] as RowData).userName;
+                cellView.name = "[Row] " + (_data[dataIndex] as RowData).UserName;
             }
             else
             {

@@ -35,9 +35,9 @@ namespace I2.Loc
 			serializedObject.ApplyModifiedProperties();
 
 			var objParams = (target as LocalizeDropdown);
-			objParams._Terms.Add(string.Empty);
+			objParams.terms.Add(string.Empty);
 
-			list.index = objParams._Terms.Count - 1;
+			list.index = objParams.terms.Count - 1;
 
 			serializedObject.Update();
 		}
@@ -49,7 +49,7 @@ namespace I2.Loc
 			serializedObject.ApplyModifiedProperties();
 
 			var objParams = (target as LocalizeDropdown);
-			objParams._Terms.RemoveAt(list.index);
+			objParams.terms.RemoveAt(list.index);
 
 			serializedObject.Update();
 		}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "magnification", menuName = "Skill/SubClass/SkillMagnificationClass", order = 7)]
 sealed public class SkillMagnificationClass : ScriptableObject
@@ -14,17 +15,17 @@ sealed public class SkillMagnificationClass : ScriptableObject
     //    this.NumberOfAttacks = numberOfAttacks; this.Critical = critical; this.Accuracy = accuracy; this.OptimumRangeMin = optimumRangeMin; this.OptimumRangeMax = optimumRangeMax;
     //}
 
-    public TargetType AttackTarget;
-    public double Damage;
-    public double Kinetic;
-    public double Chemical;
-    public double Thermal;
-    public double Heal;
-    public double NumberOfAttacks;
-    public double Critical;
-    public double Accuracy;
-    public double OptimumRangeMin;
-    public double OptimumRangeMax;
+    [FormerlySerializedAs("AttackTarget")] public TargetType attackTarget;
+    [FormerlySerializedAs("Damage")] public double damage;
+    [FormerlySerializedAs("Kinetic")] public double kinetic;
+    [FormerlySerializedAs("Chemical")] public double chemical;
+    [FormerlySerializedAs("Thermal")] public double thermal;
+    [FormerlySerializedAs("Heal")] public double heal;
+    [FormerlySerializedAs("NumberOfAttacks")] public double numberOfAttacks;
+    [FormerlySerializedAs("Critical")] public double critical;
+    [FormerlySerializedAs("Accuracy")] public double accuracy;
+    [FormerlySerializedAs("OptimumRangeMin")] public double optimumRangeMin;
+    [FormerlySerializedAs("OptimumRangeMax")] public double optimumRangeMax;
  
 
 }

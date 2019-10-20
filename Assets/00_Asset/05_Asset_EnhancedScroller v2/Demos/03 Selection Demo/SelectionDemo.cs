@@ -86,7 +86,7 @@ namespace EnhancedScrollerDemos.SelectionDemo
             {
                 for (var i = 0; i < _data.Count; i++)
                 {
-                    _data[i].selectedChanged = null;
+                    _data[i].SelectedChanged = null;
                 }
             }
 
@@ -94,15 +94,15 @@ namespace EnhancedScrollerDemos.SelectionDemo
             _data = new SmallList<InventoryData>();
 
             // add inventory items to the list
-            _data.Add(new InventoryData() { itemName = "Sword", itemCost = 123, itemDamage = 50, itemDefense = 0, itemWeight = 10, spritePath = resourcePath + "/sword", itemDescription = "Broadsword with a double-edged blade" });
-            _data.Add(new InventoryData() { itemName = "Shield", itemCost = 80, itemDamage = 0, itemDefense = 60, itemWeight = 50, spritePath = resourcePath + "/shield", itemDescription = "Steel shield to deflect your enemy's blows" });
-            _data.Add(new InventoryData() { itemName = "Amulet", itemCost = 260, itemDamage = 0, itemDefense = 0, itemWeight = 1, spritePath = resourcePath + "/amulet", itemDescription = "Magic amulet restores your health points gradually over time" });
-            _data.Add(new InventoryData() { itemName = "Helmet", itemCost = 50, itemDamage = 0, itemDefense = 20, itemWeight = 20, spritePath = resourcePath + "/helmet", itemDescription = "Standard helm will decrease your vulnerability" });
-            _data.Add(new InventoryData() { itemName = "Boots", itemCost = 40, itemDamage = 0, itemDefense = 10, itemWeight = 5, spritePath = resourcePath + "/boots", itemDescription = "Boots of speed will double your movement points" });
-            _data.Add(new InventoryData() { itemName = "Bracers", itemCost = 30, itemDamage = 0, itemDefense = 20, itemWeight = 10, spritePath = resourcePath + "/bracers", itemDescription = "Bracers will upgrade your overall armor" });
-            _data.Add(new InventoryData() { itemName = "Crossbow", itemCost = 100, itemDamage = 40, itemDefense = 0, itemWeight = 30, spritePath = resourcePath + "/crossbow", itemDescription = "Crossbow can attack from long range" });
-            _data.Add(new InventoryData() { itemName = "Fire Ring", itemCost = 300, itemDamage = 100, itemDefense = 0, itemWeight = 1, spritePath = resourcePath + "/fireRing", itemDescription = "Fire ring gives you the magical ability to cast fireball spells" });
-            _data.Add(new InventoryData() { itemName = "Knapsack", itemCost = 22, itemDamage = 0, itemDefense = 0, itemWeight = 0, spritePath = resourcePath + "/knapsack", itemDescription = "Knapsack will increase your carrying capacity by twofold" });
+            _data.Add(new InventoryData() { ItemName = "Sword", ItemCost = 123, ItemDamage = 50, ItemDefense = 0, ItemWeight = 10, SpritePath = resourcePath + "/sword", ItemDescription = "Broadsword with a double-edged blade" });
+            _data.Add(new InventoryData() { ItemName = "Shield", ItemCost = 80, ItemDamage = 0, ItemDefense = 60, ItemWeight = 50, SpritePath = resourcePath + "/shield", ItemDescription = "Steel shield to deflect your enemy's blows" });
+            _data.Add(new InventoryData() { ItemName = "Amulet", ItemCost = 260, ItemDamage = 0, ItemDefense = 0, ItemWeight = 1, SpritePath = resourcePath + "/amulet", ItemDescription = "Magic amulet restores your health points gradually over time" });
+            _data.Add(new InventoryData() { ItemName = "Helmet", ItemCost = 50, ItemDamage = 0, ItemDefense = 20, ItemWeight = 20, SpritePath = resourcePath + "/helmet", ItemDescription = "Standard helm will decrease your vulnerability" });
+            _data.Add(new InventoryData() { ItemName = "Boots", ItemCost = 40, ItemDamage = 0, ItemDefense = 10, ItemWeight = 5, SpritePath = resourcePath + "/boots", ItemDescription = "Boots of speed will double your movement points" });
+            _data.Add(new InventoryData() { ItemName = "Bracers", ItemCost = 30, ItemDamage = 0, ItemDefense = 20, ItemWeight = 10, SpritePath = resourcePath + "/bracers", ItemDescription = "Bracers will upgrade your overall armor" });
+            _data.Add(new InventoryData() { ItemName = "Crossbow", ItemCost = 100, ItemDamage = 40, ItemDefense = 0, ItemWeight = 30, SpritePath = resourcePath + "/crossbow", ItemDescription = "Crossbow can attack from long range" });
+            _data.Add(new InventoryData() { ItemName = "Fire Ring", ItemCost = 300, ItemDamage = 100, ItemDefense = 0, ItemWeight = 1, SpritePath = resourcePath + "/fireRing", ItemDescription = "Fire ring gives you the magical ability to cast fireball spells" });
+            _data.Add(new InventoryData() { ItemName = "Knapsack", ItemCost = 22, ItemDamage = 0, ItemDefense = 0, ItemWeight = 0, SpritePath = resourcePath + "/knapsack", ItemDescription = "Knapsack will increase your carrying capacity by twofold" });
 
             // tell the scrollers to reload
             vScroller.ReloadData();
@@ -136,9 +136,9 @@ namespace EnhancedScrollerDemos.SelectionDemo
                 }
 
                 selectedImage.gameObject.SetActive(true);
-                selectedImage.sprite = Resources.Load<Sprite>(_data[selectedDataIndex].spritePath + "_v");
+                selectedImage.sprite = Resources.Load<Sprite>(_data[selectedDataIndex].SpritePath + "_v");
 
-                selectedImageText.text = _data[selectedDataIndex].itemName;
+                selectedImageText.text = _data[selectedDataIndex].ItemName;
             }
         }
 
@@ -216,7 +216,7 @@ namespace EnhancedScrollerDemos.SelectionDemo
 
             // set the name of the cell. This just makes it easier to see in our
             // hierarchy what the cell is
-            cellView.name = (scroller == vScroller ? "Vertical" : "Horizontal") + " " + _data[dataIndex].itemName;
+            cellView.name = (scroller == vScroller ? "Vertical" : "Horizontal") + " " + _data[dataIndex].ItemName;
 
             // set the selected callback to the CellViewSelected function of this controller. 
             // this will be fired when the cell's button is clicked

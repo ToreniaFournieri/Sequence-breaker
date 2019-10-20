@@ -9,47 +9,47 @@ using frame8.ScrollRectItemsAdapter.Classic.Util;
 
 public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TClientModel : LogBaseClientModel
 {
-    public LayoutElement layoutElement;
-    public Image averageScoreFillImage;
-    public Text nameText, locationText;
+    public LayoutElement LayoutElement;
+    public Image AverageScoreFillImage;
+    public Text NameText, LocationText;
     //public Text averageScoreText;
     //public RectTransform levelOfMission;
-    public Slider levelOfMissionSlider;
-    public GameObject transparentMessageController; // to display transparent message
+    public Slider LevelOfMissionSlider;
+    public GameObject TransparentMessageController; // to display transparent message
 
     //Show detail button objects
-    public ShowDetailButton detailButton;
+    public ShowDetailButton DetailButton;
 
     // Log related values
-    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
-    public GameObject battleLog;
-    public GameObject logList;
-    public GameObject battle;
+    public KohmaiWorks.Scroller.BattleLogEnhancedScrollController BattleLogEnhancedScrollController; // to pass the log value
+    public GameObject BattleLog;
+    public GameObject LogList;
+    public GameObject Battle;
 
-    public Text levelOfMissionText;
-    public Text resultText;
+    public Text LevelOfMissionText;
+    public Text ResultText;
 
     // to decide the result
-    public WhichWin whichWin;
+    public WhichWin WhichWin;
 
     /// <inheritdoc/>
     public override void CollectViews()
     {
         base.CollectViews();
 
-        layoutElement = root.GetComponent<LayoutElement>();
+        LayoutElement = Root.GetComponent<LayoutElement>();
 
-        var mainPanel = root.GetChild(0);
-        resultText = mainPanel.Find("NameAndLocationPanel/Result").GetComponent<Text>();
+        var mainPanel = Root.GetChild(0);
+        ResultText = mainPanel.Find("NameAndLocationPanel/Result").GetComponent<Text>();
 
-        levelOfMissionText = mainPanel.Find("MissionImage/LevelText2").GetComponent<Text>();
+        LevelOfMissionText = mainPanel.Find("MissionImage/LevelText2").GetComponent<Text>();
         //levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
-        nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
-        locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
+        NameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
+        LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
 
-        Transform showDetailPanel = root.GetChild(2);
-        detailButton = showDetailPanel.GetComponent<ShowDetailButton>();
+        Transform showDetailPanel = Root.GetChild(2);
+        DetailButton = showDetailPanel.GetComponent<ShowDetailButton>();
 
     }
 
@@ -66,39 +66,39 @@ public class LogClientViewsHolder<TClientModel> : CAbstractViewsHolder where TCl
 
     public virtual void UpdateViews(TClientModel dataModel)
     {
-        nameText.text = dataModel.missionName + " (lv:" + battle.GetComponent<RunBattle>().missionLevel + ")";
-        locationText.text = "  " + dataModel.location;
+        NameText.text = dataModel.MissionName + " (lv:" + Battle.GetComponent<RunBattle>().missionLevel + ")";
+        LocationText.text = "  " + dataModel.Location;
 
 
-        levelOfMissionText.text = "Lv: " + battle.GetComponent<RunBattle>().missionLevel;
+        LevelOfMissionText.text = "Lv: " + Battle.GetComponent<RunBattle>().missionLevel;
 
-        string _resultText = null;
+        string resultText = null;
 
-        switch (whichWin)
+        switch (WhichWin)
         {
-            case WhichWin.allyWin:
-                _resultText = "[Win]";
+            case WhichWin.AllyWin:
+                resultText = "[Win]";
                 break;
-            case WhichWin.enemyWin:
-                _resultText = "[Lose]";
+            case WhichWin.EnemyWin:
+                resultText = "[Lose]";
                 break;
             case WhichWin.Draw:
-                _resultText = "[Draw]";
+                resultText = "[Draw]";
                 break;
-            case WhichWin.none:
+            case WhichWin.None:
                 break;
             default:
-                Debug.LogError(" unexpected value :" + whichWin);
+                Debug.LogError(" unexpected value :" + WhichWin);
                 break;
         }
-        resultText.text = _resultText;
+        ResultText.text = resultText;
 
         //ShowDetailButton showDetailButton = detailButton.GetComponent<ShowDetailButton>();
 
-        detailButton.battle = battle;
-        detailButton.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        detailButton.battleLog = battleLog;
-        detailButton.logList = logList;
+        DetailButton.battle = Battle;
+        DetailButton.battleLogEnhancedScrollController = BattleLogEnhancedScrollController;
+        DetailButton.battleLog = BattleLog;
+        DetailButton.logList = LogList;
 
     }
 
@@ -125,23 +125,23 @@ public class LogClientViewsHolder : LogClientViewsHolder<LogBaseClientModel>
 
 public class LogBaseClientModel
 {
-    public string missionName;
-    public string location;
-    public WhichWin whichWin;
-    public string resultText;
+    public string MissionName;
+    public string Location;
+    public WhichWin WhichWin;
+    public string ResultText;
 
     //Obsolate
-    public float availability01, contractChance01, longTermClient01;
-    public bool isOnline;
+    public float Availability01, ContractChance01, LongTermClient01;
+    public bool IsOnline;
 
-    public float AverageScore01 { get { return (availability01 + contractChance01 + longTermClient01) / 3; } }
+    public float AverageScore01 { get { return (Availability01 + ContractChance01 + LongTermClient01) / 3; } }
 
     public void SetRandom()
     {
-        availability01 = CUtil.RandF();
-        contractChance01 = CUtil.RandF();
-        longTermClient01 = CUtil.RandF();
-        isOnline = CUtil.Rand(2) == 0;
+        Availability01 = CUtil.RandF();
+        ContractChance01 = CUtil.RandF();
+        LongTermClient01 = CUtil.RandF();
+        IsOnline = CUtil.Rand(2) == 0;
     }
 }
 
@@ -149,31 +149,31 @@ public class LogBaseClientModel
 public class LogClientModel : LogBaseClientModel
 {
     // View size related
-    public bool expanded;
-    public float nonExpandedSize;
+    public bool Expanded;
+    public float NonExpandedSize;
 }
 
 
 public class LogViewsHolder : LogClientViewsHolder<LogClientModel>
 {
-    public CExpandCollapseOnClick expandCollapseComponent;
+    public CExpandCollapseOnClick ExpandCollapseComponent;
 
 
     public override void CollectViews()
     {
         base.CollectViews();
 
-        expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
+        ExpandCollapseComponent = Root.GetComponent<CExpandCollapseOnClick>();
     }
 
     public override void UpdateViews(LogClientModel dataModel)
     {
         base.UpdateViews(dataModel);
 
-        if (expandCollapseComponent)
+        if (ExpandCollapseComponent)
         {
-            expandCollapseComponent.expanded = dataModel.expanded;
-            expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
+            ExpandCollapseComponent.expanded = dataModel.Expanded;
+            ExpandCollapseComponent.nonExpandedSize = dataModel.NonExpandedSize;
         }
     }
 }

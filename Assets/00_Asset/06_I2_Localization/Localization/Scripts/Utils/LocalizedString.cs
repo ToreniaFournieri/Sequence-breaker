@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 namespace I2.Loc
 {
@@ -6,10 +7,10 @@ namespace I2.Loc
     public struct LocalizedString
     {
         public string mTerm;
-        public bool mRTL_IgnoreArabicFix;
-        public int  mRTL_MaxLineLength;
-        public bool mRTL_ConvertNumbers;
-        public bool m_DontLocalizeParameters;
+        [FormerlySerializedAs("mRTL_IgnoreArabicFix")] public bool mRtlIgnoreArabicFix;
+        [FormerlySerializedAs("mRTL_MaxLineLength")] public int  mRtlMaxLineLength;
+        [FormerlySerializedAs("mRTL_ConvertNumbers")] public bool mRtlConvertNumbers;
+        [FormerlySerializedAs("m_DontLocalizeParameters")] public bool mDontLocalizeParameters;
 
         public static implicit operator string(LocalizedString s)
         {
@@ -24,18 +25,18 @@ namespace I2.Loc
         public LocalizedString (LocalizedString str)
         {
             mTerm = str.mTerm;
-            mRTL_IgnoreArabicFix = str.mRTL_IgnoreArabicFix;
-            mRTL_MaxLineLength = str.mRTL_MaxLineLength;
-            mRTL_ConvertNumbers = str.mRTL_ConvertNumbers;
-            m_DontLocalizeParameters = str.m_DontLocalizeParameters;
+            mRtlIgnoreArabicFix = str.mRtlIgnoreArabicFix;
+            mRtlMaxLineLength = str.mRtlMaxLineLength;
+            mRtlConvertNumbers = str.mRtlConvertNumbers;
+            mDontLocalizeParameters = str.mDontLocalizeParameters;
         }
 
 
 
         public override string ToString()
         {
-            var translation = LocalizationManager.GetTranslation(mTerm, !mRTL_IgnoreArabicFix, mRTL_MaxLineLength, !mRTL_ConvertNumbers, true );
-            LocalizationManager.ApplyLocalizationParams(ref translation, !m_DontLocalizeParameters);
+            var translation = LocalizationManager.GetTranslation(mTerm, !mRtlIgnoreArabicFix, mRtlMaxLineLength, !mRtlConvertNumbers, true );
+            LocalizationManager.ApplyLocalizationParams(ref translation, !mDontLocalizeParameters);
             return translation;
         }
     }

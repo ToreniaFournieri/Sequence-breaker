@@ -10,11 +10,11 @@ namespace I2.Loc
         // Change this for your projects if you need extra security
         public static char[] StringObfuscatorPassword = "ÝúbUu¸CÁÂ§*4PÚ©-á©¾@T6Dl±ÒWâuzÅm4GÐóØ$=Íg,¥Që®iKEßr¡×60Ít4öÃ~^«y:Èd1<QÛÝúbUu¸CÁÂ§*4PÚ©-á©¾@T6Dl±ÒWâuzÅm4GÐóØ$=Íg,¥Që®iKEßr¡×60Ít4öÃ~^«y:Èd".ToCharArray();
 
-        public static string Encode(string NormalString)
+        public static string Encode(string normalString)
         {
             try
             {
-                var str = XoREncode(NormalString);
+                var str = XoREncode(normalString);
                 return ToBase64(str);
             }
             catch (System.Exception)
@@ -24,11 +24,11 @@ namespace I2.Loc
         }
 
 
-        public static string Decode(string ObfucatedString)
+        public static string Decode(string obfucatedString)
         {
             try
             {
-                var str = FromBase64(ObfucatedString);
+                var str = FromBase64(obfucatedString);
                 return XoREncode(str);
             }
             catch (System.Exception)
@@ -43,18 +43,18 @@ namespace I2.Loc
             return System.Convert.ToBase64String(toEncodeAsBytes);
         }
 
-        static string FromBase64(string base64string)
+        static string FromBase64(string base64String)
         {
-            byte[] encodedDataAsBytes = System.Convert.FromBase64String(base64string);
+            byte[] encodedDataAsBytes = System.Convert.FromBase64String(base64String);
             return System.Text.Encoding.UTF8.GetString(encodedDataAsBytes, 0, encodedDataAsBytes.Length);
         }
 
-        static string XoREncode(string NormalString)
+        static string XoREncode(string normalString)
         {
             try
             {
                 var pass = StringObfuscatorPassword;
-                var buffer = NormalString.ToCharArray();
+                var buffer = normalString.ToCharArray();
 
                 var passlen = pass.Length;
 

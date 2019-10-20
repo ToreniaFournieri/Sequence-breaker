@@ -10,56 +10,56 @@ namespace I2.Loc
 	{
 		#region Language
 
-		public int GetLanguageIndex( string language, bool AllowDiscartingRegion = true, bool SkipDisabled = true)
+		public int GetLanguageIndex( string language, bool allowDiscartingRegion = true, bool skipDisabled = true)
 		{
 			// First look for an exact match
 			for (int i=0, imax=mLanguages.Count; i<imax; ++i)
-				if ((!SkipDisabled || mLanguages[i].IsEnabled()) && string.Compare(mLanguages[i].Name, language, StringComparison.OrdinalIgnoreCase)==0)
+				if ((!skipDisabled || mLanguages[i].IsEnabled()) && string.Compare(mLanguages[i].name, language, StringComparison.OrdinalIgnoreCase)==0)
 					return i;
 
 			// Then allow matching "English (Canada)" to "english"
-			if (AllowDiscartingRegion)
+			if (allowDiscartingRegion)
 			{
-				int MostSimilar = -1;
-				int BestSimilitud = 0;
+				int mostSimilar = -1;
+				int bestSimilitud = 0;
 				for (int i=0, imax=mLanguages.Count; i<imax; ++i)
-					if (!SkipDisabled || mLanguages[i].IsEnabled())
+					if (!skipDisabled || mLanguages[i].IsEnabled())
 					{
-						int commonWords = GetCommonWordInLanguageNames(mLanguages[i].Name, language);
-						if (commonWords>BestSimilitud)
+						int commonWords = GetCommonWordInLanguageNames(mLanguages[i].name, language);
+						if (commonWords>bestSimilitud)
 						{
-							BestSimilitud = commonWords;
-							MostSimilar = i;
+							bestSimilitud = commonWords;
+							mostSimilar = i;
 						}
 						//if (AreTheSameLanguage(mLanguages[i].Name, language))
 						//	return i;
 					}
-				if (MostSimilar>=0)
-					return MostSimilar;
+				if (mostSimilar>=0)
+					return mostSimilar;
 			}
 			return -1;
 		}
 
-        public LanguageData GetLanguageData(string language, bool AllowDiscartingRegion = true)
+        public LanguageData GetLanguageData(string language, bool allowDiscartingRegion = true)
         {
-            int idx = GetLanguageIndex(language, AllowDiscartingRegion, false);
+            int idx = GetLanguageIndex(language, allowDiscartingRegion, false);
             return (idx < 0) ? null : mLanguages[idx];
         }
 
         // TODO: Fix IsCurrentLanguage when current=English  and there are two variants in the source (English Canada, English US)
         public bool IsCurrentLanguage( int languageIndex )
         {
-            return LocalizationManager.CurrentLanguage == mLanguages[languageIndex].Name;
+            return LocalizationManager.CurrentLanguage == mLanguages[languageIndex].name;
         }
 
-        public int GetLanguageIndexFromCode( string Code, bool exactMatch=true, bool ignoreDisabled = false)
+        public int GetLanguageIndexFromCode( string code, bool exactMatch=true, bool ignoreDisabled = false)
 		{
             for (int i = 0, imax = mLanguages.Count; i < imax; ++i)
             {
                 if (ignoreDisabled && !mLanguages[i].IsEnabled())
                     continue;
 
-                if (string.Compare(mLanguages[i].Code, Code, StringComparison.OrdinalIgnoreCase) == 0)
+                if (string.Compare(mLanguages[i].code, code, StringComparison.OrdinalIgnoreCase) == 0)
                     return i;
             }
 
@@ -71,7 +71,7 @@ namespace I2.Loc
                     if (ignoreDisabled && !mLanguages[i].IsEnabled())
                         continue;
 
-                    if (string.Compare(mLanguages[i].Code, 0, Code, 0, 2, StringComparison.OrdinalIgnoreCase) == 0)
+                    if (string.Compare(mLanguages[i].code, 0, code, 0, 2, StringComparison.OrdinalIgnoreCase) == 0)
                         return i;
                 }
 			}
@@ -79,127 +79,127 @@ namespace I2.Loc
 			return -1;
 		}
 
-		public static int GetCommonWordInLanguageNames(string Language1, string Language2)
+		public static int GetCommonWordInLanguageNames(string language1, string language2)
 		{
-			if (string.IsNullOrEmpty (Language1) || string.IsNullOrEmpty (Language2))
+			if (string.IsNullOrEmpty (language1) || string.IsNullOrEmpty (language2))
 					return 0;
 			var separators = "( )-/\\".ToCharArray();
-			string[] Words1 = Language1.ToLower().Split(separators);
-			string[] Words2 = Language2.ToLower().Split(separators);
+			string[] words1 = language1.ToLower().Split(separators);
+			string[] words2 = language2.ToLower().Split(separators);
 
 			int similitud = 0;
-			foreach (var word in Words1)
-				if (!string.IsNullOrEmpty(word) && Words2.Contains(word))
+			foreach (var word in words1)
+				if (!string.IsNullOrEmpty(word) && words2.Contains(word))
 					similitud++;
 
-			foreach (var word in Words2)
-				if (!string.IsNullOrEmpty(word) && Words1.Contains(word))
+			foreach (var word in words2)
+				if (!string.IsNullOrEmpty(word) && words1.Contains(word))
 					similitud++;
 
 			return similitud;
 		}
 
-		public static bool AreTheSameLanguage(string Language1, string Language2)
+		public static bool AreTheSameLanguage(string language1, string language2)
 		{
-			Language1 = GetLanguageWithoutRegion(Language1);
-			Language2 = GetLanguageWithoutRegion(Language2);
-			return (string.Compare(Language1, Language2, StringComparison.OrdinalIgnoreCase)==0);
+			language1 = GetLanguageWithoutRegion(language1);
+			language2 = GetLanguageWithoutRegion(language2);
+			return (string.Compare(language1, language2, StringComparison.OrdinalIgnoreCase)==0);
 		}
 
-		public static string GetLanguageWithoutRegion(string Language)
+		public static string GetLanguageWithoutRegion(string language)
 		{
-			int Index = Language.IndexOfAny("(/\\[,{".ToCharArray());
-			if (Index<0)
-				return Language;
+			int index = language.IndexOfAny("(/\\[,{".ToCharArray());
+			if (index<0)
+				return language;
 			else
-				return Language.Substring(0, Index).Trim();
+				return language.Substring(0, index).Trim();
 		}
 
-        public void AddLanguage(string LanguageName)
+        public void AddLanguage(string languageName)
         {
-            AddLanguage(LanguageName, GoogleLanguages.GetLanguageCode(LanguageName));
+            AddLanguage(languageName, GoogleLanguages.GetLanguageCode(languageName));
         }
 
-        public void AddLanguage( string LanguageName, string LanguageCode )
+        public void AddLanguage( string languageName, string languageCode )
 		{
-			if (GetLanguageIndex(LanguageName, false)>=0)
+			if (GetLanguageIndex(languageName, false)>=0)
 				return;
 
-			LanguageData Lang = new LanguageData();
-				Lang.Name = LanguageName;
-				Lang.Code = LanguageCode;
-			mLanguages.Add (Lang);
+			LanguageData lang = new LanguageData();
+				lang.name = languageName;
+				lang.code = languageCode;
+			mLanguages.Add (lang);
 
-			int NewSize = mLanguages.Count;
+			int newSize = mLanguages.Count;
 			for (int i=0, imax=mTerms.Count; i<imax; ++i)
 			{
-				Array.Resize(ref mTerms[i].Languages, NewSize);
-				Array.Resize(ref mTerms[i].Flags, NewSize);
+				Array.Resize(ref mTerms[i].languages, newSize);
+				Array.Resize(ref mTerms[i].flags, newSize);
 			}
             Editor_SetDirty();
         }
 
-		public void RemoveLanguage( string LanguageName )
+		public void RemoveLanguage( string languageName )
 		{
-			int LangIndex = GetLanguageIndex(LanguageName, false, false);
-			if (LangIndex<0)
+			int langIndex = GetLanguageIndex(languageName, false, false);
+			if (langIndex<0)
 				return;
 
 			int nLanguages = mLanguages.Count;
 			for (int i=0, imax=mTerms.Count; i<imax; ++i)
 			{
-				for (int j=LangIndex+1; j<nLanguages; ++j)
+				for (int j=langIndex+1; j<nLanguages; ++j)
 				{
-					mTerms[i].Languages[j-1] = mTerms[i].Languages[j];
-					mTerms[i].Flags[j-1] = mTerms[i].Flags[j];
+					mTerms[i].languages[j-1] = mTerms[i].languages[j];
+					mTerms[i].flags[j-1] = mTerms[i].flags[j];
 				}
-				Array.Resize(ref mTerms[i].Languages, nLanguages-1);
-				Array.Resize(ref mTerms[i].Flags, nLanguages-1);
+				Array.Resize(ref mTerms[i].languages, nLanguages-1);
+				Array.Resize(ref mTerms[i].flags, nLanguages-1);
 			}
-			mLanguages.RemoveAt(LangIndex);
+			mLanguages.RemoveAt(langIndex);
             Editor_SetDirty();
 
         }
 
 		public List<string> GetLanguages( bool skipDisabled = true)
 		{
-			List<string> Languages = new List<string>();
+			List<string> languages = new List<string>();
 			for (int j = 0, jmax = mLanguages.Count; j < jmax; ++j)
 			{
 				if (!skipDisabled || mLanguages[j].IsEnabled())
-					Languages.Add(mLanguages[j].Name);
+					languages.Add(mLanguages[j].name);
 			}
-			return Languages;
+			return languages;
 		}
 
 		public List<string> GetLanguagesCode(bool allowRegions = true, bool skipDisabled = true)
 		{
-			List<string> Languages = new List<string>();
+			List<string> languages = new List<string>();
 			for (int j = 0, jmax = mLanguages.Count; j < jmax; ++j)
 			{
 				if (skipDisabled && !mLanguages[j].IsEnabled())
 					continue;
 
-				var code = mLanguages[j].Code;
+				var code = mLanguages[j].code;
 
 				if (!allowRegions && code != null && code.Length > 2)
 					code = code.Substring(0, 2);
 
-				if (!string.IsNullOrEmpty(code) && !Languages.Contains(code))
-					Languages.Add(code);
+				if (!string.IsNullOrEmpty(code) && !languages.Contains(code))
+					languages.Add(code);
 			}
-			return Languages;
+			return languages;
 		}
 
-		public bool IsLanguageEnabled(string Language)
+		public bool IsLanguageEnabled(string language)
 		{
-			int idx = GetLanguageIndex(Language, false);
+			int idx = GetLanguageIndex(language, false);
 			return idx >= 0 && mLanguages[idx].IsEnabled();
 		}
 
-        public void EnableLanguage(string Language, bool bEnabled)
+        public void EnableLanguage(string language, bool bEnabled)
         {
-            int idx = GetLanguageIndex(Language, false, false);
+            int idx = GetLanguageIndex(language, false, false);
             if (idx >= 0)
                 mLanguages[idx].SetEnabled(bEnabled);
         }
@@ -211,7 +211,7 @@ namespace I2.Loc
         public bool AllowUnloadingLanguages()
         {
             #if UNITY_EDITOR
-                return _AllowUnloadingLanguages==eAllowUnloadLanguages.EditorAndDevice;
+                return allowUnloadingLanguages==EAllowUnloadLanguages.EditorAndDevice;
             #else
                 return _AllowUnloadingLanguages!=eAllowUnloadLanguages.Never;
             #endif
@@ -222,9 +222,9 @@ namespace I2.Loc
             if (languageIndex < 0)
                 return null;
 
-            return "LangSource_" + GetSourcePlayerPrefName() + "_" + mLanguages[languageIndex].Name + ".loc";
+            return "LangSource_" + GetSourcePlayerPrefName() + "_" + mLanguages[languageIndex].name + ".loc";
         }
-        public void LoadLanguage( int languageIndex, bool UnloadOtherLanguages, bool useFallback, bool onlyCurrentSpecialization, bool forceLoad )
+        public void LoadLanguage( int languageIndex, bool unloadOtherLanguages, bool useFallback, bool onlyCurrentSpecialization, bool forceLoad )
 		{
             if (!AllowUnloadingLanguages())
                 return;
@@ -236,7 +236,7 @@ namespace I2.Loc
             if (languageIndex >= 0 && (forceLoad || !mLanguages[languageIndex].IsLoaded()))
             {
                 var tempPath = GetSavedLanguageFileName(languageIndex);
-                var langData = PersistentStorage.LoadFile(PersistentStorage.eFileType.Temporal, tempPath, false);
+                var langData = PersistentStorage.LoadFile(PersistentStorage.EFileType.Temporal, tempPath, false);
 
                 if (!string.IsNullOrEmpty(langData))
                 {
@@ -244,7 +244,7 @@ namespace I2.Loc
                     mLanguages[languageIndex].SetLoaded(true);
                 }
             }
-            if (UnloadOtherLanguages && I2Utils.IsPlaying())
+            if (unloadOtherLanguages && I2Utils.IsPlaying())
             {
                 for (int lan = 0; lan < mLanguages.Count; ++lan)
                 {
@@ -277,19 +277,19 @@ namespace I2.Loc
                 !mLanguages[languageIndex].IsLoaded() ||
                 !mLanguages[languageIndex].CanBeUnloaded() ||
                 IsCurrentLanguage(languageIndex) ||
-                !PersistentStorage.HasFile(PersistentStorage.eFileType.Temporal, GetSavedLanguageFileName(languageIndex)))
+                !PersistentStorage.HasFile(PersistentStorage.EFileType.Temporal, GetSavedLanguageFileName(languageIndex)))
             {
                 return;
             }
 
             foreach (var termData in mTerms)
             {
-                termData.Languages[languageIndex] = null;
+                termData.languages[languageIndex] = null;
             }
             mLanguages[languageIndex].SetLoaded(false);
         }
 
-        public void SaveLanguages( bool unloadAll, PersistentStorage.eFileType fileLocation = PersistentStorage.eFileType.Temporal)
+        public void SaveLanguages( bool unloadAll, PersistentStorage.EFileType fileLocation = PersistentStorage.EFileType.Temporal)
         {
             if (!AllowUnloadingLanguages())
                 return;
@@ -304,7 +304,7 @@ namespace I2.Loc
                 if (string.IsNullOrEmpty(data))
                     continue;
 
-                PersistentStorage.SaveFile(PersistentStorage.eFileType.Temporal, GetSavedLanguageFileName(i), data);
+                PersistentStorage.SaveFile(PersistentStorage.EFileType.Temporal, GetSavedLanguageFileName(i), data);
             }
 
             if (unloadAll)

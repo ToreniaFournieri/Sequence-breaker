@@ -1,29 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "AbilityClass-", menuName = "BattleUnit/AbilityClass", order = 12)]
 sealed public class AbilityClass : ScriptableObject
 {
     // Range is between 5 to 35
-    [SerializeField] public int Power;
-    [SerializeField] public int Generation;
-    [SerializeField] public int Stability;
-    [SerializeField] public int Responsiveness;
-    [SerializeField] public int Precision;
-    [SerializeField] public int Intelligence;
-    [SerializeField] public int Luck;
+    [FormerlySerializedAs("Power")] [SerializeField] public int power;
+    [FormerlySerializedAs("Generation")] [SerializeField] public int generation;
+    [FormerlySerializedAs("Stability")] [SerializeField] public int stability;
+    [FormerlySerializedAs("Responsiveness")] [SerializeField] public int responsiveness;
+    [FormerlySerializedAs("Precision")] [SerializeField] public int precision;
+    [FormerlySerializedAs("Intelligence")] [SerializeField] public int intelligence;
+    [FormerlySerializedAs("Luck")] [SerializeField] public int luck;
 
     public AbilityClass(int power, int generation, int stability, int responsiveness, int precision, int intelligence, int luck)
     {
-        this.Power = power; this.Generation = generation; this.Stability = stability; this.Responsiveness = responsiveness;
-        this.Precision = precision; this.Intelligence = intelligence; this.Luck = luck;
+        this.power = power; this.generation = generation; this.stability = stability; this.responsiveness = responsiveness;
+        this.precision = precision; this.intelligence = intelligence; this.luck = luck;
     }
 
     public AbilityClass(AbilityClass abilityClass)
     {
-        this.Power = abilityClass.Power; this.Generation = abilityClass.Generation; this.Stability = abilityClass.Stability; this.Responsiveness = abilityClass.Responsiveness;
-        this.Precision = abilityClass.Precision; this.Intelligence = abilityClass.Intelligence; this.Luck = abilityClass.Luck;
+        this.power = abilityClass.power; this.generation = abilityClass.generation; this.stability = abilityClass.stability; this.responsiveness = abilityClass.responsiveness;
+        this.precision = abilityClass.precision; this.intelligence = abilityClass.intelligence; this.luck = abilityClass.luck;
     }
 
     public AbilityClass DeepCopy()
@@ -32,28 +33,28 @@ sealed public class AbilityClass : ScriptableObject
         return other;
     }
 
-    public AbilityClass (AbilityClass First, AbilityClass Second)
+    public AbilityClass (AbilityClass first, AbilityClass second)
     {
         //AbilityClass AddUp = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
-        this.Power = First.Power + Second.Power;
-        this.Generation = First.Generation + Second.Generation;
-        this.Stability = First.Stability + Second.Stability;
-        this.Responsiveness = First.Responsiveness + Second.Responsiveness;
-        this.Precision = First.Precision + Second.Precision;
-        this.Intelligence = First.Intelligence + Second.Intelligence;
-        this.Luck = First.Luck + Second.Luck;
+        this.power = first.power + second.power;
+        this.generation = first.generation + second.generation;
+        this.stability = first.stability + second.stability;
+        this.responsiveness = first.responsiveness + second.responsiveness;
+        this.precision = first.precision + second.precision;
+        this.intelligence = first.intelligence + second.intelligence;
+        this.luck = first.luck + second.luck;
 
     }
 
     public void AddUp (AbilityClass addAbility)
     {
-        this.Power = this.Power + addAbility.Power;
-        this.Generation = this.Generation +  addAbility.Generation;
-        this.Stability = this.Stability + addAbility.Stability;
-        this.Responsiveness = this.Responsiveness + addAbility.Responsiveness;
-        this.Precision = this.Precision + addAbility.Precision;
-        this.Intelligence = this.Intelligence + addAbility.Intelligence;
-        this.Luck = this.Luck + addAbility.Luck;
+        this.power = this.power + addAbility.power;
+        this.generation = this.generation +  addAbility.generation;
+        this.stability = this.stability + addAbility.stability;
+        this.responsiveness = this.responsiveness + addAbility.responsiveness;
+        this.precision = this.precision + addAbility.precision;
+        this.intelligence = this.intelligence + addAbility.intelligence;
+        this.luck = this.luck + addAbility.luck;
     }
 
 }

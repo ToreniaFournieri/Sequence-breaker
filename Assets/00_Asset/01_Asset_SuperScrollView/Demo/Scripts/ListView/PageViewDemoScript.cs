@@ -8,31 +8,31 @@ namespace SuperScrollView
 
     public class DotElem
     {
-        public GameObject mDotElemRoot;
-        public GameObject mDotSmall;
-        public GameObject mDotBig;
+        public GameObject MDotElemRoot;
+        public GameObject MDotSmall;
+        public GameObject MDotBig;
     }
 
     public class PageViewDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        Button mBackButton;
-        int mPageCount = 5;
+        Button _mBackButton;
+        int _mPageCount = 5;
         public Transform mDotsRootObj;
-        List<DotElem> mDotElemList = new List<DotElem>();
+        List<DotElem> _mDotElemList = new List<DotElem>();
         void Start()
         {
             InitDots();
             LoopListViewInitParam initParam = LoopListViewInitParam.CopyDefaultInitParam();
-            initParam.mSnapVecThreshold = 99999;
+            initParam.MSnapVecThreshold = 99999;
             mLoopListView.mOnBeginDragAction = OnBeginDrag;
             mLoopListView.mOnDragingAction = OnDraging;
             mLoopListView.mOnEndDragAction = OnEndDrag;
             mLoopListView.mOnSnapNearestChanged = OnSnapNearestChanged;
-            mLoopListView.InitListView(mPageCount, OnGetItemByIndex, initParam);
+            mLoopListView.InitListView(_mPageCount, OnGetItemByIndex, initParam);
 
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
 
@@ -43,13 +43,13 @@ namespace SuperScrollView
             {
                 Transform tf = mDotsRootObj.GetChild(i);
                 DotElem elem = new DotElem();
-                elem.mDotElemRoot = tf.gameObject;
-                elem.mDotSmall = tf.Find("dotSmall").gameObject;
-                elem.mDotBig = tf.Find("dotBig").gameObject;
-                ClickEventListener listener = ClickEventListener.Get(elem.mDotElemRoot);
+                elem.MDotElemRoot = tf.gameObject;
+                elem.MDotSmall = tf.Find("dotSmall").gameObject;
+                elem.MDotBig = tf.Find("dotBig").gameObject;
+                ClickEventListener listener = ClickEventListener.Get(elem.MDotElemRoot);
                 int index = i;
                 listener.SetClickEventHandler(delegate (GameObject obj) { OnDotClicked(index); });
-                mDotElemList.Add(elem);
+                _mDotElemList.Add(elem);
             }
         }
 
@@ -57,7 +57,7 @@ namespace SuperScrollView
         void OnDotClicked(int index)
         {
             int curNearestItemIndex = mLoopListView.CurSnapNearestItemIndex;
-            if (curNearestItemIndex < 0 || curNearestItemIndex >= mPageCount)
+            if (curNearestItemIndex < 0 || curNearestItemIndex >= _mPageCount)
             {
                 return;
             }
@@ -72,27 +72,27 @@ namespace SuperScrollView
         void UpdateAllDots()
         {
             int curNearestItemIndex = mLoopListView.CurSnapNearestItemIndex;
-            if(curNearestItemIndex < 0 || curNearestItemIndex >= mPageCount)
+            if(curNearestItemIndex < 0 || curNearestItemIndex >= _mPageCount)
             {
                 return;
             }
-            int count = mDotElemList.Count;
+            int count = _mDotElemList.Count;
             if(curNearestItemIndex >= count)
             {
                 return;
             }
             for(int i = 0;i<count;++i)
             {
-                DotElem elem = mDotElemList[i];
+                DotElem elem = _mDotElemList[i];
                 if(i != curNearestItemIndex)
                 {
-                    elem.mDotSmall.SetActive(true);
-                    elem.mDotBig.SetActive(false);
+                    elem.MDotSmall.SetActive(true);
+                    elem.MDotBig.SetActive(false);
                 }
                 else
                 {
-                    elem.mDotSmall.SetActive(false);
-                    elem.mDotBig.SetActive(true);
+                    elem.MDotSmall.SetActive(false);
+                    elem.MDotBig.SetActive(true);
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace SuperScrollView
 
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int pageIndex)
         {
-            if (pageIndex < 0 || pageIndex >= mPageCount)
+            if (pageIndex < 0 || pageIndex >= _mPageCount)
             {
                 return null;
             }
@@ -134,15 +134,15 @@ namespace SuperScrollView
                     break;
                 }
                 ListItem14Elem elem = elemList[i];
-                elem.mRootObj.SetActive(true);
-                elem.mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-                elem.mName.text = itemData.mName;
+                elem.MRootObj.SetActive(true);
+                elem.MIcon.sprite = ResManager.Get.GetSpriteByName(itemData.MIcon);
+                elem.MName.text = itemData.MName;
             }
             if(i < count)
             {
                 for(;i< count;++i)
                 {
-                    elemList[i].mRootObj.SetActive(false);
+                    elemList[i].MRootObj.SetActive(false);
                 }
             }
             return item;

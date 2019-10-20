@@ -15,7 +15,7 @@ namespace SuperScrollView
         public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
         public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
         public GameObject mContentRootObj;
-        int mItemDataIndex = -1;
+        int _mItemDataIndex = -1;
         public LoopListView2 mLoopListView;
         public void Init()
         {
@@ -30,20 +30,20 @@ namespace SuperScrollView
 
         void OnStarClicked(int index)
         {
-            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(mItemDataIndex);
+            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if(data == null)
             {
                 return;
             }
-            if(index == 0 && data.mStarCount == 1)
+            if(index == 0 && data.MStarCount == 1)
             {
-                data.mStarCount = 0;
+                data.MStarCount = 0;
             }
             else
             {
-                data.mStarCount = index + 1;
+                data.MStarCount = index + 1;
             }
-            SetStarCount(data.mStarCount);
+            SetStarCount(data.MStarCount);
         }
 
         public void SetStarCount(int count)
@@ -61,12 +61,12 @@ namespace SuperScrollView
 
         public void SetItemData(ItemData itemData,int itemIndex)
         {
-            mItemDataIndex = itemIndex;
-            mNameText.text = itemData.mName;
-            mDescText.text = itemData.mFileSize.ToString() + "KB";
-            mDescText2.text = itemData.mDesc;
-            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-            SetStarCount(itemData.mStarCount);
+            _mItemDataIndex = itemIndex;
+            mNameText.text = itemData.MName;
+            mDescText.text = itemData.MFileSize.ToString() + "KB";
+            mDescText2.text = itemData.MDesc;
+            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.MIcon);
+            SetStarCount(itemData.MStarCount);
         }
 
 

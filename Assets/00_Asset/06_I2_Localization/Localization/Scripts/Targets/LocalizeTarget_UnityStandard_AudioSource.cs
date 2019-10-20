@@ -6,18 +6,18 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityStandard_AudioSource : LocalizeTarget<AudioSource>
+    public class LocalizeTargetUnityStandardAudioSource : LocalizeTarget<AudioSource>
     {
-        static LocalizeTarget_UnityStandard_AudioSource() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<AudioSource, LocalizeTarget_UnityStandard_AudioSource>() { Name = "AudioSource", Priority = 100 }); }
+        static LocalizeTargetUnityStandardAudioSource() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescType<AudioSource, LocalizeTargetUnityStandardAudioSource>() { Name = "AudioSource", Priority = 100 }); }
 
-        public override eTermType GetPrimaryTermType(Localize cmp) { return eTermType.AudioClip; }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Text; }
+        public override ETermType GetPrimaryTermType(Localize cmp) { return ETermType.AudioClip; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Text; }
         public override bool CanUseSecondaryTerm() { return false; }
-        public override bool AllowMainTermToBeRTL() { return false; }
-        public override bool AllowSecondTermToBeRTL() { return false; }
+        public override bool AllowMainTermToBeRtl() { return false; }
+        public override bool AllowSecondTermToBeRtl() { return false; }
 
-        public override void GetFinalTerms ( Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
+        public override void GetFinalTerms ( Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm)
         {
             primaryTerm = mTarget.clip ? mTarget.clip.name : string.Empty;
             secondaryTerm = null;
@@ -27,10 +27,10 @@ namespace I2.Loc
         public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
         {
             bool bIsPlaying = (mTarget.isPlaying || mTarget.loop) && Application.isPlaying;
-            AudioClip OldClip = mTarget.clip;
-            AudioClip NewClip = cmp.FindTranslatedObject<AudioClip>(mainTranslation);
-            if (OldClip != NewClip)
-                mTarget.clip = NewClip;
+            AudioClip oldClip = mTarget.clip;
+            AudioClip newClip = cmp.FindTranslatedObject<AudioClip>(mainTranslation);
+            if (oldClip != newClip)
+                mTarget.clip = newClip;
 
             if (bIsPlaying && mTarget.clip)
                 mTarget.Play();

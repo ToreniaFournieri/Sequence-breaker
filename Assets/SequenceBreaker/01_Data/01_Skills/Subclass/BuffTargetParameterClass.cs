@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(fileName = "buffTarget", menuName = "Skill/SubClass/BuffTargetParameterClass", order = 10)]
@@ -15,15 +16,15 @@ sealed public class BuffTargetParameterClass : ScriptableObject
     //    this.NumberOfAttackMagnification = numberOfAttackMagnification; this.RangeMinCorrection = rangeMinCorrection; this.RangeMaxCorrection = rangeMaxCorrection;
     //}
 
-    public TargetType TargetType;
-    public int BarrierRemaining;
-    public double DefenseMagnification;
-    public double MobilityMagnification;
-    public double AttackMagnification;
-    public double AccuracyMagnification;
-    public double CriticalHitRateMagnification;
-    public double NumberOfAttackMagnification;
-    public int RangeMinCorrection;
-    public int RangeMaxCorrection;
+    [FormerlySerializedAs("TargetType")] public TargetType targetType;
+    [FormerlySerializedAs("BarrierRemaining")] public int barrierRemaining;
+    [FormerlySerializedAs("DefenseMagnification")] public double defenseMagnification;
+    [FormerlySerializedAs("MobilityMagnification")] public double mobilityMagnification;
+    [FormerlySerializedAs("AttackMagnification")] public double attackMagnification;
+    [FormerlySerializedAs("AccuracyMagnification")] public double accuracyMagnification;
+    [FormerlySerializedAs("CriticalHitRateMagnification")] public double criticalHitRateMagnification;
+    [FormerlySerializedAs("NumberOfAttackMagnification")] public double numberOfAttackMagnification;
+    [FormerlySerializedAs("RangeMinCorrection")] public int rangeMinCorrection;
+    [FormerlySerializedAs("RangeMaxCorrection")] public int rangeMaxCorrection;
 
 }

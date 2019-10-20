@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace frame8.ScrollRectItemsAdapter.Classic
 {
     /// <summary>Class (initially) implemented during this YouTube tutorial: https://youtu.be/aoqq_j-aV8I (which is now too old to relate). It demonstrates a simple use case with items that expand/collapse on click</summary>
-    public abstract class ClassicSRIA<TViewsHolder> : MonoBehaviour where TViewsHolder : CAbstractViewsHolder
+    public abstract class ClassicSria<TViewsHolder> : MonoBehaviour where TViewsHolder : CAbstractViewsHolder
 	{
 		#region Config
 		public RectTransform viewport;
@@ -16,7 +16,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 		public List<TViewsHolder> viewsHolders = new List<TViewsHolder>();
 		public ScrollRect ScrollRectComponent { get; private set; }
 		public LayoutGroup ContentLayoutGroup { get; private set; }
-		public RectTransform ScrollRectRT { get; private set; }
+		public RectTransform ScrollRectRt { get; private set; }
 		public bool IsHorizontal { get { return ScrollRectComponent.horizontal; } }
 		/// <summary> 1f = start; 0f = end </summary>
 		public float AbstractNormalizedPosition
@@ -24,13 +24,13 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			get { return IsHorizontal ? 1f - ScrollRectComponent.horizontalNormalizedPosition : ScrollRectComponent.verticalNormalizedPosition; }
 			set { if (IsHorizontal) ScrollRectComponent.horizontalNormalizedPosition = 1f - value; else ScrollRectComponent.verticalNormalizedPosition = value; }
 		}
-		public float ContentSize { get { return ScrollRectComponent.content.rect.size[_OneIfVertical_ZeroIfHorizontal]; } }
-		public float ViewportSize { get { return viewport.rect.size[_OneIfVertical_ZeroIfHorizontal]; } }
-		public virtual RectOffset Padding { get { return ContentLayoutGroup == null ? _ZeroRectOffset : ContentLayoutGroup.padding; } }
+		public float ContentSize { get { return ScrollRectComponent.content.rect.size[_oneIfVerticalZeroIfHorizontal]; } }
+		public float ViewportSize { get { return viewport.rect.size[_oneIfVerticalZeroIfHorizontal]; } }
+		public virtual RectOffset Padding { get { return ContentLayoutGroup == null ? _zeroRectOffset : ContentLayoutGroup.padding; } }
 
-		RectOffset _ZeroRectOffset = new RectOffset();
-		int _OneIfHorizontal_ZeroIfVertical, _OneIfVertical_ZeroIfHorizontal;
-		Coroutine _SmoothScrollToCoroutine;
+		RectOffset _zeroRectOffset = new RectOffset();
+		int _oneIfHorizontalZeroIfVertical, _oneIfVerticalZeroIfHorizontal;
+		Coroutine _smoothScrollToCoroutine;
 
 
 		protected virtual void Awake() { }
@@ -39,12 +39,12 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 		{
 			ScrollRectComponent = GetComponent<ScrollRect>();
 			ContentLayoutGroup = ScrollRectComponent.content.GetComponent<LayoutGroup>();
-			ScrollRectRT = transform as RectTransform;
+			ScrollRectRt = transform as RectTransform;
 			if (!viewport)
-				viewport = ScrollRectRT;
+				viewport = ScrollRectRt;
 
-			_OneIfHorizontal_ZeroIfVertical = ScrollRectComponent.horizontal ? 1 : 0;
-			_OneIfVertical_ZeroIfHorizontal = 1 - _OneIfHorizontal_ZeroIfVertical;
+			_oneIfHorizontalZeroIfVertical = ScrollRectComponent.horizontal ? 1 : 0;
+			_oneIfVerticalZeroIfHorizontal = 1 - _oneIfHorizontalZeroIfVertical;
 		}
 
 		protected virtual void Update()
@@ -53,10 +53,10 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 		}
 		protected virtual void OnDestroy()
 		{
-			if (_SmoothScrollToCoroutine != null)
+			if (_smoothScrollToCoroutine != null)
 			{
-				StopCoroutine(_SmoothScrollToCoroutine);
-				_SmoothScrollToCoroutine = null;
+				StopCoroutine(_smoothScrollToCoroutine);
+				_smoothScrollToCoroutine = null;
 			}
 		}
 
@@ -81,34 +81,34 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			if (ContentSize <= ViewportSize)
 				return false;
 
-			if (_SmoothScrollToCoroutine != null)
+			if (_smoothScrollToCoroutine != null)
 			{
 				if (!overrideCurrentScrollingAnimation)
 					return false;
 
-				StopCoroutine(_SmoothScrollToCoroutine);
-				_SmoothScrollToCoroutine = null;
+				StopCoroutine(_smoothScrollToCoroutine);
+				_smoothScrollToCoroutine = null;
 			}
 
 			duration = Mathf.Clamp(duration, 0.001f, 100f);
 
 			var vh = viewsHolders[itemIndex];
-			float itemSize = vh.root.rect.size[_OneIfVertical_ZeroIfHorizontal];
+			float itemSize = vh.Root.rect.size[_oneIfVerticalZeroIfHorizontal];
 			RectTransform.Edge edge;
 			if (ScrollRectComponent.horizontal)
 				edge = RectTransform.Edge.Left;
 			else
 				edge = RectTransform.Edge.Top;
-			var contentRT = ScrollRectComponent.content;
-			float insetFromParentStart = vh.root.GetInsetFromParentEdge(contentRT, edge);
-			float initialContentInsetFromViewportStart = contentRT.GetInsetFromParentEdge(viewport, edge);
+			var contentRt = ScrollRectComponent.content;
+			float insetFromParentStart = vh.Root.GetInsetFromParentEdge(contentRt, edge);
+			float initialContentInsetFromViewportStart = contentRt.GetInsetFromParentEdge(viewport, edge);
 			float targetContentInsetFromViewportStart = -insetFromParentStart;
 			targetContentInsetFromViewportStart += ViewportSize * normalizedOffsetFromViewportStart;
 			targetContentInsetFromViewportStart -= itemSize * normalizedPositionOfItemPivotToUse;
 			float scrollableArea = ContentSize - ViewportSize;
 			targetContentInsetFromViewportStart = Mathf.Clamp(targetContentInsetFromViewportStart, -scrollableArea, 0f);
 
-			_SmoothScrollToCoroutine = StartCoroutine(SetContentInsetFromViewportStart(edge, initialContentInsetFromViewportStart, targetContentInsetFromViewportStart, duration, onDone));
+			_smoothScrollToCoroutine = StartCoroutine(SetContentInsetFromViewportStart(edge, initialContentInsetFromViewportStart, targetContentInsetFromViewportStart, duration, onDone));
 			return true;
 		}
 
@@ -120,7 +120,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			do
 			{
 				yield return null;
-				if (_SmoothScrollToCoroutine == null)
+				if (_smoothScrollToCoroutine == null)
 					yield break;
 
 				curElapsed = Time.time - startTime;
@@ -137,7 +137,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 				ScrollRectComponent.content.SetInsetAndSizeFromParentEdgeWithCurrentAnchors(edge, curInset, ContentSize);
 			}
 			while (inProgress);
-			_SmoothScrollToCoroutine = null;
+			_smoothScrollToCoroutine = null;
 
 			if (onDone != null)
 				onDone();
@@ -185,7 +185,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			int rem = count;
 			while (rem-- > 0)
 			{
-				Destroy(viewsHolders[index].root.gameObject);
+				Destroy(viewsHolders[index].Root.gameObject);
 				viewsHolders.RemoveAt(index);
 			}
 
@@ -204,8 +204,8 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			{
 				var vh = CreateViewsHolder(i);
 				viewsHolders.Insert(i, vh);
-				vh.root.SetParent(ScrollRectComponent.content, false);
-				vh.root.SetSiblingIndex(i);
+				vh.Root.SetParent(ScrollRectComponent.content, false);
+				vh.Root.SetSiblingIndex(i);
 				UpdateViewsHolder(vh);
 			}
 
@@ -228,7 +228,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 
 	static class RectTransformExtensions
 	{
-		static Dictionary<RectTransform.Edge, Func<RectTransform, RectTransform, float>> _GetInsetFromParentEdge_MappedActions =
+		static Dictionary<RectTransform.Edge, Func<RectTransform, RectTransform, float>> _getInsetFromParentEdgeMappedActions =
 			new Dictionary<RectTransform.Edge, Func<RectTransform, RectTransform, float>>()
 		{
 			{ RectTransform.Edge.Bottom, GetInsetFromParentBottomEdge },
@@ -237,7 +237,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 			{ RectTransform.Edge.Right, GetInsetFromParentRightEdge }
 		};
 
-		static Dictionary<RectTransform.Edge, Action<RectTransform, RectTransform, float, float>> _SetInsetAndSizeFromParentEdgeWithCurrentAnchors_MappedActions =
+		static Dictionary<RectTransform.Edge, Action<RectTransform, RectTransform, float, float>> _setInsetAndSizeFromParentEdgeWithCurrentAnchorsMappedActions =
 			new Dictionary<RectTransform.Edge, Action<RectTransform, RectTransform, float, float>>()
 		{
 			{
@@ -317,7 +317,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 		}
 
 		public static float GetInsetFromParentEdge(this RectTransform child, RectTransform parentHint, RectTransform.Edge parentEdge)
-		{ return _GetInsetFromParentEdge_MappedActions[parentEdge](child, parentHint); }
+		{ return _getInsetFromParentEdgeMappedActions[parentEdge](child, parentHint); }
 
 		/// <summary> NOTE: Use the optimized version if parent is known </summary>
 		public static void SetSizeFromParentEdgeWithCurrentAnchors(this RectTransform child, RectTransform.Edge fixedEdge, float newSize)
@@ -350,6 +350,6 @@ namespace frame8.ScrollRectItemsAdapter.Classic
 		/// <param name="newInset"></param>
 		/// <param name="newSize"></param>
 		public static void SetInsetAndSizeFromParentEdgeWithCurrentAnchors(this RectTransform child, RectTransform parentHint, RectTransform.Edge fixedEdge, float newInset, float newSize)
-		{ _SetInsetAndSizeFromParentEdgeWithCurrentAnchors_MappedActions[fixedEdge](child, parentHint, newInset, newSize); }
+		{ _setInsetAndSizeFromParentEdgeWithCurrentAnchorsMappedActions[fixedEdge](child, parentHint, newInset, newSize); }
 	}
 }

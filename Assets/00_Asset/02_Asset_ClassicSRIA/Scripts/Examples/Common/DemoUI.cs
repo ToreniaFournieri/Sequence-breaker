@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 {
-    public class DemoUI : MonoBehaviour
+    public class DemoUi : MonoBehaviour
 	{
 		public Button setCountButton;
 		public Text countText;

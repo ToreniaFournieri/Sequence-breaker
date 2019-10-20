@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace I2.Loc
 {
     public interface ILocalizationParamsManager
     {
-        string GetParameterValue( string Param );
+        string GetParameterValue( string param );
     }
 
     public class LocalizationParamsManager : MonoBehaviour, ILocalizationParamsManager
@@ -14,40 +15,40 @@ namespace I2.Loc
         [Serializable]
         public struct ParamValue
         {
-            public string Name, Value;
-        
+            [FormerlySerializedAs("Name")] public string name;
+            [FormerlySerializedAs("Value")] public string value;
         }
 
         [SerializeField]
         public List<ParamValue> _Params = new List<ParamValue>();
 
-        public bool _IsGlobalManager;
+        [FormerlySerializedAs("_IsGlobalManager")] public bool isGlobalManager;
         
-        public string GetParameterValue( string ParamName )
+        public string GetParameterValue( string paramName )
         {
             if (_Params != null)
             {
                 for (int i = 0, imax = _Params.Count; i < imax; ++i)
-                    if (_Params[i].Name == ParamName)
-                        return _Params[i].Value;
+                    if (_Params[i].name == paramName)
+                        return _Params[i].value;
             }
             return null; // not found
         }
 
-        public void SetParameterValue( string ParamName, string ParamValue, bool localize = true )
+        public void SetParameterValue( string paramName, string paramValue, bool localize = true )
         {
             bool setted = false;
             for (int i = 0, imax = _Params.Count; i < imax; ++i)
-                if (_Params[i].Name == ParamName)
+                if (_Params[i].name == paramName)
                 {
                     var temp = _Params[i];
-                    temp.Value = ParamValue;
+                    temp.value = paramValue;
                     _Params[i] = temp;
                     setted = true;
                     break;
                 }
             if (!setted)
-                _Params.Add(new ParamValue(){ Name = ParamName, Value = ParamValue });
+                _Params.Add(new ParamValue(){ name = paramName, value = paramValue });
         
 			if (localize)
 				OnLocalize();
@@ -62,7 +63,7 @@ namespace I2.Loc
 
         public virtual void OnEnable()
         {
-            if (_IsGlobalManager)
+            if (isGlobalManager)
                 DoAutoRegister();
         }
 

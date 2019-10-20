@@ -5,7 +5,7 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
 {
     public class Data
     {
-        public Vector2 imageDimensions;
-        public string imageUrl;
+        public Vector2 ImageDimensions;
+        public string ImageUrl;
     }
 }

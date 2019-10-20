@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Skill-", menuName = "Skill/EffectClass", order = 10)]
 sealed public class EffectClass : ScriptableObject
 {
-    [SerializeField] public BattleUnit Character;
-    [SerializeField] public SkillsMasterClass Skill;
-    [SerializeField] public double OffenseEffectMagnification;
-    [SerializeField] public double TriggeredPossibility;
-    [SerializeField] public int AccumulationBaseRate;
+    [FormerlySerializedAs("Character")] [SerializeField] public BattleUnit character;
+    [FormerlySerializedAs("Skill")] [SerializeField] public SkillsMasterClass skill;
+    [FormerlySerializedAs("OffenseEffectMagnification")] [SerializeField] public double offenseEffectMagnification;
+    [FormerlySerializedAs("TriggeredPossibility")] [SerializeField] public double triggeredPossibility;
+    [FormerlySerializedAs("AccumulationBaseRate")] [SerializeField] public int accumulationBaseRate;
 
     //private SkillsMasterClass _skill;
 
@@ -18,32 +19,32 @@ sealed public class EffectClass : ScriptableObject
     int veiledFromTurn, int veiledToTurn)
     {
 
-        this.Character = character; this.Skill = skill; this.ActionType = actionType; this.OffenseEffectMagnification = offenseEffectMagnification;
-        this.TriggeredPossibility = triggeredPossibility;
+        this.character = character; this.skill = skill; this.ActionType = actionType; this.offenseEffectMagnification = offenseEffectMagnification;
+        this.triggeredPossibility = triggeredPossibility;
         this.IsDamageControlAssistAble = isDamageControlAssistAble; this.UsageCount = usageCount;
         this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
         this.SpentCount = 0;
 
 
-        this.AccumulationBaseRate = (int)skill.TriggerBase.AccumulationBaseRate;
-        this.NextAccumulationCount = AccumulationBaseRate;
+        this.accumulationBaseRate = (int)skill.triggerBase.accumulationBaseRate;
+        this.NextAccumulationCount = accumulationBaseRate;
         this.IsntTriggeredBecause = new IsntTriggeredBecauseClass();
     }
 
     public void InitializeEffect()
     {
         this.SpentCount = 0;
-        this.NextAccumulationCount = AccumulationBaseRate;
+        this.NextAccumulationCount = accumulationBaseRate;
 
         if (this.IsntTriggeredBecause == null) { this.IsntTriggeredBecause = new IsntTriggeredBecauseClass(); }
         else { this.IsntTriggeredBecause.Initialize(); }
 
-        SkillsMasterClass copyedSkillsMaster = this.Skill.DeepCopy(); //NEED TEST!! This may not works, i want copy the value, not reference.
-        this.IsDamageControlAssistAble = copyedSkillsMaster.IsHeal; // sample implemented.
-        this.ActionType = copyedSkillsMaster.ActionType;
+        SkillsMasterClass copyedSkillsMaster = this.skill.DeepCopy(); //NEED TEST!! This may not works, i want copy the value, not reference.
+        this.IsDamageControlAssistAble = copyedSkillsMaster.isHeal; // sample implemented.
+        this.ActionType = copyedSkillsMaster.actionType;
         this.BuffToCharacter(currentTurn: 1);
 
-        this.UsageCount = copyedSkillsMaster.UsageCount;
+        this.UsageCount = copyedSkillsMaster.usageCount;
         this.VeiledFromTurn = 1;
         this.VeiledToTurn = 20;
 
@@ -53,14 +54,14 @@ sealed public class EffectClass : ScriptableObject
     {
         if (currentTurn <= VeiledToTurn && currentTurn >= VeiledFromTurn)
         {
-            Character.Buff.DefenseMagnification *= Skill.BuffTarget.DefenseMagnification;
-            Character.Buff.MobilityMagnification *= Skill.BuffTarget.MobilityMagnification;
-            Character.Buff.AttackMagnification *= Skill.BuffTarget.AttackMagnification;
-            Character.Buff.AccuracyMagnification *= Skill.BuffTarget.AccuracyMagnification;
-            Character.Buff.CriticalHitRateMagnification *= Skill.BuffTarget.CriticalHitRateMagnification;
-            Character.Buff.NumberOfAttackMagnification *= Skill.BuffTarget.CriticalHitRateMagnification;
-            Character.Buff.RangeMinCorrection += Skill.BuffTarget.RangeMinCorrection;
-            Character.Buff.RangeMaxCorrection += Skill.BuffTarget.RangeMaxCorrection;
+            character.buff.DefenseMagnification *= skill.buffTarget.defenseMagnification;
+            character.buff.MobilityMagnification *= skill.buffTarget.mobilityMagnification;
+            character.buff.AttackMagnification *= skill.buffTarget.attackMagnification;
+            character.buff.AccuracyMagnification *= skill.buffTarget.accuracyMagnification;
+            character.buff.CriticalHitRateMagnification *= skill.buffTarget.criticalHitRateMagnification;
+            character.buff.NumberOfAttackMagnification *= skill.buffTarget.criticalHitRateMagnification;
+            character.buff.RangeMinCorrection += skill.buffTarget.rangeMinCorrection;
+            character.buff.RangeMaxCorrection += skill.buffTarget.rangeMaxCorrection;
         }
     }
 

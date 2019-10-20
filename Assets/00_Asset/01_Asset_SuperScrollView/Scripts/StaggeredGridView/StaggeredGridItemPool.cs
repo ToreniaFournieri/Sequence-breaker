@@ -9,27 +9,27 @@ namespace SuperScrollView
 
     public class StaggeredGridItemPool
     {
-        GameObject mPrefabObj;
-        string mPrefabName;
-        int mInitCreateCount = 1;
-        float mPadding = 0;
-        List<LoopStaggeredGridViewItem> mTmpPooledItemList = new List<LoopStaggeredGridViewItem>();
-        List<LoopStaggeredGridViewItem> mPooledItemList = new List<LoopStaggeredGridViewItem>();
-        static int mCurItemIdCount = 0;
-        RectTransform mItemParent = null;
+        GameObject _mPrefabObj;
+        string _mPrefabName;
+        int _mInitCreateCount = 1;
+        float _mPadding = 0;
+        List<LoopStaggeredGridViewItem> _mTmpPooledItemList = new List<LoopStaggeredGridViewItem>();
+        List<LoopStaggeredGridViewItem> _mPooledItemList = new List<LoopStaggeredGridViewItem>();
+        static int _mCurItemIdCount = 0;
+        RectTransform _mItemParent = null;
         public StaggeredGridItemPool()
         {
 
         }
         public void Init(GameObject prefabObj, float padding, int createCount, RectTransform parent)
         {
-            mPrefabObj = prefabObj;
-            mPrefabName = mPrefabObj.name;
-            mInitCreateCount = createCount;
-            mPadding = padding;
-            mItemParent = parent;
-            mPrefabObj.SetActive(false);
-            for (int i = 0; i < mInitCreateCount; ++i)
+            _mPrefabObj = prefabObj;
+            _mPrefabName = _mPrefabObj.name;
+            _mInitCreateCount = createCount;
+            _mPadding = padding;
+            _mItemParent = parent;
+            _mPrefabObj.SetActive(false);
+            for (int i = 0; i < _mInitCreateCount; ++i)
             {
                 LoopStaggeredGridViewItem tViewItem = CreateItem();
                 RecycleItemReal(tViewItem);
@@ -37,31 +37,31 @@ namespace SuperScrollView
         }
         public LoopStaggeredGridViewItem GetItem()
         {
-            mCurItemIdCount++;
+            _mCurItemIdCount++;
             LoopStaggeredGridViewItem tItem = null;
-            if (mTmpPooledItemList.Count > 0)
+            if (_mTmpPooledItemList.Count > 0)
             {
-                int count = mTmpPooledItemList.Count;
-                tItem = mTmpPooledItemList[count - 1];
-                mTmpPooledItemList.RemoveAt(count - 1);
+                int count = _mTmpPooledItemList.Count;
+                tItem = _mTmpPooledItemList[count - 1];
+                _mTmpPooledItemList.RemoveAt(count - 1);
                 tItem.gameObject.SetActive(true);
             }
             else
             {
-                int count = mPooledItemList.Count;
+                int count = _mPooledItemList.Count;
                 if (count == 0)
                 {
                     tItem = CreateItem();
                 }
                 else
                 {
-                    tItem = mPooledItemList[count - 1];
-                    mPooledItemList.RemoveAt(count - 1);
+                    tItem = _mPooledItemList[count - 1];
+                    _mPooledItemList.RemoveAt(count - 1);
                     tItem.gameObject.SetActive(true);
                 }
             }
-            tItem.Padding = mPadding;
-            tItem.ItemId = mCurItemIdCount;
+            tItem.Padding = _mPadding;
+            tItem.ItemId = _mCurItemIdCount;
             return tItem;
 
         }
@@ -69,48 +69,48 @@ namespace SuperScrollView
         public void DestroyAllItem()
         {
             ClearTmpRecycledItem();
-            int count = mPooledItemList.Count;
+            int count = _mPooledItemList.Count;
             for (int i = 0; i < count; ++i)
             {
-                GameObject.DestroyImmediate(mPooledItemList[i].gameObject);
+                GameObject.DestroyImmediate(_mPooledItemList[i].gameObject);
             }
-            mPooledItemList.Clear();
+            _mPooledItemList.Clear();
         }
         public LoopStaggeredGridViewItem CreateItem()
         {
 
-            GameObject go = GameObject.Instantiate<GameObject>(mPrefabObj, Vector3.zero, Quaternion.identity, mItemParent);
+            GameObject go = GameObject.Instantiate<GameObject>(_mPrefabObj, Vector3.zero, Quaternion.identity, _mItemParent);
             go.SetActive(true);
             RectTransform rf = go.GetComponent<RectTransform>();
             rf.localScale = Vector3.one;
             rf.anchoredPosition3D = Vector3.zero;
             rf.localEulerAngles = Vector3.zero;
             LoopStaggeredGridViewItem tViewItem = go.GetComponent<LoopStaggeredGridViewItem>();
-            tViewItem.ItemPrefabName = mPrefabName;
+            tViewItem.ItemPrefabName = _mPrefabName;
             tViewItem.StartPosOffset = 0;
             return tViewItem;
         }
         void RecycleItemReal(LoopStaggeredGridViewItem item)
         {
             item.gameObject.SetActive(false);
-            mPooledItemList.Add(item);
+            _mPooledItemList.Add(item);
         }
         public void RecycleItem(LoopStaggeredGridViewItem item)
         {
-            mTmpPooledItemList.Add(item);
+            _mTmpPooledItemList.Add(item);
         }
         public void ClearTmpRecycledItem()
         {
-            int count = mTmpPooledItemList.Count;
+            int count = _mTmpPooledItemList.Count;
             if (count == 0)
             {
                 return;
             }
             for (int i = 0; i < count; ++i)
             {
-                RecycleItemReal(mTmpPooledItemList[i]);
+                RecycleItemReal(_mTmpPooledItemList[i]);
             }
-            mTmpPooledItemList.Clear();
+            _mTmpPooledItemList.Clear();
         }
     }
 

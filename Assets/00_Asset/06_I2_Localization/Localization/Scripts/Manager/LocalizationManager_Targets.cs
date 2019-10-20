@@ -12,24 +12,24 @@ namespace I2.Loc
 
         #region Variables: Misc
 
-        public static List<ILocalizeTargetDescriptor> mLocalizeTargets = new List<ILocalizeTargetDescriptor>();
+        public static List<LocalizeTargetDescriptor> MLocalizeTargets = new List<LocalizeTargetDescriptor>();
 
         #endregion
 
-        public static void RegisterTarget( ILocalizeTargetDescriptor desc )
+        public static void RegisterTarget( LocalizeTargetDescriptor desc )
         {
-            if (mLocalizeTargets.FindIndex(x => x.Name == desc.Name) != -1)
+            if (MLocalizeTargets.FindIndex(x => x.Name == desc.Name) != -1)
                 return;
 
-            for (int i = 0; i < mLocalizeTargets.Count; ++i)
+            for (int i = 0; i < MLocalizeTargets.Count; ++i)
             {
-                if (mLocalizeTargets[i].Priority > desc.Priority)
+                if (MLocalizeTargets[i].Priority > desc.Priority)
                 {
-                    mLocalizeTargets.Insert(i, desc);
+                    MLocalizeTargets.Insert(i, desc);
                     return;
                 }
             }
-            mLocalizeTargets.Add(desc);
+            MLocalizeTargets.Add(desc);
         }
     }
 }

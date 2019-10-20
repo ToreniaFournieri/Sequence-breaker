@@ -38,10 +38,10 @@ namespace EnhancedScrollerDemos.JumpToDemo
         /// </summary>
         public EnhancedScrollerCellView cellViewPrefab;
 
-        public EnhancedScroller.TweenType vScrollerTweenType = EnhancedScroller.TweenType.immediate;
+        public EnhancedScroller.TweenType vScrollerTweenType = EnhancedScroller.TweenType.Immediate;
         public float vScrollerTweenTime = 0f;
 
-        public EnhancedScroller.TweenType hScrollerTweenType = EnhancedScroller.TweenType.immediate;
+        public EnhancedScroller.TweenType hScrollerTweenType = EnhancedScroller.TweenType.Immediate;
         public float hScrollerTweenTime = 0f;
 
         void Start()
@@ -53,7 +53,7 @@ namespace EnhancedScrollerDemos.JumpToDemo
             // set up some simple data
             _data = new List<Data>();
             for (var i = 0; i < 100; i++)
-                _data.Add(new Data() { cellText = "Cell Data Index " + i.ToString() });
+                _data.Add(new Data() { CellText = "Cell Data Index " + i.ToString() });
 
             // tell the scroller to reload now that we have the data
             vScroller.ReloadData();

@@ -8,7 +8,7 @@ namespace SequenceBreaker._08_Battle
     {
         //For output result
         public List<BattleLogClass> LogList;
-        public WhichWin WhichWin = WhichWin.none; // get only last one
+        public WhichWin WhichWin = WhichWin.None; // get only last one
 //    private string _winRatio = "[0%]"; //2019.9.22 to get win ratio to show the possibility.
 
         // output data for sequence battle.
@@ -52,13 +52,13 @@ namespace SequenceBreaker._08_Battle
             foreach (var allyBattleUnit in allyBattleUnits)
             {
                 // Forced update Affiliation to ally(not worked?)
-                allyBattleUnit.Affiliation = Affiliation.ally;
-                allyBattleUnit.UniqueID = _count;
+                allyBattleUnit.affiliation = Affiliation.Ally;
+                allyBattleUnit.uniqueId = _count;
 
                 if (isFirstWave)
                 {
-                    allyBattleUnit.Combat.ShieldCurrent = allyBattleUnit.Combat.ShieldMax;
-                    allyBattleUnit.Combat.HitPointCurrent = allyBattleUnit.Combat.HitPointMax;
+                    allyBattleUnit.combat.shieldCurrent = allyBattleUnit.combat.shieldMax;
+                    allyBattleUnit.combat.hitPointCurrent = allyBattleUnit.combat.hitPointMax;
                 }
 
                 _characters.Add(allyBattleUnit);
@@ -78,10 +78,10 @@ namespace SequenceBreaker._08_Battle
             foreach (var enemyBattleUnit in enemyBattleUnits)
             {
                 // Forced update Affiliation to enemy (not worked?)
-                enemyBattleUnit.Affiliation = Affiliation.enemy;
-                enemyBattleUnit.UniqueID = _count;
-                enemyBattleUnit.Combat.ShieldCurrent = enemyBattleUnit.Combat.ShieldMax;
-                enemyBattleUnit.Combat.HitPointCurrent = enemyBattleUnit.Combat.HitPointMax;
+                enemyBattleUnit.affiliation = Affiliation.Enemy;
+                enemyBattleUnit.uniqueId = _count;
+                enemyBattleUnit.combat.shieldCurrent = enemyBattleUnit.combat.shieldMax;
+                enemyBattleUnit.combat.hitPointCurrent = enemyBattleUnit.combat.hitPointMax;
 
 
                 _characters.Add(enemyBattleUnit);
@@ -151,9 +151,9 @@ namespace SequenceBreaker._08_Battle
                         //characters[i].Combat.ShieldCurrent = characters[i].Combat.ShieldMax;
                         //characters[i].Combat.HitPointCurrent = characters[i].Combat.HitPointMax;
                         t.Deterioration = 0.0; //Deterioration initialize to 0.0
-                        t.Buff.InitializeBuff(); //Buff initialize
-                        t.Buff.BarrierRemaining = 0; //Barrier initialize
-                        t.Feature.InitializeFeature(); //Feature initialize
+                        t.buff.InitializeBuff(); //Buff initialize
+                        t.buff.BarrierRemaining = 0; //Barrier initialize
+                        t.feature.InitializeFeature(); //Feature initialize
                         t.Statistics.Initialize(); // Initialise
                     }
                     //foreach (EffectClass effect in effects) { effect.InitializeAccumulation(); }
@@ -170,8 +170,8 @@ namespace SequenceBreaker._08_Battle
                     {
                         foreach (var effect in _effects)
                         {
-                            Console.WriteLine(effect.Character.Name + " has a skill: " + effect.Skill.Name + ". [possibility:" + (int)(effect.TriggeredPossibility * 1000) / 10.0 + "%]"
-                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.OffenseEffectMagnification + " " + effect.Character.Buff.DefenseMagnification);
+                            Console.WriteLine(effect.character.name + " has a skill: " + effect.skill.name + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
+                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
                         }
                     }
                     // _/_/_/_/_/_/ Effect setting end _/_/_/_/_/_/
@@ -193,7 +193,7 @@ namespace SequenceBreaker._08_Battle
                             //Effect/Buff initialize and Set again
                             foreach (var t in _characters)
                             {
-                                t.Buff.InitializeBuff();
+                                t.buff.InitializeBuff();
                             }
                             foreach (var effect in _effects) { effect.BuffToCharacter(turn); }
 
@@ -202,7 +202,7 @@ namespace SequenceBreaker._08_Battle
                             {
                                 //------------------------Action order routine------------------------
                                 //Only alive character should be action.
-                                var aliveCharacters = _characters.FindAll(character1 => character1.Combat.HitPointCurrent > 0);
+                                var aliveCharacters = _characters.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
                                 //Action order decision for each turn
                                 var orders = new Stack<OrderClass>();
@@ -222,7 +222,7 @@ namespace SequenceBreaker._08_Battle
                                         {
                                             environmentInfo.Phase = 0;
                                             //log += "------------------------------------\n";
-                                            text = new FuncBattleConditionsText(turn, currentBattleWaves, _characters);
+                                            text = new FuncBattleConditionsText(turn, _characters);
                                             //firstLine = text.FirstLine();
                                             //log += text.Text();
                                             log += null;
@@ -230,7 +230,7 @@ namespace SequenceBreaker._08_Battle
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
                                             battleLog = new BattleLogClass(orderCondition, null, firstLine, log,
-                                                Affiliation.none)
+                                                Affiliation.None)
                                             {
                                                 isHeaderInfo = true,
                                                 headerInfoText = text.FirstLine()
@@ -275,13 +275,13 @@ namespace SequenceBreaker._08_Battle
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
                                             battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
-                                                Affiliation.none) {headerInfoText = "[Main action phase] \n"};
+                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
                                             //battleLogList.Add(battleLog);
 
                                             for (var i = 0; i <= aliveCharacters.Count - 1; i++)
                                             {
                                                 var effectList = _effects.FindAll(obj =>
-                                                    obj.Character == aliveCharacters[i] && obj.Skill.ActionType ==
+                                                    obj.character == aliveCharacters[i] && obj.skill.actionType ==
                                                                                         ActionType.Move
                                                                                         && obj.UsageCount > 0 &&
                                                                                         obj.VeiledFromTurn <= turn &&
@@ -296,8 +296,8 @@ namespace SequenceBreaker._08_Battle
                                                 effectList.Add(normalAttackEffect);
                                                 orderForSort.Add(new OrderClass(orderCondition, aliveCharacters[i],
                                                     ActionType.Move, ref effectList,
-                                                    (aliveCharacters[i].Ability.Responsiveness *
-                                                     r.Next(40 + aliveCharacters[i].Ability.Luck, 100)), null, false));
+                                                    (aliveCharacters[i].ability.responsiveness *
+                                                     r.Next(40 + aliveCharacters[i].ability.luck, 100)), null, false));
                                             }
 
                                             orderForSort.Sort((x, y) => x.ActionSpeed - y.ActionSpeed);
@@ -330,7 +330,7 @@ namespace SequenceBreaker._08_Battle
                                             orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                 environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
                                             battleLog = new BattleLogClass(orderCondition, null, null, log,
-                                                Affiliation.none);
+                                                Affiliation.None);
                                             battleLogList.Add(battleLog);
                                             break;
                                         }
@@ -346,7 +346,7 @@ namespace SequenceBreaker._08_Battle
                                     var order = orders.Pop();
                                     BattleLogClass battleLog;
                                     if (order.Actor == null) { continue; } // attacker alive check, if crushed, continue.
-                                    if (order.Actor.Combat.HitPointCurrent <= 0) { continue; }
+                                    if (order.Actor.combat.hitPointCurrent <= 0) { continue; }
 
                                     //[[ SKILLS CHECK ]] Interrupt skills trigger.
 
@@ -363,7 +363,7 @@ namespace SequenceBreaker._08_Battle
                                     {
                                         order.SkillEffectChosen.UsageCount -= 1;
                                         order.SkillEffectChosen.SpentCount += 1;
-                                        order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.Skill.TriggerBase.AccumulationBaseRate * order.SkillEffectChosen.Skill.TriggerBase.AccumulationWeight);
+                                        order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.skill.triggerBase.accumulationBaseRate * order.SkillEffectChosen.skill.triggerBase.accumulationWeight);
                                     }
 
 
@@ -371,7 +371,7 @@ namespace SequenceBreaker._08_Battle
                                     (firstLine, log) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include damage control assist.
                                     if (firstLine != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                         willSkip = true;
                                     }
@@ -380,7 +380,7 @@ namespace SequenceBreaker._08_Battle
                                         (firstLine, log) = BuffDebuffFunction(order, _characters, _effects, _buffMasters, turn); //Buff, debuff action
                                         if (firstLine != null)
                                         {
-                                            battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
+                                            battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
                                             battleLogList.Add(battleLog);
                                         }
                                     }
@@ -390,7 +390,7 @@ namespace SequenceBreaker._08_Battle
 
                                     if (log != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.Affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                     }
 
@@ -401,33 +401,32 @@ namespace SequenceBreaker._08_Battle
                                         var deleteOneActionOrderRaw = deleteOneActionOrderIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
                                         OrderClass deleteOneActionOrder = null;
                                         foreach (var effect in deleteOneActionOrderRaw.SkillEffectProposed)
-                                        { if (effect.Skill.Name == SkillName.normalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
+                                        { if (effect.skill.name == SkillName.NormalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
                                         deleteOneActionOrderIfHave.Remove(deleteOneActionOrder);
                                         deleteOneActionOrderIfHave.Reverse();
                                         if (deleteOneActionOrder != null) //clear stack and input again
                                         { orders.Clear(); foreach (var data in deleteOneActionOrderIfHave) { orders.Push(data); } }
                                     }
                                     //Only when first kill happened, insert statistics reporter for first blood per side.
-                                    if (order.Actor.Affiliation == Affiliation.ally && allyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When ally first blood 
+                                    if (order.Actor.affiliation == Affiliation.Ally && allyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When ally first blood 
                                     {
                                         string es = null;
                                         if (battleResult.NumberOfCrushed != 1) { es = "es"; }
-                                        var t = order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + ". first blood! total dealt damage:" + battleResult.TotalDeltDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
+                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
-                                        setStatisticsReporterFirstBlood.Set(Affiliation.ally, order.Actor.Name, order.ActionType, turn,
-                                            battleResult.NumberOfCrushed, battleResult.TotalDeltDamage, t);
-                                        if (battleLogClass != null) { setStatisticsReporterFirstBlood.BattleLogAlly = battleLogClass; }
+                                        setStatisticsReporterFirstBlood.Set(Affiliation.Ally, order.Actor.name, battleResult.TotalDealtDamage, t);
+                                        if (battleLogClass != null) {
+                                        }
                                         allyFirstBlood = true;
 
                                     }
-                                    else if (order.Actor.Affiliation == Affiliation.enemy && enemyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When enemy first blood 
+                                    else if (order.Actor.affiliation == Affiliation.Enemy && enemyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When enemy first blood 
                                     {
                                         string es = null;
                                         if (battleResult.NumberOfCrushed != 1) { es = "es"; }
-                                        var t = order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + ". first blood! total dealt damage:" + battleResult.TotalDeltDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
+                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
-                                        setStatisticsReporterFirstBlood.Set(Affiliation.enemy, order.Actor.Name, order.ActionType, turn,
-                                            battleResult.NumberOfCrushed, battleResult.TotalDeltDamage, t);
+                                        setStatisticsReporterFirstBlood.Set(Affiliation.Enemy, order.Actor.name, battleResult.TotalDealtDamage, t);
                                         if (battleLogClass != null) { setStatisticsReporterFirstBlood.BattleLogEnemy = battleLogClass; }
                                         enemyFirstBlood = true;
                                     }
@@ -437,11 +436,11 @@ namespace SequenceBreaker._08_Battle
                                         battleEnd = battleResult.BattleEnd;
                                         if (battleResult.IsAllyWin)
                                         {
-                                            allyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.allyWin;
-                                            WhichWin = WhichWin.allyWin;
+                                            allyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.AllyWin;
+                                            WhichWin = WhichWin.AllyWin;
                                         }
-                                        if (battleResult.IsEnemyWin) { enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.enemyWin;
-                                            WhichWin = WhichWin.enemyWin;
+                                        if (battleResult.IsEnemyWin) { enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.EnemyWin;
+                                            WhichWin = WhichWin.EnemyWin;
 
                                         }
                                         if (battleResult.IsDraw) { drawCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.Draw;
@@ -475,15 +474,18 @@ namespace SequenceBreaker._08_Battle
 
                                     //Push order in reverse. counter -> chain -> reAttack -> Damage control assist
                                     //Push Counter
-                                    if (counterStack != null) { orderStatus.CounterSkillCount = counterStack.Count; }
+                                    if (counterStack != null) {
+                                    }
                                     while (counterStack != null && counterStack.Count > 0) { orders.Push(counterStack.Pop()); nestNumber++; }
 
                                     //Push Chain
-                                    if (chainStack != null) { orderStatus.ChainSkillCount = chainStack.Count; }
+                                    if (chainStack != null) {
+                                    }
                                     while (chainStack != null && chainStack.Count > 0) { orders.Push(chainStack.Pop()); nestNumber++; }
 
                                     //Push ReAttack
-                                    if (reAttackStack != null) { orderStatus.ReAttackSkillCount = reAttackStack.Count; }
+                                    if (reAttackStack != null) {
+                                    }
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
                                     //Push Damage Control Assist
@@ -493,12 +495,12 @@ namespace SequenceBreaker._08_Battle
 
                                     //Navigation Logic
                                     var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
-                                        _characters, _effects, orderStatus, environmentInfo);
+                                        _characters, _effects, orderStatus);
 
                                     var navigationLog = navigatorSpeechAfterMove.Log;
                                     if (navigationLog == null) continue;
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.Affiliation);
+                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
                                     battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
@@ -513,10 +515,10 @@ namespace SequenceBreaker._08_Battle
                             if (battleEnd == false)
                             {
                                 var wipeOutCheck = new WipeOutCheck(_characters);
-                                if (wipeOutCheck.IsAllyWin) { allyWinCount++; WhichWin = WhichWin.allyWin; }
-                                if (wipeOutCheck.IsEnemyWin) { enemyWinCount++; WhichWin = WhichWin.enemyWin; }
+                                if (wipeOutCheck.IsAllyWin) { allyWinCount++; WhichWin = WhichWin.AllyWin; }
+                                if (wipeOutCheck.IsEnemyWin) { enemyWinCount++; WhichWin = WhichWin.EnemyWin; }
                                 if (wipeOutCheck.IsDraw) { drawCount++; WhichWin = WhichWin.Draw; }
-                                battleEnd = wipeOutCheck.BatleEnd;
+                                battleEnd = wipeOutCheck.BattleEnd;
                             }
                             totalTurn = turn; // If battle end, set total turn for show end log.
 
@@ -533,7 +535,7 @@ namespace SequenceBreaker._08_Battle
 
                             const string log = "Time over. \n";
                             var orderCondition = new OrderConditionClass(environmentInfo.Wave, environmentInfo.Turn, 4, 0, 0, 0);
-                            var battleLog = new BattleLogClass(orderCondition, null, log, null, Affiliation.none);
+                            var battleLog = new BattleLogClass(orderCondition, null, log, null, Affiliation.None);
                             battleLogList.Add(battleLog);
                         }
 
@@ -554,15 +556,15 @@ namespace SequenceBreaker._08_Battle
                     var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
                     setStatisticsReporterFirstBlood.WhichWin = statisticsReporterWhichWins[battleWave - 1];
                 }
-                var statisticsQueryAlly = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.allyWin)
+                var statisticsQueryAlly = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.AllyWin)
                     .GroupBy(x => x.AllyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
-                var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.enemyWin)
+                var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.EnemyWin)
                     .GroupBy(x => x.EnemyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
 
                 logPerWavesSets[battleWavesSet - 1] += "Ally info: MVP(times)\n";
                 foreach (var group in statisticsQueryAlly) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
                 logPerWavesSets[battleWavesSet - 1] += "\n";
-                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).Any())
+                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.AllyWin).Any())
                 {
 //                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
                     //logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodAlly.AllyContentText + " " + bestFirstBloodAlly.BattleLogAlly.OrderCondition + "\n";
@@ -570,17 +572,17 @@ namespace SequenceBreaker._08_Battle
                 logPerWavesSets[battleWavesSet - 1] += "Enemy info: MVP(times) \n";
                 foreach (var group in statisticsQueryEnemy) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
                 logPerWavesSets[battleWavesSet - 1] += "\n";
-                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.enemyWin).Any())
+                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).Any())
                 {
-                    var bestFirstBloodEnemy = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.enemyWin).OrderByDescending(obj => obj.EnemyTotalDealtDamage).First();
+                    var bestFirstBloodEnemy = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).OrderByDescending(obj => obj.EnemyTotalDealtDamage).First();
                     logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodEnemy.EnemyContentText + " " + bestFirstBloodEnemy.BattleLogEnemy.OrderCondition + "\n";
                 }
                 //Characters permanent Statistics Collection
                 foreach (var character in _characters) { character.PermanentStatistics.Avarage(battleWaves); } // Average Calculation
                 logPerWavesSets[battleWavesSet - 1] += "Average (critical):\n";
-                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.Name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
+                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
                 logPerWavesSets[battleWavesSet - 1] += "Average Skill:\n";
-                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.Name + " " + character.PermanentStatistics.Skill() + "\n"; }
+                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.name + " " + character.PermanentStatistics.Skill() + "\n"; }
                 //logPerWavesSets[battleWavesSet - 1] += "------------------------------------\n";
 
             } // Battle waves set
@@ -590,13 +592,13 @@ namespace SequenceBreaker._08_Battle
             // last turn battle log 
             //environmentInfo.Phase = 0;
             //log += "------------------------------------\n";
-            text = new FuncBattleConditionsText(totalTurn + 1, currentBattleWaves, _characters);
+            text = new FuncBattleConditionsText(totalTurn + 1, _characters);
             //firstLine = text.FirstLine();
             //log += text.Text();
             //string log = null;
 
             var orderConditionFinal = new OrderConditionClass(currentBattleWaves, totalTurn + 1, 0, 0, 0, 0);
-            var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.none)
+            var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.None)
             {
                 isHeaderInfo = true,
                 headerInfoText = text.FirstLine()
@@ -608,7 +610,7 @@ namespace SequenceBreaker._08_Battle
 
 
             //Set ally units for next battle
-            AllyBattleUnitsList = battleLogFinal.characters.FindAll(unit => unit.Affiliation == Affiliation.ally);
+            AllyBattleUnitsList = battleLogFinal.characters.FindAll(unit => unit.affiliation == Affiliation.Ally);
 
 
 
@@ -624,7 +626,7 @@ namespace SequenceBreaker._08_Battle
 
             //finalLog += "------------------------------------\n";
             finalLog += "Battle is over. " + WhichWin + "\n";
-            text = new FuncBattleConditionsText(totalTurn, currentBattleWaves, _characters);
+            text = new FuncBattleConditionsText(totalTurn, _characters);
             finalLog += text.Text();
 
             for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }
@@ -638,7 +640,7 @@ namespace SequenceBreaker._08_Battle
 
             Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0);
-            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.none);
+            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.None);
             battleLogDisplayList.Add(finalLogList);
             LogList = battleLogDisplayList;
 
@@ -658,50 +660,50 @@ namespace SequenceBreaker._08_Battle
             List<EffectClass> rawActionTypeEffects;
             if (isDamageControlAssist) // Damage control assist is ActionType independent
             {
-                rawActionTypeEffects = effects.FindAll(obj => obj.UsageCount > 0 && obj.Character.Combat.HitPointCurrent > 0 &&
-                                                                obj.Skill.IsHeal == shouldHeal && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
+                rawActionTypeEffects = effects.FindAll(obj => obj.UsageCount > 0 && obj.character.combat.hitPointCurrent > 0 &&
+                                                                obj.skill.isHeal == shouldHeal && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
             }
             else
             {
                 if (shouldHeal) //if heal has, be selected.
                 {
-                    rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.Character.Combat.HitPointCurrent > 0 &&
-                                                                    obj.Skill.IsHeal && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
+                    rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.character.combat.hitPointCurrent > 0 &&
+                                                                    obj.skill.isHeal && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
                     if (!rawActionTypeEffects.Any()) //if no heal skill left, other move skill should be selected.
                     {
-                        rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.Character.Combat.HitPointCurrent > 0 &&
-                                                                        obj.Skill.IsHeal == false && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
+                        rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.character.combat.hitPointCurrent > 0 &&
+                                                                        obj.skill.isHeal == false && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
                     }
                 }
                 else // should not heal, so find other move skill.
                 {
-                    rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.Character.Combat.HitPointCurrent > 0 &&
-                                                                    obj.Skill.IsHeal == false && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
+                    rawActionTypeEffects = effects.FindAll(obj => obj.ActionType == actionType && obj.UsageCount > 0 && obj.character.combat.hitPointCurrent > 0 &&
+                                                                    obj.skill.isHeal == false && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
                 }
             }
             var matchedActionTypeEffects = new List<EffectClass>();
-            var counterAffiliation = Affiliation.ally;
+            var counterAffiliation = Affiliation.Ally;
             if (attackerOrder != null) //Memo: at Beginning and move skills, attackOrder is null.
             {
-                counterAffiliation = attackerOrder.Actor.Affiliation == Affiliation.ally ? Affiliation.enemy : Affiliation.ally;
+                counterAffiliation = attackerOrder.Actor.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
             }
 
-            var affiliationWhoWillAct = Affiliation.none;
+            var affiliationWhoWillAct = Affiliation.None;
             switch (actionType) // Get actionType dependent condition before calculation.
             {
                 case ActionType.Move: //Normal moveSkill logic: only actor should trigger moveSkill.
-                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.Character == actor);
+                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.character == actor);
                     break;
                 case ActionType.Counter:
-                    if (attackerOrder != null && attackerOrder.Actor.Affiliation == Affiliation.ally) { affiliationWhoWillAct = Affiliation.enemy; }
-                    else if (attackerOrder != null && attackerOrder.Actor.Affiliation == Affiliation.enemy) { affiliationWhoWillAct = Affiliation.ally; }
-                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.Character.Affiliation == affiliationWhoWillAct);
+                    if (attackerOrder != null && attackerOrder.Actor.affiliation == Affiliation.Ally) { affiliationWhoWillAct = Affiliation.Enemy; }
+                    else if (attackerOrder != null && attackerOrder.Actor.affiliation == Affiliation.Enemy) { affiliationWhoWillAct = Affiliation.Ally; }
+                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.character.affiliation == affiliationWhoWillAct);
                     break;
                 case ActionType.Chain:
-                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && (obj.Character.Affiliation == attackerOrder.Actor.Affiliation && obj.Character != attackerOrder.Actor));
+                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && (obj.character.affiliation == attackerOrder.Actor.affiliation && obj.character != attackerOrder.Actor));
                     break;
                 case ActionType.ReAttack:
-                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && obj.Character == attackerOrder.Actor);
+                    matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && obj.character == attackerOrder.Actor);
                     break;
                 case ActionType.AtBeginning:
                     matchedActionTypeEffects = rawActionTypeEffects;
@@ -710,135 +712,135 @@ namespace SequenceBreaker._08_Battle
                     if (isDamageControlAssist) // Damage Control Assist skill logic
                     {
                         // Actor's affiliation character is dead just now?
-                        var crushedJustNowCounterAffiliationCharacter = characters.FindAll(obj => obj.IsCrushedJustNow && obj.Affiliation == counterAffiliation);
+                        var crushedJustNowCounterAffiliationCharacter = characters.FindAll(obj => obj.IsCrushedJustNow && obj.affiliation == counterAffiliation);
                         if (crushedJustNowCounterAffiliationCharacter.Count > 0) // Damage Control Assist required!
-                        { matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.Character.Affiliation == counterAffiliation && obj.Character.Feature.DamageControlAssist); }
+                        { matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.character.affiliation == counterAffiliation && obj.character.feature.damageControlAssist); }
                         // in case of friendly fired.
-                        var crushedJustNowByFriendlyFiredCharacter = characters.FindAll(obj => attackerOrder != null && (obj.IsCrushedJustNow && obj.Affiliation == attackerOrder.Actor.Affiliation));
+                        var crushedJustNowByFriendlyFiredCharacter = characters.FindAll(obj => attackerOrder != null && (obj.IsCrushedJustNow && obj.affiliation == attackerOrder.Actor.affiliation));
                         if (crushedJustNowByFriendlyFiredCharacter.Count > 0)
-                        { matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && (obj.Character.Affiliation == attackerOrder.Actor.Affiliation && obj.Character.Feature.DamageControlAssist)); }
+                        { matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => attackerOrder != null && (obj.character.affiliation == attackerOrder.Actor.affiliation && obj.character.feature.damageControlAssist)); }
                     }
                     break;
                 default: matchedActionTypeEffects = new List<EffectClass>(); break;
             }
 
             //push order from slow character's effect to fast character's effect. It means pop from fast character's effect to slow character's effect.
-            matchedActionTypeEffects.Sort((x, y) => y.Character.Ability.Responsiveness - x.Character.Ability.Responsiveness);
+            matchedActionTypeEffects.Sort((x, y) => y.character.ability.responsiveness - x.character.ability.responsiveness);
 
             var validEffects = new List<EffectClass>();
             foreach (var effect in matchedActionTypeEffects)
             {
                 effect.IsntTriggeredBecause.Initialize();
-                if (effect.Skill.TriggerTarget.ActionType != ActionType.Any)
+                if (effect.skill.triggerTarget.actionType != ActionType.Any)
                 {
-                    if ((effect.Skill.TriggerTarget.ActionType == attackerOrder.ActionType) == false)
+                    if ((effect.skill.triggerTarget.actionType == attackerOrder.ActionType) == false)
                     { effect.IsntTriggeredBecause.TriggerCondition = true; continue; }
                 } // Trigger condition check
-                if (effect.Skill.ActionType != ActionType.Move && effect.Skill.TriggerTarget.AfterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
+                if (effect.skill.actionType != ActionType.Move && effect.skill.triggerTarget.afterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
                 {
                     var checkOrders = orders.ToList();
-                    if (checkOrders.FindLast(obj => obj.Actor == effect.Character && obj.SkillEffectChosen.Skill.Name == SkillName.normalAttack) == null)
+                    if (checkOrders.FindLast(obj => obj.Actor == effect.character && obj.SkillEffectChosen.skill.name == SkillName.NormalAttack) == null)
                     { effect.IsntTriggeredBecause.AfterAllMoved = true; continue; }// no normalAttack left, which means no action.   
                 }
 
 
-                if (effect.Skill.ActionType == ActionType.Move && effect.IsDamageControlAssistAble) //Damage Control Assist Special Logic....
+                if (effect.skill.actionType == ActionType.Move && effect.IsDamageControlAssistAble) //Damage Control Assist Special Logic....
                 {
                     // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
-                    if (effect.Skill.TriggerTarget.AfterAllMoved == false)
+                    if (effect.skill.triggerTarget.afterAllMoved == false)
                     {
                         var checkActionOrders = orders.ToList();
-                        if (checkActionOrders.FindLast(obj => obj.Actor == effect.Character && obj.ActionType == ActionType.Move) == null)
+                        if (checkActionOrders.FindLast(obj => obj.Actor == effect.character && obj.ActionType == ActionType.Move) == null)
                         { effect.IsntTriggeredBecause.AfterAllMoved = true; continue; }// no normalAttack left, which means no action.   
                     }
                 }
 
                 if (attackerOrder != null) // only attackOrder exist, check
                 {
-                    if (effect.Skill.TriggerTarget.Counter == false && attackerOrder.ActionType == ActionType.Counter)
+                    if (effect.skill.triggerTarget.counter == false && attackerOrder.ActionType == ActionType.Counter)
                     { effect.IsntTriggeredBecause.TriggerTargetCounter = true; continue; } // counter reaction
-                    if (effect.Skill.TriggerTarget.Chain == false && attackerOrder.ActionType == ActionType.Chain)
+                    if (effect.skill.triggerTarget.chain == false && attackerOrder.ActionType == ActionType.Chain)
                     { effect.IsntTriggeredBecause.TriggerTargetChain = true; continue; } // chain reaction
-                    if (effect.Skill.TriggerTarget.ReAttack == false && attackerOrder.ActionType == ActionType.ReAttack)
+                    if (effect.skill.triggerTarget.reAttack == false && attackerOrder.ActionType == ActionType.ReAttack)
                     { effect.IsntTriggeredBecause.TriggerTargetReAttack = true; continue; } // reAttack reaction
-                    if (effect.Skill.TriggerTarget.Move == false && attackerOrder.ActionType == ActionType.Move)
+                    if (effect.skill.triggerTarget.move == false && attackerOrder.ActionType == ActionType.Move)
                     { effect.IsntTriggeredBecause.TriggerTargetMove = true; continue; } // move skill reaction
                 }
 
 
-                if (effect.Skill.TriggerTarget.OptimumRange != Range.any && attackerOrder != null) // within OptimumRange check
+                if (effect.skill.triggerTarget.optimumRange != Range.Any && attackerOrder != null) // within OptimumRange check
                 {
-                    var aliveActorSide = characters.FindAll(character1 => character1.Affiliation == effect.Character.Affiliation && character1.Combat.HitPointCurrent > 0);
-                    var aliveAttackerIndex = aliveActorSide.IndexOf(effect.Character);
-                    var minTargetOptimumRange = (int)(effect.Character.Combat.MinRange * effect.Skill.Magnification.OptimumRangeMin) - aliveAttackerIndex;
-                    var maxTargetOptimumRange = (int)(effect.Character.Combat.MaxRange * effect.Skill.Magnification.OptimumRangeMax) - aliveAttackerIndex;
-                    counterAffiliation = effect.Character.Affiliation == Affiliation.ally ? Affiliation.enemy : Affiliation.ally;
-                    var survivedOpponents = characters.FindAll(character1 => character1.Combat.HitPointCurrent > 0 && character1.Affiliation == counterAffiliation);
-                    survivedOpponents.Sort((x, y) => x.UniqueID - y.UniqueID);
+                    var aliveActorSide = characters.FindAll(character1 => character1.affiliation == effect.character.affiliation && character1.combat.hitPointCurrent > 0);
+                    var aliveAttackerIndex = aliveActorSide.IndexOf(effect.character);
+                    var minTargetOptimumRange = (int)(effect.character.combat.minRange * effect.skill.magnification.optimumRangeMin) - aliveAttackerIndex;
+                    var maxTargetOptimumRange = (int)(effect.character.combat.maxRange * effect.skill.magnification.optimumRangeMax) - aliveAttackerIndex;
+                    counterAffiliation = effect.character.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
+                    var survivedOpponents = characters.FindAll(character1 => character1.combat.hitPointCurrent > 0 && character1.affiliation == counterAffiliation);
+                    survivedOpponents.Sort((x, y) => x.uniqueId - y.uniqueId);
                     var attackerIndex = survivedOpponents.IndexOf(attackerOrder.Actor);
 
-                    switch (effect.Skill.TriggerTarget.OptimumRange) //Optimum Range check.
+                    switch (effect.skill.triggerTarget.optimumRange) //Optimum Range check.
                     {
-                        case Range.any: break;
-                        case Range.within: if (attackerIndex >= minTargetOptimumRange && attackerIndex <= maxTargetOptimumRange) { break; } else { continue; }
-                        case Range.without: if (attackerIndex >= minTargetOptimumRange && attackerIndex <= maxTargetOptimumRange) { continue; } else { break; }
+                        case Range.Any: break;
+                        case Range.Within: if (attackerIndex >= minTargetOptimumRange && attackerIndex <= maxTargetOptimumRange) { break; } else { continue; }
+                        case Range.Without: if (attackerIndex >= minTargetOptimumRange && attackerIndex <= maxTargetOptimumRange) { continue; } else { break; }
                     }
                 }
 
 
                 // AttackType MajestyAttackType NO IMPLEMENTATION.
 
-                if (effect.Skill.TriggerTarget.Critical != CriticalOrNot.any)
+                if (effect.skill.triggerTarget.critical != CriticalOrNot.Any)
                 {
-                    if (effect.Skill.TriggerTarget.Critical == CriticalOrNot.critical && battleResult.CriticalOrNot == CriticalOrNot.nonCritical)
+                    if (effect.skill.triggerTarget.critical == CriticalOrNot.Critical && battleResult.CriticalOrNot == CriticalOrNot.NonCritical)
                     { effect.IsntTriggeredBecause.Critical = true; continue; } // non critical but only when critical triggers
-                    if (effect.Skill.TriggerTarget.Critical == CriticalOrNot.nonCritical && battleResult.CriticalOrNot == CriticalOrNot.critical)
+                    if (effect.skill.triggerTarget.critical == CriticalOrNot.NonCritical && battleResult.CriticalOrNot == CriticalOrNot.Critical)
                     { effect.IsntTriggeredBecause.NonCritical = true; continue; } // critical but only when non critical triggers
                 }
 
 
                 //ActorOrTargetUnit WhoCrushed   NO IMPLEMENTATION.
 
-                if (effect.Skill.TriggerTarget.OnlyWhenBeenHitMoreThanOnce && (battleResult.HitMoreThanOnceCharacters.Find(obj => obj == effect.Character) == null))
+                if (effect.skill.triggerTarget.onlyWhenBeenHitMoreThanOnce && (battleResult.HitMoreThanOnceCharacters.Find(obj => obj == effect.character) == null))
                 { effect.IsntTriggeredBecause.OnlyWhenBeenHitMoreThanOnce = true; continue; } //Being hit .this means not hit, so skill should not be triggered.
-                if (effect.Skill.TriggerTarget.OnlyWhenAvoidMoreThanOnce && ((battleResult.AvoidMoreThanOnceCharacters.Find(obj => obj == effect.Character)) == null))
+                if (effect.skill.triggerTarget.onlyWhenAvoidMoreThanOnce && ((battleResult.AvoidMoreThanOnceCharacters.Find(obj => obj == effect.character)) == null))
                 { effect.IsntTriggeredBecause.OnlyWhenAvoidMoreThanOnce = true; continue; } //being avoid. this means not hit, so skill should not be triggered.
 
-                switch (effect.Skill.TriggerBase.AccumulationReference) //Trigger Accumulation check
+                switch (effect.skill.triggerBase.accumulationReference) //Trigger Accumulation check
                 {
-                    case ReferenceStatistics.none: break;
+                    case ReferenceStatistics.None: break;
                     case ReferenceStatistics.AvoidCount:
-                        if (effect.Character.Statistics.AvoidCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.AvoidCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationAvoid = true; continue; }
                         break;
                     case ReferenceStatistics.AllHitCount:
-                        if (effect.Character.Statistics.AllHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.AllHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationAllHitCount = true; continue; }
                         break;
                     case ReferenceStatistics.AllTotalBeenHitCount:
-                        if (effect.Character.Statistics.AllTotalBeenHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.AllTotalBeenHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationAllTotalBeenHit = true; continue; }
                         break;
                     case ReferenceStatistics.CriticalBeenHitCount:
-                        if (effect.Character.Statistics.CriticalBeenHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.CriticalBeenHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationCriticalBeenHit = true; continue; }
                         break;
                     case ReferenceStatistics.CriticalHitCount:
-                        if (effect.Character.Statistics.CriticalHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.CriticalHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationCriticalHit = true; continue; }
                         break;
                     case ReferenceStatistics.SkillBeenHitCount:
-                        if (effect.Character.Statistics.SkillBeenHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.SkillBeenHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationSkillBeenHit = true; continue; }
                         break;
                     case ReferenceStatistics.SkillHitCount:
-                        if (effect.Character.Statistics.SkillHitCount < effect.NextAccumulationCount)
+                        if (effect.character.Statistics.SkillHitCount < effect.NextAccumulationCount)
                         { effect.IsntTriggeredBecause.AccumulationSkillHit = true; continue; }
                         break;
                 }
 
                 var possibility = environmentInfo.R.Next(0, 1000) / 1000.0; //TriggerPossibility Check
-                if (effect.TriggeredPossibility >= possibility) { validEffects.Add(effect); } else { effect.IsntTriggeredBecause.TriggeredPossibility = true;
+                if (effect.triggeredPossibility >= possibility) { validEffects.Add(effect); } else { effect.IsntTriggeredBecause.TriggeredPossibility = true;
                 }
             }
 
@@ -846,7 +848,7 @@ namespace SequenceBreaker._08_Battle
             var skillsByOrderStack = new Stack<OrderClass>();
             foreach (var character in characters)
             {
-                var validEffectsPerActor = validEffects.FindAll(obj => obj.Character == character);
+                var validEffectsPerActor = validEffects.FindAll(obj => obj.character == character);
                 if (validEffectsPerActor.Count >= 1)
                 {
                     var orderNumber = 0; var nest = 0; if (attackerOrder != null) { orderNumber = attackerOrder.OrderCondition.OrderNumber; nest = attackerOrder.OrderCondition.Nest; }
@@ -888,26 +890,26 @@ namespace SequenceBreaker._08_Battle
             string log = null;
             if (order.SkillEffectChosen == null) { return (null, null); } // no effect exist, so no buff/ debuff happened
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
-            switch (order.SkillEffectChosen.Skill.BuffTarget.TargetType)
+            switch (order.SkillEffectChosen.skill.buffTarget.targetType)
             {
-                case TargetType.self: //Buff self
-                    addingBuff = buffMasters.FindLast(obj => obj.Name == order.SkillEffectChosen.Skill.CallingBuffName);
+                case TargetType.Self: //Buff self
+                    addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
                     addingEffect.Add(new EffectClass(character: order.Actor, skill: addingBuff, actionType: ActionType.None,
-                        offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.UsageCount,
-                        veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.VeiledTurn)));
+                        offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.usageCount,
+                        veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
                     effects.Add(addingEffect[0]);
                     addingEffect[0].BuffToCharacter(currentTurn: turn);
-                    order.Actor.Buff.AddBarrier(addingEffect[0].Skill.BuffTarget.BarrierRemaining);
+                    order.Actor.buff.AddBarrier(addingEffect[0].skill.buffTarget.barrierRemaining);
 
                     string triggerPossibilityText = null;
-                    if (order.SkillEffectChosen.TriggeredPossibility < 1.0) { triggerPossibilityText = "(" + (int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0 + "%) "; }
+                    if (order.SkillEffectChosen.triggeredPossibility < 1.0) { triggerPossibilityText = "(" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) "; }
                     string accumulationText = null;
                     if (order.SkillEffectChosen.NextAccumulationCount > 0)
                     {
                         var count = 0.0;
-                        switch (order.SkillEffectChosen.Skill.TriggerBase.AccumulationReference)
+                        switch (order.SkillEffectChosen.skill.triggerBase.accumulationReference)
                         {
-                            case ReferenceStatistics.none: break;
+                            case ReferenceStatistics.None: break;
                             case ReferenceStatistics.AvoidCount: count = order.Actor.Statistics.AvoidCount; break;
                             case ReferenceStatistics.AllHitCount: count = order.Actor.Statistics.AllHitCount; break;
                             case ReferenceStatistics.AllTotalBeenHitCount: count = order.Actor.Statistics.AllTotalBeenHitCount; break;
@@ -918,46 +920,46 @@ namespace SequenceBreaker._08_Battle
                         }
                         string nextText = null;
                         if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next trigger: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usage count left."; }
-                        accumulationText = "(Accumulation " + order.SkillEffectChosen.Skill.TriggerBase.AccumulationReference + ": " + count + nextText + ")";
+                        accumulationText = "(Accumulation " + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
 
-                    firstLine = order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
-                                + new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
+                    firstLine = order.SkillEffectChosen.skill.name + "! " + triggerPossibilityText + accumulationText + "\n"
+                                + new string(' ', 3) + order.Actor.name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns. " + "\n";
 
                     //firstLine = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
                     //+ new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
                     // Belows: It's a temporary message, only for defense magnification.
-                    if (addingBuff.BuffTarget.DefenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.Buff.DefenseMagnification + " (x" + addingBuff.BuffTarget.DefenseMagnification + ")] "; }
-                    if (addingEffect[0].Skill.BuffTarget.BarrierRemaining > 0) { log += "[Barrier:" + order.Actor.Buff.BarrierRemaining + " (+" + addingEffect[0].Skill.BuffTarget.BarrierRemaining + ")] "; }
+                    if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                    if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
                     log += "\n";
                     break;
-                case TargetType.multi: //Buff attacker's side all
-                    addingBuff = buffMasters.FindLast(obj => obj.Name == order.SkillEffectChosen.Skill.CallingBuffName);
-                    var buffTargetCharacters = characters.FindAll(character1 => character1.Affiliation == order.Actor.Affiliation && character1.Combat.HitPointCurrent > 0);
-                    firstLine = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.TriggeredPossibility * 1000) / 10.0 + "%) \n";
+                case TargetType.Multi: //Buff attacker's side all
+                    addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
+                    var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
+                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) \n";
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {
                         addingEffect.Add(new EffectClass(character: buffTargetCharacters[i], skill: addingBuff, actionType: ActionType.None,
-                            offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.UsageCount,
-                            veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.VeiledTurn)));
+                            offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.usageCount,
+                            veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
                         effects.Add(addingEffect[i]);
 
                         addingEffect[i].BuffToCharacter(currentTurn: turn);
-                        buffTargetCharacters[i].Buff.AddBarrier(addingEffect[i].Skill.BuffTarget.BarrierRemaining);
+                        buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
-                        log += new string(' ', 3) + buffTargetCharacters[i].Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns.";
-                        if (addingBuff.BuffTarget.DefenseMagnification > 1.0)
-                        { log += new string(' ', 4) + "[Defense: " + buffTargetCharacters[i].Buff.DefenseMagnification + " (x" + addingBuff.BuffTarget.DefenseMagnification + ")] "; }
-                        if (addingEffect[i].Skill.BuffTarget.BarrierRemaining > 0)
-                        { log += " [Barrier: " + buffTargetCharacters[i].Buff.BarrierRemaining + " (+" + addingEffect[i].Skill.BuffTarget.BarrierRemaining + ")] \n"; }
+                        log += new string(' ', 3) + buffTargetCharacters[i].name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns.";
+                        if (addingBuff.buffTarget.defenseMagnification > 1.0)
+                        { log += new string(' ', 4) + "[Defense: " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                        if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)
+                        { log += " [Barrier: " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n"; }
                     }
                     //log += "\n";
                     break;
-                case TargetType.none: break;
+                case TargetType.None: break;
             }
 
-            if (order.SkillEffectChosen.Skill.DebuffTarget.TargetType != TargetType.none)
+            if (order.SkillEffectChosen.skill.debuffTarget.targetType != TargetType.None)
             {
                 //Debuff exist
             }
@@ -968,19 +970,19 @@ namespace SequenceBreaker._08_Battle
         {
             string firstLine = null;
             string log = null;
-            if (order.SkillEffectChosen.Skill.CallSkillLogicName == CallSkillLogicName.none) { return (null, null); } // check call skill 
+            if (order.SkillEffectChosen.skill.callSkillLogicName == CallSkillLogicName.None) { return (null, null); } // check call skill 
             SkillLogicShieldHealClass healMulti;
-            switch (order.SkillEffectChosen.Skill.CallSkillLogicName)
+            switch (order.SkillEffectChosen.skill.callSkillLogicName)
             {
                 case CallSkillLogicName.ShieldHealMulti:
                     healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: true, environmentInfo: environmentInfo);
                     log += healMulti.Log;
-                    firstLine = healMulti.firstLine;
+                    firstLine = healMulti.FirstLine;
                     break;
                 case CallSkillLogicName.ShieldHealSingle:
                     healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: false, environmentInfo: environmentInfo);
                     log += healMulti.Log;
-                    firstLine = healMulti.firstLine;
+                    firstLine = healMulti.FirstLine;
                     break;
             }
             return (firstLine, log);
@@ -991,10 +993,10 @@ namespace SequenceBreaker._08_Battle
             var battleResult = new BattleResultClass();
             var battleLog = new BattleLogClass();
 
-            switch (order.SkillEffectChosen.Skill.Magnification.AttackTarget)
+            switch (order.SkillEffectChosen.skill.magnification.attackTarget)
             {
-                case TargetType.self: break;
-                case TargetType.none: break;
+                case TargetType.Self: break;
+                case TargetType.None: break;
                 default:
                     var attack = new AttackFunction(order: order, characters: characters, environmentInfo: environmentInfo);
                     battleResult = attack.BattleResult;

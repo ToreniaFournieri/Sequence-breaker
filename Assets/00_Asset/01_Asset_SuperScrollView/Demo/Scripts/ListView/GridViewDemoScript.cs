@@ -9,39 +9,39 @@ namespace SuperScrollView
     public class GridViewDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        Button mScrollToButton;
-        Button mAddItemButton;
-        Button mSetCountButton;
-        InputField mScrollToInput;
-        InputField mAddItemInput;
-        InputField mSetCountInput;
-        Button mBackButton;
-        const int mItemCountPerRow = 3;// how many items in one row
-        int mListItemTotalCount = 0;
+        Button _mScrollToButton;
+        Button _mAddItemButton;
+        Button _mSetCountButton;
+        InputField _mScrollToInput;
+        InputField _mAddItemInput;
+        InputField _mSetCountInput;
+        Button _mBackButton;
+        const int MItemCountPerRow = 3;// how many items in one row
+        int _mListItemTotalCount = 0;
 
         // Use this for initialization
         void Start()
         {
-            mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
-            int count = mListItemTotalCount / mItemCountPerRow;
-            if(mListItemTotalCount % mItemCountPerRow > 0)
+            _mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
+            int count = _mListItemTotalCount / MItemCountPerRow;
+            if(_mListItemTotalCount % MItemCountPerRow > 0)
             {
                 count++;
             }
             //count is the total row count
             mLoopListView.InitListView(count, OnGetItemByIndex);
 
-            mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
-            mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
-            mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
+            _mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
+            _mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
         void OnBackBtnClicked()
@@ -51,17 +51,17 @@ namespace SuperScrollView
 
         void SetListItemTotalCount(int count)
         {
-            mListItemTotalCount = count;
-            if (mListItemTotalCount < 0)
+            _mListItemTotalCount = count;
+            if (_mListItemTotalCount < 0)
             {
-                mListItemTotalCount = 0;
+                _mListItemTotalCount = 0;
             }
-            if (mListItemTotalCount > DataSourceMgr.Get.TotalItemCount)
+            if (_mListItemTotalCount > DataSourceMgr.Get.TotalItemCount)
             {
-                mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
+                _mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
             }
-            int count1 = mListItemTotalCount / mItemCountPerRow;
-            if (mListItemTotalCount % mItemCountPerRow > 0)
+            int count1 = _mListItemTotalCount / MItemCountPerRow;
+            if (_mListItemTotalCount % MItemCountPerRow > 0)
             {
                 count1++;
             }
@@ -100,10 +100,10 @@ namespace SuperScrollView
                 itemScript.Init();
             }
             //update all items in the row
-            for (int i = 0;i< mItemCountPerRow; ++i)
+            for (int i = 0;i< MItemCountPerRow; ++i)
             {
-                int itemIndex = index * mItemCountPerRow + i;
-                if(itemIndex >= mListItemTotalCount)
+                int itemIndex = index * MItemCountPerRow + i;
+                if(itemIndex >= _mListItemTotalCount)
                 {
                     itemScript.mItemList[i].gameObject.SetActive(false);
                     continue;
@@ -126,7 +126,7 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }
@@ -135,8 +135,8 @@ namespace SuperScrollView
                 itemIndex = 0;
             }
             itemIndex++;
-            int count1 = itemIndex / mItemCountPerRow;
-            if (itemIndex % mItemCountPerRow > 0)
+            int count1 = itemIndex / MItemCountPerRow;
+            if (itemIndex % MItemCountPerRow > 0)
             {
                 count1++;
             }
@@ -150,17 +150,17 @@ namespace SuperScrollView
         void OnAddItemBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mAddItemInput.text, out count) == false)
+            if (int.TryParse(_mAddItemInput.text, out count) == false)
             {
                 return;
             }
-            SetListItemTotalCount(mListItemTotalCount + count);
+            SetListItemTotalCount(_mListItemTotalCount + count);
         }
 
         void OnSetItemCountBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mSetCountInput.text, out count) == false)
+            if (int.TryParse(_mSetCountInput.text, out count) == false)
             {
                 return;
             }

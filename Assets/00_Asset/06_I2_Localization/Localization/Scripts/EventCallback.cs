@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 namespace I2.Loc
 {
 	[Serializable]
 	public class EventCallback
 	{
-		public MonoBehaviour Target;
-		public string MethodName = string.Empty;
+		[FormerlySerializedAs("Target")] public MonoBehaviour target;
+		[FormerlySerializedAs("MethodName")] public string methodName = string.Empty;
 
-		public void Execute( UnityEngine.Object Sender = null )
+		public void Execute( UnityEngine.Object sender = null )
 		{
 			if (HasCallback() && Application.isPlaying)
-				Target.gameObject.SendMessage(MethodName, Sender, SendMessageOptions.DontRequireReceiver);
+				target.gameObject.SendMessage(methodName, sender, SendMessageOptions.DontRequireReceiver);
 		}
 
 		public bool HasCallback()
 		{
-			return Target != null && !string.IsNullOrEmpty (MethodName);
+			return target != null && !string.IsNullOrEmpty (methodName);
 		}
 	}
 }

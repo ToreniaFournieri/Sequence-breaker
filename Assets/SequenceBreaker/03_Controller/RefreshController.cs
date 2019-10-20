@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 [Serializable]
 sealed public class RefreshController : MonoBehaviour
 {
-    public bool NeedToRefresh = false;
+    [FormerlySerializedAs("NeedToRefresh")] public bool needToRefresh = false;
 }

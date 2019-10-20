@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace I2.Loc
@@ -17,14 +18,14 @@ namespace I2.Loc
     {
         #region Variables
 
-        [NonSerialized] public ILanguageSource owner;
-        public Object ownerObject { get { return owner as UnityEngine.Object; } }
+        [NonSerialized] public ILanguageSource Owner;
+        public Object OwnerObject { get { return Owner as UnityEngine.Object; } }
 
-        public bool UserAgreesToHaveItOnTheScene = false;
-		public bool UserAgreesToHaveItInsideThePluginsFolder = false;
-        public bool GoogleLiveSyncIsUptoDate = true;
+        [FormerlySerializedAs("UserAgreesToHaveItOnTheScene")] public bool userAgreesToHaveItOnTheScene = false;
+		[FormerlySerializedAs("UserAgreesToHaveItInsideThePluginsFolder")] public bool userAgreesToHaveItInsideThePluginsFolder = false;
+        [FormerlySerializedAs("GoogleLiveSyncIsUptoDate")] public bool googleLiveSyncIsUptoDate = true;
 
-        [NonSerialized] public bool mIsGlobalSource;
+        [NonSerialized] public bool MIsGlobalSource;
 
         #endregion
 
@@ -32,15 +33,15 @@ namespace I2.Loc
 
         public List<TermData> mTerms = new List<TermData>();
 
-        public bool CaseInsensitiveTerms = false;
+        [FormerlySerializedAs("CaseInsensitiveTerms")] public bool caseInsensitiveTerms = false;
 
         //This is used to overcome the issue with Unity not serializing Dictionaries
-        [NonSerialized] public Dictionary<string, TermData> mDictionary = new Dictionary<string, TermData>(StringComparer.Ordinal);
+        [NonSerialized] public Dictionary<string, TermData> MDictionary = new Dictionary<string, TermData>(StringComparer.Ordinal);
 
         public enum MissingTranslationAction { Empty, Fallback, ShowWarning, ShowTerm };
-        public MissingTranslationAction OnMissingTranslation = MissingTranslationAction.Fallback;
+        [FormerlySerializedAs("OnMissingTranslation")] public MissingTranslationAction onMissingTranslation = MissingTranslationAction.Fallback;
 
-        public string mTerm_AppName;
+        [FormerlySerializedAs("mTerm_AppName")] public string mTermAppName;
 
         #endregion
 
@@ -48,54 +49,54 @@ namespace I2.Loc
 
         public List<LanguageData> mLanguages = new List<LanguageData>();
 
-        public bool IgnoreDeviceLanguage; // If false, it will use the Device's language as the initial Language, otherwise it will use the first language in the source.
+        [FormerlySerializedAs("IgnoreDeviceLanguage")] public bool ignoreDeviceLanguage; // If false, it will use the Device's language as the initial Language, otherwise it will use the first language in the source.
 
-        public enum eAllowUnloadLanguages { Never, OnlyInDevice, EditorAndDevice }
-        public eAllowUnloadLanguages _AllowUnloadingLanguages = eAllowUnloadLanguages.Never;
+        public enum EAllowUnloadLanguages { Never, OnlyInDevice, EditorAndDevice }
+        [FormerlySerializedAs("_AllowUnloadingLanguages")] public EAllowUnloadLanguages allowUnloadingLanguages = EAllowUnloadLanguages.Never;
 
         #endregion
 
         #region Variables : Google
 
-        public string Google_WebServiceURL;
-        public string Google_SpreadsheetKey;
-        public string Google_SpreadsheetName;
-        public string Google_LastUpdatedVersion;
+        [FormerlySerializedAs("Google_WebServiceURL")] public string googleWebServiceUrl;
+        [FormerlySerializedAs("Google_SpreadsheetKey")] public string googleSpreadsheetKey;
+        [FormerlySerializedAs("Google_SpreadsheetName")] public string googleSpreadsheetName;
+        [FormerlySerializedAs("Google_LastUpdatedVersion")] public string googleLastUpdatedVersion;
 
 #if UNITY_EDITOR
-        public string Google_Password = "change_this";
+        [FormerlySerializedAs("Google_Password")] public string googlePassword = "change_this";
 #endif
 
-        public enum eGoogleUpdateFrequency { Always, Never, Daily, Weekly, Monthly, OnlyOnce, EveryOtherDay }
-        public eGoogleUpdateFrequency GoogleUpdateFrequency = eGoogleUpdateFrequency.Weekly;
-        public eGoogleUpdateFrequency GoogleInEditorCheckFrequency = eGoogleUpdateFrequency.Daily;
+        public enum EGoogleUpdateFrequency { Always, Never, Daily, Weekly, Monthly, OnlyOnce, EveryOtherDay }
+        [FormerlySerializedAs("GoogleUpdateFrequency")] public EGoogleUpdateFrequency googleUpdateFrequency = EGoogleUpdateFrequency.Weekly;
+        [FormerlySerializedAs("GoogleInEditorCheckFrequency")] public EGoogleUpdateFrequency googleInEditorCheckFrequency = EGoogleUpdateFrequency.Daily;
 
         // When Manual, the user has to call LocalizationManager.ApplyDownloadedDataFromGoogle() during a loading screen or similar
-        public enum eGoogleUpdateSynchronization { Manual, OnSceneLoaded, AsSoonAsDownloaded }
-        public eGoogleUpdateSynchronization GoogleUpdateSynchronization = eGoogleUpdateSynchronization.OnSceneLoaded;
+        public enum EGoogleUpdateSynchronization { Manual, OnSceneLoaded, AsSoonAsDownloaded }
+        [FormerlySerializedAs("GoogleUpdateSynchronization")] public EGoogleUpdateSynchronization googleUpdateSynchronization = EGoogleUpdateSynchronization.OnSceneLoaded;
 
-        public float GoogleUpdateDelay = 0; // How many second to delay downloading data from google (to avoid lag on the startup)
+        [FormerlySerializedAs("GoogleUpdateDelay")] public float googleUpdateDelay = 0; // How many second to delay downloading data from google (to avoid lag on the startup)
 
-        public event LanguageSource.fnOnSourceUpdated Event_OnSourceUpdateFromGoogle;    // (LanguageSource, bool ReceivedNewData, string errorMsg)
+        public event LanguageSource.FnOnSourceUpdated EventOnSourceUpdateFromGoogle;    // (LanguageSource, bool ReceivedNewData, string errorMsg)
 
         #endregion
 
         #region Variables : Assets
 
-        public List<Object> Assets = new List<Object>();	// References to Fonts, Atlasses and other objects the localization may need
+        [FormerlySerializedAs("Assets")] public List<Object> assets = new List<Object>();	// References to Fonts, Atlasses and other objects the localization may need
 
         //This is used to overcome the issue with Unity not serializing Dictionaries
-        [NonSerialized] public Dictionary<string, Object> mAssetDictionary = new Dictionary<string, Object>(StringComparer.Ordinal);
+        [NonSerialized] public Dictionary<string, Object> MAssetDictionary = new Dictionary<string, Object>(StringComparer.Ordinal);
 
         #endregion
 
         #region EditorVariables
 #if UNITY_EDITOR
 
-        public string Spreadsheet_LocalFileName;
-		public string Spreadsheet_LocalCSVSeparator = ",";
-        public string Spreadsheet_LocalCSVEncoding = "utf-8";
-        public bool Spreadsheet_SpecializationAsRows = true;
+        [FormerlySerializedAs("Spreadsheet_LocalFileName")] public string spreadsheetLocalFileName;
+		[FormerlySerializedAs("Spreadsheet_LocalCSVSeparator")] public string spreadsheetLocalCsvSeparator = ",";
+        [FormerlySerializedAs("Spreadsheet_LocalCSVEncoding")] public string spreadsheetLocalCsvEncoding = "utf-8";
+        [FormerlySerializedAs("Spreadsheet_SpecializationAsRows")] public bool spreadsheetSpecializationAsRows = true;
 
 #endif
         #endregion
@@ -117,20 +118,20 @@ namespace I2.Loc
  
 
 
-		public bool IsEqualTo( LanguageSourceData Source )
+		public bool IsEqualTo( LanguageSourceData source )
 		{
-			if (Source.mLanguages.Count != mLanguages.Count)
+			if (source.mLanguages.Count != mLanguages.Count)
 				return false;
 
 			for (int i=0, imax=mLanguages.Count; i<imax; ++i)
-				if (Source.GetLanguageIndex( mLanguages[i].Name ) < 0)
+				if (source.GetLanguageIndex( mLanguages[i].name ) < 0)
 					return false;
 
-			if (Source.mTerms.Count != mTerms.Count)
+			if (source.mTerms.Count != mTerms.Count)
 				return false;
 
 			for (int i=0; i<mTerms.Count; ++i)
-				if (Source.GetTermData(mTerms[i].Term)==null)
+				if (source.GetTermData(mTerms[i].term)==null)
 					return false;
 
 			return true;
@@ -151,13 +152,13 @@ namespace I2.Loc
 		{
 			mTerms.Clear ();
 			mLanguages.Clear ();
-			mDictionary.Clear();
-            mAssetDictionary.Clear();
+			MDictionary.Clear();
+            MAssetDictionary.Clear();
 		}
 
         public bool IsGlobalSource()
         {
-            return mIsGlobalSource;
+            return MIsGlobalSource;
         }
 
         #endregion
@@ -165,9 +166,9 @@ namespace I2.Loc
         public void Editor_SetDirty()
         {
             #if UNITY_EDITOR
-                if (ownerObject != null)
+                if (OwnerObject != null)
                 {
-                    UnityEditor.EditorUtility.SetDirty(ownerObject);
+                    UnityEditor.EditorUtility.SetDirty(OwnerObject);
                 }
             #endif
         }

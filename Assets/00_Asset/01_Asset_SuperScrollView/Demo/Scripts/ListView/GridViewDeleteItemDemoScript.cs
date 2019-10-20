@@ -13,15 +13,15 @@ namespace SuperScrollView
         public Button mCancelAllButton;
         public Button mDeleteButton;
         public Button mBackButton;
-        const int mItemCountPerRow = 3;
-        int mListItemTotalCount = 0;
+        const int MItemCountPerRow = 3;
+        int _mListItemTotalCount = 0;
 
         // Use this for initialization
         void Start()
         {
-            mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
-            int count = mListItemTotalCount / mItemCountPerRow;
-            if (mListItemTotalCount % mItemCountPerRow > 0)
+            _mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
+            int count = _mListItemTotalCount / MItemCountPerRow;
+            if (_mListItemTotalCount % MItemCountPerRow > 0)
             {
                 count++;
             }
@@ -51,10 +51,10 @@ namespace SuperScrollView
                 item.IsInitHandlerCalled = true;
                 itemScript.Init();
             }
-            for (int i = 0; i < mItemCountPerRow; ++i)
+            for (int i = 0; i < MItemCountPerRow; ++i)
             {
-                int itemIndex = index * mItemCountPerRow + i;
-                if (itemIndex >= mListItemTotalCount)
+                int itemIndex = index * MItemCountPerRow + i;
+                if (itemIndex >= _mListItemTotalCount)
                 {
                     itemScript.mItemList[i].gameObject.SetActive(false);
                     continue;
@@ -98,17 +98,17 @@ namespace SuperScrollView
 
         void SetListItemTotalCount(int count)
         {
-            mListItemTotalCount = count;
-            if (mListItemTotalCount < 0)
+            _mListItemTotalCount = count;
+            if (_mListItemTotalCount < 0)
             {
-                mListItemTotalCount = 0;
+                _mListItemTotalCount = 0;
             }
-            if (mListItemTotalCount > DataSourceMgr.Get.TotalItemCount)
+            if (_mListItemTotalCount > DataSourceMgr.Get.TotalItemCount)
             {
-                mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
+                _mListItemTotalCount = DataSourceMgr.Get.TotalItemCount;
             }
-            int count1 = mListItemTotalCount / mItemCountPerRow;
-            if (mListItemTotalCount % mItemCountPerRow > 0)
+            int count1 = _mListItemTotalCount / MItemCountPerRow;
+            if (_mListItemTotalCount % MItemCountPerRow > 0)
             {
                 count1++;
             }

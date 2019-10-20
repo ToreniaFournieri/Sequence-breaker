@@ -14,6 +14,6 @@ namespace EnhancedScrollerDemos.SnappingDemo
         /// but since there are so few slot cell types, we'll
         /// just preload them to speed up the in-game processing.
         /// </summary>
-        public Sprite sprite;
+        public Sprite Sprite;
     }
 }

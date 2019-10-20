@@ -9,7 +9,7 @@ namespace SuperScrollView
     public class DragChangSizeScript :MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler,
 		IPointerEnterHandler, IPointerExitHandler
     {
-        bool mIsDraging = false;
+        bool _mIsDraging = false;
 
         public Camera mCamera;
 
@@ -19,18 +19,18 @@ namespace SuperScrollView
 
         public Vector2 mCursorHotSpot = new Vector2(16, 16);
 
-        RectTransform mCachedRectTransform;
+        RectTransform _mCachedRectTransform;
 
         public System.Action mOnDragEndAction;
         public RectTransform CachedRectTransform
         {
             get
             {
-                if (mCachedRectTransform == null)
+                if (_mCachedRectTransform == null)
                 {
-                    mCachedRectTransform = gameObject.GetComponent<RectTransform>();
+                    _mCachedRectTransform = gameObject.GetComponent<RectTransform>();
                 }
-                return mCachedRectTransform;
+                return _mCachedRectTransform;
             }
         }
 
@@ -59,7 +59,7 @@ namespace SuperScrollView
                 return;
             }
             
-            if(mIsDraging)
+            if(_mIsDraging)
             {
                 SetCursor(mCursorTexture, mCursorHotSpot, CursorMode.Auto);
                 return;
@@ -89,12 +89,12 @@ namespace SuperScrollView
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            mIsDraging = true;
+            _mIsDraging = true;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            mIsDraging = false;
+            _mIsDraging = false;
             if(mOnDragEndAction != null)
             {
                 mOnDragEndAction();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
+using UnityEngine.Serialization;
 
 namespace EnhancedScrollerDemos.NestedLinkedScrollers
 {
@@ -34,7 +35,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         /// </summary>
         public EnhancedScrollerCellView masterCellViewPrefab;
 
-        public UnityEngine.UI.Scrollbar HScrollbar;
+        [FormerlySerializedAs("HScrollbar")] public UnityEngine.UI.Scrollbar hScrollbar;
 
         /// <summary>
         /// Be sure to set up your references to the scroller after the Awake function. The 
@@ -67,14 +68,14 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
             {
                 var masterData = new MasterData()
                 {
-                    normalizedScrollPosition = 0,
-                    childData = new List<DetailData>()
+                    NormalizedScrollPosition = 0,
+                    ChildData = new List<DetailData>()
                 };
 
                 _data.Add(masterData);
 
                 for (var j = 0; j < 20; j++)
-                    masterData.childData.Add(new DetailData() { someText = i.ToString() + "," + j.ToString() });
+                    masterData.ChildData.Add(new DetailData() { SomeText = i.ToString() + "," + j.ToString() });
             }
 
             // tell the scroller to reload now that we have the data
@@ -144,19 +145,19 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
 
         public void HScrollbarOnValueChanged(float value)
         {
-            UpdateDetailScrollers(HScrollbar.value);
+            UpdateDetailScrollers(hScrollbar.value);
         }
 
         private void UpdateDetailScrollers(float normalizedScrollPosition)
         {
-            if (HScrollbar.value != normalizedScrollPosition)
+            if (hScrollbar.value != normalizedScrollPosition)
             {
-                HScrollbar.value = normalizedScrollPosition;
+                hScrollbar.value = normalizedScrollPosition;
             }
 
             foreach (var data in _data)
             {
-                data.normalizedScrollPosition = normalizedScrollPosition;
+                data.NormalizedScrollPosition = normalizedScrollPosition;
             }
 
             masterScroller.RefreshActiveCellViews();

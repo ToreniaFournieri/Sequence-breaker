@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [System.Serializable]
 sealed public class ItemDetailViewController : MonoBehaviour
 {
-    public GameObject ItemDetailViewGameObject;
-    public GameObject ItemdetailViewText;
-    public Button ItemDetailViewButton;
+    [FormerlySerializedAs("ItemDetailViewGameObject")] public GameObject itemDetailViewGameObject;
+    [FormerlySerializedAs("ItemdetailViewText")] public GameObject itemdetailViewText;
+    [FormerlySerializedAs("ItemDetailViewButton")] public Button itemDetailViewButton;
 
     public void CloseView()
     {
-        ItemDetailViewGameObject.SetActive(false);
-        ItemdetailViewText.GetComponent<Text>().text = null;
+        itemDetailViewGameObject.SetActive(false);
+        itemdetailViewText.GetComponent<Text>().text = null;
 
     }
 
     public void OpenView(string String)
     {
 
-        ItemdetailViewText.GetComponent<Text>().text = String;
-        ItemDetailViewGameObject.transform.SetAsLastSibling();
-        ItemDetailViewGameObject.SetActive(true);
+        itemdetailViewText.GetComponent<Text>().text = String;
+        itemDetailViewGameObject.transform.SetAsLastSibling();
+        itemDetailViewGameObject.SetActive(true);
 
 
     }

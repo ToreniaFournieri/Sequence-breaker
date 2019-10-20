@@ -4,23 +4,23 @@ using System.Collections;
 namespace SuperScrollView
 {
 
-    public class FPSDisplay : MonoBehaviour
+    public class FpsDisplay : MonoBehaviour
     {
-        float deltaTime = 0.0f;
+        float _deltaTime = 0.0f;
 
-        GUIStyle mStyle;
+        GUIStyle _mStyle;
         void Awake()
         {
-            mStyle = new GUIStyle();
-            mStyle.alignment = TextAnchor.UpperLeft;
-            mStyle.normal.background = null;
-            mStyle.fontSize = 25;
-            mStyle.normal.textColor = new Color(0f, 1f, 0f, 1.0f);
+            _mStyle = new GUIStyle();
+            _mStyle.alignment = TextAnchor.UpperLeft;
+            _mStyle.normal.background = null;
+            _mStyle.fontSize = 25;
+            _mStyle.normal.textColor = new Color(0f, 1f, 0f, 1.0f);
         }
 
         void Update()
         {
-            deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+            _deltaTime += (Time.deltaTime - _deltaTime) * 0.1f;
         }
 
         void OnGUI()
@@ -28,9 +28,9 @@ namespace SuperScrollView
             int w = Screen.width;
             int h = Screen.height;
             Rect rect = new Rect(0, 0, w, h * 2 / 100);
-            float fps = 1.0f / deltaTime;
+            float fps = 1.0f / _deltaTime;
             string text = string.Format("   {0:0.} FPS", fps);
-            GUI.Label(rect, text, mStyle);
+            GUI.Label(rect, text, _mStyle);
         }
     }
 }

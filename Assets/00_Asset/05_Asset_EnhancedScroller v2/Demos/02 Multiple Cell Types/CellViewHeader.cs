@@ -38,7 +38,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
             _headerData = data as HeaderData;
 
             // update the Category UI Text field with the data
-            categoryText.text = _headerData.category;
+            categoryText.text = _headerData.Category;
         }
     }
 }

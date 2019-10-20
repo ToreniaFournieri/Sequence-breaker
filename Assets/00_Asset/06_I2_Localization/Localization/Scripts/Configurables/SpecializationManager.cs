@@ -8,14 +8,14 @@ namespace I2.Loc
 {
     public class BaseSpecializationManager
     {
-        public string[] mSpecializations = null;
-        public Dictionary<string, string> mSpecializationsFallbacks;
+        public string[] MSpecializations = null;
+        public Dictionary<string, string> MSpecializationsFallbacks;
 
         public virtual void InitializeSpecializations()
         {
-            mSpecializations = new string[] { "Any", "PC", "Touch", "Controller", "VR",
+            MSpecializations = new string[] { "Any", "PC", "Touch", "Controller", "VR",
                                               "XBox", "PS4", "OculusVR", "ViveVR", "GearVR", "Android", "IOS" };
-            mSpecializationsFallbacks = new Dictionary<string, string>()
+            MSpecializationsFallbacks = new Dictionary<string, string>()
             {
                 { "XBox", "Controller" }, { "PS4", "Controller" },
                 { "OculusVR", "VR" },   { "ViveVR", "VR" }, { "GearVR", "VR" },
@@ -25,7 +25,7 @@ namespace I2.Loc
 
         public virtual string GetCurrentSpecialization()
         {
-            if (mSpecializations == null)
+            if (MSpecializations == null)
                 InitializeSpecializations();
 
             #if UNITY_ANDROID
@@ -45,11 +45,11 @@ namespace I2.Loc
 
         public virtual string GetFallbackSpecialization(string specialization)
         {
-            if (mSpecializationsFallbacks == null)
+            if (MSpecializationsFallbacks == null)
                 InitializeSpecializations();
 
             string fallback;
-            if (mSpecializationsFallbacks.TryGetValue(specialization, out fallback))
+            if (MSpecializationsFallbacks.TryGetValue(specialization, out fallback))
                 return fallback;
             else
                 return "Any";

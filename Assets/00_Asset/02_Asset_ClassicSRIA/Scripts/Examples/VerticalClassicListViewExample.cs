@@ -5,22 +5,23 @@ using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
 using System;
 using System.Collections;
+using UnityEngine.Serialization;
 
 namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 {
     /// <summary>Class (initially) implemented during this YouTube tutorial: https://youtu.be/aoqq_j-aV8I (which is now too old to relate). It demonstrates a simple use case with items that expand/collapse on click</summary>
-    public class VerticalClassicListViewExample : ClassicSRIA<SimpleExpandableClientViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+    public class VerticalClassicListViewExample : ClassicSria<SimpleExpandableClientViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
     {
         public RectTransform itemPrefab;
         public string[] sampleFirstNames;//, sampleLastNames;
         public string[] sampleLocations;
-        public DemoUI demoUI;
+        [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
         public List<ExpandableSimpleClientModel> Data { get; private set; }
 
-        LayoutElement _PrefabLayoutElement;
+        LayoutElement _prefabLayoutElement;
         // Used to quickly retrieve the views holder given the gameobject
-        Dictionary<RectTransform, SimpleExpandableClientViewsHolder> _MapRootToViewsHolder = new Dictionary<RectTransform, SimpleExpandableClientViewsHolder>();
+        Dictionary<RectTransform, SimpleExpandableClientViewsHolder> _mapRootToViewsHolder = new Dictionary<RectTransform, SimpleExpandableClientViewsHolder>();
 
 
         #region ClassicSRIA implementation
@@ -29,21 +30,21 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
             base.Awake();
 
             Data = new List<ExpandableSimpleClientModel>();
-            _PrefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
+            _prefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
         }
 
         protected override void Start()
         {
             base.Start();
 
-            ChangeModelsAndReset(demoUI.SetCountValue);
+            ChangeModelsAndReset(demoUi.SetCountValue);
 
-            demoUI.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
-            demoUI.scrollToButton.onClick.AddListener(OnScrollToRequested);
-            demoUI.addOneTailButton.onClick.AddListener(() => OnAddItemRequested(true));
-            demoUI.addOneHeadButton.onClick.AddListener(() => OnAddItemRequested(false));
-            demoUI.removeOneTailButton.onClick.AddListener(() => OnRemoveItemRequested(true));
-            demoUI.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
+            demoUi.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
+            demoUi.scrollToButton.onClick.AddListener(OnScrollToRequested);
+            demoUi.addOneTailButton.onClick.AddListener(() => OnAddItemRequested(true));
+            demoUi.addOneHeadButton.onClick.AddListener(() => OnAddItemRequested(false));
+            demoUi.removeOneTailButton.onClick.AddListener(() => OnRemoveItemRequested(true));
+            demoUi.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
 
             StartCoroutine(DelayedClick());
         }
@@ -53,15 +54,15 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
             yield return new WaitForSeconds(.4f);
 
             if (viewsHolders.Count > 0)
-                viewsHolders[Mathf.Min(3, Data.Count - 1)].expandCollapseComponent.OnClicked();
+                viewsHolders[Mathf.Min(3, Data.Count - 1)].ExpandCollapseComponent.OnClicked();
         }
 
         protected override SimpleExpandableClientViewsHolder CreateViewsHolder(int itemIndex)
         {
             var instance = new SimpleExpandableClientViewsHolder();
             instance.Init(itemPrefab, itemIndex);
-            instance.expandCollapseComponent.sizeChangesHandler = this;
-            _MapRootToViewsHolder[instance.root] = instance;
+            instance.ExpandCollapseComponent.sizeChangesHandler = this;
+            _mapRootToViewsHolder[instance.Root] = instance;
 
             return instance;
         }
@@ -74,7 +75,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
         {
             int index = atEnd ? Data.Count : 0;
             Data.Insert(index, CreateNewModel(index));
-            InsertItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+            InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
         }
         void OnRemoveItemRequested(bool fromEnd)
         {
@@ -84,32 +85,32 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
             int index = fromEnd ? Data.Count - 1 : 0;
 
             Data.RemoveAt(index);
-            RemoveItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+            RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
         }
-        void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUI.SetCountValue); }
+        void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
         void OnScrollToRequested()
         {
-            if (demoUI.ScrollToValue >= Data.Count)
+            if (demoUi.ScrollToValue >= Data.Count)
                 return;
 
-            demoUI.scrollToButton.interactable = false;
-            bool started = SmoothScrollTo(demoUI.ScrollToValue, .75f, .5f, .5f, () => demoUI.scrollToButton.interactable = true);
+            demoUi.scrollToButton.interactable = false;
+            bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
             if (!started)
-                demoUI.scrollToButton.interactable = true;
+                demoUi.scrollToButton.interactable = true;
         }
         #endregion
 
         #region CExpandCollapseOnClick.ISizeChangesHandler implementation
         public bool HandleSizeChangeRequest(RectTransform rt, float newSize)
         {
-            _MapRootToViewsHolder[rt].layoutElement.preferredHeight = newSize;
+            _mapRootToViewsHolder[rt].LayoutElement.preferredHeight = newSize;
             return true;
         }
 
         public void OnExpandedStateChanged(RectTransform rt, bool expanded)
         {
-            var itemIndex = _MapRootToViewsHolder[rt].ItemIndex;
-            Data[itemIndex].expanded = expanded;
+            var itemIndex = _mapRootToViewsHolder[rt].ItemIndex;
+            Data[itemIndex].Expanded = expanded;
         }
         #endregion
 
@@ -130,9 +131,9 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
         {
             var model = new ExpandableSimpleClientModel()
             {
-                missionName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
-                location = sampleLocations[CUtil.Rand(sampleLocations.Length)],
-                nonExpandedSize = _PrefabLayoutElement.preferredHeight
+                MissionName = sampleFirstNames[CUtil.Rand(sampleFirstNames.Length)],
+                Location = sampleLocations[CUtil.Rand(sampleLocations.Length)],
+                NonExpandedSize = _prefabLayoutElement.preferredHeight
             };
             model.SetRandom();
 

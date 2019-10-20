@@ -78,7 +78,7 @@ namespace I2.Loc
         {
             LanguageSourceData source = LocalizationManager.Sources[0];
             for (int i = 0; i < 1000; ++i)
-                source.AddTerm("Term " + i, eTermType.Text, false);
+                source.AddTerm("Term " + i, ETermType.Text, false);
             source.UpdateDictionary(true);
         }
 

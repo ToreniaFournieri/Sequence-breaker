@@ -549,8 +549,6 @@
             <e p="BattleEngine.cs" t="Include" />
             <e p="BattleEnvironment.cs" t="Include" />
             <e p="BattleLogList.cs" t="Include" />
-            <e p="BattleUnitList.cs" t="Include" />
-            <e p="OpenSearchBar.cs" t="Include" />
             <e p="Others.cs" t="Include" />
             <e p="UnitInfoSet.cs" t="Include" />
           </e>

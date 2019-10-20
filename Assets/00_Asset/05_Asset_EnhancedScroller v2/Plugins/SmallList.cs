@@ -14,7 +14,7 @@ namespace EnhancedUI
         /// <summary>
         /// internal storage of list data
         /// </summary>
-        public T[] data;
+        public T[] Data;
 
         /// <summary>
         /// The number of elements in the list
@@ -28,8 +28,8 @@ namespace EnhancedUI
         /// <returns></returns>
         public T this[int i]
         {
-            get { return data[i]; }
-            set { data[i] = value; }
+            get { return Data[i]; }
+            set { Data[i] = value; }
         }
 
         /// <summary>
@@ -39,15 +39,15 @@ namespace EnhancedUI
         {
             T[] newData;
 
-            if (data != null)
-                newData = new T[Mathf.Max(data.Length << 1, 64)];
+            if (Data != null)
+                newData = new T[Mathf.Max(Data.Length << 1, 64)];
             else
                 newData = new T[64];
 
-            if (data != null && Count > 0)
-                data.CopyTo(newData, 0);
+            if (Data != null && Count > 0)
+                Data.CopyTo(newData, 0);
 
-            data = newData;
+            Data = newData;
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace EnhancedUI
         /// <returns></returns>
         public T First()
         {
-            if (data == null || Count == 0) return default(T);
-            return data[0];
+            if (Data == null || Count == 0) return default(T);
+            return Data[0];
         }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace EnhancedUI
         /// <returns></returns>
         public T Last()
         {
-            if (data == null || Count == 0) return default(T);
-            return data[Count - 1];
+            if (Data == null || Count == 0) return default(T);
+            return Data[Count - 1];
         }
 
         /// <summary>
@@ -86,10 +86,10 @@ namespace EnhancedUI
         /// <param name="item"></param>
         public void Add(T item)
         {
-            if (data == null || Count == data.Length)
+            if (Data == null || Count == Data.Length)
                 ResizeArray();
 
-            data[Count] = item;
+            Data[Count] = item;
             Count++;
         }
 
@@ -110,15 +110,15 @@ namespace EnhancedUI
         /// <param name="item"></param>
         public void Insert(T item, int index)
         {
-            if (data == null || Count == data.Length)
+            if (Data == null || Count == Data.Length)
                 ResizeArray();
 
             for (var i = Count; i > index; i--)
             {
-                data[i] = data[i - 1];
+                Data[i] = Data[i - 1];
             }
 
-            data[index] = item;
+            Data[index] = item;
             Count++;
         }
 
@@ -137,17 +137,17 @@ namespace EnhancedUI
         /// <returns></returns>
         public T RemoveAt(int index)
         {
-            if (data != null && Count != 0)
+            if (Data != null && Count != 0)
             {
-                T val = data[index];
+                T val = Data[index];
 
                 for (var i = index; i < Count - 1; i++)
                 {
-                    data[i] = data[i + 1];
+                    Data[i] = Data[i + 1];
                 }
 
                 Count--;
-                data[Count] = default(T);
+                Data[Count] = default(T);
                 return val;
             }
             else
@@ -163,11 +163,11 @@ namespace EnhancedUI
         /// <returns></returns>
         public T Remove(T item)
         {
-            if (data != null && Count != 0)
+            if (Data != null && Count != 0)
             {
                 for (var i = 0; i < Count; i++)
                 {
-                    if (data[i].Equals(item))
+                    if (Data[i].Equals(item))
                     {
                         return RemoveAt(i);
                     }
@@ -183,11 +183,11 @@ namespace EnhancedUI
         /// <returns></returns>
         public T RemoveEnd()
         {
-            if (data != null && Count != 0)
+            if (Data != null && Count != 0)
             {
                 Count--;
-                T val = data[Count];
-                data[Count] = default(T);
+                T val = Data[Count];
+                Data[Count] = default(T);
 
                 return val;
             }
@@ -204,12 +204,12 @@ namespace EnhancedUI
         /// <returns>True if the item exists in teh data</returns>
         public bool Contains(T item)
         {
-            if (data == null)
+            if (Data == null)
                 return false;
 
             for (var i = 0; i < Count; i++)
             {
-                if (data[i].Equals(item))
+                if (Data[i].Equals(item))
                     return true;
             }
 

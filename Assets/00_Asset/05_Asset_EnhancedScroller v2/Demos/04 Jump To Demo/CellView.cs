@@ -10,7 +10,7 @@ namespace EnhancedScrollerDemos.JumpToDemo
 
         public void SetData(Data data)
         {
-            cellText.text = data.cellText;
+            cellText.text = data.CellText;
         }
     }
 }

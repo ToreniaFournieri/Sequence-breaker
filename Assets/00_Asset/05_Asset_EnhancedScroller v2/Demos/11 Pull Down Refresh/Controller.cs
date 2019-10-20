@@ -90,7 +90,7 @@ namespace EnhancedScrollerDemos.PullDownRefresh
             // set up some simple data
             _data = new SmallList<Data>();
             for (var i = 0; i < 100; i++)
-                _data.Add(new Data() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new Data() { SomeText = "Cell Data Index " + i.ToString() });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -204,7 +204,7 @@ namespace EnhancedScrollerDemos.PullDownRefresh
 
                 for (var i = 0; i < 3; i++)
                 {
-                    _data.Insert(new Data() { someText = "Brand New Data " + i.ToString() + "!!!" }, 0);
+                    _data.Insert(new Data() { SomeText = "Brand New Data " + i.ToString() + "!!!" }, 0);
                 }
 
                 // reload the scroller to show the new data

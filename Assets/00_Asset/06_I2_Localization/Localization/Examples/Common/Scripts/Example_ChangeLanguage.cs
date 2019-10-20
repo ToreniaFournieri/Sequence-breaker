@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace I2.Loc
 {
-	public class Example_ChangeLanguage : MonoBehaviour 
+	public class ExampleChangeLanguage : MonoBehaviour 
 	{
 		public void SetLanguage_English()
 		{
@@ -20,11 +20,11 @@ namespace I2.Loc
 		}
 
 
-		public void SetLanguage( string LangName )
+		public void SetLanguage( string langName )
 		{
-			if( LocalizationManager.HasLanguage(LangName))
+			if( LocalizationManager.HasLanguage(langName))
 			{
-				LocalizationManager.CurrentLanguage = LangName;
+				LocalizationManager.CurrentLanguage = langName;
 			}
 		}
 

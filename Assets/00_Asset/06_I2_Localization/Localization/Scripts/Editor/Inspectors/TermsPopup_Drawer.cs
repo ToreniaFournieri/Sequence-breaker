@@ -156,7 +156,7 @@ namespace I2.Loc
 			{
 				var source = LocalizationManager.GetSourceContaining(termProp.stringValue);
 				LocalizationEditor.mKeyToExplore = termProp.stringValue;
-				Selection.activeObject = source.ownerObject;
+				Selection.activeObject = source.OwnerObject;
 			}
 			GUI.enabled = enabled;
         }

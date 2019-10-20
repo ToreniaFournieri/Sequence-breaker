@@ -16,8 +16,8 @@ namespace SuperScrollView
         public Button mExpandBtn;
         public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
         public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
-        int mItemDataIndex = -1;
-        bool mIsExpand;
+        int _mItemDataIndex = -1;
+        bool _mIsExpand;
         public void Init()
         {
             for (int i = 0; i < mStarArray.Length; ++i)
@@ -33,7 +33,7 @@ namespace SuperScrollView
         public void OnExpandChanged()
         {
             RectTransform rt = gameObject.GetComponent<RectTransform>();
-            if (mIsExpand)
+            if (_mIsExpand)
             {
                 rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 284f);
                 mExpandContentRoot.SetActive(true);
@@ -51,13 +51,13 @@ namespace SuperScrollView
 
         void OnExpandBtnClicked()
         {
-            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(mItemDataIndex);
+            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
                 return;
             }
-            mIsExpand = !mIsExpand;
-            data.mIsExpand = mIsExpand;
+            _mIsExpand = !_mIsExpand;
+            data.MIsExpand = _mIsExpand;
             OnExpandChanged();
             LoopListViewItem2 item2 = gameObject.GetComponent<LoopListViewItem2>();
             item2.ParentListView.OnItemSizeChanged(item2.ItemIndex);
@@ -66,20 +66,20 @@ namespace SuperScrollView
 
         void OnStarClicked(int index)
         {
-            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(mItemDataIndex);
+            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
                 return;
             }
-            if (index == 0 && data.mStarCount == 1)
+            if (index == 0 && data.MStarCount == 1)
             {
-                data.mStarCount = 0;
+                data.MStarCount = 0;
             }
             else
             {
-                data.mStarCount = index + 1;
+                data.MStarCount = index + 1;
             }
-            SetStarCount(data.mStarCount);
+            SetStarCount(data.MStarCount);
         }
 
         public void SetStarCount(int count)
@@ -97,12 +97,12 @@ namespace SuperScrollView
 
         public void SetItemData(ItemData itemData, int itemIndex)
         {
-            mItemDataIndex = itemIndex;
-            mNameText.text = itemData.mName;
-            mDescText.text = itemData.mFileSize.ToString() + "KB";
-            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-            SetStarCount(itemData.mStarCount);
-            mIsExpand = itemData.mIsExpand;
+            _mItemDataIndex = itemIndex;
+            mNameText.text = itemData.MName;
+            mDescText.text = itemData.MFileSize.ToString() + "KB";
+            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.MIcon);
+            SetStarCount(itemData.MStarCount);
+            _mIsExpand = itemData.MIsExpand;
             OnExpandChanged();
         }
 

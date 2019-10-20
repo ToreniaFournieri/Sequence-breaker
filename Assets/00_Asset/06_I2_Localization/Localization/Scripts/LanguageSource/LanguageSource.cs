@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace I2.Loc
@@ -25,53 +26,53 @@ namespace I2.Loc
         // TODO: also copy         public string name;   and owner
 
         public int version = 0;
-        public bool NeverDestroy = false;  	// Keep between scenes (will call DontDestroyOnLoad )
+        [FormerlySerializedAs("NeverDestroy")] public bool neverDestroy = false;  	// Keep between scenes (will call DontDestroyOnLoad )
 
-		public bool UserAgreesToHaveItOnTheScene = false;
-		public bool UserAgreesToHaveItInsideThePluginsFolder = false;
-        public bool GoogleLiveSyncIsUptoDate = true;
+		[FormerlySerializedAs("UserAgreesToHaveItOnTheScene")] public bool userAgreesToHaveItOnTheScene = false;
+		[FormerlySerializedAs("UserAgreesToHaveItInsideThePluginsFolder")] public bool userAgreesToHaveItInsideThePluginsFolder = false;
+        [FormerlySerializedAs("GoogleLiveSyncIsUptoDate")] public bool googleLiveSyncIsUptoDate = true;
 
-        public List<Object> Assets = new List<Object>();	// References to Fonts, Atlasses and other objects the localization may need
+        [FormerlySerializedAs("Assets")] public List<Object> assets = new List<Object>();	// References to Fonts, Atlasses and other objects the localization may need
 
-        public string Google_WebServiceURL;
-        public string Google_SpreadsheetKey;
-        public string Google_SpreadsheetName;
-        public string Google_LastUpdatedVersion;
+        [FormerlySerializedAs("Google_WebServiceURL")] public string googleWebServiceUrl;
+        [FormerlySerializedAs("Google_SpreadsheetKey")] public string googleSpreadsheetKey;
+        [FormerlySerializedAs("Google_SpreadsheetName")] public string googleSpreadsheetName;
+        [FormerlySerializedAs("Google_LastUpdatedVersion")] public string googleLastUpdatedVersion;
 
 
-        public LanguageSourceData.eGoogleUpdateFrequency GoogleUpdateFrequency = LanguageSourceData.eGoogleUpdateFrequency.Weekly;
+        [FormerlySerializedAs("GoogleUpdateFrequency")] public LanguageSourceData.EGoogleUpdateFrequency googleUpdateFrequency = LanguageSourceData.EGoogleUpdateFrequency.Weekly;
 
-        public float GoogleUpdateDelay = 5; // How many second to delay downloading data from google (to avoid lag on the startup)
+        [FormerlySerializedAs("GoogleUpdateDelay")] public float googleUpdateDelay = 5; // How many second to delay downloading data from google (to avoid lag on the startup)
 
-        public delegate void fnOnSourceUpdated(LanguageSourceData source, bool ReceivedNewData, string errorMsg);
-        public event fnOnSourceUpdated Event_OnSourceUpdateFromGoogle;
+        public delegate void FnOnSourceUpdated(LanguageSourceData source, bool receivedNewData, string errorMsg);
+        public event FnOnSourceUpdated EventOnSourceUpdateFromGoogle;
 
         public List<LanguageData> mLanguages = new List<LanguageData>();
 
-        public bool IgnoreDeviceLanguage; // If false, it will use the Device's language as the initial Language, otherwise it will use the first language in the source.
+        [FormerlySerializedAs("IgnoreDeviceLanguage")] public bool ignoreDeviceLanguage; // If false, it will use the Device's language as the initial Language, otherwise it will use the first language in the source.
 
-        public LanguageSourceData.eAllowUnloadLanguages _AllowUnloadingLanguages = LanguageSourceData.eAllowUnloadLanguages.Never;
+        [FormerlySerializedAs("_AllowUnloadingLanguages")] public LanguageSourceData.EAllowUnloadLanguages allowUnloadingLanguages = LanguageSourceData.EAllowUnloadLanguages.Never;
 
         public List<TermData> mTerms = new List<TermData>();
 
-        public bool CaseInsensitiveTerms = false;
+        [FormerlySerializedAs("CaseInsensitiveTerms")] public bool caseInsensitiveTerms = false;
 
-        public LanguageSourceData.MissingTranslationAction OnMissingTranslation = LanguageSourceData.MissingTranslationAction.Fallback;
+        [FormerlySerializedAs("OnMissingTranslation")] public LanguageSourceData.MissingTranslationAction onMissingTranslation = LanguageSourceData.MissingTranslationAction.Fallback;
 
-        public string mTerm_AppName;
+        [FormerlySerializedAs("mTerm_AppName")] public string mTermAppName;
 
         #endregion
 
         #region EditorVariables
         #if UNITY_EDITOR
 
-            public string Spreadsheet_LocalFileName;
-		    public string Spreadsheet_LocalCSVSeparator = ",";
-            public string Spreadsheet_LocalCSVEncoding = "utf-8";
-            public bool Spreadsheet_SpecializationAsRows = true;
+            [FormerlySerializedAs("Spreadsheet_LocalFileName")] public string spreadsheetLocalFileName;
+		    [FormerlySerializedAs("Spreadsheet_LocalCSVSeparator")] public string spreadsheetLocalCsvSeparator = ",";
+            [FormerlySerializedAs("Spreadsheet_LocalCSVEncoding")] public string spreadsheetLocalCsvEncoding = "utf-8";
+            [FormerlySerializedAs("Spreadsheet_SpecializationAsRows")] public bool spreadsheetSpecializationAsRows = true;
 
-            public string Google_Password = "change_this";
-            public LanguageSourceData.eGoogleUpdateFrequency GoogleInEditorCheckFrequency = LanguageSourceData.eGoogleUpdateFrequency.Daily;
+            [FormerlySerializedAs("Google_Password")] public string googlePassword = "change_this";
+            [FormerlySerializedAs("GoogleInEditorCheckFrequency")] public LanguageSourceData.EGoogleUpdateFrequency googleInEditorCheckFrequency = LanguageSourceData.EGoogleUpdateFrequency.Daily;
 #endif
         #endregion
 
@@ -96,15 +97,15 @@ namespace I2.Loc
 			//			DontDestroyOnLoad (gameObject);
 			//	}
 			//}
-            mSource.owner = this;
+            mSource.Owner = this;
             mSource.Awake();
         }
 
         private void OnDestroy()
         {
-            NeverDestroy = false;
+            neverDestroy = false;
 
-            if (!NeverDestroy)
+            if (!neverDestroy)
             {
                mSource.OnDestroy();
             }
@@ -132,24 +133,24 @@ namespace I2.Loc
             if (version==0 || mSource==null)
             {
                 mSource = new LanguageSourceData();
-                mSource.owner = this;
-                mSource.UserAgreesToHaveItOnTheScene = UserAgreesToHaveItOnTheScene;
-                mSource.UserAgreesToHaveItInsideThePluginsFolder = UserAgreesToHaveItInsideThePluginsFolder;
-                mSource.IgnoreDeviceLanguage = IgnoreDeviceLanguage;
-                mSource._AllowUnloadingLanguages = _AllowUnloadingLanguages;
-                mSource.CaseInsensitiveTerms = CaseInsensitiveTerms;
-                mSource.OnMissingTranslation = OnMissingTranslation;
-                mSource.mTerm_AppName = mTerm_AppName;
+                mSource.Owner = this;
+                mSource.userAgreesToHaveItOnTheScene = userAgreesToHaveItOnTheScene;
+                mSource.userAgreesToHaveItInsideThePluginsFolder = userAgreesToHaveItInsideThePluginsFolder;
+                mSource.ignoreDeviceLanguage = ignoreDeviceLanguage;
+                mSource.allowUnloadingLanguages = allowUnloadingLanguages;
+                mSource.caseInsensitiveTerms = caseInsensitiveTerms;
+                mSource.onMissingTranslation = onMissingTranslation;
+                mSource.mTermAppName = mTermAppName;
 
-                mSource.GoogleLiveSyncIsUptoDate = GoogleLiveSyncIsUptoDate;
-                mSource.Google_WebServiceURL = Google_WebServiceURL;
-                mSource.Google_SpreadsheetKey = Google_SpreadsheetKey;
-                mSource.Google_SpreadsheetName = Google_SpreadsheetName;
-                mSource.Google_LastUpdatedVersion = Google_LastUpdatedVersion;
-                mSource.GoogleUpdateFrequency = GoogleUpdateFrequency;
-                mSource.GoogleUpdateDelay = GoogleUpdateDelay;
+                mSource.googleLiveSyncIsUptoDate = googleLiveSyncIsUptoDate;
+                mSource.googleWebServiceUrl = googleWebServiceUrl;
+                mSource.googleSpreadsheetKey = googleSpreadsheetKey;
+                mSource.googleSpreadsheetName = googleSpreadsheetName;
+                mSource.googleLastUpdatedVersion = googleLastUpdatedVersion;
+                mSource.googleUpdateFrequency = googleUpdateFrequency;
+                mSource.googleUpdateDelay = googleUpdateDelay;
                 
-                mSource.Event_OnSourceUpdateFromGoogle += Event_OnSourceUpdateFromGoogle;
+                mSource.EventOnSourceUpdateFromGoogle += EventOnSourceUpdateFromGoogle;
 
                 if (mLanguages != null && mLanguages.Count>0)
                 {
@@ -157,11 +158,11 @@ namespace I2.Loc
                     mSource.mLanguages.AddRange(mLanguages);
                     mLanguages.Clear();
                 }
-                if (Assets != null && Assets.Count > 0)
+                if (assets != null && assets.Count > 0)
                 {
-                    mSource.Assets.Clear();
-                    mSource.Assets.AddRange(Assets);
-                    Assets.Clear();
+                    mSource.assets.Clear();
+                    mSource.assets.AddRange(assets);
+                    assets.Clear();
                 }
                 if (mTerms != null && mTerms.Count>0)
                 {
@@ -173,7 +174,7 @@ namespace I2.Loc
 
                 version = 1;
 
-                Event_OnSourceUpdateFromGoogle = null;
+                EventOnSourceUpdateFromGoogle = null;
             }
         }
     }

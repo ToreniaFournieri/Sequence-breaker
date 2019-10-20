@@ -18,11 +18,11 @@ sealed public class ItemDataBase :MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
 
         FileStream file;
-        List<ItemForSave> _itemForSaveList = new List<ItemForSave>();
+        List<ItemForSave> itemForSaveList = new List<ItemForSave>();
         try
         {
             file = File.Open(Application.persistentDataPath + "/" + savedFileName + ".save", FileMode.Open);
-            _itemForSaveList = (List<ItemForSave>)bf.Deserialize(file);
+            itemForSaveList = (List<ItemForSave>)bf.Deserialize(file);
             file.Close();
 
         }
@@ -32,47 +32,47 @@ sealed public class ItemDataBase :MonoBehaviour
             Debug.Log("unable to load: " + savedFileName);
         }
 
-        List<Item> _itemList = new List<Item>();
-        foreach (ItemForSave _itemForSave in _itemForSaveList)
+        List<Item> itemList = new List<Item>();
+        foreach (ItemForSave itemForSave in itemForSaveList)
         {
-            Item _item = new Item();
-            _item.baseItem = itemBaseMasterList.Find(obj => obj.itemID == _itemForSave.bI);
-            _item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemID == _itemForSave.pI);
-            _item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemID == _itemForSave.sI);
-            _item.enhancedValue = _itemForSave.eV;
+            Item item = new Item();
+            item.baseItem = itemBaseMasterList.Find(obj => obj.itemId == itemForSave.bI);
+            item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
+            item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);
+            item.enhancedValue = itemForSave.eV;
 
-            _itemList.Add(_item);
+            itemList.Add(item);
 
         }
-        return _itemList;
+        return itemList;
     }
 
 
     public void SaveItemList(string savedFileName, List<Item> itemList)
     {
         // Data save test implement.
-        List<ItemForSave> _itemForSaveList = new List<ItemForSave>();
+        List<ItemForSave> itemForSaveList = new List<ItemForSave>();
 
-        foreach (Item _item in itemList)
+        foreach (Item item in itemList)
         {
-            if (_item != null)
+            if (item != null)
             {
 
-                ItemForSave _itemForSave = new ItemForSave();
+                ItemForSave itemForSave = new ItemForSave();
                 // 0 means no ItemID
-                if (_item.baseItem != null) { _itemForSave.bI = _item.baseItem.itemID; }
-                if (_item.prefixItem != null) { _itemForSave.pI = _item.prefixItem.itemID; }
-                if (_item.suffixItem != null) { _itemForSave.sI = _item.suffixItem.itemID; }
-                _itemForSave.eV = _item.enhancedValue;
+                if (item.baseItem != null) { itemForSave.bI = item.baseItem.itemId; }
+                if (item.prefixItem != null) { itemForSave.pI = item.prefixItem.itemId; }
+                if (item.suffixItem != null) { itemForSave.sI = item.suffixItem.itemId; }
+                itemForSave.eV = item.enhancedValue;
 
-                _itemForSaveList.Add(_itemForSave);
+                itemForSaveList.Add(itemForSave);
             }
         }
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/" + savedFileName +".save");
 
-        bf.Serialize(file, _itemForSaveList);
+        bf.Serialize(file, itemForSaveList);
         file.Close();
 
         //Debug.Log("Saved: " + savedFileName);

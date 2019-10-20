@@ -7,77 +7,77 @@ namespace SuperScrollView
 {
     class CustomData
     {
-        public string mContent;
+        public string MContent;
     }
 
 
     public class TopToBottomSampleDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        Button mScrollToButton;
-        Button mAppendItemButton;
-        Button mInsertItemButton;
-        InputField mScrollToInput;
+        Button _mScrollToButton;
+        Button _mAppendItemButton;
+        Button _mInsertItemButton;
+        InputField _mScrollToInput;
 
-        List<CustomData> mDataList = null;
+        List<CustomData> _mDataList = null;
 
-        int mTotalInsertedCount = 0;
+        int _mTotalInsertedCount = 0;
 
         // Use this for initialization
         void Start()
         {
             InitData();//init the item data list.
 
-            mLoopListView.InitListView(mDataList.Count, OnGetItemByIndex);
+            mLoopListView.InitListView(_mDataList.Count, OnGetItemByIndex);
 
           
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mAppendItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AppendItemButton").GetComponent<Button>();
-            mInsertItemButton = GameObject.Find("ButtonPanel/buttonGroup3/InsertItemButton").GetComponent<Button>();
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mAppendItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AppendItemButton").GetComponent<Button>();
+            _mInsertItemButton = GameObject.Find("ButtonPanel/buttonGroup3/InsertItemButton").GetComponent<Button>();
 
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mAppendItemButton.onClick.AddListener(OnAppendItemBtnClicked);
-            mInsertItemButton.onClick.AddListener(OnInsertItemBtnClicked);
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mAppendItemButton.onClick.AddListener(OnAppendItemBtnClicked);
+            _mInsertItemButton.onClick.AddListener(OnInsertItemBtnClicked);
         }
 
 
         void InitData()
         {
-            mDataList = new List<CustomData>();
+            _mDataList = new List<CustomData>();
             int count = 100;
             for(int i = 0;i<count;++i)
             {
                 CustomData cd = new CustomData();
-                cd.mContent = "Item" + i;
-                mDataList.Add(cd);
+                cd.MContent = "Item" + i;
+                _mDataList.Add(cd);
             }
         }
 
         void AppendOneData()
         {
             CustomData cd = new CustomData();
-            cd.mContent = "Item" + mDataList.Count;
-            mDataList.Add(cd);
+            cd.MContent = "Item" + _mDataList.Count;
+            _mDataList.Add(cd);
         }
 
         void InsertOneData()
         {
-            mTotalInsertedCount++;
+            _mTotalInsertedCount++;
             CustomData cd = new CustomData();
-            cd.mContent = "Item(-" + mTotalInsertedCount+")";
-            mDataList.Insert(0,cd);
+            cd.MContent = "Item(-" + _mTotalInsertedCount+")";
+            _mDataList.Insert(0,cd);
         }
 
 
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
-            if (index < 0 || index >= mDataList.Count)
+            if (index < 0 || index >= _mDataList.Count)
             {
                 return null;
             }
 
-            CustomData itemData = mDataList[index];
+            CustomData itemData = _mDataList[index];
             if (itemData == null)
             {
                 return null;
@@ -91,14 +91,14 @@ namespace SuperScrollView
                 item.IsInitHandlerCalled = true;
                 itemScript.Init();
             }
-            itemScript.mNameText.text = itemData.mContent;
+            itemScript.mNameText.text = itemData.MContent;
             return item;
         }
 
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }
@@ -108,14 +108,14 @@ namespace SuperScrollView
         void OnAppendItemBtnClicked()
         {
             AppendOneData();
-            mLoopListView.SetListItemCount(mDataList.Count, false);
+            mLoopListView.SetListItemCount(_mDataList.Count, false);
             mLoopListView.RefreshAllShownItem();
         }
 
         void OnInsertItemBtnClicked()
         {
             InsertOneData();
-            mLoopListView.SetListItemCount(mDataList.Count, false);
+            mLoopListView.SetListItemCount(_mDataList.Count, false);
             mLoopListView.RefreshAllShownItem();
         }
 

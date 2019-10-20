@@ -11,7 +11,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
     /// </summary>
     public class MasterCellView : EnhancedScrollerCellView, IEnhancedScrollerDelegate
     {
-        private bool reloadDataNextFrame = false;
+        private bool _reloadDataNextFrame = false;
 
         /// <summary>
         /// The detail scroller containing our detail cells
@@ -44,7 +44,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
             // we have to reload on the next frame through the update so that the 
             // main scroller has time to set up the master cell views first.
             _data = data;
-            reloadDataNextFrame = true;
+            _reloadDataNextFrame = true;
         }
 
         /// <summary>
@@ -52,18 +52,18 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         /// </summary>
         void Update()
         {
-            if (reloadDataNextFrame)
+            if (_reloadDataNextFrame)
             {
                 // scroller needs reloaded, so we unflag and reload the detail data
 
-                reloadDataNextFrame = false;
-                detailScroller.ReloadData(_data.normalizedScrollPosition);
+                _reloadDataNextFrame = false;
+                detailScroller.ReloadData(_data.NormalizedScrollPosition);
             }
         }
 
         public override void RefreshCellView()
         {
-            detailScroller.ScrollPosition = _data.normalizedScrollPosition * detailScroller.ScrollSize;
+            detailScroller.ScrollPosition = _data.NormalizedScrollPosition * detailScroller.ScrollSize;
         }
 
         #region EnhancedScroller Handlers
@@ -76,7 +76,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
             // in this example, we just pass the number of our detail data elements
-            return _data.childData.Count;
+            return _data.ChildData.Count;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
             detailCellView.name = "Detail Cell " + dataIndex.ToString();
 
             // in this example, we just pass the data to our cell's view which will update its UI
-            detailCellView.SetData(_data.childData[dataIndex]);
+            detailCellView.SetData(_data.ChildData[dataIndex]);
 
             // return the cell to the scroller
             return detailCellView;
@@ -125,7 +125,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         /// </summary>
         private void ScrollerScrolled(EnhancedScroller scroller, Vector2 val, float scrollPosition)
         {
-            _data.normalizedScrollPosition = scroller.NormalizedScrollPosition;
+            _data.NormalizedScrollPosition = scroller.NormalizedScrollPosition;
             if (detailScrollerScrolledDelegate != null)
             {
                 detailScrollerScrolledDelegate(scroller, val, scrollPosition);

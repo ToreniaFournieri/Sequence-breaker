@@ -12,12 +12,12 @@ namespace SuperScrollView
         public Text mText;
         public GameObject mArrow;
         public Button mButton;
-        int mTreeItemIndex = -1;
-        Action<int> mClickHandler;
+        int _mTreeItemIndex = -1;
+        Action<int> _mClickHandler;
 
         public int TreeItemIndex
         {
-            get { return mTreeItemIndex; }
+            get { return _mTreeItemIndex; }
         }
 
         public void Init()
@@ -26,14 +26,14 @@ namespace SuperScrollView
         }
         public void SetClickCallBack(Action<int> clickHandler)
         {
-            mClickHandler = clickHandler;
+            _mClickHandler = clickHandler;
         }
 
         void OnButtonClicked()
         {
-            if(mClickHandler != null)
+            if(_mClickHandler != null)
             {
-                mClickHandler(mTreeItemIndex);
+                _mClickHandler(_mTreeItemIndex);
             }
             
         }
@@ -51,7 +51,7 @@ namespace SuperScrollView
 
         public void SetItemData(int treeItemIndex,bool expand)
         {
-            mTreeItemIndex = treeItemIndex;
+            _mTreeItemIndex = treeItemIndex;
             SetExpand(expand);
         }
     }

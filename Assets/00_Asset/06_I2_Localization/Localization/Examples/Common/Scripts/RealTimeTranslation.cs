@@ -5,14 +5,14 @@ namespace I2.Loc
 {
     public class RealTimeTranslation : MonoBehaviour
     {
-        string OriginalText = "This is an example showing how to use the google translator to translate chat messages within the game.\nIt also supports multiline translations.",
-               TranslatedText = string.Empty;
-        bool IsTranslating = false;
+        string _originalText = "This is an example showing how to use the google translator to translate chat messages within the game.\nIt also supports multiline translations.",
+               _translatedText = string.Empty;
+        bool _isTranslating = false;
 
         public void OnGUI()
         {
             GUILayout.Label("Translate:");
-            OriginalText = GUILayout.TextArea(OriginalText, GUILayout.Width(Screen.width));
+            _originalText = GUILayout.TextArea(_originalText, GUILayout.Width(Screen.width));
 
             GUILayout.Space(10);
 
@@ -29,12 +29,12 @@ namespace I2.Loc
             GUILayout.EndHorizontal();
 
 
-            GUILayout.TextArea(TranslatedText, GUILayout.Width(Screen.width));
+            GUILayout.TextArea(_translatedText, GUILayout.Width(Screen.width));
 
             GUILayout.Space(10);
 
 
-            if (IsTranslating)
+            if (_isTranslating)
             {
                 GUILayout.Label("Contacting Google....");
             }
@@ -42,24 +42,24 @@ namespace I2.Loc
 
         public void StartTranslating(string fromCode, string toCode)
         {
-            IsTranslating = true;
+            _isTranslating = true;
 
             // fromCode could be "auto" to autodetect the language
-            GoogleTranslation.Translate(OriginalText, fromCode, toCode, OnTranslationReady);
+            GoogleTranslation.Translate(_originalText, fromCode, toCode, OnTranslationReady);
 
             // can also use the ForceTranslate version: (it will block the main thread until the translation is returned)
             //var translation = GoogleTranslation.ForceTranslate(OriginalText, fromCode, toCode);
             //Debug.Log(translation);
         }
 
-        void OnTranslationReady(string Translation, string errorMsg)
+        void OnTranslationReady(string translation, string errorMsg)
         {
-            IsTranslating = false;
+            _isTranslating = false;
 
             if (errorMsg != null)
                 Debug.LogError(errorMsg);
             else
-                TranslatedText = Translation;
+                _translatedText = translation;
         }
 
         public void ExampleMultiTranslations_Blocking()
@@ -81,7 +81,7 @@ namespace I2.Loc
 
         public void ExampleMultiTranslations_Async()
         {
-            IsTranslating = true;
+            _isTranslating = true;
 
             // This shows how to ask for many translations 
             var dict = new Dictionary<string, TranslationQuery>();
@@ -100,30 +100,30 @@ namespace I2.Loc
                 return;
             }
 
-            IsTranslating = false;
-            TranslatedText = "";
+            _isTranslating = false;
+            _translatedText = "";
 
-            TranslatedText += GoogleTranslation.GetQueryResult("This is an example", "es", dict) + "\n";
-            TranslatedText += GoogleTranslation.GetQueryResult("This is an example", "zh", dict) + "\n";
-            TranslatedText += GoogleTranslation.GetQueryResult("This is an example", "", dict) + "\n";    // This returns ANY translation of that text (in this case, the first one 'en')
-            TranslatedText += dict["Hola"].Results[0];                                                    // example of getting the translation directly from the Results
+            _translatedText += GoogleTranslation.GetQueryResult("This is an example", "es", dict) + "\n";
+            _translatedText += GoogleTranslation.GetQueryResult("This is an example", "zh", dict) + "\n";
+            _translatedText += GoogleTranslation.GetQueryResult("This is an example", "", dict) + "\n";    // This returns ANY translation of that text (in this case, the first one 'en')
+            _translatedText += dict["Hola"].Results[0];                                                    // example of getting the translation directly from the Results
         }
 
         #region This methods are used in the publisher's Unity Tests
 
         public bool IsWaitingForTranslation()
         {
-            return IsTranslating;
+            return _isTranslating;
         }
 
         public string GetTranslatedText()
         {
-            return TranslatedText;
+            return _translatedText;
         }
 
         public void SetOriginalText( string text )
         {
-            OriginalText = text;
+            _originalText = text;
         }
 
         #endregion

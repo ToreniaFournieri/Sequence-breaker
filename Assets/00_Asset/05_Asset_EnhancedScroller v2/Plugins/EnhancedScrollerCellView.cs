@@ -21,19 +21,19 @@ namespace EnhancedUI.EnhancedScroller
         /// This will differ from the dataIndex if the list is looping
         /// </summary>
         [NonSerialized]
-        public int cellIndex;
+        public int CellIndex;
 
         /// <summary>
         /// The data index of the cell view
         /// </summary>
         [NonSerialized]
-        public int dataIndex;
+        public int DataIndex;
 
         /// <summary>
         /// Whether the cell is active or recycled
         /// </summary>
         [NonSerialized]
-        public bool active;
+        public bool Active;
 
         /// <summary>
         /// This method is called by the scroller when the RefreshActiveCellViews is called on the scroller

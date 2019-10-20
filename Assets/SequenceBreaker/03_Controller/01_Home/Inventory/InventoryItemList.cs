@@ -10,13 +10,13 @@ sealed public class InventoryItemList : MonoBehaviour
     private void Start()
     {
         //load from db
-        init();
+        Init();
 
     }
 
 
     //for initialize, can activate from outside
-    public void init()
+    public void Init()
     {
         LoadFile();
     }
@@ -28,11 +28,11 @@ sealed public class InventoryItemList : MonoBehaviour
     }
 
     //reccomend to use this method
-    public void AddItemListAndSave(List<Item> _itemList)
+    public void AddItemListAndSave(List<Item> itemList)
     {
-        foreach (Item item in _itemList)
+        foreach (Item item in itemList)
         {
-            itemList.Add(item);
+            this.itemList.Add(item);
 
         }
 
@@ -40,11 +40,11 @@ sealed public class InventoryItemList : MonoBehaviour
 
     }
 
-    public void removeItemAndSave(Item _removedItem)
+    public void RemoveItemAndSave(Item removedItem)
     {
         for (int i = itemList.Count - 1; i >= 0; i--)
         {
-            if (itemList[i] == _removedItem)
+            if (itemList[i] == removedItem)
             {
                 itemList.RemoveAt(i);
                 continue;

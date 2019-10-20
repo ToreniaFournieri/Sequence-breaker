@@ -2,31 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 //Combat Status, the status whitch has been calculated by parts.
 [CreateAssetMenu(fileName = "CombatClass-", menuName = "BattleUnit/CombatClass", order = 14)]
 public class CombatClass : ScriptableObject
 {
 
-    [SerializeField] public int ShieldCurrent;
-    [SerializeField] public int ShieldMax;
-    [SerializeField] public int HitPointCurrent;
-    [SerializeField] public int HitPointMax;
-    [SerializeField] public int Attack;
-    [SerializeField] public double KineticAttackRatio;
-    [SerializeField] public double ChemicalAttackRatio;
-    [SerializeField] public double ThermalAttackRatio;
-    [SerializeField] public int CriticalHit;
-    [SerializeField] public int NumberOfAttacks;
-    [SerializeField] public int MinRange;
-    [SerializeField] public int MaxRange;
-    [SerializeField] public int Accuracy;
-    [SerializeField] public int Mobility;
-    [SerializeField] public int Defense;
+    [FormerlySerializedAs("ShieldCurrent")] [SerializeField] public int shieldCurrent;
+    [FormerlySerializedAs("ShieldMax")] [SerializeField] public int shieldMax;
+    [FormerlySerializedAs("HitPointCurrent")] [SerializeField] public int hitPointCurrent;
+    [FormerlySerializedAs("HitPointMax")] [SerializeField] public int hitPointMax;
+    [FormerlySerializedAs("Attack")] [SerializeField] public int attack;
+    [FormerlySerializedAs("KineticAttackRatio")] [SerializeField] public double kineticAttackRatio;
+    [FormerlySerializedAs("ChemicalAttackRatio")] [SerializeField] public double chemicalAttackRatio;
+    [FormerlySerializedAs("ThermalAttackRatio")] [SerializeField] public double thermalAttackRatio;
+    [FormerlySerializedAs("CriticalHit")] [SerializeField] public int criticalHit;
+    [FormerlySerializedAs("NumberOfAttacks")] [SerializeField] public int numberOfAttacks;
+    [FormerlySerializedAs("MinRange")] [SerializeField] public int minRange;
+    [FormerlySerializedAs("MaxRange")] [SerializeField] public int maxRange;
+    [FormerlySerializedAs("Accuracy")] [SerializeField] public int accuracy;
+    [FormerlySerializedAs("Mobility")] [SerializeField] public int mobility;
+    [FormerlySerializedAs("Defense")] [SerializeField] public int defense;
 
     //New since 2019/08/16 use intelligence, generation
-    [SerializeField] public int Counterintelligence;
-    [SerializeField] public int Repair;
+    [FormerlySerializedAs("Counterintelligence")] [SerializeField] public int counterintelligence;
+    [FormerlySerializedAs("Repair")] [SerializeField] public int repair;
 
     public CombatClass Copy()
     {
@@ -36,25 +37,25 @@ public class CombatClass : ScriptableObject
 
     public CombatClass Add(CombatClass combatFrom)
     {
-        this.ShieldCurrent += combatFrom.ShieldCurrent;
-        this.ShieldMax += combatFrom.ShieldMax;
-        this.HitPointCurrent += combatFrom.HitPointCurrent;
-        this.HitPointMax += combatFrom.HitPointMax;
-        this.Attack += combatFrom.Attack;
-        this.KineticAttackRatio += combatFrom.KineticAttackRatio;
-        this.ChemicalAttackRatio += combatFrom.ChemicalAttackRatio;
-        this.ThermalAttackRatio += combatFrom.ThermalAttackRatio;
-        this.CriticalHit += combatFrom.CriticalHit;
-        this.NumberOfAttacks += combatFrom.NumberOfAttacks;
+        this.shieldCurrent += combatFrom.shieldCurrent;
+        this.shieldMax += combatFrom.shieldMax;
+        this.hitPointCurrent += combatFrom.hitPointCurrent;
+        this.hitPointMax += combatFrom.hitPointMax;
+        this.attack += combatFrom.attack;
+        this.kineticAttackRatio += combatFrom.kineticAttackRatio;
+        this.chemicalAttackRatio += combatFrom.chemicalAttackRatio;
+        this.thermalAttackRatio += combatFrom.thermalAttackRatio;
+        this.criticalHit += combatFrom.criticalHit;
+        this.numberOfAttacks += combatFrom.numberOfAttacks;
 
         //Note: MinRange and MaxRange is not be add up.
         //combatAdded.MinRange;
         //combatAdded.MaxRange;
-        this.Accuracy += combatFrom.Accuracy;
-        this.Mobility += combatFrom.Mobility;
-        this.Defense += combatFrom.Defense;
-        this.Counterintelligence += combatFrom.Counterintelligence;
-        this.Repair += combatFrom.Repair;
+        this.accuracy += combatFrom.accuracy;
+        this.mobility += combatFrom.mobility;
+        this.defense += combatFrom.defense;
+        this.counterintelligence += combatFrom.counterintelligence;
+        this.repair += combatFrom.repair;
 
         return this;
     }
@@ -63,25 +64,25 @@ public class CombatClass : ScriptableObject
     {
         double raised = 1.2; // need to be think later. this value is temp.
 
-        this.ShieldCurrent = (int)(this.ShieldCurrent * Math.Pow(raised, specifies));
-        this.ShieldMax = (int)(this.ShieldMax * Math.Pow(raised, specifies));
-        this.HitPointCurrent = (int)(this.HitPointCurrent * Math.Pow(raised, specifies));
-        this.HitPointMax = (int)(this.HitPointMax * Math.Pow(raised, specifies));
-        this.Attack = (int)(this.Attack * Math.Pow(raised, specifies));
-        this.KineticAttackRatio = (int)(this.KineticAttackRatio * Math.Pow(raised, specifies));
-        this.ChemicalAttackRatio = (int)(this.ChemicalAttackRatio * Math.Pow(raised, specifies));
-        this.ThermalAttackRatio = (int)(this.ThermalAttackRatio * Math.Pow(raised, specifies));
-        this.CriticalHit = (int)(this.CriticalHit * Math.Pow(raised, specifies));
-        this.NumberOfAttacks = (int)(this.NumberOfAttacks * Math.Pow(raised, specifies));
+        this.shieldCurrent = (int)(this.shieldCurrent * Math.Pow(raised, specifies));
+        this.shieldMax = (int)(this.shieldMax * Math.Pow(raised, specifies));
+        this.hitPointCurrent = (int)(this.hitPointCurrent * Math.Pow(raised, specifies));
+        this.hitPointMax = (int)(this.hitPointMax * Math.Pow(raised, specifies));
+        this.attack = (int)(this.attack * Math.Pow(raised, specifies));
+        this.kineticAttackRatio = (int)(this.kineticAttackRatio * Math.Pow(raised, specifies));
+        this.chemicalAttackRatio = (int)(this.chemicalAttackRatio * Math.Pow(raised, specifies));
+        this.thermalAttackRatio = (int)(this.thermalAttackRatio * Math.Pow(raised, specifies));
+        this.criticalHit = (int)(this.criticalHit * Math.Pow(raised, specifies));
+        this.numberOfAttacks = (int)(this.numberOfAttacks * Math.Pow(raised, specifies));
 
         //Note: MinRange and MaxRange is not be add up.
         //combatAdded.MinRange;
         //combatAdded.MaxRange;
-        this.Accuracy = (int)(this.Accuracy * Math.Pow(raised, specifies));
-        this.Mobility = (int)(this.Mobility * Math.Pow(raised, specifies));
-        this.Defense = (int)(this.Defense * Math.Pow(raised, specifies));
-        this.Counterintelligence = (int)(this.Counterintelligence * Math.Pow(raised, specifies));
-        this.Repair = (int)(this.Repair * Math.Pow(raised, specifies));
+        this.accuracy = (int)(this.accuracy * Math.Pow(raised, specifies));
+        this.mobility = (int)(this.mobility * Math.Pow(raised, specifies));
+        this.defense = (int)(this.defense * Math.Pow(raised, specifies));
+        this.counterintelligence = (int)(this.counterintelligence * Math.Pow(raised, specifies));
+        this.repair = (int)(this.repair * Math.Pow(raised, specifies));
 
 
         return this;
@@ -92,9 +93,9 @@ public class CombatClass : ScriptableObject
     public CombatClass(int shieldCurrent, int shieldMax, int hitPointCurrent, int hitPointMax, int attack, double kineticAttackRatio, double chemicalAttackRatio,
 double thermalAttackRatio, int criticalHit, int numberOfAttacks, int minRange, int maxRange, int accuracy, int mobility, int defense)
     {
-        this.ShieldCurrent = shieldCurrent; this.ShieldMax = shieldMax; this.HitPointCurrent = hitPointCurrent; this.HitPointMax = hitPointMax; this.Attack = attack;
-        this.KineticAttackRatio = kineticAttackRatio; this.ChemicalAttackRatio = chemicalAttackRatio; this.ThermalAttackRatio = thermalAttackRatio; this.CriticalHit = criticalHit;
-        this.NumberOfAttacks = numberOfAttacks; this.MinRange = minRange; this.MaxRange = maxRange; this.Accuracy = accuracy; this.Mobility = mobility; this.Defense = defense;
+        this.shieldCurrent = shieldCurrent; this.shieldMax = shieldMax; this.hitPointCurrent = hitPointCurrent; this.hitPointMax = hitPointMax; this.attack = attack;
+        this.kineticAttackRatio = kineticAttackRatio; this.chemicalAttackRatio = chemicalAttackRatio; this.thermalAttackRatio = thermalAttackRatio; this.criticalHit = criticalHit;
+        this.numberOfAttacks = numberOfAttacks; this.minRange = minRange; this.maxRange = maxRange; this.accuracy = accuracy; this.mobility = mobility; this.defense = defense;
     }
 
     public CombatClass()

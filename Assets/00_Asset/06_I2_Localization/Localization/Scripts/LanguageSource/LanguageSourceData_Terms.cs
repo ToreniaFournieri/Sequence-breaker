@@ -12,21 +12,21 @@ namespace I2.Loc
 
         public void UpdateDictionary(bool force = false)
         {
-            if (!force && mDictionary != null && mDictionary.Count == mTerms.Count)
+            if (!force && MDictionary != null && MDictionary.Count == mTerms.Count)
                 return;
 
-            StringComparer comparer = (CaseInsensitiveTerms ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
-            if (mDictionary.Comparer != comparer)
-                mDictionary = new Dictionary<string, TermData>(comparer);
+            StringComparer comparer = (caseInsensitiveTerms ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal);
+            if (MDictionary.Comparer != comparer)
+                MDictionary = new Dictionary<string, TermData>(comparer);
             else
-                mDictionary.Clear();
+                MDictionary.Clear();
 
             for (int i = 0, imax = mTerms.Count; i < imax; ++i)
             {
                 var termData = mTerms[i];
-                ValidateFullTerm(ref termData.Term);
+                ValidateFullTerm(ref termData.term);
 
-				mDictionary[termData.Term]= mTerms[i];
+				MDictionary[termData.term]= mTerms[i];
 				mTerms[i].Validate();
 			}
 
@@ -38,73 +38,73 @@ namespace I2.Loc
 
         public string GetTranslation (string term, string overrideLanguage = null, string overrideSpecialization = null, bool skipDisabled = false, bool allowCategoryMistmatch = false)
 		{
-			string Translation;
-			if (TryGetTranslation(term, out Translation, overrideLanguage:overrideLanguage, overrideSpecialization:overrideSpecialization, skipDisabled:skipDisabled, allowCategoryMistmatch:allowCategoryMistmatch))
-				return Translation;
+			string translation;
+			if (TryGetTranslation(term, out translation, overrideLanguage:overrideLanguage, overrideSpecialization:overrideSpecialization, skipDisabled:skipDisabled, allowCategoryMistmatch:allowCategoryMistmatch))
+				return translation;
 
 			return string.Empty;
 		}
 
-		public bool TryGetTranslation (string term, out string Translation, string overrideLanguage=null, string overrideSpecialization=null, bool skipDisabled=false, bool allowCategoryMistmatch=false)
+		public bool TryGetTranslation (string term, out string translation, string overrideLanguage=null, string overrideSpecialization=null, bool skipDisabled=false, bool allowCategoryMistmatch=false)
 		{
-			int Index = GetLanguageIndex( overrideLanguage==null ? LocalizationManager.CurrentLanguage : overrideLanguage, SkipDisabled: false );
+			int index = GetLanguageIndex( overrideLanguage==null ? LocalizationManager.CurrentLanguage : overrideLanguage, skipDisabled: false );
 
-			if (Index>=0 && (!skipDisabled || mLanguages[Index].IsEnabled()))
+			if (index>=0 && (!skipDisabled || mLanguages[index].IsEnabled()))
 			{
 				TermData data = GetTermData(term, allowCategoryMistmatch:allowCategoryMistmatch);
 				if (data!=null)
 				{
-					Translation = data.GetTranslation(Index, overrideSpecialization, editMode:true);
+					translation = data.GetTranslation(index, overrideSpecialization, editMode:true);
 
 					// "---" is a code to define that the translation is meant to be empty
-					if (Translation == "---")
+					if (translation == "---")
 					{
-						Translation = string.Empty;
+						translation = string.Empty;
 						return true;
 					}
 					else
-					if (!string.IsNullOrEmpty(Translation))
+					if (!string.IsNullOrEmpty(translation))
 					{
 						// has a valid translation
 						return true;
 					}
 					else
-						Translation = null;
+						translation = null;
 				}
 
-				if (OnMissingTranslation == MissingTranslationAction.ShowWarning)
+				if (onMissingTranslation == MissingTranslationAction.ShowWarning)
 				{
-					Translation = string.Format("<!-Missing Translation [{0}]-!>", term);
+					translation = string.Format("<!-Missing Translation [{0}]-!>", term);
 					return true;
 				}
 				else
-				if (OnMissingTranslation == MissingTranslationAction.Fallback && data!=null)
+				if (onMissingTranslation == MissingTranslationAction.Fallback && data!=null)
 				{
-                    return TryGetFallbackTranslation(data, out Translation, Index, overrideSpecialization, skipDisabled);
+                    return TryGetFallbackTranslation(data, out translation, index, overrideSpecialization, skipDisabled);
 				}
                 else
-				if (OnMissingTranslation == MissingTranslationAction.Empty)
+				if (onMissingTranslation == MissingTranslationAction.Empty)
                 {
-                    Translation = string.Empty;
+                    translation = string.Empty;
                     return true;
                 }
                 else
-                if (OnMissingTranslation == MissingTranslationAction.ShowTerm)
+                if (onMissingTranslation == MissingTranslationAction.ShowTerm)
                 {
-                    Translation = term;
+                    translation = term;
                     return true;
                 }
 
             }
 
-            Translation = null;
+            translation = null;
 			return false;
 		}
 
-        bool TryGetFallbackTranslation(TermData termData, out string Translation, int langIndex, string overrideSpecialization = null, bool skipDisabled = false)
+        bool TryGetFallbackTranslation(TermData termData, out string translation, int langIndex, string overrideSpecialization = null, bool skipDisabled = false)
         {
             // Find base Language Code
-            string baseLanguage = mLanguages[langIndex].Code;
+            string baseLanguage = mLanguages[langIndex].code;
             if (!string.IsNullOrEmpty(baseLanguage))
             {
                 if (baseLanguage.Contains('-'))
@@ -116,11 +116,11 @@ namespace I2.Loc
                 for (int i = 0; i < mLanguages.Count; ++i)
                 {
                     if (i != langIndex && 
-                        mLanguages[i].Code.StartsWith(baseLanguage) &&
+                        mLanguages[i].code.StartsWith(baseLanguage) &&
                         (!skipDisabled || mLanguages[i].IsEnabled()) )
                     {
-                        Translation = termData.GetTranslation(i, overrideSpecialization, editMode: true);
-                        if (!string.IsNullOrEmpty(Translation))
+                        translation = termData.GetTranslation(i, overrideSpecialization, editMode: true);
+                        if (!string.IsNullOrEmpty(translation))
                             return true;
                     }
                 }
@@ -132,20 +132,20 @@ namespace I2.Loc
             {
                 if (i!=langIndex && 
                     (!skipDisabled || mLanguages[i].IsEnabled()) && 
-                    (baseLanguage==null || !mLanguages[i].Code.StartsWith(baseLanguage)))
+                    (baseLanguage==null || !mLanguages[i].code.StartsWith(baseLanguage)))
                 {
-                    Translation = termData.GetTranslation(i, overrideSpecialization, editMode: true);
-                    if (!string.IsNullOrEmpty(Translation))
+                    translation = termData.GetTranslation(i, overrideSpecialization, editMode: true);
+                    if (!string.IsNullOrEmpty(translation))
                         return true;
                 }
             }
-            Translation = null;
+            translation = null;
             return false;
         }
 
 		public TermData AddTerm( string term )
 		{
-			return AddTerm (term, eTermType.Text);
+			return AddTerm (term, ETermType.Text);
 		}
 
 		public TermData GetTermData( string term, bool allowCategoryMistmatch = false)
@@ -153,18 +153,18 @@ namespace I2.Loc
 			if (string.IsNullOrEmpty(term))
 				return null;
 			
-			if (mDictionary.Count==0)// != mTerms.Count)
+			if (MDictionary.Count==0)// != mTerms.Count)
 				UpdateDictionary();
 
 			TermData data;
-            if (mDictionary.TryGetValue(term, out data))
+            if (MDictionary.TryGetValue(term, out data))
                 return data;
 
 			TermData d = null;
 			if (allowCategoryMistmatch)
 			{
 				var keyPart = GetKeyFromFullTerm (term);
-				foreach (var kvp in mDictionary)
+				foreach (var kvp in MDictionary)
 					if (kvp.Value.IsTerm (keyPart, true))
 					{
 						if (d == null)
@@ -181,46 +181,46 @@ namespace I2.Loc
 			return (GetTermData(term)!=null);
 		}
 
-		public List<string> GetTermsList ( string Category = null )
+		public List<string> GetTermsList ( string category = null )
 		{
-			if (mDictionary.Count != mTerms.Count)
+			if (MDictionary.Count != mTerms.Count)
 				UpdateDictionary();
-			if (string.IsNullOrEmpty( Category ))
-				return new List<string>( mDictionary.Keys );
+			if (string.IsNullOrEmpty( category ))
+				return new List<string>( MDictionary.Keys );
 			else
 			{
 				var terms = new List<string>();
 				for (int i=0; i<mTerms.Count; ++i)
 				{
 					var term = mTerms[i];
-					if (GetCategoryFromFullTerm( term.Term ) == Category)
-						terms.Add( term.Term );
+					if (GetCategoryFromFullTerm( term.term ) == category)
+						terms.Add( term.term );
 				}
 				return terms;
 			}
 		}
 
-		public  TermData AddTerm( string NewTerm, eTermType termType, bool SaveSource = true )
+		public  TermData AddTerm( string newTerm, ETermType termType, bool saveSource = true )
 		{
-			ValidateFullTerm( ref NewTerm );
-			NewTerm = NewTerm.Trim ();
+			ValidateFullTerm( ref newTerm );
+			newTerm = newTerm.Trim ();
 
 			if (mLanguages.Count == 0) 
 				AddLanguage ("English", "en");
 
 			// Don't duplicate Terms
-			TermData data = GetTermData(NewTerm);
+			TermData data = GetTermData(newTerm);
 			if (data==null) 
 			{
 				data = new TermData();
-				data.Term = NewTerm;
-				data.TermType = termType;
-				data.Languages = new string[ mLanguages.Count ];
-				data.Flags = new byte[ mLanguages.Count ];
+				data.term = newTerm;
+				data.termType = termType;
+				data.languages = new string[ mLanguages.Count ];
+				data.flags = new byte[ mLanguages.Count ];
 				mTerms.Add (data);
-				mDictionary.Add ( NewTerm, data);
+				MDictionary.Add ( newTerm, data);
 				#if UNITY_EDITOR
-				if (SaveSource)
+				if (saveSource)
 				{
                     Editor_SetDirty();
 					UnityEditor.AssetDatabase.SaveAssets();
@@ -234,24 +234,24 @@ namespace I2.Loc
 		public void RemoveTerm( string term )
 		{
 			for (int i=0, imax=mTerms.Count; i<imax; ++i)
-				if (mTerms[i].Term==term)
+				if (mTerms[i].term==term)
 				{
 					mTerms.RemoveAt(i);
-					mDictionary.Remove(term);
+					MDictionary.Remove(term);
 					return;
 				}
 		}
 
-		public static void ValidateFullTerm( ref string Term )
+		public static void ValidateFullTerm( ref string term )
 		{
-			Term = Term.Replace('\\', '/');
-			Term = Term.Trim();
-			if (Term.StartsWith(EmptyCategory, StringComparison.Ordinal))
+			term = term.Replace('\\', '/');
+			term = term.Trim();
+			if (term.StartsWith(EmptyCategory, StringComparison.Ordinal))
 			{
-				if (Term.Length>EmptyCategory.Length && Term[EmptyCategory.Length]=='/')
-					Term = Term.Substring(EmptyCategory.Length+1);
+				if (term.Length>EmptyCategory.Length && term[EmptyCategory.Length]=='/')
+					term = term.Substring(EmptyCategory.Length+1);
 			}
-            Term = I2Utils.GetValidTermName(Term, true);
+            term = I2Utils.GetValidTermName(term, true);
         }
 
 

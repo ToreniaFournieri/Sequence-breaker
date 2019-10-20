@@ -22,7 +22,7 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
 
         public IEnumerator LoadRemoteImage(Data data)
         {
-            string path = data.imageUrl;
+            string path = data.ImageUrl;
 
             Texture2D texture = null;
 
@@ -47,7 +47,7 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
 
             if (texture != null)
             {
-                cellImage.sprite = Sprite.Create(texture, new Rect(0, 0, data.imageDimensions.x, data.imageDimensions.y), new Vector2(0, 0), data.imageDimensions.x);
+                cellImage.sprite = Sprite.Create(texture, new Rect(0, 0, data.ImageDimensions.x, data.ImageDimensions.y), new Vector2(0, 0), data.ImageDimensions.x);
             }
             else
             {

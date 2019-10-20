@@ -3,7 +3,7 @@
 
 namespace I2.Loc
 {
-    public class LocalizeTargetDesc_Prefab : LocalizeTargetDesc<LocalizeTarget_UnityStandard_Prefab>
+    public class LocalizeTargetDescPrefab : LocalizeTargetDesc<LocalizeTargetUnityStandardPrefab>
     {
         public override bool CanLocalize(Localize cmp) { return true; }
     }
@@ -12,19 +12,19 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityStandard_Prefab : LocalizeTarget<GameObject>
+    public class LocalizeTargetUnityStandardPrefab : LocalizeTarget<GameObject>
     {
-        static LocalizeTarget_UnityStandard_Prefab() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Prefab() { Name = "Prefab", Priority = 250 }); }
+        static LocalizeTargetUnityStandardPrefab() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescPrefab() { Name = "Prefab", Priority = 250 }); }
 
         public override bool IsValid(Localize cmp) { return true; }
-        public override eTermType GetPrimaryTermType(Localize cmp) { return eTermType.GameObject; }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Text; }
+        public override ETermType GetPrimaryTermType(Localize cmp) { return ETermType.GameObject; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Text; }
         public override bool CanUseSecondaryTerm() { return false; }
-        public override bool AllowMainTermToBeRTL() { return false; }
-        public override bool AllowSecondTermToBeRTL() { return false; }
+        public override bool AllowMainTermToBeRtl() { return false; }
+        public override bool AllowSecondTermToBeRtl() { return false; }
 
-        public override void GetFinalTerms ( Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
+        public override void GetFinalTerms ( Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm)
         {
             primaryTerm = cmp.name;
             secondaryTerm = null;
@@ -69,13 +69,13 @@ namespace I2.Loc
 
         Transform InstantiateNewPrefab(Localize cmp, string mainTranslation)
         {
-            GameObject NewPrefab = cmp.FindTranslatedObject<GameObject>(mainTranslation);
-            if (NewPrefab == null)
+            GameObject newPrefab = cmp.FindTranslatedObject<GameObject>(mainTranslation);
+            if (newPrefab == null)
                 return null;
 
             GameObject current = mTarget as GameObject;
 
-            mTarget = Object.Instantiate(NewPrefab);
+            mTarget = Object.Instantiate(newPrefab);
             if (mTarget == null)
                 return null;
 

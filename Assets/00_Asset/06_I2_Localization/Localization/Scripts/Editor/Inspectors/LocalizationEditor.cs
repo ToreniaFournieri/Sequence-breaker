@@ -87,7 +87,7 @@ namespace I2.Loc
 
             if (!mIsParsing)
 			{
-				if (string.IsNullOrEmpty(mLanguageSource.Google_SpreadsheetKey))
+				if (string.IsNullOrEmpty(mLanguageSource.googleSpreadsheetKey))
 					mSpreadsheetMode = eSpreadsheetMode.Local;
 				else
 					mSpreadsheetMode = eSpreadsheetMode.Google;

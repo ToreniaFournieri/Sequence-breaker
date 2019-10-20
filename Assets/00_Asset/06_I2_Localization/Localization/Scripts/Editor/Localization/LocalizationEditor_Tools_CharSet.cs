@@ -33,7 +33,7 @@ namespace I2.Loc
 			if (GUILayout.Button ("All", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false))) 
 			{
 				mCharSetTool_Languages.Clear ();
-				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.Name));
+				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.name));
 				computeSet = true;
 			}
 			if (GUILayout.Button ("None", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false))) 
@@ -45,7 +45,7 @@ namespace I2.Loc
 			{
 				var current = mCharSetTool_Languages.ToList ();
 				mCharSetTool_Languages.Clear ();
-				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.Name).Where(j=>!current.Contains(j)));
+				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.name).Where(j=>!current.Contains(j)));
 				computeSet = true;
 			}
 
@@ -61,7 +61,7 @@ namespace I2.Loc
             for (int i=0, imax=mLanguageSource.mLanguages.Count; i<imax; ++i)
 			{
 				GUILayout.BeginHorizontal();
-					var language = mLanguageSource.mLanguages[i].Name;
+					var language = mLanguageSource.mLanguages[i].name;
 					bool hasLanguage = mCharSetTool_Languages.Contains(language);
 					bool newValue = GUILayout.Toggle (hasLanguage, "", "OL Toggle", GUILayout.ExpandWidth(false));
 					GUILayout.Label(language);
@@ -123,7 +123,7 @@ namespace I2.Loc
 			var sb = new HashSet<char> ();
 			var LanIndexes = new List<int> ();
 			for (int i=0; i<mLanguageSource.mLanguages.Count; ++i)
-				if (mCharSetTool_Languages.Contains(mLanguageSource.mLanguages[i].Name))
+				if (mCharSetTool_Languages.Contains(mLanguageSource.mLanguages[i].name))
 				    LanIndexes.Add(i);
 
 			foreach (var termData in mLanguageSource.mTerms) 
@@ -131,8 +131,8 @@ namespace I2.Loc
 				for (int i=0; i<LanIndexes.Count; ++i)
 				{
 					int iLanguage = LanIndexes[i];
-					bool isRTL = LocalizationManager.IsRTL( mLanguageSource.mLanguages[iLanguage].Code );
-					AppendToCharSet( sb, termData.Languages[iLanguage], isRTL );
+					bool isRTL = LocalizationManager.IsRtl( mLanguageSource.mLanguages[iLanguage].code );
+					AppendToCharSet( sb, termData.languages[iLanguage], isRTL );
 				}
 			}
             var bytes = System.Text.Encoding.UTF8.GetBytes( sb.ToArray().OrderBy(c => c).ToArray() );
@@ -148,7 +148,7 @@ namespace I2.Loc
             text = RemoveTagsPrefix(text, "[i2s_");
 
             if (isRTL)
-				text = RTLFixer.Fix( text );
+				text = RtlFixer.Fix( text );
 
             foreach (char c in text)
             {

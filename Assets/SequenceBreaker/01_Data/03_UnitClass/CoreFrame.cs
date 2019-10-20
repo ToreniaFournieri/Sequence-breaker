@@ -1,24 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "CoreFrame-", menuName = "Unit/CoreFrame", order = 3)]
 sealed public class CoreFrame : ScriptableObject
 {
-    [SerializeField] public string Name;
+    [FormerlySerializedAs("Name")] [SerializeField] public string name;
 
-    [SerializeField] public FrameType FrameType;
-    [SerializeField] public TuningStype TuningStype;
+    [FormerlySerializedAs("FrameType")] [SerializeField] public FrameType frameType;
+    [FormerlySerializedAs("TuningStype")] [SerializeField] public TuningStype tuningStype;
 
-    [SerializeField] public int Shield;
-    [SerializeField] public int HP;
+    [FormerlySerializedAs("Shield")] [SerializeField] public int shield;
+    [FormerlySerializedAs("HP")] [SerializeField] public int hp;
 
 
 }
 
 
-public enum FrameType { twoLegs, spiderLegs, reverseJointLegs, caterpillar, wheel }
-public enum TuningStype { none, avoidTank, heavyTank, chargeMelee, swordsMelee, assaultMelee, rifleRenged, sinpeRenged, buff, debuff, assist, medic, supply }
+public enum FrameType { TwoLegs, SpiderLegs, ReverseJointLegs, Caterpillar, Wheel }
+public enum TuningStype { None, AvoidTank, HeavyTank, ChargeMelee, SwordsMelee, AssaultMelee, RifleRenged, SinpeRenged, Buff, Debuff, Assist, Medic, Supply }
 
 
 

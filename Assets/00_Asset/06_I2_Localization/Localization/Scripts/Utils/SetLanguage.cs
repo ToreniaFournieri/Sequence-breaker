@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
+
 namespace I2.Loc
 {
 	[AddComponentMenu("I2/Localization/SetLanguage Button")]
 	public class SetLanguage : MonoBehaviour 
 	{
-		public string _Language;
+		[FormerlySerializedAs("_Language")] public string language;
 
 #if UNITY_EDITOR
 		public LanguageSource mSource;
@@ -17,9 +19,9 @@ namespace I2.Loc
 
 		public void ApplyLanguage()
 		{
-			if( LocalizationManager.HasLanguage(_Language))
+			if( LocalizationManager.HasLanguage(language))
 			{
-				LocalizationManager.CurrentLanguage = _Language;
+				LocalizationManager.CurrentLanguage = language;
 			}
 		}
     }

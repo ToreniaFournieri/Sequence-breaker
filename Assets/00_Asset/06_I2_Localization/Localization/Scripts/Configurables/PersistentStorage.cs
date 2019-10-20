@@ -5,39 +5,39 @@ namespace I2.Loc
 {
     public static class PersistentStorage
     {
-        static I2CustomPersistentStorage mStorage;
+        static I2CustomPersistentStorage _mStorage;
 
-        public enum eFileType { Raw, Persistent, Temporal, Streaming }
+        public enum EFileType { Raw, Persistent, Temporal, Streaming }
 
         #region PlayerPrefs
         public static void SetSetting_String(string key, string value)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            mStorage.SetSetting_String(key, value);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            _mStorage.SetSetting_String(key, value);
         }
 
         public static string GetSetting_String(string key, string defaultValue)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.GetSetting_String(key, defaultValue);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.GetSetting_String(key, defaultValue);
         }
 
         public static void DeleteSetting(string key)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            mStorage.DeleteSetting(key);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            _mStorage.DeleteSetting(key);
         }
 
         public static bool HasSetting( string key )
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.HasSetting(key);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.HasSetting(key);
         }
 
         public static void ForceSaveSettings()
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            mStorage.ForceSaveSettings();
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            _mStorage.ForceSaveSettings();
         }
 
         #endregion
@@ -46,32 +46,32 @@ namespace I2.Loc
 
         public static bool CanAccessFiles()
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.CanAccessFiles();
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.CanAccessFiles();
         }
 
-        public static bool SaveFile(eFileType fileType, string fileName, string data, bool logExceptions = true)
+        public static bool SaveFile(EFileType fileType, string fileName, string data, bool logExceptions = true)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.SaveFile(fileType, fileName, data, logExceptions);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.SaveFile(fileType, fileName, data, logExceptions);
         }
 
-        public static string LoadFile(eFileType fileType, string fileName, bool logExceptions=true)
+        public static string LoadFile(EFileType fileType, string fileName, bool logExceptions=true)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.LoadFile(fileType, fileName, logExceptions);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.LoadFile(fileType, fileName, logExceptions);
         }
 
-        public static bool DeleteFile(eFileType fileType, string fileName, bool logExceptions = true)
+        public static bool DeleteFile(EFileType fileType, string fileName, bool logExceptions = true)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.DeleteFile(fileType, fileName, logExceptions);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.DeleteFile(fileType, fileName, logExceptions);
         }
 
-        public static bool HasFile(eFileType fileType, string fileName, bool logExceptions = true)
+        public static bool HasFile(EFileType fileType, string fileName, bool logExceptions = true)
         {
-            if (mStorage == null) mStorage = new I2CustomPersistentStorage();
-            return mStorage.HasFile(fileType, fileName, logExceptions);
+            if (_mStorage == null) _mStorage = new I2CustomPersistentStorage();
+            return _mStorage.HasFile(fileType, fileName, logExceptions);
         }
 
         #endregion
@@ -179,18 +179,18 @@ namespace I2.Loc
             #endif
         }
 
-        string UpdateFilename(PersistentStorage.eFileType fileType, string fileName)
+        string UpdateFilename(PersistentStorage.EFileType fileType, string fileName)
         {
             switch (fileType)
             {
-                case PersistentStorage.eFileType.Persistent: fileName = Application.persistentDataPath + "/" + fileName; break;
-                case PersistentStorage.eFileType.Temporal:   fileName = Application.temporaryCachePath + "/" + fileName; break;
-                case PersistentStorage.eFileType.Streaming: fileName = Application.streamingAssetsPath + "/" + fileName; break;
+                case PersistentStorage.EFileType.Persistent: fileName = Application.persistentDataPath + "/" + fileName; break;
+                case PersistentStorage.EFileType.Temporal:   fileName = Application.temporaryCachePath + "/" + fileName; break;
+                case PersistentStorage.EFileType.Streaming: fileName = Application.streamingAssetsPath + "/" + fileName; break;
             }
             return fileName;
         }
 
-        public virtual bool SaveFile(PersistentStorage.eFileType fileType, string fileName, string data, bool logExceptions = true)
+        public virtual bool SaveFile(PersistentStorage.EFileType fileType, string fileName, string data, bool logExceptions = true)
         {
             if (!CanAccessFiles())
                 return false;
@@ -209,7 +209,7 @@ namespace I2.Loc
             }
         }
 
-        public virtual string LoadFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
+        public virtual string LoadFile(PersistentStorage.EFileType fileType, string fileName, bool logExceptions = true)
         {
             if (!CanAccessFiles())
                 return null;
@@ -227,7 +227,7 @@ namespace I2.Loc
             }
         }
 
-        public virtual bool DeleteFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
+        public virtual bool DeleteFile(PersistentStorage.EFileType fileType, string fileName, bool logExceptions = true)
         {
             if (!CanAccessFiles())
                 return false;
@@ -246,7 +246,7 @@ namespace I2.Loc
             }
         }
 
-        public virtual bool HasFile(PersistentStorage.eFileType fileType, string fileName, bool logExceptions = true)
+        public virtual bool HasFile(PersistentStorage.EFileType fileType, string fileName, bool logExceptions = true)
         {
             if (!CanAccessFiles())
                 return false;

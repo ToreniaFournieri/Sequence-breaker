@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using EnhancedUI;
+using UnityEngine.Serialization;
 
 namespace EnhancedScrollerDemos.RemoteResourcesDemo
 {
@@ -32,7 +33,7 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
         /// <summary>
         /// An array of image urls to load
         /// </summary>
-        public string[] imageURLList;
+        [FormerlySerializedAs("imageURLList")] public string[] imageUrlList;
 
         void Start()
         {
@@ -44,13 +45,13 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
             _data = new SmallList<Data>();
 
             // set up a list of images with their dimensions
-            for (var i = 0; i < imageURLList.Length; i++)
+            for (var i = 0; i < imageUrlList.Length; i++)
             {
                 // add the image based on the image list text file
                 _data.Add(new Data()
                 {
-                    imageUrl = imageURLList[i],
-                    imageDimensions = new Vector2(200f, 200f)
+                    ImageUrl = imageUrlList[i],
+                    ImageDimensions = new Vector2(200f, 200f)
                 });
             }
 
@@ -134,8 +135,8 @@ namespace EnhancedScrollerDemos.RemoteResourcesDemo
             // otherwise we will clear the image back to 
             // its default state
 
-            if (cellView.active)
-                view.SetData(_data[cellView.dataIndex]);
+            if (cellView.Active)
+                view.SetData(_data[cellView.DataIndex]);
             else
                 view.ClearImage();
         }

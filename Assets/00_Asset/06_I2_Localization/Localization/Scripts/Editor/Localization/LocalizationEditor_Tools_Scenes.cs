@@ -171,7 +171,7 @@ namespace I2.Loc
 				Editor_OpenScene( InitialScene );
 			
 			if (mLanguageSource!=null)
-				Selection.activeObject = mLanguageSource.ownerObject;
+				Selection.activeObject = mLanguageSource.OwnerObject;
 		}
 		#endregion
 	}

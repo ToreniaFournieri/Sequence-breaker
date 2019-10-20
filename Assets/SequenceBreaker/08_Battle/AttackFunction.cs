@@ -14,7 +14,7 @@ namespace SequenceBreaker._08_Battle
             string log = null;
             BattleResult = new BattleResultClass();
             // Target control
-            var toTargetAffiliation = order.Actor.Affiliation == Affiliation.ally ? Affiliation.enemy : Affiliation.ally;
+            var toTargetAffiliation = order.Actor.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
 
             // Initialize battle environment: Hit, Failed Hit, Damage for each opponent.
             var totalDealtDamageSum = 0;
@@ -22,7 +22,7 @@ namespace SequenceBreaker._08_Battle
             var healedByAbsorbShield = 0;
             var numberOfHitTotal = 0;
             var numberOfSuccessAttacks = 0;
-            var opponents = characters.FindAll(character1 => character1.Affiliation == toTargetAffiliation && character1.Combat.HitPointCurrent > 0);
+            var opponents = characters.FindAll(character1 => character1.affiliation == toTargetAffiliation && character1.combat.hitPointCurrent > 0);
             foreach (var character in characters.Where(character => character.IsCrushedJustNow))
             {
                 character.IsCrushedJustNow = false;
@@ -33,7 +33,7 @@ namespace SequenceBreaker._08_Battle
             var invalidAction = opponents.Count == 0;
 
             //Ally alive list
-            var aliveAttackerSide = characters.FindAll(character1 => character1.Affiliation == order.Actor.Affiliation && character1.Combat.HitPointCurrent > 0);
+            var aliveAttackerSide = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
             var aliveAttackerIndex = aliveAttackerSide.IndexOf(order.Actor);
             if (aliveAttackerIndex == -1) { invalidAction = true; }// in case attacker is dead.
 
@@ -59,53 +59,53 @@ namespace SequenceBreaker._08_Battle
 
                 if (order.SkillEffectChosen != null)
                 {
-                    skillOffenseEffectMagnification = order.SkillEffectChosen.OffenseEffectMagnification;
-                    skillMagnificationDamage = order.SkillEffectChosen.Skill.Magnification.Damage;
-                    skillMagnificationKinetic = order.SkillEffectChosen.Skill.Magnification.Kinetic;
-                    skillMagnificationChemical = order.SkillEffectChosen.Skill.Magnification.Chemical;
-                    skillMagnificationThermal = order.SkillEffectChosen.Skill.Magnification.Thermal;
-                    skillMagnificationAccuracy = order.SkillEffectChosen.Skill.Magnification.Accuracy;
-                    skillMagnificationCritical = order.SkillEffectChosen.Skill.Magnification.Critical;
-                    skillMagnificationNumberOfAttacks = order.SkillEffectChosen.Skill.Magnification.NumberOfAttacks;
-                    skillMagnificationOptimumRangeMin = order.SkillEffectChosen.Skill.Magnification.OptimumRangeMin;
-                    skillMagnificationOptimumRangeMax = order.SkillEffectChosen.Skill.Magnification.OptimumRangeMax;
+                    skillOffenseEffectMagnification = order.SkillEffectChosen.offenseEffectMagnification;
+                    skillMagnificationDamage = order.SkillEffectChosen.skill.magnification.damage;
+                    skillMagnificationKinetic = order.SkillEffectChosen.skill.magnification.kinetic;
+                    skillMagnificationChemical = order.SkillEffectChosen.skill.magnification.chemical;
+                    skillMagnificationThermal = order.SkillEffectChosen.skill.magnification.thermal;
+                    skillMagnificationAccuracy = order.SkillEffectChosen.skill.magnification.accuracy;
+                    skillMagnificationCritical = order.SkillEffectChosen.skill.magnification.critical;
+                    skillMagnificationNumberOfAttacks = order.SkillEffectChosen.skill.magnification.numberOfAttacks;
+                    skillMagnificationOptimumRangeMin = order.SkillEffectChosen.skill.magnification.optimumRangeMin;
+                    skillMagnificationOptimumRangeMax = order.SkillEffectChosen.skill.magnification.optimumRangeMax;
                 }
 
                 //Critical control
-                var criticalReduction = 0; if (order.Actor.Combat.CriticalHit >= environmentInfo.R.Next(0, 100))
-                { criticalReduction = 50; BattleResult.CriticalOrNot = CriticalOrNot.critical; }
-                else { BattleResult.CriticalOrNot = CriticalOrNot.nonCritical; } //Critical hit!
+                var criticalReduction = 0; if (order.Actor.combat.criticalHit >= environmentInfo.R.Next(0, 100))
+                { criticalReduction = 50; BattleResult.CriticalOrNot = CriticalOrNot.Critical; }
+                else { BattleResult.CriticalOrNot = CriticalOrNot.NonCritical; } //Critical hit!
 
                 //Decay definition & Decay cap control
-                var decayAccuracy = 0.55 + 0.01 * order.Actor.Ability.Precision; if (decayAccuracy > 0.99) { decayAccuracy = 0.99; }
-                var decayDamage = 0.55 + 0.01 * order.Actor.Ability.Power; if (decayDamage > 0.99) { decayDamage = 0.99; }
+                var decayAccuracy = 0.55 + 0.01 * order.Actor.ability.precision; if (decayAccuracy > 0.99) { decayAccuracy = 0.99; }
+                var decayDamage = 0.55 + 0.01 * order.Actor.ability.power; if (decayDamage > 0.99) { decayDamage = 0.99; }
 
                 // Minimum range - ally's column , Max range - ally's column
-                var minTargetOptimumRange = (int)(order.Actor.Combat.MinRange * skillMagnificationOptimumRangeMin) - aliveAttackerIndex;
-                var maxTargetOptimumRange = (int)(order.Actor.Combat.MaxRange * skillMagnificationOptimumRangeMax) - aliveAttackerIndex;
+                var minTargetOptimumRange = (int)(order.Actor.combat.minRange * skillMagnificationOptimumRangeMin) - aliveAttackerIndex;
+                var maxTargetOptimumRange = (int)(order.Actor.combat.maxRange * skillMagnificationOptimumRangeMax) - aliveAttackerIndex;
 
                 //Initialize Is Barrier broken just now flag and is Avoid flag.
                 foreach (var t in characters)
                 {
                     if (t.IsBarrierBrokenJustNow) { t.IsBarrierBrokenJustNow = false; }
-                    if (t.Buff.BarrierRemaining > 0) { if (t.IsBarrierExistJustBefore == false) { t.IsBarrierExistJustBefore = true; } }
+                    if (t.buff.BarrierRemaining > 0) { if (t.IsBarrierExistJustBefore == false) { t.IsBarrierExistJustBefore = true; } }
                     else { if (t.IsBarrierExistJustBefore) { t.IsBarrierExistJustBefore = false; } }
                     if (t.IsAvoidMoreThanOnce) { t.IsAvoidMoreThanOnce = false; }
                 }
 
                 // Individual attack routine
-                var survivedOpponents = opponents.FindAll(character1 => character1.Combat.HitPointCurrent > 0);
+                var survivedOpponents = opponents.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
-                for (var numberOfAttacks = 1; numberOfAttacks <= (int)(order.Actor.Combat.NumberOfAttacks * skillMagnificationNumberOfAttacks); numberOfAttacks++)
+                for (var numberOfAttacks = 1; numberOfAttacks <= (int)(order.Actor.combat.numberOfAttacks * skillMagnificationNumberOfAttacks); numberOfAttacks++)
                 {
                     //Target individual opponent per each number of attack.
                     var tickets = 0;
                     if (survivedOpponents.Count == 0) { continue; }//enemy all wipe out
-                    survivedOpponents.Sort((x, y) => x.UniqueID - y.UniqueID);
+                    survivedOpponents.Sort((x, y) => x.uniqueId - y.uniqueId);
                     BattleUnit toTarget = null;
-                    switch (order.SkillEffectChosen.Skill.Magnification.AttackTarget)
+                    switch (order.SkillEffectChosen.skill.magnification.attackTarget)
                     {
-                        case TargetType.multi:
+                        case TargetType.Multi:
                         {
                             if (isNeedCreateTargetPossibilityBox)
                             {
@@ -122,7 +122,7 @@ namespace SequenceBreaker._08_Battle
                                     }
                                     else { survivedOpponents[opponent].IsOptimumTarget = false; }
                                     var targetPossibilityTicket = (int)((basicTargetRatio / Math.Pow(2.0, opponent) + optimumTargetBonus) * 50);
-                                    targetPossibilityTicket += (int)(survivedOpponents[opponent].Feature.HateCurrent);// add Hate value 
+                                    targetPossibilityTicket += (int)(survivedOpponents[opponent].feature.hateCurrent);// add Hate value 
                                     if (targetPossibilityTicket == 0) { targetPossibilityTicket = 1; }//at Least one chance to hit.
                                     for (var ticket = tickets; ticket <= targetPossibilityTicket + tickets; ticket++) { targetPossibilityBox.Add(opponent); } //Put tickets into Box with opponent column number (expected: column recalculated when they crushed)
                                     tickets += targetPossibilityTicket;
@@ -136,9 +136,9 @@ namespace SequenceBreaker._08_Battle
                             break;
                         }
                         // if individual target exist, choose he/she.
-                        case TargetType.single when survivedOpponents.Count == 0:
+                        case TargetType.Single when survivedOpponents.Count == 0:
                             continue; //enemy all wipe out
-                        case TargetType.single:
+                        case TargetType.Single:
                         {
                             for (var opponent = 0; opponent < survivedOpponents.Count; opponent++)
                             {
@@ -155,11 +155,11 @@ namespace SequenceBreaker._08_Battle
 
                     isNeedCreateTargetPossibilityBox = false;
 
-                    if (toTarget != null && toTarget.Combat.HitPointCurrent > 0)
+                    if (toTarget != null && toTarget.combat.hitPointCurrent > 0)
                     {
                         //Hit control
                         //Logic of Hit: accuracy / mobility * (1- fatigue) * Decay(0.8) %
-                        var hitPossibility = order.Actor.Combat.Accuracy * skillMagnificationAccuracy / toTarget.Combat.Mobility / (1.00 - toTarget.Deterioration)
+                        var hitPossibility = order.Actor.combat.accuracy * skillMagnificationAccuracy / toTarget.combat.mobility / (1.00 - toTarget.Deterioration)
                                              * (Math.Pow(decayAccuracy, numberOfSuccessAttacks) / decayAccuracy);
 
                         //judge
@@ -172,40 +172,40 @@ namespace SequenceBreaker._08_Battle
                         else //success!
                         {
                             numberOfSuccessAttacks++;
-                            totalIndividualHits[toTarget.UniqueID]++;
+                            totalIndividualHits[toTarget.uniqueId]++;
 
                             var criticalMagnification = 1.0;
                             // critical magnification calculation
                             if (criticalReduction > 0)
                             {
-                                criticalMagnification = order.Actor.OffenseMagnification.Critical
-                                                        * toTarget.DefenseMagnification.Critical * skillMagnificationCritical;
+                                criticalMagnification = order.Actor.offenseMagnification.critical
+                                                        * toTarget.defenseMagnification.critical * skillMagnificationCritical;
                             } //critical
 
                             //Physical Attack damage calculation
-                            var attackDamage = (double)order.Actor.Combat.Attack * environmentInfo.R.Next(40 + order.Actor.Ability.Luck, 100) / 100
-                                               - toTarget.Combat.Defense * (1.00 - toTarget.Deterioration)
-                                                                         * environmentInfo.R.Next(40 + toTarget.Ability.Luck - criticalReduction, 100 - criticalReduction) / 100;
+                            var attackDamage = (double)order.Actor.combat.attack * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100
+                                               - toTarget.combat.defense * (1.00 - toTarget.Deterioration)
+                                                                         * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100;
                             if (attackDamage < 0) { attackDamage = 1; }
 
                             //vs Magnification offense
                             double vsOffenseMagnification;
-                            switch (toTarget.UnitType)
+                            switch (toTarget.unitType)
                             {
-                                case (UnitType.beast):
-                                    vsOffenseMagnification = order.Actor.OffenseMagnification.VsBeast;
+                                case (UnitType.Beast):
+                                    vsOffenseMagnification = order.Actor.offenseMagnification.vsBeast;
                                     break;
-                                case (UnitType.cyborg):
-                                    vsOffenseMagnification = order.Actor.OffenseMagnification.VsCyborg;
+                                case (UnitType.Cyborg):
+                                    vsOffenseMagnification = order.Actor.offenseMagnification.vsCyborg;
                                     break;
-                                case (UnitType.drone):
-                                    vsOffenseMagnification = order.Actor.OffenseMagnification.VsDrone;
+                                case (UnitType.Drone):
+                                    vsOffenseMagnification = order.Actor.offenseMagnification.vsDrone;
                                     break;
-                                case (UnitType.robot):
-                                    vsOffenseMagnification = order.Actor.OffenseMagnification.VsRobot;
+                                case (UnitType.Robot):
+                                    vsOffenseMagnification = order.Actor.offenseMagnification.vsRobot;
                                     break;
-                                case (UnitType.titan):
-                                    vsOffenseMagnification = order.Actor.OffenseMagnification.VsTitan;
+                                case (UnitType.Titan):
+                                    vsOffenseMagnification = order.Actor.offenseMagnification.vsTitan;
                                     break;
                                 default:
                                     vsOffenseMagnification = 1.0;
@@ -214,29 +214,29 @@ namespace SequenceBreaker._08_Battle
 
                             //vs Magnification offense
                             double vsDefenseMagnification;
-                            switch (order.Actor.UnitType)
+                            switch (order.Actor.unitType)
                             {
-                                case (UnitType.beast): vsDefenseMagnification = toTarget.DefenseMagnification.VsBeast; break;
-                                case (UnitType.cyborg): vsDefenseMagnification = toTarget.DefenseMagnification.VsCyborg; break;
-                                case (UnitType.drone): vsDefenseMagnification = toTarget.DefenseMagnification.VsDrone; break;
-                                case (UnitType.robot): vsDefenseMagnification = toTarget.DefenseMagnification.VsRobot; break;
-                                case (UnitType.titan): vsDefenseMagnification = toTarget.DefenseMagnification.VsTitan; break;
+                                case (UnitType.Beast): vsDefenseMagnification = toTarget.defenseMagnification.vsBeast; break;
+                                case (UnitType.Cyborg): vsDefenseMagnification = toTarget.defenseMagnification.vsCyborg; break;
+                                case (UnitType.Drone): vsDefenseMagnification = toTarget.defenseMagnification.vsDrone; break;
+                                case (UnitType.Robot): vsDefenseMagnification = toTarget.defenseMagnification.vsRobot; break;
+                                case (UnitType.Titan): vsDefenseMagnification = toTarget.defenseMagnification.vsTitan; break;
                                 default:
                                     throw new ArgumentOutOfRangeException();
                             }
 
                             //Damage type Magnification 
                             var damageTypeMagnification =
-                                order.Actor.Combat.KineticAttackRatio * order.Actor.OffenseMagnification.Kinetic * toTarget.DefenseMagnification.Kinetic * skillMagnificationKinetic
-                                + order.Actor.Combat.ChemicalAttackRatio * order.Actor.OffenseMagnification.Chemical * toTarget.DefenseMagnification.Chemical * skillMagnificationChemical
-                                + order.Actor.Combat.ThermalAttackRatio * order.Actor.OffenseMagnification.Thermal * toTarget.DefenseMagnification.Thermal * skillMagnificationThermal;
+                                order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic * toTarget.defenseMagnification.kinetic * skillMagnificationKinetic
+                                + order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical * toTarget.defenseMagnification.chemical * skillMagnificationChemical
+                                + order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal * toTarget.defenseMagnification.thermal * skillMagnificationThermal;
 
-                            var optimumRangeBonus = 1.0; if (toTarget.IsOptimumTarget) { optimumRangeBonus = order.Actor.OffenseMagnification.OptimumRangeBonus; } //Consider optimum range bonus.
-                            var barrierReduction = 1.0; if (toTarget.Buff.RemoveBarrier()) // Barrier check, true: barrier has, false no barrier.
-                            { barrierReduction = 1.0 / 3.0; if (toTarget.Buff.BarrierRemaining <= 0) { toTarget.IsBarrierBrokenJustNow = true; } }
+                            var optimumRangeBonus = 1.0; if (toTarget.IsOptimumTarget) { optimumRangeBonus = order.Actor.offenseMagnification.optimumRangeBonus; } //Consider optimum range bonus.
+                            var barrierReduction = 1.0; if (toTarget.buff.RemoveBarrier()) // Barrier check, true: barrier has, false no barrier.
+                            { barrierReduction = 1.0 / 3.0; if (toTarget.buff.BarrierRemaining <= 0) { toTarget.IsBarrierBrokenJustNow = true; } }
                             else { if (toTarget.IsBarrierExistJustBefore && toTarget.IsBarrierBrokenJustNow == false) { toTarget.IsBarrierBrokenJustNow = true; } } // if barrier is broken within this action, broken check.
 
-                            var buffDamageMagnification = order.Actor.Buff.AttackMagnification / toTarget.Buff.DefenseMagnification; // Buff damage reduction
+                            var buffDamageMagnification = order.Actor.buff.AttackMagnification / toTarget.buff.DefenseMagnification; // Buff damage reduction
                             var dealtDamage = (int)((attackDamage) * damageTypeMagnification * vsOffenseMagnification * vsDefenseMagnification
                                                     * criticalMagnification * optimumRangeBonus * skillOffenseEffectMagnification * skillMagnificationDamage * buffDamageMagnification
                                                     * (Math.Pow(decayDamage, numberOfSuccessAttacks) / decayDamage) * barrierReduction);
@@ -244,42 +244,42 @@ namespace SequenceBreaker._08_Battle
                             totalDealtDamageSum += dealtDamage;
 
                             //Damage calculations 1st shield, and 2nd hitPoint.
-                            if (toTarget.Combat.ShieldCurrent >= dealtDamage) { toTarget.Combat.ShieldCurrent -= dealtDamage; totalDealtToShieldDamageSum += dealtDamage; }// Only shield damaged
+                            if (toTarget.combat.shieldCurrent >= dealtDamage) { toTarget.combat.shieldCurrent -= dealtDamage; totalDealtToShieldDamageSum += dealtDamage; }// Only shield damaged
                             else // shield break
                             {
-                                var remainsDamage = dealtDamage - toTarget.Combat.ShieldCurrent;
-                                totalDealtToShieldDamageSum += toTarget.Combat.ShieldCurrent;
-                                toTarget.Combat.ShieldCurrent = 0;
-                                if (toTarget.Combat.HitPointCurrent > remainsDamage) // hitPoint damage
+                                var remainsDamage = dealtDamage - toTarget.combat.shieldCurrent;
+                                totalDealtToShieldDamageSum += toTarget.combat.shieldCurrent;
+                                toTarget.combat.shieldCurrent = 0;
+                                if (toTarget.combat.hitPointCurrent > remainsDamage) // hitPoint damage
                                 {
-                                    toTarget.Combat.HitPointCurrent -= remainsDamage;
-                                    var deteriorationStabilityReduction = 1.0 - 0.01 * toTarget.Ability.Stability;
+                                    toTarget.combat.hitPointCurrent -= remainsDamage;
+                                    var deteriorationStabilityReduction = 1.0 - 0.01 * toTarget.ability.stability;
                                     toTarget.Deterioration += (1 - toTarget.Deterioration) * deteriorationStabilityReduction * 0.01;
                                 }
                                 else //Crushed!
                                 {
-                                    toTarget.Combat.HitPointCurrent = 0;
+                                    toTarget.combat.hitPointCurrent = 0;
                                     toTarget.IsCrushedJustNow = true;
                                     isNeedCreateTargetPossibilityBox = true;
                                     BattleResult.NumberOfCrushed++;
                                     toTarget.Statistics.NumberOfCrushed++;
                                 }
                             }
-                            totalDealtDamages[toTarget.UniqueID] += dealtDamage;
+                            totalDealtDamages[toTarget.uniqueId] += dealtDamage;
                         }
                     }
                     numberOfHitTotal++;
                 }
                 //Absorb calculation HERE!!
-                if (totalDealtToShieldDamageSum > 0 && order.Actor.Feature.AbsorbShieldRatioCurrent > 0) //only when to shield damage exist and absorb exist.
+                if (totalDealtToShieldDamageSum > 0 && order.Actor.feature.absorbShieldRatioCurrent > 0) //only when to shield damage exist and absorb exist.
                 {
-                    if (order.Actor.Combat.ShieldCurrent < order.Actor.Combat.ShieldMax) // when actor is not full shield 
+                    if (order.Actor.combat.shieldCurrent < order.Actor.combat.shieldMax) // when actor is not full shield 
                     {
-                        healedByAbsorbShield = (int)(totalDealtToShieldDamageSum * order.Actor.Feature.AbsorbShieldRatioCurrent);
-                        if (healedByAbsorbShield > order.Actor.Combat.ShieldMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent) // reached max absorb ratio
-                        { healedByAbsorbShield = (int)(order.Actor.Combat.ShieldMax * order.Actor.Feature.AbsorbShieldMaxRatioCurrent); }
-                        order.Actor.Combat.ShieldCurrent += healedByAbsorbShield;
-                        if (order.Actor.Combat.ShieldCurrent > order.Actor.Combat.ShieldMax) { order.Actor.Combat.ShieldCurrent = order.Actor.Combat.ShieldMax; }
+                        healedByAbsorbShield = (int)(totalDealtToShieldDamageSum * order.Actor.feature.absorbShieldRatioCurrent);
+                        if (healedByAbsorbShield > order.Actor.combat.shieldMax * order.Actor.feature.absorbShieldMaxRatioCurrent) // reached max absorb ratio
+                        { healedByAbsorbShield = (int)(order.Actor.combat.shieldMax * order.Actor.feature.absorbShieldMaxRatioCurrent); }
+                        order.Actor.combat.shieldCurrent += healedByAbsorbShield;
+                        if (order.Actor.combat.shieldCurrent > order.Actor.combat.shieldMax) { order.Actor.combat.shieldCurrent = order.Actor.combat.shieldMax; }
                         // log should show expected total amount of healed value, not actual healed amount.
                     }
                 }
@@ -287,11 +287,11 @@ namespace SequenceBreaker._08_Battle
 
                 // Hate Management
                 double criticalHateAdd = 0; if (criticalReduction > 0) { criticalHateAdd = 30; }
-                double skillHateAdd = 0; if (order.SkillEffectChosen != null) { if (order.SkillEffectChosen.Skill.Name != SkillName.normalAttack) { skillHateAdd = 50; } }
+                double skillHateAdd = 0; if (order.SkillEffectChosen != null) { if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack) { skillHateAdd = 50; } }
                 double crushedHateAdd = 0;
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
-                { if (opponents[fTargetColumn].Combat.HitPointCurrent == 0) { crushedHateAdd += 100; } }
-                order.Actor.Feature.HateCurrent = (numberOfHitTotal / 3.0) + criticalHateAdd + skillHateAdd + crushedHateAdd;
+                { if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushedHateAdd += 100; } }
+                order.Actor.feature.hateCurrent = (numberOfHitTotal / 3.0) + criticalHateAdd + skillHateAdd + crushedHateAdd;
 
                 //Statistics Collection
                 for (var toTargetUniqueId = 0; toTargetUniqueId < totalDealtDamages.Length; toTargetUniqueId++)
@@ -304,7 +304,7 @@ namespace SequenceBreaker._08_Battle
                             characters[toTargetUniqueId].Statistics.CriticalTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.CriticalBeenHitCount++;
                         }
-                        if (order.SkillEffectChosen != null && order.SkillEffectChosen.Skill.Name != SkillName.normalAttack)
+                        if (order.SkillEffectChosen != null && order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
                         {
                             characters[toTargetUniqueId].Statistics.SkillTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.SkillBeenHitCount++;
@@ -327,7 +327,7 @@ namespace SequenceBreaker._08_Battle
 
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.Skill.Name != SkillName.normalAttack)
+                    if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
                     {
                         order.Actor.Statistics.SkillActivatedCount++;
                         order.Actor.Statistics.SkillHitCount += numberOfSuccessAttacks;
@@ -339,55 +339,55 @@ namespace SequenceBreaker._08_Battle
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.Skill.Name != SkillName.normalAttack)
-                    { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.TriggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
+                    if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
+                    { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
                 }
-                string sNumberOfAttacks = null; if (order.Actor.Combat.NumberOfAttacks != 1) { sNumberOfAttacks = "s"; }
+                string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1) { sNumberOfAttacks = "s"; }
                 string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
-                var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.Skill.Name.ToString(); }
+                var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.skill.name.ToString(); }
                 var majorityElement = " [mixed]";
-                if (order.Actor.Combat.KineticAttackRatio > 0.5) { majorityElement = " [Kinetic]"; }
-                if (order.Actor.Combat.ChemicalAttackRatio > 0.5) { majorityElement = " [Chemical]"; }
-                if (order.Actor.Combat.ThermalAttackRatio > 0.5) { majorityElement = " [Thermal]"; }
+                if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic]"; }
+                if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical]"; }
+                if (order.Actor.combat.thermalAttackRatio > 0.5) { majorityElement = " [Thermal]"; }
 
                 string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
-                                + order.Actor.Combat.NumberOfAttacks + "time" + sNumberOfAttacks +
+                                + order.Actor.combat.numberOfAttacks + "time" + sNumberOfAttacks +
                                 " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
                     string crushed = null;
-                    if (opponents[fTargetColumn].Combat.HitPointCurrent == 0) { crushed = " crushed!"; }
-                    if (totalIndividualHits[opponents[fTargetColumn].UniqueID] >= 1)
+                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " crushed!"; }
+                    if (totalIndividualHits[opponents[fTargetColumn].uniqueId] >= 1)
                     {
                         string optimumRangeWords = null;
                         if (opponents[fTargetColumn].IsOptimumTarget) { optimumRangeWords = " *"; }
 
                         string barrierWords = null;
                         if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [Barrier Broken]"; }
-                        else if (opponents[fTargetColumn].Buff.BarrierRemaining > 0) { barrierWords = " [Barriered(" + opponents[fTargetColumn].Buff.BarrierRemaining + ")]"; }
+                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [Barriered(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
 
 //                        var shieldRatio = Math.Round((opponents[fTargetColumn].Combat.ShieldCurrent / (double)opponents[fTargetColumn].Combat.ShieldMax * 100), 0);
 //                        var hpRatio = Math.Round((opponents[fTargetColumn].Combat.HitPointCurrent / (double)opponents[fTargetColumn].Combat.HitPointMax * 100), 0);
-                        var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].UniqueID]
-                                                      / (opponents[fTargetColumn].Combat.ShieldMax + (double)opponents[fTargetColumn].Combat.HitPointMax) * 100), 0);
+                        var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].uniqueId]
+                                                      / (opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
 
                         string s = null;
                         
-                        if (totalIndividualHits[opponents[fTargetColumn].UniqueID] != 1) { s = "s"; }
+                        if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = "s"; }
 //                        var shieldPercentSpace = (3 - shieldRatio.WithComma().Length);
 //                        var hPPercentSpace = (3 - hpRatio.WithComma().Length);
-                        var damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma().Length);
+                        var damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma().Length);
                         if (damageSpace < 0) { damageSpace = 0; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
                         
-                        log += opponents[fTargetColumn].Name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].UniqueID].WithComma() + " damage ("
+                        log += opponents[fTargetColumn].name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage ("
                                + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
-                               + totalIndividualHits[opponents[fTargetColumn].UniqueID] + barrierWords + optimumRangeWords + " \n";
+                               + totalIndividualHits[opponents[fTargetColumn].uniqueId] + barrierWords + optimumRangeWords + " \n";
 
 
 
@@ -396,20 +396,20 @@ namespace SequenceBreaker._08_Battle
 
                     //Check wipe out and should continue the battle
                     WipeOutCheck = new WipeOutCheck(characters);
-                    BattleResult.BattleEnd = WipeOutCheck.BatleEnd;
+                    BattleResult.BattleEnd = WipeOutCheck.BattleEnd;
                     BattleResult.IsAllyWin = WipeOutCheck.IsAllyWin;
                     BattleResult.IsEnemyWin = WipeOutCheck.IsEnemyWin;
                     BattleResult.IsDraw = WipeOutCheck.IsDraw;
-                    BattleResult.TotalDeltDamage = totalDealtDamageSum;
+                    BattleResult.TotalDealtDamage = totalDealtDamageSum;
                 } //fTargetColumn
 
                 if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + "All attacks missed...  \n"; }
 
                 //Absorb log
-                if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.Name + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
+                if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.name + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
 
                 var orderCondition = order.OrderCondition;
-                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, log: log, whichAffiliationAct: order.Actor.Affiliation);
+                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, log: log, whichAffiliationAct: order.Actor.affiliation);
             }
         }
 

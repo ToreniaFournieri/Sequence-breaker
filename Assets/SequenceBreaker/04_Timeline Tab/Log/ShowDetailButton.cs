@@ -16,7 +16,7 @@ sealed public class ShowDetailButton : MonoBehaviour
     public void ShowDetail()
     {
         // pass the value of the result of Battle
-        battleLogEnhancedScrollController.Battle = battle;
+        battleLogEnhancedScrollController.battle = battle;
         battleLogEnhancedScrollController.DrawBattleLog();
 
         battleLog.SetActive(true);

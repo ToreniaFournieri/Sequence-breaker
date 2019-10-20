@@ -351,14 +351,14 @@
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\EnhancedScrollCellView.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\IconSet.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\ShowTargetUnit.cs" />
-    <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\LogListSRIA.cs" />
+    <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\LogListSria.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\LogViewsHolder.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\ShowDetailButton.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\LogButton.cs" />
     <Compile Include="Assets\SequenceBreaker\05_Unit_Calculation\SwitchLayer.cs" />
     <Compile Include="Assets\SequenceBreaker\07_Play\1_View\DemoUI.cs" />
     <Compile Include="Assets\SequenceBreaker\07_Play\1_View\GoScript.cs" />
-    <Compile Include="Assets\SequenceBreaker\07_Play\1_View\MissionListSRIA.cs" />
+    <Compile Include="Assets\SequenceBreaker\07_Play\1_View\MissionListSria.cs" />
     <Compile Include="Assets\SequenceBreaker\07_Play\1_View\MissionUpdateText.cs" />
     <Compile Include="Assets\SequenceBreaker\07_Play\1_View\MissionViewsHolder.cs" />
     <Compile Include="Assets\SequenceBreaker\08_Battle\2_BeforeBattle\EnemyUnitSet.cs" />
@@ -367,8 +367,6 @@
     <Compile Include="Assets\SequenceBreaker\08_Battle\BattleEngine.cs" />
     <Compile Include="Assets\SequenceBreaker\08_Battle\BattleEnvironment.cs" />
     <Compile Include="Assets\SequenceBreaker\08_Battle\BattleLogList.cs" />
-    <Compile Include="Assets\SequenceBreaker\08_Battle\BattleUnitList.cs" />
-    <Compile Include="Assets\SequenceBreaker\08_Battle\OpenSearchBar.cs" />
     <Compile Include="Assets\SequenceBreaker\08_Battle\Others.cs" />
     <Compile Include="Assets\SequenceBreaker\08_Battle\UnitInfoSet.cs" />
     <Compile Include="Assets\SequenceBreaker\09_Drop\DropedItem.cs" />

@@ -11,99 +11,99 @@ namespace I2.Loc
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 
-    public class TranslationJob_Main : TranslationJob
+    public class TranslationJobMain : TranslationJob
     {
-        TranslationJob_WEB mWeb;
-        TranslationJob_POST mPost;
-        TranslationJob_GET mGet;
+        TranslationJobWeb _mWeb;
+        TranslationJobPost _mPost;
+        TranslationJobGet _mGet;
 
         TranslationDictionary _requests;
-        GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
-        public string mErrorMessage;
+        GoogleTranslation.FnOnTranslationReady _onTranslationReady;
+        public string MErrorMessage;
 
-        public TranslationJob_Main(TranslationDictionary requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
+        public TranslationJobMain(TranslationDictionary requests, GoogleTranslation.FnOnTranslationReady onTranslationReady)
         {
             _requests = requests;
-            _OnTranslationReady = OnTranslationReady;
+            _onTranslationReady = onTranslationReady;
 
             //mWeb = new TranslationJob_WEB(requests, OnTranslationReady);
-            mPost = new TranslationJob_POST(requests, OnTranslationReady);
+            _mPost = new TranslationJobPost(requests, onTranslationReady);
         }
 
-        public override eJobState GetState()
+        public override EJobState GetState()
         {
-            if (mWeb != null)
+            if (_mWeb != null)
             {
-                var state = mWeb.GetState();
+                var state = _mWeb.GetState();
                 switch (state)
                 {
-                    case eJobState.Running: return eJobState.Running;
-                    case eJobState.Succeeded:
+                    case EJobState.Running: return EJobState.Running;
+                    case EJobState.Succeeded:
                         {
-                            mJobState = eJobState.Succeeded;
+                            MJobState = EJobState.Succeeded;
                             break;
                         }
-                    case eJobState.Failed:
+                    case EJobState.Failed:
                         {
-                            mWeb.Dispose();
-                            mWeb = null;
-                            mPost = new TranslationJob_POST(_requests, _OnTranslationReady);
+                            _mWeb.Dispose();
+                            _mWeb = null;
+                            _mPost = new TranslationJobPost(_requests, _onTranslationReady);
                             break;
                         }
                 }
             }
-            if (mPost != null)
+            if (_mPost != null)
             {
-                var state = mPost.GetState();
+                var state = _mPost.GetState();
                 switch (state)
                 {
-                    case eJobState.Running: return eJobState.Running;
-                    case eJobState.Succeeded:
+                    case EJobState.Running: return EJobState.Running;
+                    case EJobState.Succeeded:
                         {
-                            mJobState = eJobState.Succeeded;
+                            MJobState = EJobState.Succeeded;
                             break;
                         }
-                    case eJobState.Failed:
+                    case EJobState.Failed:
                         {
-                            mPost.Dispose();
-                            mPost = null;
-                            mGet = new TranslationJob_GET(_requests, _OnTranslationReady);
+                            _mPost.Dispose();
+                            _mPost = null;
+                            _mGet = new TranslationJobGet(_requests, _onTranslationReady);
                             break;
                         }
                 }
             }
-            if (mGet != null)
+            if (_mGet != null)
             {
-                var state = mGet.GetState();
+                var state = _mGet.GetState();
                 switch (state)
                 {
-                    case eJobState.Running: return eJobState.Running;
-                    case eJobState.Succeeded:
+                    case EJobState.Running: return EJobState.Running;
+                    case EJobState.Succeeded:
                         {
-                            mJobState = eJobState.Succeeded;
+                            MJobState = EJobState.Succeeded;
                             break;
                         }
-                    case eJobState.Failed:
+                    case EJobState.Failed:
                         {
-                            mErrorMessage = mGet.mErrorMessage;
-                            if (_OnTranslationReady != null)
-                                _OnTranslationReady(_requests, mErrorMessage);
-                            mGet.Dispose();
-                            mGet = null;
+                            MErrorMessage = _mGet.MErrorMessage;
+                            if (_onTranslationReady != null)
+                                _onTranslationReady(_requests, MErrorMessage);
+                            _mGet.Dispose();
+                            _mGet = null;
                             break;
                         }
                 }
             }
 
-            return mJobState;
+            return MJobState;
         }
 
         public override void Dispose()
         {
-            if (mPost != null) mPost.Dispose();
-            if (mGet != null) mGet.Dispose();
-            mPost = null;
-            mGet = null;
+            if (_mPost != null) _mPost.Dispose();
+            if (_mGet != null) _mGet.Dispose();
+            _mPost = null;
+            _mGet = null;
         }
     }
 }

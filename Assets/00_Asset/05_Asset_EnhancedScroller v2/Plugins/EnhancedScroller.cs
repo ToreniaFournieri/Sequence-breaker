@@ -685,7 +685,7 @@ namespace EnhancedUI.EnhancedScroller
             float scrollerOffset = 0,
             float cellOffset = 0,
             bool useSpacing = true,
-            TweenType tweenType = TweenType.immediate,
+            TweenType tweenType = TweenType.Immediate,
             float tweenTime = 0f,
             Action jumpComplete = null,
             LoopJumpDirectionEnum loopJumpDirection = LoopJumpDirectionEnum.Closest
@@ -915,7 +915,7 @@ namespace EnhancedUI.EnhancedScroller
         {
             for (var i = 0; i < _activeCellViews.Count; i++)
             {
-                if (_activeCellViews[i].dataIndex == dataIndex)
+                if (_activeCellViews[i].DataIndex == dataIndex)
                 {
                     return _activeCellViews[i];
                 }
@@ -1297,7 +1297,7 @@ namespace EnhancedUI.EnhancedScroller
             SmallList<int> remainingCellIndices = new SmallList<int>();
             while (i < _activeCellViews.Count)
             {
-                if (_activeCellViews[i].cellIndex < startIndex || _activeCellViews[i].cellIndex > endIndex)
+                if (_activeCellViews[i].CellIndex < startIndex || _activeCellViews[i].CellIndex > endIndex)
                 {
                     _RecycleCell(_activeCellViews[i]);
                 }
@@ -1305,7 +1305,7 @@ namespace EnhancedUI.EnhancedScroller
                 {
                     // this cell index falls in the new range, so we add its
                     // index to the reusable list
-                    remainingCellIndices.Add(_activeCellViews[i].cellIndex);
+                    remainingCellIndices.Add(_activeCellViews[i].CellIndex);
                     i++;
                 }
             }
@@ -1386,9 +1386,9 @@ namespace EnhancedUI.EnhancedScroller
             cellView.transform.SetParent(_recycledCellViewContainer);
 
             // reset the cellView's properties
-            cellView.dataIndex = 0;
-            cellView.cellIndex = 0;
-            cellView.active = false;
+            cellView.DataIndex = 0;
+            cellView.CellIndex = 0;
+            cellView.Active = false;
 
             if (cellViewVisibilityChanged != null) cellViewVisibilityChanged(cellView);
         }
@@ -1408,9 +1408,9 @@ namespace EnhancedUI.EnhancedScroller
             var cellView = _delegate.GetCellView(this, dataIndex, cellIndex);
 
             // set the cell's properties
-            cellView.cellIndex = cellIndex;
-            cellView.dataIndex = dataIndex;
-            cellView.active = true;
+            cellView.CellIndex = cellIndex;
+            cellView.DataIndex = dataIndex;
+            cellView.Active = true;
 
             // add the cell view to the active container
             cellView.transform.SetParent(_container, false);
@@ -1787,7 +1787,7 @@ namespace EnhancedUI.EnhancedScroller
             EnhancedScrollerCellView cellView = null;
             for (var i = 0; i < _activeCellViews.Count; i++)
             {
-                if (_activeCellViews[i].dataIndex == _snapDataIndex)
+                if (_activeCellViews[i].DataIndex == _snapDataIndex)
                 {
                     cellView = _activeCellViews[i];
                     break;
@@ -1807,39 +1807,39 @@ namespace EnhancedUI.EnhancedScroller
         /// </summary>
         public enum TweenType
         {
-            immediate,
-            linear,
-            spring,
-            easeInQuad,
-            easeOutQuad,
-            easeInOutQuad,
-            easeInCubic,
-            easeOutCubic,
-            easeInOutCubic,
-            easeInQuart,
-            easeOutQuart,
-            easeInOutQuart,
-            easeInQuint,
-            easeOutQuint,
-            easeInOutQuint,
-            easeInSine,
-            easeOutSine,
-            easeInOutSine,
-            easeInExpo,
-            easeOutExpo,
-            easeInOutExpo,
-            easeInCirc,
-            easeOutCirc,
-            easeInOutCirc,
-            easeInBounce,
-            easeOutBounce,
-            easeInOutBounce,
-            easeInBack,
-            easeOutBack,
-            easeInOutBack,
-            easeInElastic,
-            easeOutElastic,
-            easeInOutElastic
+            Immediate,
+            Linear,
+            Spring,
+            EaseInQuad,
+            EaseOutQuad,
+            EaseInOutQuad,
+            EaseInCubic,
+            EaseOutCubic,
+            EaseInOutCubic,
+            EaseInQuart,
+            EaseOutQuart,
+            EaseInOutQuart,
+            EaseInQuint,
+            EaseOutQuint,
+            EaseInOutQuint,
+            EaseInSine,
+            EaseOutSine,
+            EaseInOutSine,
+            EaseInExpo,
+            EaseOutExpo,
+            EaseInOutExpo,
+            EaseInCirc,
+            EaseOutCirc,
+            EaseInOutCirc,
+            EaseInBounce,
+            EaseOutBounce,
+            EaseInOutBounce,
+            EaseInBack,
+            EaseOutBack,
+            EaseInOutBack,
+            EaseInElastic,
+            EaseOutElastic,
+            EaseInOutElastic
         }
 
         private float _tweenTimeLeft;
@@ -1856,7 +1856,7 @@ namespace EnhancedUI.EnhancedScroller
         /// <returns></returns>
         IEnumerator TweenPosition(TweenType tweenType, float time, float start, float end, Action tweenComplete)
         {
-            if (!(tweenType == TweenType.immediate || time == 0))
+            if (!(tweenType == TweenType.Immediate || time == 0))
             {
                 // zero out the velocity
                 _scrollRect.velocity = Vector2.zero;
@@ -1873,38 +1873,38 @@ namespace EnhancedUI.EnhancedScroller
                 {
                     switch (tweenType)
                     {
-                        case TweenType.linear: newPosition = linear(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.spring: newPosition = spring(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInQuad: newPosition = easeInQuad(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutQuad: newPosition = easeOutQuad(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutQuad: newPosition = easeInOutQuad(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInCubic: newPosition = easeInCubic(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutCubic: newPosition = easeOutCubic(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutCubic: newPosition = easeInOutCubic(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInQuart: newPosition = easeInQuart(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutQuart: newPosition = easeOutQuart(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutQuart: newPosition = easeInOutQuart(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInQuint: newPosition = easeInQuint(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutQuint: newPosition = easeOutQuint(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutQuint: newPosition = easeInOutQuint(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInSine: newPosition = easeInSine(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutSine: newPosition = easeOutSine(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutSine: newPosition = easeInOutSine(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInExpo: newPosition = easeInExpo(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutExpo: newPosition = easeOutExpo(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutExpo: newPosition = easeInOutExpo(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInCirc: newPosition = easeInCirc(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutCirc: newPosition = easeOutCirc(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutCirc: newPosition = easeInOutCirc(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInBounce: newPosition = easeInBounce(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutBounce: newPosition = easeOutBounce(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutBounce: newPosition = easeInOutBounce(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInBack: newPosition = easeInBack(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutBack: newPosition = easeOutBack(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutBack: newPosition = easeInOutBack(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInElastic: newPosition = easeInElastic(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeOutElastic: newPosition = easeOutElastic(start, end, (_tweenTimeLeft / time)); break;
-                        case TweenType.easeInOutElastic: newPosition = easeInOutElastic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.Linear: newPosition = Linear(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.Spring: newPosition = Spring(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInQuad: newPosition = EaseInQuad(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutQuad: newPosition = EaseOutQuad(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutQuad: newPosition = EaseInOutQuad(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInCubic: newPosition = EaseInCubic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutCubic: newPosition = EaseOutCubic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutCubic: newPosition = EaseInOutCubic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInQuart: newPosition = EaseInQuart(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutQuart: newPosition = EaseOutQuart(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutQuart: newPosition = EaseInOutQuart(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInQuint: newPosition = EaseInQuint(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutQuint: newPosition = EaseOutQuint(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutQuint: newPosition = EaseInOutQuint(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInSine: newPosition = EaseInSine(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutSine: newPosition = EaseOutSine(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutSine: newPosition = EaseInOutSine(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInExpo: newPosition = EaseInExpo(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutExpo: newPosition = EaseOutExpo(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutExpo: newPosition = EaseInOutExpo(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInCirc: newPosition = EaseInCirc(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutCirc: newPosition = EaseOutCirc(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutCirc: newPosition = EaseInOutCirc(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInBounce: newPosition = EaseInBounce(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutBounce: newPosition = EaseOutBounce(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutBounce: newPosition = EaseInOutBounce(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInBack: newPosition = EaseInBack(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutBack: newPosition = EaseOutBack(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutBack: newPosition = EaseInOutBack(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInElastic: newPosition = EaseInElastic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseOutElastic: newPosition = EaseOutElastic(start, end, (_tweenTimeLeft / time)); break;
+                        case TweenType.EaseInOutElastic: newPosition = EaseInOutElastic(start, end, (_tweenTimeLeft / time)); break;
                     }
 
                     if (loop)
@@ -1949,31 +1949,31 @@ namespace EnhancedUI.EnhancedScroller
         }
 
 
-        private float linear(float start, float end, float val)
+        private float Linear(float start, float end, float val)
         {
             return Mathf.Lerp(start, end, val);
         }
 
-        private static float spring(float start, float end, float val)
+        private static float Spring(float start, float end, float val)
         {
             val = Mathf.Clamp01(val);
             val = (Mathf.Sin(val * Mathf.PI * (0.2f + 2.5f * val * val * val)) * Mathf.Pow(1f - val, 2.2f) + val) * (1f + (1.2f * (1f - val)));
             return start + (end - start) * val;
         }
 
-        private static float easeInQuad(float start, float end, float val)
+        private static float EaseInQuad(float start, float end, float val)
         {
             end -= start;
             return end * val * val + start;
         }
 
-        private static float easeOutQuad(float start, float end, float val)
+        private static float EaseOutQuad(float start, float end, float val)
         {
             end -= start;
             return -end * val * (val - 2) + start;
         }
 
-        private static float easeInOutQuad(float start, float end, float val)
+        private static float EaseInOutQuad(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -1982,20 +1982,20 @@ namespace EnhancedUI.EnhancedScroller
             return -end / 2 * (val * (val - 2) - 1) + start;
         }
 
-        private static float easeInCubic(float start, float end, float val)
+        private static float EaseInCubic(float start, float end, float val)
         {
             end -= start;
             return end * val * val * val + start;
         }
 
-        private static float easeOutCubic(float start, float end, float val)
+        private static float EaseOutCubic(float start, float end, float val)
         {
             val--;
             end -= start;
             return end * (val * val * val + 1) + start;
         }
 
-        private static float easeInOutCubic(float start, float end, float val)
+        private static float EaseInOutCubic(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -2004,20 +2004,20 @@ namespace EnhancedUI.EnhancedScroller
             return end / 2 * (val * val * val + 2) + start;
         }
 
-        private static float easeInQuart(float start, float end, float val)
+        private static float EaseInQuart(float start, float end, float val)
         {
             end -= start;
             return end * val * val * val * val + start;
         }
 
-        private static float easeOutQuart(float start, float end, float val)
+        private static float EaseOutQuart(float start, float end, float val)
         {
             val--;
             end -= start;
             return -end * (val * val * val * val - 1) + start;
         }
 
-        private static float easeInOutQuart(float start, float end, float val)
+        private static float EaseInOutQuart(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -2026,20 +2026,20 @@ namespace EnhancedUI.EnhancedScroller
             return -end / 2 * (val * val * val * val - 2) + start;
         }
 
-        private static float easeInQuint(float start, float end, float val)
+        private static float EaseInQuint(float start, float end, float val)
         {
             end -= start;
             return end * val * val * val * val * val + start;
         }
 
-        private static float easeOutQuint(float start, float end, float val)
+        private static float EaseOutQuint(float start, float end, float val)
         {
             val--;
             end -= start;
             return end * (val * val * val * val * val + 1) + start;
         }
 
-        private static float easeInOutQuint(float start, float end, float val)
+        private static float EaseInOutQuint(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -2048,37 +2048,37 @@ namespace EnhancedUI.EnhancedScroller
             return end / 2 * (val * val * val * val * val + 2) + start;
         }
 
-        private static float easeInSine(float start, float end, float val)
+        private static float EaseInSine(float start, float end, float val)
         {
             end -= start;
             return -end * Mathf.Cos(val / 1 * (Mathf.PI / 2)) + end + start;
         }
 
-        private static float easeOutSine(float start, float end, float val)
+        private static float EaseOutSine(float start, float end, float val)
         {
             end -= start;
             return end * Mathf.Sin(val / 1 * (Mathf.PI / 2)) + start;
         }
 
-        private static float easeInOutSine(float start, float end, float val)
+        private static float EaseInOutSine(float start, float end, float val)
         {
             end -= start;
             return -end / 2 * (Mathf.Cos(Mathf.PI * val / 1) - 1) + start;
         }
 
-        private static float easeInExpo(float start, float end, float val)
+        private static float EaseInExpo(float start, float end, float val)
         {
             end -= start;
             return end * Mathf.Pow(2, 10 * (val / 1 - 1)) + start;
         }
 
-        private static float easeOutExpo(float start, float end, float val)
+        private static float EaseOutExpo(float start, float end, float val)
         {
             end -= start;
             return end * (-Mathf.Pow(2, -10 * val / 1) + 1) + start;
         }
 
-        private static float easeInOutExpo(float start, float end, float val)
+        private static float EaseInOutExpo(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -2087,20 +2087,20 @@ namespace EnhancedUI.EnhancedScroller
             return end / 2 * (-Mathf.Pow(2, -10 * val) + 2) + start;
         }
 
-        private static float easeInCirc(float start, float end, float val)
+        private static float EaseInCirc(float start, float end, float val)
         {
             end -= start;
             return -end * (Mathf.Sqrt(1 - val * val) - 1) + start;
         }
 
-        private static float easeOutCirc(float start, float end, float val)
+        private static float EaseOutCirc(float start, float end, float val)
         {
             val--;
             end -= start;
             return end * Mathf.Sqrt(1 - val * val) + start;
         }
 
-        private static float easeInOutCirc(float start, float end, float val)
+        private static float EaseInOutCirc(float start, float end, float val)
         {
             val /= .5f;
             end -= start;
@@ -2109,14 +2109,14 @@ namespace EnhancedUI.EnhancedScroller
             return end / 2 * (Mathf.Sqrt(1 - val * val) + 1) + start;
         }
 
-        private static float easeInBounce(float start, float end, float val)
+        private static float EaseInBounce(float start, float end, float val)
         {
             end -= start;
             float d = 1f;
-            return end - easeOutBounce(0, end, d - val) + start;
+            return end - EaseOutBounce(0, end, d - val) + start;
         }
 
-        private static float easeOutBounce(float start, float end, float val)
+        private static float EaseOutBounce(float start, float end, float val)
         {
             val /= 1f;
             end -= start;
@@ -2141,15 +2141,15 @@ namespace EnhancedUI.EnhancedScroller
             }
         }
 
-        private static float easeInOutBounce(float start, float end, float val)
+        private static float EaseInOutBounce(float start, float end, float val)
         {
             end -= start;
             float d = 1f;
-            if (val < d / 2) return easeInBounce(0, end, val * 2) * 0.5f + start;
-            else return easeOutBounce(0, end, val * 2 - d) * 0.5f + end * 0.5f + start;
+            if (val < d / 2) return EaseInBounce(0, end, val * 2) * 0.5f + start;
+            else return EaseOutBounce(0, end, val * 2 - d) * 0.5f + end * 0.5f + start;
         }
 
-        private static float easeInBack(float start, float end, float val)
+        private static float EaseInBack(float start, float end, float val)
         {
             end -= start;
             val /= 1;
@@ -2157,7 +2157,7 @@ namespace EnhancedUI.EnhancedScroller
             return end * (val) * val * ((s + 1) * val - s) + start;
         }
 
-        private static float easeOutBack(float start, float end, float val)
+        private static float EaseOutBack(float start, float end, float val)
         {
             float s = 1.70158f;
             end -= start;
@@ -2165,7 +2165,7 @@ namespace EnhancedUI.EnhancedScroller
             return end * ((val) * val * ((s + 1) * val + s) + 1) + start;
         }
 
-        private static float easeInOutBack(float start, float end, float val)
+        private static float EaseInOutBack(float start, float end, float val)
         {
             float s = 1.70158f;
             end -= start;
@@ -2180,7 +2180,7 @@ namespace EnhancedUI.EnhancedScroller
             return end / 2 * ((val) * val * (((s) + 1) * val + s) + 2) + start;
         }
 
-        private static float easeInElastic(float start, float end, float val)
+        private static float EaseInElastic(float start, float end, float val)
         {
             end -= start;
 
@@ -2206,7 +2206,7 @@ namespace EnhancedUI.EnhancedScroller
             return -(a * Mathf.Pow(2, 10 * val) * Mathf.Sin((val * d - s) * (2 * Mathf.PI) / p)) + start;
         }
 
-        private static float easeOutElastic(float start, float end, float val)
+        private static float EaseOutElastic(float start, float end, float val)
         {
             end -= start;
 
@@ -2233,7 +2233,7 @@ namespace EnhancedUI.EnhancedScroller
             return (a * Mathf.Pow(2, -10 * val) * Mathf.Sin((val * d - s) * (2 * Mathf.PI) / p) + end + start);
         }
 
-        private static float easeInOutElastic(float start, float end, float val)
+        private static float EaseInOutElastic(float start, float end, float val)
         {
             end -= start;
 

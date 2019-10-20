@@ -9,36 +9,36 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 {
 
     public LoopListView2 mLoopListView;
-    Button mScrollToButton;
-    Button mExpandAllButton;
-    Button mCollapseAllButton;
-    InputField mScrollToInputItem;
-    InputField mScrollToInputChild;
-    Button mBackButton;
+    Button _mScrollToButton;
+    Button _mExpandAllButton;
+    Button _mCollapseAllButton;
+    InputField _mScrollToInputItem;
+    InputField _mScrollToInputChild;
+    Button _mBackButton;
     // an helper class for TreeView item showing.
-    TreeViewItemCountMgr mTreeItemCountMgr = new TreeViewItemCountMgr();
+    TreeViewItemCountMgr _mTreeItemCountMgr = new TreeViewItemCountMgr();
     //the sticky head item
     public InventoryListItemSubTitle mStickeyHeadItem;
-    RectTransform mStickeyHeadItemRf;
-    float mStickeyHeadItemHeight = -1;
+    RectTransform _mStickeyHeadItemRf;
+    float _mStickeyHeadItemHeight = -1;
 
 
 
     // Use this for initialization
     void Start()
     {
-        mTreeItemCountMgr.Clear();
+        _mTreeItemCountMgr.Clear();
         int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
         //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
         for (int i = 0; i < count; ++i)
         {
             int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
             //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
-            mTreeItemCountMgr.AddTreeItem(childCount, true);
+            _mTreeItemCountMgr.AddTreeItem(childCount, true);
         }
         //initialize the InitListView
         //mTreeItemCountMgr.GetTotalItemAndChildCount() return the total items count in the TreeView, include all TreeItems and all TreeChildItems.
-        mLoopListView.InitListView(mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+        mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
         //mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
         //mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
@@ -51,12 +51,12 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         //mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
         //mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
-        mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+        _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
 
 
         mStickeyHeadItem.Init();
         mStickeyHeadItem.SetClickCallBack(this.OnExpandClicked);
-        mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
+        _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
         mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
         UpdateStickeyHeadPos();
@@ -66,20 +66,20 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 
     public void Initialization()
     {
-        mTreeItemCountMgr.Clear();
+        _mTreeItemCountMgr.Clear();
         int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
         //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
         for (int i = 0; i < count; ++i)
         {
             int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
             //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
-            mTreeItemCountMgr.AddTreeItem(childCount, true);
+            _mTreeItemCountMgr.AddTreeItem(childCount, true);
         }
 
         UpdateStickeyHeadPos();
 
 
-        mTreeItemCountMgr.ToggleItemExpand(0);
+        _mTreeItemCountMgr.ToggleItemExpand(0);
         OnExpandClicked(0);
 
     }
@@ -120,12 +120,12 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         then we should return TreeItem1 to SuperScrollView
        */
 
-        TreeViewItemCountData countData = mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
+        TreeViewItemCountData countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
         if (countData == null)
         {
             return null;
         }
-        int treeItemIndex = countData.mTreeItemIndex;
+        int treeItemIndex = countData.MTreeItemIndex;
         CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
         if (countData.IsChild(index) == false)// if is a TreeItem
         {
@@ -142,8 +142,8 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
             //update the TreeItem's content
             item.UserIntData1 = treeItemIndex;
             item.UserIntData2 = 0;
-            itemScript.mText.text = treeViewItemData.mName;
-            itemScript.SetItemData(treeItemIndex, countData.mIsExpand);
+            itemScript.mText.text = treeViewItemData.MName;
+            itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
             return item;
         }
         else// if is a TreeChildItem
@@ -188,8 +188,8 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
 
     public void OnExpandClicked(int index)
     {
-        mTreeItemCountMgr.ToggleItemExpand(index);
-        mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+        _mTreeItemCountMgr.ToggleItemExpand(index);
+        mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
         mLoopListView.RefreshAllShownItem();
     }
     void OnJumpBtnClicked()
@@ -197,11 +197,11 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         int itemIndex = 0;
         int childIndex = 0;
         int finalIndex = 0;
-        if (int.TryParse(mScrollToInputItem.text, out itemIndex) == false)
+        if (int.TryParse(_mScrollToInputItem.text, out itemIndex) == false)
         {
             return;
         }
-        if (int.TryParse(mScrollToInputChild.text, out childIndex) == false)
+        if (int.TryParse(_mScrollToInputChild.text, out childIndex) == false)
         {
             childIndex = 0;
         }
@@ -209,15 +209,15 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         {
             childIndex = 0;
         }
-        TreeViewItemCountData itemCountData = mTreeItemCountMgr.GetTreeItem(itemIndex);
+        TreeViewItemCountData itemCountData = _mTreeItemCountMgr.GetTreeItem(itemIndex);
         if (itemCountData == null)
         {
             return;
         }
-        int childCount = itemCountData.mChildCount;
-        if (itemCountData.mIsExpand == false || childCount == 0 || childIndex == 0)
+        int childCount = itemCountData.MChildCount;
+        if (itemCountData.MIsExpand == false || childCount == 0 || childIndex == 0)
         {
-            finalIndex = itemCountData.mBeginIndex;
+            finalIndex = itemCountData.MBeginIndex;
         }
         else
         {
@@ -229,30 +229,30 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
             {
                 childIndex = 1;
             }
-            finalIndex = itemCountData.mBeginIndex + childIndex;
+            finalIndex = itemCountData.MBeginIndex + childIndex;
         }
-        mLoopListView.MovePanelToItemIndex(finalIndex, mStickeyHeadItemHeight);
+        mLoopListView.MovePanelToItemIndex(finalIndex, _mStickeyHeadItemHeight);
     }
 
     void OnExpandAllBtnClicked()
     {
-        int count = mTreeItemCountMgr.TreeViewItemCount;
+        int count = _mTreeItemCountMgr.TreeViewItemCount;
         for (int i = 0; i < count; ++i)
         {
-            mTreeItemCountMgr.SetItemExpand(i, true);
+            _mTreeItemCountMgr.SetItemExpand(i, true);
         }
-        mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+        mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
         mLoopListView.RefreshAllShownItem();
     }
 
     void OnCollapseAllBtnClicked()
     {
-        int count = mTreeItemCountMgr.TreeViewItemCount;
+        int count = _mTreeItemCountMgr.TreeViewItemCount;
         for (int i = 0; i < count; ++i)
         {
-            mTreeItemCountMgr.SetItemExpand(i, false);
+            _mTreeItemCountMgr.SetItemExpand(i, false);
         }
-        mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+        mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
         mLoopListView.RefreshAllShownItem();
     }
 
@@ -313,7 +313,7 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         }
         int itemIndex = targetItem.UserIntData1;
         int childIndex = targetItem.UserIntData2;
-        TreeViewItemCountData countData = mTreeItemCountMgr.GetTreeItem(itemIndex);
+        TreeViewItemCountData countData = _mTreeItemCountMgr.GetTreeItem(itemIndex);
         if (countData == null)
         {
             if (isHeadItemVisible)
@@ -322,7 +322,7 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
             }
             return;
         }
-        if (countData.mIsExpand == false || countData.mChildCount == 0)
+        if (countData.MIsExpand == false || countData.MChildCount == 0)
         {
             if (isHeadItemVisible)
             {
@@ -337,13 +337,13 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
         if (mStickeyHeadItem.TreeItemIndex != itemIndex)
         {
             CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
-            mStickeyHeadItem.mText.text = treeViewItemData.mName;
-            mStickeyHeadItem.SetItemData(itemIndex, countData.mIsExpand);
+            mStickeyHeadItem.mText.text = treeViewItemData.MName;
+            mStickeyHeadItem.SetItemData(itemIndex, countData.MIsExpand);
         }
         mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;
         float lastChildPosAbs = -end;
         float lastPadding = targetItem.Padding;
-        if (lastChildPosAbs - lastPadding >= mStickeyHeadItemHeight)
+        if (lastChildPosAbs - lastPadding >= _mStickeyHeadItemHeight)
         {
             return;
         }
@@ -356,13 +356,13 @@ sealed public class CharacterTreeViewWithStickyHeadScript : MonoBehaviour
             }
             lastChildPosAbs += item.ItemSizeWithPadding;
             lastPadding = item.Padding;
-            if (lastChildPosAbs - lastPadding >= mStickeyHeadItemHeight)
+            if (lastChildPosAbs - lastPadding >= _mStickeyHeadItemHeight)
             {
                 return;
             }
         }
-        float y = mStickeyHeadItemHeight - (lastChildPosAbs - lastPadding);
-        mStickeyHeadItemRf.anchoredPosition3D = new Vector3(0, y, 0);
+        float y = _mStickeyHeadItemHeight - (lastChildPosAbs - lastPadding);
+        _mStickeyHeadItemRf.anchoredPosition3D = new Vector3(0, y, 0);
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "debuffTarget-", menuName = "Skill/SubClass/DebuffTargetParameterClass", order = 16)]
 sealed public class DebuffTargetParameterClass : ScriptableObject
@@ -14,13 +15,13 @@ sealed public class DebuffTargetParameterClass : ScriptableObject
     //    this.NumberOfAttackMagnification = numberOfAttackMagnification;
     //}
 
-    public TargetType TargetType;
-    public double BarrierRemaining;
-    public double DefenseMagnification;
-    public double MobilityMagnification;
-    public double AttackMagnification;
-    public double AccuracyMagnification;
-    public double CriticalHitRateMagnification;
-    public double NumberOfAttackMagnification;
+    [FormerlySerializedAs("TargetType")] public TargetType targetType;
+    [FormerlySerializedAs("BarrierRemaining")] public double barrierRemaining;
+    [FormerlySerializedAs("DefenseMagnification")] public double defenseMagnification;
+    [FormerlySerializedAs("MobilityMagnification")] public double mobilityMagnification;
+    [FormerlySerializedAs("AttackMagnification")] public double attackMagnification;
+    [FormerlySerializedAs("AccuracyMagnification")] public double accuracyMagnification;
+    [FormerlySerializedAs("CriticalHitRateMagnification")] public double criticalHitRateMagnification;
+    [FormerlySerializedAs("NumberOfAttackMagnification")] public double numberOfAttackMagnification;
 
 }

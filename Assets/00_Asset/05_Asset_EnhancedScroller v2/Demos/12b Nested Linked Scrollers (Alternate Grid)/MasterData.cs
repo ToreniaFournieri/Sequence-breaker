@@ -9,10 +9,10 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
     {
         // This value will store the position of the detail scroller to be used 
         // when the scroller's cell view is recycled
-        public float normalizedScrollPosition;
+        public float NormalizedScrollPosition;
 
-        public float linkedScrollPosition;
+        public float LinkedScrollPosition;
 
-        public List<DetailData> childData;
+        public List<DetailData> ChildData;
     }
 }

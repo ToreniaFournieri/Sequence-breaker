@@ -22,7 +22,7 @@ namespace EnhancedScrollerDemos.ViewDrivenCellSizes
 
         public void SetData(Data data, bool calculateLayout)
         {
-            someTextText.text = data.someText;
+            someTextText.text = data.SomeText;
 
             // Only calculate the layout on the first pass.
             // This will save processing on subsequent passes.
@@ -32,7 +32,7 @@ namespace EnhancedScrollerDemos.ViewDrivenCellSizes
                 Canvas.ForceUpdateCanvases();         
 
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
-                data.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
         }
     }

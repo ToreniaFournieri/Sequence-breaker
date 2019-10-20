@@ -7,9 +7,9 @@ namespace SuperScrollView
 {
     public class ListItem14Elem
     {
-        public GameObject mRootObj;
-        public Image mIcon;
-        public Text mName;
+        public GameObject MRootObj;
+        public Image MIcon;
+        public Text MName;
     }
     public class ListItem14 : MonoBehaviour
     {
@@ -23,9 +23,9 @@ namespace SuperScrollView
             {
                 Transform tf = transform.GetChild(i);
                 ListItem14Elem elem = new ListItem14Elem();
-                elem.mRootObj = tf.gameObject;
-                elem.mIcon = tf.Find("ItemIcon").GetComponent<Image>();
-                elem.mName = tf.Find("ItemIcon/name").GetComponent<Text>();
+                elem.MRootObj = tf.gameObject;
+                elem.MIcon = tf.Find("ItemIcon").GetComponent<Image>();
+                elem.MName = tf.Find("ItemIcon/name").GetComponent<Text>();
                 mElemItemList.Add(elem);
             }
         }

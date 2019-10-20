@@ -9,35 +9,35 @@ namespace SuperScrollView
     //if GridFixedType is GridFixedType.RowCountFixed, then the GridItemGroup is one column of the gridview
     public class GridItemGroup
     {
-        int mCount = 0;
-        int mGroupIndex = -1;//the row index or the column index of this group
-        LoopGridViewItem mFirst = null;
-        LoopGridViewItem mLast = null;
+        int _mCount = 0;
+        int _mGroupIndex = -1;//the row index or the column index of this group
+        LoopGridViewItem _mFirst = null;
+        LoopGridViewItem _mLast = null;
         public int Count
         {
-            get { return mCount; }
+            get { return _mCount; }
         }
 
         public LoopGridViewItem First
         {
-            get { return mFirst; }
+            get { return _mFirst; }
         }
 
         public LoopGridViewItem Last
         {
-            get { return mLast; }
+            get { return _mLast; }
         }
 
         public int GroupIndex
         {
-            get { return mGroupIndex; }
-            set { mGroupIndex = value; }
+            get { return _mGroupIndex; }
+            set { _mGroupIndex = value; }
         }
 
 
         public LoopGridViewItem GetItemByColumn(int column)
         {
-            LoopGridViewItem cur = mFirst;
+            LoopGridViewItem cur = _mFirst;
             while(cur != null)
             {
                 if(cur.Column == column)
@@ -50,7 +50,7 @@ namespace SuperScrollView
         }
         public LoopGridViewItem GetItemByRow(int row)
         {
-            LoopGridViewItem cur = mFirst;
+            LoopGridViewItem cur = _mFirst;
             while (cur != null)
             {
                 if (cur.Row == row)
@@ -75,13 +75,13 @@ namespace SuperScrollView
             {
                 newItem.NextItem.PrevItem = newItem;
             }
-            if(mFirst == curItem)
+            if(_mFirst == curItem)
             {
-                mFirst = newItem;
+                _mFirst = newItem;
             }
-            if(mLast == curItem)
+            if(_mLast == curItem)
             {
-                mLast = newItem;
+                _mLast = newItem;
             }
         }
 
@@ -89,21 +89,21 @@ namespace SuperScrollView
         {
             newItem.PrevItem = null;
             newItem.NextItem = null;
-            if (mFirst == null)
+            if (_mFirst == null)
             {
-                mFirst = newItem;
-                mLast = newItem;
-                mFirst.PrevItem = null;
-                mFirst.NextItem = null;
-                mCount++;
+                _mFirst = newItem;
+                _mLast = newItem;
+                _mFirst.PrevItem = null;
+                _mFirst.NextItem = null;
+                _mCount++;
             }
             else
             {
-                mFirst.PrevItem = newItem;
+                _mFirst.PrevItem = newItem;
                 newItem.PrevItem = null;
-                newItem.NextItem = mFirst;
-                mFirst = newItem;
-                mCount++;
+                newItem.NextItem = _mFirst;
+                _mFirst = newItem;
+                _mCount++;
             }
         }
 
@@ -111,76 +111,76 @@ namespace SuperScrollView
         {
             newItem.PrevItem = null;
             newItem.NextItem = null;
-            if (mFirst == null)
+            if (_mFirst == null)
             {
-                mFirst = newItem;
-                mLast = newItem;
-                mFirst.PrevItem = null;
-                mFirst.NextItem = null;
-                mCount++;
+                _mFirst = newItem;
+                _mLast = newItem;
+                _mFirst.PrevItem = null;
+                _mFirst.NextItem = null;
+                _mCount++;
             }
             else
             {
-                mLast.NextItem = newItem;
-                newItem.PrevItem = mLast;
+                _mLast.NextItem = newItem;
+                newItem.PrevItem = _mLast;
                 newItem.NextItem = null;
-                mLast = newItem;
-                mCount++;
+                _mLast = newItem;
+                _mCount++;
             }
         }
 
         public LoopGridViewItem RemoveFirst()
         {
-            LoopGridViewItem ret = mFirst;
-            if (mFirst == null)
+            LoopGridViewItem ret = _mFirst;
+            if (_mFirst == null)
             {
                 return ret;
             }
-            if(mFirst == mLast)
+            if(_mFirst == _mLast)
             {
-                mFirst = null;
-                mLast = null;
-                --mCount;
+                _mFirst = null;
+                _mLast = null;
+                --_mCount;
                 return ret;
             }
-            mFirst = mFirst.NextItem;
-            mFirst.PrevItem = null;
-            --mCount;
+            _mFirst = _mFirst.NextItem;
+            _mFirst.PrevItem = null;
+            --_mCount;
             return ret;
         }
         public LoopGridViewItem RemoveLast()
         {
-            LoopGridViewItem ret = mLast;
-            if (mFirst == null)
+            LoopGridViewItem ret = _mLast;
+            if (_mFirst == null)
             {
                 return ret;
             }
-            if (mFirst == mLast)
+            if (_mFirst == _mLast)
             {
-                mFirst = null;
-                mLast = null;
-                --mCount;
+                _mFirst = null;
+                _mLast = null;
+                --_mCount;
                 return ret;
             }
-            mLast = mLast.PrevItem;
-            mLast.NextItem = null;
-            --mCount;
+            _mLast = _mLast.PrevItem;
+            _mLast.NextItem = null;
+            --_mCount;
             return ret;
         }
 
 
         public void Clear()
         {
-            LoopGridViewItem current = mFirst;
+            LoopGridViewItem current = _mFirst;
             while (current != null)
             {
                 current.PrevItem = null;
                 current.NextItem = null;
                 current = current.NextItem;
             }
-            mFirst = null;
-            mLast = null;
-            mCount = 0;
+            _mFirst = null;
+            _mLast = null;
+            _mCount = 0;
         }
 
     }

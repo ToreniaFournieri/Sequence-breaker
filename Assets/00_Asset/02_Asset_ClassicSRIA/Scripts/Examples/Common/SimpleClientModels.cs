@@ -4,19 +4,19 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 {
 	public class SimpleClientModel
 	{
-		public string clientName;
-		public string location;
-		public float availability01, contractChance01, longTermClient01;
-		public bool isOnline;
+		public string ClientName;
+		public string Location;
+		public float Availability01, ContractChance01, LongTermClient01;
+		public bool IsOnline;
 
-		public float AverageScore01 { get { return (availability01 + contractChance01 + longTermClient01) / 3; } }
+		public float AverageScore01 { get { return (Availability01 + ContractChance01 + LongTermClient01) / 3; } }
 
 		public void SetRandom()
 		{
-			availability01 = CUtil.RandF();
-			contractChance01 = CUtil.RandF();
-			longTermClient01 = CUtil.RandF();
-			isOnline = CUtil.Rand(2) == 0;
+			Availability01 = CUtil.RandF();
+			ContractChance01 = CUtil.RandF();
+			LongTermClient01 = CUtil.RandF();
+			IsOnline = CUtil.Rand(2) == 0;
 		}
 	}
 
@@ -24,7 +24,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 	public class ExpandableSimpleClientModel : SimpleClientModel
 	{
 		// View size related
-		public bool expanded;
-		public float nonExpandedSize;
+		public bool Expanded;
+		public float NonExpandedSize;
 	}
 }

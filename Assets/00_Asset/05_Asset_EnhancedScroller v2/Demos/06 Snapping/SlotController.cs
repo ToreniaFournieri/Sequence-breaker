@@ -48,7 +48,7 @@ namespace EnhancedScrollerDemos.SnappingDemo
             // at the sprites from the demo script to this scroller's data cells
             foreach (var slotSprite in sprites)
             {
-                _data.Add(new SlotData() { sprite = slotSprite });
+                _data.Add(new SlotData() { Sprite = slotSprite });
             }
 
             // reload the scroller

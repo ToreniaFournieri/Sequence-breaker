@@ -19,34 +19,34 @@ sealed public class GoScript : MonoBehaviour
         runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
         //Not works well
-        RunBattle _runbattle = runBattle;
+        RunBattle runBattle1 = runBattle;
         //get Mission name
-        string missionName = _runbattle.missionText;
-        string missionLevel = " (lv:" + _runbattle.missionLevel.ToString() + ")";
+        string missionName = runBattle1.missionText;
+        string missionLevel = " (lv:" + runBattle1.missionLevel.ToString() + ")";
 
-        List<GameObject> _battleCopyList = new List<GameObject>();
+        List<GameObject> battleCopyList = new List<GameObject>();
 
 
-        int _wave = 0;
-        foreach (List<KohmaiWorks.Scroller.Data> _data in _runbattle.DataList)
+        int wave = 0;
+        foreach (List<KohmaiWorks.Scroller.Data> data in runBattle1.dataList)
         {
-            _battleCopyList.Add(new GameObject());
-            _battleCopyList[_wave].transform.parent = runBattle.transform;
-            _battleCopyList[_wave].name = runBattle.name + " log:" + DateTime.Now;
-            _battleCopyList[_wave].gameObject.AddComponent<RunBattle>();
+            battleCopyList.Add(new GameObject());
+            battleCopyList[wave].transform.parent = runBattle.transform;
+            battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
+            battleCopyList[wave].gameObject.AddComponent<RunBattle>();
 
-            RunBattle _localRunBattle = _runbattle.Copy(_wave);
+            RunBattle localRunBattle = runBattle1.Copy(wave);
 
-            _battleCopyList[_wave].GetComponent<RunBattle>().Set(_localRunBattle);
+            battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
-            _battleCopyList[_wave].GetComponent<RunBattle>().missionText += " [wave:" + (_wave + 1) + "]";
-            missionController.logList.battleList.Add(_battleCopyList[_wave]);
-            missionController.logList.ChangeModelsAndReset(missionController.logList.battleList.Count + 1 - 1);
+            battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
+            missionController.logListSria.battleList.Add(battleCopyList[wave]);
+            missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
 
-            missionController.allyCurrentBattleUnitList = _localRunBattle.currentAllyUnitList;
+            missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
             missionController.UpdatePartyStatus();
 
-            _wave += 1;
+            wave += 1;
 
         }
 
@@ -55,45 +55,45 @@ sealed public class GoScript : MonoBehaviour
         List<Item> itemList = new List<Item>();
         DropEngine dropEngine = new DropEngine();
 
-        _wave = 0;
-        foreach (GameObject _battleCopy in _battleCopyList)
+        wave = 0;
+        foreach (GameObject battleCopy in battleCopyList)
         {
-            if (_battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.allyWin)
+            if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
             {
                 int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
-                foreach (EnemyUnitSet _enemyUnitSet in _battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+                foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
                 {
-                    List<Item> _itemlist = dropEngine.GetDropedItems(enemyUnitList: _enemyUnitSet.enemyUnitList, seed: seed);
+                    List<Item> itemlist = dropEngine.GetDropedItems(enemyUnitList: enemyUnitSet.enemyUnitList, seed: seed);
 
-                    foreach (Item _item in _itemlist)
+                    foreach (Item item in itemlist)
                     {
-                        itemList.Add(_item);
+                        itemList.Add(item);
                     }
 
                     // Exp gain, not use copy data! lost reference means worthlesss.
-                    int _experience = 0;
-                    foreach (UnitClass _enemyUnit in _enemyUnitSet.enemyUnitList)
+                    int experience = 0;
+                    foreach (UnitClass enemyUnit in enemyUnitSet.enemyUnitList)
                     {
-                        _experience += _enemyUnit.ExperienceFromBeaten();
+                        experience += enemyUnit.ExperienceFromBeaten();
                     }
 
                     // Distribution, not use copied data! lost reference means worthlesss.
-                    _experience = (int)(_experience / missionController.allyUnitList.Count);
+                    experience = (int)(experience / missionController.allyUnitList.Count);
 
-                    foreach (UnitClass _allyUnit in missionController.allyUnitList)
+                    foreach (UnitClass allyUnit in missionController.allyUnitList)
                     {
-                        _allyUnit.GainExperience(_experience);
+                        allyUnit.GainExperience(experience);
                     }
 
                 }
 
             }
 
-            missionController.TransparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
-                + " wave:" + (_wave + 1) + " [" + _battleCopy.GetComponent<RunBattle>().whichWinEachWaves[_wave] + "] ";
+            missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
+                + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
 
 
-            _wave += 1;
+            wave += 1;
         }
 
 
@@ -110,7 +110,7 @@ sealed public class GoScript : MonoBehaviour
             //copyedItem = item.Copy();
             //dropedItem.item = null;
             //dropedItem.SetItem(item);
-            missionController.TransparentMessageController.transparentText.text += "\n " + "[P1] " + item.itemName;
+            missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
             //missionController.inventoryManager.inventoryScrollList.AddItem(item.Copy());
             //Debug.Log(" Droped:" + item.itemName);
         }
@@ -120,7 +120,7 @@ sealed public class GoScript : MonoBehaviour
         //missionController.inventoryManager.inventoryScrollList.RefreshDisplay();
         //missionController.inventoryManager.inventoryScrollList.Save(missionController.inventoryManager.inventoryScrollList);
 
-        missionController.TransparentMessageController.transparentMessage.SetActive(true);
+        missionController.transparentMessageController.transparentMessage.SetActive(true);
 
 
 

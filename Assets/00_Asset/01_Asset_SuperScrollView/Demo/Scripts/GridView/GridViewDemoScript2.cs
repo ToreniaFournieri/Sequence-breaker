@@ -9,13 +9,13 @@ namespace SuperScrollView
     public class GridViewDemoScript2 : MonoBehaviour
     {
         public LoopGridView mLoopGridView;
-        Button mScrollToButton;
-        Button mAddItemButton;
-        Button mSetCountButton;
-        InputField mScrollToInput;
-        InputField mAddItemInput;
-        InputField mSetCountInput;
-        Button mBackButton;
+        Button _mScrollToButton;
+        Button _mAddItemButton;
+        Button _mSetCountButton;
+        InputField _mScrollToInput;
+        InputField _mAddItemInput;
+        InputField _mSetCountInput;
+        Button _mBackButton;
 
         // Use this for initialization
         void Start()
@@ -29,17 +29,17 @@ namespace SuperScrollView
             mLoopGridView.InitGridView(DataSourceMgr.Get.TotalItemCount, OnGetItemByIndex, settingParam);
             */
             mLoopGridView.InitGridView(DataSourceMgr.Get.TotalItemCount, OnGetItemByRowColumn);
-            mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
-            mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
-            mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
+            _mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
+            _mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
         void OnBackBtnClicked()
@@ -79,7 +79,7 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }
@@ -90,7 +90,7 @@ namespace SuperScrollView
         void OnAddItemBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mAddItemInput.text, out count) == false)
+            if (int.TryParse(_mAddItemInput.text, out count) == false)
             {
                 return;
             }
@@ -100,7 +100,7 @@ namespace SuperScrollView
         void OnSetItemCountBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mSetCountInput.text, out count) == false)
+            if (int.TryParse(_mSetCountInput.text, out count) == false)
             {
                 return;
             }

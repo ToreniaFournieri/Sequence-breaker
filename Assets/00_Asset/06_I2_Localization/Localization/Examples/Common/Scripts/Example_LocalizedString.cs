@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace I2.Loc
 {
-    public class Example_LocalizedString : MonoBehaviour
+    public class ExampleLocalizedString : MonoBehaviour
     {
-        public LocalizedString _MyLocalizedString;      // This string sets a Term in the inspector, but returns its translation
+        [FormerlySerializedAs("_MyLocalizedString")] public LocalizedString myLocalizedString;      // This string sets a Term in the inspector, but returns its translation
 
-        public string _NormalString;                    // This is regular string to see that the LocalizedString has a custom inspector, but this shows only a textField
+        [FormerlySerializedAs("_NormalString")] public string normalString;                    // This is regular string to see that the LocalizedString has a custom inspector, but this shows only a textField
 
-        [TermsPopup]
-        public string _StringWithTermPopup;             // Example of making a normal string that show as a popup with all the terms in the inspector
+        [FormerlySerializedAs("_StringWithTermPopup")] [TermsPopup]
+        public string stringWithTermPopup;             // Example of making a normal string that show as a popup with all the terms in the inspector
 
         public void Start()
         {
@@ -17,9 +18,9 @@ namespace I2.Loc
 
             // Basic Example of using LocalizedString in the Inspector
             // Just change the Term in the inspector, and use this to access the term translation
-            Debug.Log(_MyLocalizedString);
-            Debug.Log(LocalizationManager.GetTranslation(_NormalString));         // regular strings need to manually call GetTranslation()
-            Debug.Log(LocalizationManager.GetTranslation(_StringWithTermPopup));  // same here, given that this string just have a custom inspector
+            Debug.Log(myLocalizedString);
+            Debug.Log(LocalizationManager.GetTranslation(normalString));         // regular strings need to manually call GetTranslation()
+            Debug.Log(LocalizationManager.GetTranslation(stringWithTermPopup));  // same here, given that this string just have a custom inspector
 
 
 
@@ -31,7 +32,7 @@ namespace I2.Loc
 
 
             // Assigning a LocalizedString to another LocalizedString, copies the reference to its term
-            LocalizedString locString1 = _MyLocalizedString;
+            LocalizedString locString1 = myLocalizedString;
             Debug.Log(locString1);
 
 
@@ -42,14 +43,14 @@ namespace I2.Loc
             LocalizedString customString = "Term3";
             Debug.Log(customString);
 
-            LocalizedString customNoRTL = "Term3";
-            customNoRTL.mRTL_IgnoreArabicFix = true;
-            Debug.Log(customNoRTL);
+            LocalizedString customNoRtl = "Term3";
+            customNoRtl.mRtlIgnoreArabicFix = true;
+            Debug.Log(customNoRtl);
 
 
             LocalizedString customString1 = "Term3";
-            customString1.mRTL_ConvertNumbers = true;
-            customString1.mRTL_MaxLineLength = 20;
+            customString1.mRtlConvertNumbers = true;
+            customString1.mRtlMaxLineLength = 20;
             Debug.Log(customString1);
 
 

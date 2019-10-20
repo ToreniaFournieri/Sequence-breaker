@@ -33,7 +33,7 @@ sealed public class PartyStatusIcons : MonoBehaviour
             allyUnitIconObjectPool.ReturnObject(toRemove);
         }
 
-        foreach (BattleUnit _battleUnit in missionController.allyCurrentBattleUnitList)
+        foreach (BattleUnit battleUnit in missionController.allyCurrentBattleUnitList)
             //foreach (BattleUnit _battleUnit in partyBattleUnitList)
         {
             GameObject newPanel = allyUnitIconObjectPool.GetObject();
@@ -42,13 +42,13 @@ sealed public class PartyStatusIcons : MonoBehaviour
 
 
             //three
-            Image[] _imageArray = newPanel.GetComponentsInChildren<Image>();
+            Image[] imageArray = newPanel.GetComponentsInChildren<Image>();
 
 
             // 1 is Shield bar
-            _imageArray[1].fillAmount = (float)_battleUnit.Combat.ShieldCurrent / (float)_battleUnit.Combat.ShieldMax;
+            imageArray[1].fillAmount = (float)battleUnit.combat.shieldCurrent / (float)battleUnit.combat.shieldMax;
             // 2 is HP bar
-            _imageArray[2].fillAmount = (float)_battleUnit.Combat.HitPointCurrent / (float)_battleUnit.Combat.HitPointMax;
+            imageArray[2].fillAmount = (float)battleUnit.combat.hitPointCurrent / (float)battleUnit.combat.hitPointMax;
 
             // 3 is icon?
 

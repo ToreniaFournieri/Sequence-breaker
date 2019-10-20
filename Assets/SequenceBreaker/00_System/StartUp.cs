@@ -23,7 +23,7 @@ sealed public class StartUp : MonoBehaviour
     void Start()
     {
         //inventory
-        inventory.itemList = itemDataBase.LoadItemList("item-" + inventory.Affiliation + "-" + inventory.UniqueID);
+        inventory.itemList = itemDataBase.LoadItemList("item-" + inventory.affiliation + "-" + inventory.uniqueId);
 
 
         //ally unit load
@@ -31,7 +31,7 @@ sealed public class StartUp : MonoBehaviour
         {
             if (unit != null)
             {
-                unit.itemList = itemDataBase.LoadItemList("item-" + unit.Affiliation + "-" + unit.UniqueID);
+                unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
             }
         }
 

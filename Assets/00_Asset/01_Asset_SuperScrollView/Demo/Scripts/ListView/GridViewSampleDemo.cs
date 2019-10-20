@@ -9,13 +9,13 @@ namespace SuperScrollView
     public class GridViewSampleDemo : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        const int mItemCountPerRow = 3;// how many items in one row
-        int mItemTotalCount = 100; //total item count in the GridView
+        const int MItemCountPerRow = 3;// how many items in one row
+        int _mItemTotalCount = 100; //total item count in the GridView
 
         void Start()
         {
-            int count = mItemTotalCount / mItemCountPerRow;
-            if (mItemTotalCount % mItemCountPerRow > 0)
+            int count = _mItemTotalCount / MItemCountPerRow;
+            if (_mItemTotalCount % MItemCountPerRow > 0)
             {
                 count++;
             }
@@ -54,10 +54,10 @@ namespace SuperScrollView
                 itemScript.Init();
             }
             //update all items in the row
-            for (int i = 0; i < mItemCountPerRow; ++i)
+            for (int i = 0; i < MItemCountPerRow; ++i)
             {
-                int itemIndex = rowIndex * mItemCountPerRow + i;
-                if (itemIndex >= mItemTotalCount)
+                int itemIndex = rowIndex * MItemCountPerRow + i;
+                if (itemIndex >= _mItemTotalCount)
                 {
                     itemScript.mItemList[i].gameObject.SetActive(false);
                     continue;

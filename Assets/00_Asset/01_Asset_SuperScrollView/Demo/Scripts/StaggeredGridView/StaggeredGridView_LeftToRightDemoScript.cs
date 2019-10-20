@@ -6,40 +6,40 @@ using UnityEngine.UI;
 namespace SuperScrollView
 {
 
-    public class StaggeredGridView_LeftToRightDemoScript : MonoBehaviour
+    public class StaggeredGridViewLeftToRightDemoScript : MonoBehaviour
     {
         public LoopStaggeredGridView mLoopListView;
 
-        Button mScrollToButton;
-        Button mAddItemButton;
-        Button mSetCountButton;
-        InputField mScrollToInput;
-        InputField mAddItemInput;
-        InputField mSetCountInput;
-        Button mBackButton;
-        int[] mItemWidthArrayForDemo = null;
+        Button _mScrollToButton;
+        Button _mAddItemButton;
+        Button _mSetCountButton;
+        InputField _mScrollToInput;
+        InputField _mAddItemInput;
+        InputField _mSetCountInput;
+        Button _mBackButton;
+        int[] _mItemWidthArrayForDemo = null;
 
         // Use this for initialization
         void Start()
         {
-            mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
-            mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
-            mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mAddItemButton = GameObject.Find("ButtonPanel/buttonGroup3/AddItemButton").GetComponent<Button>();
+            _mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
+            _mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
             InitItemHeightArrayForDemo();
 
             GridViewLayoutParam param = new GridViewLayoutParam();
-            param.mPadding1 = 10;
-            param.mPadding2 = 10;
-            param.mColumnOrRowCount = 2;
-            param.mItemWidthOrHeight = 219f;
+            param.MPadding1 = 10;
+            param.MPadding2 = 10;
+            param.MColumnOrRowCount = 2;
+            param.MItemWidthOrHeight = 219f;
             mLoopListView.InitListView(DataSourceMgr.Get.TotalItemCount, param, OnGetItemByIndex);
         }
 
@@ -65,7 +65,7 @@ namespace SuperScrollView
 
             itemScript.SetItemData(itemData, index);
 
-            float itemWidth = 390 + mItemWidthArrayForDemo[index % mItemWidthArrayForDemo.Length] * 10f;
+            float itemWidth = 390 + _mItemWidthArrayForDemo[index % _mItemWidthArrayForDemo.Length] * 10f;
             item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemWidth);
 
             return item;
@@ -74,10 +74,10 @@ namespace SuperScrollView
 
         void InitItemHeightArrayForDemo()
         {
-            mItemWidthArrayForDemo = new int[100];
-            for (int i = 0; i < mItemWidthArrayForDemo.Length; ++i)
+            _mItemWidthArrayForDemo = new int[100];
+            for (int i = 0; i < _mItemWidthArrayForDemo.Length; ++i)
             {
-                mItemWidthArrayForDemo[i] = Random.Range(0, 20);
+                _mItemWidthArrayForDemo[i] = Random.Range(0, 20);
             }
         }
         void OnBackBtnClicked()
@@ -88,7 +88,7 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }
@@ -102,7 +102,7 @@ namespace SuperScrollView
         void OnAddItemBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mAddItemInput.text, out count) == false)
+            if (int.TryParse(_mAddItemInput.text, out count) == false)
             {
                 return;
             }
@@ -117,7 +117,7 @@ namespace SuperScrollView
         void OnSetItemCountBtnClicked()
         {
             int count = 0;
-            if (int.TryParse(mSetCountInput.text, out count) == false)
+            if (int.TryParse(_mSetCountInput.text, out count) == false)
             {
                 return;
             }

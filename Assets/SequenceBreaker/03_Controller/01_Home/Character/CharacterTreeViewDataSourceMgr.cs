@@ -6,10 +6,10 @@ using SuperScrollView;
 
 sealed public class CharacterTreeViewItemData
 {
-    public string mName;
-    public string mIcon;
+    public string MName;
+    public string MIcon;
 
-    List<Item> mChildItemDataList = new List<Item>();
+    List<Item> _mChildItemDataList = new List<Item>();
 
     //public CharacterStatusDisplay characterStatusDisplay;
 
@@ -17,20 +17,20 @@ sealed public class CharacterTreeViewItemData
 
     public int ChildCount
     {
-        get { return mChildItemDataList.Count; }
+        get { return _mChildItemDataList.Count; }
     }
 
     public void AddChild(Item data)
     {
-        mChildItemDataList.Add(data);
+        _mChildItemDataList.Add(data);
     }
     public Item GetChild(int index)
     {
-        if (index < 0 || index >= mChildItemDataList.Count)
+        if (index < 0 || index >= _mChildItemDataList.Count)
         {
             return null;
         }
-        return mChildItemDataList[index];
+        return _mChildItemDataList[index];
     }
 }
 
@@ -45,10 +45,10 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     // other inventory
     public InventoryTreeViewDataSourceMgr otherInventoryTreeViewDataSourceMgr;
 
-    List<CharacterTreeViewItemData> mItemDataList = new List<CharacterTreeViewItemData>();
+    List<CharacterTreeViewItemData> _mItemDataList = new List<CharacterTreeViewItemData>();
 
-    static CharacterTreeViewDataSourceMgr instance = null;
-    int mTreeViewItemCount = 1;
+    static CharacterTreeViewDataSourceMgr _instance = null;
+    int _mTreeViewItemCount = 1;
     //int mTreeViewChildItemCount = 10;
 
 
@@ -59,11 +59,11 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = Object.FindObjectOfType<CharacterTreeViewDataSourceMgr>();
+                _instance = Object.FindObjectOfType<CharacterTreeViewDataSourceMgr>();
             }
-            return instance;
+            return _instance;
         }
 
     }
@@ -89,11 +89,11 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
 
     public CharacterTreeViewItemData GetItemDataByIndex(int index)
     {
-        if (index < 0 || index >= mItemDataList.Count)
+        if (index < 0 || index >= _mItemDataList.Count)
         {
             return null;
         }
-        return mItemDataList[index];
+        return _mItemDataList[index];
     }
 
     public Item GetItemChildDataByIndex(int itemIndex, int childIndex)
@@ -110,7 +110,7 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            return mItemDataList.Count;
+            return _mItemDataList.Count;
         }
     }
 
@@ -118,11 +118,11 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            int count = mItemDataList.Count;
+            int count = _mItemDataList.Count;
             int totalCount = 0;
             for (int i = 0; i < count; ++i)
             {
-                totalCount = totalCount + mItemDataList[i].ChildCount;
+                totalCount = totalCount + _mItemDataList[i].ChildCount;
             }
             return totalCount;
         }
@@ -161,23 +161,23 @@ sealed public class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
 
 
-        mItemDataList.Clear();
-        for (int i = 0; i < mTreeViewItemCount; ++i)
+        _mItemDataList.Clear();
+        for (int i = 0; i < _mTreeViewItemCount; ++i)
         {
             CharacterTreeViewItemData tData = new CharacterTreeViewItemData();
-            tData.mName = "Character";
+            tData.MName = "Character";
             //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-            tData.mIcon = "1";
-            mItemDataList.Add(tData);
+            tData.MIcon = "1";
+            _mItemDataList.Add(tData);
             //int childCount = mTreeViewChildItemCount;
 
 
-            foreach (Item _item in characterStatusDisplay.GetItemList())
+            foreach (Item item in characterStatusDisplay.GetItemList())
             {
-                if (_item != null)
+                if (item != null)
                 {
                     //Debug.Log("characterStatusDisplay.itemList :" + _item.itemName);
-                    tData.AddChild(_item);
+                    tData.AddChild(item);
                 }
             }
 

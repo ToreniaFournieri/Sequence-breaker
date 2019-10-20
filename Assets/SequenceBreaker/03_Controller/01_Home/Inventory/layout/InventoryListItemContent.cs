@@ -20,7 +20,7 @@ sealed public class InventoryListItemContent : MonoBehaviour
     // Detail button = Detail Flag, handler
     //public GameObject detailFlag;
     // detail Flag click
-    Action<Item> mClickItemDetailHandler;
+    Action<Item> _mClickItemDetailHandler;
     // button in detailFlag
     public Button detailFlag;
 
@@ -41,8 +41,8 @@ sealed public class InventoryListItemContent : MonoBehaviour
     public GameObject itemDetailView;
 
 
-    int mItemDataIndex = -1;
-    int mChildDataIndex = -1;
+    int _mItemDataIndex = -1;
+    int _mChildDataIndex = -1;
 
     public void Init()
     {
@@ -62,19 +62,19 @@ sealed public class InventoryListItemContent : MonoBehaviour
 
     public void SetClickCallBack(Action<Item> clickHandler)
     {
-        mClickItemDetailHandler = clickHandler;
+        _mClickItemDetailHandler = clickHandler;
     }
 
     // item detail button clicked
     void OnButtonClicked()
     {
 
-        if (mClickItemDetailHandler != null)
+        if (_mClickItemDetailHandler != null)
         {
 
             // Popup message set
-            Text _detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
-            _detailText.text = item.GetItemDetailDescription();
+            Text detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
+            detailText.text = item.GetItemDetailDescription();
             itemDetailView.SetActive(true);
             itemDetailView.transform.SetAsLastSibling();
 
@@ -147,16 +147,16 @@ sealed public class InventoryListItemContent : MonoBehaviour
 
 
 
-    public void SetItemData(Item _item, int itemIndex, int childIndex)
+    public void SetItemData(Item item, int itemIndex, int childIndex)
     {
-        mItemDataIndex = itemIndex;
-        mChildDataIndex = childIndex;
-        mNameText.text = _item.itemName;
+        _mItemDataIndex = itemIndex;
+        _mChildDataIndex = childIndex;
+        mNameText.text = item.ItemName;
         //mDescText.text = itemData.mFileSize.ToString() + "KB";
-        mDescriptionText.text = _item.itemDescription;
+        mDescriptionText.text = item.ItemDescription;
         //mIcon.sprite = null;
 
-        this.item = _item;
+        this.item = item;
         //mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
         //SetStarCount(itemData.mStarCount);
     }

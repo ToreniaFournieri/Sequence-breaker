@@ -14,25 +14,25 @@ namespace I2.Loc
 
     public class TranslationJob : IDisposable
     {
-        public eJobState mJobState = eJobState.Running;
+        public EJobState MJobState = EJobState.Running;
 
-        public enum eJobState { Running, Succeeded, Failed };
+        public enum EJobState { Running, Succeeded, Failed };
 
-        public virtual eJobState GetState() { return mJobState; }
+        public virtual EJobState GetState() { return MJobState; }
 
         public virtual void Dispose() { }
 
     }
 
-    public class TranslationJob_WWW : TranslationJob
+    public class TranslationJobWww : TranslationJob
     {
-        public UnityWebRequest www;
+        public UnityWebRequest Www;
 
         public override void Dispose()
         {
-            if (www!=null)
-                www.Dispose();
-            www = null;
+            if (Www!=null)
+                Www.Dispose();
+            Www = null;
         }
 
     }

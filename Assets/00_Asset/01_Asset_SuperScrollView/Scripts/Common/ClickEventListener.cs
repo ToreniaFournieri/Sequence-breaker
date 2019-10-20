@@ -17,70 +17,70 @@ namespace SuperScrollView
             return listener;
         }
 
-        System.Action<GameObject> mClickedHandler = null;
-        System.Action<GameObject> mDoubleClickedHandler = null;
-        System.Action<GameObject> mOnPointerDownHandler = null;
-        System.Action<GameObject> mOnPointerUpHandler = null;
-        bool mIsPressed = false;
+        System.Action<GameObject> _mClickedHandler = null;
+        System.Action<GameObject> _mDoubleClickedHandler = null;
+        System.Action<GameObject> _mOnPointerDownHandler = null;
+        System.Action<GameObject> _mOnPointerUpHandler = null;
+        bool _mIsPressed = false;
 
         public bool IsPressd
         {
-            get { return mIsPressed; }
+            get { return _mIsPressed; }
         }
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.clickCount == 2)
             {
-                if (mDoubleClickedHandler != null)
+                if (_mDoubleClickedHandler != null)
                 {
-                    mDoubleClickedHandler(gameObject);
+                    _mDoubleClickedHandler(gameObject);
                 }
             }
             else
             {
-                if (mClickedHandler != null)
+                if (_mClickedHandler != null)
                 {
-                    mClickedHandler(gameObject);
+                    _mClickedHandler(gameObject);
                 }
             }
 
         }
         public void SetClickEventHandler(System.Action<GameObject> handler)
         {
-            mClickedHandler = handler;
+            _mClickedHandler = handler;
         }
 
         public void SetDoubleClickEventHandler(System.Action<GameObject> handler)
         {
-            mDoubleClickedHandler = handler;
+            _mDoubleClickedHandler = handler;
         }
 
         public void SetPointerDownHandler(System.Action<GameObject> handler)
         {
-            mOnPointerDownHandler = handler;
+            _mOnPointerDownHandler = handler;
         }
 
         public void SetPointerUpHandler(System.Action<GameObject> handler)
         {
-            mOnPointerUpHandler = handler;
+            _mOnPointerUpHandler = handler;
         }
 
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            mIsPressed = true;
-            if (mOnPointerDownHandler != null)
+            _mIsPressed = true;
+            if (_mOnPointerDownHandler != null)
             {
-                mOnPointerDownHandler(gameObject);
+                _mOnPointerDownHandler(gameObject);
             }
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            mIsPressed = false;
-            if (mOnPointerUpHandler != null)
+            _mIsPressed = false;
+            if (_mOnPointerUpHandler != null)
             {
-                mOnPointerUpHandler(gameObject);
+                _mOnPointerUpHandler(gameObject);
             }
         }
 

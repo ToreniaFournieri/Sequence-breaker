@@ -10,9 +10,9 @@ namespace I2.Loc
 			if (string.IsNullOrEmpty(Localize.MainTranslation))
 				return;
 			
-			string PlayerColor = LocalizationManager.GetTranslation( "Color/Red" );
+			string playerColor = LocalizationManager.GetTranslation( "Color/Red" );
 			
-			Localize.MainTranslation = Localize.MainTranslation.Replace("{PLAYER_COLOR}", PlayerColor);
+			Localize.MainTranslation = Localize.MainTranslation.Replace("{PLAYER_COLOR}", playerColor);
 		}
 	}
 }

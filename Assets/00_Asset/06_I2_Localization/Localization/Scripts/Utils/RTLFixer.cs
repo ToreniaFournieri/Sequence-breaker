@@ -5,7 +5,7 @@ using System.Linq;
 namespace I2.Loc
 {
 
-    public class RTLFixer
+    public class RtlFixer
     {
         /// <summary>
         /// Fix the specified string.
@@ -67,8 +67,8 @@ namespace I2.Loc
             var newStr = HindiFixer.Fix(str);
             if (newStr != str)
                 return newStr;
-            RTLFixerTool.showTashkeel = showTashkeel;
-            RTLFixerTool.useHinduNumbers = useHinduNumbers;
+            RtlFixerTool.ShowTashkeel = showTashkeel;
+            RtlFixerTool.UseHinduNumbers = useHinduNumbers;
 
             if (str.Contains("\n"))
                 str = str.Replace("\n", Environment.NewLine);
@@ -79,18 +79,18 @@ namespace I2.Loc
                 string[] strSplit = str.Split(stringSeparators, StringSplitOptions.None);
 
                 if (strSplit.Length == 0)
-                    return RTLFixerTool.FixLine(str);
+                    return RtlFixerTool.FixLine(str);
                 else if (strSplit.Length == 1)
-                    return RTLFixerTool.FixLine(str);
+                    return RtlFixerTool.FixLine(str);
                 else
                 {
-                    string outputString = RTLFixerTool.FixLine(strSplit[0]);
+                    string outputString = RtlFixerTool.FixLine(strSplit[0]);
                     int iteration = 1;
                     if (strSplit.Length > 1)
                     {
                         while (iteration < strSplit.Length)
                         {
-                            outputString += Environment.NewLine + RTLFixerTool.FixLine(strSplit[iteration]);
+                            outputString += Environment.NewLine + RtlFixerTool.FixLine(strSplit[iteration]);
                             iteration++;
                         }
                     }
@@ -99,7 +99,7 @@ namespace I2.Loc
             }
             else
             {
-                return RTLFixerTool.FixLine(str);
+                return RtlFixerTool.FixLine(str);
             }
 
         }
@@ -123,7 +123,7 @@ namespace I2.Loc
         Ta = 0xFE95,
         Tha2 = 0xFE99,
         Jeem = 0xFE9D,
-        H7aa = 0xFEA1,
+        H7Aa = 0xFEA1,
         Khaa2 = 0xFEA5,
         Dal = 0xFEA9,
         Thal = 0xFEAB,
@@ -131,10 +131,10 @@ namespace I2.Loc
         Zeen = 0xFEAF,
         Seen = 0xFEB1,
         Sheen = 0xFEB5,
-        S9a = 0xFEB9,
+        S9A = 0xFEB9,
         Dha = 0xFEBD,
-        T6a = 0xFEC1,
-        T6ha = 0xFEC5,
+        T6A = 0xFEC1,
+        T6Ha = 0xFEC5,
         Ain = 0xFEC9,
         Gain = 0xFECD,
         Fa = 0xFED1,
@@ -172,7 +172,7 @@ namespace I2.Loc
         Ta = 0x062A,
         Tha2 = 0x062B,
         Jeem = 0x062C,
-        H7aa = 0x062D,
+        H7Aa = 0x062D,
         Khaa2 = 0x062E,
         Dal = 0x062F,
         Thal = 0x0630,
@@ -180,10 +180,10 @@ namespace I2.Loc
         Zeen = 0x0632,
         Seen = 0x0633,
         Sheen = 0x0634,
-        S9a = 0x0635,
+        S9A = 0x0635,
         Dha = 0x0636,
-        T6a = 0x0637,
-        T6ha = 0x0638,
+        T6A = 0x0637,
+        T6Ha = 0x0638,
         Ain = 0x0639,
         Gain = 0x063A,
         Fa = 0x0641,
@@ -210,12 +210,12 @@ namespace I2.Loc
     /// </summary>
     internal class ArabicMapping
     {
-        public int from;
-        public int to;
+        public int From;
+        public int To;
         public ArabicMapping(int from, int to)
         {
-            this.from = from;
-            this.to = to;
+            this.From = from;
+            this.To = to;
         }
     }
 
@@ -225,59 +225,59 @@ namespace I2.Loc
     internal class ArabicTable
     {
 
-        private static List<ArabicMapping> mapList;
-        private static ArabicTable arabicMapper;
+        private static List<ArabicMapping> _mapList;
+        private static ArabicTable _arabicMapper;
 
         /// <summary>
         /// Setting up the conversion table
         /// </summary>
         private ArabicTable()
         {
-            mapList = new List<ArabicMapping>();
+            _mapList = new List<ArabicMapping>();
 
 
 
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Hamza, (int)IsolatedArabicLetters.Hamza));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Alef, (int)IsolatedArabicLetters.Alef));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefHamza, (int)IsolatedArabicLetters.AlefHamza));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.WawHamza, (int)IsolatedArabicLetters.WawHamza));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMaksoor, (int)IsolatedArabicLetters.AlefMaksoor));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMagsora, (int)IsolatedArabicLetters.AlefMaksora));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.HamzaNabera, (int)IsolatedArabicLetters.HamzaNabera));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ba, (int)IsolatedArabicLetters.Ba));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ta, (int)IsolatedArabicLetters.Ta));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Tha2, (int)IsolatedArabicLetters.Tha2));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Jeem, (int)IsolatedArabicLetters.Jeem));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.H7aa, (int)IsolatedArabicLetters.H7aa));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Khaa2, (int)IsolatedArabicLetters.Khaa2));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Dal, (int)IsolatedArabicLetters.Dal));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Thal, (int)IsolatedArabicLetters.Thal));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ra2, (int)IsolatedArabicLetters.Ra2));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Zeen, (int)IsolatedArabicLetters.Zeen));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Seen, (int)IsolatedArabicLetters.Seen));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Sheen, (int)IsolatedArabicLetters.Sheen));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.S9a, (int)IsolatedArabicLetters.S9a));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Dha, (int)IsolatedArabicLetters.Dha));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.T6a, (int)IsolatedArabicLetters.T6a));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.T6ha, (int)IsolatedArabicLetters.T6ha));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ain, (int)IsolatedArabicLetters.Ain));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Gain, (int)IsolatedArabicLetters.Gain));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Fa, (int)IsolatedArabicLetters.Fa));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Gaf, (int)IsolatedArabicLetters.Gaf));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Kaf, (int)IsolatedArabicLetters.Kaf));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Lam, (int)IsolatedArabicLetters.Lam));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Meem, (int)IsolatedArabicLetters.Meem));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Noon, (int)IsolatedArabicLetters.Noon));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ha, (int)IsolatedArabicLetters.Ha));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Waw, (int)IsolatedArabicLetters.Waw));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ya, (int)IsolatedArabicLetters.Ya));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMad, (int)IsolatedArabicLetters.AlefMad));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.TaMarboota, (int)IsolatedArabicLetters.TaMarboota));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianPe, (int)IsolatedArabicLetters.PersianPe));      // Persian Letters;
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianChe, (int)IsolatedArabicLetters.PersianChe));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianZe, (int)IsolatedArabicLetters.PersianZe));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf, (int)IsolatedArabicLetters.PersianGaf));
-            mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf2, (int)IsolatedArabicLetters.PersianGaf2));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Hamza, (int)IsolatedArabicLetters.Hamza));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Alef, (int)IsolatedArabicLetters.Alef));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefHamza, (int)IsolatedArabicLetters.AlefHamza));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.WawHamza, (int)IsolatedArabicLetters.WawHamza));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMaksoor, (int)IsolatedArabicLetters.AlefMaksoor));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMagsora, (int)IsolatedArabicLetters.AlefMaksora));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.HamzaNabera, (int)IsolatedArabicLetters.HamzaNabera));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ba, (int)IsolatedArabicLetters.Ba));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ta, (int)IsolatedArabicLetters.Ta));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Tha2, (int)IsolatedArabicLetters.Tha2));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Jeem, (int)IsolatedArabicLetters.Jeem));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.H7Aa, (int)IsolatedArabicLetters.H7Aa));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Khaa2, (int)IsolatedArabicLetters.Khaa2));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Dal, (int)IsolatedArabicLetters.Dal));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Thal, (int)IsolatedArabicLetters.Thal));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ra2, (int)IsolatedArabicLetters.Ra2));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Zeen, (int)IsolatedArabicLetters.Zeen));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Seen, (int)IsolatedArabicLetters.Seen));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Sheen, (int)IsolatedArabicLetters.Sheen));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.S9A, (int)IsolatedArabicLetters.S9A));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Dha, (int)IsolatedArabicLetters.Dha));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.T6A, (int)IsolatedArabicLetters.T6A));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.T6Ha, (int)IsolatedArabicLetters.T6Ha));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ain, (int)IsolatedArabicLetters.Ain));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Gain, (int)IsolatedArabicLetters.Gain));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Fa, (int)IsolatedArabicLetters.Fa));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Gaf, (int)IsolatedArabicLetters.Gaf));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Kaf, (int)IsolatedArabicLetters.Kaf));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Lam, (int)IsolatedArabicLetters.Lam));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Meem, (int)IsolatedArabicLetters.Meem));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Noon, (int)IsolatedArabicLetters.Noon));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ha, (int)IsolatedArabicLetters.Ha));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Waw, (int)IsolatedArabicLetters.Waw));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ya, (int)IsolatedArabicLetters.Ya));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMad, (int)IsolatedArabicLetters.AlefMad));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.TaMarboota, (int)IsolatedArabicLetters.TaMarboota));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianPe, (int)IsolatedArabicLetters.PersianPe));      // Persian Letters;
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianChe, (int)IsolatedArabicLetters.PersianChe));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianZe, (int)IsolatedArabicLetters.PersianZe));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf, (int)IsolatedArabicLetters.PersianGaf));
+            _mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf2, (int)IsolatedArabicLetters.PersianGaf2));
 
 
 
@@ -295,19 +295,19 @@ namespace I2.Loc
         {
             get
             {
-                if (arabicMapper == null)
-                    arabicMapper = new ArabicTable();
-                return arabicMapper;
+                if (_arabicMapper == null)
+                    _arabicMapper = new ArabicTable();
+                return _arabicMapper;
             }
         }
 
         internal int Convert(int toBeConverted)
         {
 
-            foreach (ArabicMapping arabicMap in mapList)
-                if (arabicMap.from == toBeConverted)
+            foreach (ArabicMapping arabicMap in _mapList)
+                if (arabicMap.From == toBeConverted)
                 {
-                    return arabicMap.to;
+                    return arabicMap.To;
                 }
             return toBeConverted;
         }
@@ -318,20 +318,20 @@ namespace I2.Loc
 
     internal class TashkeelLocation
     {
-        public char tashkeel;
-        public int position;
+        public char Tashkeel;
+        public int Position;
         public TashkeelLocation(char tashkeel, int position)
         {
-            this.tashkeel = tashkeel;
-            this.position = position;
+            this.Tashkeel = tashkeel;
+            this.Position = position;
         }
     }
 
 
-    internal class RTLFixerTool
+    internal class RtlFixerTool
     {
-        internal static bool showTashkeel = true;
-        internal static bool useHinduNumbers = false;
+        internal static bool ShowTashkeel = true;
+        internal static bool UseHinduNumbers = false;
 
 
         internal static string RemoveTashkeel(string str, out List<TashkeelLocation> tashkeelLocation)
@@ -361,9 +361,9 @@ namespace I2.Loc
                 { // FATHA
                     if (index > 0)
                     {
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x0651) // SHADDA
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x0651) // SHADDA
                         {
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC60; // Shadda With Fatha
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC60; // Shadda With Fatha
                             continue;
                         }
                     }
@@ -375,9 +375,9 @@ namespace I2.Loc
                 { // DAMMA
                     if (index > 0)
                     {
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x0651)
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x0651)
                         { // SHADDA
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC61; // Shadda With DAMMA
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC61; // Shadda With DAMMA
                             continue;
                         }
                     }
@@ -388,9 +388,9 @@ namespace I2.Loc
                 { // KASRA
                     if (index > 0)
                     {
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x0651)
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x0651)
                         { // SHADDA
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC62; // Shadda With KASRA
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC62; // Shadda With KASRA
                             continue;
                         }
                     }
@@ -401,21 +401,21 @@ namespace I2.Loc
                 { // SHADDA
                     if (index > 0)
                     {
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x064E) // FATHA
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x064E) // FATHA
                         {
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC60; // Shadda With Fatha
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC60; // Shadda With Fatha
                             continue;
                         }
 
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x064F) // DAMMA
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x064F) // DAMMA
                         {
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC61; // Shadda With DAMMA
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC61; // Shadda With DAMMA
                             continue;
                         }
 
-                        if (tashkeelLocation[index - 1].tashkeel == (char)0x0650) // KASRA
+                        if (tashkeelLocation[index - 1].Tashkeel == (char)0x0650) // KASRA
                         {
-                            tashkeelLocation[index - 1].tashkeel = (char)0xFC62; // Shadda With KASRA
+                            tashkeelLocation[index - 1].Tashkeel = (char)0xFC62; // Shadda With KASRA
                             continue;
                         }
                     }
@@ -460,9 +460,9 @@ namespace I2.Loc
                 letterWithTashkeelTracker++;
                 foreach (TashkeelLocation hLocation in tashkeelLocation)
                 {
-                    if (hLocation.position == letterWithTashkeelTracker)
+                    if (hLocation.Position == letterWithTashkeelTracker)
                     {
-                        lettersWithTashkeel[letterWithTashkeelTracker] = hLocation.tashkeel;
+                        lettersWithTashkeel[letterWithTashkeelTracker] = hLocation.Tashkeel;
                         letterWithTashkeelTracker++;
                     }
                 }
@@ -560,7 +560,7 @@ namespace I2.Loc
 
 
                 //chaning numbers to hindu
-                if (useHinduNumbers)
+                if (UseHinduNumbers)
                 {
                     if (lettersOrigin[i] == (char)0x0030)
                         lettersFinal[i] = (char)0x0660;
@@ -589,7 +589,7 @@ namespace I2.Loc
 
 
             //Return the Tashkeel to their places.
-            if (showTashkeel)
+            if (ShowTashkeel)
                 lettersFinal = ReturnTashkeel(lettersFinal, tashkeelLocation);
 
 

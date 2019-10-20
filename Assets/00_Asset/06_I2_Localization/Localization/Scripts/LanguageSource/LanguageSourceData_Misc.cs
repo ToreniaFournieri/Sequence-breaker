@@ -9,51 +9,51 @@ namespace I2.Loc
 
 		#region Keys
 		
-		public List<string> GetCategories( bool OnlyMainCategory = false, List<string> Categories = null )
+		public List<string> GetCategories( bool onlyMainCategory = false, List<string> categories = null )
 		{
-			if (Categories==null)
-				Categories = new List<string>();
+			if (categories==null)
+				categories = new List<string>();
 			
 			foreach (TermData data in mTerms)
 			{
-				string sCategory = GetCategoryFromFullTerm( data.Term, OnlyMainCategory );
-				if (!Categories.Contains(sCategory))
-					Categories.Add(sCategory);
+				string sCategory = GetCategoryFromFullTerm( data.term, onlyMainCategory );
+				if (!categories.Contains(sCategory))
+					categories.Add(sCategory);
 			}
-			Categories.Sort();
-			return Categories;
+			categories.Sort();
+			return categories;
 		}
 		
-		public static string GetKeyFromFullTerm( string FullTerm, bool OnlyMainCategory = false )
+		public static string GetKeyFromFullTerm( string fullTerm, bool onlyMainCategory = false )
 		{
-			int Index = (OnlyMainCategory ? FullTerm.IndexOfAny(CategorySeparators) : 
-			             					FullTerm.LastIndexOfAny(CategorySeparators));
+			int index = (onlyMainCategory ? fullTerm.IndexOfAny(CategorySeparators) : 
+			             					fullTerm.LastIndexOfAny(CategorySeparators));
 
-			return (Index<0 ? FullTerm :FullTerm.Substring(Index+1));
+			return (index<0 ? fullTerm :fullTerm.Substring(index+1));
 		}
 		
-		public static string GetCategoryFromFullTerm( string FullTerm, bool OnlyMainCategory = false )
+		public static string GetCategoryFromFullTerm( string fullTerm, bool onlyMainCategory = false )
 		{
-			int Index = (OnlyMainCategory ? FullTerm.IndexOfAny(CategorySeparators) : 
-			             					FullTerm.LastIndexOfAny(CategorySeparators));
+			int index = (onlyMainCategory ? fullTerm.IndexOfAny(CategorySeparators) : 
+			             					fullTerm.LastIndexOfAny(CategorySeparators));
 
-			return (Index<0 ? EmptyCategory : FullTerm.Substring(0, Index));
+			return (index<0 ? EmptyCategory : fullTerm.Substring(0, index));
 		}
 		
-		public static void DeserializeFullTerm( string FullTerm, out string Key, out string Category, bool OnlyMainCategory = false )
+		public static void DeserializeFullTerm( string fullTerm, out string key, out string category, bool onlyMainCategory = false )
 		{
-			int Index = (OnlyMainCategory ? FullTerm.IndexOfAny(CategorySeparators) : 
-			             					FullTerm.LastIndexOfAny(CategorySeparators));
+			int index = (onlyMainCategory ? fullTerm.IndexOfAny(CategorySeparators) : 
+			             					fullTerm.LastIndexOfAny(CategorySeparators));
 
-			if (Index<0) 
+			if (index<0) 
 			{
-				Category = EmptyCategory;
-				Key = FullTerm;
+				category = EmptyCategory;
+				key = fullTerm;
 			}
 			else 
 			{
-				Category = FullTerm.Substring(0, Index);
-				Key = FullTerm.Substring(Index+1);
+				category = fullTerm.Substring(0, index);
+				key = fullTerm.Substring(index+1);
 			}
 		}
 

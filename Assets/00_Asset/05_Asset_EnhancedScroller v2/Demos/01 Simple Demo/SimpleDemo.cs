@@ -58,7 +58,7 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
             // set up some simple data
             _data = new SmallList<Data>();
             for (var i = 0; i < 1000; i++)
-                _data.Add(new Data() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new Data() { SomeText = "Cell Data Index " + i.ToString() });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -72,9 +72,9 @@ namespace EnhancedScrollerDemos.SuperSimpleDemo
             // set up some simple data
             _data = new SmallList<Data>();
 
-            _data.Add(new Data() { someText = "A" });
-            _data.Add(new Data() { someText = "B" });
-            _data.Add(new Data() { someText = "C" });
+            _data.Add(new Data() { SomeText = "A" });
+            _data.Add(new Data() { SomeText = "B" });
+            _data.Add(new Data() { SomeText = "C" });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();

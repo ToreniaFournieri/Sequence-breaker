@@ -74,7 +74,7 @@ namespace I2.Loc
 		private bool bSourceInsidePluginsFolder = true;
 		public void OnGUI_Warning_SourceInsidePluginsFolder()
 		{
-			if (!bSourceInsidePluginsFolder || mLanguageSource.UserAgreesToHaveItInsideThePluginsFolder)
+			if (!bSourceInsidePluginsFolder || mLanguageSource.userAgreesToHaveItInsideThePluginsFolder)
 				return;
 			
 			if (!mLanguageSource.IsGlobalSource())
@@ -143,10 +143,10 @@ Do you want the plugin to automatically move the LanguageSource to a folder outs
 			EditorApplication.delayCall -= MoveGlobalSource;
 
 			string pluginPath = UpgradeManager.GetI2LocalizationPath();
-			string assetPath = AssetDatabase.GetAssetPath(mLanguageSource.ownerObject);
+			string assetPath = AssetDatabase.GetAssetPath(mLanguageSource.OwnerObject);
 
 			string I2Path = pluginPath.Substring(0, pluginPath.Length-"/Localization".Length);
-			string newPath = I2Path + "/Resources/" + (mLanguageSource.ownerObject).name + ".prefab";
+			string newPath = I2Path + "/Resources/" + (mLanguageSource.OwnerObject).name + ".prefab";
 
 			string fullresFolder = Application.dataPath + I2Path.Replace("Assets","") + "/Resources";
 			bool folderExists = System.IO.Directory.Exists (fullresFolder);

@@ -13,30 +13,30 @@ namespace I2.Loc
 
 	public static partial class GoogleTranslation
 	{
-		static List<UnityWebRequest> mCurrentTranslations = new List<UnityWebRequest>();
-        static List<TranslationJob> mTranslationJobs = new List<TranslationJob>();
+		static List<UnityWebRequest> _mCurrentTranslations = new List<UnityWebRequest>();
+        static List<TranslationJob> _mTranslationJobs = new List<TranslationJob>();
 
-        public delegate void fnOnTranslationReady(TranslationDictionary dict, string error);
+        public delegate void FnOnTranslationReady(TranslationDictionary dict, string error);
 
 #region Multiple Translations
 
-		public static void Translate( TranslationDictionary requests, fnOnTranslationReady OnTranslationReady, bool usePOST = true )
+		public static void Translate( TranslationDictionary requests, FnOnTranslationReady onTranslationReady, bool usePost = true )
 		{
             //WWW www = GetTranslationWWW( requests, usePOST );
             //I2.Loc.CoroutineManager.Start(WaitForTranslation(www, OnTranslationReady, requests));
-            AddTranslationJob( new TranslationJob_Main(requests, OnTranslationReady) );
+            AddTranslationJob( new TranslationJobMain(requests, onTranslationReady) );
         }
 
-        public static bool ForceTranslate(TranslationDictionary requests, bool usePOST = true)
+        public static bool ForceTranslate(TranslationDictionary requests, bool usePost = true)
         {
-            var job = new TranslationJob_Main(requests, null);
+            var job = new TranslationJobMain(requests, null);
             while (true)
             {
                 var state = job.GetState();
-                if (state == TranslationJob.eJobState.Running)
+                if (state == TranslationJob.EJobState.Running)
                     continue;
 
-                if (state == TranslationJob.eJobState.Failed)
+                if (state == TranslationJob.EJobState.Failed)
                     return false;
 
                 //TranslationJob.eJobState.Succeeded
@@ -44,7 +44,7 @@ namespace I2.Loc
             }
         }
 
-        public static List<string> ConvertTranslationRequest(TranslationDictionary requests, bool encodeGET)
+        public static List<string> ConvertTranslationRequest(TranslationDictionary requests, bool encodeGet)
         {
             List<string> results = new List<string>();
             var sb = new StringBuilder();
@@ -66,7 +66,7 @@ namespace I2.Loc
 
                 var text = (TitleCase(request.Text) == request.Text) ? request.Text.ToLowerInvariant() : request.Text;
 
-                if (!encodeGET)
+                if (!encodeGet)
                 {
                     sb.Append(text);
                 }
@@ -86,8 +86,8 @@ namespace I2.Loc
 
         static void AddTranslationJob( TranslationJob job )
         {
-            mTranslationJobs.Add(job);
-            if (mTranslationJobs.Count==1)
+            _mTranslationJobs.Add(job);
+            if (_mTranslationJobs.Count==1)
             {
                 I2.Loc.CoroutineManager.Start(WaitForTranslations());
             }
@@ -95,13 +95,13 @@ namespace I2.Loc
 
         static IEnumerator WaitForTranslations()
         {
-            while (mTranslationJobs.Count > 0)
+            while (_mTranslationJobs.Count > 0)
             {
-                var jobs = mTranslationJobs.ToArray();
+                var jobs = _mTranslationJobs.ToArray();
                 foreach (var job in jobs)
                 {
-                    if (job.GetState() != TranslationJob.eJobState.Running)
-                        mTranslationJobs.Remove(job);
+                    if (job.GetState() != TranslationJob.EJobState.Running)
+                        _mTranslationJobs.Remove(job);
                 }
                 yield return null;
             }
@@ -128,8 +128,8 @@ namespace I2.Loc
 			string[] splitter = new string[]{"<i2>"};
 			int i = 0;
 
-			var Keys = requests.Keys.ToArray();
-			foreach (var text in Keys)
+			var keys = requests.Keys.ToArray();
+			foreach (var text in keys)
 			{
 				var temp = FindQueryFromOrigText(text, requests);
                 var fullText = texts[i++];
@@ -159,17 +159,17 @@ namespace I2.Loc
 
 		public static bool IsTranslating()
 		{
-			return mCurrentTranslations.Count>0 || mTranslationJobs.Count > 0;
+			return _mCurrentTranslations.Count>0 || _mTranslationJobs.Count > 0;
 		}
 
 		public static void CancelCurrentGoogleTranslations()
 		{
-			mCurrentTranslations.Clear ();
-            foreach (var job in mTranslationJobs)
+			_mCurrentTranslations.Clear ();
+            foreach (var job in _mTranslationJobs)
             {
                 job.Dispose();
             }
-            mTranslationJobs.Clear();
+            _mTranslationJobs.Clear();
 		}
 
 #endregion

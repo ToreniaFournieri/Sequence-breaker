@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
+using UnityEngine.Serialization;
 
 namespace KohmaiWorks.Scroller
 {
@@ -25,7 +26,7 @@ namespace KohmaiWorks.Scroller
         public Text barrierRemains;
 
         public GameObject headerContent;
-        public Text HeaderInfo;
+        [FormerlySerializedAs("HeaderInfo")] public Text headerInfo;
         public ShowTargetUnit showTargetUnit;
         public SimpleObjectPool unitIconObjectPool;
 
@@ -49,7 +50,7 @@ namespace KohmaiWorks.Scroller
 
             if (data.isHeaderInfo)
             {
-                HeaderInfo.text = data.headerText;
+                headerInfo.text = data.headerText;
                 showTargetUnit.unitIconObjectPool = unitIconObjectPool;
                 showTargetUnit.SetUnitInfo(data.characters);
                 headerContent.SetActive(true);
@@ -101,10 +102,10 @@ namespace KohmaiWorks.Scroller
 
             switch (data.affiliation)
             {
-                case Affiliation.ally:
+                case Affiliation.Ally:
                     color = darkGreen;
                     break;
-                case Affiliation.enemy:
+                case Affiliation.Enemy:
                     color = darkRed;
                     break;
                 default:

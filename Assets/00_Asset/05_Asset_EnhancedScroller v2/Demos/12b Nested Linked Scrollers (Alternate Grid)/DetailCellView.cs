@@ -21,7 +21,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         public void SetData(DetailData data)
         {
             // update the UI text with the cell data
-            someTextText.text = data.someText;
+            someTextText.text = data.SomeText;
         }
     }
 }

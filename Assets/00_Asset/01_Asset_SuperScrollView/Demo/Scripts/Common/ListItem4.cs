@@ -13,13 +13,13 @@ namespace SuperScrollView
         public Image mItemBg;
         public Image mArrow;
         public Text mIndexText;
-        int mItemIndex = -1;
+        int _mItemIndex = -1;
 
         public int ItemIndex
         {
             get
             {
-                return mItemIndex;
+                return _mItemIndex;
             }
         }
         public void Init()
@@ -31,20 +31,20 @@ namespace SuperScrollView
         public void SetItemData(ChatMsg itemData, int itemIndex)
         {
             mIndexText.text = itemIndex.ToString();
-            PersonInfo person = ChatMsgDataSourceMgr.Get.GetPersonInfo(itemData.mPersonId);
-            mItemIndex = itemIndex;
-            if(itemData.mMsgType == MsgTypeEnum.Str)
+            PersonInfo person = ChatMsgDataSourceMgr.Get.GetPersonInfo(itemData.MPersonId);
+            _mItemIndex = itemIndex;
+            if(itemData.MMsgType == MsgTypeEnum.Str)
             {
                 mMsgPic.gameObject.SetActive(false);
                 mMsgText.gameObject.SetActive(true);
-                mMsgText.text = itemData.mSrtMsg;
+                mMsgText.text = itemData.MSrtMsg;
                 mMsgText.GetComponent<ContentSizeFitter>().SetLayoutVertical();
-                mIcon.sprite = ResManager.Get.GetSpriteByName(person.mHeadIcon);
+                mIcon.sprite = ResManager.Get.GetSpriteByName(person.MHeadIcon);
                 Vector2 size = mItemBg.GetComponent<RectTransform>().sizeDelta;
                 size.x = mMsgText.GetComponent<RectTransform>().sizeDelta.x + 20;
                 size.y = mMsgText.GetComponent<RectTransform>().sizeDelta.y + 20;
                 mItemBg.GetComponent<RectTransform>().sizeDelta = size;
-                if(person.mId == 0)
+                if(person.MId == 0)
                 {
                     mItemBg.color = new Color32(160, 231, 90, 255);
                     mArrow.color = mItemBg.color;
@@ -66,14 +66,14 @@ namespace SuperScrollView
             {
                 mMsgPic.gameObject.SetActive(true);
                 mMsgText.gameObject.SetActive(false);
-                mMsgPic.sprite = ResManager.Get.GetSpriteByName(itemData.mPicMsgSpriteName); 
+                mMsgPic.sprite = ResManager.Get.GetSpriteByName(itemData.MPicMsgSpriteName); 
                 mMsgPic.SetNativeSize();
-                mIcon.sprite = ResManager.Get.GetSpriteByName(person.mHeadIcon);
+                mIcon.sprite = ResManager.Get.GetSpriteByName(person.MHeadIcon);
                 Vector2 size = mItemBg.GetComponent<RectTransform>().sizeDelta;
                 size.x = mMsgPic.GetComponent<RectTransform>().sizeDelta.x + 20;
                 size.y = mMsgPic.GetComponent<RectTransform>().sizeDelta.y + 20;
                 mItemBg.GetComponent<RectTransform>().sizeDelta = size;
-                if (person.mId == 0)
+                if (person.MId == 0)
                 {
                     mItemBg.color = new Color32(160, 231, 90, 255);
                     mArrow.color = mItemBg.color;

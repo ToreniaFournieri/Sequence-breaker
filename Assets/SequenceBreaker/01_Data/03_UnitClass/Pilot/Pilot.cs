@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Pilot-", menuName = "Unit/Pilot", order = 3)]
 sealed public class Pilot : ScriptableObject
 {
-    [SerializeField] public string Name;
-    [SerializeField] public PilotStyle PilotStyle;
-    [SerializeField] public Race Race;
-    [SerializeField] public Preference Preference;
-    [SerializeField] public int PilotLevel;
+    [FormerlySerializedAs("Name")] [SerializeField] public string name;
+    [FormerlySerializedAs("PilotStyle")] [SerializeField] public PilotStyle pilotStyle;
+    [FormerlySerializedAs("Race")] [SerializeField] public Race race;
+    [FormerlySerializedAs("Preference")] [SerializeField] public Preference preference;
+    [FormerlySerializedAs("PilotLevel")] [SerializeField] public int pilotLevel;
 
-    [SerializeField] public AbilityClass AddAbility;
+    [FormerlySerializedAs("AddAbility")] [SerializeField] public AbilityClass addAbility;
 
     //[SerializeField] public int AddPower;
     //[SerializeField] public int AddGeneration;
@@ -25,9 +26,9 @@ sealed public class Pilot : ScriptableObject
 
 }
 
-public enum PilotStyle { remoteControling , directBoarding, artificialIntelligence }
-public enum Race { human, psyborg , AI }
-public enum Preference { offensive, defensive, obsessive}
+public enum PilotStyle { RemoteControling , DirectBoarding, ArtificialIntelligence }
+public enum Race { Human, Psyborg , Ai }
+public enum Preference { Offensive, Defensive, Obsessive}
 
 
 

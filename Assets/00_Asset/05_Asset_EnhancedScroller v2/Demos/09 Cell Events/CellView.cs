@@ -27,7 +27,7 @@ namespace EnhancedScrollerDemos.CellEvents
         public void SetData(Data data)
         {
             _data = data;
-            someTextText.text = (_data.hour == 0 ? "Midnight" : string.Format("{0} 'o clock", _data.hour.ToString()));
+            someTextText.text = (_data.Hour == 0 ? "Midnight" : string.Format("{0} 'o clock", _data.Hour.ToString()));
         }
 
         // Handle the click of the fixed text button (this is hooked up in the Unity editor in the button's click event)
@@ -48,7 +48,7 @@ namespace EnhancedScrollerDemos.CellEvents
         public void CellButtonDataInteger_OnClick()
         {
             // fire event if anyone has subscribed to it
-            if (cellButtonDataIntegerClicked != null) cellButtonDataIntegerClicked(_data.hour);
+            if (cellButtonDataIntegerClicked != null) cellButtonDataIntegerClicked(_data.Hour);
         }
     }
 }

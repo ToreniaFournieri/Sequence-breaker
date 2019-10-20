@@ -46,7 +46,7 @@ namespace EnhancedScrollerDemos.RefreshDemo
         public override void RefreshCellView()
         {
             // update the UI text with the cell data
-            someTextText.text = _data.someText;
+            someTextText.text = _data.SomeText;
         }
     }
 }

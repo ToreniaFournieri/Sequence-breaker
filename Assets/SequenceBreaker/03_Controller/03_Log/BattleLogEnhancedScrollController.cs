@@ -7,6 +7,7 @@ using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 using System.Linq;
 using System;
+using UnityEngine.Serialization;
 
 namespace KohmaiWorks.Scroller
 {
@@ -17,7 +18,7 @@ namespace KohmaiWorks.Scroller
     /// </summary>
     sealed public class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
-        public List<DataList> DataList; // Data from outside to show the log. 
+        [FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
         private List<Data> _data;
         //private List<Data> _dataOfAll;
         //private List<Data> _dataOfFiltered;
@@ -31,7 +32,7 @@ namespace KohmaiWorks.Scroller
         /// </summary>
         private bool _calculateLayout;
 
-        private GameObject JumpIndex;
+        private GameObject _jumpIndex;
 
 
         public EnhancedScroller scroller;
@@ -55,9 +56,9 @@ namespace KohmaiWorks.Scroller
         public GameObject searchBar;
         public RectTransform log;
         public Text searchResultText;
-        private (int number, int content) searchedCurrentIndex;
-        private List<int> searchedIndexList;
-        private Text previousSearchedText;
+        private (int number, int content) _searchedCurrentIndex;
+        private List<int> _searchedIndexList;
+        private Text _previousSearchedText;
 
 
 
@@ -67,7 +68,7 @@ namespace KohmaiWorks.Scroller
         ///
         // sample implemented 2019.8.6
 
-        public GameObject Battle;
+        [FormerlySerializedAs("Battle")] public GameObject battle;
         // end sanple implemented 2019.8.6
 
 
@@ -98,12 +99,12 @@ namespace KohmaiWorks.Scroller
             _data = new List<Data>();
 
             //2019.10.3 always DataList is set 0.
-            _data = Battle.gameObject.GetComponent<RunBattle>().DataList[0];
+            _data = battle.gameObject.GetComponent<RunBattle>().dataList[0];
 
-            DataList _setDatalist = new DataList();
-            _setDatalist.Data = _data;
+            DataList setDatalist = new DataList();
+            setDatalist.data = _data;
 
-            DataList.Add(_setDatalist);
+            dataList.Add(setDatalist);
 
             if (_data != null)
             {
@@ -241,11 +242,11 @@ namespace KohmaiWorks.Scroller
 
                 for (int i = 1; i <= maxTurn; i++)
                 {
-                    JumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
+                    _jumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
 
                     int index = _data.FindIndex((obj) => obj.turn == i);
-                    JumpIndex.GetComponentInChildren<Text>().text = i.ToString();
+                    _jumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                     EventTrigger trigger = GetComponentInParent<EventTrigger>();
                     EventTrigger.Entry entry = new EventTrigger.Entry();
@@ -253,7 +254,7 @@ namespace KohmaiWorks.Scroller
 
                     entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
 
-                    JumpIndex.GetComponent<EventTrigger>().triggers.Add(entry);
+                    _jumpIndex.GetComponent<EventTrigger>().triggers.Add(entry);
                 }
 
             }
@@ -264,7 +265,7 @@ namespace KohmaiWorks.Scroller
         public void FilterBySearchText(Text searchText)
         {
             Debug.Log("attempt to search word: " + searchText.text);
-            searchedIndexList = new List<int>();
+            _searchedIndexList = new List<int>();
             List<Data> filteredData = new List<Data>();
             foreach (Data data in _data)
             {
@@ -282,7 +283,7 @@ namespace KohmaiWorks.Scroller
                 if (isMatched)
                 {
                     filteredData.Add(data);
-                    searchedIndexList.Add(data.index);
+                    _searchedIndexList.Add(data.index);
                 }
                 else
                 {
@@ -291,13 +292,13 @@ namespace KohmaiWorks.Scroller
                 }
             }
 
-            if (previousSearchedText == null) { previousSearchedText = searchText; }
+            if (_previousSearchedText == null) { _previousSearchedText = searchText; }
 
-            if (searchedIndexList.Count > 0)
+            if (_searchedIndexList.Count > 0)
             {
-                searchedCurrentIndex = (0, searchedIndexList[0]);
-                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
-                JumpButton_OnClick(searchedCurrentIndex.content);
+                _searchedCurrentIndex = (0, _searchedIndexList[0]);
+                searchResultText.text = (_searchedCurrentIndex.number + 1) + " / " + _searchedIndexList.Count;
+                JumpButton_OnClick(_searchedCurrentIndex.content);
             }
 
 
@@ -305,21 +306,21 @@ namespace KohmaiWorks.Scroller
 
         public void SetJumpNextSearchedText()
         {
-            if (searchedIndexList.Count - 1 > searchedCurrentIndex.number)
+            if (_searchedIndexList.Count - 1 > _searchedCurrentIndex.number)
             {
-                searchedCurrentIndex = (searchedCurrentIndex.number + 1, searchedIndexList[searchedCurrentIndex.number + 1]);
-                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
-                JumpButton_OnClick(searchedCurrentIndex.content);
+                _searchedCurrentIndex = (_searchedCurrentIndex.number + 1, _searchedIndexList[_searchedCurrentIndex.number + 1]);
+                searchResultText.text = (_searchedCurrentIndex.number + 1) + " / " + _searchedIndexList.Count;
+                JumpButton_OnClick(_searchedCurrentIndex.content);
             }
         }
 
         public void SetJumpPreviousSearchedText()
         {
-            if (searchedCurrentIndex.number > 0)
+            if (_searchedCurrentIndex.number > 0)
             {
-                searchedCurrentIndex = (searchedCurrentIndex.number - 1, searchedIndexList[searchedCurrentIndex.number - 1]);
-                searchResultText.text = (searchedCurrentIndex.number + 1) + " / " + searchedIndexList.Count;
-                JumpButton_OnClick(searchedCurrentIndex.content);
+                _searchedCurrentIndex = (_searchedCurrentIndex.number - 1, _searchedIndexList[_searchedCurrentIndex.number - 1]);
+                searchResultText.text = (_searchedCurrentIndex.number + 1) + " / " + _searchedIndexList.Count;
+                JumpButton_OnClick(_searchedCurrentIndex.content);
             }
         }
 
@@ -389,8 +390,8 @@ namespace KohmaiWorks.Scroller
             if (dataIndex < _data.Count - 1) { nextData = _data[dataIndex + 1]; }
 
             Sprite setSprite = null;
-            if (_data[dataIndex].affiliation == Affiliation.ally) { setSprite = allyImage; }
-            else if (_data[dataIndex].affiliation == Affiliation.enemy) { setSprite = enemyImage; }
+            if (_data[dataIndex].affiliation == Affiliation.Ally) { setSprite = allyImage; }
+            else if (_data[dataIndex].affiliation == Affiliation.Enemy) { setSprite = enemyImage; }
 
             cellView.SetData(_data[dataIndex], nextData, _calculateLayout, setSprite);
 

@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2807ca4373f049cb874a5265f09c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DataList: []
+  dataList: []
   scroller: {fileID: 978793930}
   cellViewPrefab: {fileID: 7490457186660506657, guid: e72a221d838d6421cb7cc865329eea79,
     type: 3}
@@ -222,7 +222,7 @@ MonoBehaviour:
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
-  Battle: {fileID: 208688197}
+  battle: {fileID: 208688197}
 --- !u!1 &42849285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,7 +1690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.173462, y: -111.5}
+  m_AnchoredPosition: {x: -16.17334, y: -111.50001}
   m_SizeDelta: {x: -33.352, y: -445.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240124709
@@ -1710,14 +1710,14 @@ MonoBehaviour:
   - {fileID: 208688197}
   - {fileID: 465871540}
   - {fileID: 1742020149}
-  runbattleList:
+  runBattleList:
   - {fileID: 208688199}
   - {fileID: 465871542}
   - {fileID: 1742020151}
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
-  demoUI: {fileID: 0}
+  demoUi: {fileID: 0}
 --- !u!114 &240124710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5199,11 +5199,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   allyCurrentBattleUnitList: []
-  partystatusIcons: {fileID: 766314200}
+  partyStatusIcons: {fileID: 766314200}
   inventoryItemList: {fileID: 171929590}
   inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
-  logList: {fileID: 2101349862}
-  TransparentMessageController: {fileID: 639922438}
+  logListSria: {fileID: 2101349862}
+  transparentMessageController: {fileID: 639922438}
 --- !u!1 &766314195
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,7 +5758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.4000244, y: 38.19995}
+  m_AnchoredPosition: {x: -7.3999023, y: 38.19995}
   m_SizeDelta: {x: -183.8, y: -308.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863176898
@@ -5979,7 +5979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09672eeb9a25c41f6af74307ab4f37f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NeedToRefresh: 0
+  needToRefresh: 0
 --- !u!4 &903368332
 Transform:
   m_ObjectHideFlags: 0
@@ -6904,7 +6904,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7060,7 +7060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20, y: -0.000030517578}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: -40, y: -100.58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1065485687
@@ -7452,7 +7452,7 @@ MonoBehaviour:
   isDebugModeForInventory: 0
   inventoryItemList: {fileID: 171929590}
   otherCharacterTreeViewDataSourceMgr: {fileID: 1469652865}
-  InventoryTreeViewWithStickyHeadScript: {fileID: 147217313}
+  inventoryTreeViewWithStickyHeadScript: {fileID: 147217313}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,7 +7769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1160069816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7995,9 +7995,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dbcc35bb3a0490491d0fcdac72d0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDetailViewGameObject: {fileID: 0}
-  ItemdetailViewText: {fileID: 0}
-  ItemDetailViewButton: {fileID: 0}
+  itemDetailViewGameObject: {fileID: 0}
+  itemdetailViewText: {fileID: 0}
+  itemDetailViewButton: {fileID: 0}
 --- !u!1 &1194050622
 GameObject:
   m_ObjectHideFlags: 0
@@ -8304,7 +8304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
-  UnitList:
+  unitList:
   - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
@@ -8312,9 +8312,9 @@ MonoBehaviour:
   characterTreeViewWithStickyHeadScript: {fileID: 356212688}
   characterNameText: {fileID: 1687822852}
   itemAmountText: {fileID: 1642664218}
-  AbilityText: {fileID: 707987500}
+  abilityText: {fileID: 707987500}
   affiliation: 0
-  uniqueID: 0
+  uniqueId: 0
   itemCapacity: 0
   selectedUnitNo: 0
 --- !u!1 &1269232430
@@ -9539,7 +9539,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9664,7 +9664,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00061035156}
-  m_SizeDelta: {x: 0, y: 40}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5000001, y: 1.0000005}
 --- !u!114 &1447162701
 MonoBehaviour:
@@ -10016,7 +10016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.3729858, y: 47.200073}
+  m_AnchoredPosition: {x: 1.3730469, y: 47.200073}
   m_SizeDelta: {x: -2.766, y: -95.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506471908
@@ -13292,12 +13292,12 @@ MonoBehaviour:
   viewport: {fileID: 1611566543}
   battleList: []
   battleLogEnhancedScrollController: {fileID: 18717904}
-  battleLog: {fileID: 709966976}
+  battleLog: {fileID: 156208635}
   logList: {fileID: 2091575674}
   transparentMessageController: {fileID: 1663717958}
   itemPrefab: {fileID: 2523581795091109965, guid: c22589c2168fd40f8b4daee4e9441e24,
     type: 3}
-  demoUI: {fileID: 0}
+  demoUi: {fileID: 0}
 --- !u!1 &2110743961
 GameObject:
   m_ObjectHideFlags: 0
@@ -13558,9 +13558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dbcc35bb3a0490491d0fcdac72d0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemDetailViewGameObject: {fileID: 2073615706}
-  ItemdetailViewText: {fileID: 812320862}
-  ItemDetailViewButton: {fileID: 0}
+  itemDetailViewGameObject: {fileID: 2073615706}
+  itemdetailViewText: {fileID: 812320862}
+  itemDetailViewButton: {fileID: 0}
 --- !u!1 &2123972851
 GameObject:
   m_ObjectHideFlags: 0

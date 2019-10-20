@@ -11,22 +11,22 @@ namespace I2.Loc
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 
-    public class TranslationJob_WEB : TranslationJob_WWW
+    public class TranslationJobWeb : TranslationJobWww
     {
         TranslationDictionary _requests;
-        GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
-        public string mErrorMessage;
+        GoogleTranslation.FnOnTranslationReady _onTranslationReady;
+        public string MErrorMessage;
 
-        string mCurrentBatch_ToLanguageCode;
-        string mCurrentBatch_FromLanguageCode;
-        List<string> mCurrentBatch_Text;
+        string _mCurrentBatchToLanguageCode;
+        string _mCurrentBatchFromLanguageCode;
+        List<string> _mCurrentBatchText;
 
-        List<KeyValuePair<string, string>> mQueries;
+        List<KeyValuePair<string, string>> _mQueries;
 
-        public TranslationJob_WEB(TranslationDictionary requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
+        public TranslationJobWeb(TranslationDictionary requests, GoogleTranslation.FnOnTranslationReady onTranslationReady)
         {
             _requests = requests;
-            _OnTranslationReady = OnTranslationReady;
+            _onTranslationReady = onTranslationReady;
 
             FindAllQueries();
             ExecuteNextBatch();
@@ -34,36 +34,36 @@ namespace I2.Loc
 
         void FindAllQueries()
         {
-            mQueries = new List<KeyValuePair<string, string>>();
+            _mQueries = new List<KeyValuePair<string, string>>();
             foreach (var kvp in _requests)
             {
                 foreach (var langCode in kvp.Value.TargetLanguagesCode)
                 {
-                    mQueries.Add(new KeyValuePair<string, string>(kvp.Value.OrigText, kvp.Value.LanguageCode+":"+langCode));
+                    _mQueries.Add(new KeyValuePair<string, string>(kvp.Value.OrigText, kvp.Value.LanguageCode+":"+langCode));
                 }
             }
 
-            mQueries.Sort((a, b) => a.Value.CompareTo(b.Value));
+            _mQueries.Sort((a, b) => a.Value.CompareTo(b.Value));
         }
 
         void ExecuteNextBatch()
         {
-            if (mQueries.Count==0)
+            if (_mQueries.Count==0)
             {
-                mJobState = eJobState.Succeeded;
+                MJobState = EJobState.Succeeded;
                 return;
             }
-            mCurrentBatch_Text = new List<string>();
+            _mCurrentBatchText = new List<string>();
 
             string lastLangCode = null;
             int maxLength = 200;
 
             var sb = new StringBuilder();
             int i;
-            for (i=0; i<mQueries.Count; ++i)
+            for (i=0; i<_mQueries.Count; ++i)
             {
-                var text = mQueries[i].Key;
-                var langCode = mQueries[i].Value;
+                var text = _mQueries[i].Key;
+                var langCode = _mQueries[i].Value;
 
                 if (lastLangCode==null || langCode==lastLangCode)
                 {
@@ -71,40 +71,40 @@ namespace I2.Loc
                         sb.Append("|||");
                     sb.Append(text);
 
-                    mCurrentBatch_Text.Add(text);
+                    _mCurrentBatchText.Add(text);
                     lastLangCode = langCode;
                 }
                 if (sb.Length > maxLength)
                     break;
             }
-            mQueries.RemoveRange(0, i);
+            _mQueries.RemoveRange(0, i);
 
             var fromtoLang = lastLangCode.Split(':');
-            mCurrentBatch_FromLanguageCode = fromtoLang[0];
-            mCurrentBatch_ToLanguageCode = fromtoLang[1];
+            _mCurrentBatchFromLanguageCode = fromtoLang[0];
+            _mCurrentBatchToLanguageCode = fromtoLang[1];
 
-            string url = string.Format ("http://www.google.com/translate_t?hl=en&vi=c&ie=UTF8&oe=UTF8&submit=Translate&langpair={0}|{1}&text={2}", mCurrentBatch_FromLanguageCode, mCurrentBatch_ToLanguageCode, Uri.EscapeUriString( sb.ToString() ));
+            string url = string.Format ("http://www.google.com/translate_t?hl=en&vi=c&ie=UTF8&oe=UTF8&submit=Translate&langpair={0}|{1}&text={2}", _mCurrentBatchFromLanguageCode, _mCurrentBatchToLanguageCode, Uri.EscapeUriString( sb.ToString() ));
             Debug.Log(url);
 
-            www = UnityWebRequest.Get(url);
-            I2Utils.SendWebRequest(www);
+            Www = UnityWebRequest.Get(url);
+            I2Utils.SendWebRequest(Www);
         }
 
-        public override eJobState GetState()
+        public override EJobState GetState()
         {
-            if (www != null && www.isDone)
+            if (Www != null && Www.isDone)
             {
-                ProcessResult(www.downloadHandler.data, www.error);
-                www.Dispose();
-                www = null;
+                ProcessResult(Www.downloadHandler.data, Www.error);
+                Www.Dispose();
+                Www = null;
             }
 
-            if (www == null)
+            if (Www == null)
             {
                 ExecuteNextBatch();
             }
 
-            return mJobState;
+            return MJobState;
         }
 
         public void ProcessResult(byte[] bytes, string errorMsg)
@@ -118,17 +118,17 @@ namespace I2.Loc
 
                 if (string.IsNullOrEmpty(errorMsg))
                 {
-                    if (_OnTranslationReady != null)
-                        _OnTranslationReady(_requests, null);
+                    if (_onTranslationReady != null)
+                        _onTranslationReady(_requests, null);
                     return;
                 }
             }
             
-            mJobState = eJobState.Failed;
-            mErrorMessage = errorMsg;
+            MJobState = EJobState.Failed;
+            MErrorMessage = errorMsg;
         }
 
-        string ParseTranslationResult( string html, string OriginalText )
+        string ParseTranslationResult( string html, string originalText )
         {
             try
             {
@@ -136,30 +136,30 @@ namespace I2.Loc
                 int iStart = html.IndexOf("TRANSLATED_TEXT='") + "TRANSLATED_TEXT='".Length;
                 int iEnd = html.IndexOf("';var", iStart);
 
-                string Translation = html.Substring( iStart, iEnd-iStart);
+                string translation = html.Substring( iStart, iEnd-iStart);
 
                 // Convert to normalized HTML
-                Translation = System.Text.RegularExpressions.Regex.Replace(Translation,
+                translation = System.Text.RegularExpressions.Regex.Replace(translation,
                                                                             @"\\x([a-fA-F0-9]{2})",
                                                                             match => char.ConvertFromUtf32(Int32.Parse(match.Groups[1].Value, System.Globalization.NumberStyles.HexNumber)));
 
                 // Convert ASCII Characters
-                Translation = System.Text.RegularExpressions.Regex.Replace(Translation,
+                translation = System.Text.RegularExpressions.Regex.Replace(translation,
                                                                             @"&#(\d+);",
                                                                             match => char.ConvertFromUtf32(Int32.Parse(match.Groups[1].Value)));
 
-                Translation = Translation.Replace("<br>", "\n");
+                translation = translation.Replace("<br>", "\n");
 
-                if (OriginalText.ToUpper()==OriginalText)
-                    Translation = Translation.ToUpper();
+                if (originalText.ToUpper()==originalText)
+                    translation = translation.ToUpper();
                 else
-                    if (GoogleTranslation.UppercaseFirst(OriginalText)==OriginalText)
-                        Translation = GoogleTranslation.UppercaseFirst(Translation);
+                    if (GoogleTranslation.UppercaseFirst(originalText)==originalText)
+                        translation = GoogleTranslation.UppercaseFirst(translation);
                 else
-                    if (GoogleTranslation.TitleCase(OriginalText)==OriginalText)
-                        Translation = GoogleTranslation.TitleCase(Translation);
+                    if (GoogleTranslation.TitleCase(originalText)==originalText)
+                        translation = GoogleTranslation.TitleCase(translation);
 
-                return Translation;
+                return translation;
             }
             catch (System.Exception ex) 
             { 

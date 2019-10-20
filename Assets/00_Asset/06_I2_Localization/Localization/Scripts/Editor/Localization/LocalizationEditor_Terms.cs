@@ -192,8 +192,8 @@ namespace I2.Loc
 
 				GUILayout.BeginHorizontal();
 					GUILayout.FlexibleSpace ();
-					bool newBool = GUILayout.Toggle(mLanguageSource.CaseInsensitiveTerms, "Case Insensitive Terms");
-					if (newBool != mLanguageSource.CaseInsensitiveTerms)
+					bool newBool = GUILayout.Toggle(mLanguageSource.caseInsensitiveTerms, "Case Insensitive Terms");
+					if (newBool != mLanguageSource.caseInsensitiveTerms)
 					{
 						mProp_CaseInsensitiveTerms.boolValue = newBool;
 					}
@@ -366,10 +366,10 @@ namespace I2.Loc
 		bool TermHasAllTranslations( LanguageSourceData source, TermData data )
 		{
             if (source==null) source = LocalizationManager.Sources[0];
-			for (int i=0, imax=data.Languages.Length; i<imax; ++i)
+			for (int i=0, imax=data.languages.Length; i<imax; ++i)
 			{
 				bool isLangEnabled = (source.mLanguages.Count>i) ? source.mLanguages[i].IsEnabled() : true;
-				if (string.IsNullOrEmpty(data.Languages[i]) && isLangEnabled)
+				if (string.IsNullOrEmpty(data.languages[i]) && isLangEnabled)
 					return false;
 			}
 			return true;
@@ -648,9 +648,9 @@ namespace I2.Loc
                 if (!string.IsNullOrEmpty(filter))
                 {
                     bool hasFilter = false;
-                    for (int i = 0; i < ShowTerm_termData.Languages.Length; ++i)
+                    for (int i = 0; i < ShowTerm_termData.languages.Length; ++i)
                     {
-                        if (!string.IsNullOrEmpty(ShowTerm_termData.Languages[i]) && StringContainsFilter(ShowTerm_termData.Languages[i], filter))
+                        if (!string.IsNullOrEmpty(ShowTerm_termData.languages[i]) && StringContainsFilter(ShowTerm_termData.languages[i], filter))
                         {
                             hasFilter = true;
                             break;

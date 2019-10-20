@@ -7,22 +7,22 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityUI_Image : LocalizeTarget<UnityEngine.UI.Image>
+    public class LocalizeTargetUnityUiImage : LocalizeTarget<UnityEngine.UI.Image>
 	{
-        static LocalizeTarget_UnityUI_Image() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<Image, LocalizeTarget_UnityUI_Image>() { Name = "Image", Priority = 100 }); }
+        static LocalizeTargetUnityUiImage() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescType<Image, LocalizeTargetUnityUiImage>() { Name = "Image", Priority = 100 }); }
 
 		public override bool CanUseSecondaryTerm () { return false; }
-		public override bool AllowMainTermToBeRTL () { return false; }
-		public override bool AllowSecondTermToBeRTL () { return false; }
-        public override eTermType GetPrimaryTermType(Localize cmp)
+		public override bool AllowMainTermToBeRtl () { return false; }
+		public override bool AllowSecondTermToBeRtl () { return false; }
+        public override ETermType GetPrimaryTermType(Localize cmp)
         {
-            return mTarget.sprite == null ? eTermType.Texture : eTermType.Sprite;
+            return mTarget.sprite == null ? ETermType.Texture : ETermType.Sprite;
         }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Text; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Text; }
 
 
-        public override void GetFinalTerms ( Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm )
+        public override void GetFinalTerms ( Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm )
 		{
             primaryTerm = mTarget.mainTexture ? mTarget.mainTexture.name : "";
             if (mTarget.sprite!=null && mTarget.sprite.name!=primaryTerm)
@@ -34,8 +34,8 @@ namespace I2.Loc
 
 		public override void DoLocalize ( Localize cmp, string mainTranslation, string secondaryTranslation )
 		{
-            Sprite Old = mTarget.sprite;
-			if (Old==null || Old.name!=mainTranslation)
+            Sprite old = mTarget.sprite;
+			if (old==null || old.name!=mainTranslation)
 				mTarget.sprite = cmp.FindTranslatedObject<Sprite>( mainTranslation );
 
 			// If the old value is not in the translatedObjects, then unload it as it most likely was loaded from Resources

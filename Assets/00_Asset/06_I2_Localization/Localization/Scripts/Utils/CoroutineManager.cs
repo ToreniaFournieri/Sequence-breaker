@@ -6,21 +6,21 @@ namespace I2.Loc
 	// This class is used to spawn coroutines from outside of MonoBehaviors
 	public class CoroutineManager : MonoBehaviour 
 	{
-		static CoroutineManager pInstance
+		static CoroutineManager PInstance
 		{
 			get{
-				if (mInstance==null)
+				if (_mInstance==null)
 				{
-					GameObject GO = new GameObject( "_Coroutiner" );
-                    GO.hideFlags = HideFlags.HideAndDontSave;
-                    mInstance = GO.AddComponent<CoroutineManager>();
+					GameObject go = new GameObject( "_Coroutiner" );
+                    go.hideFlags = HideFlags.HideAndDontSave;
+                    _mInstance = go.AddComponent<CoroutineManager>();
                     if (Application.isPlaying)
-                        DontDestroyOnLoad(GO);
+                        DontDestroyOnLoad(go);
                 }
-                return mInstance;
+                return _mInstance;
 			}
 		}
-        static CoroutineManager mInstance;
+        static CoroutineManager _mInstance;
 
 
         private void Awake()
@@ -46,7 +46,7 @@ namespace I2.Loc
 				}
 			#endif
 
-			return pInstance.StartCoroutine(coroutine);
+			return PInstance.StartCoroutine(coroutine);
 		}
 	}
 }

@@ -4,27 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using frame8.ScrollRectItemsAdapter.Classic;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
+using UnityEngine.Serialization;
 
 
-
-sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+public sealed class MissionListSria : ClassicSria<MissionViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
 {
     //for battle calculation
     public List<GameObject> battleList;
-    public List<RunBattle> runbattleList;
+    public List<RunBattle> runBattleList;
 
     // Mission Controller (ally unit list and battle engine)
     public MissionController missionController;
 
     public RectTransform itemPrefab;
-    public DemoUI demoUI;
+    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
     public List<ExpandableSimpleClientModel> Data { get; private set; }
 
-    LayoutElement _PrefabLayoutElement;
-    // Used to quickly retrieve the views holder given the gameobject
-    Dictionary<RectTransform, MissionViewsHolder> _MapRootToViewsHolder = new Dictionary<RectTransform, MissionViewsHolder>();
+    LayoutElement _prefabLayoutElement;
+    // Used to quickly retrieve the views holder given the gameObject
+    Dictionary<RectTransform, MissionViewsHolder> _mapRootToViewsHolder = new Dictionary<RectTransform, MissionViewsHolder>();
 
 
     #region ClassicSRIA implementation
@@ -33,7 +33,7 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
         base.Awake();
 
         Data = new List<ExpandableSimpleClientModel>();
-        _PrefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
+        _prefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
     }
 
     protected override void Start()
@@ -44,9 +44,9 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
         {
             ChangeModelsAndReset(battleList.Count);
         }
-        if (runbattleList.Count > 0)
+        if (runBattleList.Count > 0)
         {
-            ChangeModelsAndReset(runbattleList.Count);
+            ChangeModelsAndReset(runBattleList.Count);
         }
 
         //demoUI.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
@@ -69,25 +69,25 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
         yield return new WaitForSeconds(.4f);
 
         if (viewsHolders.Count > 0)
-            viewsHolders[Mathf.Min(3, Data.Count - 1)].expandCollapseComponent.OnClicked();
+            viewsHolders[Mathf.Min(3, Data.Count - 1)].ExpandCollapseComponent.OnClicked();
     }
 
     protected override MissionViewsHolder CreateViewsHolder(int itemIndex)
     {
         var instance = new MissionViewsHolder();
         instance.Init(itemPrefab, itemIndex);
-        instance.expandCollapseComponent.sizeChangesHandler = this;
+        instance.ExpandCollapseComponent.sizeChangesHandler = this;
 
         //Set battle gameObject to each instanced itemPrefab
-        instance.runbattle = runbattleList[itemIndex];
-        instance.missionController = missionController;
+        instance.Runbattle = runBattleList[itemIndex];
+        instance.MissionController = missionController;
 
-        instance.levelOfMissionSlider.minValue = runbattleList[itemIndex].missionLevel;
-        instance.levelOfMissionSlider.maxValue = runbattleList[itemIndex].missionLevel + 30;
-        instance.levelOfMissionSlider.value = runbattleList[itemIndex].missionLevel;
+        instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].missionLevel;
+        instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].missionLevel + 30;
+        instance.LevelOfMissionSlider.value = runBattleList[itemIndex].missionLevel;
 
 
-        _MapRootToViewsHolder[instance.root] = instance;
+        _mapRootToViewsHolder[instance.Root] = instance;
 
         return instance;
     }
@@ -100,7 +100,7 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
     {
         int index = atEnd ? Data.Count : 0;
         Data.Insert(index, CreateNewModel(index));
-        InsertItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
     void OnRemoveItemRequested(bool fromEnd)
     {
@@ -110,32 +110,32 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
         int index = fromEnd ? Data.Count - 1 : 0;
 
         Data.RemoveAt(index);
-        RemoveItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
-    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUI.SetCountValue); }
+    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
     void OnScrollToRequested()
     {
-        if (demoUI.ScrollToValue >= Data.Count)
+        if (demoUi.ScrollToValue >= Data.Count)
             return;
 
-        demoUI.scrollToButton.interactable = false;
-        bool started = SmoothScrollTo(demoUI.ScrollToValue, .75f, .5f, .5f, () => demoUI.scrollToButton.interactable = true);
+        demoUi.scrollToButton.interactable = false;
+        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
         if (!started)
-            demoUI.scrollToButton.interactable = true;
+            demoUi.scrollToButton.interactable = true;
     }
     #endregion
 
     #region CExpandCollapseOnClick.ISizeChangesHandler implementation
     public bool HandleSizeChangeRequest(RectTransform rt, float newSize)
     {
-        _MapRootToViewsHolder[rt].layoutElement.preferredHeight = newSize;
+        _mapRootToViewsHolder[rt].LayoutElement.preferredHeight = newSize;
         return true;
     }
 
     public void OnExpandedStateChanged(RectTransform rt, bool expanded)
     {
-        var itemIndex = _MapRootToViewsHolder[rt].ItemIndex;
-        Data[itemIndex].expanded = expanded;
+        var itemIndex = _mapRootToViewsHolder[rt].ItemIndex;
+        Data[itemIndex].Expanded = expanded;
     }
     #endregion
 
@@ -156,10 +156,10 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
     {
         var model = new ExpandableSimpleClientModel()
         {
-            missionName = battleList[index].GetComponent<RunBattle>().missionText,
-            location = battleList[index].GetComponent<RunBattle>().location,
+            MissionName = battleList[index].GetComponent<RunBattle>().missionText,
+            Location = battleList[index].GetComponent<RunBattle>().location,
 
-            nonExpandedSize = _PrefabLayoutElement.preferredHeight
+            NonExpandedSize = _prefabLayoutElement.preferredHeight
         };
         model.SetRandom();
 
@@ -175,24 +175,24 @@ sealed public class MissionListSRIA : ClassicSRIA<MissionViewsHolder>, CExpandCo
 
 public class SimpleExpandableClientViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 {
-    public CExpandCollapseOnClick expandCollapseComponent;
+    public CExpandCollapseOnClick ExpandCollapseComponent;
 
 
     public override void CollectViews()
     {
         base.CollectViews();
 
-        expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
+        ExpandCollapseComponent = Root.GetComponent<CExpandCollapseOnClick>();
     }
 
     public override void UpdateViews(ExpandableSimpleClientModel dataModel)
     {
         base.UpdateViews(dataModel);
 
-        if (expandCollapseComponent)
+        if (ExpandCollapseComponent)
         {
-            expandCollapseComponent.expanded = dataModel.expanded;
-            expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
+            ExpandCollapseComponent.expanded = dataModel.Expanded;
+            ExpandCollapseComponent.nonExpandedSize = dataModel.NonExpandedSize;
         }
     }
 }

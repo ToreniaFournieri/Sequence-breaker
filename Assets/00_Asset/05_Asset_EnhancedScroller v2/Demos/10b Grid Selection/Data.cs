@@ -7,9 +7,9 @@
     /// </summary>
     public class Data
     {
-        public string someText;
+        public string SomeText;
 
-        public SelectedChangedDelegate selectedChanged;
+        public SelectedChangedDelegate SelectedChanged;
 
         /// <summary>
         /// The selection state
@@ -25,7 +25,7 @@
                 {
                     // update the state and call the selection handler if it exists
                     _selected = value;
-                    if (selectedChanged != null) selectedChanged(_selected);
+                    if (SelectedChanged != null) SelectedChanged(_selected);
                 }
             }
         }

@@ -6,9 +6,9 @@ sealed public class DropedItem : MonoBehaviour
 {
     public Item item;
 
-    public void SetItem (Item _item)
+    public void SetItem (Item item)
     {
-        this.item = _item;
+        this.item = item;
     }
 
 }

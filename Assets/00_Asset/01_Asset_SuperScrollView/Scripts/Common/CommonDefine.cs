@@ -47,22 +47,22 @@ namespace SuperScrollView
     {
         public RowColumnPair(int row1, int column1)
         {
-            mRow = row1;
-            mColumn = column1;
+            MRow = row1;
+            MColumn = column1;
         }
 
         public bool Equals(RowColumnPair other)
         {
-            return this.mRow == other.mRow && this.mColumn == other.mColumn;
+            return this.MRow == other.MRow && this.MColumn == other.MColumn;
         }
 
         public static bool operator ==(RowColumnPair a, RowColumnPair b)
         {
-            return (a.mRow == b.mRow)&&(a.mColumn == b.mColumn);
+            return (a.MRow == b.MRow)&&(a.MColumn == b.MColumn);
         }
         public static bool operator !=(RowColumnPair a, RowColumnPair b)
         {
-            return (a.mRow != b.mRow) || (a.mColumn != b.mColumn); ;
+            return (a.MRow != b.MRow) || (a.MColumn != b.MColumn); ;
         }
 
         public override int GetHashCode()
@@ -80,7 +80,7 @@ namespace SuperScrollView
         }
 
 
-        public int mRow;
-        public int mColumn;
+        public int MRow;
+        public int MColumn;
     }
 }

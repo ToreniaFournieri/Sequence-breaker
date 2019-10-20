@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "SkillMagnificationClass-", menuName = "BattleUnit/SkillMagnificationClass", order = 24)]
 sealed public class UnitSkillMagnificationClass : ScriptableObject
 {
-    [SerializeField] public ActionSkillClass OffenseEffectPower;
-    [SerializeField] public ActionSkillClass TriggerPossibility;
+    [FormerlySerializedAs("OffenseEffectPower")] [SerializeField] public ActionSkillClass offenseEffectPower;
+    [FormerlySerializedAs("TriggerPossibility")] [SerializeField] public ActionSkillClass triggerPossibility;
 
     public UnitSkillMagnificationClass(ActionSkillClass offenseEffectPower, ActionSkillClass triggerPossibility)
-    { this.OffenseEffectPower = offenseEffectPower; this.TriggerPossibility = triggerPossibility; }
+    { this.offenseEffectPower = offenseEffectPower; this.triggerPossibility = triggerPossibility; }
 
 }

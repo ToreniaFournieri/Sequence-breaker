@@ -21,7 +21,7 @@ namespace EnhancedScrollerDemos.Pagination
         public void SetData(Data data)
         {
             // update the UI text with the cell data
-            someTextText.text = data.someText;
+            someTextText.text = data.SomeText;
         }
     }
 }

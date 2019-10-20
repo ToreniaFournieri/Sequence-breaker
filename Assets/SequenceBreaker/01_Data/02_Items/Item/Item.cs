@@ -7,14 +7,14 @@ using System;
 sealed public class Item : ScriptableObject
 {
 
-    public string itemName
+    public string ItemName
     {
         get
         {
             return GetName();
         }
     }
-    public string itemDescription
+    public string ItemDescription
     {
         get
         {
@@ -45,71 +45,71 @@ sealed public class Item : ScriptableObject
     //Calculated
     public CombatClass TotaledCombat()
     {
-        CombatClass _combat = new CombatClass();
+        CombatClass combat = new CombatClass();
 
-        CombatClass _itemBaseCombat = new CombatClass();
-        if (baseItem != null) { _itemBaseCombat = baseItem.CalculatedCombatValue().Copy(); }
+        CombatClass itemBaseCombat = new CombatClass();
+        if (baseItem != null) { itemBaseCombat = baseItem.CalculatedCombatValue().Copy(); }
 
-        CombatClass _prefixCombat = new CombatClass();
-        if (prefixItem != null) { _prefixCombat = prefixItem.CalculatedCombatValue().Copy(); }
+        CombatClass prefixCombat = new CombatClass();
+        if (prefixItem != null) { prefixCombat = prefixItem.CalculatedCombatValue().Copy(); }
 
-        CombatClass _suffixCombat = new CombatClass();
-        if (suffixItem != null) { _suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
+        CombatClass suffixCombat = new CombatClass();
+        if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
 
-        _combat.Add(_itemBaseCombat);
-        _combat.Add(_prefixCombat);
-        _combat.Add(_suffixCombat);
+        combat.Add(itemBaseCombat);
+        combat.Add(prefixCombat);
+        combat.Add(suffixCombat);
 
-        _combat.Pow(enhancedValue);
+        combat.Pow(enhancedValue);
 
-        return _combat;
+        return combat;
     }
 
     //Calculated
     public AbilityClass TotaledAbility()
     {
-        AbilityClass _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+        AbilityClass ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
-        List<ItemBaseMaster> _itemBasesList = new List<ItemBaseMaster>();
+        List<ItemBaseMaster> itemBasesList = new List<ItemBaseMaster>();
 
-        if (baseItem != null) { _itemBasesList.Add(baseItem); }
-        if (prefixItem != null) { _itemBasesList.Add(prefixItem); }
-        if (suffixItem != null) { _itemBasesList.Add(suffixItem); }
+        if (baseItem != null) { itemBasesList.Add(baseItem); }
+        if (prefixItem != null) { itemBasesList.Add(prefixItem); }
+        if (suffixItem != null) { itemBasesList.Add(suffixItem); }
 
-        foreach (ItemBaseMaster _itemBase in _itemBasesList)
+        foreach (ItemBaseMaster itemBase in itemBasesList)
         {
             //Set itemBase, prefix, suffix ability
-            foreach (AddAbilityClass _addAbility in _itemBase.AddAbilityList)
+            foreach (AddAbilityClass addAbility in itemBase.addAbilityList)
             {
 
 
-                switch (_addAbility.Ability)
+                switch (addAbility.ability)
                 {
-                    case Ability.generation:
-                        _ability.Generation += _addAbility.ValueOfAbility;
+                    case Ability.Generation:
+                        ability.generation += addAbility.valueOfAbility;
                         break;
-                    case Ability.intelligence:
-                        _ability.Intelligence += _addAbility.ValueOfAbility;
+                    case Ability.Intelligence:
+                        ability.intelligence += addAbility.valueOfAbility;
                         break;
-                    case Ability.luck:
-                        _ability.Luck += _addAbility.ValueOfAbility;
+                    case Ability.Luck:
+                        ability.luck += addAbility.valueOfAbility;
                         break;
-                    case Ability.none:
+                    case Ability.None:
                         break;
-                    case Ability.power:
-                        _ability.Power += _addAbility.ValueOfAbility;
+                    case Ability.Power:
+                        ability.power += addAbility.valueOfAbility;
                         break;
-                    case Ability.precision:
-                        _ability.Precision += _addAbility.ValueOfAbility;
+                    case Ability.Precision:
+                        ability.precision += addAbility.valueOfAbility;
                         break;
-                    case Ability.responsiveness:
-                        _ability.Precision += _addAbility.ValueOfAbility;
+                    case Ability.Responsiveness:
+                        ability.precision += addAbility.valueOfAbility;
                         break;
-                    case Ability.stability:
-                        _ability.Stability += _addAbility.ValueOfAbility;
+                    case Ability.Stability:
+                        ability.stability += addAbility.valueOfAbility;
                         break;
                     default:
-                        Debug.LogError("unexpected Ability: " + _addAbility.Ability);
+                        Debug.LogError("unexpected Ability: " + addAbility.ability);
                         break;
 
 
@@ -117,77 +117,77 @@ sealed public class Item : ScriptableObject
             }
         }
 
-        return _ability;
+        return ability;
     }
 
     public string TotaledCombatDescription()
     {
-        string _descrption = null;
-        CombatClass _totaledCombat = this.TotaledCombat();
+        string descrption = null;
+        CombatClass totaledCombat = this.TotaledCombat();
 
-        if (_totaledCombat.ShieldMax != 0) { _descrption += "Shield +" + _totaledCombat.ShieldMax + "\n"; }
-        if (_totaledCombat.HitPointMax != 0) { _descrption += "HP +" + _totaledCombat.HitPointMax + "\n"; }
-        if (_totaledCombat.Attack != 0) { _descrption += "Attack +" + _totaledCombat.Attack + "\n"; }
-        if (_totaledCombat.Accuracy != 0) { _descrption += "Accuracy +" + _totaledCombat.Accuracy + "\n"; }
-        if (_totaledCombat.Mobility != 0) { _descrption += "Mobility +" + _totaledCombat.Mobility + "\n"; }
-        if (_totaledCombat.Defense != 0) { _descrption += "Defense +" + _totaledCombat.Defense + "\n"; }
+        if (totaledCombat.shieldMax != 0) { descrption += "Shield +" + totaledCombat.shieldMax + "\n"; }
+        if (totaledCombat.hitPointMax != 0) { descrption += "HP +" + totaledCombat.hitPointMax + "\n"; }
+        if (totaledCombat.attack != 0) { descrption += "Attack +" + totaledCombat.attack + "\n"; }
+        if (totaledCombat.accuracy != 0) { descrption += "Accuracy +" + totaledCombat.accuracy + "\n"; }
+        if (totaledCombat.mobility != 0) { descrption += "Mobility +" + totaledCombat.mobility + "\n"; }
+        if (totaledCombat.defense != 0) { descrption += "Defense +" + totaledCombat.defense + "\n"; }
 
 
-        return _descrption;
+        return descrption;
     }
 
     private string GetName()
     {
-        string _coefficient = null;
+        string coefficient = null;
         if (enhancedValue > 1)
         {
-            _coefficient = "+" + enhancedValue;
+            coefficient = "+" + enhancedValue;
         }
 
-        string _prefix = null;
-        if (prefixItem != null) { _prefix = prefixItem.itemName; }
+        string prefix = null;
+        if (prefixItem != null) { prefix = prefixItem.itemName; }
 
-        string _itemBase = null;
-        if (baseItem != null) { _itemBase = baseItem.itemName; }
+        string itemBase = null;
+        if (baseItem != null) { itemBase = baseItem.itemName; }
 
-        string _suffix = null;
-        if (suffixItem != null) { _suffix = "of " + suffixItem.itemName; }
+        string suffix = null;
+        if (suffixItem != null) { suffix = "of " + suffixItem.itemName; }
 
-        return _coefficient + " " + _prefix + " " + _itemBase + " " + _suffix;
+        return coefficient + " " + prefix + " " + itemBase + " " + suffix;
     }
 
     private string GetItemOneLineDescription()
     {
-        string _description = null;
-        if (baseItem != null) { _description += baseItem.OneLineDescription(); }
-        if (prefixItem != null) { _description += prefixItem.OneLineDescription(); }
-        if (suffixItem != null) { _description += suffixItem.OneLineDescription(); }
+        string description = null;
+        if (baseItem != null) { description += baseItem.OneLineDescription(); }
+        if (prefixItem != null) { description += prefixItem.OneLineDescription(); }
+        if (suffixItem != null) { description += suffixItem.OneLineDescription(); }
 
 
-        return _description;
+        return description;
     }
 
     public string GetItemDetailDescription()
     {
-        string _detailDescription = null;
+        string detailDescription = null;
 
-        string _name = "<b>" + GetName() + "</b> \n";
+        string name = "<b>" + GetName() + "</b> \n";
 
         // Totaled combat status
-        string _totaledCombat = this.TotaledCombatDescription();
+        string totaledCombat = this.TotaledCombatDescription();
 
 
         //description detail
-        string _description = null;
-        if (baseItem != null) { _description += "<b>Item: </b>" + baseItem.DetailDescription() + "\n"; }
-        if (prefixItem != null) { _description += "<b>Prefix: </b> " + prefixItem.DetailDescription() + "\n"; }
-        if (suffixItem != null) { _description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
+        string description = null;
+        if (baseItem != null) { description += "<b>Item: </b>" + baseItem.DetailDescription() + "\n"; }
+        if (prefixItem != null) { description += "<b>Prefix: </b> " + prefixItem.DetailDescription() + "\n"; }
+        if (suffixItem != null) { description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
 
 
-        _detailDescription = _name + "\n" + _totaledCombat + "\n" + _description;
+        detailDescription = name + "\n" + totaledCombat + "\n" + description;
 
 
-        return _detailDescription;
+        return detailDescription;
     }
 
 }

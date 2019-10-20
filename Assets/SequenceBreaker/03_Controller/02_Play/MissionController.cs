@@ -1,27 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 sealed public class MissionController : MonoBehaviour
 {
     // ally unit list
     public List<UnitClass> allyUnitList;
     public List<BattleUnit> allyCurrentBattleUnitList;
-    public PartyStatusIcons partystatusIcons;
+    public PartyStatusIcons partyStatusIcons;
 
     // inventory
     public InventoryItemList inventoryItemList;
 
     public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
     //public InventoryManager inventoryManager;
-    public LogListSRIA logList;
-    public TransparentMessageController TransparentMessageController;
+    public LogListSria logListSria;
+    [FormerlySerializedAs("TransparentMessageController")] public TransparentMessageController transparentMessageController;
 
 
     public void UpdatePartyStatus()
     {
-        partystatusIcons.partyBattleUnitList = allyCurrentBattleUnitList;
-        partystatusIcons.UpdateStatus();
+        partyStatusIcons.partyBattleUnitList = allyCurrentBattleUnitList;
+        partyStatusIcons.UpdateStatus();
     }
 
     // Start is called before the first frame update

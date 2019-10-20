@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Equip-", menuName = "Equip/Equipment", order = 1)]
 sealed public class Equipment : ScriptableObject
 {
-    [SerializeField] public int EquipmentBaseID;
+    [FormerlySerializedAs("EquipmentBaseID")] [SerializeField] public int equipmentBaseId;
 
     // Base Combat class parameter
     // [TO DO] make an equipment class.
 
     // Enhancement level -3 ~ 0, +1, +2 ~ +99
-    [SerializeField] public int EnhancementLevel;
+    [FormerlySerializedAs("EnhancementLevel")] [SerializeField] public int enhancementLevel;
 
     //Prefix
     // [TO DO] make a Prefix class.

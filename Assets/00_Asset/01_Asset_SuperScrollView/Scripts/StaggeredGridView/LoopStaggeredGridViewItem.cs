@@ -9,98 +9,98 @@ namespace SuperScrollView
     {
         //indicates the item’s index in the GridView,
         // can be from 0 to itemTotalCount -1.
-        int mItemIndex = -1;
+        int _mItemIndex = -1;
 
         //indicates the item’s index in a column or row. 
         //Here the word “Group” means: for an vertical GridView, a group means a column
         //for an horizontal GridView, a group means a row.
-        int mItemIndexInGroup = -1;
+        int _mItemIndexInGroup = -1;
 
         //indicates the item’s id.
         //This property is set when the item is created or fetched from pool, 
         //and will no longer change until the item is recycled back to pool.
-        int mItemId = -1;
+        int _mItemId = -1;
 
-        float mPadding;
-        float mExtraPadding;
-        bool mIsInitHandlerCalled = false;
-        string mItemPrefabName;
-        RectTransform mCachedRectTransform;
-        LoopStaggeredGridView mParentListView = null;
-        float mDistanceWithViewPortSnapCenter = 0;
-        int mItemCreatedCheckFrameCount = 0;
-        float mStartPosOffset = 0;
+        float _mPadding;
+        float _mExtraPadding;
+        bool _mIsInitHandlerCalled = false;
+        string _mItemPrefabName;
+        RectTransform _mCachedRectTransform;
+        LoopStaggeredGridView _mParentListView = null;
+        float _mDistanceWithViewPortSnapCenter = 0;
+        int _mItemCreatedCheckFrameCount = 0;
+        float _mStartPosOffset = 0;
 
-        object mUserObjectData = null;
-        int mUserIntData1 = 0;
-        int mUserIntData2 = 0;
-        string mUserStringData1 = null;
-        string mUserStringData2 = null;
+        object _mUserObjectData = null;
+        int _mUserIntData1 = 0;
+        int _mUserIntData2 = 0;
+        string _mUserStringData1 = null;
+        string _mUserStringData2 = null;
 
         public object UserObjectData
         {
-            get { return mUserObjectData; }
-            set { mUserObjectData = value; }
+            get { return _mUserObjectData; }
+            set { _mUserObjectData = value; }
         }
         public int UserIntData1
         {
-            get { return mUserIntData1; }
-            set { mUserIntData1 = value; }
+            get { return _mUserIntData1; }
+            set { _mUserIntData1 = value; }
         }
         public int UserIntData2
         {
-            get { return mUserIntData2; }
-            set { mUserIntData2 = value; }
+            get { return _mUserIntData2; }
+            set { _mUserIntData2 = value; }
         }
         public string UserStringData1
         {
-            get { return mUserStringData1; }
-            set { mUserStringData1 = value; }
+            get { return _mUserStringData1; }
+            set { _mUserStringData1 = value; }
         }
         public string UserStringData2
         {
-            get { return mUserStringData2; }
-            set { mUserStringData2 = value; }
+            get { return _mUserStringData2; }
+            set { _mUserStringData2 = value; }
         }
 
         public float DistanceWithViewPortSnapCenter
         {
-            get { return mDistanceWithViewPortSnapCenter; }
-            set { mDistanceWithViewPortSnapCenter = value; }
+            get { return _mDistanceWithViewPortSnapCenter; }
+            set { _mDistanceWithViewPortSnapCenter = value; }
         }
 
         public float StartPosOffset
         {
-            get { return mStartPosOffset; }
-            set { mStartPosOffset = value; }
+            get { return _mStartPosOffset; }
+            set { _mStartPosOffset = value; }
         }
 
         public int ItemCreatedCheckFrameCount
         {
-            get { return mItemCreatedCheckFrameCount; }
-            set { mItemCreatedCheckFrameCount = value; }
+            get { return _mItemCreatedCheckFrameCount; }
+            set { _mItemCreatedCheckFrameCount = value; }
         }
 
         public float Padding
         {
-            get { return mPadding; }
-            set { mPadding = value; }
+            get { return _mPadding; }
+            set { _mPadding = value; }
         }
         public float ExtraPadding
         {
-            get { return mExtraPadding; }
-            set { mExtraPadding = value; }
+            get { return _mExtraPadding; }
+            set { _mExtraPadding = value; }
         }
 
         public RectTransform CachedRectTransform
         {
             get
             {
-                if (mCachedRectTransform == null)
+                if (_mCachedRectTransform == null)
                 {
-                    mCachedRectTransform = gameObject.GetComponent<RectTransform>();
+                    _mCachedRectTransform = gameObject.GetComponent<RectTransform>();
                 }
-                return mCachedRectTransform;
+                return _mCachedRectTransform;
             }
         }
 
@@ -108,11 +108,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemPrefabName;
+                return _mItemPrefabName;
             }
             set
             {
-                mItemPrefabName = value;
+                _mItemPrefabName = value;
             }
         }
 
@@ -120,11 +120,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemIndexInGroup;
+                return _mItemIndexInGroup;
             }
             set
             {
-                mItemIndexInGroup = value;
+                _mItemIndexInGroup = value;
             }
         }
 
@@ -132,11 +132,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemIndex;
+                return _mItemIndex;
             }
             set
             {
-                mItemIndex = value;
+                _mItemIndex = value;
             }
         }
 
@@ -144,11 +144,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemId;
+                return _mItemId;
             }
             set
             {
-                mItemId = value;
+                _mItemId = value;
             }
         }
 
@@ -157,11 +157,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mIsInitHandlerCalled;
+                return _mIsInitHandlerCalled;
             }
             set
             {
-                mIsInitHandlerCalled = value;
+                _mIsInitHandlerCalled = value;
             }
         }
 
@@ -169,11 +169,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mParentListView;
+                return _mParentListView;
             }
             set
             {
-                mParentListView = value;
+                _mParentListView = value;
             }
         }
 
@@ -265,7 +265,7 @@ namespace SuperScrollView
         {
             get
             {
-                return ItemSize + mPadding;
+                return ItemSize + _mPadding;
             }
         }
 

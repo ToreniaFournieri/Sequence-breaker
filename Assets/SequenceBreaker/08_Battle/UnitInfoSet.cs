@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-sealed public class UnitInfoSet : MonoBehaviour
+public sealed class UnitInfoSet : MonoBehaviour
 {
     //public GameObject iconMask;
     //public Image unitIcon;
     public Image hPBar;
     public Image shieldBar;
-    public Text UnitInfoText;
+    [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
     public GameObject barrierObject;
     public Text barrierRemains;
 
@@ -19,10 +20,4 @@ sealed public class UnitInfoSet : MonoBehaviour
 
 
     }
-
-    private void Awake()
-    {
-
-    }
-
 }

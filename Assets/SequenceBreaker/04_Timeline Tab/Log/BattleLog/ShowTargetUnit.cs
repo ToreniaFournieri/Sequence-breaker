@@ -41,10 +41,10 @@ namespace KohmaiWorks.Scroller
                 for (int i = 0; i < battleUnits.Count; i++)
                 {
                     // Display vs words just before enemy start.
-                    if (battleUnits[i].Affiliation == Affiliation.enemy && isSwitchedAffiliation == false)
+                    if (battleUnits[i].affiliation == Affiliation.Enemy && isSwitchedAffiliation == false)
                     {
                         GameObject vsIcon = unitIconObjectPool.GetObject();
-                        vsIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = " vs ";
+                        vsIcon.GetComponent<UnitInfoSet>().unitInfoText.text = " vs ";
                         vsIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = 0f;
                         vsIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = 0f;
                         vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
@@ -53,8 +53,8 @@ namespace KohmaiWorks.Scroller
                         isSwitchedAffiliation = true;
                     }
 
-                    float shieldRatio = ((float)battleUnits[i].Combat.ShieldCurrent / (float)battleUnits[i].Combat.ShieldMax);
-                    float hPRatio = ((float)battleUnits[i].Combat.HitPointCurrent / (float)battleUnits[i].Combat.HitPointMax);
+                    float shieldRatio = ((float)battleUnits[i].combat.shieldCurrent / (float)battleUnits[i].combat.shieldMax);
+                    float hPRatio = ((float)battleUnits[i].combat.hitPointCurrent / (float)battleUnits[i].combat.hitPointMax);
 
                     string deteriorationText = null;
                     if ((int)(battleUnits[i].Deterioration * 100) >= 1)
@@ -65,8 +65,8 @@ namespace KohmaiWorks.Scroller
                     GameObject unitIcon = unitIconObjectPool.GetObject();
 
                     // set barrier remains icon
-                    unitIcon.GetComponent<UnitInfoSet>().barrierRemains.text = battleUnits[i].Buff.BarrierRemaining.ToString();
-                    if (battleUnits[i].Buff.BarrierRemaining > 0)
+                    unitIcon.GetComponent<UnitInfoSet>().barrierRemains.text = battleUnits[i].buff.BarrierRemaining.ToString();
+                    if (battleUnits[i].buff.BarrierRemaining > 0)
                     { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(true); }
                     else { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false); }
 
@@ -75,8 +75,8 @@ namespace KohmaiWorks.Scroller
                     //+ battleUnits[i].Combat.HitPointCurrent + "(" + (int)(hPRatio * 100) + "%)]"
                     //+ deteriorationText;
 
-                    unitIcon.GetComponent<UnitInfoSet>().UnitInfoText.text = "<b>" + battleUnits[i].Name + "</b> [" + battleUnits[i].Combat.ShieldCurrent
-                        + "+" + battleUnits[i].Combat.HitPointCurrent + "] " + deteriorationText;
+                    unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text = "<b>" + battleUnits[i].name + "</b> [" + battleUnits[i].combat.shieldCurrent
+                        + "+" + battleUnits[i].combat.hitPointCurrent + "] " + deteriorationText;
                     unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
                     //unitIcon.tag = "UnitHorizontalInfo";

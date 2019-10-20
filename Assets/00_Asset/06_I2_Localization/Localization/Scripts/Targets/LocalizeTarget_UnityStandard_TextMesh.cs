@@ -7,26 +7,26 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityStandard_TextMesh : LocalizeTarget<TextMesh>
+    public class LocalizeTargetUnityStandardTextMesh : LocalizeTarget<TextMesh>
     {
-        static LocalizeTarget_UnityStandard_TextMesh() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<TextMesh, LocalizeTarget_UnityStandard_TextMesh>() { Name = "TextMesh", Priority = 100 }); }
+        static LocalizeTargetUnityStandardTextMesh() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescType<TextMesh, LocalizeTargetUnityStandardTextMesh>() { Name = "TextMesh", Priority = 100 }); }
 
-        TextAlignment mAlignment_RTL = TextAlignment.Right;
-        TextAlignment mAlignment_LTR = TextAlignment.Left;
-        bool mAlignmentWasRTL;
-        bool mInitializeAlignment = true;
+        TextAlignment _mAlignmentRtl = TextAlignment.Right;
+        TextAlignment _mAlignmentLtr = TextAlignment.Left;
+        bool _mAlignmentWasRtl;
+        bool _mInitializeAlignment = true;
 
-        public override eTermType GetPrimaryTermType(Localize cmp) { return eTermType.Text; }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Font; }
+        public override ETermType GetPrimaryTermType(Localize cmp) { return ETermType.Text; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Font; }
         public override bool CanUseSecondaryTerm() { return true; }
-        public override bool AllowMainTermToBeRTL() { return true; }
-        public override bool AllowSecondTermToBeRTL() { return false; }
+        public override bool AllowMainTermToBeRtl() { return true; }
+        public override bool AllowSecondTermToBeRtl() { return false; }
 
-        public override void GetFinalTerms ( Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
+        public override void GetFinalTerms ( Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm)
         {
             primaryTerm = mTarget ? mTarget.text : null;
-            secondaryTerm = (string.IsNullOrEmpty(Secondary) && mTarget.font != null) ? mTarget.font.name : null;
+            secondaryTerm = (string.IsNullOrEmpty(secondary) && mTarget.font != null) ? mTarget.font.name : null;
         }
 
         public override void DoLocalize(Localize cmp, string mainTranslation, string secondaryTranslation)
@@ -37,22 +37,22 @@ namespace I2.Loc
                 mTarget.font = newFont;
 
             //--[ Localize Text ]----------
-            if (mInitializeAlignment)
+            if (_mInitializeAlignment)
             {
-                mInitializeAlignment = false;
+                _mInitializeAlignment = false;
 
-                mAlignment_LTR = mAlignment_RTL = mTarget.alignment;
+                _mAlignmentLtr = _mAlignmentRtl = mTarget.alignment;
 
-                if (LocalizationManager.IsRight2Left && mAlignment_RTL == TextAlignment.Right)
-                    mAlignment_LTR = TextAlignment.Left;
-                if (!LocalizationManager.IsRight2Left && mAlignment_LTR == TextAlignment.Left)
-                    mAlignment_RTL = TextAlignment.Right;
+                if (LocalizationManager.IsRight2Left && _mAlignmentRtl == TextAlignment.Right)
+                    _mAlignmentLtr = TextAlignment.Left;
+                if (!LocalizationManager.IsRight2Left && _mAlignmentLtr == TextAlignment.Left)
+                    _mAlignmentRtl = TextAlignment.Right;
 
             }
             if (mainTranslation != null && mTarget.text != mainTranslation)
             {
-                if (cmp.CorrectAlignmentForRTL && mTarget.alignment != TextAlignment.Center)
-                    mTarget.alignment = (LocalizationManager.IsRight2Left ? mAlignment_RTL : mAlignment_LTR);
+                if (cmp.correctAlignmentForRtl && mTarget.alignment != TextAlignment.Center)
+                    mTarget.alignment = (LocalizationManager.IsRight2Left ? _mAlignmentRtl : _mAlignmentLtr);
 
                 mTarget.font.RequestCharactersInTexture(mainTranslation);
                 mTarget.text = mainTranslation;

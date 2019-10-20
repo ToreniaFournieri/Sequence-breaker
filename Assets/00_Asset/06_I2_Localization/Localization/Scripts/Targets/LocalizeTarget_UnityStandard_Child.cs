@@ -2,7 +2,7 @@
 
 namespace I2.Loc
 {
-    public class LocalizeTargetDesc_Child : LocalizeTargetDesc<LocalizeTarget_UnityStandard_Child>
+    public class LocalizeTargetDescChild : LocalizeTargetDesc<LocalizeTargetUnityStandardChild>
     {
         public override bool CanLocalize(Localize cmp) { return cmp.transform.childCount > 1; }
     }
@@ -11,19 +11,19 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityStandard_Child : LocalizeTarget<GameObject>
+    public class LocalizeTargetUnityStandardChild : LocalizeTarget<GameObject>
     {
-        static LocalizeTarget_UnityStandard_Child() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Child() { Name = "Child", Priority = 200 }); }
+        static LocalizeTargetUnityStandardChild() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescChild() { Name = "Child", Priority = 200 }); }
 
         public override bool IsValid(Localize cmp) { return cmp.transform.childCount>1; }
-        public override eTermType GetPrimaryTermType(Localize cmp) { return eTermType.GameObject; }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Text; }
+        public override ETermType GetPrimaryTermType(Localize cmp) { return ETermType.GameObject; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Text; }
         public override bool CanUseSecondaryTerm() { return false; }
-        public override bool AllowMainTermToBeRTL() { return false; }
-        public override bool AllowSecondTermToBeRTL() { return false; }
+        public override bool AllowMainTermToBeRtl() { return false; }
+        public override bool AllowSecondTermToBeRtl() { return false; }
 
-        public override void GetFinalTerms(Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
+        public override void GetFinalTerms(Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm)
         {
             primaryTerm = cmp.name;
             secondaryTerm = null;

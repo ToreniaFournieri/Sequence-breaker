@@ -7,47 +7,47 @@ namespace SuperScrollView
 
     public class TreeViewItemData
     {
-        public string mName;
-        public string mIcon;
-        List<ItemData> mChildItemDataList = new List<ItemData>();
+        public string MName;
+        public string MIcon;
+        List<ItemData> _mChildItemDataList = new List<ItemData>();
 
         public int ChildCount
         {
-            get { return mChildItemDataList.Count; }
+            get { return _mChildItemDataList.Count; }
         }
 
         public void AddChild(ItemData data)
         {
-            mChildItemDataList.Add(data);
+            _mChildItemDataList.Add(data);
         }
         public ItemData GetChild(int index)
         {
-            if(index < 0 || index >= mChildItemDataList.Count)
+            if(index < 0 || index >= _mChildItemDataList.Count)
             {
                 return null;
             }
-            return mChildItemDataList[index];
+            return _mChildItemDataList[index];
         }
     }
 
     public class TreeViewDataSourceMgr : MonoBehaviour
     {
 
-        List<TreeViewItemData> mItemDataList = new List<TreeViewItemData>();
+        List<TreeViewItemData> _mItemDataList = new List<TreeViewItemData>();
 
-        static TreeViewDataSourceMgr instance = null;
-        int mTreeViewItemCount = 20;
-        int mTreeViewChildItemCount = 30;
+        static TreeViewDataSourceMgr _instance = null;
+        int _mTreeViewItemCount = 20;
+        int _mTreeViewChildItemCount = 30;
 
         public static TreeViewDataSourceMgr Get
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = Object.FindObjectOfType<TreeViewDataSourceMgr>();
+                    _instance = Object.FindObjectOfType<TreeViewDataSourceMgr>();
                 }
-                return instance;
+                return _instance;
             }
 
         }
@@ -65,11 +65,11 @@ namespace SuperScrollView
 
         public TreeViewItemData GetItemDataByIndex(int index)
         {
-            if (index < 0 || index >= mItemDataList.Count)
+            if (index < 0 || index >= _mItemDataList.Count)
             {
                 return null;
             }
-            return mItemDataList[index];
+            return _mItemDataList[index];
         }
 
         public ItemData GetItemChildDataByIndex(int itemIndex,int childIndex)
@@ -86,7 +86,7 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemDataList.Count;
+                return _mItemDataList.Count;
             }
         }
 
@@ -94,11 +94,11 @@ namespace SuperScrollView
         {
             get
             {
-                int count =  mItemDataList.Count;
+                int count =  _mItemDataList.Count;
                 int totalCount = 0;
                 for(int i = 0;i<count;++i)
                 {
-                    totalCount = totalCount + mItemDataList[i].ChildCount;
+                    totalCount = totalCount + _mItemDataList[i].ChildCount;
                 }
                 return totalCount;
             }
@@ -107,22 +107,22 @@ namespace SuperScrollView
 
         void DoRefreshDataSource()
         {
-            mItemDataList.Clear();
-            for (int i = 0; i < mTreeViewItemCount; ++i)
+            _mItemDataList.Clear();
+            for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
                 TreeViewItemData tData = new TreeViewItemData();
-                tData.mName = "Item" + i;
-                tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                mItemDataList.Add(tData);
-                int childCount = mTreeViewChildItemCount;
+                tData.MName = "Item" + i;
+                tData.MIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                _mItemDataList.Add(tData);
+                int childCount = _mTreeViewChildItemCount;
                 for (int j = 1;j <= childCount;++j)
                 {
                     ItemData childItemData = new ItemData();
-                    childItemData.mName = "Item" + i + ":Child" + j;
-                    childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                    childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                    childItemData.mStarCount = Random.Range(0, 6);
-                    childItemData.mFileSize = Random.Range(20, 999);
+                    childItemData.MName = "Item" + i + ":Child" + j;
+                    childItemData.MDesc = "Item Desc For " + childItemData.MName;
+                    childItemData.MIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                    childItemData.MStarCount = Random.Range(0, 6);
+                    childItemData.MFileSize = Random.Range(20, 999);
                     tData.AddChild(childItemData);
                 }
             }

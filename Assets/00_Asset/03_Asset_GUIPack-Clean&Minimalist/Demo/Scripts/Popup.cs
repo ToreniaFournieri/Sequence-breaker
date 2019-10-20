@@ -16,7 +16,7 @@ namespace Ricimi
 
         public float destroyTime = 0.5f;
 
-        private GameObject m_background;
+        private GameObject _mBackground;
 
         public void Open()
         {
@@ -40,7 +40,7 @@ namespace Ricimi
         private IEnumerator RunPopupDestroy()
         {
             yield return new WaitForSeconds(destroyTime);
-            Destroy(m_background);
+            Destroy(_mBackground);
             Destroy(gameObject);
         }
 
@@ -50,8 +50,8 @@ namespace Ricimi
             bgTex.SetPixel(0, 0, backgroundColor);
             bgTex.Apply();
 
-            m_background = new GameObject("PopupBackground");
-            var image = m_background.AddComponent<Image>();
+            _mBackground = new GameObject("PopupBackground");
+            var image = _mBackground.AddComponent<Image>();
             var rect = new Rect(0, 0, bgTex.width, bgTex.height);
             var sprite = Sprite.Create(bgTex, rect, new Vector2(0.5f, 0.5f), 1);
             image.material.mainTexture = bgTex;
@@ -62,15 +62,15 @@ namespace Ricimi
             image.CrossFadeAlpha(1.0f, 0.4f, false);
 
             var canvas = GameObject.Find("Canvas");
-            m_background.transform.localScale = new Vector3(1, 1, 1);
-            m_background.GetComponent<RectTransform>().sizeDelta = canvas.GetComponent<RectTransform>().sizeDelta;
-            m_background.transform.SetParent(canvas.transform, false);
-            m_background.transform.SetSiblingIndex(transform.GetSiblingIndex());
+            _mBackground.transform.localScale = new Vector3(1, 1, 1);
+            _mBackground.GetComponent<RectTransform>().sizeDelta = canvas.GetComponent<RectTransform>().sizeDelta;
+            _mBackground.transform.SetParent(canvas.transform, false);
+            _mBackground.transform.SetSiblingIndex(transform.GetSiblingIndex());
         }
 
         private void RemoveBackground()
         {
-            var image = m_background.GetComponent<Image>();
+            var image = _mBackground.GetComponent<Image>();
             if (image != null)
                 image.CrossFadeAlpha(0.0f, 0.2f, false);
         }

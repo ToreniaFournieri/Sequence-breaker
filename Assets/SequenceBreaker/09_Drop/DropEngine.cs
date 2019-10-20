@@ -5,15 +5,15 @@ using UnityEngine;
 sealed public class DropEngine 
 {
     // This value is temporary.
-    private double itemDropRatio = 0.100;
+    private double _itemDropRatio = 0.100;
 
     // Internal infomation
-    private List<UnitClass> enemyUnitList;
-    private List<Item> dropItemList;
+    private List<UnitClass> _enemyUnitList;
+    private List<Item> _dropItemList;
 
     public List<Item> GetDropedItems(List<UnitClass> enemyUnitList, int seed)
     {
-        dropItemList = new List<Item>();
+        _dropItemList = new List<Item>();
         System.Random r = new System.Random(seed);
 
         //1.Correct all item of enemy units
@@ -24,14 +24,14 @@ sealed public class DropEngine
                 //2.[UNIMPLEMENTED] Remove undropable item if it is.                
 
                 //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
-                if (itemDropRatio >= r.NextDouble())
+                if (_itemDropRatio >= r.NextDouble())
                 {
-                    dropItemList.Add(item);
+                    _dropItemList.Add(item);
                 }
             }
         }
 
-        return dropItemList;
+        return _dropItemList;
     }
 
 }

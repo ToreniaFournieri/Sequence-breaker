@@ -10,97 +10,97 @@ namespace SuperScrollView
     public class StaggeredGridItemGroup
     {
 
-        LoopStaggeredGridView mParentGridView;
-        ListItemArrangeType mArrangeType = ListItemArrangeType.TopToBottom;
-        List<LoopStaggeredGridViewItem> mItemList = new List<LoopStaggeredGridViewItem>();
-        RectTransform mContainerTrans;
-        ScrollRect mScrollRect = null;
-        public int mGroupIndex = 0;
-        GameObject mGameObject;
-        List<int> mItemIndexMap = new List<int>();
-        RectTransform mScrollRectTransform = null;
-        RectTransform mViewPortRectTransform = null;
-        float mItemDefaultWithPaddingSize = 0;
-        int mItemTotalCount = 0;
-        bool mIsVertList = false;
-        System.Func<int, int, LoopStaggeredGridViewItem> mOnGetItemByIndex;
-        Vector3[] mItemWorldCorners = new Vector3[4];
-        Vector3[] mViewPortRectLocalCorners = new Vector3[4];
-        int mCurReadyMinItemIndex = 0;
-        int mCurReadyMaxItemIndex = 0;
-        bool mNeedCheckNextMinItem = true;
-        bool mNeedCheckNextMaxItem = true;
-        ItemPosMgr mItemPosMgr = null;
-        bool mSupportScrollBar = true;
-        int mLastItemIndex = 0;
-        float mLastItemPadding = 0;
-        Vector3 mLastFrameContainerPos = Vector3.zero;
-        int mListUpdateCheckFrameCount = 0;
+        LoopStaggeredGridView _mParentGridView;
+        ListItemArrangeType _mArrangeType = ListItemArrangeType.TopToBottom;
+        List<LoopStaggeredGridViewItem> _mItemList = new List<LoopStaggeredGridViewItem>();
+        RectTransform _mContainerTrans;
+        ScrollRect _mScrollRect = null;
+        public int MGroupIndex = 0;
+        GameObject _mGameObject;
+        List<int> _mItemIndexMap = new List<int>();
+        RectTransform _mScrollRectTransform = null;
+        RectTransform _mViewPortRectTransform = null;
+        float _mItemDefaultWithPaddingSize = 0;
+        int _mItemTotalCount = 0;
+        bool _mIsVertList = false;
+        System.Func<int, int, LoopStaggeredGridViewItem> _mOnGetItemByIndex;
+        Vector3[] _mItemWorldCorners = new Vector3[4];
+        Vector3[] _mViewPortRectLocalCorners = new Vector3[4];
+        int _mCurReadyMinItemIndex = 0;
+        int _mCurReadyMaxItemIndex = 0;
+        bool _mNeedCheckNextMinItem = true;
+        bool _mNeedCheckNextMaxItem = true;
+        ItemPosMgr _mItemPosMgr = null;
+        bool _mSupportScrollBar = true;
+        int _mLastItemIndex = 0;
+        float _mLastItemPadding = 0;
+        Vector3 _mLastFrameContainerPos = Vector3.zero;
+        int _mListUpdateCheckFrameCount = 0;
 
         public void Init(LoopStaggeredGridView parent, int itemTotalCount, int groupIndex,
             System.Func<int, int, LoopStaggeredGridViewItem> onGetItemByIndex)
         {
-            mGroupIndex = groupIndex;
-            mParentGridView = parent;
-            mArrangeType = mParentGridView.ArrangeType;
-            mGameObject = mParentGridView.gameObject;
-            mScrollRect = mGameObject.GetComponent<ScrollRect>();
-            mItemPosMgr = new ItemPosMgr(mItemDefaultWithPaddingSize);
-            mScrollRectTransform = mScrollRect.GetComponent<RectTransform>();
-            mContainerTrans = mScrollRect.content;
-            mViewPortRectTransform = mScrollRect.viewport;
-            if (mViewPortRectTransform == null)
+            MGroupIndex = groupIndex;
+            _mParentGridView = parent;
+            _mArrangeType = _mParentGridView.ArrangeType;
+            _mGameObject = _mParentGridView.gameObject;
+            _mScrollRect = _mGameObject.GetComponent<ScrollRect>();
+            _mItemPosMgr = new ItemPosMgr(_mItemDefaultWithPaddingSize);
+            _mScrollRectTransform = _mScrollRect.GetComponent<RectTransform>();
+            _mContainerTrans = _mScrollRect.content;
+            _mViewPortRectTransform = _mScrollRect.viewport;
+            if (_mViewPortRectTransform == null)
             {
-                mViewPortRectTransform = mScrollRectTransform;
+                _mViewPortRectTransform = _mScrollRectTransform;
             }
-            mIsVertList = (mArrangeType == ListItemArrangeType.TopToBottom || mArrangeType == ListItemArrangeType.BottomToTop);
-            mOnGetItemByIndex = onGetItemByIndex;
-            mItemTotalCount = itemTotalCount;
-            mViewPortRectTransform.GetLocalCorners(mViewPortRectLocalCorners);
-            if (mItemTotalCount < 0)
+            _mIsVertList = (_mArrangeType == ListItemArrangeType.TopToBottom || _mArrangeType == ListItemArrangeType.BottomToTop);
+            _mOnGetItemByIndex = onGetItemByIndex;
+            _mItemTotalCount = itemTotalCount;
+            _mViewPortRectTransform.GetLocalCorners(_mViewPortRectLocalCorners);
+            if (_mItemTotalCount < 0)
             {
-                mSupportScrollBar = false;
+                _mSupportScrollBar = false;
             }
-            if (mSupportScrollBar)
+            if (_mSupportScrollBar)
             {
-                mItemPosMgr.SetItemMaxCount(mItemTotalCount);
+                _mItemPosMgr.SetItemMaxCount(_mItemTotalCount);
             }
             else
             {
-                mItemPosMgr.SetItemMaxCount(0);
+                _mItemPosMgr.SetItemMaxCount(0);
             }
-            mCurReadyMaxItemIndex = 0;
-            mCurReadyMinItemIndex = 0;
-            mNeedCheckNextMaxItem = true;
-            mNeedCheckNextMinItem = true;
+            _mCurReadyMaxItemIndex = 0;
+            _mCurReadyMinItemIndex = 0;
+            _mNeedCheckNextMaxItem = true;
+            _mNeedCheckNextMinItem = true;
         }
 
 
         public List<int> ItemIndexMap
         {
-            get { return mItemIndexMap; }
+            get { return _mItemIndexMap; }
         }
 
         public void ResetListView()
         {
-            mViewPortRectTransform.GetLocalCorners(mViewPortRectLocalCorners);
+            _mViewPortRectTransform.GetLocalCorners(_mViewPortRectLocalCorners);
         }
 
         //To get the visible item by itemIndex. If the item is not visible, then this method return null.
         public LoopStaggeredGridViewItem GetShownItemByItemIndex(int itemIndex)
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return null;
             }
-            if (itemIndex < mItemList[0].ItemIndex || itemIndex > mItemList[count - 1].ItemIndex)
+            if (itemIndex < _mItemList[0].ItemIndex || itemIndex > _mItemList[count - 1].ItemIndex)
             {
                 return null;
             }
             for(int i = 0;i<count;++i)
             {
-                LoopStaggeredGridViewItem item = mItemList[i];
+                LoopStaggeredGridViewItem item = _mItemList[i];
                 if(item.ItemIndex == itemIndex)
                 {
                     return item; 
@@ -113,29 +113,29 @@ namespace SuperScrollView
         {
             get
             {
-                if (mIsVertList)
+                if (_mIsVertList)
                 {
-                    return mViewPortRectTransform.rect.height;
+                    return _mViewPortRectTransform.rect.height;
                 }
                 else
                 {
-                    return mViewPortRectTransform.rect.width;
+                    return _mViewPortRectTransform.rect.width;
                 }
             }
         }
 
         public float ViewPortWidth
         {
-            get { return mViewPortRectTransform.rect.width; }
+            get { return _mViewPortRectTransform.rect.width; }
         }
         public float ViewPortHeight
         {
-            get { return mViewPortRectTransform.rect.height; }
+            get { return _mViewPortRectTransform.rect.height; }
         }
 
         bool IsDraging
         {
-            get { return mParentGridView.IsDraging; }
+            get { return _mParentGridView.IsDraging; }
         }
 
         /*
@@ -144,17 +144,17 @@ namespace SuperScrollView
         */
         public LoopStaggeredGridViewItem GetShownItemByIndexInGroup(int indexInGroup)
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return null;
             }
-            if (indexInGroup < mItemList[0].ItemIndexInGroup || indexInGroup > mItemList[count - 1].ItemIndexInGroup)
+            if (indexInGroup < _mItemList[0].ItemIndexInGroup || indexInGroup > _mItemList[count - 1].ItemIndexInGroup)
             {
                 return null;
             }
-            int i = indexInGroup - mItemList[0].ItemIndexInGroup;
-            return mItemList[i];
+            int i = indexInGroup - _mItemList[0].ItemIndexInGroup;
+            return _mItemList[i];
         }
 
         public int GetIndexInShownItemList(LoopStaggeredGridViewItem item)
@@ -163,14 +163,14 @@ namespace SuperScrollView
             {
                 return -1;
             }
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return -1;
             }
             for (int i = 0; i < count; ++i)
             {
-                if (mItemList[i] == item)
+                if (_mItemList[i] == item)
                 {
                     return i;
                 }
@@ -182,12 +182,12 @@ namespace SuperScrollView
         //update all visible items.
         public void RefreshAllShownItem()
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return;
             }
-            RefreshAllShownItemWithFirstIndexInGroup(mItemList[0].ItemIndexInGroup);
+            RefreshAllShownItemWithFirstIndexInGroup(_mItemList[0].ItemIndexInGroup);
         }
 
 
@@ -202,9 +202,9 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mSupportScrollBar)
+            if (_mSupportScrollBar)
             {
-                if (mIsVertList)
+                if (_mIsVertList)
                 {
                     SetItemSize(indexInGroup, item.CachedRectTransform.rect.height, item.Padding);
                 }
@@ -223,18 +223,18 @@ namespace SuperScrollView
         */
         public void RefreshItemByIndexInGroup(int indexInGroup)
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if(count == 0)
             {
                 return;
             }
-            if (indexInGroup < mItemList[0].ItemIndexInGroup || indexInGroup > mItemList[count - 1].ItemIndexInGroup)
+            if (indexInGroup < _mItemList[0].ItemIndexInGroup || indexInGroup > _mItemList[count - 1].ItemIndexInGroup)
             {
                 return;
             }
-            int firstItemIndexInGroup = mItemList[0].ItemIndexInGroup;
+            int firstItemIndexInGroup = _mItemList[0].ItemIndexInGroup;
             int i = indexInGroup - firstItemIndexInGroup;
-            LoopStaggeredGridViewItem curItem = mItemList[i];
+            LoopStaggeredGridViewItem curItem = _mItemList[i];
             Vector3 pos = curItem.CachedRectTransform.anchoredPosition3D;
             RecycleItemTmp(curItem);
             LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(indexInGroup);
@@ -243,8 +243,8 @@ namespace SuperScrollView
                 RefreshAllShownItemWithFirstIndexInGroup(firstItemIndexInGroup);
                 return;
             }
-            mItemList[i] = newItem;
-            if (mIsVertList)
+            _mItemList[i] = newItem;
+            if (_mIsVertList)
             {
                 pos.x = newItem.StartPosOffset;
             }
@@ -260,12 +260,12 @@ namespace SuperScrollView
 
         public void RefreshAllShownItemWithFirstIndexInGroup(int firstItemIndexInGroup)
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return;
             }
-            LoopStaggeredGridViewItem firstItem = mItemList[0];
+            LoopStaggeredGridViewItem firstItem = _mItemList[0];
             Vector3 pos = firstItem.CachedRectTransform.anchoredPosition3D;
             RecycleAllItem();
             for (int i = 0; i < count; ++i)
@@ -276,7 +276,7 @@ namespace SuperScrollView
                 {
                     break;
                 }
-                if (mIsVertList)
+                if (_mIsVertList)
                 {
                     pos.x = newItem.StartPosOffset;
                 }
@@ -285,9 +285,9 @@ namespace SuperScrollView
                     pos.y = newItem.StartPosOffset;
                 }
                 newItem.CachedRectTransform.anchoredPosition3D = pos;
-                if (mSupportScrollBar)
+                if (_mSupportScrollBar)
                 {
-                    if (mIsVertList)
+                    if (_mIsVertList)
                     {
                         SetItemSize(curIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                     }
@@ -297,7 +297,7 @@ namespace SuperScrollView
                     }
                 }
 
-                mItemList.Add(newItem);
+                _mItemList.Add(newItem);
             }
             UpdateAllShownItemsPos();
             ClearAllTmpRecycledItem();
@@ -312,7 +312,7 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mIsVertList)
+            if (_mIsVertList)
             {
                 pos.x = newItem.StartPosOffset;
             }
@@ -321,9 +321,9 @@ namespace SuperScrollView
                 pos.y = newItem.StartPosOffset;
             }
             newItem.CachedRectTransform.anchoredPosition3D = pos;
-            if (mSupportScrollBar)
+            if (_mSupportScrollBar)
             {
-                if (mIsVertList)
+                if (_mIsVertList)
                 {
                     SetItemSize(firstItemIndexInGroup, newItem.CachedRectTransform.rect.height, newItem.Padding);
                 }
@@ -332,9 +332,9 @@ namespace SuperScrollView
                     SetItemSize(firstItemIndexInGroup, newItem.CachedRectTransform.rect.width, newItem.Padding);
                 }
             }
-            mItemList.Add(newItem);
+            _mItemList.Add(newItem);
             UpdateAllShownItemsPos();
-            mParentGridView.UpdateListViewWithDefault();
+            _mParentGridView.UpdateListViewWithDefault();
             ClearAllTmpRecycledItem();
         }
 
@@ -344,56 +344,56 @@ namespace SuperScrollView
 
         void SetItemSize(int itemIndex, float itemSize, float padding)
         {
-            mItemPosMgr.SetItemSize(itemIndex, itemSize + padding);
-            if (itemIndex >= mLastItemIndex)
+            _mItemPosMgr.SetItemSize(itemIndex, itemSize + padding);
+            if (itemIndex >= _mLastItemIndex)
             {
-                mLastItemIndex = itemIndex;
-                mLastItemPadding = padding;
+                _mLastItemIndex = itemIndex;
+                _mLastItemPadding = padding;
             }
         }
 
         bool GetPlusItemIndexAndPosAtGivenPos(float pos, ref int index, ref float itemPos)
         {
-            return mItemPosMgr.GetItemIndexAndPosAtGivenPos(pos, ref index, ref itemPos);
+            return _mItemPosMgr.GetItemIndexAndPosAtGivenPos(pos, ref index, ref itemPos);
         }
 
 
         public float GetItemPos(int itemIndex)
         {
-            return mItemPosMgr.GetItemPos(itemIndex);
+            return _mItemPosMgr.GetItemPos(itemIndex);
         }
 
 
         public Vector3 GetItemCornerPosInViewPort(LoopStaggeredGridViewItem item, ItemCornerEnum corner = ItemCornerEnum.LeftBottom)
         {
-            item.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-            return mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[(int)corner]);
+            item.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+            return _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[(int)corner]);
         }
 
 
         public void RecycleItemTmp(LoopStaggeredGridViewItem item)
         {
-            mParentGridView.RecycleItemTmp(item);
+            _mParentGridView.RecycleItemTmp(item);
         }
 
 
         public void RecycleAllItem()
         {
-            foreach (LoopStaggeredGridViewItem item in mItemList)
+            foreach (LoopStaggeredGridViewItem item in _mItemList)
             {
                 RecycleItemTmp(item);
             }
-            mItemList.Clear();
+            _mItemList.Clear();
         }
 
         public void ClearAllTmpRecycledItem()
         {
-            mParentGridView.ClearAllTmpRecycledItem();
+            _mParentGridView.ClearAllTmpRecycledItem();
         }
 
         LoopStaggeredGridViewItem GetNewItemByIndexInGroup(int indexInGroup)
         {
-            return mParentGridView.GetNewItemByGroupAndIndex(mGroupIndex, indexInGroup);
+            return _mParentGridView.GetNewItemByGroupAndIndex(MGroupIndex, indexInGroup);
         }
 
 
@@ -401,66 +401,66 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemIndexMap.Count;
+                return _mItemIndexMap.Count;
             }
         }
 
 
         public void SetListItemCount(int itemCount)
         {
-            if (itemCount == mItemTotalCount)
+            if (itemCount == _mItemTotalCount)
             {
                 return;
             }
-            int oldItemTotalCount = mItemTotalCount;
-            mItemTotalCount = itemCount;
+            int oldItemTotalCount = _mItemTotalCount;
+            _mItemTotalCount = itemCount;
             UpdateItemIndexMap(oldItemTotalCount);
-            if (oldItemTotalCount < mItemTotalCount)
+            if (oldItemTotalCount < _mItemTotalCount)
             {
-                mItemPosMgr.SetItemMaxCount(mItemTotalCount);
+                _mItemPosMgr.SetItemMaxCount(_mItemTotalCount);
             }
             else
             {
-                mItemPosMgr.SetItemMaxCount(HadCreatedItemCount);
-                mItemPosMgr.SetItemMaxCount(mItemTotalCount);
+                _mItemPosMgr.SetItemMaxCount(HadCreatedItemCount);
+                _mItemPosMgr.SetItemMaxCount(_mItemTotalCount);
             }
             RecycleAllItem();
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                mCurReadyMaxItemIndex = 0;
-                mCurReadyMinItemIndex = 0;
-                mNeedCheckNextMaxItem = false;
-                mNeedCheckNextMinItem = false;
-                mItemIndexMap.Clear();
+                _mCurReadyMaxItemIndex = 0;
+                _mCurReadyMinItemIndex = 0;
+                _mNeedCheckNextMaxItem = false;
+                _mNeedCheckNextMinItem = false;
+                _mItemIndexMap.Clear();
                 return;
             }
             
-            if (mCurReadyMaxItemIndex >= mItemTotalCount)
+            if (_mCurReadyMaxItemIndex >= _mItemTotalCount)
             {
-                mCurReadyMaxItemIndex = mItemTotalCount - 1;
+                _mCurReadyMaxItemIndex = _mItemTotalCount - 1;
             }
-            mNeedCheckNextMaxItem = true;
-            mNeedCheckNextMinItem = true;
+            _mNeedCheckNextMaxItem = true;
+            _mNeedCheckNextMinItem = true;
         }
 
         void UpdateItemIndexMap(int oldItemTotalCount)
         {
-            int count = mItemIndexMap.Count;
+            int count = _mItemIndexMap.Count;
             if (count == 0)
             {
                 return;
             }
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                mItemIndexMap.Clear();
+                _mItemIndexMap.Clear();
                 return;
             }
-            if(mItemTotalCount >= oldItemTotalCount)
+            if(_mItemTotalCount >= oldItemTotalCount)
             {
                 return;
             }
-            int targetItemIndex = mParentGridView.ItemTotalCount;
-            if (mItemIndexMap[count - 1] < targetItemIndex)
+            int targetItemIndex = _mParentGridView.ItemTotalCount;
+            if (_mItemIndexMap[count - 1] < targetItemIndex)
             {
                 return;
             }
@@ -470,7 +470,7 @@ namespace SuperScrollView
             while (low <= high)
             {
                 int mid = (low + high) / 2;
-                int index = mItemIndexMap[mid];
+                int index = _mItemIndexMap[mid];
                 if (index == targetItemIndex)
                 {
                     result = mid;
@@ -489,23 +489,23 @@ namespace SuperScrollView
             int startIndex = 0;
             for(int i = result; i< count; ++i)
             {
-                if(mItemIndexMap[i] >= targetItemIndex)
+                if(_mItemIndexMap[i] >= targetItemIndex)
                 {
                     startIndex = i;
                     break;
                 }
             }
-            mItemIndexMap.RemoveRange(startIndex, count - startIndex);
+            _mItemIndexMap.RemoveRange(startIndex, count - startIndex);
         }
 
 
         public void UpdateListViewPart1(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mSupportScrollBar)
+            if (_mSupportScrollBar)
             {
-                mItemPosMgr.Update(false);
+                _mItemPosMgr.Update(false);
             }
-            mListUpdateCheckFrameCount = mParentGridView.ListUpdateCheckFrameCount;
+            _mListUpdateCheckFrameCount = _mParentGridView.ListUpdateCheckFrameCount;
             bool needContinueCheck = true;
             int checkCount = 0;
             int maxCount = 9999;
@@ -517,7 +517,7 @@ namespace SuperScrollView
                     Debug.LogError("UpdateListViewPart1 while loop " + checkCount + " times! something is wrong!");
                     break;
                 }
-                if(mIsVertList)
+                if(_mIsVertList)
                 {
                     needContinueCheck = UpdateForVertListPart1(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
                 }
@@ -526,13 +526,13 @@ namespace SuperScrollView
                     needContinueCheck = UpdateForHorizontalListPart1(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
                 }
             }
-            mLastFrameContainerPos = mContainerTrans.anchoredPosition3D;
+            _mLastFrameContainerPos = _mContainerTrans.anchoredPosition3D;
         }
 
 
         public bool UpdateListViewPart2(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mIsVertList)
+            if (_mIsVertList)
             {
                 return UpdateForVertListPart2(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
             }
@@ -545,27 +545,27 @@ namespace SuperScrollView
 
         public bool UpdateForVertListPart1(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                if (mItemList.Count > 0)
+                if (_mItemList.Count > 0)
                 {
                     RecycleAllItem();
                 }
                 return false;
             }
-            if (mArrangeType == ListItemArrangeType.TopToBottom)
+            if (_mArrangeType == ListItemArrangeType.TopToBottom)
             {
-                int itemListCount = mItemList.Count;
+                int itemListCount = _mItemList.Count;
                 if (itemListCount == 0)
                 {
-                    float curY = mContainerTrans.anchoredPosition3D.y;
+                    float curY = _mContainerTrans.anchoredPosition3D.y;
                     if (curY < 0)
                     {
                         curY = 0;
                     }
                     int index = 0;
                     float pos = -curY;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(curY, ref index, ref pos);
                         if (succeed == false)
@@ -579,41 +579,41 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.height, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, pos, 0);
                     return true;
                 }
-                LoopStaggeredGridViewItem tViewItem0 = mItemList[0];
-                tViewItem0.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 topPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 downPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[0]);
+                LoopStaggeredGridViewItem tViewItem0 = _mItemList[0];
+                tViewItem0.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 topPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 downPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[0]);
 
-                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && downPos0.y - mViewPortRectLocalCorners[1].y > distanceForRecycle0)
+                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && downPos0.y - _mViewPortRectLocalCorners[1].y > distanceForRecycle0)
                 {
-                    mItemList.RemoveAt(0);
+                    _mItemList.RemoveAt(0);
                     RecycleItemTmp(tViewItem0);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 topPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 downPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[0]);
-                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && mViewPortRectLocalCorners[0].y - topPos1.y > distanceForRecycle1)
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 topPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 downPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[0]);
+                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && _mViewPortRectLocalCorners[0].y - topPos1.y > distanceForRecycle1)
                 {
-                    mItemList.RemoveAt(mItemList.Count - 1);
+                    _mItemList.RemoveAt(_mItemList.Count - 1);
                     RecycleItemTmp(tViewItem1);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
@@ -621,35 +621,35 @@ namespace SuperScrollView
                 }
 
 
-                if (topPos0.y - mViewPortRectLocalCorners[1].y < distanceForNew0)
+                if (topPos0.y - _mViewPortRectLocalCorners[1].y < distanceForNew0)
                 {
-                    if (tViewItem0.ItemIndexInGroup < mCurReadyMinItemIndex)
+                    if (tViewItem0.ItemIndexInGroup < _mCurReadyMinItemIndex)
                     {
-                        mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                        mNeedCheckNextMinItem = true;
+                        _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                        _mNeedCheckNextMinItem = true;
                     }
                     int nIndex = tViewItem0.ItemIndexInGroup - 1;
-                    if (nIndex >= mCurReadyMinItemIndex || mNeedCheckNextMinItem)
+                    if (nIndex >= _mCurReadyMinItemIndex || _mNeedCheckNextMinItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                            mNeedCheckNextMinItem = false;
+                            _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                            _mNeedCheckNextMinItem = false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Insert(0, newItem);
+                            _mItemList.Insert(0, newItem);
                             float y = tViewItem0.CachedRectTransform.anchoredPosition3D.y + newItem.CachedRectTransform.rect.height + newItem.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex < mCurReadyMinItemIndex)
+                            if (nIndex < _mCurReadyMinItemIndex)
                             {
-                                mCurReadyMinItemIndex = nIndex;
+                                _mCurReadyMinItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -658,42 +658,42 @@ namespace SuperScrollView
 
                 }
 
-                if (mViewPortRectLocalCorners[0].y - downPos1.y < distanceForNew1)
+                if (_mViewPortRectLocalCorners[0].y - downPos1.y < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if(nIndex >= mItemIndexMap.Count)
+                    if(nIndex >= _mItemIndexMap.Count)
                     {
                         return false;
                     }
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                             return false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float y = tViewItem1.CachedRectTransform.anchoredPosition3D.y - tViewItem1.CachedRectTransform.rect.height - tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -706,16 +706,16 @@ namespace SuperScrollView
             else
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curY = mContainerTrans.anchoredPosition3D.y;
+                    float curY = _mContainerTrans.anchoredPosition3D.y;
                     if (curY > 0)
                     {
                         curY = 0;
                     }
                     int index = 0;
                     float pos = -curY;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(-curY, ref index, ref pos);
                         if(succeed == false)
@@ -728,41 +728,41 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.height, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, pos, 0);
                     return true;
                 }
-                LoopStaggeredGridViewItem tViewItem0 = mItemList[0];
-                tViewItem0.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 topPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 downPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[0]);
+                LoopStaggeredGridViewItem tViewItem0 = _mItemList[0];
+                tViewItem0.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 topPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 downPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[0]);
 
-                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && mViewPortRectLocalCorners[0].y - topPos0.y > distanceForRecycle0)
+                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && _mViewPortRectLocalCorners[0].y - topPos0.y > distanceForRecycle0)
                 {
-                    mItemList.RemoveAt(0);
+                    _mItemList.RemoveAt(0);
                     RecycleItemTmp(tViewItem0);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 topPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 downPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[0]);
-                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                     && downPos1.y - mViewPortRectLocalCorners[1].y > distanceForRecycle1)
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 topPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 downPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[0]);
+                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                     && downPos1.y - _mViewPortRectLocalCorners[1].y > distanceForRecycle1)
                 {
-                    mItemList.RemoveAt(mItemList.Count - 1);
+                    _mItemList.RemoveAt(_mItemList.Count - 1);
                     RecycleItemTmp(tViewItem1);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
@@ -770,35 +770,35 @@ namespace SuperScrollView
                 }
 
 
-                if (mViewPortRectLocalCorners[0].y - downPos0.y < distanceForNew0)
+                if (_mViewPortRectLocalCorners[0].y - downPos0.y < distanceForNew0)
                 {
-                    if (tViewItem0.ItemIndexInGroup < mCurReadyMinItemIndex)
+                    if (tViewItem0.ItemIndexInGroup < _mCurReadyMinItemIndex)
                     {
-                        mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                        mNeedCheckNextMinItem = true;
+                        _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                        _mNeedCheckNextMinItem = true;
                     }
                     int nIndex = tViewItem0.ItemIndexInGroup - 1;
-                    if (nIndex >= mCurReadyMinItemIndex || mNeedCheckNextMinItem)
+                    if (nIndex >= _mCurReadyMinItemIndex || _mNeedCheckNextMinItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                            mNeedCheckNextMinItem = false;
+                            _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                            _mNeedCheckNextMinItem = false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Insert(0, newItem);
+                            _mItemList.Insert(0, newItem);
                             float y = tViewItem0.CachedRectTransform.anchoredPosition3D.y - newItem.CachedRectTransform.rect.height - newItem.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex < mCurReadyMinItemIndex)
+                            if (nIndex < _mCurReadyMinItemIndex)
                             {
-                                mCurReadyMinItemIndex = nIndex;
+                                _mCurReadyMinItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -806,42 +806,42 @@ namespace SuperScrollView
                     }
                 }
 
-                if (topPos1.y - mViewPortRectLocalCorners[1].y < distanceForNew1)
+                if (topPos1.y - _mViewPortRectLocalCorners[1].y < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex >= mItemIndexMap.Count)
+                    if (nIndex >= _mItemIndexMap.Count)
                     {
                         return false;
                     }
 
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                             return false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float y = tViewItem1.CachedRectTransform.anchoredPosition3D.y + tViewItem1.CachedRectTransform.rect.height + tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -859,27 +859,27 @@ namespace SuperScrollView
 
         public bool UpdateForVertListPart2(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                if (mItemList.Count > 0)
+                if (_mItemList.Count > 0)
                 {
                     RecycleAllItem();
                 }
                 return false;
             }
-            if (mArrangeType == ListItemArrangeType.TopToBottom)
+            if (_mArrangeType == ListItemArrangeType.TopToBottom)
             {
-                int itemListCount = mItemList.Count;
+                int itemListCount = _mItemList.Count;
                 if (itemListCount == 0)
                 {
-                    float curY = mContainerTrans.anchoredPosition3D.y;
+                    float curY = _mContainerTrans.anchoredPosition3D.y;
                     if (curY < 0)
                     {
                         curY = 0;
                     }
                     int index = 0;
                     float pos = -curY;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(curY, ref index, ref pos);
                         if (succeed == false)
@@ -893,51 +893,51 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.height, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, pos, 0);
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 downPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[0]);
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 downPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[0]);
                 
-                if (mViewPortRectLocalCorners[0].y - downPos1.y < distanceForNew1)
+                if (_mViewPortRectLocalCorners[0].y - downPos1.y < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                             return false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float y = tViewItem1.CachedRectTransform.anchoredPosition3D.y - tViewItem1.CachedRectTransform.rect.height - tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -950,16 +950,16 @@ namespace SuperScrollView
             else
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curY = mContainerTrans.anchoredPosition3D.y;
+                    float curY = _mContainerTrans.anchoredPosition3D.y;
                     if (curY > 0)
                     {
                         curY = 0;
                     }
                     int index = 0;
                     float pos = -curY;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(-curY, ref index, ref pos);
                         if(succeed == false)
@@ -972,50 +972,50 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.height, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, pos, 0);
                     return true;
                 }
                
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 topPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 topPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
                 
-                if (topPos1.y - mViewPortRectLocalCorners[1].y < distanceForNew1)
+                if (topPos1.y - _mViewPortRectLocalCorners[1].y < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                             return false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.height, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float y = tViewItem1.CachedRectTransform.anchoredPosition3D.y + tViewItem1.CachedRectTransform.rect.height + tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(newItem.StartPosOffset, y, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1035,27 +1035,27 @@ namespace SuperScrollView
 
         public bool UpdateForHorizontalListPart1(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                if (mItemList.Count > 0)
+                if (_mItemList.Count > 0)
                 {
                     RecycleAllItem();
                 }
                 return false;
             }
-            if (mArrangeType == ListItemArrangeType.LeftToRight)
+            if (_mArrangeType == ListItemArrangeType.LeftToRight)
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curX = mContainerTrans.anchoredPosition3D.x;
+                    float curX = _mContainerTrans.anchoredPosition3D.x;
                     if (curX > 0)
                     {
                         curX = 0;
                     }
                     int index = 0;
                     float pos = -curX;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(-curX, ref index, ref pos);
                         if (succeed == false)
@@ -1068,41 +1068,41 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.width, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(pos, newItem.StartPosOffset, 0);
                     return true;
                 }
-                LoopStaggeredGridViewItem tViewItem0 = mItemList[0];
-                tViewItem0.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 leftPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 rightPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[2]);
+                LoopStaggeredGridViewItem tViewItem0 = _mItemList[0];
+                tViewItem0.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 leftPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 rightPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[2]);
 
-                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && mViewPortRectLocalCorners[1].x - rightPos0.x > distanceForRecycle0)
+                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && _mViewPortRectLocalCorners[1].x - rightPos0.x > distanceForRecycle0)
                 {
-                    mItemList.RemoveAt(0);
+                    _mItemList.RemoveAt(0);
                     RecycleItemTmp(tViewItem0);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 leftPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 rightPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[2]);
-                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && leftPos1.x - mViewPortRectLocalCorners[2].x > distanceForRecycle1)
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 leftPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 rightPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[2]);
+                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && leftPos1.x - _mViewPortRectLocalCorners[2].x > distanceForRecycle1)
                 {
-                    mItemList.RemoveAt(mItemList.Count - 1);
+                    _mItemList.RemoveAt(_mItemList.Count - 1);
                     RecycleItemTmp(tViewItem1);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
@@ -1110,35 +1110,35 @@ namespace SuperScrollView
                 }
 
 
-                if (mViewPortRectLocalCorners[1].x - leftPos0.x < distanceForNew0)
+                if (_mViewPortRectLocalCorners[1].x - leftPos0.x < distanceForNew0)
                 {
-                    if (tViewItem0.ItemIndexInGroup < mCurReadyMinItemIndex)
+                    if (tViewItem0.ItemIndexInGroup < _mCurReadyMinItemIndex)
                     {
-                        mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                        mNeedCheckNextMinItem = true;
+                        _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                        _mNeedCheckNextMinItem = true;
                     }
                     int nIndex = tViewItem0.ItemIndexInGroup - 1;
-                    if (nIndex >= mCurReadyMinItemIndex || mNeedCheckNextMinItem)
+                    if (nIndex >= _mCurReadyMinItemIndex || _mNeedCheckNextMinItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                            mNeedCheckNextMinItem = false;
+                            _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                            _mNeedCheckNextMinItem = false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Insert(0, newItem);
+                            _mItemList.Insert(0, newItem);
                             float x = tViewItem0.CachedRectTransform.anchoredPosition3D.x - newItem.CachedRectTransform.rect.width - newItem.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex < mCurReadyMinItemIndex)
+                            if (nIndex < _mCurReadyMinItemIndex)
                             {
-                                mCurReadyMinItemIndex = nIndex;
+                                _mCurReadyMinItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1148,41 +1148,41 @@ namespace SuperScrollView
                 }
 
 
-                if (rightPos1.x - mViewPortRectLocalCorners[2].x < distanceForNew1)
+                if (rightPos1.x - _mViewPortRectLocalCorners[2].x < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex >= mItemIndexMap.Count)
+                    if (nIndex >= _mItemIndexMap.Count)
                     {
                         return false;
                     }
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float x = tViewItem1.CachedRectTransform.anchoredPosition3D.x + tViewItem1.CachedRectTransform.rect.width + tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1196,16 +1196,16 @@ namespace SuperScrollView
             else
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curX = mContainerTrans.anchoredPosition3D.x;
+                    float curX = _mContainerTrans.anchoredPosition3D.x;
                     if (curX < 0)
                     {
                         curX = 0;
                     }
                     int index = 0;
                     float pos = -curX;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(curX, ref index, ref pos);
                         if (succeed == false)
@@ -1219,41 +1219,41 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.width, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(pos, newItem.StartPosOffset, 0);
                     return true;
                 }
-                LoopStaggeredGridViewItem tViewItem0 = mItemList[0];
-                tViewItem0.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 leftPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 rightPos0 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[2]);
+                LoopStaggeredGridViewItem tViewItem0 = _mItemList[0];
+                tViewItem0.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 leftPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 rightPos0 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[2]);
 
-                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && leftPos0.x - mViewPortRectLocalCorners[2].x > distanceForRecycle0)
+                if (!IsDraging && tViewItem0.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && leftPos0.x - _mViewPortRectLocalCorners[2].x > distanceForRecycle0)
                 {
-                    mItemList.RemoveAt(0);
+                    _mItemList.RemoveAt(0);
                     RecycleItemTmp(tViewItem0);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 leftPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
-                Vector3 rightPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[2]);
-                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != mListUpdateCheckFrameCount
-                    && mViewPortRectLocalCorners[1].x - rightPos1.x > distanceForRecycle1)
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 leftPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
+                Vector3 rightPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[2]);
+                if (!IsDraging && tViewItem1.ItemCreatedCheckFrameCount != _mListUpdateCheckFrameCount
+                    && _mViewPortRectLocalCorners[1].x - rightPos1.x > distanceForRecycle1)
                 {
-                    mItemList.RemoveAt(mItemList.Count - 1);
+                    _mItemList.RemoveAt(_mItemList.Count - 1);
                     RecycleItemTmp(tViewItem1);
-                    if (!mSupportScrollBar)
+                    if (!_mSupportScrollBar)
                     {
                         CheckIfNeedUpdateItemPos();
                     }
@@ -1261,35 +1261,35 @@ namespace SuperScrollView
                 }
 
 
-                if (rightPos0.x - mViewPortRectLocalCorners[2].x < distanceForNew0)
+                if (rightPos0.x - _mViewPortRectLocalCorners[2].x < distanceForNew0)
                 {
-                    if (tViewItem0.ItemIndexInGroup < mCurReadyMinItemIndex)
+                    if (tViewItem0.ItemIndexInGroup < _mCurReadyMinItemIndex)
                     {
-                        mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                        mNeedCheckNextMinItem = true;
+                        _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                        _mNeedCheckNextMinItem = true;
                     }
                     int nIndex = tViewItem0.ItemIndexInGroup - 1;
-                    if (nIndex >= mCurReadyMinItemIndex || mNeedCheckNextMinItem)
+                    if (nIndex >= _mCurReadyMinItemIndex || _mNeedCheckNextMinItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
-                            mNeedCheckNextMinItem = false;
+                            _mCurReadyMinItemIndex = tViewItem0.ItemIndexInGroup;
+                            _mNeedCheckNextMinItem = false;
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Insert(0, newItem);
+                            _mItemList.Insert(0, newItem);
                             float x = tViewItem0.CachedRectTransform.anchoredPosition3D.x + newItem.CachedRectTransform.rect.width + newItem.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
-                            if (nIndex < mCurReadyMinItemIndex)
+                            if (nIndex < _mCurReadyMinItemIndex)
                             {
-                                mCurReadyMinItemIndex = nIndex;
+                                _mCurReadyMinItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1299,41 +1299,41 @@ namespace SuperScrollView
                 }
 
 
-                if (mViewPortRectLocalCorners[1].x - leftPos1.x < distanceForNew1)
+                if (_mViewPortRectLocalCorners[1].x - leftPos1.x < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex >= mItemIndexMap.Count)
+                    if (nIndex >= _mItemIndexMap.Count)
                     {
                         return false;
                     }
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float x = tViewItem1.CachedRectTransform.anchoredPosition3D.x - tViewItem1.CachedRectTransform.rect.width - tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1354,27 +1354,27 @@ namespace SuperScrollView
 
         public bool UpdateForHorizontalListPart2(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                if (mItemList.Count > 0)
+                if (_mItemList.Count > 0)
                 {
                     RecycleAllItem();
                 }
                 return false;
             }
-            if (mArrangeType == ListItemArrangeType.LeftToRight)
+            if (_mArrangeType == ListItemArrangeType.LeftToRight)
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curX = mContainerTrans.anchoredPosition3D.x;
+                    float curX = _mContainerTrans.anchoredPosition3D.x;
                     if (curX > 0)
                     {
                         curX = 0;
                     }
                     int index = 0;
                     float pos = -curX;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(-curX, ref index, ref pos);
                         if (succeed == false)
@@ -1387,50 +1387,50 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.width, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(pos, newItem.StartPosOffset, 0);
                     return true;
                 }
 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 rightPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[2]);
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 rightPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[2]);
                
-                if (rightPos1.x - mViewPortRectLocalCorners[2].x < distanceForNew1)
+                if (rightPos1.x - _mViewPortRectLocalCorners[2].x < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float x = tViewItem1.CachedRectTransform.anchoredPosition3D.x + tViewItem1.CachedRectTransform.rect.width + tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1444,16 +1444,16 @@ namespace SuperScrollView
             else
             {
 
-                if (mItemList.Count == 0)
+                if (_mItemList.Count == 0)
                 {
-                    float curX = mContainerTrans.anchoredPosition3D.x;
+                    float curX = _mContainerTrans.anchoredPosition3D.x;
                     if (curX < 0)
                     {
                         curX = 0;
                     }
                     int index = 0;
                     float pos = -curX;
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         bool succeed = GetPlusItemIndexAndPosAtGivenPos(curX, ref index, ref pos);
                         if (succeed == false)
@@ -1467,50 +1467,50 @@ namespace SuperScrollView
                     {
                         return false;
                     }
-                    if (mSupportScrollBar)
+                    if (_mSupportScrollBar)
                     {
                         SetItemSize(index, newItem.CachedRectTransform.rect.width, newItem.Padding);
                     }
-                    mItemList.Add(newItem);
+                    _mItemList.Add(newItem);
                     newItem.CachedRectTransform.anchoredPosition3D = new Vector3(pos, newItem.StartPosOffset, 0);
                     return true;
                 }
                 
-                LoopStaggeredGridViewItem tViewItem1 = mItemList[mItemList.Count - 1];
-                tViewItem1.CachedRectTransform.GetWorldCorners(mItemWorldCorners);
-                Vector3 leftPos1 = mViewPortRectTransform.InverseTransformPoint(mItemWorldCorners[1]);
+                LoopStaggeredGridViewItem tViewItem1 = _mItemList[_mItemList.Count - 1];
+                tViewItem1.CachedRectTransform.GetWorldCorners(_mItemWorldCorners);
+                Vector3 leftPos1 = _mViewPortRectTransform.InverseTransformPoint(_mItemWorldCorners[1]);
                 
-                if (mViewPortRectLocalCorners[1].x - leftPos1.x < distanceForNew1)
+                if (_mViewPortRectLocalCorners[1].x - leftPos1.x < distanceForNew1)
                 {
-                    if (tViewItem1.ItemIndexInGroup > mCurReadyMaxItemIndex)
+                    if (tViewItem1.ItemIndexInGroup > _mCurReadyMaxItemIndex)
                     {
-                        mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                        mNeedCheckNextMaxItem = true;
+                        _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                        _mNeedCheckNextMaxItem = true;
                     }
                     int nIndex = tViewItem1.ItemIndexInGroup + 1;
-                    if (nIndex <= mCurReadyMaxItemIndex || mNeedCheckNextMaxItem)
+                    if (nIndex <= _mCurReadyMaxItemIndex || _mNeedCheckNextMaxItem)
                     {
                         LoopStaggeredGridViewItem newItem = GetNewItemByIndexInGroup(nIndex);
                         if (newItem == null)
                         {
-                            mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
-                            mNeedCheckNextMaxItem = false;
+                            _mCurReadyMaxItemIndex = tViewItem1.ItemIndexInGroup;
+                            _mNeedCheckNextMaxItem = false;
                             CheckIfNeedUpdateItemPos();
                         }
                         else
                         {
-                            if (mSupportScrollBar)
+                            if (_mSupportScrollBar)
                             {
                                 SetItemSize(nIndex, newItem.CachedRectTransform.rect.width, newItem.Padding);
                             }
-                            mItemList.Add(newItem);
+                            _mItemList.Add(newItem);
                             float x = tViewItem1.CachedRectTransform.anchoredPosition3D.x - tViewItem1.CachedRectTransform.rect.width - tViewItem1.Padding;
                             newItem.CachedRectTransform.anchoredPosition3D = new Vector3(x, newItem.StartPosOffset, 0);
                             CheckIfNeedUpdateItemPos();
 
-                            if (nIndex > mCurReadyMaxItemIndex)
+                            if (nIndex > _mCurReadyMaxItemIndex)
                             {
-                                mCurReadyMaxItemIndex = nIndex;
+                                _mCurReadyMaxItemIndex = nIndex;
                             }
                             return true;
                         }
@@ -1529,7 +1529,7 @@ namespace SuperScrollView
 
         public float GetContentPanelSize()
         {
-            float tTotalSize = mItemPosMgr.mTotalSize > 0 ? (mItemPosMgr.mTotalSize - mLastItemPadding) : 0;
+            float tTotalSize = _mItemPosMgr.MTotalSize > 0 ? (_mItemPosMgr.MTotalSize - _mLastItemPadding) : 0;
             if (tTotalSize < 0)
             {
                 tTotalSize = 0;
@@ -1540,25 +1540,25 @@ namespace SuperScrollView
 
         public float GetShownItemPosMaxValue()
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return 0f;
             }
-            LoopStaggeredGridViewItem lastItem = mItemList[mItemList.Count - 1];
-            if (mArrangeType == ListItemArrangeType.TopToBottom)
+            LoopStaggeredGridViewItem lastItem = _mItemList[_mItemList.Count - 1];
+            if (_mArrangeType == ListItemArrangeType.TopToBottom)
             {
                 return Mathf.Abs(lastItem.BottomY);
             }
-            else if (mArrangeType == ListItemArrangeType.BottomToTop)
+            else if (_mArrangeType == ListItemArrangeType.BottomToTop)
             {
                 return Mathf.Abs(lastItem.TopY);
             }
-            else if (mArrangeType == ListItemArrangeType.LeftToRight)
+            else if (_mArrangeType == ListItemArrangeType.LeftToRight)
             {
                 return Mathf.Abs(lastItem.RightX);
             }
-            else if (mArrangeType == ListItemArrangeType.RightToLeft)
+            else if (_mArrangeType == ListItemArrangeType.RightToLeft)
             {
                 return Mathf.Abs(lastItem.LeftX);
             }
@@ -1567,70 +1567,70 @@ namespace SuperScrollView
 
         public void CheckIfNeedUpdateItemPos()
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return;
             }
-            if (mArrangeType == ListItemArrangeType.TopToBottom)
+            if (_mArrangeType == ListItemArrangeType.TopToBottom)
             {
-                LoopStaggeredGridViewItem firstItem = mItemList[0];
-                LoopStaggeredGridViewItem lastItem = mItemList[mItemList.Count - 1];
-                if (firstItem.TopY > 0 || (firstItem.ItemIndexInGroup == mCurReadyMinItemIndex && firstItem.TopY != 0))
+                LoopStaggeredGridViewItem firstItem = _mItemList[0];
+                LoopStaggeredGridViewItem lastItem = _mItemList[_mItemList.Count - 1];
+                if (firstItem.TopY > 0 || (firstItem.ItemIndexInGroup == _mCurReadyMinItemIndex && firstItem.TopY != 0))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
                 float viewMaxY = GetContentPanelSize();
-                if ((-lastItem.BottomY) > viewMaxY || (lastItem.ItemIndexInGroup == mCurReadyMaxItemIndex && (-lastItem.BottomY) != viewMaxY))
+                if ((-lastItem.BottomY) > viewMaxY || (lastItem.ItemIndexInGroup == _mCurReadyMaxItemIndex && (-lastItem.BottomY) != viewMaxY))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.BottomToTop)
+            else if (_mArrangeType == ListItemArrangeType.BottomToTop)
             {
-                LoopStaggeredGridViewItem firstItem = mItemList[0];
-                LoopStaggeredGridViewItem lastItem = mItemList[mItemList.Count - 1];
-                if (firstItem.BottomY < 0 || (firstItem.ItemIndexInGroup == mCurReadyMinItemIndex && firstItem.BottomY != 0))
+                LoopStaggeredGridViewItem firstItem = _mItemList[0];
+                LoopStaggeredGridViewItem lastItem = _mItemList[_mItemList.Count - 1];
+                if (firstItem.BottomY < 0 || (firstItem.ItemIndexInGroup == _mCurReadyMinItemIndex && firstItem.BottomY != 0))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
                 float viewMaxY = GetContentPanelSize();
-                if (lastItem.TopY > viewMaxY || (lastItem.ItemIndexInGroup == mCurReadyMaxItemIndex && lastItem.TopY != viewMaxY))
+                if (lastItem.TopY > viewMaxY || (lastItem.ItemIndexInGroup == _mCurReadyMaxItemIndex && lastItem.TopY != viewMaxY))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.LeftToRight)
+            else if (_mArrangeType == ListItemArrangeType.LeftToRight)
             {
-                LoopStaggeredGridViewItem firstItem = mItemList[0];
-                LoopStaggeredGridViewItem lastItem = mItemList[mItemList.Count - 1];
-                if (firstItem.LeftX < 0 || (firstItem.ItemIndexInGroup == mCurReadyMinItemIndex && firstItem.LeftX != 0))
+                LoopStaggeredGridViewItem firstItem = _mItemList[0];
+                LoopStaggeredGridViewItem lastItem = _mItemList[_mItemList.Count - 1];
+                if (firstItem.LeftX < 0 || (firstItem.ItemIndexInGroup == _mCurReadyMinItemIndex && firstItem.LeftX != 0))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
                 float viewMaxX = GetContentPanelSize();
-                if ((lastItem.RightX) > viewMaxX || (lastItem.ItemIndexInGroup == mCurReadyMaxItemIndex && lastItem.RightX != viewMaxX))
+                if ((lastItem.RightX) > viewMaxX || (lastItem.ItemIndexInGroup == _mCurReadyMaxItemIndex && lastItem.RightX != viewMaxX))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.RightToLeft)
+            else if (_mArrangeType == ListItemArrangeType.RightToLeft)
             {
-                LoopStaggeredGridViewItem firstItem = mItemList[0];
-                LoopStaggeredGridViewItem lastItem = mItemList[mItemList.Count - 1];
-                if (firstItem.RightX > 0 || (firstItem.ItemIndexInGroup == mCurReadyMinItemIndex && firstItem.RightX != 0))
+                LoopStaggeredGridViewItem firstItem = _mItemList[0];
+                LoopStaggeredGridViewItem lastItem = _mItemList[_mItemList.Count - 1];
+                if (firstItem.RightX > 0 || (firstItem.ItemIndexInGroup == _mCurReadyMinItemIndex && firstItem.RightX != 0))
                 {
                     UpdateAllShownItemsPos();
                     return;
                 }
                 float viewMaxX = GetContentPanelSize();
-                if ((-lastItem.LeftX) > viewMaxX || (lastItem.ItemIndexInGroup == mCurReadyMaxItemIndex && (-lastItem.LeftX) != viewMaxX))
+                if ((-lastItem.LeftX) > viewMaxX || (lastItem.ItemIndexInGroup == _mCurReadyMaxItemIndex && (-lastItem.LeftX) != viewMaxX))
                 {
                     UpdateAllShownItemsPos();
                     return;
@@ -1642,68 +1642,68 @@ namespace SuperScrollView
 
         public void UpdateAllShownItemsPos()
         {
-            int count = mItemList.Count;
+            int count = _mItemList.Count;
             if (count == 0)
             {
                 return;
             }
 
-            if (mArrangeType == ListItemArrangeType.TopToBottom)
+            if (_mArrangeType == ListItemArrangeType.TopToBottom)
             {
                 float pos = 0;
-                if (mSupportScrollBar)
+                if (_mSupportScrollBar)
                 {
-                    pos = -GetItemPos(mItemList[0].ItemIndexInGroup);
+                    pos = -GetItemPos(_mItemList[0].ItemIndexInGroup);
                 }
                 float curY = pos;
                 for (int i = 0; i < count; ++i)
                 {
-                    LoopStaggeredGridViewItem item = mItemList[i];
+                    LoopStaggeredGridViewItem item = _mItemList[i];
                     item.CachedRectTransform.anchoredPosition3D = new Vector3(item.StartPosOffset, curY, 0);
                     curY = curY - item.CachedRectTransform.rect.height - item.Padding;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.BottomToTop)
+            else if (_mArrangeType == ListItemArrangeType.BottomToTop)
             {
                 float pos = 0;
-                if (mSupportScrollBar)
+                if (_mSupportScrollBar)
                 {
-                    pos = GetItemPos(mItemList[0].ItemIndexInGroup);
+                    pos = GetItemPos(_mItemList[0].ItemIndexInGroup);
                 }
                 float curY = pos;
                 for (int i = 0; i < count; ++i)
                 {
-                    LoopStaggeredGridViewItem item = mItemList[i];
+                    LoopStaggeredGridViewItem item = _mItemList[i];
                     item.CachedRectTransform.anchoredPosition3D = new Vector3(item.StartPosOffset, curY, 0);
                     curY = curY + item.CachedRectTransform.rect.height + item.Padding;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.LeftToRight)
+            else if (_mArrangeType == ListItemArrangeType.LeftToRight)
             {
                 float pos = 0;
-                if (mSupportScrollBar)
+                if (_mSupportScrollBar)
                 {
-                    pos = GetItemPos(mItemList[0].ItemIndexInGroup);
+                    pos = GetItemPos(_mItemList[0].ItemIndexInGroup);
                 }
                 float curX = pos;
                 for (int i = 0; i < count; ++i)
                 {
-                    LoopStaggeredGridViewItem item = mItemList[i];
+                    LoopStaggeredGridViewItem item = _mItemList[i];
                     item.CachedRectTransform.anchoredPosition3D = new Vector3(curX, item.StartPosOffset, 0);
                     curX = curX + item.CachedRectTransform.rect.width + item.Padding;
                 }
             }
-            else if (mArrangeType == ListItemArrangeType.RightToLeft)
+            else if (_mArrangeType == ListItemArrangeType.RightToLeft)
             {
                 float pos = 0;
-                if (mSupportScrollBar)
+                if (_mSupportScrollBar)
                 {
-                    pos = -GetItemPos(mItemList[0].ItemIndexInGroup);
+                    pos = -GetItemPos(_mItemList[0].ItemIndexInGroup);
                 }
                 float curX = pos;
                 for (int i = 0; i < count; ++i)
                 {
-                    LoopStaggeredGridViewItem item = mItemList[i];
+                    LoopStaggeredGridViewItem item = _mItemList[i];
                     item.CachedRectTransform.anchoredPosition3D = new Vector3(curX, item.StartPosOffset, 0);
                     curX = curX - item.CachedRectTransform.rect.width - item.Padding;
                 }

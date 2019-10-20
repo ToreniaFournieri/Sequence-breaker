@@ -7,18 +7,18 @@ namespace I2.Loc
     [UnityEditor.InitializeOnLoad] 
     #endif
 
-    public class LocalizeTarget_UnityStandard_MeshRenderer : LocalizeTarget<MeshRenderer>
+    public class LocalizeTargetUnityStandardMeshRenderer : LocalizeTarget<MeshRenderer>
     {
-        static LocalizeTarget_UnityStandard_MeshRenderer() { AutoRegister(); }
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDesc_Type<MeshRenderer, LocalizeTarget_UnityStandard_MeshRenderer>() { Name = "MeshRenderer", Priority = 800 }); }
+        static LocalizeTargetUnityStandardMeshRenderer() { AutoRegister(); }
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] static void AutoRegister() { LocalizationManager.RegisterTarget(new LocalizeTargetDescType<MeshRenderer, LocalizeTargetUnityStandardMeshRenderer>() { Name = "MeshRenderer", Priority = 800 }); }
 
-        public override eTermType GetPrimaryTermType(Localize cmp) { return eTermType.Mesh; }
-        public override eTermType GetSecondaryTermType(Localize cmp) { return eTermType.Material; }
+        public override ETermType GetPrimaryTermType(Localize cmp) { return ETermType.Mesh; }
+        public override ETermType GetSecondaryTermType(Localize cmp) { return ETermType.Material; }
         public override bool CanUseSecondaryTerm() { return true; }
-        public override bool AllowMainTermToBeRTL() { return false; }
-        public override bool AllowSecondTermToBeRTL() { return false; }
+        public override bool AllowMainTermToBeRtl() { return false; }
+        public override bool AllowSecondTermToBeRtl() { return false; }
 
-        public override void GetFinalTerms ( Localize cmp, string Main, string Secondary, out string primaryTerm, out string secondaryTerm)
+        public override void GetFinalTerms ( Localize cmp, string main, string secondary, out string primaryTerm, out string secondaryTerm)
         {
             if (mTarget==null)
             {

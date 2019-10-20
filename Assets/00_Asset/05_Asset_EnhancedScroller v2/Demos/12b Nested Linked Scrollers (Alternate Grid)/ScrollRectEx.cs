@@ -19,7 +19,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
     public class ScrollRectEx : ScrollRect
     {
 
-        private bool routeToParent = false;
+        private bool _routeToParent = false;
 
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         /// </summary>
         public override void OnDrag(UnityEngine.EventSystems.PointerEventData eventData)
         {
-            if (routeToParent)
+            if (_routeToParent)
                 DoForParents<IDragHandler>((parent) => { parent.OnDrag(eventData); });
             else
                 base.OnDrag(eventData);
@@ -65,13 +65,13 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         public override void OnBeginDrag(UnityEngine.EventSystems.PointerEventData eventData)
         {
             if (!horizontal && Math.Abs(eventData.delta.x) > Math.Abs(eventData.delta.y))
-                routeToParent = true;
+                _routeToParent = true;
             else if (!vertical && Math.Abs(eventData.delta.x) < Math.Abs(eventData.delta.y))
-                routeToParent = true;
+                _routeToParent = true;
             else
-                routeToParent = false;
+                _routeToParent = false;
 
-            if (routeToParent)
+            if (_routeToParent)
                 DoForParents<IBeginDragHandler>((parent) => { parent.OnBeginDrag(eventData); });
             else
                 base.OnBeginDrag(eventData);
@@ -82,11 +82,11 @@ namespace EnhancedScrollerDemos.NestedLinkedScrollers
         /// </summary>
         public override void OnEndDrag(UnityEngine.EventSystems.PointerEventData eventData)
         {
-            if (routeToParent)
+            if (_routeToParent)
                 DoForParents<IEndDragHandler>((parent) => { parent.OnEndDrag(eventData); });
             else
                 base.OnEndDrag(eventData);
-            routeToParent = false;
+            _routeToParent = false;
         }
     }
 }

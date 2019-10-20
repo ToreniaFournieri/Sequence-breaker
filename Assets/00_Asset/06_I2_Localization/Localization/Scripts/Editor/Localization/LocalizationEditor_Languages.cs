@@ -47,7 +47,7 @@ namespace I2.Loc
 
             string firstLanguage = "";
 			if (mLanguageSource.mLanguages.Count > 0)
-				firstLanguage = " (" + mLanguageSource.mLanguages [0].Name + ")";
+				firstLanguage = " (" + mLanguageSource.mLanguages [0].name + ")";
 			
 			GUILayout.BeginHorizontal();
 				GUILayout.Label(new GUIContent("Default Language:", "When the game starts this is the language that will be used until the player manually selects a language"), EditorStyles.boldLabel, GUILayout.Width(160));
@@ -93,7 +93,7 @@ namespace I2.Loc
 				SerializedProperty Prop_LangName = Prop_Lang.FindPropertyRelative("Name");
                 SerializedProperty Prop_LangCode = Prop_Lang.FindPropertyRelative("Code");
                 SerializedProperty Prop_Flags    = Prop_Lang.FindPropertyRelative("Flags");
-                bool isLanguageEnabled = (Prop_Flags.intValue & (int)eLanguageDataFlags.DISABLED)==0;
+                bool isLanguageEnabled = (Prop_Flags.intValue & (int)ELanguageDataFlags.Disabled)==0;
 
                 GUI.color = isLanguageEnabled ? Color.white : new Color(1, 1, 1, 0.3f);
                 GUILayout.BeginHorizontal();
@@ -165,7 +165,7 @@ namespace I2.Loc
 
                 if (EditorGUI.EndChangeCheck())
                 {
-                    Prop_Flags.intValue = (Prop_Flags.intValue & ~(int)eLanguageDataFlags.DISABLED) | (isLanguageEnabled ? 0 : (int)eLanguageDataFlags.DISABLED);
+                    Prop_Flags.intValue = (Prop_Flags.intValue & ~(int)ELanguageDataFlags.Disabled) | (isLanguageEnabled ? 0 : (int)ELanguageDataFlags.Disabled);
                 }
 
                 GUILayout.EndHorizontal();
@@ -197,7 +197,7 @@ namespace I2.Loc
 			{
 				if (EditorUtility.DisplayDialog ("Confirm delete", "Are you sure you want to delete the selected language", "Yes", "Cancel")) 
 				{
-					mLanguageSource.RemoveLanguage (mLanguageSource.mLanguages [IndexLanguageToDelete].Name);
+					mLanguageSource.RemoveLanguage (mLanguageSource.mLanguages [IndexLanguageToDelete].name);
 					serializedObject.Update ();
 					ParseTerms (true, false, false);
 				}
@@ -215,8 +215,8 @@ namespace I2.Loc
 			SwapValues( Source.mLanguages, iFirst, iSecond );
 			foreach (TermData termData in Source.mTerms)
 			{
-				SwapValues ( termData.Languages, iFirst, iSecond );
-				SwapValues ( termData.Flags, iFirst, iSecond );
+				SwapValues ( termData.languages, iFirst, iSecond );
+				SwapValues ( termData.flags, iFirst, iSecond );
 			}
 			serializedObject.Update();
 		}
@@ -273,7 +273,7 @@ namespace I2.Loc
 			//-- Language Dropdown -----------------
 			string CodesToExclude = string.Empty;
 			foreach (var LanData in mLanguageSource.mLanguages)
-				CodesToExclude = string.Concat(CodesToExclude, "[", LanData.Code, "]");
+				CodesToExclude = string.Concat(CodesToExclude, "[", LanData.code, "]");
 
 			List<string> Languages = GoogleLanguages.GetLanguagesForDropdown(mLanguages_NewLanguage, CodesToExclude);
 
@@ -314,7 +314,7 @@ namespace I2.Loc
 			}
             ClearErrors();
 			int LanIndex = mLanguageSource.GetLanguageIndex (lanName);
-			string code = mLanguageSource.mLanguages [LanIndex].Code;
+			string code = mLanguageSource.mLanguages [LanIndex].code;
             string googleCode = GoogleLanguages.GetGoogleLanguageCode(code);
             if (string.IsNullOrEmpty(googleCode))
             {
@@ -327,16 +327,16 @@ namespace I2.Loc
 			mTranslationRequests.Clear ();
 			foreach (var termData in mLanguageSource.mTerms) 
 			{
-                if (termData.TermType != eTermType.Text)
+                if (termData.termType != ETermType.Text)
                     continue;
 
-				if (!string.IsNullOrEmpty(termData.Languages[LanIndex]))
+				if (!string.IsNullOrEmpty(termData.languages[LanIndex]))
 					continue;
 				
 				string sourceCode, sourceText;
-				FindTranslationSource( LanguageSourceData.GetKeyFromFullTerm(termData.Term), termData, code, null, out sourceText, out sourceCode );
+				FindTranslationSource( LanguageSourceData.GetKeyFromFullTerm(termData.term), termData, code, null, out sourceText, out sourceCode );
 
-				mTranslationTerms.Add (termData.Term);
+				mTranslationTerms.Add (termData.term);
 
 				GoogleTranslation.CreateQueries(sourceText, sourceCode, googleCode, mTranslationRequests);   // can split plurals into several queries
 			}
@@ -396,17 +396,17 @@ namespace I2.Loc
                     var termData = mLanguageSource.GetTermData(term, false);
                     if (termData == null)
                         continue;
-                    if (termData.TermType != eTermType.Text)
+                    if (termData.termType != ETermType.Text)
                         continue;
                     //if (termData.Languages.Length <= langIndex)
                       //  continue;
 
                     string sourceCode, sourceText;
-                    FindTranslationSource(LanguageSourceData.GetKeyFromFullTerm(termData.Term), termData, langCode, null, out sourceText, out sourceCode);
+                    FindTranslationSource(LanguageSourceData.GetKeyFromFullTerm(termData.term), termData, langCode, null, out sourceText, out sourceCode);
 
                     string result = GoogleTranslation.RebuildTranslation(sourceText, mTranslationRequests, langCode);               // gets the result from google and rebuilds the text from multiple queries if its is plurals
 
-                    termData.Languages[langIndex] = result;
+                    termData.languages[langIndex] = result;
                 }
             }
 

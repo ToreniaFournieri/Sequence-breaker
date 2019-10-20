@@ -11,7 +11,7 @@ sealed  public class LogButton : MonoBehaviour
     public Text log;
     public Image iconImage;
 
-    private BattleLogClass battleLog;
+    private BattleLogClass _battleLog;
 
     //InventoryScrollList scrollList;
 
@@ -22,11 +22,11 @@ sealed  public class LogButton : MonoBehaviour
     }
     public void Setup(BattleLogClass currentLog)
     {
-        battleLog = currentLog;
+        _battleLog = currentLog;
         //scrollList = currentScrollList;
-        orderCondition.text = battleLog.OrderCondition.ToString();
+        orderCondition.text = _battleLog.OrderCondition.ToString();
         //iconImage.sprite = item.icon;
-        log.text = battleLog.Log;
+        log.text = _battleLog.Log;
         //scrollList = currentScrollList;
 
         this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);

@@ -27,7 +27,7 @@ namespace EnhancedScrollerDemos.CellEvents
             _data = new List<Data>();
 
             for (var i = 0; i < 24; i++)
-                _data.Add(new Data() { hour = i });
+                _data.Add(new Data() { Hour = i });
         }
 
         #region EnhancedScroller Handlers

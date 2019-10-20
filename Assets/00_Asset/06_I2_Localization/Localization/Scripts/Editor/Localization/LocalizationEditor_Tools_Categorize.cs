@@ -162,7 +162,7 @@ namespace I2.Loc
 				{
 					TermData termData = mLanguageSource.GetTermData( OldTerm );
 					if (termData != null)
-						termData.Term = sKey;
+						termData.term = sKey;
 					else
 						TermReplacements.Remove (OldTerm);
                     mLanguageSource.Editor_SetDirty();

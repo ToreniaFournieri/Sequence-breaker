@@ -207,7 +207,7 @@ namespace I2.Loc
 			for (int i=0, imax=Locals.Length; i<imax; ++i)
 			{
 				Localize localize = Locals[i];
-                if (localize==null || (localize.Source!=null && localize.Source.SourceData!=mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
+                if (localize==null || (localize.source!=null && localize.source.SourceData!=mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
 					continue;
 				 
 				string Term, SecondaryTerm;
@@ -292,7 +292,7 @@ namespace I2.Loc
 
             //string lastCategory = null;
 			foreach (TermData termData in mLanguageSource.mTerms)
-                GetParsedTerm(termData.Term);
+                GetParsedTerm(termData.term);
 		}
 
         static void ParseTermsInScripts() 
@@ -334,7 +334,7 @@ namespace I2.Loc
 
 			foreach (var localize in Locals) 
 			{
-				if (localize == null || (localize.Source != null && localize.Source.SourceData != mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
+				if (localize == null || (localize.source != null && localize.source.SourceData != mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
 					continue;
 
 				if (!string.IsNullOrEmpty (localize.mTerm) && !string.IsNullOrEmpty (localize.SecondaryTerm))
@@ -360,14 +360,14 @@ namespace I2.Loc
 			{ 
 				var termData = mLanguageSource.GetTermData (sTerm, true);
 				if (termData!=null)
-					localize.mTerm = termData.Term;
+					localize.mTerm = termData.term;
 			}
 
 			if (string.IsNullOrEmpty (localize.mTermSecondary))
 			{
 				var termData = mLanguageSource.GetTermData (sSecTerm, true);
 				if (termData!=null)
-					localize.mTermSecondary = termData.Term;
+					localize.mTermSecondary = termData.term;
 			}
 
 			//localize.Source = mLanguageSource;

@@ -28,7 +28,7 @@ namespace EnhancedScrollerDemos.GridSimulation
             if (data != null)
             {
                 // set the text if the cell is inside the data range
-                text.text = data.someText;
+                text.text = data.SomeText;
             }
         }
     }

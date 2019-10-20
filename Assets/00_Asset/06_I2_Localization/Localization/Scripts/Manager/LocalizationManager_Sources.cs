@@ -41,8 +41,8 @@ namespace I2.Loc
             foreach (LanguageSource source in sceneSources)
 				if (!Sources.Contains(source.mSource))
 				{
-                    if (source.mSource.owner == null)
-                        source.mSource.owner = source;
+                    if (source.mSource.Owner == null)
+                        source.mSource.Owner = source;
                     AddSource( source.mSource );
 				}
 		}		
@@ -50,28 +50,28 @@ namespace I2.Loc
 		static void RegisterSourceInResources()
 		{
 			// Find the Source that its on the Resources Folder
-			foreach (string SourceName in GlobalSources)
+			foreach (string sourceName in GlobalSources)
 			{
-				LanguageSourceAsset sourceAsset = (ResourceManager.pInstance.GetAsset<LanguageSourceAsset>(SourceName));
+				LanguageSourceAsset sourceAsset = (ResourceManager.PInstance.GetAsset<LanguageSourceAsset>(sourceName));
 				
 				if (sourceAsset && !Sources.Contains(sourceAsset.mSource))
                 {
-                    if (!sourceAsset.mSource.mIsGlobalSource)
-                        sourceAsset.mSource.mIsGlobalSource = true;
-                    sourceAsset.mSource.owner = sourceAsset;
+                    if (!sourceAsset.mSource.MIsGlobalSource)
+                        sourceAsset.mSource.MIsGlobalSource = true;
+                    sourceAsset.mSource.Owner = sourceAsset;
                     AddSource(sourceAsset.mSource);
                 }
             }
 		}		
 
-		internal static void AddSource ( LanguageSourceData Source )
+		internal static void AddSource ( LanguageSourceData source )
 		{
-			if (Sources.Contains (Source))
+			if (Sources.Contains (source))
 				return;
 
-            Sources.Add( Source );
+            Sources.Add( source );
 
-			if (Source.HasGoogleSpreadsheet() && Source.GoogleUpdateFrequency != LanguageSourceData.eGoogleUpdateFrequency.Never)
+			if (source.HasGoogleSpreadsheet() && source.googleUpdateFrequency != LanguageSourceData.EGoogleUpdateFrequency.Never)
 			{
                 #if !UNITY_EDITOR
                     Source.Import_Google_FromCache();
@@ -79,20 +79,20 @@ namespace I2.Loc
                 #else
                     bool justCheck=true;
                 #endif
-                if (Source.GoogleUpdateDelay > 0)
-						CoroutineManager.Start( Delayed_Import_Google(Source, Source.GoogleUpdateDelay, justCheck) );
+                if (source.googleUpdateDelay > 0)
+						CoroutineManager.Start( Delayed_Import_Google(source, source.googleUpdateDelay, justCheck) );
 				else
-					Source.Import_Google(false, justCheck);
+					source.Import_Google(false, justCheck);
             }
 
             //if (force)
             {
-                for (int i = 0; i < Source.mLanguages.Count(); ++i)
-                    Source.mLanguages[i].SetLoaded(true);
+                for (int i = 0; i < source.mLanguages.Count(); ++i)
+                    source.mLanguages[i].SetLoaded(true);
             }
 
-            if (Source.mDictionary.Count==0)
-				Source.UpdateDictionary(true);
+            if (source.MDictionary.Count==0)
+				source.UpdateDictionary(true);
 		}
 
 		static IEnumerator Delayed_Import_Google ( LanguageSourceData source, float delay, bool justCheck )
@@ -104,15 +104,15 @@ namespace I2.Loc
             }
 		}
 
-		internal static void RemoveSource (LanguageSourceData Source )
+		internal static void RemoveSource (LanguageSourceData source )
 		{
 			//Debug.Log ("RemoveSource " + Source+" " + Source.GetInstanceID());
-			Sources.Remove( Source );
+			Sources.Remove( source );
 		}
 
-		public static bool IsGlobalSource( string SourceName )
+		public static bool IsGlobalSource( string sourceName )
 		{
-			return System.Array.IndexOf(GlobalSources, SourceName)>=0;
+			return System.Array.IndexOf(GlobalSources, sourceName)>=0;
 		}
 
 		public static LanguageSourceData GetSourceContaining( string term, bool fallbackToFirst = true )
@@ -133,9 +133,9 @@ namespace I2.Loc
 		{
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				Object Obj = Sources[i].FindAsset(value);
-				if (Obj)
-					return Obj;
+				Object obj = Sources[i].FindAsset(value);
+				if (obj)
+					return obj;
 			}
 			return null;
 		}

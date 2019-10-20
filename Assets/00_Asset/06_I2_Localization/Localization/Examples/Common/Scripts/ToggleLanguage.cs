@@ -7,23 +7,23 @@ namespace I2.Loc
 	{
 		void Start () 
 		{
-			Invoke("test", 3);
+			Invoke("Test", 3);
 		}
 
-		void test()
+		void Test()
 		{
 			//--  to move into the next language ----
 
 				List<string> languages = LocalizationManager.GetAllLanguages();
-				int Index = languages.IndexOf(LocalizationManager.CurrentLanguage);
-				if (Index<0)
-					Index = 0;
+				int index = languages.IndexOf(LocalizationManager.CurrentLanguage);
+				if (index<0)
+					index = 0;
 				else
-					Index = (Index+1) % languages.Count;
+					index = (index+1) % languages.Count;
 
 			//-- Call this function again in 3 seconds
 
-				Invoke("test", 3);
+				Invoke("Test", 3);
 		}
 	}
 }

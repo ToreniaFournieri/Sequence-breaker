@@ -5,6 +5,6 @@
     /// </summary>
     public class Data
     {
-        public string someText;
+        public string SomeText;
     }
 }

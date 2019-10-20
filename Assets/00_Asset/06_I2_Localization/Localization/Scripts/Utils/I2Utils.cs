@@ -25,7 +25,7 @@ namespace I2.Loc
         }
 
 
-        public static string RemoveNonASCII(string text, bool allowCategory = false)
+        public static string RemoveNonAscii(string text, bool allowCategory = false)
         {
             if (string.IsNullOrEmpty(text))
                 return text;
@@ -75,7 +75,7 @@ namespace I2.Loc
             if (text == null)
                 return null;
             text = RemoveTags(text);
-            return RemoveNonASCII(text, allowCategory);
+            return RemoveNonAscii(text, allowCategory);
         }
 
         public static string SplitLine(string line, int maxCharacters)
@@ -165,31 +165,31 @@ namespace I2.Loc
 
         public static bool RemoveResourcesPath(ref string sPath)
         {
-            int Ind1 = sPath.IndexOf("\\Resources\\");
-            int Ind2 = sPath.IndexOf("\\Resources/");
-            int Ind3 = sPath.IndexOf("/Resources\\");
-            int Ind4 = sPath.IndexOf("/Resources/");
-            int Index = Mathf.Max(Ind1, Ind2, Ind3, Ind4);
-            bool IsResource = false;
-            if (Index >= 0)
+            int ind1 = sPath.IndexOf("\\Resources\\");
+            int ind2 = sPath.IndexOf("\\Resources/");
+            int ind3 = sPath.IndexOf("/Resources\\");
+            int ind4 = sPath.IndexOf("/Resources/");
+            int index = Mathf.Max(ind1, ind2, ind3, ind4);
+            bool isResource = false;
+            if (index >= 0)
             {
-                sPath = sPath.Substring(Index + 11);
-                IsResource = true;
+                sPath = sPath.Substring(index + 11);
+                isResource = true;
             }
             else
             {
                 // If its not in the Resources, then it has to be in the References
                 // Therefore, the path has to be stripped and let only the name
-                Index = sPath.LastIndexOfAny(LanguageSourceData.CategorySeparators);
-                if (Index > 0)
-                    sPath = sPath.Substring(Index + 1);
+                index = sPath.LastIndexOfAny(LanguageSourceData.CategorySeparators);
+                if (index > 0)
+                    sPath = sPath.Substring(index + 1);
             }
 
-            string Extension = System.IO.Path.GetExtension(sPath);
-            if (!string.IsNullOrEmpty(Extension))
-                sPath = sPath.Substring(0, sPath.Length - Extension.Length);
+            string extension = System.IO.Path.GetExtension(sPath);
+            if (!string.IsNullOrEmpty(extension))
+                sPath = sPath.Substring(0, sPath.Length - extension.Length);
 
-            return IsResource;
+            return isResource;
         }
 
         public static bool IsPlaying()
@@ -253,15 +253,15 @@ namespace I2.Loc
         }
 #endif
 
-        public static H FindInParents<H>(Transform tr) where H : Component
+        public static TH FindInParents<TH>(Transform tr) where TH : Component
         {
             if (!tr)
                 return null;
 
-            H comp = tr.GetComponent<H>();
+            TH comp = tr.GetComponent<TH>();
             while (!comp && tr)
             {
-                comp = tr.GetComponent<H>();
+                comp = tr.GetComponent<TH>();
                 tr = tr.parent;
             }
             return comp;

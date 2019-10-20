@@ -24,11 +24,11 @@ namespace Ricimi
         [SerializeField]
         private ButtonClickedEvent onClicked = new ButtonClickedEvent();
 
-        private CanvasGroup canvasGroup;
+        private CanvasGroup _canvasGroup;
 
         private void Awake()
         {
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+            _canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
 
         public virtual void OnPointerEnter(PointerEventData eventData)
@@ -38,7 +38,7 @@ namespace Ricimi
                 return;
             }
             StopAllCoroutines();
-            StartCoroutine(Utils.FadeOut(canvasGroup, onHoverAlpha, fadeTime));
+            StartCoroutine(Utils.FadeOut(_canvasGroup, onHoverAlpha, fadeTime));
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)
@@ -49,7 +49,7 @@ namespace Ricimi
             }
 
             StopAllCoroutines();
-            StartCoroutine(Utils.FadeIn(canvasGroup, 1.0f, fadeTime));
+            StartCoroutine(Utils.FadeIn(_canvasGroup, 1.0f, fadeTime));
         }
 
         public virtual void OnPointerDown(PointerEventData eventData)
@@ -59,7 +59,7 @@ namespace Ricimi
                 return;
             }
 
-            canvasGroup.alpha = onClickAlpha;
+            _canvasGroup.alpha = onClickAlpha;
 
             onClicked.Invoke();
         }
@@ -71,7 +71,7 @@ namespace Ricimi
                 return;
             }
 
-            canvasGroup.alpha = 1.0f;
+            _canvasGroup.alpha = 1.0f;
         }
     }
 }

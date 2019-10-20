@@ -51,7 +51,7 @@ namespace EnhancedScrollerDemos.GridSelection
                 // remove the handler from the data so 
                 // that any changes to the data won't try
                 // to call this destroyed view's function
-                _data.selectedChanged -= SelectedChanged;
+                _data.SelectedChanged -= SelectedChanged;
             }
         }
 
@@ -72,14 +72,14 @@ namespace EnhancedScrollerDemos.GridSelection
             if (data != null)
             {
                 // set the text if the cell is inside the data range
-                text.text = data.someText;
+                text.text = data.SomeText;
             }
 
             // if there was previous data assigned to this cell view,
             // we need to remove the handler for the selection change
             if (_data != null)
             {
-                _data.selectedChanged -= SelectedChanged;
+                _data.SelectedChanged -= SelectedChanged;
             }
 
             // link the data to the cell view
@@ -93,8 +93,8 @@ namespace EnhancedScrollerDemos.GridSelection
                 // want a single handler for this cell view, so 
                 // first we remove any previous handlers before
                 // adding the new one
-                _data.selectedChanged -= SelectedChanged;
-                _data.selectedChanged += SelectedChanged;
+                _data.SelectedChanged -= SelectedChanged;
+                _data.SelectedChanged += SelectedChanged;
 
                 // update the selection state UI
                 SelectedChanged(data.Selected);

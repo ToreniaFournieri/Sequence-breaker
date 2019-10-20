@@ -65,14 +65,14 @@ namespace EnhancedScrollerDemos.NestedScrollers
             {
                 var masterData = new MasterData()
                 {
-                    normalizedScrollPosition = 0,
-                    childData = new List<DetailData>()
+                    NormalizedScrollPosition = 0,
+                    ChildData = new List<DetailData>()
                 };
 
                 _data.Add(masterData);
 
                 for (var j = 0; j < 20; j++)
-                    masterData.childData.Add(new DetailData() { someText = i.ToString() + "," + j.ToString() });
+                    masterData.ChildData.Add(new DetailData() { SomeText = i.ToString() + "," + j.ToString() });
             }
 
             // tell the scroller to reload now that we have the data

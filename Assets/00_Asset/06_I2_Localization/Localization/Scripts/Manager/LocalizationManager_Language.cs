@@ -15,14 +15,14 @@ namespace I2.Loc
         {
             get {
                 InitializeIfNeeded();
-                return mCurrentLanguage;
+                return _mCurrentLanguage;
             }
             set {
                 InitializeIfNeeded();
-                string SupportedLanguage = GetSupportedLanguage(value);
-                if (!string.IsNullOrEmpty(SupportedLanguage) && mCurrentLanguage != SupportedLanguage)
+                string supportedLanguage = GetSupportedLanguage(value);
+                if (!string.IsNullOrEmpty(supportedLanguage) && _mCurrentLanguage != supportedLanguage)
                 {
-                    SetLanguageAndCode(SupportedLanguage, GetLanguageCode(SupportedLanguage));
+                    SetLanguageAndCode(supportedLanguage, GetLanguageCode(supportedLanguage));
                 }
             }
         }
@@ -30,14 +30,14 @@ namespace I2.Loc
         {
             get {
                 InitializeIfNeeded();
-                return mLanguageCode; }
+                return _mLanguageCode; }
             set {
                 InitializeIfNeeded();
-                if (mLanguageCode != value)
+                if (_mLanguageCode != value)
                 {
-                    string LanName = GetLanguageFromCode(value);
-                    if (!string.IsNullOrEmpty(LanName))
-                        SetLanguageAndCode(LanName, value);
+                    string lanName = GetLanguageFromCode(value);
+                    if (!string.IsNullOrEmpty(lanName))
+                        SetLanguageAndCode(lanName, value);
                 }
             }
         }
@@ -47,33 +47,33 @@ namespace I2.Loc
         public static string CurrentRegion
         {
             get {
-                var Lan = CurrentLanguage;
-                int idx = Lan.IndexOfAny("/\\".ToCharArray());
+                var lan = CurrentLanguage;
+                int idx = lan.IndexOfAny("/\\".ToCharArray());
                 if (idx > 0)
-                    return Lan.Substring(idx + 1);
+                    return lan.Substring(idx + 1);
 
-                idx = Lan.IndexOfAny("[(".ToCharArray());
-                int idx2 = Lan.LastIndexOfAny("])".ToCharArray());
+                idx = lan.IndexOfAny("[(".ToCharArray());
+                int idx2 = lan.LastIndexOfAny("])".ToCharArray());
                 if (idx > 0 && idx != idx2)
-                    return Lan.Substring(idx + 1, idx2 - idx - 1);
+                    return lan.Substring(idx + 1, idx2 - idx - 1);
                 else
                     return string.Empty;
             }
             set {
-                var Lan = CurrentLanguage;
-                int idx = Lan.IndexOfAny("/\\".ToCharArray());
+                var lan = CurrentLanguage;
+                int idx = lan.IndexOfAny("/\\".ToCharArray());
                 if (idx > 0)
                 {
-                    CurrentLanguage = Lan.Substring(idx + 1) + value;
+                    CurrentLanguage = lan.Substring(idx + 1) + value;
                     return;
                 }
 
-                idx = Lan.IndexOfAny("[(".ToCharArray());
-                int idx2 = Lan.LastIndexOfAny("])".ToCharArray());
+                idx = lan.IndexOfAny("[(".ToCharArray());
+                int idx2 = lan.LastIndexOfAny("])".ToCharArray());
                 if (idx > 0 && idx != idx2)
-                    Lan = Lan.Substring(idx);
+                    lan = lan.Substring(idx);
 
-                CurrentLanguage = Lan + "(" + value + ")";
+                CurrentLanguage = lan + "(" + value + ")";
             }
         }
 
@@ -99,35 +99,35 @@ namespace I2.Loc
         {
             get
             {
-                return mCurrentCulture;
+                return _mCurrentCulture;
             }
         }
 
-        static string mCurrentLanguage;
-        static string mLanguageCode;
-        static CultureInfo mCurrentCulture;
-        static bool mChangeCultureInfo = false;
+        static string _mCurrentLanguage;
+        static string _mLanguageCode;
+        static CultureInfo _mCurrentCulture;
+        static bool _mChangeCultureInfo = false;
 
         public static bool IsRight2Left = false;
         public static bool HasJoinedWords = false;  // Some languages (e.g. Chinese, Japanese and Thai) don't add spaces to their words (all characters are placed toguether)
 
         #endregion
 
-        public static void SetLanguageAndCode(string LanguageName, string LanguageCode, bool RememberLanguage = true, bool Force = false)
+        public static void SetLanguageAndCode(string languageName, string languageCode, bool rememberLanguage = true, bool force = false)
         {
-            if (mCurrentLanguage != LanguageName || mLanguageCode != LanguageCode || Force)
+            if (_mCurrentLanguage != languageName || _mLanguageCode != languageCode || force)
             {
-                if (RememberLanguage)
-                    PersistentStorage.SetSetting_String("I2 Language", LanguageName);
-                mCurrentLanguage = LanguageName;
-                mLanguageCode = LanguageCode;
-                mCurrentCulture = CreateCultureForCode(LanguageCode);
-                if (mChangeCultureInfo)
+                if (rememberLanguage)
+                    PersistentStorage.SetSetting_String("I2 Language", languageName);
+                _mCurrentLanguage = languageName;
+                _mLanguageCode = languageCode;
+                _mCurrentCulture = CreateCultureForCode(languageCode);
+                if (_mChangeCultureInfo)
                     SetCurrentCultureInfo();
 
-                IsRight2Left = IsRTL(mLanguageCode);
-                HasJoinedWords = GoogleLanguages.LanguageCode_HasJoinedWord(mLanguageCode);
-                LocalizeAll(Force);
+                IsRight2Left = IsRtl(_mLanguageCode);
+                HasJoinedWords = GoogleLanguages.LanguageCode_HasJoinedWord(_mLanguageCode);
+                LocalizeAll(force);
             }
         }
 
@@ -149,15 +149,15 @@ namespace I2.Loc
 
         public static void EnableChangingCultureInfo(bool bEnable)
         {
-            if (!mChangeCultureInfo && bEnable)
+            if (!_mChangeCultureInfo && bEnable)
                 SetCurrentCultureInfo();
-            mChangeCultureInfo = bEnable;
+            _mChangeCultureInfo = bEnable;
         }
 
         static void SetCurrentCultureInfo()
         {
             #if !NETFX_CORE
-                System.Threading.Thread.CurrentThread.CurrentCulture = mCurrentCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = _mCurrentCulture;
             #endif
         }
 
@@ -170,25 +170,25 @@ namespace I2.Loc
             // Use the system language if there is a source with that language, 
             // or pick any of the languages provided by the sources
 
-            string SavedLanguage = PersistentStorage.GetSetting_String("I2 Language", string.Empty);
-            string SysLanguage = GetCurrentDeviceLanguage();
+            string savedLanguage = PersistentStorage.GetSetting_String("I2 Language", string.Empty);
+            string sysLanguage = GetCurrentDeviceLanguage();
 
             // Try selecting the System Language
             // But fallback to the first language found  if the System Language is not available in any source
 
-			if (!string.IsNullOrEmpty(SavedLanguage) && HasLanguage(SavedLanguage, Initialize: false, SkipDisabled:true))
+			if (!string.IsNullOrEmpty(savedLanguage) && HasLanguage(savedLanguage, initialize: false, skipDisabled:true))
             {
-                SetLanguageAndCode(SavedLanguage, GetLanguageCode(SavedLanguage));
+                SetLanguageAndCode(savedLanguage, GetLanguageCode(savedLanguage));
                 return;
             }
 
-			if (!Sources [0].IgnoreDeviceLanguage) 
+			if (!Sources [0].ignoreDeviceLanguage) 
 			{
 				// Check if the device language is supported. 
 				// Also recognize when not region is set ("English (United State") will be used if sysLanguage is "English")
-				string ValidLanguage = GetSupportedLanguage (SysLanguage, true);
-				if (!string.IsNullOrEmpty (ValidLanguage)) {
-					SetLanguageAndCode (ValidLanguage, GetLanguageCode (ValidLanguage), false);
+				string validLanguage = GetSupportedLanguage (sysLanguage, true);
+				if (!string.IsNullOrEmpty (validLanguage)) {
+					SetLanguageAndCode (validLanguage, GetLanguageCode (validLanguage), false);
 					return;
 				}
 			}
@@ -200,28 +200,28 @@ namespace I2.Loc
                     for (int j = 0; j < Sources[i].mLanguages.Count; ++j)
                         if (Sources[i].mLanguages[j].IsEnabled())
                         {
-                            SetLanguageAndCode(Sources[i].mLanguages[j].Name, Sources[i].mLanguages[j].Code, false);
+                            SetLanguageAndCode(Sources[i].mLanguages[j].name, Sources[i].mLanguages[j].code, false);
                             return;
                         }
                 }
         }
 
  
-		public static bool HasLanguage( string Language, bool AllowDiscartingRegion = true, bool Initialize=true, bool SkipDisabled=true )
+		public static bool HasLanguage( string language, bool allowDiscartingRegion = true, bool initialize=true, bool skipDisabled=true )
 		{
-			if (Initialize)
+			if (initialize)
 				InitializeIfNeeded();
 
 			// First look for an exact match
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
-				if (Sources[i].GetLanguageIndex(Language, false, SkipDisabled) >=0)
+				if (Sources[i].GetLanguageIndex(language, false, skipDisabled) >=0)
 					return true;
 
 			// Then allow matching "English (Canada)" to "english"
-			if (AllowDiscartingRegion)
+			if (allowDiscartingRegion)
 			{
 				for (int i=0, imax=Sources.Count; i<imax; ++i)
-					if (Sources[i].GetLanguageIndex(Language, true, SkipDisabled) >=0)
+					if (Sources[i].GetLanguageIndex(language, true, skipDisabled) >=0)
 						return true;
 			}
 			return false;
@@ -229,101 +229,101 @@ namespace I2.Loc
 
 		// Returns the provided language or a similar one without the Region 
 		//(e.g. "English (Canada)" could be mapped to "english" or "English (United States)" if "English (Canada)" is not found
-		public static string GetSupportedLanguage( string Language, bool ignoreDisabled=false )
+		public static string GetSupportedLanguage( string language, bool ignoreDisabled=false )
 		{
             // First try finding the language that matches one of the official languages
-            string code = GoogleLanguages.GetLanguageCode(Language, false);
+            string code = GoogleLanguages.GetLanguageCode(language, false);
             if (!string.IsNullOrEmpty(code))
             {
                 // First try finding if the exact language code is in one source
                 for (int i = 0, imax = Sources.Count; i < imax; ++i)
                 {
-                    int Idx = Sources[i].GetLanguageIndexFromCode(code, true, ignoreDisabled);
-                    if (Idx >= 0)
-                        return Sources[i].mLanguages[Idx].Name;
+                    int idx = Sources[i].GetLanguageIndexFromCode(code, true, ignoreDisabled);
+                    if (idx >= 0)
+                        return Sources[i].mLanguages[idx].name;
                 }
 
                 // If not, try checking without the region
                 for (int i = 0, imax = Sources.Count; i < imax; ++i)
                 {
-                    int Idx = Sources[i].GetLanguageIndexFromCode(code, false, ignoreDisabled);
-                    if (Idx >= 0)
-                        return Sources[i].mLanguages[Idx].Name;
+                    int idx = Sources[i].GetLanguageIndexFromCode(code, false, ignoreDisabled);
+                    if (idx >= 0)
+                        return Sources[i].mLanguages[idx].name;
                 }
             }
 
             // If not found, then try finding an exact match for the name
             for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				int Idx = Sources[i].GetLanguageIndex(Language, false, ignoreDisabled);
-				if (Idx>=0)
-					return Sources[i].mLanguages[Idx].Name;
+				int idx = Sources[i].GetLanguageIndex(language, false, ignoreDisabled);
+				if (idx>=0)
+					return Sources[i].mLanguages[idx].name;
 			}
 			
 			// Then allow matching "English (Canada)" to "english"
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				int Idx = Sources[i].GetLanguageIndex(Language, true, ignoreDisabled);
-				if (Idx>=0)
-					return Sources[i].mLanguages[Idx].Name;
+				int idx = Sources[i].GetLanguageIndex(language, true, ignoreDisabled);
+				if (idx>=0)
+					return Sources[i].mLanguages[idx].name;
 			}
 
 			return string.Empty;
 		}
 
-		public static string GetLanguageCode( string Language )
+		public static string GetLanguageCode( string language )
 		{
 			if (Sources.Count==0)
 				UpdateSources();
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				int Idx = Sources[i].GetLanguageIndex(Language);
-				if (Idx>=0)
-					return Sources[i].mLanguages[Idx].Code;
+				int idx = Sources[i].GetLanguageIndex(language);
+				if (idx>=0)
+					return Sources[i].mLanguages[idx].code;
 			}
 			return string.Empty;
 		}
 
-		public static string GetLanguageFromCode( string Code, bool exactMatch=true )
+		public static string GetLanguageFromCode( string code, bool exactMatch=true )
 		{
 			if (Sources.Count==0)
 				UpdateSources();
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				int Idx = Sources[i].GetLanguageIndexFromCode(Code, exactMatch);
-				if (Idx>=0)
-					return Sources[i].mLanguages[Idx].Name;
+				int idx = Sources[i].GetLanguageIndexFromCode(code, exactMatch);
+				if (idx>=0)
+					return Sources[i].mLanguages[idx].name;
 			}
 			return string.Empty;
 		}
 
 
-		public static List<string> GetAllLanguages ( bool SkipDisabled = true )
+		public static List<string> GetAllLanguages ( bool skipDisabled = true )
 		{
 			if (Sources.Count==0)
 				UpdateSources();
-			List<string> Languages = new List<string> ();
+			List<string> languages = new List<string> ();
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
 			{
-				Languages.AddRange(Sources[i].GetLanguages(SkipDisabled).Where(x=>!Languages.Contains(x)));
+				languages.AddRange(Sources[i].GetLanguages(skipDisabled).Where(x=>!languages.Contains(x)));
 			}
-			return Languages;
+			return languages;
 		}
 
-		public static List<string> GetAllLanguagesCode(bool allowRegions=true, bool SkipDisabled = true)
+		public static List<string> GetAllLanguagesCode(bool allowRegions=true, bool skipDisabled = true)
 		{
-			List<string> Languages = new List<string>();
+			List<string> languages = new List<string>();
 			for (int i = 0, imax = Sources.Count; i < imax; ++i)
 			{
-				Languages.AddRange(Sources[i].GetLanguagesCode(allowRegions, SkipDisabled).Where(x => !Languages.Contains(x)));
+				languages.AddRange(Sources[i].GetLanguagesCode(allowRegions, skipDisabled).Where(x => !languages.Contains(x)));
 			}
-			return Languages;
+			return languages;
 		}
 
-		public static bool IsLanguageEnabled(string Language)
+		public static bool IsLanguageEnabled(string language)
 		{
 			for (int i = 0, imax = Sources.Count; i < imax; ++i)
-				if (!Sources[i].IsLanguageEnabled(Language))
+				if (!Sources[i].IsLanguageEnabled(language))
 					return false;
 			return true;
 		}
@@ -332,19 +332,19 @@ namespace I2.Loc
         {
             for (int i = 0; i < Sources.Count; ++i)
             {
-                var iCurrentLang = Sources[i].GetLanguageIndex(mCurrentLanguage, true, false);
+                var iCurrentLang = Sources[i].GetLanguageIndex(_mCurrentLanguage, true, false);
                 Sources[i].LoadLanguage(iCurrentLang, true, true, true, false);
             }
         }
 
 
         // This function should only be called from within the Localize Inspector to temporaly preview that Language
-        public static void PreviewLanguage(string NewLanguage)
+        public static void PreviewLanguage(string newLanguage)
 		{
-			mCurrentLanguage = NewLanguage;
-			mLanguageCode = GetLanguageCode(mCurrentLanguage);
-			IsRight2Left = IsRTL(mLanguageCode);
-            HasJoinedWords = GoogleLanguages.LanguageCode_HasJoinedWord(mLanguageCode);
+			_mCurrentLanguage = newLanguage;
+			_mLanguageCode = GetLanguageCode(_mCurrentLanguage);
+			IsRight2Left = IsRtl(_mLanguageCode);
+            HasJoinedWords = GoogleLanguages.LanguageCode_HasJoinedWord(_mLanguageCode);
         }
     }
 }

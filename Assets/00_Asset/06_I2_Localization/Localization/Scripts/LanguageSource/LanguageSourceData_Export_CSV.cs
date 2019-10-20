@@ -7,44 +7,44 @@ namespace I2.Loc
 	{
 		#region I2CSV format
 
-		public string Export_I2CSV( string Category, char Separator = ',', bool specializationsAsRows=true )
+		public string Export_I2CSV( string category, char separator = ',', bool specializationsAsRows=true )
 		{
-			StringBuilder Builder = new StringBuilder ();
+			StringBuilder builder = new StringBuilder ();
 
 			//--[ Header ]----------------------------------
-			Builder.Append ("Key[*]Type[*]Desc");
+			builder.Append ("Key[*]Type[*]Desc");
 			foreach (LanguageData langData in mLanguages)
 			{
-				Builder.Append ("[*]");
+				builder.Append ("[*]");
 				if (!langData.IsEnabled())
-					Builder.Append('$');
-				Builder.Append ( GoogleLanguages.GetCodedLanguage(langData.Name, langData.Code) );
+					builder.Append('$');
+				builder.Append ( GoogleLanguages.GetCodedLanguage(langData.name, langData.code) );
 			}
-			Builder.Append ("[ln]");
+			builder.Append ("[ln]");
 			
-			mTerms.Sort((a, b) => string.CompareOrdinal(a.Term, b.Term));
+			mTerms.Sort((a, b) => string.CompareOrdinal(a.term, b.term));
 
 			int nLanguages = (mLanguages.Count);
 			bool firstLine = true;
 			foreach (TermData termData in mTerms)
 			{
-				string Term;
+				string term;
 				
-				if (string.IsNullOrEmpty(Category) || (Category==EmptyCategory && termData.Term.IndexOfAny(CategorySeparators)<0))
-					Term = termData.Term;
+				if (string.IsNullOrEmpty(category) || (category==EmptyCategory && termData.term.IndexOfAny(CategorySeparators)<0))
+					term = termData.term;
 				else
-					if (termData.Term.StartsWith(Category + @"/") && Category!=termData.Term)
-						Term = termData.Term.Substring(Category.Length+1);
+					if (termData.term.StartsWith(category + @"/") && category!=termData.term)
+						term = termData.term.Substring(category.Length+1);
 				else
 					continue;   // Term doesn't belong to this category
 
 
-				if (!firstLine) Builder.Append("[ln]");
+				if (!firstLine) builder.Append("[ln]");
                 firstLine = false;
 
                 if (!specializationsAsRows)
                 {
-                    AppendI2Term(Builder, nLanguages, Term, termData, Separator, null);
+                    AppendI2Term(builder, nLanguages, term, termData, separator, null);
                 }
                 else
                 {
@@ -52,39 +52,39 @@ namespace I2.Loc
                     for (int i=0; i< allSpecializations.Count; ++i)
                     {
                         if (i!=0)
-                            Builder.Append("[ln]");
+                            builder.Append("[ln]");
                         var specialization = allSpecializations[i];
-                        AppendI2Term(Builder, nLanguages, Term, termData, Separator, specialization);
+                        AppendI2Term(builder, nLanguages, term, termData, separator, specialization);
                     }
                 }
 
             }
-            return Builder.ToString();
+            return builder.ToString();
 		}
 
-		static void AppendI2Term( StringBuilder Builder, int nLanguages, string Term, TermData termData, char Separator, string forceSpecialization )
+		static void AppendI2Term( StringBuilder builder, int nLanguages, string term, TermData termData, char separator, string forceSpecialization )
 		{
             //--[ Key ] --------------
-            AppendI2Text(Builder, Term);
+            AppendI2Text(builder, term);
             if (!string.IsNullOrEmpty(forceSpecialization) && forceSpecialization != "Any")
             {
-                Builder.Append("[");
-                Builder.Append(forceSpecialization);
-                Builder.Append("]");
+                builder.Append("[");
+                builder.Append(forceSpecialization);
+                builder.Append("]");
             }
-            Builder.Append ("[*]");
+            builder.Append ("[*]");
 
 			//--[ Type and Description ] --------------
-			Builder.Append (termData.TermType.ToString());
-			Builder.Append ("[*]");
-			Builder.Append (termData.Description);
+			builder.Append (termData.termType.ToString());
+			builder.Append ("[*]");
+			builder.Append (termData.description);
 
 			//--[ Languages ] --------------
-			for (int i=0; i<Mathf.Min (nLanguages, termData.Languages.Length); ++i)
+			for (int i=0; i<Mathf.Min (nLanguages, termData.languages.Length); ++i)
 			{
-				Builder.Append ("[*]");
+				builder.Append ("[*]");
 				
-				string translation = termData.Languages[i];
+				string translation = termData.languages[i];
                 if (!string.IsNullOrEmpty(forceSpecialization))
                     translation = termData.GetTranslation(i, forceSpecialization);
 
@@ -96,18 +96,18 @@ namespace I2.Loc
                 if (translation == "")
                 	translation = "-";*/
                 //if (isAutoTranslated) Builder.Append("[i2auto]");
-                AppendI2Text(Builder, translation);
+                AppendI2Text(builder, translation);
 			}
 		}
 
-        static void AppendI2Text(StringBuilder Builder, string text)
+        static void AppendI2Text(StringBuilder builder, string text)
         {
             if (string.IsNullOrEmpty(text))
                 return;
 
             if (text.StartsWith("\'") || text.StartsWith("="))
-                Builder.Append('\'');
-            Builder.Append(text);
+                builder.Append('\'');
+            builder.Append(text);
         }
 
 
@@ -127,16 +127,16 @@ namespace I2.Loc
                 if (i > 0)
                     sb.Append("[i2t]");
                 var term = mTerms[i];
-                sb.Append(term.Term);
+                sb.Append(term.term);
                 sb.Append("=");
 
-                string translation = term.Languages[langIndex];
-                if (OnMissingTranslation==MissingTranslationAction.Fallback && string.IsNullOrEmpty(translation))
+                string translation = term.languages[langIndex];
+                if (onMissingTranslation==MissingTranslationAction.Fallback && string.IsNullOrEmpty(translation))
                 {
                     if (TryGetFallbackTranslation(term, out translation, langIndex, skipDisabled: true))
                     {
                         sb.Append("[i2fb]");
-                        if (fillTermWithFallback) term.Languages[langIndex] = translation;
+                        if (fillTermWithFallback) term.languages[langIndex] = translation;
                     }
                 }
                 if (!string.IsNullOrEmpty(translation))
@@ -150,34 +150,34 @@ namespace I2.Loc
 
         #region CSV format
 
-        public string Export_CSV( string Category, char Separator = ',', bool specializationsAsRows = true)
+        public string Export_CSV( string category, char separator = ',', bool specializationsAsRows = true)
 		{
-			StringBuilder Builder = new StringBuilder();
+			StringBuilder builder = new StringBuilder();
 			
 			int nLanguages = (mLanguages.Count);
-			Builder.AppendFormat ("Key{0}Type{0}Desc", Separator);
+			builder.AppendFormat ("Key{0}Type{0}Desc", separator);
 
 			foreach (LanguageData langData in mLanguages)
 			{
-				Builder.Append (Separator);
+				builder.Append (separator);
 				if (!langData.IsEnabled())
-					Builder.Append('$');
-				AppendString ( Builder, GoogleLanguages.GetCodedLanguage(langData.Name, langData.Code), Separator );
+					builder.Append('$');
+				AppendString ( builder, GoogleLanguages.GetCodedLanguage(langData.name, langData.code), separator );
 			}
-			Builder.Append ("\n");
+			builder.Append ("\n");
 
 
-            mTerms.Sort((a, b) => string.CompareOrdinal(a.Term, b.Term));
+            mTerms.Sort((a, b) => string.CompareOrdinal(a.term, b.term));
 
 			foreach (TermData termData in mTerms)
 			{
-				string Term;
+				string term;
 
-				if (string.IsNullOrEmpty(Category) || (Category==EmptyCategory && termData.Term.IndexOfAny(CategorySeparators)<0))
-					Term = termData.Term;
+				if (string.IsNullOrEmpty(category) || (category==EmptyCategory && termData.term.IndexOfAny(CategorySeparators)<0))
+					term = termData.term;
 				else
-				if (termData.Term.StartsWith(Category + @"/") && Category!=termData.Term)
-					Term = termData.Term.Substring(Category.Length+1);
+				if (termData.term.StartsWith(category + @"/") && category!=termData.term)
+					term = termData.term.Substring(category.Length+1);
 				else
 					continue;   // Term doesn't belong to this category
 
@@ -185,37 +185,37 @@ namespace I2.Loc
                 {
                     foreach (var specialization in termData.GetAllSpecializations())
                     {
-                        AppendTerm(Builder, nLanguages, Term, termData, specialization, Separator);
+                        AppendTerm(builder, nLanguages, term, termData, specialization, separator);
                     }
                 }
                 else
                 {
-                    AppendTerm(Builder, nLanguages, Term, termData, null, Separator);
+                    AppendTerm(builder, nLanguages, term, termData, null, separator);
                 }
             }
-			return Builder.ToString();
+			return builder.ToString();
 		}
 
-		static void AppendTerm(StringBuilder Builder, int nLanguages, string Term, TermData termData, string specialization, char Separator)
+		static void AppendTerm(StringBuilder builder, int nLanguages, string term, TermData termData, string specialization, char separator)
 		{
 			//--[ Key ] --------------				
-			AppendString( Builder, Term, Separator );
+			AppendString( builder, term, separator );
 
 			if (!string.IsNullOrEmpty(specialization) && specialization!="Any")
-				Builder.AppendFormat( "[{0}]",specialization );
+				builder.AppendFormat( "[{0}]",specialization );
 			
 			//--[ Type and Description ] --------------
-			Builder.Append (Separator);
-			Builder.Append (termData.TermType.ToString());
-			Builder.Append (Separator);
-			AppendString(Builder, termData.Description, Separator);
+			builder.Append (separator);
+			builder.Append (termData.termType.ToString());
+			builder.Append (separator);
+			AppendString(builder, termData.description, separator);
 			
 			//--[ Languages ] --------------
-			for (int i=0; i<Mathf.Min (nLanguages, termData.Languages.Length); ++i)
+			for (int i=0; i<Mathf.Min (nLanguages, termData.languages.Length); ++i)
 			{
-				Builder.Append (Separator);
+				builder.Append (separator);
 
-				string translation = termData.Languages[i];
+				string translation = termData.languages[i];
                 if (!string.IsNullOrEmpty(specialization))
                     translation = termData.GetTranslation(i, specialization);
 
@@ -224,42 +224,42 @@ namespace I2.Loc
                 //if (string.IsNullOrEmpty(s))
                 //	s = "-";
 
-                AppendTranslation(Builder, translation, Separator, /*isAutoTranslated ? "[i2auto]" : */null);
+                AppendTranslation(builder, translation, separator, /*isAutoTranslated ? "[i2auto]" : */null);
 			}
-			Builder.Append ("\n");
+			builder.Append ("\n");
 		}
 		
 		
-		static void AppendString( StringBuilder Builder, string Text, char Separator )
+		static void AppendString( StringBuilder builder, string text, char separator )
 		{
-			if (string.IsNullOrEmpty(Text))
+			if (string.IsNullOrEmpty(text))
 				return;
-			Text = Text.Replace ("\\n", "\n");
-			if (Text.IndexOfAny((Separator+"\n\"").ToCharArray())>=0)
+			text = text.Replace ("\\n", "\n");
+			if (text.IndexOfAny((separator+"\n\"").ToCharArray())>=0)
 			{
-				Text = Text.Replace("\"", "\"\"");
-				Builder.AppendFormat("\"{0}\"", Text);
+				text = text.Replace("\"", "\"\"");
+				builder.AppendFormat("\"{0}\"", text);
 			}
 			else 
 			{
-				Builder.Append (Text);
+				builder.Append (text);
 			}
 		}
 
-		static void AppendTranslation( StringBuilder Builder, string Text, char Separator, string tags )
+		static void AppendTranslation( StringBuilder builder, string text, char separator, string tags )
 		{
-			if (string.IsNullOrEmpty(Text))
+			if (string.IsNullOrEmpty(text))
 				return;
-			Text = Text.Replace ("\\n", "\n");
-			if (Text.IndexOfAny((Separator+"\n\"").ToCharArray())>=0)
+			text = text.Replace ("\\n", "\n");
+			if (text.IndexOfAny((separator+"\n\"").ToCharArray())>=0)
 			{
-				Text = Text.Replace("\"", "\"\"");
-				Builder.AppendFormat("\"{0}{1}\"", tags, Text);
+				text = text.Replace("\"", "\"\"");
+				builder.AppendFormat("\"{0}{1}\"", tags, text);
 			}
 			else 
 			{
-				Builder.Append (tags);
-				Builder.Append (Text);
+				builder.Append (tags);
+				builder.Append (text);
 			}
 		}
 

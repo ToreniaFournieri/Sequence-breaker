@@ -2,14 +2,15 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
+using UnityEngine.Serialization;
 
 namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 {
-    public class ClassicGridViewExample : ClassicSRIA<CellViewsHolder>
+    public class ClassicGridViewExample : ClassicSria<CellViewsHolder>
 	{
 		public RectTransform itemPrefab;
 		public Sprite[] availableImages;
-		public DemoUI demoUI;
+		[FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
 		public List<CellModel> Data { get; private set; }
 
@@ -26,14 +27,14 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 		{
 			base.Start();
 
-			ChangeModelsAndReset(demoUI.SetCountValue);
+			ChangeModelsAndReset(demoUi.SetCountValue);
 
-			demoUI.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
-			demoUI.scrollToButton.onClick.AddListener(OnScrollToRequested);
-			demoUI.addOneTailButton.onClick.AddListener(() => OnAddItemRequested(true));
-			demoUI.addOneHeadButton.onClick.AddListener(() => OnAddItemRequested(false));
-			demoUI.removeOneTailButton.onClick.AddListener(() => OnRemoveItemRequested(true));
-			demoUI.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
+			demoUi.setCountButton.onClick.AddListener(OnItemCountChangeRequested);
+			demoUi.scrollToButton.onClick.AddListener(OnScrollToRequested);
+			demoUi.addOneTailButton.onClick.AddListener(() => OnAddItemRequested(true));
+			demoUi.addOneHeadButton.onClick.AddListener(() => OnAddItemRequested(false));
+			demoUi.removeOneTailButton.onClick.AddListener(() => OnRemoveItemRequested(true));
+			demoUi.removeOneHeadButton.onClick.AddListener(() => OnRemoveItemRequested(false));
 		}
 		
 		protected override CellViewsHolder CreateViewsHolder(int itemIndex)
@@ -47,8 +48,8 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 		protected override void UpdateViewsHolder(CellViewsHolder vh)
 		{
 			var model = Data[vh.ItemIndex];
-			vh.titleText.text =  "[#"+vh.ItemIndex+"] " + model.title;
-			vh.image.sprite = availableImages[model.imageIndex];
+			vh.TitleText.text =  "[#"+vh.ItemIndex+"] " + model.Title;
+			vh.Image.sprite = availableImages[model.ImageIndex];
 		}
 		#endregion
 
@@ -57,7 +58,7 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 		{
 			int index = atEnd ? Data.Count : 0;
 			Data.Insert(index, CreateNewModel());
-			InsertItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+			InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
 		}
 		void OnRemoveItemRequested(bool fromEnd)
 		{
@@ -67,18 +68,18 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 			int index = fromEnd ? Data.Count - 1 : 0;
 
 			Data.RemoveAt(index);
-			RemoveItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+			RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
 		}
-		void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUI.SetCountValue); }
+		void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
 		void OnScrollToRequested()
 		{
-			if (demoUI.ScrollToValue >= Data.Count)
+			if (demoUi.ScrollToValue >= Data.Count)
 				return;
 
-			demoUI.scrollToButton.interactable = false;
-			bool started = SmoothScrollTo(demoUI.ScrollToValue, .75f, .5f, .5f, () => demoUI.scrollToButton.interactable = true);
+			demoUi.scrollToButton.interactable = false;
+			bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
 			if (!started)
-				demoUI.scrollToButton.interactable = true;
+				demoUi.scrollToButton.interactable = true;
 		}
 		#endregion
 
@@ -100,8 +101,8 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 			int imgIdx = CUtil.Rand(availableImages.Length);
 			var model = new CellModel()
 			{
-				title = "Image "+ imgIdx,
-				imageIndex = imgIdx,
+				Title = "Image "+ imgIdx,
+				ImageIndex = imgIdx,
 			};
 
 			return model;
@@ -111,23 +112,23 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 
 	public class CellModel
 	{
-		public string title;
-		public int imageIndex;
+		public string Title;
+		public int ImageIndex;
 	}
 
 
 	public class CellViewsHolder : CAbstractViewsHolder
 	{
-		public Text titleText;
-		public Image image;
+		public Text TitleText;
+		public Image Image;
 
 
 		public override void CollectViews()
 		{
 			base.CollectViews();
 
-			titleText = root.Find("TitleText").GetComponent<Text>();
-			image = root.Find("ImagePanel/Image").GetComponent<Image>();
+			TitleText = Root.Find("TitleText").GetComponent<Text>();
+			Image = Root.Find("ImagePanel/Image").GetComponent<Image>();
 		}
 	}
 }

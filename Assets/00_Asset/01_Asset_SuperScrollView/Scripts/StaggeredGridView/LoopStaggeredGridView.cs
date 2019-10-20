@@ -19,11 +19,11 @@ namespace SuperScrollView
     public class StaggeredGridViewInitParam
     {
         // all the default values
-        public float mDistanceForRecycle0 = 300; //mDistanceForRecycle0 should be larger than mDistanceForNew0
-        public float mDistanceForNew0 = 200;
-        public float mDistanceForRecycle1 = 300;//mDistanceForRecycle1 should be larger than mDistanceForNew1
-        public float mDistanceForNew1 = 200;
-        public float mItemDefaultWithPaddingSize = 20;//item's default size (with padding)
+        public float MDistanceForRecycle0 = 300; //mDistanceForRecycle0 should be larger than mDistanceForNew0
+        public float MDistanceForNew0 = 200;
+        public float MDistanceForRecycle1 = 300;//mDistanceForRecycle1 should be larger than mDistanceForNew1
+        public float MDistanceForNew1 = 200;
+        public float MItemDefaultWithPaddingSize = 20;//item's default size (with padding)
 
         public static StaggeredGridViewInitParam CopyDefaultInitParam()
         {
@@ -33,8 +33,8 @@ namespace SuperScrollView
 
     public class ItemIndexData
     {
-        public int mGroupIndex;
-        public int mIndexInGroup;
+        public int MGroupIndex;
+        public int MIndexInGroup;
     }
 
 
@@ -54,25 +54,25 @@ namespace SuperScrollView
     */
     public class GridViewLayoutParam
     {
-        public int mColumnOrRowCount = 0;//gridview column or row count
-        public float mItemWidthOrHeight = 0; //gridview item width or height
-        public float mPadding1 = 0;
-        public float mPadding2 = 0;
-        public float[] mCustomColumnOrRowOffsetArray = null;
+        public int MColumnOrRowCount = 0;//gridview column or row count
+        public float MItemWidthOrHeight = 0; //gridview item width or height
+        public float MPadding1 = 0;
+        public float MPadding2 = 0;
+        public float[] MCustomColumnOrRowOffsetArray = null;
 
         public bool CheckParam()
         {
-            if (mColumnOrRowCount <= 0)
+            if (MColumnOrRowCount <= 0)
             {
                 Debug.LogError("mColumnOrRowCount shoud be > 0");
                 return false;
             }
-            if (mItemWidthOrHeight <= 0)
+            if (MItemWidthOrHeight <= 0)
             {
                 Debug.LogError("mItemWidthOrHeight shoud be > 0");
                 return false;
             }
-            if (mCustomColumnOrRowOffsetArray != null && mCustomColumnOrRowOffsetArray.Length != mColumnOrRowCount)
+            if (MCustomColumnOrRowOffsetArray != null && MCustomColumnOrRowOffsetArray.Length != MColumnOrRowCount)
             {
                 Debug.LogError("mGroupOffsetArray.Length != mColumnOrRowCount");
                 return false;
@@ -84,8 +84,8 @@ namespace SuperScrollView
 
     public class LoopStaggeredGridView : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        Dictionary<string, StaggeredGridItemPool> mItemPoolDict = new Dictionary<string, StaggeredGridItemPool>();
-        List<StaggeredGridItemPool> mItemPoolList = new List<StaggeredGridItemPool>();
+        Dictionary<string, StaggeredGridItemPool> _mItemPoolDict = new Dictionary<string, StaggeredGridItemPool>();
+        List<StaggeredGridItemPool> _mItemPoolList = new List<StaggeredGridItemPool>();
         [SerializeField]
         List<StaggeredGridItemPrefabConfData> mItemPrefabDataList = new List<StaggeredGridItemPrefabConfData>();
 
@@ -93,34 +93,34 @@ namespace SuperScrollView
         private ListItemArrangeType mArrangeType = ListItemArrangeType.TopToBottom;
         public ListItemArrangeType ArrangeType { get { return mArrangeType; } set { mArrangeType = value; } }
 
-        RectTransform mContainerTrans;
-        ScrollRect mScrollRect = null;
-        int mGroupCount = 0;
+        RectTransform _mContainerTrans;
+        ScrollRect _mScrollRect = null;
+        int _mGroupCount = 0;
 
-        List<StaggeredGridItemGroup> mItemGroupList = new List<StaggeredGridItemGroup>();
-        List<ItemIndexData> mItemIndexDataList = new List<ItemIndexData>();
+        List<StaggeredGridItemGroup> _mItemGroupList = new List<StaggeredGridItemGroup>();
+        List<ItemIndexData> _mItemIndexDataList = new List<ItemIndexData>();
 
-        RectTransform mScrollRectTransform = null;
-        RectTransform mViewPortRectTransform = null;
-        float mItemDefaultWithPaddingSize = 20;
-        int mItemTotalCount = 0;
-        bool mIsVertList = false;
-        System.Func<LoopStaggeredGridView, int,LoopStaggeredGridViewItem> mOnGetItemByItemIndex;
-        Vector3[] mItemWorldCorners = new Vector3[4];
-        Vector3[] mViewPortRectLocalCorners = new Vector3[4];
-        float mDistanceForRecycle0 = 300;
-        float mDistanceForNew0 = 200;
-        float mDistanceForRecycle1 = 300;
-        float mDistanceForNew1 = 200;
-        bool mIsDraging = false;
-        PointerEventData mPointerEventData = null;
+        RectTransform _mScrollRectTransform = null;
+        RectTransform _mViewPortRectTransform = null;
+        float _mItemDefaultWithPaddingSize = 20;
+        int _mItemTotalCount = 0;
+        bool _mIsVertList = false;
+        System.Func<LoopStaggeredGridView, int,LoopStaggeredGridViewItem> _mOnGetItemByItemIndex;
+        Vector3[] _mItemWorldCorners = new Vector3[4];
+        Vector3[] _mViewPortRectLocalCorners = new Vector3[4];
+        float _mDistanceForRecycle0 = 300;
+        float _mDistanceForNew0 = 200;
+        float _mDistanceForRecycle1 = 300;
+        float _mDistanceForNew1 = 200;
+        bool _mIsDraging = false;
+        PointerEventData _mPointerEventData = null;
         public System.Action mOnBeginDragAction = null;
         public System.Action mOnDragingAction = null;
         public System.Action mOnEndDragAction = null;
-        Vector3 mLastFrameContainerPos = Vector3.zero;
-        bool mListViewInited = false;
-        int mListUpdateCheckFrameCount = 0;
-        GridViewLayoutParam mLayoutParam = null;
+        Vector3 _mLastFrameContainerPos = Vector3.zero;
+        bool _mListViewInited = false;
+        int _mListUpdateCheckFrameCount = 0;
+        GridViewLayoutParam _mLayoutParam = null;
 
         public List<StaggeredGridItemPrefabConfData> ItemPrefabDataList
         {
@@ -134,7 +134,7 @@ namespace SuperScrollView
         {
             get
             {
-                return mListUpdateCheckFrameCount;
+                return _mListUpdateCheckFrameCount;
             }
         }
 
@@ -143,14 +143,14 @@ namespace SuperScrollView
         {
             get
             {
-                return mIsVertList;
+                return _mIsVertList;
             }
         }
         public int ItemTotalCount
         {
             get
             {
-                return mItemTotalCount;
+                return _mItemTotalCount;
             }
         }
 
@@ -158,7 +158,7 @@ namespace SuperScrollView
         {
             get
             {
-                return mContainerTrans;
+                return _mContainerTrans;
             }
         }
 
@@ -166,7 +166,7 @@ namespace SuperScrollView
         {
             get
             {
-                return mScrollRect;
+                return _mScrollRect;
             }
         }
 
@@ -174,28 +174,28 @@ namespace SuperScrollView
         {
             get
             {
-                return mIsDraging;
+                return _mIsDraging;
             }
         }
 
         public GridViewLayoutParam LayoutParam
         {
-            get { return mLayoutParam; }
+            get { return _mLayoutParam; }
         }
 
         public bool IsInited
         {
-            get { return mListViewInited; }
+            get { return _mListViewInited; }
         }
 
         public StaggeredGridItemGroup GetItemGroupByIndex(int index)
         {
-            int count = mItemGroupList.Count;
+            int count = _mItemGroupList.Count;
             if(index < 0 || index >= count)
             {
                 return null;
             }
-            return mItemGroupList[index];
+            return _mItemGroupList[index];
         }
 
 
@@ -229,77 +229,77 @@ namespace SuperScrollView
             System.Func<LoopStaggeredGridView, int, LoopStaggeredGridViewItem> onGetItemByItemIndex,
             StaggeredGridViewInitParam initParam = null)
         {
-            mLayoutParam = layoutParam;
-            if(mLayoutParam == null)
+            _mLayoutParam = layoutParam;
+            if(_mLayoutParam == null)
             {
                 Debug.LogError("layoutParam can not be null!");
                 return;
             }
-            if (mLayoutParam.CheckParam() == false)
+            if (_mLayoutParam.CheckParam() == false)
             {
                 return;
             }
             if (initParam != null)
             {
-                mDistanceForRecycle0 = initParam.mDistanceForRecycle0;
-                mDistanceForNew0 = initParam.mDistanceForNew0;
-                mDistanceForRecycle1 = initParam.mDistanceForRecycle1;
-                mDistanceForNew1 = initParam.mDistanceForNew1;
-                mItemDefaultWithPaddingSize = initParam.mItemDefaultWithPaddingSize;
+                _mDistanceForRecycle0 = initParam.MDistanceForRecycle0;
+                _mDistanceForNew0 = initParam.MDistanceForNew0;
+                _mDistanceForRecycle1 = initParam.MDistanceForRecycle1;
+                _mDistanceForNew1 = initParam.MDistanceForNew1;
+                _mItemDefaultWithPaddingSize = initParam.MItemDefaultWithPaddingSize;
             }
-            mScrollRect = gameObject.GetComponent<ScrollRect>();
-            if (mScrollRect == null)
+            _mScrollRect = gameObject.GetComponent<ScrollRect>();
+            if (_mScrollRect == null)
             {
                 Debug.LogError("LoopStaggeredGridView Init Failed! ScrollRect component not found!");
                 return;
             }
-            if (mDistanceForRecycle0 <= mDistanceForNew0)
+            if (_mDistanceForRecycle0 <= _mDistanceForNew0)
             {
                 Debug.LogError("mDistanceForRecycle0 should be bigger than mDistanceForNew0");
             }
-            if (mDistanceForRecycle1 <= mDistanceForNew1)
+            if (_mDistanceForRecycle1 <= _mDistanceForNew1)
             {
                 Debug.LogError("mDistanceForRecycle1 should be bigger than mDistanceForNew1");
             }
-            mScrollRectTransform = mScrollRect.GetComponent<RectTransform>();
-            mContainerTrans = mScrollRect.content;
-            mViewPortRectTransform = mScrollRect.viewport;
-            mGroupCount = mLayoutParam.mColumnOrRowCount;
-            if (mViewPortRectTransform == null)
+            _mScrollRectTransform = _mScrollRect.GetComponent<RectTransform>();
+            _mContainerTrans = _mScrollRect.content;
+            _mViewPortRectTransform = _mScrollRect.viewport;
+            _mGroupCount = _mLayoutParam.MColumnOrRowCount;
+            if (_mViewPortRectTransform == null)
             {
-                mViewPortRectTransform = mScrollRectTransform;
+                _mViewPortRectTransform = _mScrollRectTransform;
             }
-            if (mScrollRect.horizontalScrollbarVisibility == ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport && mScrollRect.horizontalScrollbar != null)
+            if (_mScrollRect.horizontalScrollbarVisibility == ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport && _mScrollRect.horizontalScrollbar != null)
             {
                 Debug.LogError("ScrollRect.horizontalScrollbarVisibility cannot be set to AutoHideAndExpandViewport");
             }
-            if (mScrollRect.verticalScrollbarVisibility == ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport && mScrollRect.verticalScrollbar != null)
+            if (_mScrollRect.verticalScrollbarVisibility == ScrollRect.ScrollbarVisibility.AutoHideAndExpandViewport && _mScrollRect.verticalScrollbar != null)
             {
                 Debug.LogError("ScrollRect.verticalScrollbarVisibility cannot be set to AutoHideAndExpandViewport");
             }
-            mIsVertList = (mArrangeType == ListItemArrangeType.TopToBottom || mArrangeType == ListItemArrangeType.BottomToTop);
-            mScrollRect.horizontal = !mIsVertList;
-            mScrollRect.vertical = mIsVertList;
-            AdjustPivot(mViewPortRectTransform);
-            AdjustAnchor(mContainerTrans);
-            AdjustContainerPivot(mContainerTrans);
+            _mIsVertList = (mArrangeType == ListItemArrangeType.TopToBottom || mArrangeType == ListItemArrangeType.BottomToTop);
+            _mScrollRect.horizontal = !_mIsVertList;
+            _mScrollRect.vertical = _mIsVertList;
+            AdjustPivot(_mViewPortRectTransform);
+            AdjustAnchor(_mContainerTrans);
+            AdjustContainerPivot(_mContainerTrans);
             InitItemPool();
-            mOnGetItemByItemIndex = onGetItemByItemIndex;
-            if (mListViewInited == true)
+            _mOnGetItemByItemIndex = onGetItemByItemIndex;
+            if (_mListViewInited == true)
             {
                 Debug.LogError("LoopStaggeredGridView.InitListView method can be called only once.");
             }
-            mListViewInited = true;
-            mViewPortRectTransform.GetLocalCorners(mViewPortRectLocalCorners);
-            mContainerTrans.anchoredPosition3D = Vector3.zero;
-            mItemTotalCount = itemTotalCount;
+            _mListViewInited = true;
+            _mViewPortRectTransform.GetLocalCorners(_mViewPortRectLocalCorners);
+            _mContainerTrans.anchoredPosition3D = Vector3.zero;
+            _mItemTotalCount = itemTotalCount;
             UpdateLayoutParamAutoValue();
-            mItemGroupList.Clear();
-            for (int i = 0;i<mGroupCount;++i)
+            _mItemGroupList.Clear();
+            for (int i = 0;i<_mGroupCount;++i)
             {
                 StaggeredGridItemGroup group = new StaggeredGridItemGroup();
-                group.Init(this, mItemTotalCount, i, GetNewItemByGroupAndIndex);
-                mItemGroupList.Add(group);
+                group.Init(this, _mItemTotalCount, i, GetNewItemByGroupAndIndex);
+                _mItemGroupList.Add(group);
             }
             UpdateContentSize();
         }
@@ -307,67 +307,67 @@ namespace SuperScrollView
         //reset the layout param, such as column count, item width/height,padding size
         public void ResetGridViewLayoutParam(int itemTotalCount, GridViewLayoutParam layoutParam)
         {
-            if(mListViewInited == false)
+            if(_mListViewInited == false)
             {
                 Debug.LogError("ResetLayoutParam can not use before LoopStaggeredGridView.InitListView are called!");
                 return;
             }
-            mScrollRect.StopMovement();
+            _mScrollRect.StopMovement();
             SetListItemCount(0,true);
             RecycleAllItem();
             ClearAllTmpRecycledItem();
-            mLayoutParam = layoutParam;
-            if (mLayoutParam == null)
+            _mLayoutParam = layoutParam;
+            if (_mLayoutParam == null)
             {
                 Debug.LogError("layoutParam can not be null!");
                 return;
             }
-            if (mLayoutParam.CheckParam() == false)
+            if (_mLayoutParam.CheckParam() == false)
             {
                 return;
             }
-            mGroupCount = mLayoutParam.mColumnOrRowCount;
-            mViewPortRectTransform.GetLocalCorners(mViewPortRectLocalCorners);
-            mContainerTrans.anchoredPosition3D = Vector3.zero;
-            mItemTotalCount = itemTotalCount;
+            _mGroupCount = _mLayoutParam.MColumnOrRowCount;
+            _mViewPortRectTransform.GetLocalCorners(_mViewPortRectLocalCorners);
+            _mContainerTrans.anchoredPosition3D = Vector3.zero;
+            _mItemTotalCount = itemTotalCount;
             UpdateLayoutParamAutoValue();
-            mItemGroupList.Clear();
-            for (int i = 0; i < mGroupCount; ++i)
+            _mItemGroupList.Clear();
+            for (int i = 0; i < _mGroupCount; ++i)
             {
                 StaggeredGridItemGroup group = new StaggeredGridItemGroup();
-                group.Init(this, mItemTotalCount, i, GetNewItemByGroupAndIndex);
-                mItemGroupList.Add(group);
+                group.Init(this, _mItemTotalCount, i, GetNewItemByGroupAndIndex);
+                _mItemGroupList.Add(group);
             }
             UpdateContentSize();
         }
 
         void UpdateLayoutParamAutoValue()
         {
-            if (mLayoutParam.mCustomColumnOrRowOffsetArray == null)
+            if (_mLayoutParam.MCustomColumnOrRowOffsetArray == null)
             {
-                mLayoutParam.mCustomColumnOrRowOffsetArray = new float[mGroupCount];
-                float itemTotalSize = mLayoutParam.mItemWidthOrHeight * mGroupCount;
+                _mLayoutParam.MCustomColumnOrRowOffsetArray = new float[_mGroupCount];
+                float itemTotalSize = _mLayoutParam.MItemWidthOrHeight * _mGroupCount;
                 float itemPadding = 0;
                 if (IsVertList)
                 {
-                    itemPadding = (ViewPortWidth - mLayoutParam.mPadding1 - mLayoutParam.mPadding2 - itemTotalSize) / (mGroupCount - 1);
+                    itemPadding = (ViewPortWidth - _mLayoutParam.MPadding1 - _mLayoutParam.MPadding2 - itemTotalSize) / (_mGroupCount - 1);
                 }
                 else
                 {
-                    itemPadding = (ViewPortHeight - mLayoutParam.mPadding1 - mLayoutParam.mPadding2 - itemTotalSize) / (mGroupCount - 1);
+                    itemPadding = (ViewPortHeight - _mLayoutParam.MPadding1 - _mLayoutParam.MPadding2 - itemTotalSize) / (_mGroupCount - 1);
                 }
-                float cur = mLayoutParam.mPadding1;
-                for (int i = 0; i < mGroupCount; ++i)
+                float cur = _mLayoutParam.MPadding1;
+                for (int i = 0; i < _mGroupCount; ++i)
                 {
                     if (IsVertList)
                     {
-                        mLayoutParam.mCustomColumnOrRowOffsetArray[i] = cur;
+                        _mLayoutParam.MCustomColumnOrRowOffsetArray[i] = cur;
                     }
                     else
                     {
-                        mLayoutParam.mCustomColumnOrRowOffsetArray[i] = -cur;
+                        _mLayoutParam.MCustomColumnOrRowOffsetArray[i] = -cur;
                     }
-                    cur = cur + mLayoutParam.mItemWidthOrHeight + itemPadding;
+                    cur = cur + _mLayoutParam.MItemWidthOrHeight + itemPadding;
                 }
             }
         }
@@ -378,13 +378,13 @@ namespace SuperScrollView
         public LoopStaggeredGridViewItem NewListViewItem(string itemPrefabName)
         {
             StaggeredGridItemPool pool = null;
-            if (mItemPoolDict.TryGetValue(itemPrefabName, out pool) == false)
+            if (_mItemPoolDict.TryGetValue(itemPrefabName, out pool) == false)
             {
                 return null;
             }
             LoopStaggeredGridViewItem item = pool.GetItem();
             RectTransform rf = item.GetComponent<RectTransform>();
-            rf.SetParent(mContainerTrans);
+            rf.SetParent(_mContainerTrans);
             rf.localScale = Vector3.one;
             rf.anchoredPosition3D = Vector3.zero;
             rf.localEulerAngles = Vector3.zero;
@@ -397,37 +397,37 @@ namespace SuperScrollView
         //If resetPos is set false, then the scrollrect's content position will not changed after this method finished.
         public void SetListItemCount(int itemCount, bool resetPos = true)
         {
-            if (itemCount == mItemTotalCount)
+            if (itemCount == _mItemTotalCount)
             {
                 return;
             }
-            int groupCount = mItemGroupList.Count;
-            mItemTotalCount = itemCount;
+            int groupCount = _mItemGroupList.Count;
+            _mItemTotalCount = itemCount;
             for (int i = 0; i < groupCount; ++i)
             {
-                mItemGroupList[i].SetListItemCount(mItemTotalCount);
+                _mItemGroupList[i].SetListItemCount(_mItemTotalCount);
             }
             UpdateContentSize();
-            if (mItemTotalCount == 0)
+            if (_mItemTotalCount == 0)
             {
-                mItemIndexDataList.Clear();
+                _mItemIndexDataList.Clear();
                 ClearAllTmpRecycledItem();
                 return;
             }
-            int count = mItemIndexDataList.Count;
+            int count = _mItemIndexDataList.Count;
 
-            if (count > mItemTotalCount)
+            if (count > _mItemTotalCount)
             {
-                mItemIndexDataList.RemoveRange(mItemTotalCount, count - mItemTotalCount);
+                _mItemIndexDataList.RemoveRange(_mItemTotalCount, count - _mItemTotalCount);
             }
             if (resetPos)
             {
                 MovePanelToItemIndex(0, 0);
                 return;
             }
-            if (count > mItemTotalCount)
+            if (count > _mItemTotalCount)
             {
-                MovePanelToItemIndex(mItemTotalCount - 1, 0); ;
+                MovePanelToItemIndex(_mItemTotalCount - 1, 0); ;
             }
         }
 
@@ -436,8 +436,8 @@ namespace SuperScrollView
         //to ( the positon of itemIndex-th item + offset )
         public void MovePanelToItemIndex(int itemIndex, float offset)
         {
-            mScrollRect.StopMovement();
-            if (mItemTotalCount == 0 || itemIndex < 0)
+            _mScrollRect.StopMovement();
+            if (_mItemTotalCount == 0 || itemIndex < 0)
             {
                 return;
             }
@@ -449,17 +449,17 @@ namespace SuperScrollView
             {
                 if (IsVertList)
                 {
-                    SetAnchoredPositionY(mContainerTrans, 0f);
+                    SetAnchoredPositionY(_mContainerTrans, 0f);
                 }
                 else
                 {
-                    SetAnchoredPositionX(mContainerTrans, 0f);
+                    SetAnchoredPositionX(_mContainerTrans, 0f);
                 }
                 return;
             }
-            if (itemIndex >= mItemTotalCount)
+            if (itemIndex >= _mItemTotalCount)
             {
-                itemIndex = mItemTotalCount - 1;
+                itemIndex = _mItemTotalCount - 1;
             }
             float itemAbsPos = GetItemAbsPosByItemIndex(itemIndex);
             if (itemAbsPos < 0)
@@ -476,22 +476,22 @@ namespace SuperScrollView
                 }
                 if (contentSize - newYAbs >= viewPortSize)
                 {
-                    SetAnchoredPositionY(mContainerTrans, sign * newYAbs);
+                    SetAnchoredPositionY(_mContainerTrans, sign * newYAbs);
                 }
                 else
                 {
-                    SetAnchoredPositionY(mContainerTrans, sign * (contentSize - viewPortSize));
+                    SetAnchoredPositionY(_mContainerTrans, sign * (contentSize - viewPortSize));
                     UpdateListView(viewPortSize + 100, viewPortSize + 100, viewPortSize, viewPortSize);
                     ClearAllTmpRecycledItem();
                     UpdateContentSize();
                     contentSize = GetContentSize();
                     if (contentSize - newYAbs >= viewPortSize)
                     {
-                        SetAnchoredPositionY(mContainerTrans, sign * newYAbs);
+                        SetAnchoredPositionY(_mContainerTrans, sign * newYAbs);
                     }
                     else
                     {
-                        SetAnchoredPositionY(mContainerTrans, sign * (contentSize - viewPortSize));
+                        SetAnchoredPositionY(_mContainerTrans, sign * (contentSize - viewPortSize));
                     }
                 }
 
@@ -506,22 +506,22 @@ namespace SuperScrollView
                 }
                 if (contentSize - newXAbs >= viewPortSize)
                 {
-                    SetAnchoredPositionX(mContainerTrans, sign * newXAbs);
+                    SetAnchoredPositionX(_mContainerTrans, sign * newXAbs);
                 }
                 else
                 {
-                    SetAnchoredPositionX(mContainerTrans, sign * (contentSize - viewPortSize));
+                    SetAnchoredPositionX(_mContainerTrans, sign * (contentSize - viewPortSize));
                     UpdateListView(viewPortSize + 100, viewPortSize + 100, viewPortSize, viewPortSize);
                     ClearAllTmpRecycledItem();
                     UpdateContentSize();
                     contentSize = GetContentSize();
                     if (contentSize - newXAbs >= viewPortSize)
                     {
-                        SetAnchoredPositionX(mContainerTrans, sign * newXAbs);
+                        SetAnchoredPositionX(_mContainerTrans, sign * newXAbs);
                     }
                     else
                     {
-                        SetAnchoredPositionX(mContainerTrans, sign * (contentSize - viewPortSize));
+                        SetAnchoredPositionX(_mContainerTrans, sign * (contentSize - viewPortSize));
                     }
                 }
             }
@@ -537,17 +537,17 @@ namespace SuperScrollView
             {
                 return null;
             }
-            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.mGroupIndex);
-            return group.GetShownItemByIndexInGroup(indexData.mIndexInGroup);
+            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.MGroupIndex);
+            return group.GetShownItemByIndexInGroup(indexData.MIndexInGroup);
         }
 
         //update all visible items.
         public void RefreshAllShownItem()
         {
-            int count = mItemGroupList.Count;
+            int count = _mItemGroupList.Count;
             for (int i = 0; i < count; ++i)
             {
-                mItemGroupList[i].RefreshAllShownItem();
+                _mItemGroupList[i].RefreshAllShownItem();
             }
         }
 
@@ -565,8 +565,8 @@ namespace SuperScrollView
             {
                 return;
             }
-            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.mGroupIndex);
-            group.OnItemSizeChanged(indexData.mIndexInGroup);
+            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.MGroupIndex);
+            group.OnItemSizeChanged(indexData.MIndexInGroup);
         }
 
 
@@ -581,17 +581,17 @@ namespace SuperScrollView
             {
                 return;
             }
-            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.mGroupIndex);
-            group.RefreshItemByIndexInGroup(indexData.mIndexInGroup);
+            StaggeredGridItemGroup group = GetItemGroupByIndex(indexData.MGroupIndex);
+            group.RefreshItemByIndexInGroup(indexData.MIndexInGroup);
         }
 
 
         public void ResetListView(bool resetPos = true)
         {
-            mViewPortRectTransform.GetLocalCorners(mViewPortRectLocalCorners);
+            _mViewPortRectTransform.GetLocalCorners(_mViewPortRectLocalCorners);
             if (resetPos)
             {
-                mContainerTrans.anchoredPosition3D = Vector3.zero;
+                _mContainerTrans.anchoredPosition3D = Vector3.zero;
             }
         }
 
@@ -600,32 +600,32 @@ namespace SuperScrollView
         {
             get
             {
-                if (mIsVertList)
+                if (_mIsVertList)
                 {
-                    return mViewPortRectTransform.rect.height;
+                    return _mViewPortRectTransform.rect.height;
                 }
                 else
                 {
-                    return mViewPortRectTransform.rect.width;
+                    return _mViewPortRectTransform.rect.width;
                 }
             }
         }
 
         public float ViewPortWidth
         {
-            get { return mViewPortRectTransform.rect.width; }
+            get { return _mViewPortRectTransform.rect.width; }
         }
         public float ViewPortHeight
         {
-            get { return mViewPortRectTransform.rect.height; }
+            get { return _mViewPortRectTransform.rect.height; }
         }
 
         public void RecycleAllItem()
         {
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             for (int i = 0; i < groupCount; ++i)
             {
-                mItemGroupList[i].RecycleAllItem();
+                _mItemGroupList[i].RecycleAllItem();
             }
         }
 
@@ -641,7 +641,7 @@ namespace SuperScrollView
                 return;
             }
             StaggeredGridItemPool pool = null;
-            if (mItemPoolDict.TryGetValue(item.ItemPrefabName, out pool) == false)
+            if (_mItemPoolDict.TryGetValue(item.ItemPrefabName, out pool) == false)
             {
                 return;
             }
@@ -652,10 +652,10 @@ namespace SuperScrollView
 
         public void ClearAllTmpRecycledItem()
         {
-            int count = mItemPoolList.Count;
+            int count = _mItemPoolList.Count;
             for (int i = 0; i < count; ++i)
             {
-                mItemPoolList[i].ClearTmpRecycledItem();
+                _mItemPoolList[i].ClearTmpRecycledItem();
             }
         }
 
@@ -773,7 +773,7 @@ namespace SuperScrollView
                     continue;
                 }
                 string prefabName = data.mItemPrefab.name;
-                if (mItemPoolDict.ContainsKey(prefabName))
+                if (_mItemPoolDict.ContainsKey(prefabName))
                 {
                     Debug.LogError("A item prefab with name " + prefabName + " has existed!");
                     continue;
@@ -792,9 +792,9 @@ namespace SuperScrollView
                     data.mItemPrefab.AddComponent<LoopStaggeredGridViewItem>();
                 }
                 StaggeredGridItemPool pool = new StaggeredGridItemPool();
-                pool.Init(data.mItemPrefab, data.mPadding, data.mInitCreateCount, mContainerTrans);
-                mItemPoolDict.Add(prefabName, pool);
-                mItemPoolList.Add(pool);
+                pool.Init(data.mItemPrefab, data.mPadding, data.mInitCreateCount, _mContainerTrans);
+                _mItemPoolDict.Add(prefabName, pool);
+                _mItemPoolList.Add(pool);
             }
         }
 
@@ -806,7 +806,7 @@ namespace SuperScrollView
             {
                 return;
             }
-            mIsDraging = true;
+            _mIsDraging = true;
             CacheDragPointerEventData(eventData);
             if (mOnBeginDragAction != null)
             {
@@ -820,8 +820,8 @@ namespace SuperScrollView
             {
                 return;
             }
-            mIsDraging = false;
-            mPointerEventData = null;
+            _mIsDraging = false;
+            _mPointerEventData = null;
             if (mOnEndDragAction != null)
             {
                 mOnEndDragAction();
@@ -843,20 +843,20 @@ namespace SuperScrollView
 
         void CacheDragPointerEventData(PointerEventData eventData)
         {
-            if (mPointerEventData == null)
+            if (_mPointerEventData == null)
             {
-                mPointerEventData = new PointerEventData(EventSystem.current);
+                _mPointerEventData = new PointerEventData(EventSystem.current);
             }
-            mPointerEventData.button = eventData.button;
-            mPointerEventData.position = eventData.position;
-            mPointerEventData.pointerPressRaycast = eventData.pointerPressRaycast;
-            mPointerEventData.pointerCurrentRaycast = eventData.pointerCurrentRaycast;
+            _mPointerEventData.button = eventData.button;
+            _mPointerEventData.position = eventData.position;
+            _mPointerEventData.pointerPressRaycast = eventData.pointerPressRaycast;
+            _mPointerEventData.pointerCurrentRaycast = eventData.pointerCurrentRaycast;
         }
 
 
         public int CurMaxCreatedItemIndexCount
         {
-            get { return mItemIndexDataList.Count; }
+            get { return _mItemIndexDataList.Count; }
         }
 
        
@@ -876,12 +876,12 @@ namespace SuperScrollView
 
         public ItemIndexData GetItemIndexData(int itemIndex)
         {
-            int count = mItemIndexDataList.Count;
+            int count = _mItemIndexDataList.Count;
             if(itemIndex < 0 || itemIndex >= count)
             {
                 return null;
             }
-            return mItemIndexDataList[itemIndex];
+            return _mItemIndexDataList[itemIndex];
         }
 
 
@@ -889,31 +889,31 @@ namespace SuperScrollView
 
         public void UpdateAllGroupShownItemsPos()
         {
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             for (int i = 0; i < groupCount; ++i)
             {
-                mItemGroupList[i].UpdateAllShownItemsPos();
+                _mItemGroupList[i].UpdateAllShownItemsPos();
             }
         }
 
         void CheckAllGroupIfNeedUpdateItemPos()
         {
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             for (int i = 0; i < groupCount; ++i)
             {
-                mItemGroupList[i].CheckIfNeedUpdateItemPos();
+                _mItemGroupList[i].CheckIfNeedUpdateItemPos();
             }
         }
 
 
         public float GetItemAbsPosByItemIndex(int itemIndex)
         {
-            if(itemIndex < 0 || itemIndex >= mItemIndexDataList.Count)
+            if(itemIndex < 0 || itemIndex >= _mItemIndexDataList.Count)
             {
                 return -1;
             }
-            ItemIndexData tData = mItemIndexDataList[itemIndex];
-            return mItemGroupList[tData.mGroupIndex].GetItemPos(tData.mIndexInGroup);
+            ItemIndexData tData = _mItemIndexDataList[itemIndex];
+            return _mItemGroupList[tData.MGroupIndex].GetItemPos(tData.MIndexInGroup);
         }
 
         public LoopStaggeredGridViewItem GetNewItemByGroupAndIndex(int groupIndex,int indexInGroup)
@@ -922,63 +922,63 @@ namespace SuperScrollView
             {
                 return null;
             }
-            if(mItemTotalCount == 0)
+            if(_mItemTotalCount == 0)
             {
                 return null;
             }
             LoopStaggeredGridViewItem newItem = null;
             int index = 0;
-            List<int> mItemIndexMap = mItemGroupList[groupIndex].ItemIndexMap;
+            List<int> mItemIndexMap = _mItemGroupList[groupIndex].ItemIndexMap;
             int count = mItemIndexMap.Count;
             if (count > indexInGroup)
             {
                 index = mItemIndexMap[indexInGroup];
-                newItem = mOnGetItemByItemIndex(this, index);
+                newItem = _mOnGetItemByItemIndex(this, index);
                 if (newItem == null)
                 {
                     return null;
                 }
-                newItem.StartPosOffset = mLayoutParam.mCustomColumnOrRowOffsetArray[groupIndex];
+                newItem.StartPosOffset = _mLayoutParam.MCustomColumnOrRowOffsetArray[groupIndex];
                 newItem.ItemIndexInGroup = indexInGroup;
                 newItem.ItemIndex = index;
-                newItem.ItemCreatedCheckFrameCount = mListUpdateCheckFrameCount;
+                newItem.ItemCreatedCheckFrameCount = _mListUpdateCheckFrameCount;
                 return newItem;
             }
             if(count != indexInGroup)
             {
                 return null;
             }
-            int curMaxCreatedItemIndexCount = mItemIndexDataList.Count;
-            if (curMaxCreatedItemIndexCount >= mItemTotalCount)
+            int curMaxCreatedItemIndexCount = _mItemIndexDataList.Count;
+            if (curMaxCreatedItemIndexCount >= _mItemTotalCount)
             {
                 return null;
             }
             index = curMaxCreatedItemIndexCount;
-            newItem = mOnGetItemByItemIndex(this, index);
+            newItem = _mOnGetItemByItemIndex(this, index);
             if (newItem == null)
             {
                 return null;
             }
             mItemIndexMap.Add(index);
             ItemIndexData indexData = new ItemIndexData();
-            indexData.mGroupIndex = groupIndex;
-            indexData.mIndexInGroup = indexInGroup;
-            mItemIndexDataList.Add(indexData);
-            newItem.StartPosOffset = mLayoutParam.mCustomColumnOrRowOffsetArray[groupIndex];
+            indexData.MGroupIndex = groupIndex;
+            indexData.MIndexInGroup = indexInGroup;
+            _mItemIndexDataList.Add(indexData);
+            newItem.StartPosOffset = _mLayoutParam.MCustomColumnOrRowOffsetArray[groupIndex];
             newItem.ItemIndexInGroup = indexInGroup;
             newItem.ItemIndex = index;
-            newItem.ItemCreatedCheckFrameCount = mListUpdateCheckFrameCount;
+            newItem.ItemCreatedCheckFrameCount = _mListUpdateCheckFrameCount;
             return newItem;
         }
 
         int GetCurShouldAddNewItemGroupIndex()
         {
             float v = float.MaxValue;
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             int groupIndex = 0;
             for (int i = 0; i < groupCount; ++i)
             {
-                float size = mItemGroupList[i].GetShownItemPosMaxValue();
+                float size = _mItemGroupList[i].GetShownItemPosMaxValue();
                 if(size < v)
                 {
                     v = size;
@@ -990,20 +990,20 @@ namespace SuperScrollView
 
         public void UpdateListViewWithDefault()
         {
-            UpdateListView(mDistanceForRecycle0, mDistanceForRecycle1, mDistanceForNew0, mDistanceForNew1);
+            UpdateListView(_mDistanceForRecycle0, _mDistanceForRecycle1, _mDistanceForNew0, _mDistanceForNew1);
             UpdateContentSize();
         }
 
 
         void Update()
         {
-            if (mListViewInited == false)
+            if (_mListViewInited == false)
             {
                 return;
             }
             UpdateListViewWithDefault();
             ClearAllTmpRecycledItem();
-            mLastFrameContainerPos = mContainerTrans.anchoredPosition3D;
+            _mLastFrameContainerPos = _mContainerTrans.anchoredPosition3D;
         }
 
 
@@ -1011,14 +1011,14 @@ namespace SuperScrollView
 
         public void UpdateListView(float distanceForRecycle0, float distanceForRecycle1, float distanceForNew0, float distanceForNew1)
         {
-            mListUpdateCheckFrameCount++;
+            _mListUpdateCheckFrameCount++;
             bool needContinueCheck = true;
             int checkCount = 0;
             int maxCount = 9999;
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             for (int i = 0; i < groupCount; ++i)
             {
-                mItemGroupList[i].UpdateListViewPart1(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
+                _mItemGroupList[i].UpdateListViewPart1(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
             }
             while (needContinueCheck)
             {
@@ -1029,46 +1029,46 @@ namespace SuperScrollView
                     break;
                 }
                 int groupIndex = GetCurShouldAddNewItemGroupIndex();
-                needContinueCheck = mItemGroupList[groupIndex].UpdateListViewPart2(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
+                needContinueCheck = _mItemGroupList[groupIndex].UpdateListViewPart2(distanceForRecycle0, distanceForRecycle1, distanceForNew0, distanceForNew1);
             }
                
         }
 
         public float GetContentSize()
         {
-            if (mIsVertList)
+            if (_mIsVertList)
             {
-                return mContainerTrans.rect.height;
+                return _mContainerTrans.rect.height;
             }
             else
             {
-                return mContainerTrans.rect.width;
+                return _mContainerTrans.rect.width;
             }
         }
         public void UpdateContentSize()
         {
-            int groupCount = mItemGroupList.Count;
+            int groupCount = _mItemGroupList.Count;
             float size = 0;
             for (int i = 0; i < groupCount; ++i)
             {
-                float s = mItemGroupList[i].GetContentPanelSize();
+                float s = _mItemGroupList[i].GetContentPanelSize();
                 if (s > size)
                 {
                     size = s;
                 }
             }
-            if (mIsVertList)
+            if (_mIsVertList)
             {
-                if (mContainerTrans.rect.height != size)
+                if (_mContainerTrans.rect.height != size)
                 {
-                    mContainerTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
+                    _mContainerTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
                 }
             }
             else
             {
-                if (mContainerTrans.rect.width != size)
+                if (_mContainerTrans.rect.width != size)
                 {
-                    mContainerTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
+                    _mContainerTrans.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
                 }
             }
         }

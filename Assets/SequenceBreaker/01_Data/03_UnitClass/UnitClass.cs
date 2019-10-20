@@ -2,62 +2,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
 sealed public class UnitClass : ScriptableObject
 {
-    [SerializeField] public int UniqueID;
-    [SerializeField] public string Name;
-    [SerializeField] public Affiliation Affiliation;
-    [SerializeField] public UnitType UnitType;
+    [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
+    [FormerlySerializedAs("Name")] [SerializeField] public string name;
+    [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
+    [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
     //[SerializeField] public AbilityClass InitialAbility;
-    [SerializeField] public int ItemCapacity;
+    [FormerlySerializedAs("ItemCapacity")] [SerializeField] public int itemCapacity;
 
     [SerializeField] public List<Item> itemList;
 
     public AbilityClass Ability { get; set; }
-    [SerializeField] public CoreFrame CoreFrame;
-    [SerializeField] public Pilot Pilot;
-    [SerializeField] public int Level;
-    [SerializeField] public int Experience;
-    public int ToNextLevel;
+    [FormerlySerializedAs("CoreFrame")] [SerializeField] public CoreFrame coreFrame;
+    [FormerlySerializedAs("Pilot")] [SerializeField] public Pilot pilot;
+    [FormerlySerializedAs("Level")] [SerializeField] public int level;
+    [FormerlySerializedAs("Experience")] [SerializeField] public int experience;
+    [FormerlySerializedAs("ToNextLevel")] public int toNextLevel;
 
     [SerializeField] public List<SkillsMasterClass> skillsMaster;
 
 
-    public void GainExperience (int _experienceAdd)
+    public void GainExperience (int experienceAdd)
     {
-        Experience += _experienceAdd;
+        experience += experienceAdd;
         CalculateLevel();
     }
 
 
     private void CalculateLevel ()
     {
-        int _level = 1;
-        int _remainder = Experience;
-        while (_remainder > 0)
+        int level = 1;
+        int remainder = experience;
+        while (remainder > 0)
         {
 
             //Sample implement.
-            int _step = (int)(Mathf.Pow(1.26f - 0.001f * _level, _level) + 100 + _level * 20) ;
-            ToNextLevel = _step - _remainder;
-            _remainder -= _step;
+            int step = (int)(Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20) ;
+            toNextLevel = step - remainder;
+            remainder -= step;
 
-            if (_remainder > 0)
+            if (remainder > 0)
             {
-                _level++;
+                level++;
             }
             
         }
 
-        Level = _level;
+        level = level;
     }
 
     public int ExperienceFromBeaten()
     {
         //Sample implement.
-        return (int)((Mathf.Pow(1.26f - 0.001f * Level, Level) + 100 + Level * 20 )/30);
+        return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20 )/30);
 
     }
 

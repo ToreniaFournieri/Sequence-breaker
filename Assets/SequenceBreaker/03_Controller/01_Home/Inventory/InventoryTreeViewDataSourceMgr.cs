@@ -2,30 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SuperScrollView;
+using UnityEngine.Serialization;
 
 
 sealed public class InventoryTreeViewItemData
 {
-    public string mName;
-    public string mIcon;
-    List<Item> mChildItemDataList = new List<Item>();
+    public string MName;
+    public string MIcon;
+    List<Item> _mChildItemDataList = new List<Item>();
 
     public int ChildCount
     {
-        get { return mChildItemDataList.Count; }
+        get { return _mChildItemDataList.Count; }
     }
 
     public void AddChild(Item data)
     {
-        mChildItemDataList.Add(data);
+        _mChildItemDataList.Add(data);
     }
     public Item GetChild(int index)
     {
-        if (index < 0 || index >= mChildItemDataList.Count)
+        if (index < 0 || index >= _mChildItemDataList.Count)
         {
             return null;
         }
-        return mChildItemDataList[index];
+        return _mChildItemDataList[index];
     }
 }
 
@@ -46,13 +47,13 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 
 
     //For update graphics
-    public InventoryTreeViewWithStickyHeadScript InventoryTreeViewWithStickyHeadScript;
+    [FormerlySerializedAs("InventoryTreeViewWithStickyHeadScript")] public InventoryTreeViewWithStickyHeadScript inventoryTreeViewWithStickyHeadScript;
 
 
-    List<InventoryTreeViewItemData> mItemDataList = new List<InventoryTreeViewItemData>();
+    List<InventoryTreeViewItemData> _mItemDataList = new List<InventoryTreeViewItemData>();
 
-    static InventoryTreeViewDataSourceMgr instance = null;
-    int mTreeViewItemCount = 1;
+    static InventoryTreeViewDataSourceMgr _instance = null;
+    int _mTreeViewItemCount = 1;
     //int mTreeViewChildItemCount = 10;
 
 
@@ -63,11 +64,11 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = Object.FindObjectOfType<InventoryTreeViewDataSourceMgr>();
+                _instance = Object.FindObjectOfType<InventoryTreeViewDataSourceMgr>();
             }
-            return instance;
+            return _instance;
         }
 
     }
@@ -85,11 +86,11 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 
     public InventoryTreeViewItemData GetItemDataByIndex(int index)
     {
-        if (index < 0 || index >= mItemDataList.Count)
+        if (index < 0 || index >= _mItemDataList.Count)
         {
             return null;
         }
-        return mItemDataList[index];
+        return _mItemDataList[index];
     }
 
     public Item GetItemChildDataByIndex(int itemIndex, int childIndex)
@@ -106,7 +107,7 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            return mItemDataList.Count;
+            return _mItemDataList.Count;
         }
     }
 
@@ -114,11 +115,11 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
     {
         get
         {
-            int count = mItemDataList.Count;
+            int count = _mItemDataList.Count;
             int totalCount = 0;
             for (int i = 0; i < count; ++i)
             {
-                totalCount = totalCount + mItemDataList[i].ChildCount;
+                totalCount = totalCount + _mItemDataList[i].ChildCount;
             }
             return totalCount;
         }
@@ -139,7 +140,7 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
             //    otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList());
 
             //remove from other inventory
-            inventoryItemList.removeItemAndSave(item);
+            inventoryItemList.RemoveItemAndSave(item);
 
             //for (int i = inventoryItemList.itemList.Count - 1; i >= 0; i--)
             //{
@@ -160,14 +161,14 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
 
     public void DoRefreshDataSource()
     {
-        mItemDataList.Clear();
-        for (int i = 0; i < mTreeViewItemCount; ++i)
+        _mItemDataList.Clear();
+        for (int i = 0; i < _mTreeViewItemCount; ++i)
         {
             InventoryTreeViewItemData tData = new InventoryTreeViewItemData();
-            tData.mName = "Main Item Cateory: " + i;
+            tData.MName = "Main Item Cateory: " + i;
             //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-            tData.mIcon = "1";
-            mItemDataList.Add(tData);
+            tData.MIcon = "1";
+            _mItemDataList.Add(tData);
             //int childCount = mTreeViewChildItemCount;
 
 
@@ -176,8 +177,8 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
                 int childCount = itemDataBase.itemBaseMasterList.Count;
                 for (int j = 0; j < childCount; ++j)
                 {
-                    Item _item = new Item();
-                    _item.baseItem = itemDataBase.itemBaseMasterList[j];
+                    Item item = new Item();
+                    item.baseItem = itemDataBase.itemBaseMasterList[j];
                     //ItemData childItemData = new ItemData();
                     //childItemData.mName = "Item" + i + ":Child" + j;
                     //childItemData.mDesc = "Item Desc For " + childItemData.mName;
@@ -185,23 +186,23 @@ sealed public class InventoryTreeViewDataSourceMgr : MonoBehaviour
                     //childItemData.mIcon = "1";
                     //childItemData.mStarCount = Random.Range(0, 6);
                     //childItemData.mFileSize = Random.Range(20, 999);
-                    tData.AddChild(_item);
+                    tData.AddChild(item);
                 }
             }
             else
             {
 
-                inventoryItemList.init();
-                foreach (Item _item in inventoryItemList.itemList)
+                inventoryItemList.Init();
+                foreach (Item item in inventoryItemList.itemList)
                 {
-                    tData.AddChild(_item);
+                    tData.AddChild(item);
                 }
 
                 //Debug.Log("tData count:" + tData.ChildCount);
 
             }
 
-            InventoryTreeViewWithStickyHeadScript.Initialization();
+            inventoryTreeViewWithStickyHeadScript.Initialization();
         }
 
 

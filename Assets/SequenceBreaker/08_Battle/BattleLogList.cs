@@ -37,11 +37,11 @@ namespace SequenceBreaker._08_Battle
     }
 
 
-    sealed public class BattleLogList : MonoBehaviour
+    public sealed class BattleLogList : MonoBehaviour
     {
         public List<BattleLogClass> battleLogList;
         public Transform contentPanel;
-        public RefreshController refreshController;
+//        public RefreshController refreshController;
 
         public SimpleObjectPool buttonObjectPool;
 
@@ -49,11 +49,6 @@ namespace SequenceBreaker._08_Battle
         {
             BattleRun();
             AddList();
-        }
-
-        private void Update()
-        {
-
         }
 
         private void BattleRun()
@@ -66,16 +61,13 @@ namespace SequenceBreaker._08_Battle
 
         private void AddList()
         {
-            for (var i = 0; i < battleLogList.Count; i++)
+            foreach (var battleLog in battleLogList)
             {
-                var battleLog = battleLogList[i];
                 var newLogButton = buttonObjectPool.GetObject();
                 newLogButton.transform.SetParent(contentPanel);
 
                 var logButton = newLogButton.GetComponent<LogButton>();
                 logButton.Setup(battleLog);
-
-
             }
         }
 

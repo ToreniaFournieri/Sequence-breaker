@@ -192,15 +192,15 @@ namespace I2.Loc
 			GUILayout.Space(10);
 
 			GUI.backgroundColor = Color.Lerp(Color.gray, Color.white, 0.5f);
-			eSpreadsheetUpdateMode Mode = SynchronizationButtons("Import");
-			if ( Mode!= eSpreadsheetUpdateMode.None)
+			ESpreadsheetUpdateMode Mode = SynchronizationButtons("Import");
+			if ( Mode!= ESpreadsheetUpdateMode.None)
 				Import_Local(File, CurrentExtension, Mode);
 
 			GUILayout.FlexibleSpace();
 			
 			GUI.backgroundColor = Color.Lerp(Color.gray, Color.white, 0.5f);
 			Mode = SynchronizationButtons("Export", true);
-			if ( Mode != eSpreadsheetUpdateMode.None)
+			if ( Mode != ESpreadsheetUpdateMode.None)
 				Export_Local(File, CurrentExtension, Mode);
 
 			GUILayout.Space(10);
@@ -217,7 +217,7 @@ namespace I2.Loc
 			GUI.enabled = true;
 		}
 
-		void Import_Local( string File, eLocalSpreadsheeet CurrentExtension, eSpreadsheetUpdateMode UpdateMode )
+		void Import_Local( string File, eLocalSpreadsheeet CurrentExtension, ESpreadsheetUpdateMode UpdateMode )
 		{
 			try
 			{
@@ -239,7 +239,7 @@ namespace I2.Loc
 				//File = EditorUtility.OpenFilePanel("Select CSV,  XLS or XLSX File", File, "csv;*.xls;*.xlsx");
 				if (!string.IsNullOrEmpty(File))
 				{
-					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					mLanguageSource.spreadsheetLocalFileName = TryMakingPathRelativeToProject(File);
 					switch (CurrentExtension)
 					{
 						case eLocalSpreadsheeet.CSV		: Import_CSV(File, UpdateMode); break;
@@ -256,13 +256,13 @@ namespace I2.Loc
 			}
 		}
 
-		void Import_CSV( string FileName, eSpreadsheetUpdateMode UpdateMode )
+		void Import_CSV( string FileName, ESpreadsheetUpdateMode UpdateMode )
 		{
             LanguageSourceData source = GetSourceData();
             var encoding = System.Text.Encoding.GetEncoding (mProp_Spreadsheet_LocalCSVEncoding.stringValue);
 			if (encoding == null)
 				encoding = System.Text.Encoding.UTF8;
-			string CSVstring = LocalizationReader.ReadCSVfile (FileName, encoding);
+			string CSVstring = LocalizationReader.ReadCsVfile (FileName, encoding);
 
 			char Separator = mProp_Spreadsheet_LocalCSVSeparator.stringValue.Length>0 ? mProp_Spreadsheet_LocalCSVSeparator.stringValue[0] : ',';
 			string sError = source.Import_CSV( string.Empty, CSVstring, UpdateMode, Separator);
@@ -272,7 +272,7 @@ namespace I2.Loc
 			mSelectedCategories = source.GetCategories();
 		}
 
-		void Export_Local( string File, eLocalSpreadsheeet CurrentExtension, eSpreadsheetUpdateMode UpdateMode )
+		void Export_Local( string File, eLocalSpreadsheeet CurrentExtension, ESpreadsheetUpdateMode UpdateMode )
 		{
 			try
 			{
@@ -302,7 +302,7 @@ namespace I2.Loc
 					File = EditorUtility.SaveFilePanel("Select a CSV or TXT file", sPath, File, "csv;*.txt");
 				if (!string.IsNullOrEmpty(File))
 				{
-					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					mLanguageSource.spreadsheetLocalFileName = TryMakingPathRelativeToProject(File);
 
 					char Separator = mProp_Spreadsheet_LocalCSVSeparator.stringValue.Length>0 ? mProp_Spreadsheet_LocalCSVSeparator.stringValue[0] : ',';
 					var encoding = System.Text.Encoding.GetEncoding (mProp_Spreadsheet_LocalCSVEncoding.stringValue);
@@ -321,7 +321,7 @@ namespace I2.Loc
 			}
 		}
 
-		public void Export_CSV( string FileName, eSpreadsheetUpdateMode UpdateMode, char Separator, System.Text.Encoding encoding )
+		public void Export_CSV( string FileName, ESpreadsheetUpdateMode UpdateMode, char Separator, System.Text.Encoding encoding )
 		{
             LanguageSourceData source = GetSourceData();
 

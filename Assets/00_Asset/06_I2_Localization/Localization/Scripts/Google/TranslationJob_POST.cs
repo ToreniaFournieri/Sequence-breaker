@@ -11,15 +11,15 @@ namespace I2.Loc
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 
-    public class TranslationJob_POST : TranslationJob_WWW
+    public class TranslationJobPost : TranslationJobWww
     {
         TranslationDictionary _requests;
-        GoogleTranslation.fnOnTranslationReady _OnTranslationReady;
+        GoogleTranslation.FnOnTranslationReady _onTranslationReady;
 
-        public TranslationJob_POST(TranslationDictionary requests, GoogleTranslation.fnOnTranslationReady OnTranslationReady)
+        public TranslationJobPost(TranslationDictionary requests, GoogleTranslation.FnOnTranslationReady onTranslationReady)
         {
             _requests = requests;
-            _OnTranslationReady = OnTranslationReady;
+            _onTranslationReady = onTranslationReady;
 
             var data = GoogleTranslation.ConvertTranslationRequest(requests, false);
 
@@ -27,20 +27,20 @@ namespace I2.Loc
             form.AddField("action", "Translate");
             form.AddField("list", data[0]);
 
-            www = UnityWebRequest.Post(LocalizationManager.GetWebServiceURL(), form);
-            I2Utils.SendWebRequest(www);
+            Www = UnityWebRequest.Post(LocalizationManager.GetWebServiceUrl(), form);
+            I2Utils.SendWebRequest(Www);
         }
 
-        public override eJobState GetState()
+        public override EJobState GetState()
         {
-            if (www != null && www.isDone)
+            if (Www != null && Www.isDone)
             {
-                ProcessResult(www.downloadHandler.data, www.error);
-                www.Dispose();
-                www = null;
+                ProcessResult(Www.downloadHandler.data, Www.error);
+                Www.Dispose();
+                Www = null;
             }
 
-            return mJobState;
+            return MJobState;
         }
 
         public void ProcessResult(byte[] bytes, string errorMsg)
@@ -49,15 +49,15 @@ namespace I2.Loc
             {
                 // check for 
                 //if (errorMsg.Contains("rewind"))  // "necessary data rewind wasn't possible"
-                mJobState = eJobState.Failed;                    
+                MJobState = EJobState.Failed;                    
             }
             else
             {
                 var wwwText = Encoding.UTF8.GetString(bytes, 0, bytes.Length); //www.text
                 errorMsg = GoogleTranslation.ParseTranslationResult(wwwText, _requests);
-                if (_OnTranslationReady!=null)
-                    _OnTranslationReady(_requests, errorMsg);
-                mJobState = eJobState.Succeeded;
+                if (_onTranslationReady!=null)
+                    _onTranslationReady(_requests, errorMsg);
+                MJobState = EJobState.Succeeded;
             }
         }
     }

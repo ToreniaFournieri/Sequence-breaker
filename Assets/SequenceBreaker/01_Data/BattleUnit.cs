@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using SequenceBreaker._08_Battle;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "BattleUnit-", menuName = "BattleUnit/BattleUnit", order = 3)]
 sealed public class BattleUnit : ScriptableObject
 {
-    [SerializeField] public int UniqueID;
-    [SerializeField] public string Name;
-    [SerializeField] public Affiliation Affiliation;
-    [SerializeField] public UnitType UnitType;
-    [SerializeField] public BuffClass Buff;
-    [SerializeField] public CombatClass Combat;
-    [SerializeField] public FeatureClass Feature;
-    [SerializeField] public OffenseMagnificationClass OffenseMagnification;
-    [SerializeField] public DefenseMagnificationClass DefenseMagnification;
-    [SerializeField] public UnitSkillMagnificationClass SkillMagnification;
+    [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
+    [FormerlySerializedAs("Name")] [SerializeField] public string name;
+    [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
+    [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
+    [FormerlySerializedAs("Buff")] [SerializeField] public BuffClass buff;
+    [FormerlySerializedAs("Combat")] [SerializeField] public CombatClass combat;
+    [FormerlySerializedAs("Feature")] [SerializeField] public FeatureClass feature;
+    [FormerlySerializedAs("OffenseMagnification")] [SerializeField] public OffenseMagnificationClass offenseMagnification;
+    [FormerlySerializedAs("DefenseMagnification")] [SerializeField] public DefenseMagnificationClass defenseMagnification;
+    [FormerlySerializedAs("SkillMagnification")] [SerializeField] public UnitSkillMagnificationClass skillMagnification;
     public bool IsOptimumTarget { get; set; }
     public bool IsBarrierExistJustBefore { get; set; }
     public bool IsBarrierBrokenJustNow { get; set; }
@@ -25,26 +27,26 @@ sealed public class BattleUnit : ScriptableObject
     public StatisticsCollectionClass Statistics { get; set; }
     public StatisticsCollectionClass PermanentStatistics { get; set; }
 
-    [HideInInspector] public AbilityClass Ability;
-    [SerializeField] public AbilityClass InitialAbility;
-    public enum Conditions { current, max }
+    [FormerlySerializedAs("Ability")] [HideInInspector] public AbilityClass ability;
+    [FormerlySerializedAs("InitialAbility")] [SerializeField] public AbilityClass initialAbility;
+    public enum Conditions { Current, Max }
 
     public BattleUnit Copy()
     {
         BattleUnit other = (BattleUnit)this.MemberwiseClone();
-        other.Combat = this.Combat.Copy();
-        other.Buff = this.Buff.Copy();
+        other.combat = this.combat.Copy();
+        other.buff = this.buff.Copy();
         return other;
     }
 
 
-    public BattleUnit(int uniqueID, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
+    public BattleUnit(int uniqueId, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
      OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
     {
-        this.UniqueID = uniqueID; this.Name = name; this.Affiliation = affiliation; this.UnitType = unitType; this.Ability = ability; this.Combat = combat;
-        this.Feature = feature; this.OffenseMagnification = offenseMagnification; this.DefenseMagnification = defenseMagnification; this.SkillMagnification = skillMagnification;
+        this.uniqueId = uniqueId; this.name = name; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
+        this.feature = feature; this.offenseMagnification = offenseMagnification; this.defenseMagnification = defenseMagnification; this.skillMagnification = skillMagnification;
         //Initialize 
-        this.Deterioration = 0.0; this.Buff = new BuffClass(); this.IsOptimumTarget = false; this.IsBarrierBrokenJustNow = false;
+        this.Deterioration = 0.0; this.buff = new BuffClass(); this.IsOptimumTarget = false; this.IsBarrierBrokenJustNow = false;
         this.IsBarrierExistJustBefore = false; this.IsCrushedJustNow = false; this.IsAvoidMoreThanOnce = false;
         this.Statistics = new StatisticsCollectionClass(); this.PermanentStatistics = new StatisticsCollectionClass();
     }

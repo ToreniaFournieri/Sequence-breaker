@@ -15,44 +15,44 @@ namespace I2.Loc
         public delegate void OnLocalizeCallback();
         public static event OnLocalizeCallback OnLocalizeEvent;
 
-        static bool mLocalizeIsScheduled = false;
-        static bool mLocalizeIsScheduledWithForcedValue = false;
+        static bool _mLocalizeIsScheduled = false;
+        static bool _mLocalizeIsScheduledWithForcedValue = false;
 
         public static bool HighlightLocalizedTargets = false;
 
 
         #endregion
 
-        public static string GetTranslation(string Term, bool FixForRTL = true, int maxLineLengthForRTL = 0, bool ignoreRTLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
+        public static string GetTranslation(string term, bool fixForRtl = true, int maxLineLengthForRtl = 0, bool ignoreRtLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
         {
-            string Translation = null;
-            TryGetTranslation(Term, out Translation, FixForRTL, maxLineLengthForRTL, ignoreRTLnumbers, applyParameters, localParametersRoot, overrideLanguage);
+            string translation = null;
+            TryGetTranslation(term, out translation, fixForRtl, maxLineLengthForRtl, ignoreRtLnumbers, applyParameters, localParametersRoot, overrideLanguage);
 
-            return Translation;
+            return translation;
         }
-        public static string GetTermTranslation(string Term, bool FixForRTL = true, int maxLineLengthForRTL = 0, bool ignoreRTLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
+        public static string GetTermTranslation(string term, bool fixForRtl = true, int maxLineLengthForRtl = 0, bool ignoreRtLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
         {
-            return GetTranslation(Term, FixForRTL, maxLineLengthForRTL, ignoreRTLnumbers, applyParameters, localParametersRoot, overrideLanguage);
+            return GetTranslation(term, fixForRtl, maxLineLengthForRtl, ignoreRtLnumbers, applyParameters, localParametersRoot, overrideLanguage);
         }
 
 
-        public static bool TryGetTranslation(string Term, out string Translation, bool FixForRTL = true, int maxLineLengthForRTL = 0, bool ignoreRTLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
+        public static bool TryGetTranslation(string term, out string translation, bool fixForRtl = true, int maxLineLengthForRtl = 0, bool ignoreRtLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
         {
-            Translation = null;
-            if (string.IsNullOrEmpty(Term))
+            translation = null;
+            if (string.IsNullOrEmpty(term))
                 return false;
 
             InitializeIfNeeded();
 
             for (int i = 0, imax = Sources.Count; i < imax; ++i)
             {
-                if (Sources[i].TryGetTranslation(Term, out Translation, overrideLanguage))
+                if (Sources[i].TryGetTranslation(term, out translation, overrideLanguage))
                 {
                     if (applyParameters)
-                        ApplyLocalizationParams(ref Translation, localParametersRoot, allowLocalizedParameters:true);
+                        ApplyLocalizationParams(ref translation, localParametersRoot, allowLocalizedParameters:true);
 
-                    if (IsRight2Left && FixForRTL)
-                        Translation = ApplyRTLfix(Translation, maxLineLengthForRTL, ignoreRTLnumbers);
+                    if (IsRight2Left && fixForRtl)
+                        translation = ApplyRtLfix(translation, maxLineLengthForRtl, ignoreRtLnumbers);
                     return true;
                 }
             }
@@ -60,26 +60,26 @@ namespace I2.Loc
             return false;
         }
 
-        public static T GetTranslatedObject<T>( string AssetName, Localize optionalLocComp=null) where T : Object
+        public static T GetTranslatedObject<T>( string assetName, Localize optionalLocComp=null) where T : Object
         {
             if (optionalLocComp != null)
             {
-                return optionalLocComp.FindTranslatedObject<T>(AssetName);
+                return optionalLocComp.FindTranslatedObject<T>(assetName);
             }
             else
             {
-                T obj = FindAsset(AssetName) as T;
+                T obj = FindAsset(assetName) as T;
                 if (obj)
                     return obj;
 
-                obj = ResourceManager.pInstance.GetAsset<T>(AssetName);
+                obj = ResourceManager.PInstance.GetAsset<T>(assetName);
                 return obj;
             }
         }
         
-        public static T GetTranslatedObjectByTermName<T>( string Term, Localize optionalLocComp=null) where T : Object
+        public static T GetTranslatedObjectByTermName<T>( string term, Localize optionalLocComp=null) where T : Object
         {
-            string    translation = GetTranslation(Term, FixForRTL: false);
+            string    translation = GetTranslation(term, fixForRtl: false);
             return GetTranslatedObject<T>(translation);
         }
         
@@ -90,14 +90,14 @@ namespace I2.Loc
             {
                 for (int i = 0; i < Sources.Count; ++i)
                 {
-                    if (string.IsNullOrEmpty(Sources[i].mTerm_AppName))
+                    if (string.IsNullOrEmpty(Sources[i].mTermAppName))
                         continue;
 
                     int langIdx = Sources[i].GetLanguageIndexFromCode(languageCode, false);
                     if (langIdx < 0)
                         continue;
 
-                    var termData = Sources[i].GetTermData(Sources[i].mTerm_AppName);
+                    var termData = Sources[i].GetTermData(Sources[i].mTermAppName);
                     if (termData == null)
                         continue;
 
@@ -110,17 +110,17 @@ namespace I2.Loc
             return Application.productName;
         }
 
-        public static void LocalizeAll(bool Force = false)
+        public static void LocalizeAll(bool force = false)
 		{
             LoadCurrentLanguage();
 
             if (!Application.isPlaying)
 			{
-				DoLocalizeAll(Force);
+				DoLocalizeAll(force);
 				return;
 			}
-			mLocalizeIsScheduledWithForcedValue |= Force;
-            if (mLocalizeIsScheduled)
+			_mLocalizeIsScheduledWithForcedValue |= force;
+            if (_mLocalizeIsScheduled)
             {
                 return;
             }
@@ -129,22 +129,22 @@ namespace I2.Loc
 
 		static IEnumerator Coroutine_LocalizeAll()
 		{
-			mLocalizeIsScheduled = true;
+			_mLocalizeIsScheduled = true;
             yield return null;
-            mLocalizeIsScheduled = false;
-            var force = mLocalizeIsScheduledWithForcedValue;
-			mLocalizeIsScheduledWithForcedValue = false;
+            _mLocalizeIsScheduled = false;
+            var force = _mLocalizeIsScheduledWithForcedValue;
+			_mLocalizeIsScheduledWithForcedValue = false;
 			DoLocalizeAll(force);
 		}
 
-		static void DoLocalizeAll(bool Force = false)
+		static void DoLocalizeAll(bool force = false)
 		{
-			Localize[] Locals = (Localize[])Resources.FindObjectsOfTypeAll( typeof(Localize) );
-			for (int i=0, imax=Locals.Length; i<imax; ++i)
+			Localize[] locals = (Localize[])Resources.FindObjectsOfTypeAll( typeof(Localize) );
+			for (int i=0, imax=locals.Length; i<imax; ++i)
 			{
-				Localize local = Locals[i];
+				Localize local = locals[i];
 				//if (ObjectExistInScene (local.gameObject))
-				local.OnLocalize(Force);
+				local.OnLocalize(force);
 			}
 			if (OnLocalizeEvent != null)
 				OnLocalizeEvent ();
@@ -169,26 +169,26 @@ namespace I2.Loc
 
         public static List<string> GetCategories ()
 		{
-			List<string> Categories = new List<string> ();
+			List<string> categories = new List<string> ();
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
-				Sources[i].GetCategories(false, Categories);
-			return Categories;
+				Sources[i].GetCategories(false, categories);
+			return categories;
 		}
 
 
 
-		public static List<string> GetTermsList ( string Category = null )
+		public static List<string> GetTermsList ( string category = null )
 		{
 			if (Sources.Count==0)
 				UpdateSources();
 
 			if (Sources.Count==1)
-				return Sources[0].GetTermsList(Category);
+				return Sources[0].GetTermsList(category);
 
-			HashSet<string> Terms = new HashSet<string> ();
+			HashSet<string> terms = new HashSet<string> ();
 			for (int i=0, imax=Sources.Count; i<imax; ++i)
-				Terms.UnionWith( Sources[i].GetTermsList(Category) );
-			return new List<string>(Terms);
+				terms.UnionWith( Sources[i].GetTermsList(category) );
+			return new List<string>(terms);
 		}
 
 		public static TermData GetTermData( string term )

@@ -13,7 +13,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
         /// <summary>
         /// Internal reference to our base data class
         /// </summary>
-        protected Data _data;
+        protected Data Data;
 
         /// <summary>
         /// Sets the data for the cell view. Note that the base data class is passed in,
@@ -22,7 +22,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
         /// <param name="data"></param>
         public virtual void SetData(Data data)
         {
-            _data = data;
+            Data = data;
         }
     }
 }

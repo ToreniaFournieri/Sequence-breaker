@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace I2.Loc
 {
@@ -8,7 +9,7 @@ namespace I2.Loc
     [AddComponentMenu("I2/Localization/Localize Dropdown")]
 	public class LocalizeDropdown : MonoBehaviour
 	{
-        public List<string> _Terms = new List<string>();
+        [FormerlySerializedAs("_Terms")] public List<string> terms = new List<string>();
 		
 		public void Start()
 		{
@@ -23,7 +24,7 @@ namespace I2.Loc
 
         void OnEnable()
         {
-            if (_Terms.Count == 0)
+            if (terms.Count == 0)
                 FillValues();
             OnLocalize ();
         }
@@ -41,66 +42,66 @@ namespace I2.Loc
 
         void FillValues()
         {
-            var _Dropdown = GetComponent<Dropdown>();
-            if (_Dropdown == null && I2Utils.IsPlaying())
+            var dropdown = GetComponent<Dropdown>();
+            if (dropdown == null && I2Utils.IsPlaying())
             {
                 #if TextMeshPro
-                    FillValuesTMPro();
+                    FillValuesTmPro();
                 #endif
                 return;
             }
 
-            foreach (var term in _Dropdown.options)
+            foreach (var term in dropdown.options)
             {
-                _Terms.Add(term.text);
+                terms.Add(term.text);
             }
         }
 
         public void UpdateLocalization()
 		{
-			var _Dropdown = GetComponent<Dropdown>();
-            if (_Dropdown == null)
+			var dropdown = GetComponent<Dropdown>();
+            if (dropdown == null)
             {
                 #if TextMeshPro
-                    UpdateLocalizationTMPro();
+                    UpdateLocalizationTmPro();
                 #endif
                 return;
             }
 			
-			_Dropdown.options.Clear();
-			foreach (var term in _Terms)
+			dropdown.options.Clear();
+			foreach (var term in terms)
 			{
                 var translation = LocalizationManager.GetTranslation(term);
-				_Dropdown.options.Add( new Dropdown.OptionData( translation ) );
+				dropdown.options.Add( new Dropdown.OptionData( translation ) );
 			}
-            _Dropdown.RefreshShownValue();
+            dropdown.RefreshShownValue();
 		}
 
         #if TextMeshPro
-        public void UpdateLocalizationTMPro()
+        public void UpdateLocalizationTmPro()
         {
-            var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
-            if (_Dropdown == null)
+            var dropdown = GetComponent<TMPro.TMP_Dropdown>();
+            if (dropdown == null)
                 return;
 
-            _Dropdown.options.Clear();
-            foreach (var term in _Terms)
+            dropdown.options.Clear();
+            foreach (var term in terms)
             {
                 var translation = LocalizationManager.GetTranslation(term);
-                _Dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(translation));
+                dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(translation));
             }
-            _Dropdown.RefreshShownValue();
+            dropdown.RefreshShownValue();
         }
 
-        void FillValuesTMPro()
+        void FillValuesTmPro()
         {
-            var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
-            if (_Dropdown == null)
+            var dropdown = GetComponent<TMPro.TMP_Dropdown>();
+            if (dropdown == null)
                 return;
 
-            foreach (var term in _Dropdown.options)
+            foreach (var term in dropdown.options)
             {
-                _Terms.Add(term.text);
+                terms.Add(term.text);
             }
         }
 #endif

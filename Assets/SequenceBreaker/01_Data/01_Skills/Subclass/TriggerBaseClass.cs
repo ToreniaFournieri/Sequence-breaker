@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "TriggerBase-", menuName = "Skill/SubClass/TriggerBaseClass", order = 5)]
 sealed public class TriggerBaseClass : ScriptableObject
 {
-    [SerializeField] public double PossibilityBaseRate;
-    [SerializeField] public double PossibilityWeight;
-    [SerializeField] public ReferenceStatistics AccumulationReference;
-    [SerializeField] public double AccumulationBaseRate;
-    [SerializeField] public double AccumulationWeight;
+    [FormerlySerializedAs("PossibilityBaseRate")] [SerializeField] public double possibilityBaseRate;
+    [FormerlySerializedAs("PossibilityWeight")] [SerializeField] public double possibilityWeight;
+    [FormerlySerializedAs("AccumulationReference")] [SerializeField] public ReferenceStatistics accumulationReference;
+    [FormerlySerializedAs("AccumulationBaseRate")] [SerializeField] public double accumulationBaseRate;
+    [FormerlySerializedAs("AccumulationWeight")] [SerializeField] public double accumulationWeight;
 }

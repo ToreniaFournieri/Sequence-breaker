@@ -17,45 +17,45 @@ namespace EnhancedScrollerDemos.SelectionDemo
         /// <summary>
         /// The name of the inventory item
         /// </summary>
-        public string itemName;
+        public string ItemName;
 
         /// <summary>
         /// The cost of the inventory item
         /// </summary>
-        public int itemCost;
+        public int ItemCost;
 
         /// <summary>
         /// The damage the item can do
         /// </summary>
-        public int itemDamage;
+        public int ItemDamage;
 
         /// <summary>
         /// The armor the item provides
         /// </summary>
-        public int itemDefense;
+        public int ItemDefense;
 
         /// <summary>
         /// The weight of the item
         /// </summary>
-        public int itemWeight;
+        public int ItemWeight;
 
         /// <summary>
         /// This description of the inventory item
         /// </summary>
-        public string itemDescription;
+        public string ItemDescription;
 
         /// <summary>
         /// The path to the resources folder for the sprite
         /// representing this inventory item
         /// </summary>
-        public string spritePath;
+        public string SpritePath;
 
         /// <summary>
         /// The delegate to call if the data's selection state
         /// has changed. This will update any views that are hooked
         /// to the data so that they show the proper selection state UI.
         /// </summary>
-        public SelectedChangedDelegate selectedChanged;
+        public SelectedChangedDelegate SelectedChanged;
 
         /// <summary>
         /// The selection state
@@ -71,7 +71,7 @@ namespace EnhancedScrollerDemos.SelectionDemo
                 {
                     // update the state and call the selection handler if it exists
                     _selected = value;
-                    if (selectedChanged != null) selectedChanged(_selected);
+                    if (SelectedChanged != null) SelectedChanged(_selected);
                 }
             }
         }

@@ -5,6 +5,6 @@ namespace EnhancedScrollerDemos.JumpToDemo
 {
     public class Data
     {
-        public string cellText;
+        public string CellText;
     }
 }

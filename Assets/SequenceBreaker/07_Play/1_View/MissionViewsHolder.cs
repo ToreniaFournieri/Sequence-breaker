@@ -8,22 +8,22 @@ using frame8.ScrollRectItemsAdapter.Classic.Util;
 
 public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TClientModel : SimpleClientModel
 {
-    public LayoutElement layoutElement;
-    public Image averageScoreFillImage;
-    public Text nameText, locationText;
+    public LayoutElement LayoutElement;
+    public Image AverageScoreFillImage;
+    public Text NameText, LocationText;
     //averageScoreText;
 
-    public Slider levelOfMissionSlider;
+    public Slider LevelOfMissionSlider;
 
-    public MissionController missionController;
+    public MissionController MissionController;
 
     //Battle object
-    public GameObject battle;
-    public RunBattle runbattle;
+    public GameObject Battle;
+    public RunBattle Runbattle;
 
-    public GoScript goScript;
+    public GoScript GoScript;
 
-    public Text levelOfMissionText;
+    public Text LevelOfMissionText;
 
 
     /// <inheritdoc/>
@@ -31,34 +31,34 @@ public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TC
     {
         base.CollectViews();
 
-        layoutElement = root.GetComponent<LayoutElement>();
+        LayoutElement = Root.GetComponent<LayoutElement>();
 
-        var mainPanel = root.GetChild(0);
-        levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
-        nameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
-        locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
+        var mainPanel = Root.GetChild(0);
+        LevelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
+        NameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
+        LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
-        var secondPanel = root.GetChild(1);
-        levelOfMissionSlider = secondPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
+        var secondPanel = Root.GetChild(1);
+        LevelOfMissionSlider = secondPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
 
     }
 
     public void SetBattle()
     {
         //Set battle gameobject to activate GO button
-        var go = root.GetChild(2);
-        goScript = go.GetComponent<GoScript>();
+        var go = Root.GetChild(2);
+        GoScript = go.GetComponent<GoScript>();
 
-        goScript.runBattle = runbattle;
-        goScript.missionController = missionController;
+        GoScript.runBattle = Runbattle;
+        GoScript.missionController = MissionController;
 
 
     }
 
     public virtual void UpdateViews(TClientModel dataModel)
     {
-        nameText.text = dataModel.missionName + "(#" + ItemIndex + ")";
-        locationText.text = "  " + dataModel.location;
+        NameText.text = dataModel.MissionName + "(#" + ItemIndex + ")";
+        LocationText.text = "  " + dataModel.Location;
         SetBattle();
 
 
@@ -82,21 +82,21 @@ public static class CUtil
 
 public class SimpleClientModel
 {
-    public string missionName;
-    public string location;
+    public string MissionName;
+    public string Location;
 
     //Obsolate
-    public float availability01, contractChance01, longTermClient01;
-    public bool isOnline;
+    public float Availability01, ContractChance01, LongTermClient01;
+    public bool IsOnline;
 
-    public float AverageScore01 { get { return (availability01 + contractChance01 + longTermClient01) / 3; } }
+    public float AverageScore01 { get { return (Availability01 + ContractChance01 + LongTermClient01) / 3; } }
 
     public void SetRandom()
     {
-        availability01 = CUtil.RandF();
-        contractChance01 = CUtil.RandF();
-        longTermClient01 = CUtil.RandF();
-        isOnline = CUtil.Rand(2) == 0;
+        Availability01 = CUtil.RandF();
+        ContractChance01 = CUtil.RandF();
+        LongTermClient01 = CUtil.RandF();
+        IsOnline = CUtil.Rand(2) == 0;
     }
 }
 
@@ -104,14 +104,14 @@ public class SimpleClientModel
 sealed public class ExpandableSimpleClientModel : SimpleClientModel
 {
     // View size related
-    public bool expanded;
-    public float nonExpandedSize;
+    public bool Expanded;
+    public float NonExpandedSize;
 }
 
 
 sealed public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 {
-    public CExpandCollapseOnClick expandCollapseComponent;
+    public CExpandCollapseOnClick ExpandCollapseComponent;
 
 
 
@@ -119,17 +119,17 @@ sealed public class MissionViewsHolder : BaseClientViewsHolder<ExpandableSimpleC
     {
         base.CollectViews();
 
-        expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
+        ExpandCollapseComponent = Root.GetComponent<CExpandCollapseOnClick>();
     }
 
     public override void UpdateViews(ExpandableSimpleClientModel dataModel)
     {
         base.UpdateViews(dataModel);
 
-        if (expandCollapseComponent)
+        if (ExpandCollapseComponent)
         {
-            expandCollapseComponent.expanded = dataModel.expanded;
-            expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
+            ExpandCollapseComponent.expanded = dataModel.Expanded;
+            ExpandCollapseComponent.nonExpandedSize = dataModel.NonExpandedSize;
         }
     }
 }

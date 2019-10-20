@@ -5,30 +5,30 @@ using UnityEngine.Networking;
 
 namespace I2.Loc
 {
-	public enum eSpreadsheetUpdateMode { None, Replace, Merge, AddNewTerms };
+	public enum ESpreadsheetUpdateMode { None, Replace, Merge, AddNewTerms };
 
 	public partial class LanguageSourceData
 	{
-		public UnityWebRequest Export_Google_CreateWWWcall( eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace )
+		public UnityWebRequest Export_Google_CreateWWWcall( ESpreadsheetUpdateMode updateMode = ESpreadsheetUpdateMode.Replace )
 		{
             #if UNITY_WEBPLAYER
 			Debug.Log ("Contacting google translation is not yet supported on WebPlayer" );
 			return null;
 #else
-            string Data = Export_Google_CreateData();
+            string data = Export_Google_CreateData();
 
 			WWWForm form = new WWWForm();
-			form.AddField("key", Google_SpreadsheetKey);
+			form.AddField("key", googleSpreadsheetKey);
 			form.AddField("action", "SetLanguageSource");
-			form.AddField("data", Data);
-			form.AddField("updateMode", UpdateMode.ToString());
+			form.AddField("data", data);
+			form.AddField("updateMode", updateMode.ToString());
 
             #if UNITY_EDITOR
-            form.AddField("password", Google_Password);
+            form.AddField("password", googlePassword);
 #endif
 
 
-            UnityWebRequest www = UnityWebRequest.Post(LocalizationManager.GetWebServiceURL(this), form);
+            UnityWebRequest www = UnityWebRequest.Post(LocalizationManager.GetWebServiceUrl(this), form);
             I2Utils.SendWebRequest(www);
             return www;
 			#endif
@@ -36,27 +36,27 @@ namespace I2.Loc
 
 		string Export_Google_CreateData()
 		{
-			List<string> Categories = GetCategories(true);
-			StringBuilder Builder = new StringBuilder();
+			List<string> categories = GetCategories(true);
+			StringBuilder builder = new StringBuilder();
 			
 			bool bFirst = true;
-			foreach (string category in Categories)
+			foreach (string category in categories)
 			{
 				if (bFirst)
 					bFirst = false;
 				else
-					Builder.Append("<I2Loc>");
+					builder.Append("<I2Loc>");
 
                 #if !UNITY_EDITOR
                     bool Spreadsheet_SpecializationAsRows = true;
                 #endif
 
-                string CSV = Export_I2CSV(category, specializationsAsRows:Spreadsheet_SpecializationAsRows);
-				Builder.Append(category);
-				Builder.Append("<I2Loc>");
-				Builder.Append(CSV);
+                string csv = Export_I2CSV(category, specializationsAsRows:spreadsheetSpecializationAsRows);
+				builder.Append(category);
+				builder.Append("<I2Loc>");
+				builder.Append(csv);
 			}
-			return Builder.ToString();
+			return builder.ToString();
 		}
 	}
 }

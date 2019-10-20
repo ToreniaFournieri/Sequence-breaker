@@ -7,40 +7,40 @@ namespace SuperScrollView
 
     public class ItemData
     {
-        public int mId;
-        public string mName;
-        public int mFileSize;
-        public string mDesc;
-        public string mIcon;
-        public int mStarCount;
-        public bool mChecked;
-        public bool mIsExpand;
+        public int MId;
+        public string MName;
+        public int MFileSize;
+        public string MDesc;
+        public string MIcon;
+        public int MStarCount;
+        public bool MChecked;
+        public bool MIsExpand;
     }
 
     public class DataSourceMgr : MonoBehaviour
     {
 
-        List<ItemData> mItemDataList = new List<ItemData>();
-        System.Action mOnRefreshFinished = null;
-        System.Action mOnLoadMoreFinished = null;
-        int mLoadMoreCount = 20;
-        float mDataLoadLeftTime = 0;
-        float mDataRefreshLeftTime = 0;
-        bool mIsWaittingRefreshData = false;
-        bool mIsWaitLoadingMoreData = false;
+        List<ItemData> _mItemDataList = new List<ItemData>();
+        System.Action _mOnRefreshFinished = null;
+        System.Action _mOnLoadMoreFinished = null;
+        int _mLoadMoreCount = 20;
+        float _mDataLoadLeftTime = 0;
+        float _mDataRefreshLeftTime = 0;
+        bool _mIsWaittingRefreshData = false;
+        bool _mIsWaitLoadingMoreData = false;
         public int mTotalDataCount = 10000;
 
-        static DataSourceMgr instance = null;
+        static DataSourceMgr _instance = null;
 
         public static DataSourceMgr Get
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = Object.FindObjectOfType<DataSourceMgr>();
+                    _instance = Object.FindObjectOfType<DataSourceMgr>();
                 }
-                return instance;
+                return _instance;
             }
 
         }
@@ -58,21 +58,21 @@ namespace SuperScrollView
 
         public ItemData GetItemDataByIndex(int index)
         {
-            if (index < 0 || index >= mItemDataList.Count)
+            if (index < 0 || index >= _mItemDataList.Count)
             {
                 return null;
             }
-            return mItemDataList[index];
+            return _mItemDataList[index];
         }
 
         public ItemData GetItemDataById(int itemId)
         {
-            int count = mItemDataList.Count;
+            int count = _mItemDataList.Count;
             for (int i = 0; i < count; ++i)
             {
-                if(mItemDataList[i].mId == itemId)
+                if(_mItemDataList[i].MId == itemId)
                 {
-                    return mItemDataList[i];
+                    return _mItemDataList[i];
                 }
             }
             return null;
@@ -82,50 +82,50 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemDataList.Count;
+                return _mItemDataList.Count;
             }
         }
 
         public void RequestRefreshDataList(System.Action onReflushFinished)
         {
-            mDataRefreshLeftTime = 1;
-            mOnRefreshFinished = onReflushFinished;
-            mIsWaittingRefreshData = true;
+            _mDataRefreshLeftTime = 1;
+            _mOnRefreshFinished = onReflushFinished;
+            _mIsWaittingRefreshData = true;
         }
 
         public void RequestLoadMoreDataList(int loadCount,System.Action onLoadMoreFinished)
         {
-            mLoadMoreCount = loadCount;
-            mDataLoadLeftTime = 1;
-            mOnLoadMoreFinished = onLoadMoreFinished;
-            mIsWaitLoadingMoreData = true;
+            _mLoadMoreCount = loadCount;
+            _mDataLoadLeftTime = 1;
+            _mOnLoadMoreFinished = onLoadMoreFinished;
+            _mIsWaitLoadingMoreData = true;
         }
 
         public void Update()
         {
-            if (mIsWaittingRefreshData)
+            if (_mIsWaittingRefreshData)
             {
-                mDataRefreshLeftTime -= Time.deltaTime;
-                if (mDataRefreshLeftTime <= 0)
+                _mDataRefreshLeftTime -= Time.deltaTime;
+                if (_mDataRefreshLeftTime <= 0)
                 {
-                    mIsWaittingRefreshData = false;
+                    _mIsWaittingRefreshData = false;
                     DoRefreshDataSource();
-                    if (mOnRefreshFinished != null)
+                    if (_mOnRefreshFinished != null)
                     {
-                        mOnRefreshFinished();
+                        _mOnRefreshFinished();
                     }
                 }
             }
-            if (mIsWaitLoadingMoreData)
+            if (_mIsWaitLoadingMoreData)
             {
-                mDataLoadLeftTime -= Time.deltaTime;
-                if (mDataLoadLeftTime <= 0)
+                _mDataLoadLeftTime -= Time.deltaTime;
+                if (_mDataLoadLeftTime <= 0)
                 {
-                    mIsWaitLoadingMoreData = false;
+                    _mIsWaitLoadingMoreData = false;
                     DoLoadMoreDataSource();
-                    if (mOnLoadMoreFinished != null)
+                    if (_mOnLoadMoreFinished != null)
                     {
-                        mOnLoadMoreFinished();
+                        _mOnLoadMoreFinished();
                     }
                 }
             }
@@ -140,83 +140,83 @@ namespace SuperScrollView
 
         public void ExchangeData(int index1,int index2)
         {
-            ItemData tData1 = mItemDataList[index1];
-            ItemData tData2 = mItemDataList[index2];
-            mItemDataList[index1] = tData2;
-            mItemDataList[index2] = tData1;
+            ItemData tData1 = _mItemDataList[index1];
+            ItemData tData2 = _mItemDataList[index2];
+            _mItemDataList[index1] = tData2;
+            _mItemDataList[index2] = tData1;
         }
 
         public void RemoveData(int index)
         {
-            mItemDataList.RemoveAt(index);
+            _mItemDataList.RemoveAt(index);
         }
 
         public void InsertData(int index,ItemData data)
         {
-            mItemDataList.Insert(index,data);
+            _mItemDataList.Insert(index,data);
         }
 
         void DoRefreshDataSource()
         {
-            mItemDataList.Clear();
+            _mItemDataList.Clear();
             for (int i = 0; i < mTotalDataCount; ++i)
             {
                 ItemData tData = new ItemData();
-                tData.mId = i;
-                tData.mName = "Item" + i;
-                tData.mDesc = "Item Desc For Item " + i;
-                tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                tData.mStarCount = Random.Range(0, 6);
-                tData.mFileSize = Random.Range(20, 999);
-                tData.mChecked = false;
-                tData.mIsExpand = false;
-                mItemDataList.Add(tData);
+                tData.MId = i;
+                tData.MName = "Item" + i;
+                tData.MDesc = "Item Desc For Item " + i;
+                tData.MIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                tData.MStarCount = Random.Range(0, 6);
+                tData.MFileSize = Random.Range(20, 999);
+                tData.MChecked = false;
+                tData.MIsExpand = false;
+                _mItemDataList.Add(tData);
             }
         }
 
         void DoLoadMoreDataSource()
         {
-            int count = mItemDataList.Count;
-            for (int k = 0; k < mLoadMoreCount; ++k)
+            int count = _mItemDataList.Count;
+            for (int k = 0; k < _mLoadMoreCount; ++k)
             {
                 int i = k + count;
                 ItemData tData = new ItemData();
-                tData.mId = i;
-                tData.mName = "Item" + i;
-                tData.mDesc = "Item Desc For Item " + i;
-                tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                tData.mStarCount = Random.Range(0, 6);
-                tData.mFileSize = Random.Range(20, 999);
-                tData.mChecked = false;
-                tData.mIsExpand = false;
-                mItemDataList.Add(tData);
+                tData.MId = i;
+                tData.MName = "Item" + i;
+                tData.MDesc = "Item Desc For Item " + i;
+                tData.MIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                tData.MStarCount = Random.Range(0, 6);
+                tData.MFileSize = Random.Range(20, 999);
+                tData.MChecked = false;
+                tData.MIsExpand = false;
+                _mItemDataList.Add(tData);
             }
-            mTotalDataCount = mItemDataList.Count;
+            mTotalDataCount = _mItemDataList.Count;
         }
 
         public void CheckAllItem()
         {
-            int count = mItemDataList.Count;
+            int count = _mItemDataList.Count;
             for (int i = 0; i < count; ++i)
             {
-                mItemDataList[i].mChecked = true;
+                _mItemDataList[i].MChecked = true;
             }
         }
 
         public void UnCheckAllItem()
         {
-            int count = mItemDataList.Count;
+            int count = _mItemDataList.Count;
             for (int i = 0; i < count; ++i)
             {
-                mItemDataList[i].mChecked = false;
+                _mItemDataList[i].MChecked = false;
             }
         }
 
         public bool DeleteAllCheckedItem()
         {
-            int oldCount = mItemDataList.Count;
-            mItemDataList.RemoveAll(it => it.mChecked);
-            return (oldCount != mItemDataList.Count);
+            int oldCount = _mItemDataList.Count;
+            _mItemDataList.RemoveAll(it => it.MChecked);
+            return (oldCount != _mItemDataList.Count);
         }
 
     }

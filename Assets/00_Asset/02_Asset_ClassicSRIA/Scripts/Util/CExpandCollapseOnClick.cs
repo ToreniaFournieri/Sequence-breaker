@@ -17,9 +17,9 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Util
 		[Tooltip("will be taken from this object, if not specified")]
         public Button button;
 
-        /// <summary>When expanding, the initial size will be <see cref="nonExpandedSize"/> and the target size will be <see cref="nonExpandedSize"/> x <see cref="expandFactor"/>; opposite is true when collapsing</summary>
+        /// <summary>When expanding, the initial size will be <see cref="nonExpandedSize"/> and the target size will be <see cref="nonExpandedSize"/> x <see cref="ExpandFactor"/>; opposite is true when collapsing</summary>
 		[NonSerialized] // must be set through code
-        public float expandFactor = 2f;
+        public float ExpandFactor = 2f;
 
         /// <summary>The duration of the expand(or collapse) animation</summary>
         public float animDuration = .2f;
@@ -28,25 +28,25 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Util
         [HideInInspector]
         public float nonExpandedSize = -1f;
 
-        /// <summary>This keeps track of the 'expanded' state. If true, on click the animation will set <see cref="nonExpandedSize"/> as the target size; else, <see cref="nonExpandedSize"/> x <see cref="expandFactor"/> </summary>
+        /// <summary>This keeps track of the 'expanded' state. If true, on click the animation will set <see cref="nonExpandedSize"/> as the target size; else, <see cref="nonExpandedSize"/> x <see cref="ExpandFactor"/> </summary>
         [HideInInspector]
         public bool expanded;
 
 		public UnityFloatEvent onExpandAmounChanged;
 
-		float startSize;
-        float endSize;
-        float animStart;
+		float _startSize;
+        float _endSize;
+        float _animStart;
         //float animEnd;
-        bool animating = false;
-        RectTransform rectTransform;
+        bool _animating = false;
+        RectTransform _rectTransform;
 
         public ISizeChangesHandler sizeChangesHandler;
 
 
         void Awake()
         {
-            rectTransform = transform as RectTransform;
+            _rectTransform = transform as RectTransform;
 
             if (button == null)
                 button = GetComponent<Button>();
@@ -57,44 +57,44 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Util
 
         public void OnClicked()
         {
-            if (animating)
+            if (_animating)
                 return;
 
             if (nonExpandedSize < 0f)
                 return;
 
-            animating = true;
-            animStart = Time.time;
+            _animating = true;
+            _animStart = Time.time;
             //animEnd = animStart + animDuration;
 
             if (expanded) // shrinking
             {
-                startSize = nonExpandedSize * expandFactor;
-                endSize = nonExpandedSize;
+                _startSize = nonExpandedSize * ExpandFactor;
+                _endSize = nonExpandedSize;
             }
             else // expanding
             {
-                startSize = nonExpandedSize;
-                endSize = nonExpandedSize * expandFactor;
+                _startSize = nonExpandedSize;
+                _endSize = nonExpandedSize * ExpandFactor;
             }
         }
 
 
         void Update()
         {
-            if (animating)
+            if (_animating)
             {
-                float elapsedTime = Time.time - animStart;
+                float elapsedTime = Time.time - _animStart;
                 float t01 = elapsedTime / animDuration;
 				if (t01 >= 1f) // done
 				{
 					t01 = 1f; // fill/clamp animation
-					animating = false;
+					_animating = false;
 				}
 				else
 					t01 = Mathf.Sqrt(t01); // fast-in, slow-out effect
 
-				float size = Mathf.Lerp(startSize, endSize, t01);
+				float size = Mathf.Lerp(_startSize, _endSize, t01);
                 if (sizeChangesHandler == null)
 				{
 					//// debug
@@ -102,16 +102,16 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Util
 				}
 				else
                 {
-                    bool accepted = sizeChangesHandler.HandleSizeChangeRequest(rectTransform, size);
+                    bool accepted = sizeChangesHandler.HandleSizeChangeRequest(_rectTransform, size);
 
                     // Interruption
                     if (!accepted)
-                        animating = false;
+                        _animating = false;
 
-                    if (!animating) // done; even if it wasn't accepted, wether we should or shouldn't change the "expanded" state depends on the user's requirements. We chose to change it
+                    if (!_animating) // done; even if it wasn't accepted, wether we should or shouldn't change the "expanded" state depends on the user's requirements. We chose to change it
                     {
                         expanded = !expanded;
-                        sizeChangesHandler.OnExpandedStateChanged(rectTransform, expanded);
+                        sizeChangesHandler.OnExpandedStateChanged(_rectTransform, expanded);
 					}
 				}
 

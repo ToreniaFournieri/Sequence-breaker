@@ -2,46 +2,47 @@ using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace I2.Loc
 {
-	public enum eLanguageDataFlags
+	public enum ELanguageDataFlags
 	{
-		DISABLED = 1,
-		KEEP_LOADED = 2,
-		NOT_LOADED = 4
+		Disabled = 1,
+		KeepLoaded = 2,
+		NotLoaded = 4
 	}
 	[Serializable]
 	public class LanguageData
 	{
-		public string Name;
-		public string Code;
-		public byte Flags;      // eLanguageDataFlags
+		[FormerlySerializedAs("Name")] public string name;
+		[FormerlySerializedAs("Code")] public string code;
+		[FormerlySerializedAs("Flags")] public byte flags;      // eLanguageDataFlags
 
 		[NonSerialized]
 		public bool Compressed = false;  // This will be used in the next version for only loading used Languages
 
-		public bool IsEnabled () { return (Flags & (int)eLanguageDataFlags.DISABLED) == 0; }
+		public bool IsEnabled () { return (flags & (int)ELanguageDataFlags.Disabled) == 0; }
 
         public void SetEnabled( bool bEnabled )
         {
-            if (bEnabled) Flags = (byte)(Flags & (~(int)eLanguageDataFlags.DISABLED));
-                     else Flags = (byte)(Flags | (int)eLanguageDataFlags.DISABLED);
+            if (bEnabled) flags = (byte)(flags & (~(int)ELanguageDataFlags.Disabled));
+                     else flags = (byte)(flags | (int)ELanguageDataFlags.Disabled);
         }
 
-        public bool IsLoaded () { return (Flags & (int)eLanguageDataFlags.NOT_LOADED) == 0; }
-		public bool CanBeUnloaded () { return (Flags & (int)eLanguageDataFlags.KEEP_LOADED) == 0; }
+        public bool IsLoaded () { return (flags & (int)ELanguageDataFlags.NotLoaded) == 0; }
+		public bool CanBeUnloaded () { return (flags & (int)ELanguageDataFlags.KeepLoaded) == 0; }
 
 		public void SetLoaded ( bool loaded ) 
 		{
-			if (loaded) Flags = (byte)(Flags & (~(int)eLanguageDataFlags.NOT_LOADED));
-	  			   else Flags = (byte)(Flags | (int)eLanguageDataFlags.NOT_LOADED);
+			if (loaded) flags = (byte)(flags & (~(int)ELanguageDataFlags.NotLoaded));
+	  			   else flags = (byte)(flags | (int)ELanguageDataFlags.NotLoaded);
 		}
         public void SetCanBeUnLoaded(bool allowUnloading)
         {
-            if (allowUnloading) Flags = (byte)(Flags & (~(int)eLanguageDataFlags.KEEP_LOADED));
-                           else Flags = (byte)(Flags | (int)eLanguageDataFlags.KEEP_LOADED);
+            if (allowUnloading) flags = (byte)(flags & (~(int)ELanguageDataFlags.KeepLoaded));
+                           else flags = (byte)(flags | (int)ELanguageDataFlags.KeepLoaded);
         }
     }
 }

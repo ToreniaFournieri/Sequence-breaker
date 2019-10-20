@@ -10,23 +10,23 @@ namespace I2.Loc
 
 		public static Dictionary<string,string> ReadTextAsset( TextAsset asset )
 		{
-			string Text = Encoding.UTF8.GetString (asset.bytes, 0, asset.bytes.Length);
-			Text = Text.Replace("\r\n", "\n");
-			Text = Text.Replace("\r", "\n");
-			System.IO.StringReader reader = new System.IO.StringReader(Text);
+			string text = Encoding.UTF8.GetString (asset.bytes, 0, asset.bytes.Length);
+			text = text.Replace("\r\n", "\n");
+			text = text.Replace("\r", "\n");
+			System.IO.StringReader reader = new System.IO.StringReader(text);
 			
 			string s;
-            Dictionary<string, string> Dict = new Dictionary<string, string>(System.StringComparer.Ordinal);
+            Dictionary<string, string> dict = new Dictionary<string, string>(System.StringComparer.Ordinal);
 			while ( (s=reader.ReadLine()) != null )
 			{
-				string Key, Value, Category, TermType, Comment;
-				if (!TextAsset_ReadLine(s, out Key, out Value, out Category, out Comment, out TermType))
+				string key, value, category, termType, comment;
+				if (!TextAsset_ReadLine(s, out key, out value, out category, out comment, out termType))
 					continue;
 				
-				if (!string.IsNullOrEmpty(Key) && !string.IsNullOrEmpty(Value))
-					Dict[Key]=Value;
+				if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+					dict[key]=value;
 			}
-			return Dict;
+			return dict;
 		}
 
 		public static bool TextAsset_ReadLine( string line, out string key, out string value, out string category, out string comment, out string termType )
@@ -79,9 +79,9 @@ namespace I2.Loc
 		#endregion
 
 		#region CSV
-		public static string ReadCSVfile( string Path, Encoding encoding )
+		public static string ReadCsVfile( string path, Encoding encoding )
 		{
-			string Text = string.Empty;
+			string text = string.Empty;
 			#if (UNITY_WP8 || UNITY_METRO) && !UNITY_EDITOR
 				byte[] buffer = UnityEngine.Windows.File.ReadAllBytes (Path);
 				Text = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
@@ -90,56 +90,56 @@ namespace I2.Loc
 				{
 					Text = reader.ReadToEnd();
 				}*/
-				using (var reader = new System.IO.StreamReader(Path, encoding ))
-					Text = reader.ReadToEnd();
+				using (var reader = new System.IO.StreamReader(path, encoding ))
+					text = reader.ReadToEnd();
 			#endif
 
-			Text = Text.Replace("\r\n", "\n");
-			Text = Text.Replace("\r", "\n");
+			text = text.Replace("\r\n", "\n");
+			text = text.Replace("\r", "\n");
 
-			return Text;
+			return text;
 		}
 
-		public static List<string[]> ReadCSV( string Text, char Separator=',' )
+		public static List<string[]> ReadCsv( string text, char separator=',' )
 		{
 			int iStart = 0;
-			List<string[]> CSV = new List<string[]>();
+			List<string[]> csv = new List<string[]>();
 
-			while (iStart < Text.Length)
+			while (iStart < text.Length)
 			{
-				string[] list = ParseCSVline (Text, ref iStart, Separator);
+				string[] list = ParseCsVline (text, ref iStart, separator);
 				if (list==null) break;
-				CSV.Add(list);
+				csv.Add(list);
 			}
-			return CSV;
+			return csv;
 		}
 
-		static string[] ParseCSVline( string Line, ref int iStart, char Separator )
+		static string[] ParseCsVline( string line, ref int iStart, char separator )
 		{
 			List<string> list = new List<string>();
 			
 			//Line = "puig,\"placeres,\"\"cab\nr\nera\"\"algo\"\npuig";//\"Frank\npuig\nplaceres\",aaa,frank\nplaceres";
 
-			int TextLength = Line.Length;
+			int textLength = line.Length;
 			int iWordStart = iStart;
-			bool InsideQuote = false;
+			bool insideQuote = false;
 
-			while (iStart < TextLength)
+			while (iStart < textLength)
 			{
-				char c = Line[iStart];
+				char c = line[iStart];
 
-				if (InsideQuote)
+				if (insideQuote)
 				{
 					if (c=='\"') //--[ Look for Quote End ]------------
 					{
-						if (iStart+1 >= TextLength || Line[iStart+1] != '\"')  //-- Single Quote:  Quotation Ends
+						if (iStart+1 >= textLength || line[iStart+1] != '\"')  //-- Single Quote:  Quotation Ends
 						{
-							InsideQuote = false;
+							insideQuote = false;
 						}
 						else
-						if (iStart+2 < TextLength && Line[iStart+2]=='\"')  //-- Tripple Quotes: Quotation ends
+						if (iStart+2 < textLength && line[iStart+2]=='\"')  //-- Tripple Quotes: Quotation ends
 						{
-							InsideQuote = false;
+							insideQuote = false;
 							iStart+=2;
 						}
 						else 
@@ -149,9 +149,9 @@ namespace I2.Loc
 
 				else  //-----[ Separators ]----------------------
 
-				if (c=='\n' || c==Separator)
+				if (c=='\n' || c==separator)
 				{
-					AddCSVtoken(ref list, ref Line, iStart, ref iWordStart);
+					AddCsVtoken(ref list, ref line, iStart, ref iWordStart);
 					if (c=='\n')  // Stop the row on line breaks
 					{
 						iStart++;
@@ -162,26 +162,26 @@ namespace I2.Loc
 				else //--------[ Start Quote ]--------------------
 
 				if (c=='\"')
-					InsideQuote = true;
+					insideQuote = true;
 
 				iStart++;
 			}
 			if (iStart>iWordStart)
-				AddCSVtoken(ref list, ref Line, iStart, ref iWordStart);
+				AddCsVtoken(ref list, ref line, iStart, ref iWordStart);
 
 			return list.ToArray();
 		}
 
-		static void AddCSVtoken( ref List<string> list, ref string Line, int iEnd, ref int iWordStart)
+		static void AddCsVtoken( ref List<string> list, ref string line, int iEnd, ref int iWordStart)
 		{
-			string Text = Line.Substring(iWordStart, iEnd-iWordStart);
+			string text = line.Substring(iWordStart, iEnd-iWordStart);
 			iWordStart = iEnd+1;
 
-			Text = Text.Replace("\"\"", "\"" );
-			if (Text.Length>1 && Text[0]=='\"' && Text[Text.Length-1]=='\"')
-				Text = Text.Substring(1, Text.Length-2 );
+			text = text.Replace("\"\"", "\"" );
+			if (text.Length>1 && text[0]=='\"' && text[text.Length-1]=='\"')
+				text = text.Substring(1, text.Length-2 );
 
-			list.Add( Text);
+			list.Add( text);
 		}
 
 		
@@ -190,32 +190,32 @@ namespace I2.Loc
 
 		#region I2CSV
 
-		public static List<string[]> ReadI2CSV( string Text )
+		public static List<string[]> ReadI2Csv( string text )
 		{
-			string[] ColumnSeparator = new string[]{"[*]"};
-			string[] RowSeparator = new string[]{"[ln]"};
+			string[] columnSeparator = new string[]{"[*]"};
+			string[] rowSeparator = new string[]{"[ln]"};
 
-			List<string[]> CSV = new List<string[]>();
-			foreach (var line in Text.Split (RowSeparator, System.StringSplitOptions.None))
-				CSV.Add (line.Split (ColumnSeparator, System.StringSplitOptions.None));
+			List<string[]> csv = new List<string[]>();
+			foreach (var line in text.Split (rowSeparator, System.StringSplitOptions.None))
+				csv.Add (line.Split (columnSeparator, System.StringSplitOptions.None));
 
-			return CSV;
+			return csv;
 		}
 
 		#endregion
 
 		#region Misc
 
-		public static void ValidateFullTerm( ref string Term )
+		public static void ValidateFullTerm( ref string term )
 		{
-			Term = Term.Replace('\\', '/');
-			int First = Term.IndexOf('/');
-			if (First<0)
+			term = term.Replace('\\', '/');
+			int first = term.IndexOf('/');
+			if (first<0)
 				return;
 			
 			int second;
-			while ( (second=Term.LastIndexOf('/')) != First )
-				Term = Term.Remove( second,1);
+			while ( (second=term.LastIndexOf('/')) != first )
+				term = term.Remove( second,1);
 		}
 
 		

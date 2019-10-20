@@ -9,11 +9,11 @@ namespace I2.Loc
 {
     public static partial class LocalizationManager
     {
-        static string[] LanguagesRTL = {"ar-DZ", "ar","ar-BH","ar-EG","ar-IQ","ar-JO","ar-KW","ar-LB","ar-LY","ar-MA","ar-OM","ar-QA","ar-SA","ar-SY","ar-TN","ar-AE","ar-YE",
+        static string[] _languagesRtl = {"ar-DZ", "ar","ar-BH","ar-EG","ar-IQ","ar-JO","ar-KW","ar-LB","ar-LY","ar-MA","ar-OM","ar-QA","ar-SA","ar-SY","ar-TN","ar-AE","ar-YE",
                                         "fa", "he","ur","ji"};
 
-        public static string ApplyRTLfix(string line) { return ApplyRTLfix(line, 0, true); }
-        public static string ApplyRTLfix(string line, int maxCharacters, bool ignoreNumbers)
+        public static string ApplyRtLfix(string line) { return ApplyRtLfix(line, 0, true); }
+        public static string ApplyRtLfix(string line, int maxCharacters, bool ignoreNumbers)
         {
             if (string.IsNullOrEmpty(line))
                 return line;
@@ -41,7 +41,7 @@ namespace I2.Loc
             // Split into lines and fix each line
             line = line.Replace("\r\n", "\n");
             line = I2Utils.SplitLine(line, maxCharacters);
-            line = RTLFixer.Fix(line, true, !ignoreNumbers);
+            line = RtlFixer.Fix(line, true, !ignoreNumbers);
 
 
             // Restore all tags
@@ -73,14 +73,14 @@ namespace I2.Loc
         public static string FixRTL_IfNeeded(string text, int maxCharacters = 0, bool ignoreNumber=false)
 		{
 			if (IsRight2Left)
-				return ApplyRTLfix(text, maxCharacters, ignoreNumber);
+				return ApplyRtLfix(text, maxCharacters, ignoreNumber);
 			else
 				return text;
 		}
 
-		public static bool IsRTL(string Code)
+		public static bool IsRtl(string code)
 		{
-			return System.Array.IndexOf(LanguagesRTL, Code)>=0;
+			return System.Array.IndexOf(_languagesRtl, code)>=0;
 		}
     }
 

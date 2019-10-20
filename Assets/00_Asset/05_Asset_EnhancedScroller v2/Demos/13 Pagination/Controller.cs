@@ -85,7 +85,7 @@ namespace EnhancedScrollerDemos.Pagination
             // add data to the list
             for (var i = pageStartIndex; i < lastIndex; i++)
             {
-                _data.Add(new Data() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new Data() { SomeText = "Cell Data Index " + i.ToString() });
             }
 
             // tell the scroller to reload now that we have the data.

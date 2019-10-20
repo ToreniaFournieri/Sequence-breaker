@@ -9,21 +9,21 @@ namespace SuperScrollView
     {
         public Sprite[] spriteObjArray;
         // Use this for initialization
-        static ResManager instance = null;
+        static ResManager _instance = null;
 
-        string[] mWordList;
+        string[] _mWordList;
 
-        Dictionary<string, Sprite> spriteObjDict = new Dictionary<string, Sprite>();
+        Dictionary<string, Sprite> _spriteObjDict = new Dictionary<string, Sprite>();
 
         public static ResManager Get
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = Object.FindObjectOfType<ResManager>();
+                    _instance = Object.FindObjectOfType<ResManager>();
                 }
-                return instance;
+                return _instance;
             }
 
         }
@@ -31,23 +31,23 @@ namespace SuperScrollView
 
         void InitData()
         {
-            spriteObjDict.Clear();
+            _spriteObjDict.Clear();
             foreach (Sprite sp in spriteObjArray)
             {
-                spriteObjDict[sp.name] = sp;
+                _spriteObjDict[sp.name] = sp;
             }
         }
 
         void Awake()
         {
-            instance = null;
+            _instance = null;
             InitData();
         }
 
         public Sprite GetSpriteByName(string spriteName)
         {
             Sprite ret = null;
-            if (spriteObjDict.TryGetValue(spriteName, out ret))
+            if (_spriteObjDict.TryGetValue(spriteName, out ret))
             {
                 return ret;
             }

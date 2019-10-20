@@ -9,18 +9,18 @@ namespace SuperScrollView
 {
     public class SceneNameInfo
     {
-        public string mName;
-        public string mSceneName;
+        public string MName;
+        public string MSceneName;
         public SceneNameInfo(string name,string sceneName)
         {
-            mName = name;
-            mSceneName = sceneName;
+            MName = name;
+            MSceneName = sceneName;
         }
     }
     class MenuSceneScript: MonoBehaviour
     {
         public Transform mButtonPanelTf;
-        SceneNameInfo[] mSceneNameArray = new SceneNameInfo[]
+        SceneNameInfo[] _mSceneNameArray = new SceneNameInfo[]
         {
             new SceneNameInfo("Staggered GridView1","StaggeredGridView_TopToBottom"),
             new SceneNameInfo("Staggered GridView2","StaggeredGridView_LeftToRight"),
@@ -46,7 +46,7 @@ namespace SuperScrollView
         {
             CreateFpsDisplyObj();
             int count = mButtonPanelTf.childCount;
-            int sceneCount = mSceneNameArray.Length;
+            int sceneCount = _mSceneNameArray.Length;
             for (int i = 0;i< count;++i)
             {
                 if(i >= sceneCount)
@@ -55,28 +55,28 @@ namespace SuperScrollView
                     continue;
                 }
                 mButtonPanelTf.GetChild(i).gameObject.SetActive(true);
-                SceneNameInfo info = mSceneNameArray[i];
+                SceneNameInfo info = _mSceneNameArray[i];
                 Button button = mButtonPanelTf.GetChild(i).GetComponent<Button>();
                 button.onClick.AddListener(delegate ()
                 {
-                    SceneManager.LoadScene(info.mSceneName);
+                    SceneManager.LoadScene(info.MSceneName);
                 });
                 Text text = button.transform.Find("Text").GetComponent<Text>();
-                text.text = info.mName;
+                text.text = info.MName;
             }
 
         }
 
         void CreateFpsDisplyObj()
         {
-            FPSDisplay fpsObj = FindObjectOfType<FPSDisplay>();
+            FpsDisplay fpsObj = FindObjectOfType<FpsDisplay>();
             if(fpsObj != null)
             {
                 return;
             }
             GameObject go = new GameObject();
             go.name = "FPSDisplay";
-            go.AddComponent<FPSDisplay>();
+            go.AddComponent<FpsDisplay>();
             DontDestroyOnLoad(go);
         }
 

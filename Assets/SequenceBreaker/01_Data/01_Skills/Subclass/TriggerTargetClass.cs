@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "triggerTarget", menuName = "Skill/SubClass/TriggerTargetClass", order = 6)]
 sealed public class TriggerTargetClass : ScriptableObject
@@ -14,18 +15,18 @@ sealed public class TriggerTargetClass : ScriptableObject
     //    this.OnlyWhenBeenHitMoreThanOnce = onlyWhenBeenHitMoreThanOnce; this.OnlyWhenAvoidMoreThanOnce = onlyWhenAvoidMoreThanOnce;
     //}
 
-    public ActionType ActionType;
-    public bool AfterAllMoved;
-    public bool Counter;
-    public bool Chain;
-    public bool ReAttack;
-    public bool Heal;
-    public bool Move;
-    public Range OptimumRange;
-    public AttackType MajestyAttackType;
-    public CriticalOrNot Critical;
-    public ActorOrTargetUnit WhoCrushed;
-    public bool OnlyWhenBeenHitMoreThanOnce;
-    public bool OnlyWhenAvoidMoreThanOnce;
+    [FormerlySerializedAs("ActionType")] public ActionType actionType;
+    [FormerlySerializedAs("AfterAllMoved")] public bool afterAllMoved;
+    [FormerlySerializedAs("Counter")] public bool counter;
+    [FormerlySerializedAs("Chain")] public bool chain;
+    [FormerlySerializedAs("ReAttack")] public bool reAttack;
+    [FormerlySerializedAs("Heal")] public bool heal;
+    [FormerlySerializedAs("Move")] public bool move;
+    [FormerlySerializedAs("OptimumRange")] public Range optimumRange;
+    [FormerlySerializedAs("MajestyAttackType")] public AttackType majestyAttackType;
+    [FormerlySerializedAs("Critical")] public CriticalOrNot critical;
+    [FormerlySerializedAs("WhoCrushed")] public ActorOrTargetUnit whoCrushed;
+    [FormerlySerializedAs("OnlyWhenBeenHitMoreThanOnce")] public bool onlyWhenBeenHitMoreThanOnce;
+    [FormerlySerializedAs("OnlyWhenAvoidMoreThanOnce")] public bool onlyWhenAvoidMoreThanOnce;
     
 }

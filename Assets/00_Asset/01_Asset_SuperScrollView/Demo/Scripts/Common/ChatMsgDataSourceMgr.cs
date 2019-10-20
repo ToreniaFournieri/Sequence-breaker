@@ -14,25 +14,25 @@ namespace SuperScrollView
 
     public class PersonInfo
     {
-        public int mId;
-        public string mName;
-        public string mHeadIcon;
+        public int MId;
+        public string MName;
+        public string MHeadIcon;
     }
 
     public class ChatMsg
     {
-        public int mPersonId;
-        public MsgTypeEnum mMsgType;
-        public string mSrtMsg;
-        public string mPicMsgSpriteName;
+        public int MPersonId;
+        public MsgTypeEnum MMsgType;
+        public string MSrtMsg;
+        public string MPicMsgSpriteName;
     }
 
     public class ChatMsgDataSourceMgr : MonoBehaviour
     {
-        Dictionary<int, PersonInfo> mPersonInfoDict = new Dictionary<int, PersonInfo>();
-        List<ChatMsg> mChatMsgList = new List<ChatMsg>();
-        static ChatMsgDataSourceMgr instance = null;
-        static string[] mChatDemoStrList = {
+        Dictionary<int, PersonInfo> _mPersonInfoDict = new Dictionary<int, PersonInfo>();
+        List<ChatMsg> _mChatMsgList = new List<ChatMsg>();
+        static ChatMsgDataSourceMgr _instance = null;
+        static string[] _mChatDemoStrList = {
             "Support ListView and GridView.",
             "Support Infinity Vertical and Horizontal ScrollView.",
             "Support items in different sizes such as widths or heights. Support items with unknown size at init time.",
@@ -40,7 +40,7 @@ namespace SuperScrollView
             "Use only one C# script to help the UGUI ScrollRect to support any count items with high performance.",
             };
 
-        static string[] mChatDemoPicList = {
+        static string[] _mChatDemoPicList = {
             "grid_pencil_128_g2",
             "grid_flower_200_3",
             "grid_pencil_128_g3",
@@ -51,11 +51,11 @@ namespace SuperScrollView
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = Object.FindObjectOfType<ChatMsgDataSourceMgr>();
+                    _instance = Object.FindObjectOfType<ChatMsgDataSourceMgr>();
                 }
-                return instance;
+                return _instance;
             }
 
         }
@@ -69,7 +69,7 @@ namespace SuperScrollView
         public PersonInfo GetPersonInfo(int personId)
         {
             PersonInfo ret = null;
-            if(mPersonInfoDict.TryGetValue(personId, out ret))
+            if(_mPersonInfoDict.TryGetValue(personId, out ret))
             {
                 return ret;
             }
@@ -78,18 +78,18 @@ namespace SuperScrollView
 
         public void Init()
         {
-            mPersonInfoDict.Clear();
+            _mPersonInfoDict.Clear();
             PersonInfo tInfo = new PersonInfo();
-            tInfo.mHeadIcon = "grid_pencil_128_g8";
-            tInfo.mId = 0;
-            tInfo.mName = "Jaci";
-            mPersonInfoDict.Add(tInfo.mId, tInfo);
+            tInfo.MHeadIcon = "grid_pencil_128_g8";
+            tInfo.MId = 0;
+            tInfo.MName = "Jaci";
+            _mPersonInfoDict.Add(tInfo.MId, tInfo);
 
             tInfo = new PersonInfo();
-            tInfo.mHeadIcon = "grid_pencil_128_g5";
-            tInfo.mId = 1;
-            tInfo.mName = "Toc";
-            mPersonInfoDict.Add(tInfo.mId, tInfo);
+            tInfo.MHeadIcon = "grid_pencil_128_g5";
+            tInfo.MId = 1;
+            tInfo.MName = "Toc";
+            _mPersonInfoDict.Add(tInfo.MId, tInfo);
 
             InitChatDataSource();
 
@@ -97,47 +97,47 @@ namespace SuperScrollView
 
         public ChatMsg GetChatMsgByIndex(int index)
         {
-            if (index < 0 || index >= mChatMsgList.Count)
+            if (index < 0 || index >= _mChatMsgList.Count)
             {
                 return null;
             }
-            return mChatMsgList[index];
+            return _mChatMsgList[index];
         }
 
         public int TotalItemCount
         {
             get
             {
-                return mChatMsgList.Count;
+                return _mChatMsgList.Count;
             }
         }
 
         void InitChatDataSource()
         {
-            mChatMsgList.Clear();
-            int count = mChatDemoStrList.Length;
-            int count1 = mChatDemoPicList.Length;
+            _mChatMsgList.Clear();
+            int count = _mChatDemoStrList.Length;
+            int count1 = _mChatDemoPicList.Length;
             for (int i = 0; i < 100; ++i)
             {
                 ChatMsg tMsg = new ChatMsg();
-                tMsg.mMsgType = (MsgTypeEnum)(Random.Range(0, 99) % 2); ;
-                tMsg.mPersonId = Random.Range(0, 99) % 2;
-                tMsg.mSrtMsg = mChatDemoStrList[Random.Range(0, 99) % count];
-                tMsg.mPicMsgSpriteName = mChatDemoPicList[Random.Range(0, 99) % count1];
-                mChatMsgList.Add(tMsg);
+                tMsg.MMsgType = (MsgTypeEnum)(Random.Range(0, 99) % 2); ;
+                tMsg.MPersonId = Random.Range(0, 99) % 2;
+                tMsg.MSrtMsg = _mChatDemoStrList[Random.Range(0, 99) % count];
+                tMsg.MPicMsgSpriteName = _mChatDemoPicList[Random.Range(0, 99) % count1];
+                _mChatMsgList.Add(tMsg);
             }
         }
 
         public void AppendOneMsg()
         {
-            int count = mChatDemoStrList.Length;
-            int count1 = mChatDemoPicList.Length;
+            int count = _mChatDemoStrList.Length;
+            int count1 = _mChatDemoPicList.Length;
             ChatMsg tMsg = new ChatMsg();
-            tMsg.mMsgType = (MsgTypeEnum)(Random.Range(0, 99) % 2); ;
-            tMsg.mPersonId = Random.Range(0, 99) % 2;
-            tMsg.mSrtMsg = mChatDemoStrList[Random.Range(0, 99) % count];
-            tMsg.mPicMsgSpriteName = mChatDemoPicList[Random.Range(0, 99) % count1];
-            mChatMsgList.Add(tMsg);
+            tMsg.MMsgType = (MsgTypeEnum)(Random.Range(0, 99) % 2); ;
+            tMsg.MPersonId = Random.Range(0, 99) % 2;
+            tMsg.MSrtMsg = _mChatDemoStrList[Random.Range(0, 99) % count];
+            tMsg.MPicMsgSpriteName = _mChatDemoPicList[Random.Range(0, 99) % count1];
+            _mChatMsgList.Add(tMsg);
         }
 
     }

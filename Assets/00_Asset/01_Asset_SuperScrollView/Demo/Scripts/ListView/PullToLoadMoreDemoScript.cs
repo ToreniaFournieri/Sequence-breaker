@@ -8,13 +8,13 @@ namespace SuperScrollView
     public class PullToLoadMoreDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        LoadingTipStatus mLoadingTipStatus = LoadingTipStatus.None;
-        float mLoadingTipItemHeight = 100;
-        int mLoadMoreCount = 20;
+        LoadingTipStatus _mLoadingTipStatus = LoadingTipStatus.None;
+        float _mLoadingTipItemHeight = 100;
+        int _mLoadMoreCount = 20;
 
-        Button mScrollToButton;
-        InputField mScrollToInput;
-        Button mBackButton;
+        Button _mScrollToButton;
+        InputField _mScrollToInput;
+        Button _mBackButton;
         // Use this for initialization
         void Start()
         {
@@ -23,11 +23,11 @@ namespace SuperScrollView
             mLoopListView.mOnBeginDragAction = OnBeginDrag;
             mLoopListView.mOnDragingAction = OnDraging;
             mLoopListView.mOnEndDragAction = OnEndDrag;
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
         void OnBackBtnClicked()
@@ -80,26 +80,26 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mLoadingTipStatus == LoadingTipStatus.None)
+            if (_mLoadingTipStatus == LoadingTipStatus.None)
             {
                 itemScript0.mRoot.SetActive(false);
                 item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
             }
-            else if (mLoadingTipStatus == LoadingTipStatus.WaitRelease)
+            else if (_mLoadingTipStatus == LoadingTipStatus.WaitRelease)
             {
                 itemScript0.mRoot.SetActive(true);
                 itemScript0.mText.text = "Release to Load More";
                 itemScript0.mArrow.SetActive(true);
                 itemScript0.mWaitingIcon.SetActive(false);
-                item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mLoadingTipItemHeight);
+                item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _mLoadingTipItemHeight);
             }
-            else if (mLoadingTipStatus == LoadingTipStatus.WaitLoad)
+            else if (_mLoadingTipStatus == LoadingTipStatus.WaitLoad)
             {
                 itemScript0.mRoot.SetActive(true);
                 itemScript0.mArrow.SetActive(false);
                 itemScript0.mWaitingIcon.SetActive(true);
                 itemScript0.mText.text = "Loading ...";
-                item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, mLoadingTipItemHeight);
+                item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _mLoadingTipItemHeight);
             }
         }
 
@@ -113,7 +113,7 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mLoadingTipStatus != LoadingTipStatus.None && mLoadingTipStatus != LoadingTipStatus.WaitRelease)
+            if (_mLoadingTipStatus != LoadingTipStatus.None && _mLoadingTipStatus != LoadingTipStatus.WaitRelease)
             {
                 return;
             }
@@ -128,22 +128,22 @@ namespace SuperScrollView
                 return;
             }
             float y  = mLoopListView.GetItemCornerPosInViewPort(item1,ItemCornerEnum.LeftBottom).y;
-            if(y + mLoopListView.ViewPortSize >= mLoadingTipItemHeight)
+            if(y + mLoopListView.ViewPortSize >= _mLoadingTipItemHeight)
             {
-                if (mLoadingTipStatus != LoadingTipStatus.None)
+                if (_mLoadingTipStatus != LoadingTipStatus.None)
                 {
                     return;
                 }
-                mLoadingTipStatus = LoadingTipStatus.WaitRelease;
+                _mLoadingTipStatus = LoadingTipStatus.WaitRelease;
                 UpdateLoadingTip(item);
             }
             else
             {
-                if (mLoadingTipStatus != LoadingTipStatus.WaitRelease)
+                if (_mLoadingTipStatus != LoadingTipStatus.WaitRelease)
                 {
                     return;
                 }
-                mLoadingTipStatus = LoadingTipStatus.None;
+                _mLoadingTipStatus = LoadingTipStatus.None;
                 UpdateLoadingTip(item);
             }
         }
@@ -153,7 +153,7 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mLoadingTipStatus != LoadingTipStatus.None && mLoadingTipStatus != LoadingTipStatus.WaitRelease)
+            if (_mLoadingTipStatus != LoadingTipStatus.None && _mLoadingTipStatus != LoadingTipStatus.WaitRelease)
             {
                 return;
             }
@@ -163,13 +163,13 @@ namespace SuperScrollView
                 return;
             }
             mLoopListView.OnItemSizeChanged(item.ItemIndex);
-            if (mLoadingTipStatus != LoadingTipStatus.WaitRelease)
+            if (_mLoadingTipStatus != LoadingTipStatus.WaitRelease)
             {
                 return;
             }
-            mLoadingTipStatus = LoadingTipStatus.WaitLoad;
+            _mLoadingTipStatus = LoadingTipStatus.WaitLoad;
             UpdateLoadingTip(item);
-            DataSourceMgr.Get.RequestLoadMoreDataList(mLoadMoreCount, OnDataSourceLoadMoreFinished);
+            DataSourceMgr.Get.RequestLoadMoreDataList(_mLoadMoreCount, OnDataSourceLoadMoreFinished);
         }
 
         void OnDataSourceLoadMoreFinished()
@@ -178,9 +178,9 @@ namespace SuperScrollView
             {
                 return;
             }
-            if (mLoadingTipStatus == LoadingTipStatus.WaitLoad)
+            if (_mLoadingTipStatus == LoadingTipStatus.WaitLoad)
             {
-                mLoadingTipStatus = LoadingTipStatus.None;
+                _mLoadingTipStatus = LoadingTipStatus.None;
                 mLoopListView.SetListItemCount(DataSourceMgr.Get.TotalItemCount + 1, false);
                 mLoopListView.RefreshAllShownItem();
             }
@@ -189,7 +189,7 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }

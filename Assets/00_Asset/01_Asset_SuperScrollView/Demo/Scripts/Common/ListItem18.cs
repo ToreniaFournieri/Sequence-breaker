@@ -15,7 +15,7 @@ namespace SuperScrollView
         public Text mColumnText;
         public Color32 mRedStarColor = new Color32(236, 217, 103, 255);
         public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
-        int mItemDataIndex = -1;
+        int _mItemDataIndex = -1;
         public GameObject mContentRootObj;
         public void Init()
         {
@@ -25,20 +25,20 @@ namespace SuperScrollView
 
         void OnStarClicked(GameObject obj)
         {
-            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(mItemDataIndex);
+            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
                 return;
             }
-            if (data.mStarCount == 5)
+            if (data.MStarCount == 5)
             {
-                data.mStarCount = 0;
+                data.MStarCount = 0;
             }
             else
             {
-                data.mStarCount = data.mStarCount + 1;
+                data.MStarCount = data.MStarCount + 1;
             }
-            SetStarCount(data.mStarCount);
+            SetStarCount(data.MStarCount);
         }
 
         public void SetStarCount(int count)
@@ -56,12 +56,12 @@ namespace SuperScrollView
 
         public void SetItemData(ItemData itemData, int itemIndex,int row,int column)
         {
-            mItemDataIndex = itemIndex;
-            mNameText.text = itemData.mName;
+            _mItemDataIndex = itemIndex;
+            mNameText.text = itemData.MName;
             mRowText.text = "Row: "+row;
             mColumnText.text = "Column: " + column;
-            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-            SetStarCount(itemData.mStarCount);
+            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.MIcon);
+            SetStarCount(itemData.MStarCount);
         }
 
 

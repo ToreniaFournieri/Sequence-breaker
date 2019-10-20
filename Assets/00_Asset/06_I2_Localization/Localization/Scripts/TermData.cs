@@ -2,11 +2,12 @@ using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 namespace I2.Loc
 {
-	public enum eTermType 
+	public enum ETermType 
 	{ 
 		Text, Font, Texture, AudioClip, GameObject, Sprite, Material, Child, Mesh,
 		#if NGUI
@@ -34,22 +35,22 @@ namespace I2.Loc
     [Serializable]
 	public class TermData
 	{
-		public string 			Term 			= string.Empty;
-		public eTermType		TermType 		= eTermType.Text;
+		[FormerlySerializedAs("Term")] public string 			term 			= string.Empty;
+		[FormerlySerializedAs("TermType")] public ETermType		termType 		= ETermType.Text;
 		
 		#if !UNITY_EDITOR
 		[NonSerialized]
 		#endif
-		public string 			Description;
+		[FormerlySerializedAs("Description")] public string 			description;
 		
-        public string[]         Languages = new string[0];
-        public byte[]			Flags 			= new byte[0];  // flags for each translation
+        [FormerlySerializedAs("Languages")] public string[]         languages = new string[0];
+        [FormerlySerializedAs("Flags")] public byte[]			flags 			= new byte[0];  // flags for each translation
 
-        [SerializeField] private string[] Languages_Touch = null;      // TO BE REMOVED IN A FUTURE RELEASE
+        [FormerlySerializedAs("Languages_Touch")] [SerializeField] private string[] languagesTouch = null;      // TO BE REMOVED IN A FUTURE RELEASE
 
         public string GetTranslation ( int idx, string specialization=null, bool editMode=false )
 		{
-            string text = Languages[idx];
+            string text = languages[idx];
             if (text != null)
             {
                 text = SpecializationManager.GetSpecializedText(text, specialization);
@@ -63,19 +64,19 @@ namespace I2.Loc
 
         public void SetTranslation( int idx, string translation, string specialization = null)
         {
-            Languages[idx] = SpecializationManager.SetSpecializedText( Languages[idx], translation, specialization);
+            languages[idx] = SpecializationManager.SetSpecializedText( languages[idx], translation, specialization);
         }
 
         public void RemoveSpecialization(string specialization)
         {
-            for (int i = 0; i < Languages.Length; ++i)
+            for (int i = 0; i < languages.Length; ++i)
                 RemoveSpecialization(i, specialization);
         }
 
 
         public void RemoveSpecialization( int idx, string specialization )
         {
-            var text = Languages[idx];
+            var text = languages[idx];
             if (specialization == "Any" || !text.Contains("[i2s_" + specialization + "]"))
             {
                 return;
@@ -83,48 +84,48 @@ namespace I2.Loc
 
             var dict = SpecializationManager.GetSpecializations(text);
             dict.Remove(specialization);
-            Languages[idx] = SpecializationManager.SetSpecializedText(dict);
+            languages[idx] = SpecializationManager.SetSpecializedText(dict);
         }
 
-        public bool IsAutoTranslated( int idx, bool IsTouch )
+        public bool IsAutoTranslated( int idx, bool isTouch )
 		{
-			return (Flags[idx] & (byte)TranslationFlag.AutoTranslated) > 0;
+			return (flags[idx] & (byte)TranslationFlag.AutoTranslated) > 0;
 		}
 
 		public void Validate ()
 		{
-			int nLanguages = Mathf.Max(Languages.Length, Flags.Length);
+			int nLanguages = Mathf.Max(languages.Length, flags.Length);
 
-			if (Languages.Length != nLanguages) 		Array.Resize(ref Languages, nLanguages);
-			if (Flags.Length!=nLanguages) 				Array.Resize(ref Flags, nLanguages);
+			if (languages.Length != nLanguages) 		Array.Resize(ref languages, nLanguages);
+			if (flags.Length!=nLanguages) 				Array.Resize(ref flags, nLanguages);
 
-            if (Languages_Touch != null)
+            if (languagesTouch != null)
             {
-                for (int i = 0; i < Mathf.Min(Languages_Touch.Length, nLanguages); ++i)
+                for (int i = 0; i < Mathf.Min(languagesTouch.Length, nLanguages); ++i)
                 {
-                    if (string.IsNullOrEmpty(Languages[i]) && !string.IsNullOrEmpty(Languages_Touch[i]))
+                    if (string.IsNullOrEmpty(languages[i]) && !string.IsNullOrEmpty(languagesTouch[i]))
                     {
-                        Languages[i] = Languages_Touch[i];
-                        Languages_Touch[i] = null;
+                        languages[i] = languagesTouch[i];
+                        languagesTouch[i] = null;
                     }
                 }
-                Languages_Touch = null;
+                languagesTouch = null;
             }
         }
         
 		public bool IsTerm( string name, bool allowCategoryMistmatch)
 		{
 			if (!allowCategoryMistmatch)
-				return name == Term;
+				return name == term;
 
-			return name == LanguageSourceData.GetKeyFromFullTerm (Term);
+			return name == LanguageSourceData.GetKeyFromFullTerm (term);
 		}
 
         public bool HasSpecializations()
         {
-            for (int i = 0; i < Languages.Length; ++i)
+            for (int i = 0; i < languages.Length; ++i)
             {
-                if (!string.IsNullOrEmpty(Languages[i]) && Languages[i].Contains("[i2s_"))
+                if (!string.IsNullOrEmpty(languages[i]) && languages[i].Contains("[i2s_"))
                     return true;
             }
             return false;
@@ -133,8 +134,8 @@ namespace I2.Loc
         public List<string> GetAllSpecializations()
         {
             List<string> values = new List<string>();
-            for (int i = 0; i < Languages.Length; ++i)
-                SpecializationManager.AppendSpecializations(Languages[i], values);
+            for (int i = 0; i < languages.Length; ++i)
+                SpecializationManager.AppendSpecializations(languages[i], values);
             return values;
         }
     };

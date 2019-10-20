@@ -40,9 +40,9 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
             _rowData = data as RowData;
 
             // update the UI with the data fields
-            userNameText.text = _rowData.userName;
-            userAvatarImage.sprite = Resources.Load<Sprite>(_rowData.userAvatarSpritePath);
-            userHighScoreText.text = string.Format("{0:n0}", _rowData.userHighScore);
+            userNameText.text = _rowData.UserName;
+            userAvatarImage.sprite = Resources.Load<Sprite>(_rowData.UserAvatarSpritePath);
+            userHighScoreText.text = string.Format("{0:n0}", _rowData.UserHighScore);
         }
     }
 }

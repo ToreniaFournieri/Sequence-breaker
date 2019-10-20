@@ -12,8 +12,8 @@ namespace SuperScrollView
         public LoopListView2 mLoopListViewDay;
         public LoopListView2 mLoopListViewHour;
         public Button mBackButton;
-        static int[] mMonthDayCountArray = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        static string[] mMonthNameArray = new string[]
+        static int[] _mMonthDayCountArray = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        static string[] _mMonthNameArray = new string[]
         {
             "Jan.",
             "Feb.",
@@ -28,21 +28,21 @@ namespace SuperScrollView
             "Nov.",
             "Dec.",
         };
-        int mCurSelectedMonth = 2;
-        int mCurSelectedDay = 2;
-        int mCurSelectedHour = 2;
+        int _mCurSelectedMonth = 2;
+        int _mCurSelectedDay = 2;
+        int _mCurSelectedHour = 2;
 
         public int CurSelectedMonth
         {
-            get { return mCurSelectedMonth; }
+            get { return _mCurSelectedMonth; }
         }
         public int CurSelectedDay
         {
-            get { return mCurSelectedDay; }
+            get { return _mCurSelectedDay; }
         }
         public int CurSelectedHour
         {
-            get { return mCurSelectedHour; }
+            get { return _mCurSelectedHour; }
         }
 
         // Use this for initialization
@@ -118,7 +118,7 @@ namespace SuperScrollView
             }
             val = val + firstItemVal;
             itemScript.Value = val;
-            itemScript.mText.text = mMonthNameArray[val-1];
+            itemScript.mText.text = _mMonthNameArray[val-1];
             return item;
         }
 
@@ -134,7 +134,7 @@ namespace SuperScrollView
                 itemScript.Init();
             }
             int firstItemVal = 1;
-            int itemCount = mMonthDayCountArray[mCurSelectedMonth-1];
+            int itemCount = _mMonthDayCountArray[_mCurSelectedMonth-1];
             int val = 0;
             if (index >= 0)
             {
@@ -159,7 +159,7 @@ namespace SuperScrollView
                 return;
             }
             ListItem7 itemScript = item.GetComponent<ListItem7>();
-            mCurSelectedMonth = itemScript.Value;
+            _mCurSelectedMonth = itemScript.Value;
             OnListViewSnapTargetChanged(listView, index);
         }
 
@@ -171,7 +171,7 @@ namespace SuperScrollView
                 return;
             }
             ListItem7 itemScript = item.GetComponent<ListItem7>();
-            mCurSelectedDay = itemScript.Value;
+            _mCurSelectedDay = itemScript.Value;
             OnListViewSnapTargetChanged(listView, index);
         }
 
@@ -183,7 +183,7 @@ namespace SuperScrollView
                 return;
             }
             ListItem7 itemScript = item.GetComponent<ListItem7>();
-            mCurSelectedHour = itemScript.Value;
+            _mCurSelectedHour = itemScript.Value;
             OnListViewSnapTargetChanged(listView, index);
         }
 

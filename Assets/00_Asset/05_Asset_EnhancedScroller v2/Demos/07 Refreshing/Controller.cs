@@ -57,12 +57,12 @@ namespace EnhancedScrollerDemos.RefreshDemo
             {
                 // set up some new data for cells zero through five
 
-                _data[0].someText = "This cell was updated";
-                _data[1].someText = "---";
-                _data[2].someText = "---";
-                _data[3].someText = "---";
-                _data[4].someText = "---";
-                _data[5].someText = "This cell was also updated";
+                _data[0].SomeText = "This cell was updated";
+                _data[1].SomeText = "---";
+                _data[2].SomeText = "---";
+                _data[3].SomeText = "---";
+                _data[4].SomeText = "---";
+                _data[5].SomeText = "This cell was also updated";
 
                 // refresh the active cells
 
@@ -78,7 +78,7 @@ namespace EnhancedScrollerDemos.RefreshDemo
             // set up some simple data
             _data = new SmallList<Data>();
             for (var i = 0; i < 1000; i++)
-                _data.Add(new Data() { someText = "Cell Data Index " + i.ToString() });
+                _data.Add(new Data() { SomeText = "Cell Data Index " + i.ToString() });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();
@@ -92,9 +92,9 @@ namespace EnhancedScrollerDemos.RefreshDemo
             // set up some simple data
             _data = new SmallList<Data>();
 
-            _data.Add(new Data() { someText = "A" });
-            _data.Add(new Data() { someText = "B" });
-            _data.Add(new Data() { someText = "C" });
+            _data.Add(new Data() { SomeText = "A" });
+            _data.Add(new Data() { SomeText = "B" });
+            _data.Add(new Data() { SomeText = "C" });
 
             // tell the scroller to reload now that we have the data
             scroller.ReloadData();

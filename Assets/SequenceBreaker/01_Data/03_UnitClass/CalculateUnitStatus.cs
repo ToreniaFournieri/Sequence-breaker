@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.Serialization;
 
 sealed public class CalculateUnitStatus : MonoBehaviour
 {
 
     //Input data
-    public UnitClass Unit;
+    [FormerlySerializedAs("Unit")] public UnitClass unit;
 
     //Output data
-    public BattleUnit BattleUnit;
+    [FormerlySerializedAs("BattleUnit")] public BattleUnit battleUnit;
 
     // Output data to show magnification data
     public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedOffenseList;
@@ -32,44 +33,44 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
     // Environment Parameter
     // for combat status calculation
-    public float T5LevelCoefficient;
-    public float T5LevelPowLittle;
-    public float T5LevelPowBig;
-    public float T5AbilityCoefficient;
-    public float T5AbilityPowDenominator;
+    [FormerlySerializedAs("T5LevelCoefficient")] public float t5LevelCoefficient;
+    [FormerlySerializedAs("T5LevelPowLittle")] public float t5LevelPowLittle;
+    [FormerlySerializedAs("T5LevelPowBig")] public float t5LevelPowBig;
+    [FormerlySerializedAs("T5AbilityCoefficient")] public float t5AbilityCoefficient;
+    [FormerlySerializedAs("T5AbilityPowDenominator")] public float t5AbilityPowDenominator;
 
-    public float T4LevelCoefficient;
-    public float T4LevelPowLittle;
-    public float T4LevelPowBig;
-    public float T4AbilityCoefficient;
-    public float T4AbilityPowDenominator;
+    [FormerlySerializedAs("T4LevelCoefficient")] public float t4LevelCoefficient;
+    [FormerlySerializedAs("T4LevelPowLittle")] public float t4LevelPowLittle;
+    [FormerlySerializedAs("T4LevelPowBig")] public float t4LevelPowBig;
+    [FormerlySerializedAs("T4AbilityCoefficient")] public float t4AbilityCoefficient;
+    [FormerlySerializedAs("T4AbilityPowDenominator")] public float t4AbilityPowDenominator;
 
-    public float T3LevelCoefficient;
-    public float T3LevelPowLittle;
-    public float T3LevelPowBig;
-    public float T3AbilityCoefficient;
-    public float T3AbilityPowDenominator;
-    public float T3AbilityBasedCoefficient;
+    [FormerlySerializedAs("T3LevelCoefficient")] public float t3LevelCoefficient;
+    [FormerlySerializedAs("T3LevelPowLittle")] public float t3LevelPowLittle;
+    [FormerlySerializedAs("T3LevelPowBig")] public float t3LevelPowBig;
+    [FormerlySerializedAs("T3AbilityCoefficient")] public float t3AbilityCoefficient;
+    [FormerlySerializedAs("T3AbilityPowDenominator")] public float t3AbilityPowDenominator;
+    [FormerlySerializedAs("T3AbilityBasedCoefficient")] public float t3AbilityBasedCoefficient;
 
-    public float T2LevelCoefficient;
-    public float T2LevelPowLittle;
-    public float T2LevelPowBig;
-    public float T2AbilityCoefficient;
-    public float T2AbilityPowDenominator;
-    public float T2AbilityBasedCoefficient;
+    [FormerlySerializedAs("T2LevelCoefficient")] public float t2LevelCoefficient;
+    [FormerlySerializedAs("T2LevelPowLittle")] public float t2LevelPowLittle;
+    [FormerlySerializedAs("T2LevelPowBig")] public float t2LevelPowBig;
+    [FormerlySerializedAs("T2AbilityCoefficient")] public float t2AbilityCoefficient;
+    [FormerlySerializedAs("T2AbilityPowDenominator")] public float t2AbilityPowDenominator;
+    [FormerlySerializedAs("T2AbilityBasedCoefficient")] public float t2AbilityBasedCoefficient;
 
 
     //efficient block
-    public float PowerCoefficient;
-    public float CriticalHitCoefficient;
-    public float NumberOfAttacksCoefficient;
-    public float AccuracyCoefficient;
-    public float MobilityCoefficient;
-    public float DefenseCoefficient;
-    public float CounterintelligenceCoefficient;
-    public float RepairCoefficient;
-    public float ShieldCoefficient;
-    public float HPCoefficient;
+    [FormerlySerializedAs("PowerCoefficient")] public float powerCoefficient;
+    [FormerlySerializedAs("CriticalHitCoefficient")] public float criticalHitCoefficient;
+    [FormerlySerializedAs("NumberOfAttacksCoefficient")] public float numberOfAttacksCoefficient;
+    [FormerlySerializedAs("AccuracyCoefficient")] public float accuracyCoefficient;
+    [FormerlySerializedAs("MobilityCoefficient")] public float mobilityCoefficient;
+    [FormerlySerializedAs("DefenseCoefficient")] public float defenseCoefficient;
+    [FormerlySerializedAs("CounterintelligenceCoefficient")] public float counterintelligenceCoefficient;
+    [FormerlySerializedAs("RepairCoefficient")] public float repairCoefficient;
+    [FormerlySerializedAs("ShieldCoefficient")] public float shieldCoefficient;
+    [FormerlySerializedAs("HPCoefficient")] public float hpCoefficient;
 
 
     //middle data
@@ -91,54 +92,54 @@ sealed public class CalculateUnitStatus : MonoBehaviour
     {
         _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
-        Unit = unitClass;
+        unit = unitClass;
 
         //(1) Ability
         // (1-1) Ability caluculation -> CoreFrameAddAbility
         // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStype.AddAbility
 
-        switch (Unit.CoreFrame.FrameType)
+        switch (unit.coreFrame.frameType)
         {
-            case FrameType.caterpillar:
+            case FrameType.Caterpillar:
                 _frameTypeAbility = new AbilityClass(power: 6, generation: 3, stability: 6, responsiveness: 3, precision: 2, intelligence: 0, luck: 0);
                 break;
-            case FrameType.reverseJointLegs:
+            case FrameType.ReverseJointLegs:
                 _frameTypeAbility = new AbilityClass(power: 3, generation: 3, stability: 3, responsiveness: 8, precision: 2, intelligence: 0, luck: 2);
                 break;
-            case FrameType.spiderLegs:
+            case FrameType.SpiderLegs:
                 _frameTypeAbility = new AbilityClass(power: 4, generation: 3, stability: 5, responsiveness: 4, precision: 3, intelligence: 0, luck: 1);
                 break;
-            case FrameType.twoLegs:
+            case FrameType.TwoLegs:
                 _frameTypeAbility = new AbilityClass(power: 5, generation: 3, stability: 4, responsiveness: 5, precision: 2, intelligence: 0, luck: 1);
                 break;
-            case FrameType.wheel:
+            case FrameType.Wheel:
                 _frameTypeAbility = new AbilityClass(power: 2, generation: 6, stability: 3, responsiveness: 4, precision: 2, intelligence: 0, luck: 3);
                 break;
             default:
-                Debug.LogError("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + Unit.CoreFrame.FrameType);
+                Debug.LogError("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + unit.coreFrame.frameType);
                 break;
         }
         _ability.AddUp(_frameTypeAbility);
 
 
-        switch (Unit.CoreFrame.TuningStype)
+        switch (unit.coreFrame.tuningStype)
         {
-            case TuningStype.assaultMelee:
+            case TuningStype.AssaultMelee:
                 _tuningStypeAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
                 break;
-            case TuningStype.heavyTank:
+            case TuningStype.HeavyTank:
                 _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                 break;
 
-            case TuningStype.chargeMelee:
+            case TuningStype.ChargeMelee:
                 _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                 break;
-            case TuningStype.medic:
+            case TuningStype.Medic:
                 _tuningStypeAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
                 break;
 
             default:
-                Debug.LogError("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + Unit.CoreFrame.TuningStype);
+                Debug.LogError("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + unit.coreFrame.tuningStype);
                 break;
         }
 
@@ -147,18 +148,18 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         // (1-2) Ability caluculation -> SummedItemsAddAbility
         _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
-        foreach (Item _item in Unit.itemList)
+        foreach (Item item in unit.itemList)
         {
-            if (_item != null)
+            if (item != null)
             {
-                _summedItemsAddAbility.AddUp(_item.TotaledAbility());
+                _summedItemsAddAbility.AddUp(item.TotaledAbility());
             }
 
         }
         // (1-3) Ability caluculation -> CaluculatedAbility
         // Formula:
         //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy
-        _ability.AddUp(Unit.Pilot.AddAbility);
+        _ability.AddUp(unit.pilot.addAbility);
         _ability.AddUp(_summedItemsAddAbility);
 
 
@@ -166,41 +167,41 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
         //(4)Offense/Defense/UnitSkill Magnification
 
-        List<MagnificationMasterClass> _itemMagnificationMasterList = new List<MagnificationMasterClass>();
-        foreach (Item _item in Unit.itemList)
+        List<MagnificationMasterClass> itemMagnificationMasterList = new List<MagnificationMasterClass>();
+        foreach (Item item in unit.itemList)
         {
-            if (_item != null)
+            if (item != null)
             {
                 //item has prefix, base and suffix. each one has magnification master calss list. collect them all
-                if (_item.prefixItem != null)
+                if (item.prefixItem != null)
                 {
-                    foreach (MagnificationMasterClass _magnificationMaster in _item.prefixItem.MagnificationMasterList)
+                    foreach (MagnificationMasterClass magnificationMaster in item.prefixItem.magnificationMasterList)
                     {
-                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                        itemMagnificationMasterList.Add(magnificationMaster);
                     }
                 }
 
-                if (_item.baseItem != null)
+                if (item.baseItem != null)
                 {
-                    foreach (MagnificationMasterClass _magnificationMaster in _item.baseItem.MagnificationMasterList)
+                    foreach (MagnificationMasterClass magnificationMaster in item.baseItem.magnificationMasterList)
                     {
-                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                        itemMagnificationMasterList.Add(magnificationMaster);
                     }
                 }
 
-                if (_item.suffixItem != null)
+                if (item.suffixItem != null)
                 {
-                    foreach (MagnificationMasterClass _magnificationMaster in _item.suffixItem.MagnificationMasterList)
+                    foreach (MagnificationMasterClass magnificationMaster in item.suffixItem.magnificationMasterList)
                     {
-                        _itemMagnificationMasterList.Add(_magnificationMaster);
+                        itemMagnificationMasterList.Add(magnificationMaster);
                     }
                 }
             }
         }
 
         // Deduplication
-        MagnificationComparer Comparer = new MagnificationComparer();
-        IEnumerable<MagnificationMasterClass> _deduplicationedMagnification = _itemMagnificationMasterList.Distinct(Comparer);
+        MagnificationComparer comparer = new MagnificationComparer();
+        IEnumerable<MagnificationMasterClass> deduplicationedMagnification = itemMagnificationMasterList.Distinct(comparer);
 
 
         // this List is magnificationTarget
@@ -237,12 +238,12 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         }
 
         //string _debuMagnificationText = null;
-        foreach (MagnificationMasterClass magnificationClass in _deduplicationedMagnification)
+        foreach (MagnificationMasterClass magnificationClass in deduplicationedMagnification)
         {
             //fortest
             (int magnificationTargetID, int _percent, double _ratio, List<int> _percentList) magnification;
 
-            switch (magnificationClass.OffenseOrDefense)
+            switch (magnificationClass.offenseOrDefense)
             {
 
                 case OffenseOrDefense.Offense:
@@ -284,7 +285,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
 
                     break;
-                case OffenseOrDefense.none:
+                case OffenseOrDefense.None:
                     magnification = MagnificationTypeModule(magnificationClass);
                     if (magnificationNoneList[magnification.magnificationTargetID]._percentList != null)
                     {
@@ -303,7 +304,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
                     break;
                 default:
-                    Debug.LogError("unexpected OffenseOrDefense Value:" + magnificationClass.OffenseOrDefense);
+                    Debug.LogError("unexpected OffenseOrDefense Value:" + magnificationClass.offenseOrDefense);
                     break;
             }
 
@@ -315,14 +316,14 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         {
             double total = 1.0 / (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
 
-            string _percents = null;
+            string percents = null;
             if (calculated.percentList != null)
             {
                 calculated.percentList.Sort();
 
                 foreach (int i in calculated.percentList)
                 {
-                    _percents += i + " ";
+                    percents += i + " ";
                 }
 
             }
@@ -333,7 +334,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
                 calculated.percentValue,
                 calculated.ratioValue,
                 total,
-                _percents
+                percents
                 );
         }
 
@@ -341,13 +342,13 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         {
             double total = (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
 
-            string _percents = null;
+            string percents = null;
             if (calculated.percentList != null)
             {
                 calculated.percentList.Sort();
                 foreach (int i in calculated.percentList)
                 {
-                    _percents += i + " ";
+                    percents += i + " ";
                 }
             }
 
@@ -357,7 +358,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
                 calculated.percentValue,
                 calculated.ratioValue,
                 total,
-                _percents
+                percents
                 );
         }
 
@@ -365,13 +366,13 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         {
             double total = 1.0 / (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
 
-            string _percents = null;
+            string percents = null;
             if (calculated.percentList != null)
             {
                 calculated.percentList.Sort();
                 foreach (int i in calculated.percentList)
                 {
-                    _percents += i + " ";
+                    percents += i + " ";
                 }
             }
             summedNoneList[calculated.magnificationTargetID] =
@@ -380,7 +381,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
                 calculated.percentValue,
                 calculated.ratioValue,
                 total,
-                _percents
+                percents
                 );
         }
 
@@ -452,124 +453,124 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
 
         //Tier 5
-        T5LevelPowLittle = (float)0.372;
-        T5LevelPowBig = (float)1.475;
-        T5AbilityCoefficient = (float)2.6;
-        T5LevelCoefficient = (float)100.0;
-        T5AbilityPowDenominator = (float)20.0;
-        ShieldCoefficient = (float)0.82;
-        HPCoefficient = (float)0.67;
+        t5LevelPowLittle = (float)0.372;
+        t5LevelPowBig = (float)1.475;
+        t5AbilityCoefficient = (float)2.6;
+        t5LevelCoefficient = (float)100.0;
+        t5AbilityPowDenominator = (float)20.0;
+        shieldCoefficient = (float)0.82;
+        hpCoefficient = (float)0.67;
 
-        _combatRaw.ShieldMax =
+        _combatRaw.shieldMax =
                                     //Unit.CoreFrame.Shield +
                                     (int)((
-                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
-                                    + Unit.Level * _ability.Generation
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Generation / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * ShieldCoefficient
-                                    + Unit.CoreFrame.Shield);
+                                    (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
+                                    + Mathf.Pow(unit.level, t5LevelPowBig)
+                                    + unit.level * _ability.generation
+                                    + Mathf.Pow(unit.level, (float)_ability.generation / t5AbilityPowDenominator) * t5AbilityCoefficient
+                                  ) * shieldCoefficient
+                                    + unit.coreFrame.shield);
 
-        _combatRaw.HitPointMax =
+        _combatRaw.hitPointMax =
                                 //Unit.CoreFrame.HP +
                                 (int)((
-                                    (T5LevelCoefficient * Mathf.Pow(Unit.Level, T5LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T5LevelPowBig)
-                                    + Unit.Level * _ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T5AbilityPowDenominator) * T5AbilityCoefficient
-                                  ) * HPCoefficient
-                                   + Unit.CoreFrame.HP
+                                    (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
+                                    + Mathf.Pow(unit.level, t5LevelPowBig)
+                                    + unit.level * _ability.stability
+                                    + Mathf.Pow(unit.level, (float)_ability.stability / t5AbilityPowDenominator) * t5AbilityCoefficient
+                                  ) * hpCoefficient
+                                   + unit.coreFrame.hp
                                   );
 
 
         //Tier 4
-        T4LevelPowLittle = (float)0.372;
-        T4LevelPowBig = (float)1.475;
-        T4AbilityCoefficient = (float)2.6;
-        T4LevelCoefficient = (float)100.0;
-        T4AbilityPowDenominator = (float)20.0;
-        PowerCoefficient = (float)0.4;
-        DefenseCoefficient = (float)0.4;
+        t4LevelPowLittle = (float)0.372;
+        t4LevelPowBig = (float)1.475;
+        t4AbilityCoefficient = (float)2.6;
+        t4LevelCoefficient = (float)100.0;
+        t4AbilityPowDenominator = (float)20.0;
+        powerCoefficient = (float)0.4;
+        defenseCoefficient = (float)0.4;
 
-        _combatRaw.Attack = (int)((
-                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * _ability.Power
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Power / T4AbilityPowDenominator) * T4AbilityCoefficient
-                                  ) * PowerCoefficient);
+        _combatRaw.attack = (int)((
+                                    (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
+                                    + Mathf.Pow(unit.level, t4LevelPowBig)
+                                    + unit.level * _ability.power
+                                    + Mathf.Pow(unit.level, (float)_ability.power / t4AbilityPowDenominator) * t4AbilityCoefficient
+                                  ) * powerCoefficient);
 
-        _combatRaw.Defense = (int)((
-                                    (T4LevelCoefficient * Mathf.Pow(Unit.Level, T4LevelPowLittle))
-                                    + Mathf.Pow(Unit.Level, T4LevelPowBig)
-                                    + Unit.Level * _ability.Stability
-                                    + Mathf.Pow(Unit.Level, (float)_ability.Stability / T4AbilityPowDenominator) * T4AbilityCoefficient
-                                  ) * DefenseCoefficient);
+        _combatRaw.defense = (int)((
+                                    (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
+                                    + Mathf.Pow(unit.level, t4LevelPowBig)
+                                    + unit.level * _ability.stability
+                                    + Mathf.Pow(unit.level, (float)_ability.stability / t4AbilityPowDenominator) * t4AbilityCoefficient
+                                  ) * defenseCoefficient);
 
         // Tier 3
-        T3LevelPowLittle = (float)0.34;
-        T3LevelPowBig = (float)1.00;
-        T3AbilityCoefficient = (float)2.1;
-        T3LevelCoefficient = (float)100.0;
-        T3AbilityPowDenominator = (float)20.0;
-        T3AbilityBasedCoefficient = (float)0.3;
-        MobilityCoefficient = (float)0.233;
-        AccuracyCoefficient = (float)0.233;
+        t3LevelPowLittle = (float)0.34;
+        t3LevelPowBig = (float)1.00;
+        t3AbilityCoefficient = (float)2.1;
+        t3LevelCoefficient = (float)100.0;
+        t3AbilityPowDenominator = (float)20.0;
+        t3AbilityBasedCoefficient = (float)0.3;
+        mobilityCoefficient = (float)0.233;
+        accuracyCoefficient = (float)0.233;
 
-        _combatRaw.Mobility = (int)((
-                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * _ability.Responsiveness * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)_ability.Responsiveness / T3AbilityPowDenominator) * T3AbilityCoefficient
-                          ) * MobilityCoefficient);
+        _combatRaw.mobility = (int)((
+                            (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
+                            + Mathf.Pow(unit.level, t3LevelPowBig)
+                            + unit.level * _ability.responsiveness * t3AbilityBasedCoefficient
+                            + Mathf.Pow(unit.level, (float)_ability.responsiveness / t3AbilityPowDenominator) * t3AbilityCoefficient
+                          ) * mobilityCoefficient);
 
-        _combatRaw.Accuracy = (int)((
-                            (T3LevelCoefficient * Mathf.Pow(Unit.Level, T3LevelPowLittle))
-                            + Mathf.Pow(Unit.Level, T3LevelPowBig)
-                            + Unit.Level * _ability.Precision * T3AbilityBasedCoefficient
-                            + Mathf.Pow(Unit.Level, (float)_ability.Precision / T3AbilityPowDenominator) * T3AbilityCoefficient
-                          ) * AccuracyCoefficient);
+        _combatRaw.accuracy = (int)((
+                            (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
+                            + Mathf.Pow(unit.level, t3LevelPowBig)
+                            + unit.level * _ability.precision * t3AbilityBasedCoefficient
+                            + Mathf.Pow(unit.level, (float)_ability.precision / t3AbilityPowDenominator) * t3AbilityCoefficient
+                          ) * accuracyCoefficient);
 
         //Tier 2
-        T2LevelPowLittle = (float)0.1;
-        T2LevelPowBig = (float)0.7;
-        T2AbilityCoefficient = (float)2.1;
-        T2LevelCoefficient = (float)100.0;
-        T2AbilityPowDenominator = (float)20.0;
-        T2AbilityBasedCoefficient = (float)0.0;
-        CounterintelligenceCoefficient = (float)1.2;
-        RepairCoefficient = (float)1.2;
+        t2LevelPowLittle = (float)0.1;
+        t2LevelPowBig = (float)0.7;
+        t2AbilityCoefficient = (float)2.1;
+        t2LevelCoefficient = (float)100.0;
+        t2AbilityPowDenominator = (float)20.0;
+        t2AbilityBasedCoefficient = (float)0.0;
+        counterintelligenceCoefficient = (float)1.2;
+        repairCoefficient = (float)1.2;
 
-        _combatRaw.Counterintelligence = (int)((
-                    (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
-                    + Mathf.Pow(Unit.Level, T2LevelPowBig)
-                    + Unit.Level * _ability.Intelligence * T2AbilityBasedCoefficient
-                    + Mathf.Pow(Unit.Level, (float)_ability.Intelligence / T2AbilityPowDenominator) * T2AbilityCoefficient
-                  ) * CounterintelligenceCoefficient);
+        _combatRaw.counterintelligence = (int)((
+                    (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
+                    + Mathf.Pow(unit.level, t2LevelPowBig)
+                    + unit.level * _ability.intelligence * t2AbilityBasedCoefficient
+                    + Mathf.Pow(unit.level, (float)_ability.intelligence / t2AbilityPowDenominator) * t2AbilityCoefficient
+                  ) * counterintelligenceCoefficient);
 
-        _combatRaw.Repair = (int)((
-            (T2LevelCoefficient * Mathf.Pow(Unit.Level, T2LevelPowLittle))
-            + Mathf.Pow(Unit.Level, T2LevelPowBig)
-            + Unit.Level * _ability.Generation * T2AbilityBasedCoefficient
-            + Mathf.Pow(Unit.Level, (float)_ability.Generation / T2AbilityPowDenominator) * T2AbilityCoefficient
-          ) * RepairCoefficient);
+        _combatRaw.repair = (int)((
+            (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
+            + Mathf.Pow(unit.level, t2LevelPowBig)
+            + unit.level * _ability.generation * t2AbilityBasedCoefficient
+            + Mathf.Pow(unit.level, (float)_ability.generation / t2AbilityPowDenominator) * t2AbilityCoefficient
+          ) * repairCoefficient);
 
         // Tier 1
         // critical hit = Level * Luck * CriticalHitCoefficient
-        CriticalHitCoefficient = (float)0.01;
+        criticalHitCoefficient = (float)0.01;
 
-        _combatRaw.CriticalHit = (int)(
-                            (Unit.Level * _ability.Luck * CriticalHitCoefficient)
+        _combatRaw.criticalHit = (int)(
+                            (unit.level * _ability.luck * criticalHitCoefficient)
                           );
 
         // Number of attacks
-        _combatRaw.NumberOfAttacks = (int)(8);
+        _combatRaw.numberOfAttacks = (int)(8);
 
         // Min range and Max range, default are 1.
-        _combatRaw.MinRange = (int)(1);
-        _combatRaw.MaxRange = (int)(6);
+        _combatRaw.minRange = (int)(1);
+        _combatRaw.maxRange = (int)(6);
 
         // Sample set kinetic Attack ratio
-        _combatRaw.KineticAttackRatio = 1.0;
+        _combatRaw.kineticAttackRatio = 1.0;
 
         // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
         // Formula:
@@ -582,7 +583,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         // Formula:
         //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
 
-        _combatRaw.CriticalHit = _combatRaw.CriticalHit + 18;
+        _combatRaw.criticalHit = _combatRaw.criticalHit + 18;
         // some code here. omitted
 
         // (2-6)Base Magnification 
@@ -592,15 +593,15 @@ sealed public class CalculateUnitStatus : MonoBehaviour
         // this is for only Defense magnification. 2019.9.29
         // 11:BaseShield, 12:BaseHitPoint, 13:BaseNumberOfAttacks, 14:MiniRange, 15:MaxRange, 16:BaseAccuracy, 17:BaseMobility, 18:BaseAttack, 19:BaseDefense
 
-        _combatRaw.ShieldMax = (int)(_combatRaw.ShieldMax * _defenseMagnification.shield);
-        _combatRaw.HitPointMax = (int)(_combatRaw.HitPointMax * _defenseMagnification.hitPoint);
-        _combatRaw.NumberOfAttacks = (int)(_combatRaw.NumberOfAttacks * _defenseMagnification.numberOfAttacks);
-        _combatRaw.MinRange = (int)(_combatRaw.MinRange * _defenseMagnification.minRange);
-        _combatRaw.MaxRange = (int)(_combatRaw.MaxRange * _defenseMagnification.maxRange);
-        _combatRaw.Accuracy = (int)(_combatRaw.Accuracy * _defenseMagnification.accuracy);
-        _combatRaw.Mobility = (int)(_combatRaw.Mobility * _defenseMagnification.mobility);
-        _combatRaw.Attack = (int)(_combatRaw.Attack * _defenseMagnification.attack);
-        _combatRaw.Defense = (int)(_combatRaw.Defense * _defenseMagnification.defense);
+        _combatRaw.shieldMax = (int)(_combatRaw.shieldMax * _defenseMagnification.shield);
+        _combatRaw.hitPointMax = (int)(_combatRaw.hitPointMax * _defenseMagnification.hitPoint);
+        _combatRaw.numberOfAttacks = (int)(_combatRaw.numberOfAttacks * _defenseMagnification.numberOfAttacks);
+        _combatRaw.minRange = (int)(_combatRaw.minRange * _defenseMagnification.minRange);
+        _combatRaw.maxRange = (int)(_combatRaw.maxRange * _defenseMagnification.maxRange);
+        _combatRaw.accuracy = (int)(_combatRaw.accuracy * _defenseMagnification.accuracy);
+        _combatRaw.mobility = (int)(_combatRaw.mobility * _defenseMagnification.mobility);
+        _combatRaw.attack = (int)(_combatRaw.attack * _defenseMagnification.attack);
+        _combatRaw.defense = (int)(_combatRaw.defense * _defenseMagnification.defense);
 
         // (2-7)Add combat value of items equiped -> CombatItemEquiped
         // Formula:
@@ -608,11 +609,11 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
         _combatItems = new CombatClass();
 
-        foreach (Item _item in Unit.itemList)
+        foreach (Item item in unit.itemList)
         {
-            if (_item != null)
+            if (item != null)
             {
-                _combatItems.Add(_item.TotaledCombat());
+                _combatItems.Add(item.TotaledCombat());
             }
         }
 
@@ -644,9 +645,9 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
         _isDamageControlAssist = false;
 
-        switch (Unit.CoreFrame.TuningStype)
+        switch (unit.coreFrame.tuningStype)
         {
-            case TuningStype.medic:
+            case TuningStype.Medic:
                 _isDamageControlAssist = true;
                 break;
             default:
@@ -661,7 +662,7 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
 
 
-        BattleUnit = new BattleUnit(uniqueID: 1, name: unitClass.Name, affiliation: Affiliation.none, unitType: unitClass.UnitType, ability: _ability,
+        battleUnit = new BattleUnit(uniqueId: 1, name: unitClass.name, affiliation: Affiliation.None, unitType: unitClass.unitType, ability: _ability,
             combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
             defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
 
@@ -669,40 +670,40 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
         //set detail Ability strings
         detailAbilityString =
-        BattleUnit.Combat.ShieldMax + " Shield \n"
-            + BattleUnit.Combat.HitPointMax + " HP\n"
-            + BattleUnit.Combat.Attack + " Attack \n"
-            + BattleUnit.Combat.Accuracy + " Accuracy \n"
-            + BattleUnit.Combat.Mobility + " Mobility \n"
-            + BattleUnit.Combat.Defense + " Defense\n"
+        battleUnit.combat.shieldMax + " Shield \n"
+            + battleUnit.combat.hitPointMax + " HP\n"
+            + battleUnit.combat.attack + " Attack \n"
+            + battleUnit.combat.accuracy + " Accuracy \n"
+            + battleUnit.combat.mobility + " Mobility \n"
+            + battleUnit.combat.defense + " Defense\n"
 
-            + "(P:" + BattleUnit.Ability.Power + " G:" + BattleUnit.Ability.Generation
-            + " S:" + BattleUnit.Ability.Stability + " R:" + BattleUnit.Ability.Responsiveness
-            + " P:" + BattleUnit.Ability.Precision + " I:" + BattleUnit.Ability.Intelligence
-            + " L:" + BattleUnit.Ability.Luck + ")\n"
+            + "(P:" + battleUnit.ability.power + " G:" + battleUnit.ability.generation
+            + " S:" + battleUnit.ability.stability + " R:" + battleUnit.ability.responsiveness
+            + " P:" + battleUnit.ability.precision + " I:" + battleUnit.ability.intelligence
+            + " L:" + battleUnit.ability.luck + ")\n"
             + " \n"
 
             + "<Offense> \n"
-            + "[Critical: x" + Math.Round(BattleUnit.OffenseMagnification.Critical * 100) / 100 + "] "
+            + "[Critical: x" + Math.Round(battleUnit.offenseMagnification.critical * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
             + " & {" + summedOffenseList[1].percents + "}) \n"
-            + "[Kinetic: x" + Math.Round(BattleUnit.OffenseMagnification.Kinetic * 100) / 100 + "] "
+            + "[Kinetic: x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
             + " & {" + summedOffenseList[2].percents + "}) \n"
 
-            + "[Chemical: x" + Math.Round(BattleUnit.OffenseMagnification.Chemical * 100) / 100 + "] "
+            + "[Chemical: x" + Math.Round(battleUnit.offenseMagnification.chemical * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
             + " & {" + summedOffenseList[3].percents + "}) \n"
 
-            + "[Thermal: x" + Math.Round(BattleUnit.OffenseMagnification.Thermal * 100) / 100 + "] "
+            + "[Thermal: x" + Math.Round(battleUnit.offenseMagnification.thermal * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
             + " & {" + summedOffenseList[4].percents + "}) \n"
 
-            + "[OptimumRangeBonus: x" + Math.Round(BattleUnit.OffenseMagnification.OptimumRangeBonus * 100) / 100 + "] "
+            + "[OptimumRangeBonus: x" + Math.Round(battleUnit.offenseMagnification.optimumRangeBonus * 100) / 100 + "] "
                         + " ("
             + " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
             + " & {" + summedOffenseList[10].percents + "}) \n"
@@ -710,22 +711,22 @@ sealed public class CalculateUnitStatus : MonoBehaviour
             + " \n"
 
             + "<Deffense> \n"
-            + "[Critical: x" + Math.Round(BattleUnit.DefenseMagnification.Critical * 100) / 100 + "] "
+            + "[Critical: x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
             + " & {" + summedDefenseList[1].percents + "}) \n"
 
-            + "[Kinetic: x" + Math.Round(BattleUnit.DefenseMagnification.Kinetic * 100) / 100 + "] "
+            + "[Kinetic: x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
             + " ("
             + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
             + " & {" + summedDefenseList[2].percents + "}) \n"
 
-            + "[Chemical: x" + Math.Round(BattleUnit.DefenseMagnification.Chemical * 100) / 100 + "] "
+            + "[Chemical: x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
                         + " ("
             + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
             + " & {" + summedDefenseList[3].percents + "}) \n"
 
-            + "[Thermal: x" + Math.Round(BattleUnit.DefenseMagnification.Thermal * 100) / 100 + "]"
+            + "[Thermal: x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
                         + " ("
             + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
             + " & {" + summedDefenseList[4].percents + "}) \n";
@@ -735,42 +736,42 @@ sealed public class CalculateUnitStatus : MonoBehaviour
 
     private (int magnificationTargetID, int _percent, double _ratio, List<int> _percentList) MagnificationTypeModule(MagnificationMasterClass magnificationClass)
     {
-        int _magnificationTargetID = (int)magnificationClass.MagnificationTarget;
-        int _percentSummed = 0;
+        int magnificationTargetId = (int)magnificationClass.magnificationTarget;
+        int percentSummed = 0;
         //double _fixedRatioSummed = 1.0;
-        double _ratioSummed = 1.0;
-        List<int> _percentList = new List<int>();
-        switch (magnificationClass.MagnificationType)
+        double ratioSummed = 1.0;
+        List<int> percentList = new List<int>();
+        switch (magnificationClass.magnificationType)
         {
-            case MagnificationType.none:
+            case MagnificationType.None:
                 break;
             case MagnificationType.AdditionalPercent:
                 // values and Enum ID is equal
-                _percentSummed += (int)magnificationClass.MagnificationPercent;
-                _percentList.Add((int)magnificationClass.MagnificationPercent);
+                percentSummed += (int)magnificationClass.magnificationPercent;
+                percentList.Add((int)magnificationClass.magnificationPercent);
                 break;
             case MagnificationType.MagnificationRatio:
-                _ratioSummed *= magnificationClass.MagnificationRatio;
+                ratioSummed *= magnificationClass.magnificationRatio;
                 break;
             default:
-                Debug.LogError("unexpected value:" + magnificationClass.MagnificationType);
+                Debug.LogError("unexpected value:" + magnificationClass.magnificationType);
                 break;
         }
 
-        return (_magnificationTargetID, _percentSummed, _ratioSummed, _percentList);
+        return (magnificationTargetId, percentSummed, ratioSummed, percentList);
     }
 
 
     private class MagnificationComparer : IEqualityComparer<MagnificationMasterClass>
     {
-        public bool Equals(MagnificationMasterClass i_lhs, MagnificationMasterClass i_rhs)
+        public bool Equals(MagnificationMasterClass iLhs, MagnificationMasterClass iRhs)
         {
             if (
-                i_lhs.OffenseOrDefense == i_rhs.OffenseOrDefense &&
-                i_lhs.MagnificationPercent == i_rhs.MagnificationPercent &&
-                System.Math.Abs(i_lhs.MagnificationRatio - i_rhs.MagnificationRatio) < System.Double.Epsilon &&
-                i_lhs.MagnificationTarget == i_rhs.MagnificationTarget &&
-                i_lhs.MagnificationType == i_rhs.MagnificationType
+                iLhs.offenseOrDefense == iRhs.offenseOrDefense &&
+                iLhs.magnificationPercent == iRhs.magnificationPercent &&
+                System.Math.Abs(iLhs.magnificationRatio - iRhs.magnificationRatio) < System.Double.Epsilon &&
+                iLhs.magnificationTarget == iRhs.magnificationTarget &&
+                iLhs.magnificationType == iRhs.magnificationType
                 )
             {
                 return true;
@@ -778,13 +779,13 @@ sealed public class CalculateUnitStatus : MonoBehaviour
             return false;
         }
 
-        public int GetHashCode(MagnificationMasterClass i_obj)
+        public int GetHashCode(MagnificationMasterClass iObj)
         {
-            return i_obj.OffenseOrDefense.GetHashCode()
-                ^ i_obj.MagnificationPercent.GetHashCode()
-                ^ i_obj.MagnificationRatio.GetHashCode()
-                ^ i_obj.MagnificationTarget.GetHashCode()
-                ^ i_obj.MagnificationType.GetHashCode();
+            return iObj.offenseOrDefense.GetHashCode()
+                ^ iObj.magnificationPercent.GetHashCode()
+                ^ iObj.magnificationRatio.GetHashCode()
+                ^ iObj.magnificationTarget.GetHashCode()
+                ^ iObj.magnificationType.GetHashCode();
         }
     }
 

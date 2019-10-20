@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using frame8.ScrollRectItemsAdapter.Classic;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
+using UnityEngine.Serialization;
 
-sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
+sealed public class LogListSria : ClassicSria<LogViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
 {
     //for battle calculation
@@ -19,13 +20,13 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
     public GameObject transparentMessageController;
     public RectTransform itemPrefab;
 
-    public DemoUI demoUI;
+    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
     public List<LogClientModel> Data { get; private set; }
 
-    LayoutElement _PrefabLayoutElement;
+    LayoutElement _prefabLayoutElement;
     // Used to quickly retrieve the views holder given the gameobject
-    Dictionary<RectTransform, LogViewsHolder> _MapRootToViewsHolder = new Dictionary<RectTransform, LogViewsHolder>();
+    Dictionary<RectTransform, LogViewsHolder> _mapRootToViewsHolder = new Dictionary<RectTransform, LogViewsHolder>();
 
 
     #region ClassicSRIA implementation
@@ -34,7 +35,7 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
         base.Awake();
 
         Data = new List<LogClientModel>();
-        _PrefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
+        _prefabLayoutElement = itemPrefab.GetComponent<LayoutElement>();
     }
 
     protected override void Start()
@@ -69,26 +70,26 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
         yield return new WaitForSeconds(.4f);
 
         if (viewsHolders.Count > 0)
-            viewsHolders[Mathf.Min(3, Data.Count - 1)].expandCollapseComponent.OnClicked();
+            viewsHolders[Mathf.Min(3, Data.Count - 1)].ExpandCollapseComponent.OnClicked();
     }
 
     protected override LogViewsHolder CreateViewsHolder(int itemIndex)
     {
         var instance = new LogViewsHolder();
         instance.Init(itemPrefab, itemIndex);
-        instance.expandCollapseComponent.sizeChangesHandler = this;
+        instance.ExpandCollapseComponent.sizeChangesHandler = this;
 
         //Set battle gameObject to each instanced itemPrefab
-        instance.battle = battleList[itemIndex];
+        instance.Battle = battleList[itemIndex];
         //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        instance.transparentMessageController = transparentMessageController;
+        instance.TransparentMessageController = transparentMessageController;
 
-        instance.whichWin = battleList[itemIndex].GetComponent<RunBattle>().whichWin;
-        instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        instance.battleLog = battleLog;
-        instance.logList = logList;
+        instance.WhichWin = battleList[itemIndex].GetComponent<RunBattle>().whichWin;
+        instance.BattleLogEnhancedScrollController = battleLogEnhancedScrollController;
+        instance.BattleLog = battleLog;
+        instance.LogList = logList;
 
-        _MapRootToViewsHolder[instance.root] = instance;
+        _mapRootToViewsHolder[instance.Root] = instance;
 
         return instance;
     }
@@ -102,7 +103,7 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
     {
         int index = atEnd ? Data.Count : 0;
         Data.Insert(index, CreateNewModel(index));
-        InsertItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
     void OnRemoveItemRequested(bool fromEnd)
     {
@@ -112,33 +113,33 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
         int index = fromEnd ? Data.Count - 1 : 0;
 
         Data.RemoveAt(index);
-        RemoveItems(index, 1, demoUI.freezeContentEndEdge.isOn);
+        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
 
-    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUI.SetCountValue); }
+    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
     void OnScrollToRequested()
     {
-        if (demoUI.ScrollToValue >= Data.Count)
+        if (demoUi.ScrollToValue >= Data.Count)
             return;
 
-        demoUI.scrollToButton.interactable = false;
-        bool started = SmoothScrollTo(demoUI.ScrollToValue, .75f, .5f, .5f, () => demoUI.scrollToButton.interactable = true);
+        demoUi.scrollToButton.interactable = false;
+        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
         if (!started)
-            demoUI.scrollToButton.interactable = true;
+            demoUi.scrollToButton.interactable = true;
     }
     #endregion
 
     #region CExpandCollapseOnClick.ISizeChangesHandler implementation
     public bool HandleSizeChangeRequest(RectTransform rt, float newSize)
     {
-        _MapRootToViewsHolder[rt].layoutElement.preferredHeight = newSize;
+        _mapRootToViewsHolder[rt].LayoutElement.preferredHeight = newSize;
         return true;
     }
 
     public void OnExpandedStateChanged(RectTransform rt, bool expanded)
     {
-        var itemIndex = _MapRootToViewsHolder[rt].ItemIndex;
-        Data[itemIndex].expanded = expanded;
+        var itemIndex = _mapRootToViewsHolder[rt].ItemIndex;
+        Data[itemIndex].Expanded = expanded;
     }
     #endregion
 
@@ -162,10 +163,10 @@ sealed public class LogListSRIA : ClassicSRIA<LogViewsHolder>, CExpandCollapseOn
 
         var model = new LogClientModel()
         {
-            missionName = battleList[index].GetComponent<RunBattle>().missionText,
-            location = battleList[index].GetComponent<RunBattle>().location,
-            whichWin = battleList[index].GetComponent<RunBattle>().whichWin,
-            nonExpandedSize = _PrefabLayoutElement.preferredHeight
+            MissionName = battleList[index].GetComponent<RunBattle>().missionText,
+            Location = battleList[index].GetComponent<RunBattle>().location,
+            WhichWin = battleList[index].GetComponent<RunBattle>().whichWin,
+            NonExpandedSize = _prefabLayoutElement.preferredHeight
         };
         model.SetRandom();
 

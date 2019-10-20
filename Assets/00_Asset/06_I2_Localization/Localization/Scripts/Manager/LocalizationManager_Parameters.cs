@@ -16,13 +16,13 @@ namespace I2.Loc
 
         #region Parameters
 
-        public delegate object _GetParam(string param);
+        public delegate object GetParam(string param);
 
         public static void AutoLoadGlobalParamManagers()
         {
             foreach (var manager in Object.FindObjectsOfType<LocalizationParamsManager>())
             {
-                if (manager._IsGlobalManager && !ParamManagers.Contains(manager))
+                if (manager.isGlobalManager && !ParamManagers.Contains(manager))
                 {
                     Debug.Log(manager);
                     ParamManagers.Add(manager);
@@ -52,7 +52,7 @@ namespace I2.Loc
         }
 
 
-        public static void ApplyLocalizationParams(ref string translation, _GetParam getParam, bool allowLocalizedParameters=true)
+        public static void ApplyLocalizationParams(ref string translation, GetParam getParam, bool allowLocalizedParameters=true)
         {
             if (translation == null)
                 return;
@@ -127,7 +127,7 @@ namespace I2.Loc
             }
         }
 
-        internal static string GetLocalizationParam(string ParamName, GameObject root)
+        internal static string GetLocalizationParam(string paramName, GameObject root)
         {
             string result = null;
             if (root)
@@ -138,7 +138,7 @@ namespace I2.Loc
                     var manager = components[i] as ILocalizationParamsManager;
                     if (manager != null && components[i].enabled)
                     {
-                        result = manager.GetParameterValue(ParamName);
+                        result = manager.GetParameterValue(paramName);
                         if (result != null)
                             return result;
                     }
@@ -147,7 +147,7 @@ namespace I2.Loc
 
             for (int i = 0, imax = ParamManagers.Count; i < imax; ++i)
             {
-                result = ParamManagers[i].GetParameterValue(ParamName);
+                result = ParamManagers[i].GetParameterValue(paramName);
                 if (result != null)
                     return result;
             }
@@ -159,7 +159,7 @@ namespace I2.Loc
 
         #region Plural
 
-        private static string GetPluralType( MatchCollection matches, string langCode, _GetParam getParam)
+        private static string GetPluralType( MatchCollection matches, string langCode, GetParam getParam)
 		{
 			for (int i = 0, nMatches = matches.Count; i < nMatches; ++i)
 			{

@@ -13,18 +13,18 @@ namespace Ricimi
     // in the demo via a classic fade.
     public class Transition : MonoBehaviour
     {
-        private static GameObject m_canvas;
+        private static GameObject _mCanvas;
 
-        private GameObject m_overlay;
+        private GameObject _mOverlay;
 
         private void Awake()
         {
             // Create a new, ad-hoc canvas that is not destroyed after loading the new scene
             // to more easily handle the fading code.
-            m_canvas = new GameObject("TransitionCanvas");
-            var canvas = m_canvas.AddComponent<Canvas>();
+            _mCanvas = new GameObject("TransitionCanvas");
+            var canvas = _mCanvas.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            DontDestroyOnLoad(m_canvas);
+            DontDestroyOnLoad(_mCanvas);
         }
 
         public static void LoadLevel(string level, float duration, Color color)
@@ -32,7 +32,7 @@ namespace Ricimi
             var fade = new GameObject("Transition");
             fade.AddComponent<Transition>();
             fade.GetComponent<Transition>().StartFade(level, duration, color);
-            fade.transform.SetParent(m_canvas.transform, false);
+            fade.transform.SetParent(_mCanvas.transform, false);
             fade.transform.SetAsLastSibling();
         }
 
@@ -49,8 +49,8 @@ namespace Ricimi
             bgTex.SetPixel(0, 0, fadeColor);
             bgTex.Apply();
 
-            m_overlay = new GameObject();
-            var image = m_overlay.AddComponent<Image>();
+            _mOverlay = new GameObject();
+            var image = _mOverlay.AddComponent<Image>();
             var rect = new Rect(0, 0, bgTex.width, bgTex.height);
             var sprite = Sprite.Create(bgTex, rect, new Vector2(0.5f, 0.5f), 1);
             image.material.mainTexture = bgTex;
@@ -59,10 +59,10 @@ namespace Ricimi
             image.color = newColor;
             image.canvasRenderer.SetAlpha(0.0f);
 
-            m_overlay.transform.localScale = new Vector3(1, 1, 1);
-            m_overlay.GetComponent<RectTransform>().sizeDelta = m_canvas.GetComponent<RectTransform>().sizeDelta;
-            m_overlay.transform.SetParent(m_canvas.transform, false);
-            m_overlay.transform.SetAsFirstSibling();
+            _mOverlay.transform.localScale = new Vector3(1, 1, 1);
+            _mOverlay.GetComponent<RectTransform>().sizeDelta = _mCanvas.GetComponent<RectTransform>().sizeDelta;
+            _mOverlay.transform.SetParent(_mCanvas.transform, false);
+            _mOverlay.transform.SetAsFirstSibling();
 
             var time = 0.0f;
             var halfDuration = duration / 2.0f;
@@ -89,7 +89,7 @@ namespace Ricimi
             image.canvasRenderer.SetAlpha(0.0f);
             yield return new WaitForEndOfFrame();
 
-            Destroy(m_canvas);
+            Destroy(_mCanvas);
         }
     }
 }

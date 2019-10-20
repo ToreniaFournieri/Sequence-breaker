@@ -12,22 +12,22 @@ namespace I2.Loc
 
         public void UpdateAssetDictionary()
         {
-            Assets.RemoveAll(x => x == null);
-            mAssetDictionary = Assets.Distinct()
+            assets.RemoveAll(x => x == null);
+            MAssetDictionary = assets.Distinct()
                                      .GroupBy(o => o.name)
                                      .ToDictionary(g => g.Key, g => g.First());
         }
 
-        public Object FindAsset( string Name )
+        public Object FindAsset( string name )
 		{
-			if (Assets!=null)
+			if (assets!=null)
 			{
-                if (mAssetDictionary==null || mAssetDictionary.Count!=Assets.Count)
+                if (MAssetDictionary==null || MAssetDictionary.Count!=assets.Count)
                 {
                     UpdateAssetDictionary();
                 }
                 Object obj;
-                if (mAssetDictionary.TryGetValue(Name, out obj))
+                if (MAssetDictionary.TryGetValue(name, out obj))
                 {
                     return obj;
                 }
@@ -38,17 +38,17 @@ namespace I2.Loc
 			return null;
 		}
 		
-		public bool HasAsset( Object Obj )
+		public bool HasAsset( Object obj )
 		{
-			return Assets.Contains(Obj);
+			return assets.Contains(obj);
 		}
 
-		public void AddAsset( Object Obj )
+		public void AddAsset( Object obj )
 		{
-            if (Assets.Contains(Obj))
+            if (assets.Contains(obj))
                 return;
 
-            Assets.Add(Obj);
+            assets.Add(obj);
             UpdateAssetDictionary();
 		}
 

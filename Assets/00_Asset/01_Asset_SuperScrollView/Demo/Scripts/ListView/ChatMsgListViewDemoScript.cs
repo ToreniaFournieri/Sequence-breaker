@@ -9,22 +9,22 @@ namespace SuperScrollView
     public class ChatMsgListViewDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        Button mScrollToButton;
-        InputField mScrollToInput;
-        Button mBackButton;
-        Button mAppendMsgButton;
+        Button _mScrollToButton;
+        InputField _mScrollToInput;
+        Button _mBackButton;
+        Button _mAppendMsgButton;
 
         // Use this for initialization
         void Start()
         {
             mLoopListView.InitListView(ChatMsgDataSourceMgr.Get.TotalItemCount, OnGetItemByIndex);
-            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
-            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            mBackButton.onClick.AddListener(OnBackBtnClicked);
-            mAppendMsgButton = GameObject.Find("ButtonPanel/buttonGroup1/AppendButton").GetComponent<Button>();
-            mAppendMsgButton.onClick.AddListener(OnAppendMsgBtnClicked);
+            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
+            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            _mBackButton.onClick.AddListener(OnBackBtnClicked);
+            _mAppendMsgButton = GameObject.Find("ButtonPanel/buttonGroup1/AppendButton").GetComponent<Button>();
+            _mAppendMsgButton.onClick.AddListener(OnAppendMsgBtnClicked);
         }
 
         void OnBackBtnClicked()
@@ -43,7 +43,7 @@ namespace SuperScrollView
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;
-            if (int.TryParse(mScrollToInput.text, out itemIndex) == false)
+            if (int.TryParse(_mScrollToInput.text, out itemIndex) == false)
             {
                 return;
             }
@@ -67,7 +67,7 @@ namespace SuperScrollView
                 return null;
             }
             LoopListViewItem2 item = null;
-            if (itemData.mPersonId == 0)
+            if (itemData.MPersonId == 0)
             {
                 item = listView.NewListViewItem("ItemPrefab1");
             }

@@ -62,7 +62,7 @@ namespace EnhancedScrollerDemos.SelectionDemo
                 // remove the handler from the data so 
                 // that any changes to the data won't try
                 // to call this destroyed view's function
-                _data.selectedChanged -= SelectedChanged;
+                _data.SelectedChanged -= SelectedChanged;
             }
         }
 
@@ -78,7 +78,7 @@ namespace EnhancedScrollerDemos.SelectionDemo
             // we need to remove the handler for the selection change
             if (_data != null)
             {
-                _data.selectedChanged -= SelectedChanged;
+                _data.SelectedChanged -= SelectedChanged;
             }
 
             // link the data to the cell view
@@ -86,28 +86,28 @@ namespace EnhancedScrollerDemos.SelectionDemo
             _data = data;
 
             // update the cell view's UI
-            itemNameText.text = data.itemName;
+            itemNameText.text = data.ItemName;
 
-            if (itemCostText != null) itemCostText.text = (data.itemCost > 0 ? data.itemCost.ToString() : "-");
-            if (itemDamageText != null) itemDamageText.text = (data.itemDamage > 0 ? data.itemDamage.ToString() : "-");
-            if (itemDefenseText != null) itemDefenseText.text = (data.itemDefense > 0 ? data.itemDefense.ToString() : "-");
-            if (itemWeightText != null) itemWeightText.text = (data.itemWeight > 0 ? data.itemWeight.ToString() : "-");
+            if (itemCostText != null) itemCostText.text = (data.ItemCost > 0 ? data.ItemCost.ToString() : "-");
+            if (itemDamageText != null) itemDamageText.text = (data.ItemDamage > 0 ? data.ItemDamage.ToString() : "-");
+            if (itemDefenseText != null) itemDefenseText.text = (data.ItemDefense > 0 ? data.ItemDefense.ToString() : "-");
+            if (itemWeightText != null) itemWeightText.text = (data.ItemWeight > 0 ? data.ItemWeight.ToString() : "-");
 
             // the description is only shown on the vertical cell view
             if (isVertical)
-                itemDescriptionText.text = data.itemDescription;
+                itemDescriptionText.text = data.ItemDescription;
 
             // set up the sprite based on the sprite path and whether the
             // view is horizontal or vertical
-            image.sprite = Resources.Load<Sprite>(data.spritePath + (isVertical ? "_v" : "_h"));
+            image.sprite = Resources.Load<Sprite>(data.SpritePath + (isVertical ? "_v" : "_h"));
 
             // set up a handler so that when the data changes
             // the cell view will update accordingly. We only
             // want a single handler for this cell view, so 
             // first we remove any previous handlers before
             // adding the new one
-            _data.selectedChanged -= SelectedChanged;
-            _data.selectedChanged += SelectedChanged;
+            _data.SelectedChanged -= SelectedChanged;
+            _data.SelectedChanged += SelectedChanged;
 
             // update the selection state UI
             SelectedChanged(data.Selected);

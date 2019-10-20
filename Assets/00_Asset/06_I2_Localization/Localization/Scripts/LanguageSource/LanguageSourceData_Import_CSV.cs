@@ -6,103 +6,103 @@ namespace I2.Loc
 {
 	public partial class LanguageSourceData
 	{
-		public string Import_CSV( string Category, string CSVstring, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace, char Separator = ',' )
+		public string Import_CSV( string category, string csVstring, ESpreadsheetUpdateMode updateMode = ESpreadsheetUpdateMode.Replace, char separator = ',' )
 		{
-			List<string[]> CSV = LocalizationReader.ReadCSV (CSVstring, Separator);
-			return Import_CSV( Category, CSV, UpdateMode );
+			List<string[]> csv = LocalizationReader.ReadCsv (csVstring, separator);
+			return Import_CSV( category, csv, updateMode );
 		}
 
-		public string Import_I2CSV( string Category, string I2CSVstring, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace )
+		public string Import_I2CSV( string category, string i2CsVstring, ESpreadsheetUpdateMode updateMode = ESpreadsheetUpdateMode.Replace )
 		{
-			List<string[]> CSV = LocalizationReader.ReadI2CSV (I2CSVstring);
-			return Import_CSV( Category, CSV, UpdateMode );
+			List<string[]> csv = LocalizationReader.ReadI2Csv (i2CsVstring);
+			return Import_CSV( category, csv, updateMode );
 		}
 
-		public string Import_CSV( string Category, List<string[]> CSV, eSpreadsheetUpdateMode UpdateMode = eSpreadsheetUpdateMode.Replace )
+		public string Import_CSV( string category, List<string[]> csv, ESpreadsheetUpdateMode updateMode = ESpreadsheetUpdateMode.Replace )
 		{
-			string[] Tokens = CSV[0];
+			string[] tokens = csv[0];
 
-			int LanguagesStartIdx = 1;
-			int TypeColumnIdx = -1;
-			int DescColumnIdx = -1;
+			int languagesStartIdx = 1;
+			int typeColumnIdx = -1;
+			int descColumnIdx = -1;
 
-			var ValidColumnName_Key  = new string[]{ "Key" };
-			var ValidColumnName_Type = new string[]{ "Type" };
-			var ValidColumnName_Desc = new string[]{ "Desc", "Description" };
+			var validColumnNameKey  = new string[]{ "Key" };
+			var validColumnNameType = new string[]{ "Type" };
+			var validColumnNameDesc = new string[]{ "Desc", "Description" };
 
-			if (Tokens.Length>1 && ArrayContains(Tokens[0], ValidColumnName_Key))
+			if (tokens.Length>1 && ArrayContains(tokens[0], validColumnNameKey))
 			{
-				if (UpdateMode == eSpreadsheetUpdateMode.Replace)
+				if (updateMode == ESpreadsheetUpdateMode.Replace)
 					ClearAllData();
 
-				if (Tokens.Length>2)
+				if (tokens.Length>2)
 				{
-					if (ArrayContains(Tokens[1], ValidColumnName_Type)) 
+					if (ArrayContains(tokens[1], validColumnNameType)) 
 					{
-						TypeColumnIdx = 1;
-						LanguagesStartIdx = 2;
+						typeColumnIdx = 1;
+						languagesStartIdx = 2;
 					}
-					if (ArrayContains(Tokens[1], ValidColumnName_Desc)) 
+					if (ArrayContains(tokens[1], validColumnNameDesc)) 
 					{
-						DescColumnIdx = 1;
-						LanguagesStartIdx = 2;
+						descColumnIdx = 1;
+						languagesStartIdx = 2;
 					}
 
 				}
-				if (Tokens.Length>3)
+				if (tokens.Length>3)
 				{
-					if (ArrayContains(Tokens[2], ValidColumnName_Type)) 
+					if (ArrayContains(tokens[2], validColumnNameType)) 
 					{
-						TypeColumnIdx = 2;
-						LanguagesStartIdx = 3;
+						typeColumnIdx = 2;
+						languagesStartIdx = 3;
 					}
-					if (ArrayContains(Tokens[2], ValidColumnName_Desc)) 
+					if (ArrayContains(tokens[2], validColumnNameDesc)) 
 					{
-						DescColumnIdx = 2;
-						LanguagesStartIdx = 3;
+						descColumnIdx = 2;
+						languagesStartIdx = 3;
 					}
 				}
 			}
 			else
 				return "Bad Spreadsheet Format.\nFirst columns should be 'Key', 'Type' and 'Desc'";
 
-			int nLanguages = Mathf.Max (Tokens.Length-LanguagesStartIdx, 0);
-			int[] LanIndices = new int[nLanguages];
+			int nLanguages = Mathf.Max (tokens.Length-languagesStartIdx, 0);
+			int[] lanIndices = new int[nLanguages];
 			for (int i=0; i<nLanguages; ++i)
 			{
-				if (string.IsNullOrEmpty(Tokens[i+LanguagesStartIdx]))
+				if (string.IsNullOrEmpty(tokens[i+languagesStartIdx]))
 				{
-					LanIndices [i] = -1;
+					lanIndices [i] = -1;
 					continue;
 				}
 
-				string langToken = Tokens[i + LanguagesStartIdx];
+				string langToken = tokens[i + languagesStartIdx];
 
-				string LanName, LanCode;
+				string lanName, lanCode;
 				bool isLangEnabled = true;
 				if (langToken.StartsWith("$"))
 				{
 					isLangEnabled = false;
 					langToken = langToken.Substring(1);
 				}
-				GoogleLanguages.UnPackCodeFromLanguageName(langToken, out LanName, out LanCode);
+				GoogleLanguages.UnPackCodeFromLanguageName(langToken, out lanName, out lanCode);
 
-				int LanIdx = -1;
-				if (!string.IsNullOrEmpty(LanCode))
-					LanIdx = GetLanguageIndexFromCode(LanCode);
+				int lanIdx = -1;
+				if (!string.IsNullOrEmpty(lanCode))
+					lanIdx = GetLanguageIndexFromCode(lanCode);
 				else
-					LanIdx = GetLanguageIndex(LanName, SkipDisabled:false);
+					lanIdx = GetLanguageIndex(lanName, skipDisabled:false);
 
-				if (LanIdx < 0)
+				if (lanIdx < 0)
 				{
 					LanguageData lanData = new LanguageData();
-					lanData.Name = LanName;
-					lanData.Code = LanCode;
-					lanData.Flags = (byte)(0 | (isLangEnabled?0:(int)eLanguageDataFlags.DISABLED));
+					lanData.name = lanName;
+					lanData.code = lanCode;
+					lanData.flags = (byte)(0 | (isLangEnabled?0:(int)ELanguageDataFlags.Disabled));
 					mLanguages.Add (lanData);
-					LanIdx = mLanguages.Count-1;
+					lanIdx = mLanguages.Count-1;
 				}
-				LanIndices[i] = LanIdx;
+				lanIndices[i] = lanIdx;
 			}
 
 			//--[ Update the Languages array in the existing terms]-----
@@ -110,19 +110,19 @@ namespace I2.Loc
 			for (int i=0, imax=mTerms.Count; i<imax; ++i)
 			{
 				TermData termData = mTerms[i];
-				if (termData.Languages.Length < nLanguages)
+				if (termData.languages.Length < nLanguages)
 				{
-					Array.Resize( ref termData.Languages, nLanguages );
-					Array.Resize( ref termData.Flags, nLanguages );
+					Array.Resize( ref termData.languages, nLanguages );
+					Array.Resize( ref termData.flags, nLanguages );
 				}
 			}
 
             //--[ Keys ]--------------
 
-            for (int i = 1, imax = CSV.Count; i < imax; ++i)
+            for (int i = 1, imax = csv.Count; i < imax; ++i)
             {
-                Tokens = CSV[i];
-                string sKey = string.IsNullOrEmpty(Category) ? Tokens[0] : string.Concat(Category, "/", Tokens[0]);
+                tokens = csv[i];
+                string sKey = string.IsNullOrEmpty(category) ? tokens[0] : string.Concat(category, "/", tokens[0]);
 
                 string specialization = null;
                 if (sKey.EndsWith("]"))
@@ -145,34 +145,34 @@ namespace I2.Loc
 				if (termData==null)
 				{
 					termData = new TermData();
-					termData.Term = sKey;
+					termData.term = sKey;
 
-					termData.Languages = new string[ mLanguages.Count ];
-					termData.Flags = new byte[ mLanguages.Count ];
+					termData.languages = new string[ mLanguages.Count ];
+					termData.flags = new byte[ mLanguages.Count ];
 					for (int j=0; j<mLanguages.Count; ++j) 
-						termData.Languages[j] = string.Empty;
+						termData.languages[j] = string.Empty;
 
 					mTerms.Add (termData);
-					mDictionary.Add (sKey, termData);
+					MDictionary.Add (sKey, termData);
 				}
 				else
 				// This term already exist
-				if (UpdateMode==eSpreadsheetUpdateMode.AddNewTerms)
+				if (updateMode==ESpreadsheetUpdateMode.AddNewTerms)
 					continue;
 
-				if (TypeColumnIdx>0)
-					termData.TermType = GetTermType(Tokens[TypeColumnIdx]);
+				if (typeColumnIdx>0)
+					termData.termType = GetTermType(tokens[typeColumnIdx]);
 
-				if (DescColumnIdx>0)
-					termData.Description = Tokens[DescColumnIdx];
+				if (descColumnIdx>0)
+					termData.description = tokens[descColumnIdx];
 
-                for (int j = 0; j < LanIndices.Length && j < Tokens.Length - LanguagesStartIdx; ++j)
-                    if (!string.IsNullOrEmpty(Tokens[j + LanguagesStartIdx]))   // Only change the translation if there is a new value
+                for (int j = 0; j < lanIndices.Length && j < tokens.Length - languagesStartIdx; ++j)
+                    if (!string.IsNullOrEmpty(tokens[j + languagesStartIdx]))   // Only change the translation if there is a new value
                     {
-                        var lanIdx = LanIndices[j];
+                        var lanIdx = lanIndices[j];
                         if (lanIdx < 0)
                             continue;
-                        var value = Tokens[j + LanguagesStartIdx];
+                        var value = tokens[j + languagesStartIdx];
 
                         if (value == "-")
                             value = string.Empty;
@@ -190,21 +190,21 @@ namespace I2.Loc
             return string.Empty;
 		}
 
-		bool ArrayContains( string MainText, params string[] texts )
+		bool ArrayContains( string mainText, params string[] texts )
 		{
 			for (int i=0, imax=texts.Length; i<imax; ++i)
-				if (MainText.IndexOf(texts[i], StringComparison.OrdinalIgnoreCase)>=0)
+				if (mainText.IndexOf(texts[i], StringComparison.OrdinalIgnoreCase)>=0)
 					return true;
 			return false;
 		}
 
-		public static eTermType GetTermType( string type )
+		public static ETermType GetTermType( string type )
 		{
-			for (int i=0, imax=(int)eTermType.Object; i<=imax; ++i)
-				if (string.Equals( ((eTermType)i).ToString(), type, StringComparison.OrdinalIgnoreCase))
-					return (eTermType)i;
+			for (int i=0, imax=(int)ETermType.Object; i<=imax; ++i)
+				if (string.Equals( ((ETermType)i).ToString(), type, StringComparison.OrdinalIgnoreCase))
+					return (ETermType)i;
 			
-			return eTermType.Text;
+			return ETermType.Text;
 		}
 
         #region Language Cache format
@@ -242,7 +242,7 @@ namespace I2.Loc
                             translation = SpecializationManager.GetSpecializedText(translation, null);
                         }
                     }
-                    termData.Languages[langIndex] = translation;
+                    termData.languages[langIndex] = translation;
                 }
                 index = nextIndex + 5;
             }

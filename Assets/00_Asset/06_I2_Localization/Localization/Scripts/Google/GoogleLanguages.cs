@@ -4,65 +4,65 @@ using System.Collections.Generic;
 
 namespace I2.Loc
 {
-	public enum ePluralType { Zero, One, Two, Few, Many, Plural };
+	public enum EPluralType { Zero, One, Two, Few, Many, Plural };
 
     public static class GoogleLanguages
     {
-        public static string GetLanguageCode(string Filter, bool ShowWarnings = false)
+        public static string GetLanguageCode(string filter, bool showWarnings = false)
         {
-            if (string.IsNullOrEmpty(Filter))
+            if (string.IsNullOrEmpty(filter))
                 return string.Empty;
 
-            string[] Filters = Filter.ToLowerInvariant().Split(" /(),".ToCharArray());
+            string[] filters = filter.ToLowerInvariant().Split(" /(),".ToCharArray());
 
-            foreach (var kvp in mLanguageDef)
-                if (LanguageMatchesFilter(kvp.Key, Filters))
+            foreach (var kvp in MLanguageDef)
+                if (LanguageMatchesFilter(kvp.Key, filters))
                     return kvp.Value.Code;
 
-            if (ShowWarnings)
-                Debug.Log(string.Format("Language '{0}' not recognized. Please, add the language code to GoogleTranslation.cs", Filter));
+            if (showWarnings)
+                Debug.Log(string.Format("Language '{0}' not recognized. Please, add the language code to GoogleTranslation.cs", filter));
             return string.Empty;
         }
 
 
-        public static List<string> GetLanguagesForDropdown(string Filter, string CodesToExclude)
+        public static List<string> GetLanguagesForDropdown(string filter, string codesToExclude)
         {
-            string[] Filters = Filter.ToLowerInvariant().Split(" /(),".ToCharArray());
+            string[] filters = filter.ToLowerInvariant().Split(" /(),".ToCharArray());
 
-            List<string> Languages = new List<string>();
+            List<string> languages = new List<string>();
 
-            foreach (var kvp in mLanguageDef)
-                if (string.IsNullOrEmpty(Filter) || LanguageMatchesFilter(kvp.Key, Filters))
+            foreach (var kvp in MLanguageDef)
+                if (string.IsNullOrEmpty(filter) || LanguageMatchesFilter(kvp.Key, filters))
                 {
                     string code = string.Concat("[" + kvp.Value.Code + "]");
-                    if (!CodesToExclude.Contains(code))
-                        Languages.Add(kvp.Key + " " + code);
+                    if (!codesToExclude.Contains(code))
+                        languages.Add(kvp.Key + " " + code);
                 }
 
             // Add headers to variants (e.g. "English/English"  before all English variants
-            for (int i = Languages.Count - 2; i >= 0; --i)
+            for (int i = languages.Count - 2; i >= 0; --i)
             {
-                string Prefix = Languages[i].Substring(0, Languages[i].IndexOf(" ["));
-                if (Languages[i + 1].StartsWith(Prefix))
+                string prefix = languages[i].Substring(0, languages[i].IndexOf(" ["));
+                if (languages[i + 1].StartsWith(prefix))
                 {
-                    Languages[i] = Prefix + "/" + Languages[i];
-                    Languages.Insert(i + 1, Prefix + "/");
+                    languages[i] = prefix + "/" + languages[i];
+                    languages.Insert(i + 1, prefix + "/");
                 }
             }
-            return Languages;
+            return languages;
         }
 
         // "Engl Unit" matches "English/United States"
-        static bool LanguageMatchesFilter(string Language, string[] Filters)
+        static bool LanguageMatchesFilter(string language, string[] filters)
         {
-            Language = Language.ToLowerInvariant();
-            for (int i = 0, imax = Filters.Length; i < imax; ++i)
-                if (Filters[i] != "")
+            language = language.ToLowerInvariant();
+            for (int i = 0, imax = filters.Length; i < imax; ++i)
+                if (filters[i] != "")
                 {
-                    if (!Language.Contains(Filters[i].ToLower()))
+                    if (!language.Contains(filters[i].ToLower()))
                         return false;
                     else
-                        Language = Language.Remove(Language.IndexOf(Filters[i]), Filters[i].Length);
+                        language = language.Remove(language.IndexOf(filters[i]), filters[i].Length);
                 }
             return true;
         }
@@ -70,77 +70,77 @@ namespace I2.Loc
 
         // "Arabic/Algeria [ar-XX]" returns "Arabic (Algeria)"
         // "English/English [en]" returns "English"
-        public static string GetFormatedLanguageName(string Language)
+        public static string GetFormatedLanguageName(string language)
         {
-            string BaseLanguage = string.Empty;
+            string baseLanguage = string.Empty;
 
             //-- Remove code --------
-            int Index = Language.IndexOf(" [");
-            if (Index > 0)
-                Language = Language.Substring(0, Index);
+            int index = language.IndexOf(" [");
+            if (index > 0)
+                language = language.Substring(0, index);
 
             //-- Check for main language: "English/English [en]" returns "English" -----------
-            Index = Language.IndexOf('/');
-            if (Index > 0)
+            index = language.IndexOf('/');
+            if (index > 0)
             {
-                BaseLanguage = Language.Substring(0, Index);
-                if (Language == (BaseLanguage + "/" + BaseLanguage))
-                    return BaseLanguage;
+                baseLanguage = language.Substring(0, index);
+                if (language == (baseLanguage + "/" + baseLanguage))
+                    return baseLanguage;
 
                 //-- Convert variants into right format
-                Language = Language.Replace("/", " (") + ")";
+                language = language.Replace("/", " (") + ")";
             }
 
-            return Language;
+            return language;
         }
 
         // English British   ->   "English Canada [en-CA]"
-        public static string GetCodedLanguage(string Language, string code)
+        public static string GetCodedLanguage(string language, string code)
         {
-            string DefaultCode = GetLanguageCode(Language, false);
-            if (string.Compare(code, DefaultCode, StringComparison.OrdinalIgnoreCase) == 0)
-                return Language;
-            return string.Concat(Language, " [", code, "]");
+            string defaultCode = GetLanguageCode(language, false);
+            if (string.Compare(code, defaultCode, StringComparison.OrdinalIgnoreCase) == 0)
+                return language;
+            return string.Concat(language, " [", code, "]");
         }
 
         // "English Canada [en-CA]" ->  "English Canada", "en-CA"
-        public static void UnPackCodeFromLanguageName(string CodedLanguage, out string Language, out string code)
+        public static void UnPackCodeFromLanguageName(string codedLanguage, out string language, out string code)
         {
-            if (string.IsNullOrEmpty(CodedLanguage))
+            if (string.IsNullOrEmpty(codedLanguage))
             {
-                Language = string.Empty;
+                language = string.Empty;
                 code = string.Empty;
                 return;
             }
-            int Index = CodedLanguage.IndexOf("[");
-            if (Index < 0)
+            int index = codedLanguage.IndexOf("[");
+            if (index < 0)
             {
-                Language = CodedLanguage;
-                code = GetLanguageCode(Language);
+                language = codedLanguage;
+                code = GetLanguageCode(language);
             }
             else
             {
-                Language = CodedLanguage.Substring(0, Index).Trim();
-                code = CodedLanguage.Substring(Index + 1, CodedLanguage.IndexOf("]", Index) - Index - 1);
+                language = codedLanguage.Substring(0, index).Trim();
+                code = codedLanguage.Substring(index + 1, codedLanguage.IndexOf("]", index) - index - 1);
             }
         }
 
-        public static string GetGoogleLanguageCode(string InternationalCode)
+        public static string GetGoogleLanguageCode(string internationalCode)
         {
-            foreach (var kvp in mLanguageDef)
-                if (InternationalCode == kvp.Value.Code)
+            foreach (var kvp in MLanguageDef)
+                if (internationalCode == kvp.Value.Code)
                 {
                     if (kvp.Value.GoogleCode == "-")
                         return null;
-                    return (!string.IsNullOrEmpty(kvp.Value.GoogleCode)) ? kvp.Value.GoogleCode : InternationalCode;
+                    return (!string.IsNullOrEmpty(kvp.Value.GoogleCode)) ? kvp.Value.GoogleCode : internationalCode;
                 }
 
-            return InternationalCode;
+            return internationalCode;
         }
 
         public static string GetLanguageName(string code, bool useParenthesesForRegion=false, bool allowDiscardRegion=true)
         {
-            foreach (var kvp in mLanguageDef)
+            foreach (var kvp in MLanguageDef)
                 if (code == kvp.Value.Code)
                 {
                     var langName = kvp.Key;
@@ -166,7 +166,7 @@ namespace I2.Loc
         {
             var set = new HashSet<string>();
 
-            foreach (var kvp in mLanguageDef)
+            foreach (var kvp in MLanguageDef)
                 set.Add(kvp.Value.Code);
 
             return new List<string>(set);
@@ -174,7 +174,7 @@ namespace I2.Loc
 
         public static bool LanguageCode_HasJoinedWord(string languageCode)
         {
-            foreach (var kvp in mLanguageDef)
+            foreach (var kvp in MLanguageDef)
                 if (languageCode == kvp.Value.GoogleCode || languageCode==kvp.Value.Code )
                     return kvp.Value.HasJoinedWords;
 
@@ -189,7 +189,7 @@ namespace I2.Loc
             public int PluralRule;
         }
 
-        public static Dictionary<string, LanguageCodeDef> mLanguageDef = new Dictionary<string, LanguageCodeDef>(StringComparer.Ordinal)  
+        public static Dictionary<string, LanguageCodeDef> MLanguageDef = new Dictionary<string, LanguageCodeDef>(StringComparer.Ordinal)  
 		{
             /**/{"Abkhazian",                           new LanguageCodeDef(){PluralRule=1, Code="ab", GoogleCode="-"}},
             /**/{"Afar",                                new LanguageCodeDef(){PluralRule=1, Code="aa", GoogleCode="-"}},
@@ -471,7 +471,7 @@ namespace I2.Loc
 				langCode = langCode.Substring(0, 2);
 			langCode = langCode.ToLower();
 
-			foreach (var kvp in mLanguageDef)
+			foreach (var kvp in MLanguageDef)
 				if (kvp.Value.Code == langCode) 
 				{
 					return kvp.Value.PluralRule;
@@ -522,112 +522,112 @@ namespace I2.Loc
 		}
 
 		// https://developer.mozilla.org/en-US/docs/Mozilla/Localization/Localization_and_Plurals
-		public static ePluralType GetPluralType( string langCode, int n )
+		public static EPluralType GetPluralType( string langCode, int n )
 		{
-			if (n == 0) return ePluralType.Zero;
-			if (n == 1) return ePluralType.One;
+			if (n == 0) return EPluralType.Zero;
+			if (n == 1) return EPluralType.One;
 
 			int rule = GetPluralRule (langCode);
 
 			switch (rule) 
 			{
 				case 0: 	// Families: Asian (Chinese, Japanese, Korean), Persian, Turkic/Altaic (Turkish), Thai, Lao
-						 	return ePluralType.Plural;
+						 	return EPluralType.Plural;
 
 				case 1:  	// Families: Germanic (Danish, Dutch, English, Faroese, Frisian, German, Norwegian, Swedish), Finno-Ugric (Estonian, Finnish, Hungarian), Language isolate (Basque), Latin/Greek (Greek), Semitic (Hebrew), Romanic (Italian, Portuguese, Spanish, Catalan), Vietnamese
-						 	return (n==1) ? ePluralType.One : ePluralType.Plural;
+						 	return (n==1) ? EPluralType.One : EPluralType.Plural;
 
 				case 2:	 	// Families: Romanic (French, Brazilian Portuguese)
-						 	return (n<=1) ? ePluralType.One : ePluralType.Plural;
+						 	return (n<=1) ? EPluralType.One : EPluralType.Plural;
 
 				case 3:	 	// Celtic (Scottish Gaelic)
-							return 	(n==1 || n==11) ? ePluralType.One : 
-									(n==2 || n==12) ? ePluralType.Two : 
-									(inRange(n,3,10) || inRange(n,13,19)) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n==1 || n==11) ? EPluralType.One : 
+									(n==2 || n==12) ? EPluralType.Two : 
+									(InRange(n,3,10) || InRange(n,13,19)) ? EPluralType.Few : EPluralType.Plural;
 
 				case 4:		// Families: Romanic (Romanian)
-							return 	(n==1) ? ePluralType.One : 
-									inRange(n%100, 1, 19) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n==1) ? EPluralType.One : 
+									InRange(n%100, 1, 19) ? EPluralType.Few : EPluralType.Plural;
 
 				case 5:		// Families: Baltic (Latvian, Lithuanian)
-							return 	(n%10==1 && n%100!=11) ? ePluralType.One : 
-									(n%10>=2 && (n%100<10 || n%100>=20)) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n%10==1 && n%100!=11) ? EPluralType.One : 
+									(n%10>=2 && (n%100<10 || n%100>=20)) ? EPluralType.Few : EPluralType.Plural;
 
 				case 6: 	// Families: Slavic (Belarusian, Bosnian, Croatian, Serbian, Russian, Ukrainian)
-							return 	(n % 10 == 1 && n % 100 != 11) ? ePluralType.One : 
-									(inRange (n%10,2,4) && !inRange (n%100,12,14)) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n % 10 == 1 && n % 100 != 11) ? EPluralType.One : 
+									(InRange (n%10,2,4) && !InRange (n%100,12,14)) ? EPluralType.Few : EPluralType.Plural;
 
 				case 7: 	// Families: Slavic (Slovak, Czech)
-							return 	(n==1) ? ePluralType.One : 
-									inRange(n,2,4) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n==1) ? EPluralType.One : 
+									InRange(n,2,4) ? EPluralType.Few : EPluralType.Plural;
 
 				case 8:		// Families: Slavic (Polish)
-							return 	(n==1) ? ePluralType.One : 
-									(inRange (n%10,2,4) && !inRange (n%100,12,14)) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n==1) ? EPluralType.One : 
+									(InRange (n%10,2,4) && !InRange (n%100,12,14)) ? EPluralType.Few : EPluralType.Plural;
 
 				case 9:	// Families: Slavic (Slovenian, Sorbian)
-							return 	(n%100==1) ? ePluralType.One : 
-									(n%100==2) ? ePluralType.Two : 
-									inRange(n%100,3,4) ? ePluralType.Few : ePluralType.Plural;
+							return 	(n%100==1) ? EPluralType.One : 
+									(n%100==2) ? EPluralType.Two : 
+									InRange(n%100,3,4) ? EPluralType.Few : EPluralType.Plural;
 
 				case 10:	// Families: Celtic (Irish Gaelic)
-							return 	(n==1) ? ePluralType.One : 
-									(n==2) ? ePluralType.Two : 
-									inRange(n, 3,6) ? ePluralType.Few :
-									inRange(n, 7,10)? ePluralType.Many : ePluralType.Plural;
+							return 	(n==1) ? EPluralType.One : 
+									(n==2) ? EPluralType.Two : 
+									InRange(n, 3,6) ? EPluralType.Few :
+									InRange(n, 7,10)? EPluralType.Many : EPluralType.Plural;
 
 				case 11: 	// Families: Semitic (Arabic)
-							return 	(n==0) ? ePluralType.Zero : 
-									(n==1) ? ePluralType.One : 
-									(n==2) ? ePluralType.Two : 
-									inRange(n%100,3,10) ? ePluralType.Few : 
-									(n%100>=11) ? ePluralType.Many : ePluralType.Plural;
+							return 	(n==0) ? EPluralType.Zero : 
+									(n==1) ? EPluralType.One : 
+									(n==2) ? EPluralType.Two : 
+									InRange(n%100,3,10) ? EPluralType.Few : 
+									(n%100>=11) ? EPluralType.Many : EPluralType.Plural;
 
 				case 12: // Families: Semitic (Maltese)
-						return 	(n==1) ? ePluralType.One : 
-								inRange(n%100, 1, 10) ? ePluralType.Few : 
-								inRange(n%100, 11,19) ? ePluralType.Many : ePluralType.Plural;
+						return 	(n==1) ? EPluralType.One : 
+								InRange(n%100, 1, 10) ? EPluralType.Few : 
+								InRange(n%100, 11,19) ? EPluralType.Many : EPluralType.Plural;
 
 				case 13: // Families: Slavic (Macedonian)
-						return 	(n % 10 == 1) ? ePluralType.One :
-								(n % 10 == 2) ? ePluralType.Two : ePluralType.Plural;
+						return 	(n % 10 == 1) ? EPluralType.One :
+								(n % 10 == 2) ? EPluralType.Two : EPluralType.Plural;
 
 				case 14: // Plural rule #15 (2 forms)
-						return 	(n%10==1 && n%100!=11) ? ePluralType.One : ePluralType.Plural;
+						return 	(n%10==1 && n%100!=11) ? EPluralType.One : EPluralType.Plural;
 
 				case 15: // Families: Celtic (Breton)
-						return 	(n % 10 == 1 && (n % 100 != 11 && n % 100 != 71 && n % 100 != 91)) ? ePluralType.One : 
-								(n % 10 == 2 && (n % 100 != 12 && n % 100 != 72 && n % 100 != 92)) ? ePluralType.Two : 
-								((n % 10 == 3 || n % 10 == 4 || n % 10 == 9) && (n % 100 != 13 && n % 100 != 14 && n % 100 != 19 && n % 100 != 73 && n % 100 != 74 && n % 100 != 79 && n % 100 != 93 && n % 100 != 94 && n % 100 != 99)) ? ePluralType.Few : 
-								(n%1000000==0) ? ePluralType.Many : ePluralType.Plural;
+						return 	(n % 10 == 1 && (n % 100 != 11 && n % 100 != 71 && n % 100 != 91)) ? EPluralType.One : 
+								(n % 10 == 2 && (n % 100 != 12 && n % 100 != 72 && n % 100 != 92)) ? EPluralType.Two : 
+								((n % 10 == 3 || n % 10 == 4 || n % 10 == 9) && (n % 100 != 13 && n % 100 != 14 && n % 100 != 19 && n % 100 != 73 && n % 100 != 74 && n % 100 != 79 && n % 100 != 93 && n % 100 != 94 && n % 100 != 99)) ? EPluralType.Few : 
+								(n%1000000==0) ? EPluralType.Many : EPluralType.Plural;
 
 				case 16: // Families: (Welsh)
-						return 	(n==0) ? ePluralType.Zero : 
-								(n==1) ? ePluralType.One : 
-								(n==2) ? ePluralType.Two : 
-								(n==3) ? ePluralType.Few : 
-								(n==6) ? ePluralType.Many : ePluralType.Plural;
+						return 	(n==0) ? EPluralType.Zero : 
+								(n==1) ? EPluralType.One : 
+								(n==2) ? EPluralType.Two : 
+								(n==3) ? EPluralType.Few : 
+								(n==6) ? EPluralType.Many : EPluralType.Plural;
 
 			}
 
-			return ePluralType.Plural;
+			return EPluralType.Plural;
 		}
 
 		// A number that belong to the pluralType form
-		public static int GetPluralTestNumber( string langCode, ePluralType pluralType )
+		public static int GetPluralTestNumber( string langCode, EPluralType pluralType )
 		{
 			switch (pluralType) 
 			{
-				case ePluralType.Zero:
+				case EPluralType.Zero:
 					return 0;
 
-				case ePluralType.One:
+				case EPluralType.One:
 					return 1;
 
-				case ePluralType.Few:
+				case EPluralType.Few:
 					return 3;
 
-				case ePluralType.Many:
+				case EPluralType.Many:
 				{
 					int rule = GetPluralRule (langCode);
 					if (rule == 10) return 8;
@@ -641,7 +641,7 @@ namespace I2.Loc
 			}
 		}
 
-		static bool inRange(int amount, int min, int max)
+		static bool InRange(int amount, int min, int max)
 		{
 			return amount >= min && amount <= max;
 		}

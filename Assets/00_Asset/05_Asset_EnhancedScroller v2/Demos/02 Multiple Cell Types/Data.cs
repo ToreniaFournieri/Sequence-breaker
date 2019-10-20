@@ -20,7 +20,7 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
         /// <summary>
         /// The category of header for the group
         /// </summary>
-        public string category;
+        public string Category;
     }
 
     /// <summary>
@@ -31,17 +31,17 @@ namespace EnhancedScrollerDemos.MultipleCellTypesDemo
         /// <summary>
         /// The name of the user
         /// </summary>
-        public string userName;
+        public string UserName;
 
         /// <summary>
         /// The user avatar's path to the sprite resource
         /// </summary>
-        public string userAvatarSpritePath;
+        public string UserAvatarSpritePath;
 
         /// <summary>
         /// The user's high score
         /// </summary>
-        public ulong userHighScore;
+        public ulong UserHighScore;
     }
 
     /// <summary>

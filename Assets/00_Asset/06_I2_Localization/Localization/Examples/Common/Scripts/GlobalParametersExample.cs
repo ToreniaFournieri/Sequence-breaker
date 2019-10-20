@@ -3,12 +3,12 @@
 
     public class GlobalParametersExample : RegisterGlobalParameters
 	{
-		public override string GetParameterValue( string ParamName )
+		public override string GetParameterValue( string paramName )
         {
-            if (ParamName == "WINNER")
+            if (paramName == "WINNER")
                 return "Javier";            // For your game, get this value from your Game Manager
             
-            if (ParamName == "NUM PLAYERS")
+            if (paramName == "NUM PLAYERS")
                 return 5.ToString();
 
             return null;

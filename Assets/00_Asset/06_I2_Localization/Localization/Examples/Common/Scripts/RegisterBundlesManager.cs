@@ -2,19 +2,19 @@
 
 namespace I2.Loc
 {
-    public class RegisterBundlesManager : MonoBehaviour, IResourceManager_Bundles
+    public class RegisterBundlesManager : MonoBehaviour, IResourceManagerBundles
 	{
 		public void OnEnable()
 		{
-            if (!ResourceManager.pInstance.mBundleManagers.Contains(this))
+            if (!ResourceManager.PInstance.mBundleManagers.Contains(this))
             {
-                ResourceManager.pInstance.mBundleManagers.Add(this);
+                ResourceManager.PInstance.mBundleManagers.Add(this);
             }
 		}
 
         public void OnDisable()
         {
-            ResourceManager.pInstance.mBundleManagers.Remove(this);
+            ResourceManager.PInstance.mBundleManagers.Remove(this);
         }
 
         public virtual Object LoadFromBundle(string path, System.Type assetType)

@@ -22,41 +22,41 @@ namespace I2.Loc
 
     public static partial class GoogleTranslation
 	{
-        public static void CreateQueries(string text, string LanguageCodeFrom, string LanguageCodeTo, TranslationDictionary dict)
+        public static void CreateQueries(string text, string languageCodeFrom, string languageCodeTo, TranslationDictionary dict)
         {
             if (!text.Contains("[i2s_"))
             {
-                CreateQueries_Plurals(text, LanguageCodeFrom, LanguageCodeTo, dict);
+                CreateQueries_Plurals(text, languageCodeFrom, languageCodeTo, dict);
                 return;
             }
 
             var variants = SpecializationManager.GetSpecializations(text);
             foreach (var kvp in variants)
             {
-                CreateQueries_Plurals(kvp.Value, LanguageCodeFrom, LanguageCodeTo, dict);
+                CreateQueries_Plurals(kvp.Value, languageCodeFrom, languageCodeTo, dict);
             }
         }
 
-        static void CreateQueries_Plurals(string text, string LanguageCodeFrom, string LanguageCodeTo, TranslationDictionary dict)
+        static void CreateQueries_Plurals(string text, string languageCodeFrom, string languageCodeTo, TranslationDictionary dict)
         {
             bool hasPluralParams = text.Contains("{[#");
             bool hasPluralTypes = text.Contains("[i2p_");
             if (!HasParameters(text) || (!hasPluralParams && !hasPluralTypes))
             {
-                AddQuery(text, LanguageCodeFrom, LanguageCodeTo, dict);
+                AddQuery(text, languageCodeFrom, languageCodeTo, dict);
                 return;
             }
 
             bool forcePluralParam = hasPluralParams;
 
-            for (var i = (ePluralType)0; i <= ePluralType.Plural; ++i)
+            for (var i = (EPluralType)0; i <= EPluralType.Plural; ++i)
             {
                 var pluralType = i.ToString();
-                if (!GoogleLanguages.LanguageHasPluralType(LanguageCodeTo, pluralType))
+                if (!GoogleLanguages.LanguageHasPluralType(languageCodeTo, pluralType))
                     continue;
 
                 var newText = GetPluralText(text, pluralType);
-                int testNumber = GoogleLanguages.GetPluralTestNumber(LanguageCodeTo, i);
+                int testNumber = GoogleLanguages.GetPluralTestNumber(languageCodeTo, i);
 
                 var parameter = GetPluralParameter(newText, forcePluralParam);
                 if (!string.IsNullOrEmpty(parameter))
@@ -64,11 +64,11 @@ namespace I2.Loc
 
                 //Debug.Log("Translate: " + newText);
 
-                AddQuery(newText, LanguageCodeFrom, LanguageCodeTo, dict);
+                AddQuery(newText, languageCodeFrom, languageCodeTo, dict);
             }
         }
 
-        public static void AddQuery(string text, string LanguageCodeFrom, string LanguageCodeTo, TranslationDictionary dict)
+        public static void AddQuery(string text, string languageCodeFrom, string languageCodeTo, TranslationDictionary dict)
         {
             if (string.IsNullOrEmpty(text))
                 return;
@@ -76,7 +76,7 @@ namespace I2.Loc
 
             if (!dict.ContainsKey(text))
             {
-                var query = new TranslationQuery() { OrigText = text, LanguageCode = LanguageCodeFrom, TargetLanguagesCode = new string[] { LanguageCodeTo } };
+                var query = new TranslationQuery() { OrigText = text, LanguageCode = languageCodeFrom, TargetLanguagesCode = new string[] { languageCodeTo } };
                 query.Text = text;
                 ParseNonTranslatableElements(ref query);
                 dict[text] = query;
@@ -84,21 +84,21 @@ namespace I2.Loc
             else
             {
                 var query = dict[text];
-                if (System.Array.IndexOf(query.TargetLanguagesCode, LanguageCodeTo) < 0)
+                if (System.Array.IndexOf(query.TargetLanguagesCode, languageCodeTo) < 0)
                 {
-                    query.TargetLanguagesCode = query.TargetLanguagesCode.Concat(new string[] { LanguageCodeTo }).Distinct().ToArray();
+                    query.TargetLanguagesCode = query.TargetLanguagesCode.Concat(new string[] { languageCodeTo }).Distinct().ToArray();
                 }
                 dict[text] = query;
             }
         }
 
-        static string GetTranslation(string text, string LanguageCodeTo, TranslationDictionary dict)
+        static string GetTranslation(string text, string languageCodeTo, TranslationDictionary dict)
         {
             if (!dict.ContainsKey(text))
                 return null;
             var query = dict[text];
 
-            int langIdx = System.Array.IndexOf(query.TargetLanguagesCode, LanguageCodeTo);
+            int langIdx = System.Array.IndexOf(query.TargetLanguagesCode, languageCodeTo);
             if (langIdx < 0)
                 return "";
 
@@ -252,7 +252,7 @@ namespace I2.Loc
             query.Tags = finalTags.ToArray();
         }
 
-        public static string GetQueryResult(string text, string LanguageCodeTo, TranslationDictionary dict)
+        public static string GetQueryResult(string text, string languageCodeTo, TranslationDictionary dict)
         {
             if (!dict.ContainsKey(text))
                 return null;
@@ -261,21 +261,21 @@ namespace I2.Loc
             if (query.Results == null || query.Results.Length < 0)
                 return null;
 
-            if (string.IsNullOrEmpty(LanguageCodeTo))
+            if (string.IsNullOrEmpty(languageCodeTo))
                 return query.Results[0];
 
-            int idx = System.Array.IndexOf(query.TargetLanguagesCode, LanguageCodeTo);
+            int idx = System.Array.IndexOf(query.TargetLanguagesCode, languageCodeTo);
             if (idx < 0)
                 return null;
 
             return query.Results[idx];
         }
 
-        public static string RebuildTranslation(string text, TranslationDictionary dict, string LanguageCodeTo)
+        public static string RebuildTranslation(string text, TranslationDictionary dict, string languageCodeTo)
         {
             if (!text.Contains("[i2s_"))
             {
-                return RebuildTranslation_Plural(text, dict, LanguageCodeTo);
+                return RebuildTranslation_Plural(text, dict, languageCodeTo);
             }
 
             var variants = SpecializationManager.GetSpecializations(text);
@@ -283,18 +283,18 @@ namespace I2.Loc
 
             foreach (var kvp in variants)
             {
-                results[kvp.Key] = RebuildTranslation_Plural(kvp.Value, dict, LanguageCodeTo);
+                results[kvp.Key] = RebuildTranslation_Plural(kvp.Value, dict, languageCodeTo);
             }
             return SpecializationManager.SetSpecializedText(results);
         }
 
-        static string RebuildTranslation_Plural( string text, TranslationDictionary dict, string LanguageCodeTo )
+        static string RebuildTranslation_Plural( string text, TranslationDictionary dict, string languageCodeTo )
 		{
             bool hasPluralParams = text.Contains("{[#");
             bool hasPluralTypes = text.Contains("[i2p_");
             if (!HasParameters(text) || (!hasPluralParams && !hasPluralTypes))
             {
-				return GetTranslation (text, LanguageCodeTo, dict);
+				return GetTranslation (text, languageCodeTo, dict);
 			}
 
             var sb = new System.Text.StringBuilder();
@@ -303,25 +303,25 @@ namespace I2.Loc
             bool forcePluralParam = hasPluralParams;
 
 
-            for (var i = ePluralType.Plural; i >= (ePluralType)0; --i)
+            for (var i = EPluralType.Plural; i >= (EPluralType)0; --i)
             {
                 var pluralType = i.ToString();
-                if (!GoogleLanguages.LanguageHasPluralType(LanguageCodeTo, pluralType))
+                if (!GoogleLanguages.LanguageHasPluralType(languageCodeTo, pluralType))
                     continue;
 
                 var newText = GetPluralText(text, pluralType);
-                int testNumber = GoogleLanguages.GetPluralTestNumber(LanguageCodeTo, i);
+                int testNumber = GoogleLanguages.GetPluralTestNumber(languageCodeTo, i);
 
                 var parameter = GetPluralParameter(newText, forcePluralParam);
                 if (!string.IsNullOrEmpty(parameter))
                     newText = newText.Replace(parameter, testNumber.ToString());
 
-                var translation = GetTranslation(newText, LanguageCodeTo, dict);
+                var translation = GetTranslation(newText, languageCodeTo, dict);
                 //Debug.LogFormat("from: {0}  ->  {1}", newText, translation);
                 if (!string.IsNullOrEmpty(parameter))
                     translation = translation.Replace(testNumber.ToString(), parameter);
 
-                if (i==ePluralType.Plural)
+                if (i==EPluralType.Plural)
                 {
                     pluralTranslation = translation;
                 }

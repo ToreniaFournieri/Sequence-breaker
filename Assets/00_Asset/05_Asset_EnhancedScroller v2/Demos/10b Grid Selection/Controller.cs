@@ -62,7 +62,7 @@ namespace EnhancedScrollerDemos.GridSelection
             {
                 for (var i = 0; i < _data.Count; i++)
                 {
-                    _data[i].selectedChanged = null;
+                    _data[i].SelectedChanged = null;
                 }
             }
 
@@ -70,7 +70,7 @@ namespace EnhancedScrollerDemos.GridSelection
             _data = new SmallList<Data>();
             for (var i = 0; i < 1000; i ++)
             {
-                _data.Add(new Data() { someText = i.ToString() });
+                _data.Add(new Data() { SomeText = i.ToString() });
             }
 
             // tell the scroller to reload now that we have the data

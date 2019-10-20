@@ -8,60 +8,60 @@ namespace SuperScrollView
     public class LoopGridViewItem : MonoBehaviour
     {
         // indicates the item’s index in the list the mItemIndex can only be from 0 to itemTotalCount -1.
-        int mItemIndex = -1;
+        int _mItemIndex = -1;
         // the row index, the item is in. starting from 0.
-        int mRow = -1;
+        int _mRow = -1;
         // the column index, the item is in. starting from 0.
-        int mColumn = -1;
+        int _mColumn = -1;
         //indicates the item’s id. 
         //This property is set when the item is created or fetched from pool, 
         //and will no longer change until the item is recycled back to pool.
-        int mItemId = -1;
-        LoopGridView mParentGridView = null;
-        bool mIsInitHandlerCalled = false;
-        string mItemPrefabName;
-        RectTransform mCachedRectTransform;
-        int mItemCreatedCheckFrameCount = 0;
+        int _mItemId = -1;
+        LoopGridView _mParentGridView = null;
+        bool _mIsInitHandlerCalled = false;
+        string _mItemPrefabName;
+        RectTransform _mCachedRectTransform;
+        int _mItemCreatedCheckFrameCount = 0;
 
-        object mUserObjectData = null;
-        int mUserIntData1 = 0;
-        int mUserIntData2 = 0;
-        string mUserStringData1 = null;
-        string mUserStringData2 = null;
+        object _mUserObjectData = null;
+        int _mUserIntData1 = 0;
+        int _mUserIntData2 = 0;
+        string _mUserStringData1 = null;
+        string _mUserStringData2 = null;
 
-        LoopGridViewItem mPrevItem;
-        LoopGridViewItem mNextItem;
+        LoopGridViewItem _mPrevItem;
+        LoopGridViewItem _mNextItem;
 
         public object UserObjectData
         {
-            get { return mUserObjectData; }
-            set { mUserObjectData = value; }
+            get { return _mUserObjectData; }
+            set { _mUserObjectData = value; }
         }
         public int UserIntData1
         {
-            get { return mUserIntData1; }
-            set { mUserIntData1 = value; }
+            get { return _mUserIntData1; }
+            set { _mUserIntData1 = value; }
         }
         public int UserIntData2
         {
-            get { return mUserIntData2; }
-            set { mUserIntData2 = value; }
+            get { return _mUserIntData2; }
+            set { _mUserIntData2 = value; }
         }
         public string UserStringData1
         {
-            get { return mUserStringData1; }
-            set { mUserStringData1 = value; }
+            get { return _mUserStringData1; }
+            set { _mUserStringData1 = value; }
         }
         public string UserStringData2
         {
-            get { return mUserStringData2; }
-            set { mUserStringData2 = value; }
+            get { return _mUserStringData2; }
+            set { _mUserStringData2 = value; }
         }
 
         public int ItemCreatedCheckFrameCount
         {
-            get { return mItemCreatedCheckFrameCount; }
-            set { mItemCreatedCheckFrameCount = value; }
+            get { return _mItemCreatedCheckFrameCount; }
+            set { _mItemCreatedCheckFrameCount = value; }
         }
 
 
@@ -69,11 +69,11 @@ namespace SuperScrollView
         {
             get
             {
-                if (mCachedRectTransform == null)
+                if (_mCachedRectTransform == null)
                 {
-                    mCachedRectTransform = gameObject.GetComponent<RectTransform>();
+                    _mCachedRectTransform = gameObject.GetComponent<RectTransform>();
                 }
-                return mCachedRectTransform;
+                return _mCachedRectTransform;
             }
         }
 
@@ -81,11 +81,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemPrefabName;
+                return _mItemPrefabName;
             }
             set
             {
-                mItemPrefabName = value;
+                _mItemPrefabName = value;
             }
         }
 
@@ -93,22 +93,22 @@ namespace SuperScrollView
         {
             get
             {
-                return mRow;
+                return _mRow;
             }
             set
             {
-                mRow = value;
+                _mRow = value;
             }
         }
         public int Column
         {
             get
             {
-                return mColumn;
+                return _mColumn;
             }
             set
             {
-                mColumn = value;
+                _mColumn = value;
             }
         }
 
@@ -116,22 +116,22 @@ namespace SuperScrollView
         {
             get
             {
-                return mItemIndex;
+                return _mItemIndex;
             }
             set
             {
-                mItemIndex = value;
+                _mItemIndex = value;
             }
         }
         public int ItemId
         {
             get
             {
-                return mItemId;
+                return _mItemId;
             }
             set
             {
-                mItemId = value;
+                _mItemId = value;
             }
         }
 
@@ -140,11 +140,11 @@ namespace SuperScrollView
         {
             get
             {
-                return mIsInitHandlerCalled;
+                return _mIsInitHandlerCalled;
             }
             set
             {
-                mIsInitHandlerCalled = value;
+                _mIsInitHandlerCalled = value;
             }
         }
 
@@ -152,23 +152,23 @@ namespace SuperScrollView
         {
             get
             {
-                return mParentGridView;
+                return _mParentGridView;
             }
             set
             {
-                mParentGridView = value;
+                _mParentGridView = value;
             }
         }
 
         public LoopGridViewItem PrevItem
         {
-            get { return mPrevItem; }
-            set { mPrevItem = value; }
+            get { return _mPrevItem; }
+            set { _mPrevItem = value; }
         }
         public LoopGridViewItem NextItem
         {
-            get { return mNextItem; }
-            set { mNextItem = value; }
+            get { return _mNextItem; }
+            set { _mNextItem = value; }
         }
 
     }

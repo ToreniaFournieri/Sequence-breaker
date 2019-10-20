@@ -6,11 +6,11 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 {
 	public class BaseClientViewsHolder<TClientModel> : CAbstractViewsHolder where TClientModel : SimpleClientModel
 	{
-		public LayoutElement layoutElement;
-		public Image averageScoreFillImage;
-		public Text nameText, locationText, averageScoreText;
-		public RectTransform availability01Slider, contractChance01Slider, longTermClient01Slider;
-		public Text statusText;
+		public LayoutElement LayoutElement;
+		public Image AverageScoreFillImage;
+		public Text NameText, LocationText, AverageScoreText;
+		public RectTransform Availability01Slider, ContractChance01Slider, LongTermClient01Slider;
+		public Text StatusText;
 
 
 		/// <inheritdoc/>
@@ -18,57 +18,57 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 		{
 			base.CollectViews();
 
-			layoutElement = root.GetComponent<LayoutElement>();
+			LayoutElement = Root.GetComponent<LayoutElement>();
 
-			var mainPanel = root.GetChild(0);
-			statusText = mainPanel.Find("AvatarPanel/StatusText").GetComponent<Text>();
-			nameText = mainPanel.Find("NameAndLocationPanel/NameText").GetComponent<Text>();
-			locationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
+			var mainPanel = Root.GetChild(0);
+			StatusText = mainPanel.Find("AvatarPanel/StatusText").GetComponent<Text>();
+			NameText = mainPanel.Find("NameAndLocationPanel/NameText").GetComponent<Text>();
+			LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
-			var ratingPanel = root.Find("RatingPanel/Panel").GetComponent<RectTransform>();
-			averageScoreFillImage = ratingPanel.Find("Foreground").GetComponent<Image>();
-			averageScoreText = ratingPanel.Find("Text").GetComponent<Text>();
+			var ratingPanel = Root.Find("RatingPanel/Panel").GetComponent<RectTransform>();
+			AverageScoreFillImage = ratingPanel.Find("Foreground").GetComponent<Image>();
+			AverageScoreText = ratingPanel.Find("Text").GetComponent<Text>();
 
-			var ratingBreakdownPanel = root.Find("RatingBreakdownPanel").GetComponent<RectTransform>();
-			availability01Slider = ratingBreakdownPanel.Find("AvailabilityPanel/Slider").GetComponent<RectTransform>();
-			contractChance01Slider = ratingBreakdownPanel.Find("ContractChancePanel/Slider").GetComponent<RectTransform>();
-			longTermClient01Slider = ratingBreakdownPanel.Find("LongTermClientPanel/Slider").GetComponent<RectTransform>();
+			var ratingBreakdownPanel = Root.Find("RatingBreakdownPanel").GetComponent<RectTransform>();
+			Availability01Slider = ratingBreakdownPanel.Find("AvailabilityPanel/Slider").GetComponent<RectTransform>();
+			ContractChance01Slider = ratingBreakdownPanel.Find("ContractChancePanel/Slider").GetComponent<RectTransform>();
+			LongTermClient01Slider = ratingBreakdownPanel.Find("LongTermClientPanel/Slider").GetComponent<RectTransform>();
 		}
 
 		public virtual void UpdateViews(TClientModel dataModel)
 		{
-			nameText.text = dataModel.clientName + "(#" + ItemIndex + ")";
-			locationText.text = "  " + dataModel.location;
+			NameText.text = dataModel.ClientName + "(#" + ItemIndex + ")";
+			LocationText.text = "  " + dataModel.Location;
 			UpdateScores(dataModel);
-			if (dataModel.isOnline)
+			if (dataModel.IsOnline)
 			{
-				statusText.text = "Online";
-				statusText.color = Color.green;
+				StatusText.text = "Online";
+				StatusText.color = Color.green;
 			}
 			else
 			{
-				statusText.text = "Offline";
-				statusText.color = Color.white * .8f;
+				StatusText.text = "Offline";
+				StatusText.color = Color.white * .8f;
 			}
 		}
 
 		void UpdateScores(SimpleClientModel dataModel)
 		{
-			var scale = availability01Slider.localScale;
-			scale.x = dataModel.availability01;
-			availability01Slider.localScale = scale;
+			var scale = Availability01Slider.localScale;
+			scale.x = dataModel.Availability01;
+			Availability01Slider.localScale = scale;
 
-			scale = contractChance01Slider.localScale;
-			scale.x = dataModel.contractChance01;
-			contractChance01Slider.localScale = scale;
+			scale = ContractChance01Slider.localScale;
+			scale.x = dataModel.ContractChance01;
+			ContractChance01Slider.localScale = scale;
 
-			scale = longTermClient01Slider.localScale;
-			scale.x = dataModel.longTermClient01;
-			longTermClient01Slider.localScale = scale;
+			scale = LongTermClient01Slider.localScale;
+			scale.x = dataModel.LongTermClient01;
+			LongTermClient01Slider.localScale = scale;
 
 			float avgScore = dataModel.AverageScore01;
-			averageScoreFillImage.fillAmount = avgScore;
-			averageScoreText.text = (int)(avgScore * 100) + "%";
+			AverageScoreFillImage.fillAmount = avgScore;
+			AverageScoreText.text = (int)(avgScore * 100) + "%";
 		}
 	}
 
@@ -80,24 +80,24 @@ namespace frame8.ScrollRectItemsAdapter.Classic.Examples.Common
 
 	public class SimpleExpandableClientViewsHolder : BaseClientViewsHolder<ExpandableSimpleClientModel>
 	{
-		public CExpandCollapseOnClick expandCollapseComponent;
+		public CExpandCollapseOnClick ExpandCollapseComponent;
 
 
 		public override void CollectViews()
 		{
 			base.CollectViews();
 
-			expandCollapseComponent = root.GetComponent<CExpandCollapseOnClick>();
+			ExpandCollapseComponent = Root.GetComponent<CExpandCollapseOnClick>();
 		}
 
 		public override void UpdateViews(ExpandableSimpleClientModel dataModel)
 		{
 			base.UpdateViews(dataModel);
 
-			if (expandCollapseComponent)
+			if (ExpandCollapseComponent)
 			{
-				expandCollapseComponent.expanded = dataModel.expanded;
-				expandCollapseComponent.nonExpandedSize = dataModel.nonExpandedSize;
+				ExpandCollapseComponent.expanded = dataModel.Expanded;
+				ExpandCollapseComponent.nonExpandedSize = dataModel.NonExpandedSize;
 			}
 		}
 	}

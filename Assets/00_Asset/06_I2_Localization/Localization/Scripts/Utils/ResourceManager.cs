@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 #if UNITY_5_4_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
 
 namespace I2.Loc
 {
-	public interface IResourceManager_Bundles
+	public interface IResourceManagerBundles
 	{
 		Object LoadFromBundle(string path, System.Type assetType );
 	}
@@ -14,37 +15,37 @@ namespace I2.Loc
 	public class ResourceManager : MonoBehaviour 
 	{
 		#region Singleton
-		public static ResourceManager pInstance
+		public static ResourceManager PInstance
 		{
 			get {
-				bool changed = mInstance==null;
+				bool changed = _mInstance==null;
 
-				if (mInstance==null)
-					mInstance = (ResourceManager)FindObjectOfType(typeof(ResourceManager));
+				if (_mInstance==null)
+					_mInstance = (ResourceManager)FindObjectOfType(typeof(ResourceManager));
 
-				if (mInstance==null)
+				if (_mInstance==null)
 				{
-					GameObject GO = new GameObject("I2ResourceManager", typeof(ResourceManager));
-					GO.hideFlags = GO.hideFlags | HideFlags.HideAndDontSave;	// Only hide it if this manager was autocreated
-					mInstance = GO.GetComponent<ResourceManager>();
+					GameObject go = new GameObject("I2ResourceManager", typeof(ResourceManager));
+					go.hideFlags = go.hideFlags | HideFlags.HideAndDontSave;	// Only hide it if this manager was autocreated
+					_mInstance = go.GetComponent<ResourceManager>();
 					#if UNITY_5_4_OR_NEWER
 					SceneManager.sceneLoaded += MyOnLevelWasLoaded;
 					#endif
 				}
 
 				if (changed && Application.isPlaying)
-					DontDestroyOnLoad(mInstance.gameObject);
+					DontDestroyOnLoad(_mInstance.gameObject);
 
-				return mInstance;
+				return _mInstance;
 			}
 		}
-		static ResourceManager mInstance;
+		static ResourceManager _mInstance;
 
 		#endregion
 
 		#region Management
 
-		public List<IResourceManager_Bundles> mBundleManagers = new List<IResourceManager_Bundles>();
+		public List<IResourceManagerBundles> mBundleManagers = new List<IResourceManagerBundles>();
 
 		#if UNITY_5_4_OR_NEWER
 		public static void MyOnLevelWasLoaded(Scene scene, LoadSceneMode mode)
@@ -52,7 +53,7 @@ namespace I2.Loc
 		public void OnLevelWasLoaded()
 		#endif
 		{
-			pInstance.CleanResourceCache();
+			PInstance.CleanResourceCache();
 			LocalizationManager.UpdateSources();
 		}
 
@@ -60,34 +61,34 @@ namespace I2.Loc
 
 		#region Assets
 
-		public Object[] Assets;
+		[FormerlySerializedAs("Assets")] public Object[] assets;
 
 		// This function tries finding an asset in the Assets array, if not found it tries loading it from the Resources Folder
-		public T GetAsset<T>( string Name ) where T : Object
+		public T GetAsset<T>( string name ) where T : Object
 		{
-			T Obj = FindAsset( Name ) as T;
-			if (Obj!=null)
-				return Obj;
+			T obj = FindAsset( name ) as T;
+			if (obj!=null)
+				return obj;
 
-			return LoadFromResources<T>( Name );
+			return LoadFromResources<T>( name );
 		}
 
-		Object FindAsset( string Name )
+		Object FindAsset( string name )
 		{
-			if (Assets!=null)
+			if (assets!=null)
 			{
-				for (int i=0, imax=Assets.Length; i<imax; ++i)
-					if (Assets[i]!=null && Assets[i].name == Name)
-						return Assets[i];
+				for (int i=0, imax=assets.Length; i<imax; ++i)
+					if (assets[i]!=null && assets[i].name == name)
+						return assets[i];
 			}
 			return null;
 		}
 
-		public bool HasAsset( Object Obj )
+		public bool HasAsset( Object obj )
 		{
-			if (Assets==null)
+			if (assets==null)
 				return false;
-			return System.Array.IndexOf (Assets, Obj) >= 0;
+			return System.Array.IndexOf (assets, obj) >= 0;
 		}
 
 		#endregion
@@ -97,35 +98,35 @@ namespace I2.Loc
 		// This cache is kept for a few moments and then cleared
 		// Its meant to avoid doing several Resource.Load for the same Asset while Localizing 
 		// (e.g. Lot of labels could be trying to Load the same Font)
-		readonly Dictionary<string, Object> mResourcesCache = new Dictionary<string, Object>(System.StringComparer.Ordinal); // This is used to avoid re-loading the same object from resources in the same frame
+		readonly Dictionary<string, Object> _mResourcesCache = new Dictionary<string, Object>(System.StringComparer.Ordinal); // This is used to avoid re-loading the same object from resources in the same frame
 		//bool mCleaningScheduled = false;
 
-		public T LoadFromResources<T>( string Path ) where T : Object
+		public T LoadFromResources<T>( string path ) where T : Object
 		{
 			try
 			{
-				if (string.IsNullOrEmpty( Path ))
+				if (string.IsNullOrEmpty( path ))
 					return null;
 
-				Object Obj;
+				Object obj;
 				// Doing Resource.Load is very slow so we are catching the recently loaded objects
-				if (mResourcesCache.TryGetValue( Path, out Obj ) && Obj!=null)
+				if (_mResourcesCache.TryGetValue( path, out obj ) && obj!=null)
 				{
-					return Obj as T;
+					return obj as T;
 				}
 
-				T obj = null;
+				obj = null;
 
-                if (Path.EndsWith("]", System.StringComparison.OrdinalIgnoreCase))  // Handle sprites (Multiple) loaded from resources :   "SpritePath[SpriteName]"
+                if (path.EndsWith("]", System.StringComparison.OrdinalIgnoreCase))  // Handle sprites (Multiple) loaded from resources :   "SpritePath[SpriteName]"
                 {
-                    int idx = Path.LastIndexOf("[", System.StringComparison.OrdinalIgnoreCase);
-                    int len = Path.Length - idx - 2;
-                    string MultiSpriteName = Path.Substring(idx + 1, len);
-                    Path = Path.Substring(0, idx);
+                    int idx = path.LastIndexOf("[", System.StringComparison.OrdinalIgnoreCase);
+                    int len = path.Length - idx - 2;
+                    string multiSpriteName = path.Substring(idx + 1, len);
+                    path = path.Substring(0, idx);
 
-                    T[] objs = Resources.LoadAll<T>(Path);
+                    T[] objs = Resources.LoadAll<T>(path);
                     for (int j = 0, jmax = objs.Length; j < jmax; ++j)
-                        if (objs[j].name.Equals(MultiSpriteName))
+                        if (objs[j].name.Equals(multiSpriteName))
                         {
                             obj = objs[j];
                             break;
@@ -133,14 +134,14 @@ namespace I2.Loc
                 }
                 else
                 {
-                    obj = Resources.Load(Path, typeof(T)) as T;
+                    obj = Resources.Load(path, typeof(T)) as T;
                 }
 
 				if (obj == null)
-					obj = LoadFromBundle<T>( Path );
+					obj = LoadFromBundle<T>( path );
 
 				if (obj!=null)
-					mResourcesCache[Path] = obj;
+					_mResourcesCache[path] = obj;
 
 				/*if (!mCleaningScheduled)
 				{
@@ -150,11 +151,11 @@ namespace I2.Loc
 				//if (obj==null)
 					//Debug.LogWarningFormat( "Unable to load {0} '{1}'", typeof( T ), Path );
 
-				return obj;
+				return obj as T;
 			}
 			catch (System.Exception e)
 			{
-				Debug.LogErrorFormat( "Unable to load {0} '{1}'\nERROR: {2}", typeof(T), Path, e.ToString() );
+				Debug.LogErrorFormat( "Unable to load {0} '{1}'\nERROR: {2}", typeof(T), path, e.ToString() );
 				return null;
 			}
 		}
@@ -173,7 +174,7 @@ namespace I2.Loc
 
 		public void CleanResourceCache()
 		{
-			mResourcesCache.Clear();
+			_mResourcesCache.Clear();
 			Resources.UnloadUnusedAssets();
 
 			CancelInvoke();

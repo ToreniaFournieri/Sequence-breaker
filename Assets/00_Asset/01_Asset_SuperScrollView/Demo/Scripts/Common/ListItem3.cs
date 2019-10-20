@@ -10,7 +10,7 @@ namespace SuperScrollView
         public Text mNameText;
         public Image mIcon;
         public Text mDescText;
-        int mItemIndex = -1;
+        int _mItemIndex = -1;
         public Toggle mToggle;
         public void Init()
         {
@@ -20,21 +20,21 @@ namespace SuperScrollView
 
         void OnToggleValueChanged(bool check)
         {
-            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(mItemIndex);
+            ItemData data = DataSourceMgr.Get.GetItemDataByIndex(_mItemIndex);
             if (data == null)
             {
                 return;
             }
-            data.mChecked = check;
+            data.MChecked = check;
         }
 
         public void SetItemData(ItemData itemData,int itemIndex)
         {
-            mItemIndex = itemIndex;
-            mNameText.text = itemData.mName;
-            mDescText.text = itemData.mDesc;
-            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-            mToggle.isOn = itemData.mChecked;
+            _mItemIndex = itemIndex;
+            mNameText.text = itemData.MName;
+            mDescText.text = itemData.MDesc;
+            mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.MIcon);
+            mToggle.isOn = itemData.MChecked;
         }
 
 
