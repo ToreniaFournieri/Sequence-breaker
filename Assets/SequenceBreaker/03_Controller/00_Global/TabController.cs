@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace SequenceBreaker._03_Controller._00_Grobal
+namespace SequenceBreaker._03_Controller._00_Global
 {
     [System.Serializable]
     public sealed class TabController : MonoBehaviour

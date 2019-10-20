@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker._01_Data._02_Items.Item;
-using SequenceBreaker._03_Controller._00_Grobal;
+using SequenceBreaker._03_Controller._00_Global;
 using SequenceBreaker._03_Controller._01_Home.Inventory;
 using UnityEngine;
 

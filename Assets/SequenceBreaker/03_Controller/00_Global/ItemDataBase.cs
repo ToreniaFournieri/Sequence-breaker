@@ -5,7 +5,7 @@ using SequenceBreaker._01_Data._02_Items._01_ItemMaster;
 using SequenceBreaker._01_Data._02_Items.Item;
 using UnityEngine;
 
-namespace SequenceBreaker._03_Controller._00_Grobal
+namespace SequenceBreaker._03_Controller._00_Global
 {
     public sealed class ItemDataBase :MonoBehaviour
     {

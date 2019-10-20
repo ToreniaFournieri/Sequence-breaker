@@ -8,7 +8,7 @@ namespace SequenceBreaker._04_Timeline_Tab.Log
         public GameObject battle;
         public BattleLogEnhancedScrollController battleLogEnhancedScrollController; // to pass the log value
 
-        //active Battle log and inactive loglist
+        //active Battle log and inactive LogList
         public GameObject battleLog;
         public GameObject logList;
 

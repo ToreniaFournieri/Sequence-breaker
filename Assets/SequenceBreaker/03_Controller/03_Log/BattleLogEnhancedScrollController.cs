@@ -30,14 +30,13 @@ namespace SequenceBreaker._03_Controller._03_Log
         /// This is only set to true on the first pass to reduce
         /// processing required.
         /// </summary>
-        private bool _calculateLayout;
+        private readonly bool _calculateLayout;
 
         private GameObject _jumpIndex;
 
 
         public EnhancedScroller scroller;
         public EnhancedScrollerCellView cellViewPrefab;
-        public EnhancedScrollerCellView cellTurnStartPrefab;
 
         public Transform parentJumpIndex;
         public GameObject jumpIndexPrefab;
@@ -69,7 +68,12 @@ namespace SequenceBreaker._03_Controller._03_Log
         // sample implemented 2019.8.6
 
         [FormerlySerializedAs("Battle")] public GameObject battle;
-        // end sanple implemented 2019.8.6
+
+        public BattleLogEnhancedScrollController(bool calculateLayout)
+        {
+            _calculateLayout = calculateLayout;
+        }
+        // end sample implemented 2019.8.6
 
 
         //private BattleEngine _battle;
@@ -117,25 +121,24 @@ namespace SequenceBreaker._03_Controller._03_Log
         private void GetCanvasSize()
         {
             //populate the scroller with some text
-            for (var i = 0; i < _data.Count; i++)
+            foreach (var t1 in _data)
             {
-
-                // Get canvas width
+// Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
-                if (_data[i].mainText != null)
+                if (t1.mainText != null)
                 {
 
                     //string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    string[] lines = _data[i].mainText.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] lines = t1.mainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     count = lines.Length;
 
-                    for (int j = 0; j < lines.Length; j++)
+                    foreach (var t in lines)
                     {
                         TextGenerator textGen = new TextGenerator();
                         TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
-                        float widthOfLine = textGen.GetPreferredWidth(lines[j], generationSettings);
+                        float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
 
                         int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250));
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
@@ -145,81 +148,15 @@ namespace SequenceBreaker._03_Controller._03_Log
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
-                if (_data[i].isHeaderInfo)
+                if (t1.isHeaderInfo)
                 {
                     cellSize = 1300;
                 }
 
                 //could be index is incorrect. 2019.9.5
-                _data[i].cellSize = cellSize;
+                t1.cellSize = cellSize;
 
 
-                //// _data set
-                //string unitNameText = null;
-                //string unitHealthText = null;
-                //string reactText = null;
-                //float shieldRatio = 0f;
-                //float hPRatio = 0f;
-                //int barrierRemains = 0;
-                //bool isDead = true;
-                //if (_battle.logList[i].Order != null)
-                //{
-                //    unitNameText = _battle.logList[i].Order.Actor.Name;
-                //    unitHealthText = "[" + _battle.logList[i].Order.Actor.Combat.ShiledCurrent +
-                //        "(" + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax) + "%)+"
-                //    + _battle.logList[i].Order.Actor.Combat.HitPointCurrent + "("
-                //    + Mathf.Ceil((float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent * 100 / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax)
-                //     + "%)]";
-
-                //    if (_battle.logList[i].Order.IndividualTarget != null)
-                //    {
-                //        string preposition = " to ";
-                //        if (_battle.logList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
-                //        //else if (_battle.logList[i].Order.ActionType == ActionType.) { preposition = " for "; }
-
-                //        reactText = _battle.logList[i].Order.ActionType.ToString() + preposition + _battle.logList[i].Order.IndividualTarget.Name;
-                //    }
-
-                //    shieldRatio = (float)_battle.logList[i].Order.Actor.Combat.ShiledCurrent / (float)_battle.logList[i].Order.Actor.Combat.ShiledMax;
-                //    hPRatio = (float)_battle.logList[i].Order.Actor.Combat.HitPointCurrent / (float)_battle.logList[i].Order.Actor.Combat.HitPointMax;
-
-                //    barrierRemains = _battle.logList[i].Order.Actor.Buff.BarrierRemaining;
-
-                //    if (_battle.logList[i].Order.Actor.Combat.HitPointCurrent > 0)
-                //    {
-                //        isDead = false;
-                //    }
-
-                //}
-
-                //List<BattleUnit> characters = null;
-                //if (_battle.logList[i].Characters != null)
-                //{
-                //    characters = _battle.logList[i].Characters;
-                //}
-
-
-                //_dataOfAll.Add(new Data()
-                //{
-                //    index = i,
-                //    cellSize = cellSize,
-                //    reactText = reactText,
-                //    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
-                //    firstLine = _battle.logList[i].FirstLine,
-                //    mainText = _battle.logList[i].Log,
-                //    affiliation = _battle.logList[i].WhichAffiliationAct,
-                //    nestLevel = _battle.logList[i].OrderCondition.Nest,
-                //    isDead = isDead,
-                //    barrierRemains = barrierRemains,
-                //    shieldRatio = shieldRatio,
-                //    hPRatio = hPRatio,
-                //    isHeaderInfo = _battle.logList[i].IsHeaderInfo,
-                //    headerText = _battle.logList[i].HeaderInfoText,
-                //    characters = characters
-                //});
-
-                //// set all of data to data (activate)
-                //_data = _dataOfAll;
             }
         }
 
@@ -248,9 +185,8 @@ namespace SequenceBreaker._03_Controller._03_Log
                     int index = _data.FindIndex((obj) => obj.turn == i);
                     _jumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
-                    EventTrigger trigger = GetComponentInParent<EventTrigger>();
-                    EventTrigger.Entry entry = new EventTrigger.Entry();
-                    entry.eventID = EventTriggerType.PointerEnter;
+                    GetComponentInParent<EventTrigger>();
+                    EventTrigger.Entry entry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
 
                     entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
 
@@ -266,23 +202,18 @@ namespace SequenceBreaker._03_Controller._03_Log
         {
             Debug.Log("attempt to search word: " + searchText.text);
             _searchedIndexList = new List<int>();
-            List<Data> filteredData = new List<Data>();
+//            var filteredData = new List<Data>();
             foreach (Data data in _data)
             {
 
                 // mainText if found, set is Matched true
-                bool isMatched = false || (data.mainText != null && data.mainText.Contains(searchText.text));
+                bool isMatched = (data.mainText != null && data.mainText.Contains(searchText.text)) || data.firstLine != null && data.firstLine.Contains(searchText.text);
 
                 // firstLine if found set is Matched true
 
-                if (data.firstLine != null && data.firstLine.Contains(searchText.text))
-                {
-                    isMatched = true;
-                }
-
                 if (isMatched)
                 {
-                    filteredData.Add(data);
+//                    filteredData.Add(data);
                     _searchedIndexList.Add(data.index);
                 }
                 else
@@ -330,7 +261,7 @@ namespace SequenceBreaker._03_Controller._03_Log
 
 
         /// <summary>
-        /// This function will exand the scroller to accommodate the cells, reload the data to calculate the cell sizes,
+        /// This function will expand the scroller to accommodate the cells, reload the data to calculate the cell sizes,
         /// reset the scroller's size back, then reload the data once more to display the cells.
         /// </summary>
         private void ResizeScroller()
@@ -373,7 +304,7 @@ namespace SequenceBreaker._03_Controller._03_Log
             // we pull the size of the cell from the model.
             // First pass (frame countdown 2): this size will be zero as set in the LoadData function
             // Second pass (frame countdown 1): this size will be set to the content size fitter in the cell view
-            // Third pass (frmae countdown 0): this set value will be pulled here from the scroller
+            // Third pass (frame countdown 0): this set value will be pulled here from the scroller
             //return battleLogLists[dataIndex].cellSize;
             return _data[dataIndex].cellSize;
         }

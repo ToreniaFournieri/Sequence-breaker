@@ -1717,7 +1717,6 @@ MonoBehaviour:
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
-  demoUi: {fileID: 0}
 --- !u!114 &240124710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,8 +2423,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Ricimi.BasicButton+ButtonClickedEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: _00_Asset.Demo.Scripts.BasicButton+ButtonClickedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &316618107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5418,7 +5417,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 870664473}
   m_HandleRect: {fileID: 870664471}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5949,50 +5948,6 @@ Transform:
   - {fileID: 2091460945}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &903368330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 903368332}
-  - component: {fileID: 903368331}
-  m_Layer: 0
-  m_Name: RefreshController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &903368331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903368330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09672eeb9a25c41f6af74307ab4f37f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needToRefresh: 0
---- !u!4 &903368332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903368330}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -453.4754, y: -547.3125, z: 69.35439}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1988823739}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908414585
 GameObject:
@@ -6606,7 +6561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1988823739}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &996112117
 MonoBehaviour:
@@ -8492,8 +8447,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Ricimi.BasicButton+ButtonClickedEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: _00_Asset.Demo.Scripts.BasicButton+ButtonClickedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1269232434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12692,7 +12647,6 @@ Transform:
   m_Children:
   - {fileID: 639922437}
   - {fileID: 1443377876}
-  - {fileID: 903368332}
   - {fileID: 996112116}
   m_Father: {fileID: 2123972852}
   m_RootOrder: 3
@@ -13297,7 +13251,6 @@ MonoBehaviour:
   transparentMessageController: {fileID: 1663717958}
   itemPrefab: {fileID: 2523581795091109965, guid: c22589c2168fd40f8b4daee4e9441e24,
     type: 3}
-  demoUi: {fileID: 0}
 --- !u!1 &2110743961
 GameObject:
   m_ObjectHideFlags: 0

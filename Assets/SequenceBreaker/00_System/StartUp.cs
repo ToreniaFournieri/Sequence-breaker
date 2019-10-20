@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker._01_Data._03_UnitClass;
-using SequenceBreaker._03_Controller._00_Grobal;
+using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
 
 namespace SequenceBreaker._00_System

@@ -329,8 +329,8 @@
     <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\OffenseMagnificationClass.cs" />
     <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\UnitSkillMagnificationClass.cs" />
     <Compile Include="Assets\SequenceBreaker\01_Data\BattleUnit.cs" />
-    <Compile Include="Assets\SequenceBreaker\03_Controller\00_Grobal\ItemDataBase.cs" />
-    <Compile Include="Assets\SequenceBreaker\03_Controller\00_Grobal\TabController.cs" />
+    <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\ItemDataBase.cs" />
+    <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\TabController.cs" />
     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterStatusDisplay.cs" />
     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewDataSourceMgr.cs" />
     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewWithStickyHeadScript.cs" />
@@ -343,7 +343,6 @@
     <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\MissionController.cs" />
     <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\PartyStatusIcons.cs" />
     <Compile Include="Assets\SequenceBreaker\03_Controller\03_Log\BattleLogEnhancedScrollController.cs" />
-    <Compile Include="Assets\SequenceBreaker\03_Controller\RefreshController.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BackPreviousView.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\CellView.cs" />
     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\Data.cs" />

@@ -2,7 +2,7 @@
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._01_Data._03_UnitClass;
-using SequenceBreaker._03_Controller._00_Grobal;
+using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

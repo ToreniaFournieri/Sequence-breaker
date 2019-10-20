@@ -481,7 +481,7 @@
             <e p="BattleUnit.cs" t="Include" />
           </e>
           <e p="03_Controller" t="Include">
-            <e p="00_Grobal" t="Include">
+            <e p="00_Global" t="Include">
               <e p="ItemDataBase.cs" t="Include" />
               <e p="TabController.cs" t="Include" />
             </e>
@@ -509,7 +509,6 @@
             <e p="03_Log" t="Include">
               <e p="BattleLogEnhancedScrollController.cs" t="Include" />
             </e>
-            <e p="RefreshController.cs" t="Include" />
           </e>
           <e p="04_Timeline Tab" t="Include">
             <e p="Log" t="Include">
