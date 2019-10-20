@@ -1,8 +1,6 @@
 using System;
-using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using Object = UnityEngine.Object;
 
 namespace I2.Loc
 {

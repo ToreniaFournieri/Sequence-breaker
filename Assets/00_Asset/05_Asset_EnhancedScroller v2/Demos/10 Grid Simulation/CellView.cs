@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using EnhancedUI.EnhancedScroller;
+﻿using EnhancedUI.EnhancedScroller;
 using EnhancedUI;
-using System;
 
 namespace EnhancedScrollerDemos.GridSimulation
 {

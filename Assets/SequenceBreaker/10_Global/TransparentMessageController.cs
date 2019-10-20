@@ -1,24 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-sealed public class TransparentMessageController : MonoBehaviour
+namespace SequenceBreaker._10_Global
 {
-    public GameObject transparentMessage;
-    public Text transparentText;
-
-    public void UpdateMessage(string message)
+    public sealed class TransparentMessageController : MonoBehaviour
     {
-        transparentText.text += message;
+        public GameObject transparentMessage;
+        public Text transparentText;
+
+        public void CloseMessage()
+        {
+            transparentMessage.SetActive(false);
+            transparentText.text = null;
+
+        }
+
+
     }
-
-    public void CloseMessage()
-    {
-        transparentMessage.SetActive(false);
-        transparentText.text = null;
-
-    }
-
-
 }

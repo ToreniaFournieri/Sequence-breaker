@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 
 namespace EnhancedScrollerDemos.ViewDrivenCellSizes

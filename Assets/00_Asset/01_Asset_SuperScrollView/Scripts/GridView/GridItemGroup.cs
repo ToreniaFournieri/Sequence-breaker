@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SuperScrollView
+﻿namespace SuperScrollView
 {
     //if GridFixedType is GridFixedType.ColumnCountFixed, then the GridItemGroup is one row of the gridview
     //if GridFixedType is GridFixedType.RowCountFixed, then the GridItemGroup is one column of the gridview

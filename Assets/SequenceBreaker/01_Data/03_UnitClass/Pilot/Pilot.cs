@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Pilot-", menuName = "Unit/Pilot", order = 3)]

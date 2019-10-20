@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Events;
 using System.Collections.Generic;
-using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
-using System.Linq;
 using System;
 using UnityEngine.Serialization;
 

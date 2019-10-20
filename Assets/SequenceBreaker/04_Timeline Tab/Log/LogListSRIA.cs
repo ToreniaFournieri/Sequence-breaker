@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using frame8.ScrollRectItemsAdapter.Classic;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
-using UnityEngine.Serialization;
 
 sealed public class LogListSria : ClassicSria<LogViewsHolder>, CExpandCollapseOnClick.ISizeChangesHandler
 
@@ -20,7 +19,7 @@ sealed public class LogListSria : ClassicSria<LogViewsHolder>, CExpandCollapseOn
     public GameObject transparentMessageController;
     public RectTransform itemPrefab;
 
-    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
+//    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
     public List<LogClientModel> Data { get; private set; }
 
@@ -103,7 +102,7 @@ sealed public class LogListSria : ClassicSria<LogViewsHolder>, CExpandCollapseOn
     {
         int index = atEnd ? Data.Count : 0;
         Data.Insert(index, CreateNewModel(index));
-        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
+//        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
     void OnRemoveItemRequested(bool fromEnd)
     {
@@ -113,19 +112,22 @@ sealed public class LogListSria : ClassicSria<LogViewsHolder>, CExpandCollapseOn
         int index = fromEnd ? Data.Count - 1 : 0;
 
         Data.RemoveAt(index);
-        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
+//        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
     }
 
-    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
+    void OnItemCountChangeRequested()
+    {
+//        ChangeModelsAndReset(demoUi.SetCountValue);
+    }
     void OnScrollToRequested()
     {
-        if (demoUi.ScrollToValue >= Data.Count)
-            return;
-
-        demoUi.scrollToButton.interactable = false;
-        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
-        if (!started)
-            demoUi.scrollToButton.interactable = true;
+//        if (demoUi.ScrollToValue >= Data.Count)
+//            return;
+//
+//        demoUi.scrollToButton.interactable = false;
+//        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
+//        if (!started)
+//            demoUi.scrollToButton.interactable = true;
     }
     #endregion
 

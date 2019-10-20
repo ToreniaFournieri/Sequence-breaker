@@ -2,22 +2,25 @@
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public sealed class UnitInfoSet : MonoBehaviour
+namespace SequenceBreaker._08_Battle
 {
-    //public GameObject iconMask;
-    //public Image unitIcon;
-    public Image hPBar;
-    public Image shieldBar;
-    [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
-    public GameObject barrierObject;
-    public Text barrierRemains;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public sealed class UnitInfoSet : MonoBehaviour
     {
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        //public GameObject iconMask;
+        //public Image unitIcon;
+        public Image hPBar;
+        public Image shieldBar;
+        [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
+        public GameObject barrierObject;
+        public Text barrierRemains;
 
 
+        // Start is called before the first frame update
+        void Start()
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+
+
+        }
     }
 }

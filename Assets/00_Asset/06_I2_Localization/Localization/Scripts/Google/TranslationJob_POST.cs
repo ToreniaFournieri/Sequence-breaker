@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
 using UnityEngine.Networking;
 
 namespace I2.Loc

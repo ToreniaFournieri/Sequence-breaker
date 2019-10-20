@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
 
 namespace EnhancedScrollerDemos.PullDownRefresh

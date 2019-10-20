@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using EnhancedUI.EnhancedScroller;
-using EnhancedUI;
 
 namespace EnhancedScrollerDemos.SnappingDemo
 {

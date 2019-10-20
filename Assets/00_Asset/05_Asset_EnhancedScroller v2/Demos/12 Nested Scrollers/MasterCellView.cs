@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using EnhancedUI.EnhancedScroller;
-using System.Collections.Generic;
-using System;
 
 namespace EnhancedScrollerDemos.NestedScrollers
 {

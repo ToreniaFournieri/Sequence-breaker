@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using frame8.ScrollRectItemsAdapter.Classic.Examples.Common;
 using frame8.ScrollRectItemsAdapter.Classic.Util;
-using System;
 using System.Collections;
 using UnityEngine.Serialization;
+using SimpleExpandableClientViewsHolder = SequenceBreaker._07_Play._1_View.SimpleExpandableClientViewsHolder;
 
 namespace frame8.ScrollRectItemsAdapter.Classic.Examples
 {

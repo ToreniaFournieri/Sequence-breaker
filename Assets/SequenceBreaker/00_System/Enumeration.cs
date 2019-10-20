@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿
 
 //Enum: Affiliation (enemy or ally) difinition 
 public enum Affiliation { Ally, Enemy, None }

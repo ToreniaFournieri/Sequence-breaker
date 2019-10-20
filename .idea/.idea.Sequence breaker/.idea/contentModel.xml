@@ -533,7 +533,6 @@
           </e>
           <e p="07_Play" t="Include">
             <e p="1_View" t="Include">
-              <e p="DemoUI.cs" t="Include" />
               <e p="GoScript.cs" t="Include" />
               <e p="MissionListSRIA.cs" t="Include" />
               <e p="MissionUpdateText.cs" t="Include" />
@@ -553,9 +552,7 @@
             <e p="UnitInfoSet.cs" t="Include" />
           </e>
           <e p="09_Drop" t="Include">
-            <e p="DropedItem.cs" t="Include" />
             <e p="DropEngine.cs" t="Include" />
-            <e p="InventoryManager.cs" t="Include" />
           </e>
           <e p="10_Global" t="Include">
             <e p="TransparentMessageController.cs" t="Include" />

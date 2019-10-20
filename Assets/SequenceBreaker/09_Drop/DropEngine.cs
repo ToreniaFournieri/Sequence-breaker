@@ -1,37 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
-sealed public class DropEngine 
+namespace SequenceBreaker._09_Drop
 {
-    // This value is temporary.
-    private double _itemDropRatio = 0.100;
-
-    // Internal infomation
-    private List<UnitClass> _enemyUnitList;
-    private List<Item> _dropItemList;
-
-    public List<Item> GetDropedItems(List<UnitClass> enemyUnitList, int seed)
+    public sealed class DropEngine 
     {
-        _dropItemList = new List<Item>();
-        System.Random r = new System.Random(seed);
+        // This value is temporary.
+        private double _itemDropRatio = 0.100;
 
-        //1.Correct all item of enemy units
-        foreach (UnitClass unit in enemyUnitList)
+        // Internal information
+        private List<UnitClass> _enemyUnitList;
+        private List<Item> _dropItemList;
+
+        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList, int seed)
         {
-            foreach (Item item in unit.itemList)
-            {
-                //2.[UNIMPLEMENTED] Remove undropable item if it is.                
+            _dropItemList = new List<Item>();
+            System.Random r = new System.Random(seed);
 
-                //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
-                if (_itemDropRatio >= r.NextDouble())
+            //1.Correct all item of enemy units
+            foreach (UnitClass unit in enemyUnitList)
+            {
+                foreach (Item item in unit.itemList)
                 {
-                    _dropItemList.Add(item);
+                    //2.[UNIMPLEMENTED] Remove undroppable item if it is.                
+
+                    //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
+                    if (_itemDropRatio >= r.NextDouble())
+                    {
+                        _dropItemList.Add(item);
+                    }
                 }
             }
+
+            return _dropItemList;
         }
 
-        return _dropItemList;
     }
-
 }

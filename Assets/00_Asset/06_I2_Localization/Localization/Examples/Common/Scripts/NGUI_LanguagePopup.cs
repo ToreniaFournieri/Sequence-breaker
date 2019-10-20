@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿
 
 // This class is an example of how to setup a Popup with all the languages in NGUI
 

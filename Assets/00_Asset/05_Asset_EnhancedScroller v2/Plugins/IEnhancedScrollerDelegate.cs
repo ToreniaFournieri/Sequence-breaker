@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace EnhancedUI.EnhancedScroller
+﻿namespace EnhancedUI.EnhancedScroller
 {
     /// <summary>
     /// All scripts that handle the scroller's callbacks should inherit from this interface

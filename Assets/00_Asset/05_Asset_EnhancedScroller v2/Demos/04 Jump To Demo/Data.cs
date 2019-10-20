@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace EnhancedScrollerDemos.JumpToDemo
+﻿namespace EnhancedScrollerDemos.JumpToDemo
 {
     public class Data
     {

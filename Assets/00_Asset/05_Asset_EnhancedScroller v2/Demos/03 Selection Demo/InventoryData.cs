@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace EnhancedScrollerDemos.SelectionDemo
+﻿namespace EnhancedScrollerDemos.SelectionDemo
 {
     /// <summary>
     /// This delegate handles any changes to the selection state of the data

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 

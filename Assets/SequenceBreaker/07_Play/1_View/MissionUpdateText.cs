@@ -1,24 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-sealed public class MissionUpdateText : MonoBehaviour
+namespace SequenceBreaker._07_Play._1_View
 {
-    public Text levelOfMissionText;
-    public Slider levelOfMissionSlider;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public sealed class MissionUpdateText : MonoBehaviour
     {
-        
-    }
+        public Text levelOfMissionText;
+        public Slider levelOfMissionSlider;
 
-    // Update is called once per frame
-    void Update()
-    {
-        levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value;
 
+        // Start is called before the first frame update
+
+        // Update is called once per frame
+        void Update()
+        {
+            levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value;
+
+        }
     }
 }

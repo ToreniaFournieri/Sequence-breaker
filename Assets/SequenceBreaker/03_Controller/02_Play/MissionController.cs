@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SequenceBreaker._10_Global;
 using UnityEngine;
 using UnityEngine.Serialization;
 
