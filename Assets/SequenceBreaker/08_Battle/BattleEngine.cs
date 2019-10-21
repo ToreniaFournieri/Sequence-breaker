@@ -883,7 +883,8 @@ namespace SequenceBreaker._08_Battle
                 case TargetType.Multi: //Buff attacker's side all
                     addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
                     var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
-                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) \n";
+                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.name 
+                                + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) \n";
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {

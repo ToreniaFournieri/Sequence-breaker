@@ -21,7 +21,9 @@ namespace SequenceBreaker._04_Timeline_Tab.Log
 
             battleLog.SetActive(true);
             logList.SetActive(false);       
-
+            logList.transform.SetAsFirstSibling();
+            
+            Debug.Log("Show detail is pressed");
         }
     }
 }

@@ -370,9 +370,6 @@ namespace SequenceBreaker._08_Battle
                         string barrierWords = null;
                         if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [Barrier Broken]"; }
                         else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [Barriered(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
-
-//                        var shieldRatio = Math.Round((opponents[fTargetColumn].Combat.ShieldCurrent / (double)opponents[fTargetColumn].Combat.ShieldMax * 100), 0);
-//                        var hpRatio = Math.Round((opponents[fTargetColumn].Combat.HitPointCurrent / (double)opponents[fTargetColumn].Combat.HitPointMax * 100), 0);
                         var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].uniqueId]
                                                       / (opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
@@ -380,8 +377,6 @@ namespace SequenceBreaker._08_Battle
                         string s = null;
                         
                         if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = "s"; }
-//                        var shieldPercentSpace = (3 - shieldRatio.WithComma().Length);
-//                        var hPPercentSpace = (3 - hpRatio.WithComma().Length);
                         var damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma().Length);
                         if (damageSpace < 0) { damageSpace = 0; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
@@ -390,9 +385,6 @@ namespace SequenceBreaker._08_Battle
                         log += opponents[fTargetColumn].name + " gets " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage ("
                                + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
                                + totalIndividualHits[opponents[fTargetColumn].uniqueId] + barrierWords + optimumRangeWords + " \n";
-
-
-
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

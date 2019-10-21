@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
@@ -44,10 +45,22 @@ namespace SequenceBreaker._00_System
 
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Awake()
         {
-        
+            Application.targetFrameRate = 60;
+#if UNITY_EDITOR
+
+            // Only Unity Editor on debug
+            Debug.unityLogger.logEnabled = true;
+
+#else
+        // others debug off
+        Debug.unityLogger.logEnabled = false;
+
+#endif
+            
         }
+
+        // Update is called once per frame
     }
 }
