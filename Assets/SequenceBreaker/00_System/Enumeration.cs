@@ -1,9 +1,9 @@
-﻿//Enum: Affiliation (enemy or ally) difinition 
+﻿//Enum: Affiliation (enemy or ally) definition 
 
 namespace SequenceBreaker._00_System
 {
     public enum Affiliation { Ally, Enemy, None }
-//Enum: Unit type difinition (for vs check, deal additional bonus or delt additional reduction)
+//Enum: Unit type definition (for vs check, deal additional bonus or dealt additional reduction)
     public enum UnitType { Beast, Cyborg, Drone, Robot, Titan }
     public enum Ability { None, Power, Generation, Stability, Responsiveness, Precision, Intelligence, Luck }
     public enum ActionType { None, Any, NormalAttack, Move, Counter, Chain, ReAttack, Interrupt, Buff, AtBeginning, AtEnding }

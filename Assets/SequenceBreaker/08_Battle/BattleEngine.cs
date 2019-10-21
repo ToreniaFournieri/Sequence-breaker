@@ -13,29 +13,18 @@ namespace SequenceBreaker._08_Battle
         //For output result
         public List<BattleLogClass> LogList;
         public WhichWin WhichWin = WhichWin.None; // get only last one
-//    private string _winRatio = "[0%]"; //2019.9.22 to get win ratio to show the possibility.
-
         // output data for sequence battle.
         public List<BattleUnit> AllyBattleUnitsList;
-//    public List<EffectClass> allySkillsList;
-
-//    public List<BattleUnit> enemyBattleUnitsList;
-//    public List<EffectClass> enemySkillsList;
-
         private static double _allyAttackMagnification = 1.0;
         private static double _allyDefenseMagnification = 1.0;
 
         private int _count;
-
-
         private readonly List<BattleUnit> _characters = new List<BattleUnit>();
         private AbilityClass[] _abilities;
 
         //Skill make logic , test: one character per one skill
-        //SkillsMasterClass[] skillsMasters ;
         private SkillsMasterClass _normalAttackSkillMaster;
         private List<SkillsMasterClass> _buffMasters;
-        //= new List<SkillsMasterClass>();
 
         //Effect (permanent skill) make logic, the effect has two meanings, one is permanent skill, the other is temporary skill (may call buff).
         private readonly List<EffectClass> _effects = new List<EffectClass>();
@@ -46,13 +35,11 @@ namespace SequenceBreaker._08_Battle
             _normalAttackSkillMaster = normalAttackSkillMaster;
             _buffMasters = buffMasters;
         }
-
-
+        
         //Set up Ally's BattleUnit and EffectClass.
         public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses, bool isFirstWave)
         {
-        
-
+            
             foreach (var allyBattleUnit in allyBattleUnits)
             {
                 // Forced update Affiliation to ally(not worked?)
@@ -86,8 +73,7 @@ namespace SequenceBreaker._08_Battle
                 enemyBattleUnit.uniqueId = _count;
                 enemyBattleUnit.combat.shieldCurrent = enemyBattleUnit.combat.shieldMax;
                 enemyBattleUnit.combat.hitPointCurrent = enemyBattleUnit.combat.hitPointMax;
-
-
+                
                 _characters.Add(enemyBattleUnit);
                 _count++;
             }
@@ -120,7 +106,6 @@ namespace SequenceBreaker._08_Battle
 
             // System initialize : Do not change them.
             var battleLogList = new List<BattleLogClass>();
-            //string log = null;
             string finalLog = null;
             var logPerWavesSets = new string[battleWavesSets];
             var subLogPerWavesSets = new string[battleWavesSets];
@@ -138,9 +123,7 @@ namespace SequenceBreaker._08_Battle
 
                 if (battleWavesSet > 1) //  magnification per wave set
                 { _allyAttackMagnification *= (1 + allyAttackMagnificationPerWavesSet); _allyDefenseMagnification *= (1 + allyDefenseMagnificationPerWavesSet); }
-
-
-
+                
                 var allyWinCount = 0; var enemyWinCount = 0; var drawCount = 0;
 
                 for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
@@ -152,23 +135,17 @@ namespace SequenceBreaker._08_Battle
                     foreach (var t in _characters)
                     {
                         //Stop healing
-                        //characters[i].Combat.ShieldCurrent = characters[i].Combat.ShieldMax;
-                        //characters[i].Combat.HitPointCurrent = characters[i].Combat.HitPointMax;
                         t.Deterioration = 0.0; //Deterioration initialize to 0.0
                         t.buff.InitializeBuff(); //Buff initialize
                         t.buff.BarrierRemaining = 0; //Barrier initialize
                         t.feature.InitializeFeature(); //Feature initialize
                         t.Statistics.Initialize(); // Initialise
                     }
-                    //foreach (EffectClass effect in effects) { effect.InitializeAccumulation(); }
-
-
                     //effects will be set by outside of this battle engine, so effect initialize make different.
                     foreach (var effect in _effects)
                     {
                         effect.InitializeEffect();
                     }
-                    //EffectInitialize(effects: effects, skillsMasters: skillsMasters, characters: characters); //Effect/Buff initialize
 
                     if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
                     {
@@ -248,15 +225,6 @@ namespace SequenceBreaker._08_Battle
                                         case 1:
                                         {
                                             environmentInfo.Phase = 1;
-//                                            orderNumber = 0;
-//                                            firstLine = "[At begging phase] \n";
-//                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-//                                                environmentInfo.Turn, environmentInfo.Phase, orderNumber, 0, 0);
-//                                            battleLog = new BattleLogClass(orderCondition, false, null, firstLine, null,
-//                                                1,
-//                                                Affiliation.none) {HeaderInfoText = "[At begging phase] \n"};
-//                                            battleLogList.Add(battleLog);
-
 
                                             // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
 
@@ -587,19 +555,12 @@ namespace SequenceBreaker._08_Battle
                 foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
                 logPerWavesSets[battleWavesSet - 1] += "Average Skill:\n";
                 foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.name + " " + character.PermanentStatistics.Skill() + "\n"; }
-                //logPerWavesSets[battleWavesSet - 1] += "------------------------------------\n";
-
             } // Battle waves set
 
             //Battle is over.
 
             // last turn battle log 
-            //environmentInfo.Phase = 0;
-            //log += "------------------------------------\n";
             text = new FuncBattleConditionsText(totalTurn + 1, _characters);
-            //firstLine = text.FirstLine();
-            //log += text.Text();
-            //string log = null;
 
             var orderConditionFinal = new OrderConditionClass(currentBattleWaves, totalTurn + 1, 0, 0, 0, 0);
             var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.None)
@@ -619,16 +580,7 @@ namespace SequenceBreaker._08_Battle
 
 
             var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
-            //foreach (BattleLogClass battleLog in battleLogDisplayList)
-            //{
 
-            //    if (battleLog.IsNavigation == false)
-            //    { finalLog += "(" + battleLog.OrderCondition.Phase + "-" + battleLog.OrderCondition.OrderNumber + "-" + battleLog.OrderCondition.Nest + "-" + battleLog.OrderCondition.NestOrderNumber + ")" + battleLog.Log; }
-            //    else { finalLog += new string(' ', 5) + battleLog.Log; }
-            //}
-            //// delete battle display list to final log, because now meaningless.
-
-            //finalLog += "------------------------------------\n";
             finalLog += "Battle is over. " + WhichWin + "\n";
             text = new FuncBattleConditionsText(totalTurn, _characters);
             finalLog += text.Text();
@@ -647,11 +599,6 @@ namespace SequenceBreaker._08_Battle
             var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.None);
             battleLogDisplayList.Add(finalLogList);
             LogList = battleLogDisplayList;
-
-            //Set win ratio
-//        _winRatio = "[" + (int)(100 * allyWinCount / battleWaves) + "%]";
- 
-   
 
         }
 
@@ -929,10 +876,6 @@ namespace SequenceBreaker._08_Battle
 
                     firstLine = order.SkillEffectChosen.skill.name + "! " + triggerPossibilityText + accumulationText + "\n"
                                 + new string(' ', 3) + order.Actor.name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns. " + "\n";
-
-                    //firstLine = new string(' ', 0) + order.Actor.Name + "'s " + order.SkillEffectChosen.Skill.Name + "! " + triggerPossibilityText + accumulationText + "\n"
-                    //+ new string(' ', 3) + order.Actor.Name + " gets " + addingBuff.Name + " which will last " + addingBuff.VeiledTurn + " turns. " + "\n";
-                    // Belows: It's a temporary message, only for defense magnification.
                     if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                     if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
                     log += "\n";
