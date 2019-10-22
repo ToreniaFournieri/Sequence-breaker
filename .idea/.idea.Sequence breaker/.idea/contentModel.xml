@@ -65,28 +65,6 @@
               </e>
             </e>
           </e>
-          <e p="04_Asset_TextMesh Pro" t="Include">
-            <e p="Resources" t="Include">
-              <e p="LineBreaking Following Characters.txt" t="Include" />
-              <e p="LineBreaking Leading Characters.txt" t="Include" />
-              <e p="Shaders" t="Include">
-                <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
-                <e p="TMP_Bitmap-Mobile.shader" t="Include" />
-                <e p="TMP_Bitmap.shader" t="Include" />
-                <e p="TMP_SDF Overlay.shader" t="Include" />
-                <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
-                <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
-                <e p="TMP_SDF-Mobile.shader" t="Include" />
-                <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
-                <e p="TMP_SDF-Surface.shader" t="Include" />
-                <e p="TMP_SDF.shader" t="Include" />
-                <e p="TMP_Sprite.shader" t="Include" />
-                <e p="TMPro.cginc" t="Include" />
-                <e p="TMPro_Properties.cginc" t="Include" />
-                <e p="TMPro_Surface.cginc" t="Include" />
-              </e>
-            </e>
-          </e>
           <e p="05_Asset_EnhancedScroller v2" t="Include">
             <e p="Plugins" t="Include">
               <e p="EnhancedScroller.cs" t="Include" />

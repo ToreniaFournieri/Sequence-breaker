@@ -49,6 +49,7 @@ namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
                         vsIcon.GetComponent<UnitInfoSet>().unitInfoText.text = " vs ";
                         vsIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = 0f;
                         vsIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = 0f;
+
                         vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
 
                         vsIcon.transform.parent = this.transform;
