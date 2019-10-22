@@ -45,17 +45,6 @@
             <e p="Scripts" t="Include">
               <e p="CAbstractViewsHolder.cs" t="Include" />
               <e p="ClassicSRIA.cs" t="Include" />
-              <e p="Examples" t="Include">
-                <e p="ClassicGridViewExample.cs" t="Include" />
-                <e p="Common" t="Include">
-                  <e p="CUtil.cs" t="Include" />
-                  <e p="DemoUI.cs" t="Include" />
-                  <e p="SimpleClientModels.cs" t="Include" />
-                  <e p="SimpleClientViewsHolders.cs" t="Include" />
-                </e>
-                <e p="HorizontalClassicListViewExample.cs" t="Include" />
-                <e p="VerticalClassicListViewExample.cs" t="Include" />
-              </e>
               <e p="Util" t="Include">
                 <e p="CExpandCollapseOnClick.cs" t="Include" />
                 <e p="CLoadSceneOnClick.cs" t="Include" />
@@ -77,9 +66,6 @@
             </e>
           </e>
           <e p="04_Asset_TextMesh Pro" t="Include">
-            <e p="Fonts" t="Include">
-              <e p="LiberationSans - OFL.txt" t="Include" />
-            </e>
             <e p="Resources" t="Include">
               <e p="LineBreaking Following Characters.txt" t="Include" />
               <e p="LineBreaking Leading Characters.txt" t="Include" />
@@ -100,127 +86,18 @@
                 <e p="TMPro_Surface.cginc" t="Include" />
               </e>
             </e>
-            <e p="Sprites" t="Include">
-              <e p="EmojiOne Attribution.txt" t="Include" />
-            </e>
           </e>
           <e p="05_Asset_EnhancedScroller v2" t="Include">
-            <e p="ChangeLog.txt" t="Include" />
-            <e p="Demos" t="Include">
-              <e p="01 Simple Demo" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="SimpleDemo.cs" t="Include" />
-              </e>
-              <e p="02 Multiple Cell Types" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="CellViewFooter.cs" t="Include" />
-                <e p="CellViewHeader.cs" t="Include" />
-                <e p="CellViewRow.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="MultipleCellTypesDemo.cs" t="Include" />
-              </e>
-              <e p="03 Selection Demo" t="Include">
-                <e p="InventoryCellView.cs" t="Include" />
-                <e p="InventoryData.cs" t="Include" />
-                <e p="SelectionDemo.cs" t="Include" />
-              </e>
-              <e p="04 Jump To Demo" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-              </e>
-              <e p="05 Remote Resources" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="ImageList.cs" t="Include" />
-              </e>
-              <e p="06 Snapping" t="Include">
-                <e p="PlayWin.cs" t="Include" />
-                <e p="SlotCellView.cs" t="Include" />
-                <e p="SlotController.cs" t="Include" />
-                <e p="SlotData.cs" t="Include" />
-                <e p="SnappingDemo.cs" t="Include" />
-              </e>
-              <e p="07 Refreshing" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-              </e>
-              <e p="08 View Driven Cell Sizes" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-              </e>
-              <e p="09 Cell Events" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-              </e>
-              <e p="10 Grid Simulation" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="RowCellView.cs" t="Include" />
-              </e>
-              <e p="10b Grid Selection" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="RowCellView.cs" t="Include" />
-              </e>
-              <e p="11 Pull Down Refresh" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-              </e>
-              <e p="12 Nested Scrollers" t="Include">
-                <e p="Controller.cs" t="Include" />
-                <e p="DetailCellView.cs" t="Include" />
-                <e p="DetailData.cs" t="Include" />
-                <e p="MasterCellView.cs" t="Include" />
-                <e p="MasterData.cs" t="Include" />
-                <e p="ScrollRectEx.cs" t="Include" />
-              </e>
-              <e p="12b Nested Linked Scrollers (Alternate Grid)" t="Include">
-                <e p="Controller.cs" t="Include" />
-                <e p="DetailCellView.cs" t="Include" />
-                <e p="DetailData.cs" t="Include" />
-                <e p="MasterCellView.cs" t="Include" />
-                <e p="MasterData.cs" t="Include" />
-                <e p="ScrollRectEx.cs" t="Include" />
-              </e>
-              <e p="13 Pagination" t="Include">
-                <e p="CellView.cs" t="Include" />
-                <e p="Controller.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="LoadingCellView.cs" t="Include" />
-              </e>
-              <e p="Main Menu" t="Include">
-                <e p="MainMenu.cs" t="Include" />
-                <e p="ReturnToMainMenu.cs" t="Include" />
-              </e>
-            </e>
             <e p="Plugins" t="Include">
               <e p="EnhancedScroller.cs" t="Include" />
               <e p="EnhancedScrollerCellView.cs" t="Include" />
               <e p="IEnhancedScrollerDelegate.cs" t="Include" />
               <e p="SmallList.cs" t="Include" />
             </e>
-            <e p="readme.txt" t="Include" />
-            <e p="Tutorials" t="Include">
-              <e p="readme.txt" t="Include" />
-            </e>
-            <e p="upgrading from 1.x to 2.x.txt" t="Include" />
           </e>
           <e p="06_CrystalFramework" t="Include">
             <e p="Utility" t="Include">
-              <e p="Demos" t="Include">
-                <e p="SafeAreaDemo.txt" t="Include" />
-              </e>
               <e p="SafeArea.cs" t="Include" />
-              <e p="SafeAreaDemo.cs" t="Include" />
             </e>
           </e>
         </e>
