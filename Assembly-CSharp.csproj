@@ -157,23 +157,7 @@
      <Compile Include="Assets\SequenceBreaker\08_Battle\UnitInfoSet.cs" />
      <Compile Include="Assets\SequenceBreaker\09_Drop\DropEngine.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\TransparentMessageController.cs" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\00_Asset\01_Asset_SuperScrollView\Scripts\Version 2.4.0.txt" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\00_Asset\04_Asset_TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
