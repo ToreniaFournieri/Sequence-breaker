@@ -111,13 +111,6 @@ namespace Crystal
                 Destroy (gameObject);
             }
 
-            Debug.Log(UnityEngine.iOS.Device.generation.ToString());
-            if (UnityEngine.iOS.Device.generation.ToString() == "iPhoneX")
-            {
-                Sim = SimDevice.iPhoneX;
-            }
-            
-
             Refresh ();
         }
 

@@ -295,19 +295,6 @@
               <e p="SafeArea.cs" t="Include" />
             </e>
           </e>
-          <e p="New Folder" t="Include">
-            <e p="AssetData" t="Include">
-              <e p="AnimationControllerAssetData.cs" t="Include" />
-              <e p="AssetData.cs" t="Include" />
-              <e p="PrefabAssetData.cs" t="Include" />
-              <e p="SceneAssetData.cs" t="Include" />
-            </e>
-            <e p="CompareSelector.cs" t="Include" />
-            <e p="Creator.cs" t="Include" />
-            <e p="Data.cs" t="Include" />
-            <e p="Generate.cs" t="Include" />
-            <e p="ReferenceViewer.cs" t="Include" />
-          </e>
         </e>
         <e p="SequenceBreaker" t="Include">
           <e p="00_System" t="Include">
