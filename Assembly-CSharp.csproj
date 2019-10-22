@@ -224,6 +224,15 @@
     <Compile Include="Assets\00_Asset\05_Asset_EnhancedScroller v2\Plugins\SmallList.cs" />
     <Compile Include="Assets\00_Asset\06_CrystalFramework\Utility\Demos\SafeAreaDemo.cs" />
     <Compile Include="Assets\00_Asset\06_CrystalFramework\Utility\SafeArea.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\AssetData\AnimationControllerAssetData.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\AssetData\AssetData.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\AssetData\PrefabAssetData.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\AssetData\SceneAssetData.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\CompareSelector.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\Creator.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\Data.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\Generate.cs" />
+    <Compile Include="Assets\00_Asset\New Folder\ReferenceViewer.cs" />
     <Compile Include="Assets\SequenceBreaker\00_System\Enumeration.cs" />
     <Compile Include="Assets\SequenceBreaker\00_System\SimpleObjectPool.cs" />
     <Compile Include="Assets\SequenceBreaker\00_System\StartUp.cs" />

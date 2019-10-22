@@ -48,16 +48,18 @@ namespace SequenceBreaker._00_System
         private void Awake()
         {
             Application.targetFrameRate = 60;
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
 
-            // Only Unity Editor on debug
-            Debug.unityLogger.logEnabled = true;
+                        // Only Unity Editor on debug
+                        Debug.unityLogger.logEnabled = true;
 
-#else
-        // others debug off
-        Debug.unityLogger.logEnabled = false;
+            #else
+                    // others debug off
+                    Debug.unityLogger.logEnabled = false;
 
-#endif
+            #endif
+            
+            
             
         }
 
