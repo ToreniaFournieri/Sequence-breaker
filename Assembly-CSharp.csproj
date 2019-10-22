@@ -339,12 +339,6 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
  <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
