@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Crystal
+namespace _00_Asset._06_CrystalFramework.Utility
 {
     /// <summary>
     /// Safe area implementation for notched mobile devices. Usage:
