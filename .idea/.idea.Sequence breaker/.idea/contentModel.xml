@@ -9,6 +9,75 @@
       <e p="Assets" t="Include">
         <e p="00_Asset" t="Include">
           <e p="01_Asset_SuperScrollView" t="Include">
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Common" t="Include">
+                  <e p="AutoSetAnchorPosForIphonex.cs" t="Include" />
+                  <e p="ChatMsgDataSourceMgr.cs" t="Include" />
+                  <e p="DataSourceMgr.cs" t="Include" />
+                  <e p="DragChangSizeScript.cs" t="Include" />
+                  <e p="DragEventHelper.cs" t="Include" />
+                  <e p="FPSDisplay.cs" t="Include" />
+                  <e p="ListItem0.cs" t="Include" />
+                  <e p="ListItem1.cs" t="Include" />
+                  <e p="ListItem10.cs" t="Include" />
+                  <e p="ListItem11.cs" t="Include" />
+                  <e p="ListItem12.cs" t="Include" />
+                  <e p="ListItem13.cs" t="Include" />
+                  <e p="ListItem14.cs" t="Include" />
+                  <e p="ListItem15.cs" t="Include" />
+                  <e p="ListItem16.cs" t="Include" />
+                  <e p="ListItem17.cs" t="Include" />
+                  <e p="ListItem18.cs" t="Include" />
+                  <e p="ListItem19.cs" t="Include" />
+                  <e p="ListItem2.cs" t="Include" />
+                  <e p="ListItem3.cs" t="Include" />
+                  <e p="ListItem4.cs" t="Include" />
+                  <e p="ListItem5.cs" t="Include" />
+                  <e p="ListItem6.cs" t="Include" />
+                  <e p="ListItem7.cs" t="Include" />
+                  <e p="ListItem8.cs" t="Include" />
+                  <e p="ListItem9.cs" t="Include" />
+                  <e p="ResManager.cs" t="Include" />
+                  <e p="RotateScript.cs" t="Include" />
+                  <e p="TreeViewDataSourceMgr.cs" t="Include" />
+                </e>
+                <e p="GridView" t="Include">
+                  <e p="GridViewDeleteItemDemoScript2.cs" t="Include" />
+                  <e p="GridViewDemoScript2.cs" t="Include" />
+                </e>
+                <e p="ListView" t="Include">
+                  <e p="BottomToTopDemoScript.cs" t="Include" />
+                  <e p="ChangeItemHeightDemoScript.cs" t="Include" />
+                  <e p="ChatMsgListViewDemoScript.cs" t="Include" />
+                  <e p="ClickAndLoadMoreDemoScript.cs" t="Include" />
+                  <e p="DeleteItemDemoScript.cs" t="Include" />
+                  <e p="GridViewDeleteItemDemoScript.cs" t="Include" />
+                  <e p="GridViewDemoScript.cs" t="Include" />
+                  <e p="GridViewSampleDemo.cs" t="Include" />
+                  <e p="HorizontalGalleryDemoScript.cs" t="Include" />
+                  <e p="LeftToRightDemoScript.cs" t="Include" />
+                  <e p="PageViewDemoScript.cs" t="Include" />
+                  <e p="PullToLoadMoreDemoScript.cs" t="Include" />
+                  <e p="PullToRefreshAndLoadMoreDemoScript.cs" t="Include" />
+                  <e p="PullToRefreshDemoScript.cs" t="Include" />
+                  <e p="ResponsiveGridViewDemoScript.cs" t="Include" />
+                  <e p="ResponsiveGridViewDemoScript2.cs" t="Include" />
+                  <e p="RightToLeftDemoScript.cs" t="Include" />
+                  <e p="SpinDatePickerDemoScript.cs" t="Include" />
+                  <e p="TopToBottomDemoScript.cs" t="Include" />
+                  <e p="TopToBottomSampleDemoScript.cs" t="Include" />
+                  <e p="TreeViewDemoScript.cs" t="Include" />
+                  <e p="TreeViewWithStickyHeadDemoScript.cs" t="Include" />
+                  <e p="VerticalGalleryDemoScript.cs" t="Include" />
+                </e>
+                <e p="MenuSceneScript.cs" t="Include" />
+                <e p="StaggeredGridView" t="Include">
+                  <e p="StaggeredGridView_LeftToRightDemoScript.cs" t="Include" />
+                  <e p="StaggeredGridView_TopToBottomDemoScript.cs" t="Include" />
+                </e>
+              </e>
+            </e>
             <e p="Editor" t="Include">
               <e p="LoopGridViewEditor.cs" t="Include" />
               <e p="LoopListViewEditor2.cs" t="Include" />

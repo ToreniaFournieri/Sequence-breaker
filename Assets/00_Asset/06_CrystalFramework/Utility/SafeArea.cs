@@ -111,7 +111,6 @@ namespace _00_Asset._06_CrystalFramework.Utility
                 Destroy (gameObject);
             }
 
-            Debug.Log(UnityEngine.iOS.Device.generation.ToString());
             if (UnityEngine.iOS.Device.generation.ToString() == "iPhoneX")
             {
                 Sim = SimDevice.iPhoneX;
