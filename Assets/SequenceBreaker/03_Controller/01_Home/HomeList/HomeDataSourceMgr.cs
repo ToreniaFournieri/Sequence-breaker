@@ -164,7 +164,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
                 tData.MId = i;
                 tData.MName = "Item" + i;
                 tData.MDesc = "Item Desc For Item " + i;
-                tData.MIcon = HomeResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+//                tData.MIcon = HomeResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
                 tData.MStarCount = Random.Range(0, 6);
                 tData.MFileSize = Random.Range(20, 999);
                 tData.MChecked = false;
@@ -183,7 +183,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
                 tData.MId = i;
                 tData.MName = "Item" + i;
                 tData.MDesc = "Item Desc For Item " + i;
-                tData.MIcon = HomeResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+//                tData.MIcon = HomeResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
                 tData.MStarCount = Random.Range(0, 6);
                 tData.MFileSize = Random.Range(20, 999);
                 tData.MChecked = false;

@@ -182,7 +182,6 @@
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeChangeItemHeightDemoScript.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeDataSourceMgr.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeListItem.cs" />
-     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeResManager.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Inventory\InventoryItemList.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Inventory\InventoryTreeViewDataSourceMgr.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Inventory\InventoryTreeViewWithStickyHeadScript.cs" />

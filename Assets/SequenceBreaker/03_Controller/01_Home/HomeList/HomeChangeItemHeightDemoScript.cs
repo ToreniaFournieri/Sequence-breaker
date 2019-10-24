@@ -27,11 +27,11 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 //            _mSetCountInput = GameObject.Find("ButtonPanel/buttonGroup1/SetCountInputField").GetComponent<InputField>();
 //            _mScrollToInput = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputField").GetComponent<InputField>();
 //            _mAddItemInput = GameObject.Find("ButtonPanel/buttonGroup3/AddItemInputField").GetComponent<InputField>();
-            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            _mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
-            _mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
+//            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+//            _mAddItemButton.onClick.AddListener(OnAddItemBtnClicked);
+//            _mSetCountButton.onClick.AddListener(OnSetItemCountBtnClicked);
 //            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            _mBackButton.onClick.AddListener(OnBackBtnClicked);
+//            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
         void OnBackBtnClicked()
