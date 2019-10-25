@@ -8898,11 +8898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a928e96743d14c19b123a36621ef9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpLinkGameObject: {fileID: 649992056}
   homeContentList:
   - contentText: Ally Equipment
     description: 
-    unitClass:
+    unitClassList:
     - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
     - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
     - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
@@ -8912,7 +8911,7 @@ MonoBehaviour:
     mIsExpand: 0
   - contentText: Enemy Equipment 1
     description: '[DEBUG]'
-    unitClass:
+    unitClassList:
     - {fileID: 11400000, guid: c00f11bcf4b2e4549968ff4c2eb09f4c, type: 2}
     - {fileID: 11400000, guid: 01419ad684dc04bc7be61b6246880927, type: 2}
     inventorySavedFileName: 
@@ -8921,7 +8920,7 @@ MonoBehaviour:
     mIsExpand: 0
   - contentText: Enemy Equipment 2
     description: '[DEBUG]'
-    unitClass:
+    unitClassList:
     - {fileID: 11400000, guid: d24f2fd72b920423c8da56a786cbb7a8, type: 2}
     - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
     - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
@@ -8932,7 +8931,7 @@ MonoBehaviour:
     mIsExpand: 0
   - contentText: Enemy Equipment 3
     description: '[DEBUG]'
-    unitClass:
+    unitClassList:
     - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
     inventorySavedFileName: 
     mId: 0
@@ -14951,6 +14950,8 @@ MonoBehaviour:
   mClickTip: {fileID: 0}
   mExpandBtn: {fileID: 887362553}
   mGoListDetail: {fileID: 920969988}
+  jumpToGameObject: {fileID: 649992056}
+  characterStatusDisplay: {fileID: 1252398280}
 --- !u!114 &2133656637
 MonoBehaviour:
   m_ObjectHideFlags: 0
