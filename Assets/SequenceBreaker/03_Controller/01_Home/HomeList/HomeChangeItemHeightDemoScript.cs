@@ -48,7 +48,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
                 return null;
             }
 
-            HomeItemData itemData = HomeDataSourceMgr.Get.GetItemDataByIndex(index);
+            HomeContentData itemData = HomeDataSourceMgr.Get.GetItemDataByIndex(index);
             if (itemData == null)
             {
                 return null;

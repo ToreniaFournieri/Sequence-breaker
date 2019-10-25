@@ -7,10 +7,10 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 {
     public class HomeListItem : MonoBehaviour
     {
-        public Text mNameText;
-        public Image mIcon;
-        public Image[] mStarArray;
-        public Text mDescText;
+        public Text mContentText;
+//        public Image mIcon;
+//        public Image[] mStarArray;
+        public Text mDescriptionText;
         public GameObject mExpandContentRoot;
         public Text mClickTip;
         public Button mExpandBtn;
@@ -23,12 +23,12 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         bool _mIsExpand;
         public void Init()
         {
-            for (int i = 0; i < mStarArray.Length; ++i)
-            {
-                int index = i;
-                ClickEventListener listener = ClickEventListener.Get(mStarArray[i].gameObject);
-                listener.SetClickEventHandler(delegate (GameObject obj) { OnStarClicked(index); });
-            }
+//            for (int i = 0; i < mStarArray.Length; ++i)
+//            {
+//                int index = i;
+//                ClickEventListener listener = ClickEventListener.Get(mStarArray[i].gameObject);
+////                listener.SetClickEventHandler(delegate (GameObject obj) { OnStarClicked(index); });
+//            }
 
             mExpandBtn.onClick.AddListener( OnExpandBtnClicked );
         }
@@ -54,58 +54,61 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 
         void OnExpandBtnClicked()
         {
-            HomeItemData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
+            HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
                 return;
             }
             _mIsExpand = !_mIsExpand;
-            data.MIsExpand = _mIsExpand;
+            data.mIsExpand = _mIsExpand;
             OnExpandChanged();
             LoopListViewItem2 item2 = gameObject.GetComponent<LoopListViewItem2>();
             item2.ParentListView.OnItemSizeChanged(item2.ItemIndex);
         }
 
 
-        void OnStarClicked(int index)
-        {
-            HomeItemData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
-            if (data == null)
-            {
-                return;
-            }
-            if (index == 0 && data.MStarCount == 1)
-            {
-                data.MStarCount = 0;
-            }
-            else
-            {
-                data.MStarCount = index + 1;
-            }
-            SetStarCount(data.MStarCount);
-        }
+//        void OnStarClicked(int index)
+//        {
+//            HomeItemData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
+//            if (data == null)
+//            {
+//                return;
+//            }
+//            if (index == 0 && data.MStarCount == 1)
+//            {
+//                data.MStarCount = 0;
+//            }
+//            else
+//            {
+//                data.MStarCount = index + 1;
+//            }
+//            SetStarCount(data.MStarCount);
+//        }
 
-        public void SetStarCount(int count)
-        {
-            int i = 0;
-            for (; i < count; ++i)
-            {
-                mStarArray[i].color = mRedStarColor;
-            }
-            for (; i < mStarArray.Length; ++i)
-            {
-                mStarArray[i].color = mGrayStarColor;
-            }
-        }
+//        public void SetStarCount(int count)
+//        {
+//            int i = 0;
+//            for (; i < count; ++i)
+//            {
+//                mStarArray[i].color = mRedStarColor;
+//            }
+//            for (; i < mStarArray.Length; ++i)
+//            {
+//                mStarArray[i].color = mGrayStarColor;
+//            }
+//        }
 
-        public void SetItemData(HomeItemData itemData, int itemIndex)
+        public void SetItemData(HomeContentData itemData, int itemIndex)
         {
             _mItemDataIndex = itemIndex;
-            mNameText.text = itemData.MName;
-            mDescText.text = itemData.MFileSize.ToString() + "KB";
+            mContentText.text = itemData.contentText;
+            mDescriptionText.text = itemData.description;
+            
+//            mNameText.text = itemData.MContentString;
+//            mDescText.text = itemData.MFileSize.ToString() + "KB";
 //            mIcon.sprite = HomeResManager.Get.GetSpriteByName(itemData.MIcon);
-            SetStarCount(itemData.MStarCount);
-            _mIsExpand = itemData.MIsExpand;
+//            SetStarCount(itemData.MStarCount);
+            _mIsExpand = itemData.mIsExpand;
             OnExpandChanged();
         }
 

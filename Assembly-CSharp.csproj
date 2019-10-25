@@ -179,6 +179,7 @@
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterStatusDisplay.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewDataSourceMgr.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewWithStickyHeadScript.cs" />
+     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeContents.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeChangeItemHeightDemoScript.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeDataSourceMgr.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\HomeList\HomeListItem.cs" />

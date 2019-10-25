@@ -211,6 +211,7 @@
                 <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
                 <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
               </e>
+              <e p="HomeContents.cs" t="Include" />
               <e p="HomeList" t="Include">
                 <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
                 <e p="HomeDataSourceMgr.cs" t="Include" />
