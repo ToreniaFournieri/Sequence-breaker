@@ -8,29 +8,20 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
     public class HomeListItem : MonoBehaviour
     {
         public Text mContentText;
-//        public Image mIcon;
-//        public Image[] mStarArray;
         public Text mDescriptionText;
         public GameObject mExpandContentRoot;
         public Text mClickTip;
         public Button mExpandBtn;
 
+        
         // Go to some List (ally unit list or enemy list
         public Button mGoListDetail;
-        public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
-        public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
         int _mItemDataIndex = -1;
         bool _mIsExpand;
         public void Init()
         {
-//            for (int i = 0; i < mStarArray.Length; ++i)
-//            {
-//                int index = i;
-//                ClickEventListener listener = ClickEventListener.Get(mStarArray[i].gameObject);
-////                listener.SetClickEventHandler(delegate (GameObject obj) { OnStarClicked(index); });
-//            }
-
             mExpandBtn.onClick.AddListener( OnExpandBtnClicked );
+            mGoListDetail.onClick.AddListener( OnGoListBtnClicked );
         }
 
         public void OnExpandChanged()
@@ -66,37 +57,17 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             item2.ParentListView.OnItemSizeChanged(item2.ItemIndex);
         }
 
+        // go detail button clicked
+        void OnGoListBtnClicked()
+        {
+            HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
+            if (data == null)
+            {
+                return;
+            }
+            Debug.Log("pressed :" + data.contentText);
 
-//        void OnStarClicked(int index)
-//        {
-//            HomeItemData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
-//            if (data == null)
-//            {
-//                return;
-//            }
-//            if (index == 0 && data.MStarCount == 1)
-//            {
-//                data.MStarCount = 0;
-//            }
-//            else
-//            {
-//                data.MStarCount = index + 1;
-//            }
-//            SetStarCount(data.MStarCount);
-//        }
-
-//        public void SetStarCount(int count)
-//        {
-//            int i = 0;
-//            for (; i < count; ++i)
-//            {
-//                mStarArray[i].color = mRedStarColor;
-//            }
-//            for (; i < mStarArray.Length; ++i)
-//            {
-//                mStarArray[i].color = mGrayStarColor;
-//            }
-//        }
+        }
 
         public void SetItemData(HomeContentData itemData, int itemIndex)
         {
@@ -104,10 +75,6 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             mContentText.text = itemData.contentText;
             mDescriptionText.text = itemData.description;
             
-//            mNameText.text = itemData.MContentString;
-//            mDescText.text = itemData.MFileSize.ToString() + "KB";
-//            mIcon.sprite = HomeResManager.Get.GetSpriteByName(itemData.MIcon);
-//            SetStarCount(itemData.MStarCount);
             _mIsExpand = itemData.mIsExpand;
             OnExpandChanged();
         }
