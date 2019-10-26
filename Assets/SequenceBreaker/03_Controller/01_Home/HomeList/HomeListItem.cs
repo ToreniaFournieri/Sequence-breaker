@@ -1,6 +1,7 @@
 ﻿using _00_Asset._01_Asset_SuperScrollView.Scripts.Common;
 using _00_Asset._01_Asset_SuperScrollView.Scripts.ListView;
 using SequenceBreaker._03_Controller._01_Home.Character;
+using SequenceBreaker._04_Timeline_Tab.Log;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,9 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         public Button mGoListDetail;
         // to which list
         public GameObject jumpToGameObject;
+        
+
+        
         public CharacterStatusDisplay characterStatusDisplay;
         int _mItemDataIndex = -1;
         bool _mIsExpand;
@@ -71,6 +75,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             }
 
             characterStatusDisplay.unitList = data.unitClassList;
+            characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
             Debug.Log("pressed :" + data.contentText);
