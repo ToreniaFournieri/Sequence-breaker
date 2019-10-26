@@ -7,6 +7,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 {
     public sealed class InventoryItemList : MonoBehaviour
     {
+        public bool isInfinityInventoryMode;
         public List<Item> itemList;
         public ItemDataBase itemDataBase;
 
@@ -60,14 +61,26 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         private void SaveFile()
         {
-            itemDataBase.SaveItemList("item-" + "inventory", itemList);
-
+            if (isInfinityInventoryMode)
+            {
+                itemDataBase.SaveItemList("item-" + "Debug-" + "inventory", itemList);
+            }
+            else
+            {
+                itemDataBase.SaveItemList("item-" + "Ally-"+ "inventory", itemList);
+            }
         }
 
         private void LoadFile()
         {
-            itemList = itemDataBase.LoadItemList("item-" + "inventory");
-
+            if (isInfinityInventoryMode)
+            {
+                itemList = itemDataBase.LoadItemList("item-" + "Debug-" + "inventory");
+            }
+            else
+            {
+                itemList = itemDataBase.LoadItemList("item-" + "Ally-"+ "inventory");
+            }
         }
 
 

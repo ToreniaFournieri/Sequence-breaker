@@ -36,11 +36,13 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
     {
         // Item data base 
         public ItemDataBase itemDataBase;
-        public bool isDebugModeForInventory;
-        //public List<Item> itemList;
 
         // inventory
-        public InventoryItemList inventoryItemList;
+        public InventoryItemList allyInventoryItemList;
+
+        //debug mode 
+        public InventoryItemList infinityInventoryItemList;
+        public bool isInfinityInventoryMode;
 
 
 
@@ -49,7 +51,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
 
         //For update graphics
-        [FormerlySerializedAs("InventoryTreeViewWithStickyHeadScript")] public InventoryTreeViewWithStickyHeadScript inventoryTreeViewWithStickyHeadScript;
+        public InventoryTreeViewWithStickyHeadScript inventoryTreeViewWithStickyHeadScript;
 
 
         List<InventoryTreeViewItemData> _mItemDataList = new List<InventoryTreeViewItemData>();
@@ -136,23 +138,9 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 //add item
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.AddAndSaveItem(item);
 
-                //otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList().Add(item);
-                //itemDataBase.SaveItemList("item-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.affiliation
-                //    + "-" + otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.uniqueID,
-                //    otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList());
-
                 //remove from other inventory
-                inventoryItemList.RemoveItemAndSave(item);
+                allyInventoryItemList.RemoveItemAndSave(item);
 
-                //for (int i = inventoryItemList.itemList.Count - 1; i >= 0; i--)
-                //{
-                //    if (inventoryItemList.itemList[i] == item)
-                //    {
-                //        inventoryItemList.itemList.RemoveAt(i);
-                //        continue;
-                //    }
-                //}
-                //itemDataBase.SaveItemList("item-" + "inventory", inventoryItemList.itemList);
 
                 DoRefreshDataSource();
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();
@@ -167,42 +155,28 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData();
-                tData.MName = "Main Item Cateory: " + i;
-                //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                tData.MName = "Main Item Category: " + i;
                 tData.MIcon = "1";
                 _mItemDataList.Add(tData);
-                //int childCount = mTreeViewChildItemCount;
 
 
-                if (isDebugModeForInventory)
+                if (isInfinityInventoryMode)
                 {
-                    int childCount = itemDataBase.itemBaseMasterList.Count;
-                    for (int j = 0; j < childCount; ++j)
+                    infinityInventoryItemList.Init();
+                    foreach (Item item in infinityInventoryItemList.itemList)
                     {
-                        Item item = new Item();
-                        item.baseItem = itemDataBase.itemBaseMasterList[j];
-                        //ItemData childItemData = new ItemData();
-                        //childItemData.mName = "Item" + i + ":Child" + j;
-                        //childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                        ////childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                        //childItemData.mIcon = "1";
-                        //childItemData.mStarCount = Random.Range(0, 6);
-                        //childItemData.mFileSize = Random.Range(20, 999);
                         tData.AddChild(item);
                     }
                 }
                 else
                 {
-
-                    inventoryItemList.Init();
-                    foreach (Item item in inventoryItemList.itemList)
+                    allyInventoryItemList.Init();
+                    foreach (Item item in allyInventoryItemList.itemList)
                     {
                         tData.AddChild(item);
                     }
-
-                    //Debug.Log("tData count:" + tData.ChildCount);
-
                 }
+
 
                 inventoryTreeViewWithStickyHeadScript.Initialization();
             }

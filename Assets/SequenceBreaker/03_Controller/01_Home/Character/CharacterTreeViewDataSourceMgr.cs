@@ -135,7 +135,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             //inventory is infinity
 
             //add item
-            otherInventoryTreeViewDataSourceMgr.inventoryItemList.AddItemAndSave(item);
+            otherInventoryTreeViewDataSourceMgr.allyInventoryItemList.AddItemAndSave(item);
             //itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
 
             //remove from other inventory

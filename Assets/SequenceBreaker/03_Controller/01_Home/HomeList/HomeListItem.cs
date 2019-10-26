@@ -1,6 +1,7 @@
 ﻿using _00_Asset._01_Asset_SuperScrollView.Scripts.Common;
 using _00_Asset._01_Asset_SuperScrollView.Scripts.ListView;
 using SequenceBreaker._03_Controller._01_Home.Character;
+using SequenceBreaker._03_Controller._01_Home.Inventory;
 using SequenceBreaker._04_Timeline_Tab.Log;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,12 +19,15 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         
         // Go to some List (ally unit list or enemy list
         public Button mGoListDetail;
-        // to which list
+        // to jump list
         public GameObject jumpToGameObject;
         
-
-        
         public CharacterStatusDisplay characterStatusDisplay;
+        
+        //inventory switch debug mode true means infinity inventory.
+        public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
+//        public bool isDebugMode;
+        
         int _mItemDataIndex = -1;
         bool _mIsExpand;
         public void Init()
@@ -74,11 +78,12 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
                 return;
             }
 
+            inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
+            inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
             characterStatusDisplay.unitList = data.unitClassList;
             characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
-//            Debug.Log("pressed :" + data.contentText);
 
         }
 
