@@ -207,6 +207,7 @@
             </e>
             <e p="01_Home" t="Include">
               <e p="Character" t="Include">
+                <e p="CharacterHeaderSizeChanger.cs" t="Include" />
                 <e p="CharacterStatusDisplay.cs" t="Include" />
                 <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
                 <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />

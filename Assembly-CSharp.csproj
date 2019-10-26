@@ -176,6 +176,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\BattleUnit.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\ItemDataBase.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\TabController.cs" />
+     <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterHeaderSizeChanger.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterStatusDisplay.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewDataSourceMgr.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterTreeViewWithStickyHeadScript.cs" />

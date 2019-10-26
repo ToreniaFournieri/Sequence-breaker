@@ -78,7 +78,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
-            Debug.Log("pressed :" + data.contentText);
+//            Debug.Log("pressed :" + data.contentText);
 
         }
 
