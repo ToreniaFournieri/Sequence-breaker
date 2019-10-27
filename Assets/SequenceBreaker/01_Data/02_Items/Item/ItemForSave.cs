@@ -15,7 +15,10 @@ namespace SequenceBreaker._01_Data._02_Items.Item
         // suffix, super-rare, itemID
         [SerializeField] public int sI;
 
-        // Item enhanced: +1 or + 3 etc
+        // Item enhanced Value: +1 or + 3 etc
         [SerializeField] public int eV;
+        
+        // Item amount:  x3 or x99 (max will be 99?)
+        [SerializeField] public int am;
     }
 }

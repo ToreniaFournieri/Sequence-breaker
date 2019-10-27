@@ -43,6 +43,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                 item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
                 item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);
                 item.enhancedValue = itemForSave.eV;
+                item.amount = itemForSave.am;
 
                 itemList.Add(item);
 
@@ -67,7 +68,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     if (item.prefixItem != null) { itemForSave.pI = item.prefixItem.itemId; }
                     if (item.suffixItem != null) { itemForSave.sI = item.suffixItem.itemId; }
                     itemForSave.eV = item.enhancedValue;
-
+                    itemForSave.am = item.amount;
                     itemForSaveList.Add(itemForSave);
                 }
             }

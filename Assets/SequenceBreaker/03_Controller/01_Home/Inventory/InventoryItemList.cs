@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker._01_Data._02_Items._01_ItemMaster;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
@@ -75,7 +76,26 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
         {
             if (isInfinityInventoryMode)
             {
-                itemList = itemDataBase.LoadItemList("item-" + "Debug-" + "inventory");
+//                itemList = itemDataBase.LoadItemList("item-" + "Debug-" + "inventory");
+
+                itemList.Clear();
+
+                Item item;
+                foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
+                {
+                    item = new Item();
+                    Debug.Log("itemBaseMaster: " + itemBaseMaster.itemName);
+                    item.prefixItem = null;
+                    item.baseItem = itemBaseMaster;
+                    item.suffixItem = null;
+                    item.enhancedValue = 0;
+                    item.amount = 99;
+                    itemList.Add(item);
+                }
+                
+
+
+
             }
             else
             {

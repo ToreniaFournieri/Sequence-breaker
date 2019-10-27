@@ -11,27 +11,27 @@ namespace SequenceBreaker._01_Data._02_Items._01_ItemMaster
 	[CreateAssetMenu(fileName = "ItemBase-", menuName = "Item/ItemBase", order = 1)]
 	public sealed class ItemBaseMaster : ScriptableObject
 	{
-		[FormerlySerializedAs("itemID")] public int itemId;
+		public int itemId;
 
 		public string itemName;
 		public string itemDescription;
 		public Sprite icon;
 
 		//1. CombatBaseValues
-		[FormerlySerializedAs("CombatBaseValue")] [SerializeField] public CombatClass combatBaseValue;
+		[SerializeField] public CombatClass combatBaseValue;
 
 		// item level like 2, 3...
-		[FormerlySerializedAs("Level")] [SerializeField] public int level = 0;
+		[SerializeField] public int level = 0;
 
 		//2. Skill add
-		[FormerlySerializedAs("SkillsMasterList")] [SerializeField] public List<SkillsMasterClass> skillsMasterList;
+		[SerializeField] public List<SkillsMasterClass> skillsMasterList;
 
 		//3. Ability add value
-		[FormerlySerializedAs("AddAbilityList")] [SerializeField] public List<AddAbilityClass> addAbilityList;
+		[SerializeField] public List<AddAbilityClass> addAbilityList;
 
 
 		//4. Offense or defense magnification set
-		[FormerlySerializedAs("MagnificationMasterList")] [SerializeField] public List<MagnificationMasterClass> magnificationMasterList;
+		[SerializeField] public List<MagnificationMasterClass> magnificationMasterList;
 
 
 		// be calculated by coefficient
@@ -46,6 +46,12 @@ namespace SequenceBreaker._01_Data._02_Items._01_ItemMaster
 			}
 			return calculated;
 		}
+
+		public ItemBaseMaster Copy()
+		{
+			return (ItemBaseMaster)this.MemberwiseClone();
+		}
+		
 
 
 		public string OneLineDescription()

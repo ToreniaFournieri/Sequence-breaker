@@ -12,20 +12,9 @@ namespace SequenceBreaker._01_Data._02_Items.Item
     public sealed class Item : ScriptableObject
     {
 
-        public string ItemName
-        {
-            get
-            {
-                return GetName();
-            }
-        }
-        public string ItemDescription
-        {
-            get
-            {
-                return GetItemOneLineDescription();
-            }
-        }
+        public string ItemName => GetName();
+
+        public string ItemDescription => GetItemOneLineDescription();
 
         // base of this item
         [SerializeField] public ItemBaseMaster baseItem;
@@ -38,6 +27,9 @@ namespace SequenceBreaker._01_Data._02_Items.Item
 
         // Item enhanced
         [SerializeField]  public int enhancedValue;
+        
+        // Item amount
+        [SerializeField] public int amount;
 
         //Copy
         public Item Copy()
@@ -143,22 +135,29 @@ namespace SequenceBreaker._01_Data._02_Items.Item
 
         private string GetName()
         {
+
+            string amountString = null;
+//            if (amount >= 2)
+//            {
+                amountString = "x" + amount + " ";
+//            }
+
             string coefficient = null;
             if (enhancedValue > 1)
             {
-                coefficient = "+" + enhancedValue;
+                coefficient = "+" + enhancedValue +" ";
             }
 
             string prefix = null;
-            if (prefixItem != null) { prefix = prefixItem.itemName; }
+            if (prefixItem != null) { prefix = prefixItem.itemName + " "; }
 
             string itemBase = null;
-            if (baseItem != null) { itemBase = baseItem.itemName; }
+            if (baseItem != null) { itemBase = baseItem.itemName + " "; }
 
             string suffix = null;
             if (suffixItem != null) { suffix = "of " + suffixItem.itemName; }
 
-            return coefficient + " " + prefix + " " + itemBase + " " + suffix;
+            return amountString + coefficient + prefix + itemBase + suffix;
         }
 
         private string GetItemOneLineDescription()
