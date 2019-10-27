@@ -3,6 +3,7 @@ using SequenceBreaker._01_Data._02_Items._01_ItemMaster;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace SequenceBreaker._03_Controller._01_Home.Inventory
 {
@@ -26,19 +27,57 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             LoadFile();
         }
 
-        public void AddItemAndSave(Item item)
+        public void AddItemAndSave(Item addItem)
         {
-            itemList.Add(item);
+            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + itemList.Count);
+
+            // no item exist
+            if (itemList.Count == 0)
+            {
+                Item item = addItem.Copy();
+                item.amount = 1;
+                itemList.Add(item);
+            }
+            else
+            {
+
+                bool isExistSameItem = false;
+                for (int i = itemList.Count - 1; i >= 0; i--)
+                {
+                    if (itemList[i].GetID() == addItem.GetID())
+                    {
+                        if (itemList[i].amount >= 99)
+                        {
+                            //nothing to do.
+                            isExistSameItem = true;
+                            continue;
+                        }
+                        else
+                        {
+                            isExistSameItem = true;
+                            itemList[i].amount += 1;
+                            continue;
+                        }
+                    }
+                }
+
+                if (isExistSameItem == false)
+                {
+                    Item item = addItem.Copy();
+                    item.amount = 1;
+                    itemList.Add(item);
+                }
+            }
+
             SaveFile();
         }
 
-        //reccomend to use this method
+        //recommend to use this method
         public void AddItemListAndSave(List<Item> itemList)
         {
             foreach (Item item in itemList)
             {
-                this.itemList.Add(item);
-
+                AddItemAndSave(item);
             }
 
             SaveFile();
@@ -47,11 +86,21 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void RemoveItemAndSave(Item removedItem)
         {
+            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + itemList.Count);
             for (int i = itemList.Count - 1; i >= 0; i--)
             {
-                if (itemList[i] == removedItem)
+                
+                if (itemList[i].GetID() == removedItem.GetID())
                 {
-                    itemList.RemoveAt(i);
+                    Debug.Log("itemList amount: " + itemList[i].amount);
+                    if (itemList[i].amount > 1)
+                    {
+                        itemList[i].amount -= 1;
+                    }
+                    else
+                    {
+                        itemList.RemoveAt(i);
+                    }
                     continue;
                 }
             }
@@ -84,7 +133,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
                 {
                     item = new Item();
-                    Debug.Log("itemBaseMaster: " + itemBaseMaster.itemName);
+//                    Debug.Log("itemBaseMaster: " + itemBaseMaster.itemName);
                     item.prefixItem = null;
                     item.baseItem = itemBaseMaster;
                     item.suffixItem = null;

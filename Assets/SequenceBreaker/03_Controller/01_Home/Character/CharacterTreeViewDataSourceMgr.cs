@@ -135,22 +135,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             //inventory is infinity
 
             //add item
-            otherInventoryTreeViewDataSourceMgr.allyInventoryItemList.AddItemAndSave(item);
-            //itemDataBase.SaveItemList("item-" + "inventory", otherInventoryTreeViewDataSourceMgr.itemList);
+//            otherInventoryTreeViewDataSourceMgr.allyInventoryItemList.AddItemAndSave(item, 1);
+            otherInventoryTreeViewDataSourceMgr.AddItemAndSave(item);
 
             //remove from other inventory
             characterStatusDisplay.RemoveAndSaveItem(item);
-            //for (int i = characterStatusDisplay.GetItemList().Count - 1; i >= 0; i--)
-            //{
-            //    if (characterStatusDisplay.GetItemList()[i] == item)
-            //    {
-            //        characterStatusDisplay.GetItemList().RemoveAt(i);
-            //        continue;
-            //    }
-            //}
-            //itemDataBase.SaveItemList("item-" + characterStatusDisplay.affiliation
-            //    + "-" + characterStatusDisplay.uniqueID, characterStatusDisplay.GetItemList());
-
+            
 
             characterStatusDisplay.RefleshCharacterStatusAndItemList();
             otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
@@ -168,43 +158,20 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             {
                 CharacterTreeViewItemData tData = new CharacterTreeViewItemData();
                 tData.MName = "Character";
-                //tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
                 tData.MIcon = "1";
                 _mItemDataList.Add(tData);
-                //int childCount = mTreeViewChildItemCount;
 
 
                 foreach (Item item in characterStatusDisplay.GetItemList())
                 {
                     if (item != null)
                     {
-                        //Debug.Log("characterStatusDisplay.itemList :" + _item.itemName);
                         tData.AddChild(item);
                     }
                 }
 
-                //int childCount = itemDataBase.itemBaseMasterList.Count;
-                //for (int j = 0; j < childCount; ++j)
-                //{
-                //    Item _item = new Item();
-                //    _item.baseItem = itemDataBase.itemBaseMasterList[j];
-                //    //ItemData childItemData = new ItemData();
-                //    //childItemData.mName = "Item" + i + ":Child" + j;
-                //    //childItemData.mDesc = "Item Desc For " + childItemData.mName;
-                //    ////childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
-                //    //childItemData.mIcon = "1";
-                //    //childItemData.mStarCount = Random.Range(0, 6);
-                //    //childItemData.mFileSize = Random.Range(20, 999);
-                //    tData.AddChild(_item);
-                //}
-                //}
 
             }
-
-            //if (characterStatusDisplay.UnitList != null)
-            //{
-            //    characterStatusDisplay.RefleshCharacterStatus();
-            //}
 
 
         }

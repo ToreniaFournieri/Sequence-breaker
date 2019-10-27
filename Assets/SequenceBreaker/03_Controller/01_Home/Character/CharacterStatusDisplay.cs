@@ -79,27 +79,67 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
         }
 
-        public void AddAndSaveItem(Item item)
+        public void AddAndSaveItem(Item addItem)
         {
-            //List<Item> _itemList = GetItemList();
-            unitList[selectedUnitNo].itemList.Add(item);
+            if (unitList[selectedUnitNo].itemList.Count == 0)
+            {
+                
+                Item item = addItem.Copy();
+                item.amount = 1;
+
+                unitList[selectedUnitNo].itemList.Add(item);
+            }
+            else
+            {
+                for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
+                {
+                    if (unitList[selectedUnitNo].itemList[i].GetID() == addItem.GetID())
+                    {
+                        if (unitList[selectedUnitNo].itemList[i].amount >= 99)
+                        {
+                            //nothing to do.
+                            continue;
+                        }
+                        else
+                        {
+                            unitList[selectedUnitNo].itemList[i].amount += 1;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        Item item = addItem.Copy();
+                        item.amount = 1;
+                        unitList[selectedUnitNo].itemList.Add(item);
+                        continue;
+                    }
+                }
+            }
+
+//            unitList[selectedUnitNo].itemList.Add(addItem);
             itemDataBase.SaveItemList("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
                 unitList[selectedUnitNo].itemList);
 
         }
 
-        public void RemoveAndSaveItem(Item item)
+        public void RemoveAndSaveItem(Item removedItem)
         {
-            //List<Item> _itemList = GetItemList();
-
             for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
             {
-                if (unitList[selectedUnitNo].itemList[i] == item)
+                if (unitList[selectedUnitNo].itemList[i].GetID() == removedItem.GetID())
                 {
-                    unitList[selectedUnitNo].itemList.RemoveAt(i);
+                    if (unitList[selectedUnitNo].itemList[i].amount > 1)
+                    {
+                        unitList[selectedUnitNo].itemList[i].amount -= 1;
+                    }
+                    else
+                    {
+                        unitList[selectedUnitNo].itemList.RemoveAt(i);
+                    }
                     continue;
                 }
             }
+            
             itemDataBase.SaveItemList("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
                 unitList[selectedUnitNo].itemList);
         }

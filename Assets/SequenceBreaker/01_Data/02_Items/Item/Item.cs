@@ -133,6 +133,20 @@ namespace SequenceBreaker._01_Data._02_Items.Item
             return descrption;
         }
 
+        // ID but string type (this is temp)
+        public string GetID()
+        {
+            string prefixID = null;
+            if (prefixItem != null) { prefixID = ""+prefixItem.itemId; }
+            string baseID = null;
+            if (baseItem != null) { baseID = ""+baseItem.itemId; }
+            string suffixID= null;
+            if (suffixItem != null) { suffixID = ""+suffixItem.itemId; }
+            
+            
+            return "" + enhancedValue + prefixID + baseID + suffixID;
+        }
+
         private string GetName()
         {
 

@@ -88,6 +88,19 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             DoRefreshDataSource();
         }
 
+        public void AddItemAndSave(Item item)
+        {
+            if (isInfinityInventoryMode)
+            {
+                infinityInventoryItemList.AddItemAndSave(item);
+            }
+            else
+            {
+                allyInventoryItemList.AddItemAndSave(item);
+            }
+        }
+        
+
         public InventoryTreeViewItemData GetItemDataByIndex(int index)
         {
             if (index < 0 || index >= _mItemDataList.Count)
@@ -139,8 +152,17 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.AddAndSaveItem(item);
 
                 //remove from other inventory
-                allyInventoryItemList.RemoveItemAndSave(item);
+                if (isInfinityInventoryMode)
+                {
+                    infinityInventoryItemList.RemoveItemAndSave(item);
+                }
+                else
+                {
+                    allyInventoryItemList.RemoveItemAndSave(item);
+                   
+                }
 
+ 
 
                 DoRefreshDataSource();
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();
