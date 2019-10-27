@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 03_HeadH3AC7
   m_EditorClassIdentifier: 
-  itemID: 51603
+  itemId: 51603
   itemName: Head H3AC7
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
-  Level: 9
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
+  level: 6
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: b980c73d4ca274d8ea241e25485d3d8f, type: 2}
   - {fileID: 11400000, guid: e5d67e523a61f4836b6b00a8b55bb29a, type: 2}

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 10_HeadJ4AC10
   m_EditorClassIdentifier: 
-  itemID: 51610
+  itemId: 51610
   itemName: Head J4AC10
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
-  Level: 12
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
+  level: 8
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: 323fd8af07a7245ac9e8b5dbe09c9fe8, type: 2}

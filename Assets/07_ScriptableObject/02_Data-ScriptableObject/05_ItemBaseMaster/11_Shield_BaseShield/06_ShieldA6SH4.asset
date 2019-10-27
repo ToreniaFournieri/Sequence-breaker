@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 06_ShieldA6SH4
   m_EditorClassIdentifier: 
-  itemID: 51106
+  itemId: 51106
   itemName: Shield A6SH4
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 3e71f98e69ed54250a523f6dbf66017a, type: 2}
-  Level: 18
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 3e71f98e69ed54250a523f6dbf66017a, type: 2}
+  level: 12
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: 0dc66a1271b354bcf9eb85d18f6a308e, type: 2}
   - {fileID: 11400000, guid: 47401924a01614344bba72ca3d3c5d28, type: 2}

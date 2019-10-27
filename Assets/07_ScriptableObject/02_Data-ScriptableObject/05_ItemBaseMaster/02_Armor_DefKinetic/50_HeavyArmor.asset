@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 50_HeavyArmor
   m_EditorClassIdentifier: 
-  itemID: 502150
+  itemId: 50250
   itemName: Heavy Armor T1
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 42bea3d11c53a4de3a653b0570286002, type: 2}
-  Level: 3
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
+  level: 2
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: 34a7a596c2c73430d8ef2deec2c29ae7, type: 2}
-  - {fileID: 11400000, guid: 81bf77076085c4fb989180009a4a170b, type: 2}
-  - {fileID: 11400000, guid: cce6a4750f4e9463aa18868ffe4ae815, type: 2}

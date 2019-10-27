@@ -98,8 +98,6 @@ namespace SequenceBreaker._07_Play._1_View
 
                 missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
                                                                                        + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
-
-
                 wave += 1;
             }
 
@@ -109,7 +107,12 @@ namespace SequenceBreaker._07_Play._1_View
             {
                 missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
             }
-            missionController.inventoryItemList.AddItemListAndSave(itemList);
+
+            foreach (var item in itemList)
+            {
+                missionController.inventoryItemList.AddItemAndSave(item);
+            }
+
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
             missionController.transparentMessageController.transparentMessage.SetActive(true);

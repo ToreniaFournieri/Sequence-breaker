@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
-  m_Name: 11_ArmorU5KIN12
+  m_Name: 14_ArmorU8KIN6
   m_EditorClassIdentifier: 
-  itemID: 50211
-  itemName: Armor U5KIN12
+  itemId: 50214
+  itemName: Armor U8KIN6
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
-  Level: 15
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
-  - {fileID: 11400000, guid: 3c9bbbaf6004a42dfbe0325d459f32f9, type: 2}
+  combatBaseValue: {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
+  level: 16
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
+  - {fileID: 11400000, guid: 3ab9e027d520d4895b590b1bab4d6be6, type: 2}

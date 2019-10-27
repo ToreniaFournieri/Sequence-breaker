@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 03_M6SubmachineGun
   m_EditorClassIdentifier: 
-  itemID: 10311
-  itemName: Submachine gun M3
+  itemId: 52203
+  itemName: Submachine gun M6
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
-  Level: 18
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
-  - {fileID: 11400000, guid: 5a7e8d2adfd17401ca7beb3eb297f195, type: 2}
-  - {fileID: 11400000, guid: 6a084de4fec2f400a8dd8c90f2a2c75a, type: 2}
+  combatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  level: 12
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
+  - {fileID: 11400000, guid: 1cff8ff94c48e4c678bfb5ed41fd969f, type: 2}

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 15_BreastplateU9CR5
   m_EditorClassIdentifier: 
-  itemID: 50115
+  itemId: 50115
   itemName: Breastplate U9CR5
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 1c7416fc081c94c118fcd61ff4210712, type: 2}
-  Level: 27
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 1c7416fc081c94c118fcd61ff4210712, type: 2}
+  level: 18
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: ef1c7547114da4d81aab149db951a740, type: 2}

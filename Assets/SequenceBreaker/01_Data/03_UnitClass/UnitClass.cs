@@ -35,6 +35,21 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             CalculateLevel();
         }
 
+        
+        // don't use itemList.Count. Because item may have multiple amount. use this.
+        public int GetItemAmount()
+        {
+            int totalAmount = 0;
+            foreach (var item in itemList)
+            {
+                if (item != null)
+                {
+                    totalAmount += item.amount;
+                }
+            }
+
+            return totalAmount;
+        }
 
         private void CalculateLevel ()
         {

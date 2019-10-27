@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 14_PiercingBulletQ8CR6
   m_EditorClassIdentifier: 
-  itemID: 52114
+  itemId: 52114
   itemName: Piercing Bullet Q8CR6
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: f00f781efa1fd4ef394cafa630b40d5a, type: 2}
-  Level: 24
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: f00f781efa1fd4ef394cafa630b40d5a, type: 2}
+  level: 16
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: c699ed8f73be9439d98c7fa1b0967854, type: 2}

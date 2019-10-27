@@ -72,17 +72,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             SaveFile();
         }
 
-        //recommend to use this method
-        public void AddItemListAndSave(List<Item> itemList)
-        {
-            foreach (Item item in itemList)
-            {
-                AddItemAndSave(item);
-            }
-
-            SaveFile();
-
-        }
 
         public void RemoveItemAndSave(Item removedItem)
         {

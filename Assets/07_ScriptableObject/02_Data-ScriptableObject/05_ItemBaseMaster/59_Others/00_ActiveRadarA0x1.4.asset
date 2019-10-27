@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 00_ActiveRadarA0x1.4
   m_EditorClassIdentifier: 
-  itemID: 10901
+  itemId: 55900
   itemName: Active Radar A0x1.4
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 0}
-  Level: 1
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 0}
+  level: 0
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: b1e726ab9f57e4de98503e8a04824f64, type: 2}

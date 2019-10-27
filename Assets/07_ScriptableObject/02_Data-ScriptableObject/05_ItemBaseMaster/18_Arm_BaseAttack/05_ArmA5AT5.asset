@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 05_ArmA5AT5
   m_EditorClassIdentifier: 
-  itemID: 51805
+  itemId: 51805
   itemName: Arm A5AT5
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 32197bf36d9144b2aa6bf34461c1e8b9, type: 2}
-  Level: 15
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 32197bf36d9144b2aa6bf34461c1e8b9, type: 2}
+  level: 10
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: dce3148370060454497929e398cf559d, type: 2}
   - {fileID: 11400000, guid: 06e7cc770331b4d8eb79991a44aa381b, type: 2}

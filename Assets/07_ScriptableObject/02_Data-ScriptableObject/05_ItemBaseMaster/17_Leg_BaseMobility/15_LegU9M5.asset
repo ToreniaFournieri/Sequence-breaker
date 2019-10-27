@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 15_LegU9M5
   m_EditorClassIdentifier: 
-  itemID: 51715
+  itemId: 51715
   itemName: Leg U9M5
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: fd749ec4e8e274ce9930961c4f318afd, type: 2}
-  Level: 27
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: fd749ec4e8e274ce9930961c4f318afd, type: 2}
+  level: 18
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: aafb7ab1b951946288900ee513b5bc81, type: 2}

@@ -16,3 +16,4 @@ MonoBehaviour:
   prefixItem: {fileID: 0}
   suffixItem: {fileID: 0}
   enhancedValue: 0
+  amount: 1

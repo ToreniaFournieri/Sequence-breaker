@@ -149,20 +149,23 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             {
 
                 //add item
-                otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.AddAndSaveItem(item);
+                bool isFailed = otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.AddAndSaveItem(item);
 
-                //remove from other inventory
-                if (isInfinityInventoryMode)
+                if (isFailed == false)
                 {
-                    infinityInventoryItemList.RemoveItemAndSave(item);
-                }
-                else
-                {
-                    allyInventoryItemList.RemoveItemAndSave(item);
-                   
+
+                    //remove from other inventory
+                    if (isInfinityInventoryMode)
+                    {
+                        infinityInventoryItemList.RemoveItemAndSave(item);
+                    }
+                    else
+                    {
+                        allyInventoryItemList.RemoveItemAndSave(item);
+
+                    }
                 }
 
- 
 
                 DoRefreshDataSource();
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();

@@ -59,7 +59,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 this.selectedUnitNo = selectedUnitNo;
 
                 characterNameText.text = unitList[this.selectedUnitNo].name + " (Level:" + unitList[this.selectedUnitNo].level + ")";
-                itemAmountText.text = unitList[this.selectedUnitNo].itemList.Count + "/" + unitList[this.selectedUnitNo].itemCapacity;
+                itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
                 CalculateUnitStatus calculateUnitStatus = new CalculateUnitStatus(unitList[this.selectedUnitNo]);
                 abilityText.text = calculateUnitStatus.detailAbilityString;
@@ -79,8 +79,13 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
         }
 
-        public void AddAndSaveItem(Item addItem)
+        public bool AddAndSaveItem(Item addItem)
         {
+            if (unitList[selectedUnitNo].GetItemAmount() >= unitList[selectedUnitNo].itemCapacity)
+            {
+                // failed. over.
+                return true;
+            }
             if (unitList[selectedUnitNo].itemList.Count == 0)
             {
                 
@@ -119,6 +124,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 //            unitList[selectedUnitNo].itemList.Add(addItem);
             itemDataBase.SaveItemList("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
                 unitList[selectedUnitNo].itemList);
+            return false;
 
         }
 

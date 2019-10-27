@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 00_LegT0M10
   m_EditorClassIdentifier: 
-  itemID: 51700
+  itemId: 51700
   itemName: Leg T0M10
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: fd749ec4e8e274ce9930961c4f318afd, type: 2}
-  Level: 0
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: fd749ec4e8e274ce9930961c4f318afd, type: 2}
+  level: 0
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: fe0b826ed31d2452da9f77a5ae6b0433, type: 2}
-  - {fileID: 11400000, guid: 323fd8af07a7245ac9e8b5dbe09c9fe8, type: 2}
+  - {fileID: 11400000, guid: 35f27312d7794435f925c30e75f7c737, type: 2}

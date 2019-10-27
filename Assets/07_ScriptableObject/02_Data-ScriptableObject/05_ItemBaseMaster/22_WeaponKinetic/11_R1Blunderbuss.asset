@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 11_R1Blunderbuss
   m_EditorClassIdentifier: 
-  itemID: 10302
-  itemName: Blunderbuss P2
+  itemId: 52211
+  itemName: Blunderbuss P1
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 844907db2f82946298e47cf92f1c200b, type: 2}
-  Level: 3
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  level: 2
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: e4fea720b9bc4434e9f8e3b1b2fafe98, type: 2}
-  - {fileID: 11400000, guid: 8d1fe31adb4be4e41b676b071ba08034, type: 2}
+  - {fileID: 11400000, guid: e3d3cd8816d114deda7c584d7b5b7cb6, type: 2}

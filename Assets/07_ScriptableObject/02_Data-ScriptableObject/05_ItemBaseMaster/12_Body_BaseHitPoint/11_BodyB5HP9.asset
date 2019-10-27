@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: 11_BodyB5HP9
   m_EditorClassIdentifier: 
-  itemID: 51211
+  itemId: 51211
   itemName: Body B5HP9
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 88b3ef6d164ad4b53831d6db0ae7b595, type: 2}
-  Level: 15
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
+  combatBaseValue: {fileID: 11400000, guid: 88b3ef6d164ad4b53831d6db0ae7b595, type: 2}
+  level: 10
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
   - {fileID: 11400000, guid: cca948b886189429294bc499add3bf26, type: 2}

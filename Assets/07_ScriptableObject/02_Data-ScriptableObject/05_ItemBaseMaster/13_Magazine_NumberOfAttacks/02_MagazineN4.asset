@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
-  m_Name: 14_ArmorU8KIN9
+  m_Name: 02_MagazineN4
   m_EditorClassIdentifier: 
-  itemID: 50214
-  itemName: Armor U8KIN9
+  itemId: 51302
+  itemName: Magazine N2
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
-  Level: 24
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList:
-  - {fileID: 11400000, guid: b8cc4afb75e6241fab1e8b2317f70ffb, type: 2}
+  combatBaseValue: {fileID: 11400000, guid: 81975d9c6bf5e4786826d2033c86ce5b, type: 2}
+  level: 8
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList: []

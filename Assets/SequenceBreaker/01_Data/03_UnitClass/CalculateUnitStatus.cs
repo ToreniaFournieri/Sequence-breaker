@@ -14,10 +14,10 @@ namespace SequenceBreaker._01_Data._03_UnitClass
     {
 
         //Input data
-        [FormerlySerializedAs("Unit")] public UnitClass unit;
+        public UnitClass unit;
 
         //Output data
-        [FormerlySerializedAs("BattleUnit")] public BattleUnit battleUnit;
+        public BattleUnit battleUnit;
 
         // Output data to show magnification data
         public List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string percents)> summedOffenseList;
@@ -38,44 +38,44 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         // Environment Parameter
         // for combat status calculation
-        [FormerlySerializedAs("T5LevelCoefficient")] public float t5LevelCoefficient;
-        [FormerlySerializedAs("T5LevelPowLittle")] public float t5LevelPowLittle;
-        [FormerlySerializedAs("T5LevelPowBig")] public float t5LevelPowBig;
-        [FormerlySerializedAs("T5AbilityCoefficient")] public float t5AbilityCoefficient;
-        [FormerlySerializedAs("T5AbilityPowDenominator")] public float t5AbilityPowDenominator;
+        public float t5LevelCoefficient;
+        public float t5LevelPowLittle;
+        public float t5LevelPowBig;
+        public float t5AbilityCoefficient;
+        public float t5AbilityPowDenominator;
 
-        [FormerlySerializedAs("T4LevelCoefficient")] public float t4LevelCoefficient;
-        [FormerlySerializedAs("T4LevelPowLittle")] public float t4LevelPowLittle;
-        [FormerlySerializedAs("T4LevelPowBig")] public float t4LevelPowBig;
-        [FormerlySerializedAs("T4AbilityCoefficient")] public float t4AbilityCoefficient;
-        [FormerlySerializedAs("T4AbilityPowDenominator")] public float t4AbilityPowDenominator;
+         public float t4LevelCoefficient;
+        public float t4LevelPowLittle;
+        public float t4LevelPowBig;
+        public float t4AbilityCoefficient;
+        public float t4AbilityPowDenominator;
 
-        [FormerlySerializedAs("T3LevelCoefficient")] public float t3LevelCoefficient;
-        [FormerlySerializedAs("T3LevelPowLittle")] public float t3LevelPowLittle;
-        [FormerlySerializedAs("T3LevelPowBig")] public float t3LevelPowBig;
-        [FormerlySerializedAs("T3AbilityCoefficient")] public float t3AbilityCoefficient;
-        [FormerlySerializedAs("T3AbilityPowDenominator")] public float t3AbilityPowDenominator;
-        [FormerlySerializedAs("T3AbilityBasedCoefficient")] public float t3AbilityBasedCoefficient;
+        public float t3LevelCoefficient;
+         public float t3LevelPowLittle;
+        public float t3LevelPowBig;
+        public float t3AbilityCoefficient;
+        public float t3AbilityPowDenominator;
+        public float t3AbilityBasedCoefficient;
 
-        [FormerlySerializedAs("T2LevelCoefficient")] public float t2LevelCoefficient;
-        [FormerlySerializedAs("T2LevelPowLittle")] public float t2LevelPowLittle;
-        [FormerlySerializedAs("T2LevelPowBig")] public float t2LevelPowBig;
-        [FormerlySerializedAs("T2AbilityCoefficient")] public float t2AbilityCoefficient;
-        [FormerlySerializedAs("T2AbilityPowDenominator")] public float t2AbilityPowDenominator;
-        [FormerlySerializedAs("T2AbilityBasedCoefficient")] public float t2AbilityBasedCoefficient;
+         public float t2LevelCoefficient;
+         public float t2LevelPowLittle;
+         public float t2LevelPowBig;
+        public float t2AbilityCoefficient;
+        public float t2AbilityPowDenominator;
+         public float t2AbilityBasedCoefficient;
 
 
         //efficient block
-        [FormerlySerializedAs("PowerCoefficient")] public float powerCoefficient;
-        [FormerlySerializedAs("CriticalHitCoefficient")] public float criticalHitCoefficient;
-        [FormerlySerializedAs("NumberOfAttacksCoefficient")] public float numberOfAttacksCoefficient;
-        [FormerlySerializedAs("AccuracyCoefficient")] public float accuracyCoefficient;
-        [FormerlySerializedAs("MobilityCoefficient")] public float mobilityCoefficient;
-        [FormerlySerializedAs("DefenseCoefficient")] public float defenseCoefficient;
-        [FormerlySerializedAs("CounterintelligenceCoefficient")] public float counterintelligenceCoefficient;
-        [FormerlySerializedAs("RepairCoefficient")] public float repairCoefficient;
-        [FormerlySerializedAs("ShieldCoefficient")] public float shieldCoefficient;
-        [FormerlySerializedAs("HPCoefficient")] public float hpCoefficient;
+        public float powerCoefficient;
+         public float criticalHitCoefficient;
+        public float numberOfAttacksCoefficient;
+         public float accuracyCoefficient;
+         public float mobilityCoefficient;
+        public float defenseCoefficient;
+         public float counterintelligenceCoefficient;
+        public float repairCoefficient;
+        public float shieldCoefficient;
+         public float hpCoefficient;
 
 
         //middle data
