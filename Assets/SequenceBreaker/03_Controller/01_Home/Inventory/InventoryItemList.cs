@@ -41,27 +41,27 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             else
             {
 
-                bool isExistSameItem = false;
+                bool onceHasBeenAdded = false;
                 for (int i = itemList.Count - 1; i >= 0; i--)
                 {
                     if (itemList[i].GetID() == addItem.GetID())
                     {
+                        onceHasBeenAdded = true;
+
                         if (itemList[i].amount >= 99)
                         {
                             //nothing to do.
-                            isExistSameItem = true;
                             continue;
                         }
                         else
                         {
-                            isExistSameItem = true;
                             itemList[i].amount += 1;
                             continue;
                         }
                     }
                 }
 
-                if (isExistSameItem == false)
+                if (onceHasBeenAdded == false)
                 {
                     Item item = addItem.Copy();
                     item.amount = 1;

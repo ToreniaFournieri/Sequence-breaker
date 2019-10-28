@@ -96,10 +96,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             }
             else
             {
+                bool onceHasBeenAdded = false;
                 for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
                 {
                     if (unitList[selectedUnitNo].itemList[i].GetID() == addItem.GetID())
                     {
+                        onceHasBeenAdded = true;
                         if (unitList[selectedUnitNo].itemList[i].amount >= 99)
                         {
                             //nothing to do.
@@ -110,15 +112,16 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                             unitList[selectedUnitNo].itemList[i].amount += 1;
                             continue;
                         }
-                    }
-                    else
-                    {
-                        Item item = addItem.Copy();
-                        item.amount = 1;
-                        unitList[selectedUnitNo].itemList.Add(item);
-                        continue;
+
                     }
                 }
+                if (onceHasBeenAdded == false)
+                {
+                    Item item = addItem.Copy();
+                    item.amount = 1;
+                    unitList[selectedUnitNo].itemList.Add(item);
+                }
+
             }
 
 //            unitList[selectedUnitNo].itemList.Add(addItem);
