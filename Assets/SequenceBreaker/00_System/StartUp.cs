@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._00_Global;
+using SequenceBreaker._03_Controller._02_Play;
+using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;
 
 namespace SequenceBreaker._00_System
@@ -14,7 +16,7 @@ namespace SequenceBreaker._00_System
         //Item inventory
         public UnitClass inventory;
         //Ally inventory
-        public List<UnitClass> allyUnitList;
+//        public List<UnitClass> enemyMasterUnitList;
 
 
         //wake up all main tab
@@ -27,17 +29,18 @@ namespace SequenceBreaker._00_System
         void Start()
         {
             //inventory
-            inventory.itemList = itemDataBase.LoadItemList("item-" + inventory.affiliation + "-" + inventory.uniqueId);
+            inventory.itemList = itemDataBase.LoadItemList("item-" + inventory.affiliation + "-inventory" );
 
-
-            //ally unit load
-            foreach (UnitClass unit in allyUnitList)
-            {
-                if (unit != null)
-                {
-                    unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
-                }
-            }
+//
+//            // unit load
+//            foreach (UnitClass unit in enemyMasterUnitList)
+//            {
+//                if (unit != null)
+//                {
+//                    unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
+//                }
+//            }
+//            
 
             a1.SetActive(true);
             a2.SetActive(true);
@@ -59,7 +62,7 @@ namespace SequenceBreaker._00_System
 
             #endif
             
-            
+ 
             
         }
 

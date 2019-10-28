@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using SequenceBreaker._01_Data._03_UnitClass;
+using SequenceBreaker._03_Controller._01_Home;
+using SequenceBreaker._10_Global;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SequenceBreaker._03_Controller._00_Global
@@ -14,9 +17,12 @@ namespace SequenceBreaker._03_Controller._00_Global
         public GameObject playTab;
         public GameObject homeTab;
 
-        // Battle log generate 2019/9/2 for test
-        //public GameObject BattleLogEnhancedScrollController;
 
+        //For enemy unitClass load
+        public ItemDataBase itemDataBase;
+//        public MasterEnemyUnitList masterEnemyUnitList;
+        public HomeContents homeContents;
+        
         // Log list update
 
         public void ActivateTab(string toActivateTab)
@@ -33,6 +39,16 @@ namespace SequenceBreaker._03_Controller._00_Global
 
                     break;
                 case "PlayTab":
+
+//                     unit load
+                    foreach (var homeContentData in homeContents.homeContentList)
+                    {
+                        foreach (var unit in homeContentData.unitClassList)
+                        {
+                            unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
+                        }
+                    }
+
                     playTab.SetActive(true);
                     homeTab.SetActive(false);
                     timelineTab.SetActive(false);
