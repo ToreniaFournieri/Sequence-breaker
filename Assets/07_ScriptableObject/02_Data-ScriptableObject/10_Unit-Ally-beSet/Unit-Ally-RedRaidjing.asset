@@ -12,21 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: Unit-Ally-RedRaidjing
   m_EditorClassIdentifier: 
-  UniqueID: 100001
-  Name: '[Ally]RedRaiding'
-  Affiliation: 0
-  UnitType: 3
-  ItemCapacity: 20
+  uniqueId: 100001
+  name: '[Ally]RedRaiding'
+  affiliation: 0
+  unitType: 3
+  itemCapacity: 0
   itemList:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
-  Pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
-  Level: 31
-  Experience: 16153
-  ToNextLevel: 308
+  coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
+  pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
+  level: 2
+  experience: 0
+  toNextLevel: 0
   skillsMaster:
   - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}

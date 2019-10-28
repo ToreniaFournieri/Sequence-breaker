@@ -12,36 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: E3-LuBu
   m_EditorClassIdentifier: 
-  UniqueID: 100007
-  Name: '[Enemy]Lu Bu'
-  Affiliation: 1
-  UnitType: 1
-  ItemCapacity: 20
-  itemList:
-  - {fileID: 11400000, guid: 211b9b73a740b43d2aad2e46c522adc5, type: 2}
-  - {fileID: 11400000, guid: 388d8477be134492a8219ae1a01de8c1, type: 2}
-  - {fileID: 11400000, guid: e1863a5dbb7824b19a8dbd7ecf8fb11c, type: 2}
-  - {fileID: 11400000, guid: 84650363cdc7e499eace1c66701874b9, type: 2}
-  - {fileID: 11400000, guid: 3c2b20075e80c47afba296d71bd8613d, type: 2}
-  - {fileID: 11400000, guid: e41f7828b8775422b93b7dcd0c0d346b, type: 2}
-  - {fileID: 11400000, guid: 26e28d7ea5c834128b7c2135cd07f6d1, type: 2}
-  - {fileID: 11400000, guid: afa1f4503abda455b98616126749633f, type: 2}
-  - {fileID: 11400000, guid: 8da7d97e6f2fa40238e1a0b81c7511a1, type: 2}
-  - {fileID: 11400000, guid: e4c34dcf58a2542a98de733e6a5fd253, type: 2}
-  - {fileID: 11400000, guid: c3637008d4c0640999dd6f2072516618, type: 2}
-  - {fileID: 11400000, guid: 6e8258f177fc14a96a84d387814fa967, type: 2}
-  - {fileID: 11400000, guid: 35d19f523194b4698b6fd650d4f23dd9, type: 2}
-  - {fileID: 11400000, guid: ce9206ed4f34b4e6885318b4aaae35ed, type: 2}
-  - {fileID: 11400000, guid: c5b3e51b4bea84c8b9e61153dad04e57, type: 2}
-  - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
-  - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
-  - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
-  - {fileID: 11400000, guid: eeff4a5ea2ee44d9380945264b5dcedc, type: 2}
-  CoreFrame: {fileID: 11400000, guid: 9a0121a41fe624726ab20a9e95c2a084, type: 2}
-  Pilot: {fileID: 11400000, guid: 4517d99d171bf45cd83a1cc9738839e3, type: 2}
-  Level: 10
-  Experience: 0
-  ToNextLevel: 0
+  uniqueId: 100020
+  name: '[Enemy]LuBu'
+  affiliation: 1
+  unitType: 0
+  itemCapacity: 0
+  itemList: []
+  coreFrame: {fileID: 11400000, guid: 9a0121a41fe624726ab20a9e95c2a084, type: 2}
+  pilot: {fileID: 11400000, guid: 4517d99d171bf45cd83a1cc9738839e3, type: 2}
+  level: 0
+  experience: 0
+  toNextLevel: 0
   skillsMaster:
   - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
   - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}

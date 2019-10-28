@@ -12,27 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: E2-AkaG
   m_EditorClassIdentifier: 
-  UniqueID: 100003
-  Name: '[Enemy]AkaG'
-  Affiliation: 1
-  UnitType: 3
-  ItemCapacity: 10
-  itemList:
-  - {fileID: 11400000, guid: 211b9b73a740b43d2aad2e46c522adc5, type: 2}
-  - {fileID: 11400000, guid: 26e28d7ea5c834128b7c2135cd07f6d1, type: 2}
-  - {fileID: 11400000, guid: ce9206ed4f34b4e6885318b4aaae35ed, type: 2}
-  - {fileID: 11400000, guid: 35d19f523194b4698b6fd650d4f23dd9, type: 2}
-  - {fileID: 11400000, guid: 012f22a39776f424793f835979131bcc, type: 2}
-  - {fileID: 11400000, guid: e954f07ec957a405dba43bae99497a88, type: 2}
-  - {fileID: 11400000, guid: 872849212b69b4ce6af087790771fd91, type: 2}
-  - {fileID: 11400000, guid: eeff4a5ea2ee44d9380945264b5dcedc, type: 2}
-  - {fileID: 11400000, guid: afa1f4503abda455b98616126749633f, type: 2}
-  - {fileID: 11400000, guid: b7a49d141fa6d48d18bc5ab2f7a6651f, type: 2}
-  CoreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
-  Pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
-  Level: 10
-  Experience: 0
-  ToNextLevel: 0
+  uniqueId: 100010
+  name: '[Enemy]Red'
+  affiliation: 1
+  unitType: 3
+  itemCapacity: 0
+  itemList: []
+  coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
+  pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
+  level: 0
+  experience: 0
+  toNextLevel: 0
   skillsMaster:
   - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
   - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
