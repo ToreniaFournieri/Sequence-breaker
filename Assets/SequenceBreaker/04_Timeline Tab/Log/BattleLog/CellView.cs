@@ -66,9 +66,9 @@ namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
             firstLine.text = data.firstLine;
             mainText.text = data.mainText;
             //someTextText.text = battleLogLists.Log;
-            Color darkRed = new Color32(24, 12, 12, 255); // dark red
-            Color darkGreen = new Color32(12, 24, 12, 255); // dark green
-            Color color = new Color32(17, 17, 17, 255);
+            Color darkRed = new Color32(36, 20, 20, 255); // dark red
+            Color darkGreen = new Color32(20, 36, 20, 255); // dark green
+            Color color = new Color32(24, 24, 24, 255);
             Color unitColor = new Color32(120, 120, 120, 255);
 
             unitIcon.color = unitColor;
