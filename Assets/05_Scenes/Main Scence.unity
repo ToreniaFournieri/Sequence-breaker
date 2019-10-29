@@ -8416,8 +8416,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.037597656, y: 0}
-  m_SizeDelta: {x: 0.075073, y: -0.00012207}
+  m_AnchoredPosition: {x: 0.037597656, y: 80}
+  m_SizeDelta: {x: 0, y: -160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1184356216
 GameObject:
@@ -10314,6 +10314,9 @@ MonoBehaviour:
   timelineTab: {fileID: 1870001500}
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
+  defaultTimelineView: {fileID: 2091575674}
+  defaultPlayView: {fileID: 1160069815}
+  defaultHomeView: {fileID: 1794051292}
   itemDataBase: {fileID: 996112117}
   homeContents: {fileID: 1269381834}
   characterStatusDisplay: {fileID: 1252398280}
