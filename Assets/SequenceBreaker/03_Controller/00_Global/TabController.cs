@@ -1,4 +1,5 @@
-﻿using SequenceBreaker._01_Data._03_UnitClass;
+﻿using System;
+using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._01_Home;
 using SequenceBreaker._03_Controller._01_Home.Character;
 using SequenceBreaker._10_Global;
@@ -34,9 +35,20 @@ namespace SequenceBreaker._03_Controller._00_Global
         public CharacterStatusDisplay characterStatusDisplay;
         
         // Log list update
+        private void Start()
+        {
+            ActivateTab("PlayTab");
+            
+        }
+
 
         public void ActivateTab(string toActivateTab)
         {
+            var colors = timelineButton.colors;
+            var activateColors = colors;
+            activateColors.normalColor = Color.white;
+            var deactivateColors = colors;
+            deactivateColors.normalColor = Color.gray;
             
             switch (toActivateTab)
             {
@@ -46,6 +58,9 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultTimelineView.SetActive(true);
                         defaultTimelineView.transform.SetAsLastSibling();
                     }
+                    timelineButton.colors = activateColors;
+                    playButton.colors = deactivateColors;
+                    homeButton.colors = deactivateColors;
                     timelineTab.SetActive(true);
                     playTab.SetActive(false);
                     homeTab.SetActive(false);
@@ -60,6 +75,9 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultPlayView.SetActive(true);
                         defaultPlayView.transform.SetAsLastSibling();
                     }
+                    timelineButton.colors = deactivateColors;
+                    playButton.colors = activateColors;
+                    homeButton.colors = deactivateColors;
 
 //                     unit load
                     foreach (var homeContentData in homeContents.homeContentList)
@@ -80,6 +98,10 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultHomeView.SetActive(true);
                         defaultHomeView.transform.SetAsLastSibling();
                     }
+                    timelineButton.colors = deactivateColors;
+                    playButton.colors = deactivateColors;
+                    homeButton.colors = activateColors;
+                    
                     characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
                     characterStatusDisplay.RefleshCharacterStatusAndItemList();
                     homeTab.SetActive(true);
