@@ -1,5 +1,6 @@
 ﻿using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._01_Home;
+using SequenceBreaker._03_Controller._01_Home.Character;
 using SequenceBreaker._10_Global;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,10 @@ namespace SequenceBreaker._03_Controller._00_Global
 
         //For enemy unitClass load
         public ItemDataBase itemDataBase;
-//        public MasterEnemyUnitList masterEnemyUnitList;
         public HomeContents homeContents;
+        
+        // For Home Character update 
+        public CharacterStatusDisplay characterStatusDisplay;
         
         // Log list update
 
@@ -54,6 +57,8 @@ namespace SequenceBreaker._03_Controller._00_Global
                     timelineTab.SetActive(false);
                     break;
                 case "HomeTab":
+                    characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                    characterStatusDisplay.RefleshCharacterStatusAndItemList();
                     homeTab.SetActive(true);
                     playTab.SetActive(false);
                     timelineTab.SetActive(false);

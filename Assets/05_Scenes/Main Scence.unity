@@ -10316,6 +10316,7 @@ MonoBehaviour:
   homeTab: {fileID: 449333225}
   itemDataBase: {fileID: 996112117}
   homeContents: {fileID: 1269381834}
+  characterStatusDisplay: {fileID: 1252398280}
 --- !u!4 &1443377876
 Transform:
   m_ObjectHideFlags: 0
@@ -12132,7 +12133,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 60
+    m_MaxSize: 48
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1

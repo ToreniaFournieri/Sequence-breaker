@@ -56,7 +56,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             return totalAmount;
         }
 
-        private void CalculateLevel ()
+        public void CalculateLevel ()
         {
             int internalLevel = 1;
             int remainder = experience;
