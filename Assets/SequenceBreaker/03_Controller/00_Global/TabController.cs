@@ -37,7 +37,8 @@ namespace SequenceBreaker._03_Controller._00_Global
         // Log list update
         private void Start()
         {
-            ActivateTab("PlayTab");
+
+            ActivateTab("TimelineTab");
             
         }
 
