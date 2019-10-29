@@ -28,11 +28,16 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         [SerializeField] public List<SkillsMasterClass> skillsMaster;
 
+        private int _levelUpAmount;
 
-        public void GainExperience (int experienceAdd)
+        public int GainExperience (int experienceAdd)
         {
             experience += experienceAdd;
+
             CalculateLevel();
+
+            return _levelUpAmount;
+
         }
 
         
@@ -53,30 +58,32 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         private void CalculateLevel ()
         {
-            int level = 1;
+            int internalLevel = 1;
             int remainder = experience;
+            _levelUpAmount = 1 - level;
             while (remainder > 0)
             {
 
                 //Sample implement.
-                int step = (int)(Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20) ;
+                int step = (int)(Mathf.Pow(1.26f - 0.001f * internalLevel, internalLevel) - 10 + internalLevel * 20) ;
                 toNextLevel = step - remainder;
                 remainder -= step;
 
                 if (remainder > 0)
                 {
-                    level++;
+                    internalLevel++;
+                    _levelUpAmount++;
                 }
             
             }
 
-            level = level;
+            level = internalLevel;
         }
 
         public int ExperienceFromBeaten()
         {
             //Sample implement.
-            return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 100 + level * 20 )/30);
+            return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 10 + level * 20 )/30);
 
         }
 

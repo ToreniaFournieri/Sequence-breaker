@@ -16,7 +16,7 @@ MonoBehaviour:
   name: '[Enemy]LuBu'
   affiliation: 1
   unitType: 0
-  itemCapacity: 0
+  itemCapacity: 20
   itemList: []
   coreFrame: {fileID: 11400000, guid: 9a0121a41fe624726ab20a9e95c2a084, type: 2}
   pilot: {fileID: 11400000, guid: 4517d99d171bf45cd83a1cc9738839e3, type: 2}

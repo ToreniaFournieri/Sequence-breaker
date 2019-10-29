@@ -16,7 +16,7 @@ MonoBehaviour:
   name: '[Enemy]Medic'
   affiliation: 1
   unitType: 3
-  itemCapacity: 0
+  itemCapacity: 12
   itemList: []
   coreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
   pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}

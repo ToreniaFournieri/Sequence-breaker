@@ -16,7 +16,7 @@ MonoBehaviour:
   name: '[Ally]RestorationAngel'
   affiliation: 0
   unitType: 3
-  itemCapacity: 0
+  itemCapacity: 16
   itemList:
   - {fileID: 0}
   - {fileID: 0}
@@ -24,7 +24,7 @@ MonoBehaviour:
   - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
   pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
-  level: 2
+  level: 1
   experience: 0
   toNextLevel: 0
   skillsMaster:

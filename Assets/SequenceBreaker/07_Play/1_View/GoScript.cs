@@ -89,7 +89,15 @@ namespace SequenceBreaker._07_Play._1_View
 
                         foreach (UnitClass allyUnit in missionController.allyUnitList)
                         {
-                            allyUnit.GainExperience(experience);
+                            var levelUpAmount = allyUnit.GainExperience(experience);
+                            if (levelUpAmount > 0)
+                            {
+                                missionController
+                                        .transparentMessageController
+                                        .transparentText.text
+                                    += "\n " + "[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")";
+
+                            }
                         }
 
                     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   name: '[Enemy]HeavyTank'
   affiliation: 1
   unitType: 3
-  itemCapacity: 0
+  itemCapacity: 12
   itemList: []
   coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
