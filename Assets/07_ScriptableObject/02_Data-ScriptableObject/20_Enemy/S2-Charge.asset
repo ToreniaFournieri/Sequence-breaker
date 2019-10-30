@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: A2-Medic
+  m_Name: S2-Charge
   m_EditorClassIdentifier: 
-  uniqueId: 100014
-  name: '[Enemy]Medic'
+  uniqueId: 100011
+  name: '[Enemy]Charge'
   affiliation: 1
   unitType: 3
   itemCapacity: 12
   itemList: []
-  coreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
-  pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
+  coreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
+  pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
   level: 0
   experience: 0
   toNextLevel: 0
   skillsMaster:
-  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
-  - {fileID: 11400000, guid: af4303c9780904f27a5d2152343267a4, type: 2}
+  - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
+  - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
