@@ -11,9 +11,9 @@ namespace SequenceBreaker._03_Controller._00_Global
     [System.Serializable]
     public sealed class TabController : MonoBehaviour
     {
-        public Button timelineButton;
-        public Button playButton;
-        public Button homeButton;
+//        public Button timelineButton;
+//        public Button playButton;
+//        public Button homeButton;
 
         public Image timelineImage;
         public Image playImage;
