@@ -356,7 +356,7 @@ namespace SequenceBreaker._08_Battle
 
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
                                 + order.Actor.combat.numberOfAttacks + "time" + sNumberOfAttacks +
-                                " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText + "\n";
+                                " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText ;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
