@@ -1774,7 +1774,7 @@ RectTransform:
   - {fileID: 1403468577}
   - {fileID: 1058207416}
   - {fileID: 1914120524}
-  m_Father: {fileID: 1160069816}
+  m_Father: {fileID: 698195618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701383383}
   m_HandleRect: {fileID: 1701383382}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5001,6 +5001,43 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &698195617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698195618}
+  m_Layer: 5
+  m_Name: Sortie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &698195618
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698195617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1467885290}
+  - {fileID: 240124708}
+  m_Father: {fileID: 1160069816}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &707987498
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,8 +8446,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1467885290}
-  - {fileID: 240124708}
+  - {fileID: 698195618}
   m_Father: {fileID: 740450689}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10165,7 +10201,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10315,7 +10351,7 @@ MonoBehaviour:
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
   defaultTimelineView: {fileID: 2091575674}
-  defaultPlayView: {fileID: 1160069815}
+  defaultPlayView: {fileID: 698195617}
   defaultHomeView: {fileID: 1794051292}
   itemDataBase: {fileID: 996112117}
   homeContents: {fileID: 1269381834}
@@ -10442,7 +10478,7 @@ RectTransform:
   m_Children:
   - {fileID: 908414586}
   - {fileID: 766314196}
-  m_Father: {fileID: 1160069816}
+  m_Father: {fileID: 698195618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.043}
   m_AnchorMin: {x: 0, y: 0}
@@ -15506,7 +15542,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 361423055}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
