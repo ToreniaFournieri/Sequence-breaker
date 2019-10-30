@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: E2-HeavyTank
+  m_Name: A1-RogueTank
   m_EditorClassIdentifier: 
-  uniqueId: 100012
-  name: '[Enemy]HeavyTank'
-  affiliation: 1
-  unitType: 3
-  itemCapacity: 12
-  itemList: []
+  uniqueId: 100002
+  name: '[Enemy]Rouge Tank'
+  affiliation: 0
+  unitType: 0
+  itemCapacity: 6
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
-  pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
-  level: 0
+  pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
+  level: 1
   experience: 0
   toNextLevel: 0
-  skillsMaster:
-  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
+  skillsMaster: []

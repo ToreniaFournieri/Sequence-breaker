@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: E2-AkaG
+  m_Name: A2-Medic
   m_EditorClassIdentifier: 
-  uniqueId: 100010
-  name: '[Enemy]Red'
+  uniqueId: 100014
+  name: '[Enemy]Medic'
   affiliation: 1
   unitType: 3
   itemCapacity: 12
   itemList: []
-  coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
-  pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
+  coreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
+  pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
   level: 0
   experience: 0
   toNextLevel: 0
   skillsMaster:
-  - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
-  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
-  - {fileID: 11400000, guid: 25c550991722f43b9b73e44f92d5e67a, type: 2}
+  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
+  - {fileID: 11400000, guid: af4303c9780904f27a5d2152343267a4, type: 2}
