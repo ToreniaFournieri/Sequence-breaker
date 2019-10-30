@@ -15,6 +15,10 @@ namespace SequenceBreaker._03_Controller._00_Global
         public Button playButton;
         public Button homeButton;
 
+        public Image timelineImage;
+        public Image playImage;
+        public Image homeImage;
+
         public GameObject timelineTab;
         public GameObject playTab;
         public GameObject homeTab;
@@ -45,11 +49,11 @@ namespace SequenceBreaker._03_Controller._00_Global
 
         public void ActivateTab(string toActivateTab)
         {
-            var colors = timelineButton.colors;
-            var activateColors = colors;
-            activateColors.normalColor = Color.white;
-            var deactivateColors = colors;
-            deactivateColors.normalColor = Color.gray;
+//            var colors = timelineButton.colors;
+//            var activateColors = colors;
+//            activateColors.normalColor = Color.white;
+//            var deactivateColors = colors;
+//            deactivateColors.normalColor = Color.gray;
             
             switch (toActivateTab)
             {
@@ -59,9 +63,14 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultTimelineView.SetActive(true);
                         defaultTimelineView.transform.SetAsLastSibling();
                     }
-                    timelineButton.colors = activateColors;
-                    playButton.colors = deactivateColors;
-                    homeButton.colors = deactivateColors;
+//                    timelineButton.colors = activateColors;
+//                    playButton.colors = deactivateColors;
+//                    homeButton.colors = deactivateColors;
+                    
+                    timelineImage.color = Color.white;
+                    playImage.color = Color.gray;
+                    homeImage.color = Color.gray;
+                    
                     timelineTab.SetActive(true);
                     playTab.SetActive(false);
                     homeTab.SetActive(false);
@@ -76,10 +85,15 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultPlayView.SetActive(true);
                         defaultPlayView.transform.SetAsLastSibling();
                     }
-                    timelineButton.colors = deactivateColors;
-                    playButton.colors = activateColors;
-                    homeButton.colors = deactivateColors;
+//                    timelineButton.colors = deactivateColors;
+//                    playButton.colors = activateColors;
+//                    homeButton.colors = deactivateColors;
 
+                    timelineImage.color = Color.gray;
+                    playImage.color = Color.white;
+                    homeImage.color = Color.gray;
+
+                    
 //                     unit load
                     foreach (var homeContentData in homeContents.homeContentList)
                     {
@@ -99,9 +113,13 @@ namespace SequenceBreaker._03_Controller._00_Global
                         defaultHomeView.SetActive(true);
                         defaultHomeView.transform.SetAsLastSibling();
                     }
-                    timelineButton.colors = deactivateColors;
-                    playButton.colors = deactivateColors;
-                    homeButton.colors = activateColors;
+//                    timelineButton.colors = deactivateColors;
+//                    playButton.colors = deactivateColors;
+//                    homeButton.colors = activateColors;
+                    
+                    timelineImage.color = Color.gray;
+                    playImage.color = Color.gray;
+                    homeImage.color = Color.white;
                     
                     characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
                     characterStatusDisplay.RefleshCharacterStatusAndItemList();
