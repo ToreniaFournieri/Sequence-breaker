@@ -9,7 +9,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         [FormerlySerializedAs("Name")] [SerializeField] public string name;
 
         [FormerlySerializedAs("FrameType")] [SerializeField] public FrameType frameType;
-        [FormerlySerializedAs("TuningStype")] [SerializeField] public TuningStype tuningStype;
+        [FormerlySerializedAs("TuningStyle")] [SerializeField] public TuningStyle tuningStyle;
 
         [FormerlySerializedAs("Shield")] [SerializeField] public int shield;
         [FormerlySerializedAs("HP")] [SerializeField] public int hp;
@@ -19,5 +19,5 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
 
     public enum FrameType { TwoLegs, SpiderLegs, ReverseJointLegs, Caterpillar, Wheel }
-    public enum TuningStype { None, AvoidTank, HeavyTank, ChargeMelee, SwordsMelee, AssaultMelee, RifleRenged, SinpeRenged, Buff, Debuff, Assist, Medic, Supply }
+    public enum TuningStyle { None,Commander, Destroyer, Fighter ,Gunner, Jammer,Lancer, Medic, Reconnoiter , Sniper, Tank,  }
 }

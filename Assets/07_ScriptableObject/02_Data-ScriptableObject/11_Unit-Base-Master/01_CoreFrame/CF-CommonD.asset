@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: CommonFrame D
   frameType: 0
-  tuningStype: 0
+  tuningStyle: 5
   shield: 600
   hp: 1200

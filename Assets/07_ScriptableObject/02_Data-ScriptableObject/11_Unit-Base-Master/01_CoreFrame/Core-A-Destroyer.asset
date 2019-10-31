@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: A1-CommonFighter
+  m_Name: Core-A-Destroyer
   m_EditorClassIdentifier: 
-  uniqueId: 201001
-  name: CommonFighter
+  uniqueId: 0
+  name: 
   affiliation: 0
   unitType: 0
   itemCapacity: 0

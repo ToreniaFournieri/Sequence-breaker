@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d664d504f894cdd8b1212b458f6ca2, type: 3}
-  m_Name: CoreFrame-LuBu
+  m_Script: {fileID: 11500000, guid: a6b5bc4271e8142c39be947c347f4f7b, type: 3}
+  m_Name: Ability-CommonD
   m_EditorClassIdentifier: 
-  name: Red Hare
-  frameType: 1
-  tuningStyle: 2
-  shield: 3000
-  hp: 2000
+  power: 8
+  generation: 8
+  stability: 8
+  responsiveness: 8
+  precision: 8
+  intelligence: 8
+  luck: 8

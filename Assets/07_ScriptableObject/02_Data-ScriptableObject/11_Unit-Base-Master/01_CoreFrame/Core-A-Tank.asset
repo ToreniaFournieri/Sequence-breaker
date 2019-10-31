@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46d664d504f894cdd8b1212b458f6ca2, type: 3}
-  m_Name: CoreFrame-LuBu
+  m_Name: Core-A-Tank
   m_EditorClassIdentifier: 
-  name: Red Hare
-  frameType: 1
-  tuningStyle: 2
-  shield: 3000
-  hp: 2000
+  name: 
+  frameType: 0
+  tuningStyle: 0
+  shield: 0
+  hp: 0

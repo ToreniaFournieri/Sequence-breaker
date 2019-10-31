@@ -307,9 +307,9 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
 
                     // damage control assist able check
                     var isDamageControlAssitAble = false;
-                    switch (unit.coreFrame.tuningStype)
+                    switch (unit.coreFrame.tuningStyle)
                     {
-                        case TuningStype.Medic: isDamageControlAssitAble = true; break;
+                        case TuningStyle.Medic: isDamageControlAssitAble = true; break;
                     }
 
                     effectClass = new EffectClass(character: _calculateUnitStatus.battleUnit, skill: skillMaster, actionType: skillMaster.actionType,

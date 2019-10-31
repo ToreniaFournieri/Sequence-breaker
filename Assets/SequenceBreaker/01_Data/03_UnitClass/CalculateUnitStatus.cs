@@ -101,7 +101,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             //(1) Ability
             // (1-1) Ability caluculation -> CoreFrameAddAbility
-            // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStype.AddAbility
+            // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStyle.AddAbility
 
             switch (unit.coreFrame.frameType)
             {
@@ -127,24 +127,24 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             _ability.AddUp(_frameTypeAbility);
 
 
-            switch (unit.coreFrame.tuningStype)
+            switch (unit.coreFrame.tuningStyle)
             {
-                case TuningStype.AssaultMelee:
+                case TuningStyle.Fighter:
                     _tuningStypeAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
                     break;
-                case TuningStype.HeavyTank:
+                case TuningStyle.Tank:
                     _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                     break;
 
-                case TuningStype.ChargeMelee:
+                case TuningStyle.Destroyer:
                     _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                     break;
-                case TuningStype.Medic:
+                case TuningStyle.Medic:
                     _tuningStypeAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
                     break;
 
                 default:
-                    Debug.LogError("CoreFrame.TuningStype unexpectet value, need TuningStype case update! :" + unit.coreFrame.tuningStype);
+                    Debug.LogError("CoreFrame.TuningStyle unexpected value, need TuningStyle case update! :" + unit.coreFrame.tuningStyle);
                     break;
             }
 
@@ -644,15 +644,15 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
             // Formula:
             //   absorbShieldInitial = CoreFrame.addFeature.absorbShield + Pilot.addFeature.absorbShield
-            //   damageControlAssist = CoreFrame.TuningStype.damageControlAssist
+            //   damageControlAssist = CoreFrame.TuningStyle.damageControlAssist
             //   hateInitial = (default value) + Pilot.addFeature.hate
             //   hateMagnificationPerTurn = (defalut value) * Pilot.addFeature.hateMagnificationPerTurn
 
             _isDamageControlAssist = false;
 
-            switch (unit.coreFrame.tuningStype)
+            switch (unit.coreFrame.tuningStyle)
             {
-                case TuningStype.Medic:
+                case TuningStyle.Medic:
                     _isDamageControlAssist = true;
                     break;
                 default:

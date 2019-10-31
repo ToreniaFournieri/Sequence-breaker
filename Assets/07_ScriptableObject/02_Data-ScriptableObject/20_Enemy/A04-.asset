@@ -9,13 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b5bc4271e8142c39be947c347f4f7b, type: 3}
-  m_Name: AA-CommonC
+  m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
+  m_Name: A04-
   m_EditorClassIdentifier: 
-  power: 6
-  generation: 6
-  stability: 6
-  responsiveness: 6
-  precision: 6
-  intelligence: 6
-  luck: 6
+  uniqueId: 0
+  name: 
+  affiliation: 0
+  unitType: 0
+  itemCapacity: 0
+  itemList: []
+  coreFrame: {fileID: 0}
+  pilot: {fileID: 0}
+  level: 0
+  experience: 0
+  toNextLevel: 0
+  skillsMaster: []

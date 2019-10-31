@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d664d504f894cdd8b1212b458f6ca2, type: 3}
   m_Name: CoreFrame-RestorationAngel
   m_EditorClassIdentifier: 
-  Name: RestorationAngel
-  FrameType: 4
-  TuningStype: 11
-  Shield: 220
-  HP: 75
+  name: RestorationAngel
+  frameType: 4
+  tuningStyle: 7
+  shield: 220
+  hp: 75
