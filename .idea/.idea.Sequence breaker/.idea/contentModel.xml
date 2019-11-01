@@ -183,6 +183,7 @@
               <e p="Pilot" t="Include">
                 <e p="Pilot.cs" t="Include" />
               </e>
+              <e p="TuningStyleClass.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
             </e>
             <e p="07_Equipments" t="Include">

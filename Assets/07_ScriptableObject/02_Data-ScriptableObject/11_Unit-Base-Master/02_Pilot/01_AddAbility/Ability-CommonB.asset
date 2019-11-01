@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b5bc4271e8142c39be947c347f4f7b, type: 3}
   m_Name: Ability-CommonB
   m_EditorClassIdentifier: 
-  power: 4
-  generation: 4
-  stability: 4
-  responsiveness: 4
-  precision: 4
-  intelligence: 4
-  luck: 4
+  power: 8
+  generation: 8
+  stability: 8
+  responsiveness: 8
+  precision: 8
+  intelligence: 8
+  luck: 8

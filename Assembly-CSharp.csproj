@@ -163,6 +163,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CalculateUnitStatus.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CoreFrame.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Pilot\Pilot.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\07_Equipments\Equipment.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\AbilityClass.cs" />
