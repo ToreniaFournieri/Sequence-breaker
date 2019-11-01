@@ -6,8 +6,8 @@ using Debug = UnityEngine.Debug;
 
 namespace SequenceBreaker._01_Data._03_UnitClass
 {
-    [CreateAssetMenu(fileName = "T", menuName = "Unit/TuningStyleClass", order = 17)]
-    public sealed class TuningStyleClass : ScriptableObject
+//    [CreateAssetMenu(fileName = "T", menuName = "Unit/TuningStyleClass", order = 17)]
+    public sealed class TuningStyleClass : MonoBehaviour
     {
         //for each Tuning Type.
         public List<SkillsMasterClass> commanderSkills;
