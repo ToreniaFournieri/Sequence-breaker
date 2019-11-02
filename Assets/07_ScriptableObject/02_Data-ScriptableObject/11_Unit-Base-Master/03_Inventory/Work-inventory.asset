@@ -12,25 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: Work-inventory
   m_EditorClassIdentifier: 
-  UniqueID: 100
-  Name: Inventory
-  Affiliation: 0
-  UnitType: 0
-  ItemCapacity: 2000
-  itemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  CoreFrame: {fileID: 0}
-  Pilot: {fileID: 0}
-  Level: 0
+  uniqueId: 100
+  name: 
+  affiliation: 0
+  unitType: 0
+  itemCapacity: 0
+  itemList: []
+  coreFrame: {fileID: 0}
+  pilot: {fileID: 0}
+  level: 0
+  experience: 0
+  toNextLevel: 0
   skillsMaster: []

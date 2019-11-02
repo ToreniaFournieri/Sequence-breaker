@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker._01_Data._02_Items._01_ItemMaster;
 using SequenceBreaker._01_Data._02_Items.Item;
+using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._00_Global;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -10,7 +11,9 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
     public sealed class InventoryItemList : MonoBehaviour
     {
         public bool isInfinityInventoryMode;
-        public List<Item> itemList;
+
+        public UnitClass inventory;
+//        public List<Item> itemList;
         public ItemDataBase itemDataBase;
 
         private void Start()
@@ -29,33 +32,33 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void AddItemAndSave(Item addItem)
         {
-            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + itemList.Count);
+            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + inventory.itemList.Count);
 
             // no item exist
-            if (itemList.Count == 0)
+            if (inventory.itemList.Count == 0)
             {
                 Item item = addItem.Copy();
                 item.amount = 1;
-                itemList.Add(item);
+                inventory.itemList.Add(item);
             }
             else
             {
 
                 bool onceHasBeenAdded = false;
-                for (int i = itemList.Count - 1; i >= 0; i--)
+                for (int i = inventory.itemList.Count - 1; i >= 0; i--)
                 {
-                    if (itemList[i].GetID() == addItem.GetID())
+                    if (inventory.itemList[i].GetID() == addItem.GetID())
                     {
                         onceHasBeenAdded = true;
 
-                        if (itemList[i].amount >= 99)
+                        if (inventory.itemList[i].amount >= 99)
                         {
                             //nothing to do.
                             continue;
                         }
                         else
                         {
-                            itemList[i].amount += 1;
+                            inventory.itemList[i].amount += 1;
                             continue;
                         }
                     }
@@ -65,7 +68,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 {
                     Item item = addItem.Copy();
                     item.amount = 1;
-                    itemList.Add(item);
+                    inventory.itemList.Add(item);
                 }
             }
 
@@ -75,20 +78,20 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void RemoveItemAndSave(Item removedItem)
         {
-            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + itemList.Count);
-            for (int i = itemList.Count - 1; i >= 0; i--)
+            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + inventory.itemList.Count);
+            for (int i = inventory.itemList.Count - 1; i >= 0; i--)
             {
                 
-                if (itemList[i].GetID() == removedItem.GetID())
+                if (inventory.itemList[i].GetID() == removedItem.GetID())
                 {
-                    Debug.Log("itemList amount: " + itemList[i].amount);
-                    if (itemList[i].amount > 1)
+                    Debug.Log("itemList amount: " + inventory.itemList[i].amount);
+                    if (inventory.itemList[i].amount > 1)
                     {
-                        itemList[i].amount -= 1;
+                        inventory.itemList[i].amount -= 1;
                     }
                     else
                     {
-                        itemList.RemoveAt(i);
+                        inventory.itemList.RemoveAt(i);
                     }
                     continue;
                 }
@@ -100,23 +103,17 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         private void SaveFile()
         {
-            if (isInfinityInventoryMode)
-            {
-                itemDataBase.SaveItemList("item-" + "Debug-" + "inventory", itemList);
-            }
-            else
-            {
-                itemDataBase.SaveItemList("item-" + "Ally-"+ "inventory", itemList);
-            }
+            itemDataBase.SaveUnitInfo(inventory);
+            
         }
 
         private void LoadFile()
         {
             if (isInfinityInventoryMode)
             {
-//                itemList = itemDataBase.LoadItemList("item-" + "Debug-" + "inventory");
+//                itemList = itemDataBase.LoadUnitInfo("item-" + "Debug-" + "inventory");
 
-                itemList.Clear();
+                inventory.itemList.Clear();
 
                 Item item;
                 foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
@@ -128,7 +125,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                     item.suffixItem = null;
                     item.enhancedValue = 0;
                     item.amount = 99;
-                    itemList.Add(item);
+                    inventory.itemList.Add(item);
                 }
                 
 
@@ -137,7 +134,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             }
             else
             {
-                itemList = itemDataBase.LoadItemList("item-" + "Ally-"+ "inventory");
+                inventory = itemDataBase.LoadUnitInfo(inventory);
             }
         }
 

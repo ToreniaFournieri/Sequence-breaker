@@ -16,7 +16,6 @@ namespace SequenceBreaker._00_System
         //Item inventory
         public UnitClass inventory;
         //Ally inventory
-//        public List<UnitClass> enemyMasterUnitList;
 
 
         //wake up all main tab
@@ -29,19 +28,7 @@ namespace SequenceBreaker._00_System
         void Start()
         {
             //inventory
-            inventory.itemList = itemDataBase.LoadItemList("item-" + inventory.affiliation + "-inventory" );
-
-//
-//            // unit load
-//            foreach (UnitClass unit in enemyMasterUnitList)
-//            {
-//                if (unit != null)
-//                {
-//                    unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
-//                }
-//            }
-//            
-
+            inventory = itemDataBase.LoadUnitInfo(inventory);
             a1.SetActive(true);
             a2.SetActive(true);
             a3.SetActive(true);

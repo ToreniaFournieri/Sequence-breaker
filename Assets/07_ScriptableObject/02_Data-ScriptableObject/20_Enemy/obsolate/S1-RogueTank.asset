@@ -14,14 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 100002
   name: '[Enemy]Rouge Tank'
-  affiliation: 0
+  affiliation: 1
   unitType: 0
   itemCapacity: 6
-  itemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  itemList: []
   coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
   level: 1

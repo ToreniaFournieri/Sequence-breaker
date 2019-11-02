@@ -188,7 +188,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 if (isInfinityInventoryMode)
                 {
                     infinityInventoryItemList.Init();
-                    foreach (Item item in infinityInventoryItemList.itemList)
+                    foreach (Item item in infinityInventoryItemList.inventory.itemList)
                     {
                         tData.AddChild(item);
                     }
@@ -196,9 +196,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 else
                 {
                     allyInventoryItemList.Init();
-                    foreach (Item item in allyInventoryItemList.itemList)
+                    if (allyInventoryItemList.inventory.itemList != null)
                     {
-                        tData.AddChild(item);
+                        foreach (Item item in allyInventoryItemList.inventory.itemList)
+                        {
+                            tData.AddChild(item);
+                        }
                     }
                 }
 

@@ -74,7 +74,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 uniqueId = unitList[this.selectedUnitNo].uniqueId;
 
                 // load from saved data
-                unitList[this.selectedUnitNo].itemList = itemDataBase.LoadItemList("item-" + unitList[this.selectedUnitNo].affiliation + "-" + unitList[this.selectedUnitNo].uniqueId);
+                //Bug:This way to load info is not collect.
+                UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitList[this.selectedUnitNo]);
+                unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
+                unitList[this.selectedUnitNo].experience = loadUnit.experience;
+                    
+//                unitList[this.selectedUnitNo].itemList = itemDataBase.LoadUnitInfo("item-" + unitList[this.selectedUnitNo].affiliation + "-" + unitList[this.selectedUnitNo].uniqueId);
 
                 characterTreeViewDataSourceMgr.Show();
                 characterTreeViewWithStickyHeadScript.Initialization();
@@ -129,8 +134,10 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             }
 
 //            unitList[selectedUnitNo].itemList.Add(addItem);
-            itemDataBase.SaveItemList("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
-                unitList[selectedUnitNo].itemList);
+            itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
+
+//            itemDataBase.SaveUnitInfo("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
+//                unitList[selectedUnitNo].itemList);
             return false;
 
         }
@@ -152,9 +159,11 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                     continue;
                 }
             }
-            
-            itemDataBase.SaveItemList("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
-                unitList[selectedUnitNo].itemList);
+
+            itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
+
+//            itemDataBase.SaveUnitInfo("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
+//                unitList[selectedUnitNo].itemList);
         }
 
 
@@ -163,7 +172,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         {
             return unitList[selectedUnitNo].itemList;
 
-            //return itemDataBase.LoadItemList("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
+            //return itemDataBase.LoadUnitInfo("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
 
         }
 

@@ -99,7 +99,12 @@ namespace SequenceBreaker._03_Controller._00_Global
                     {
                         foreach (var unit in homeContentData.unitClassList)
                         {
-                            unit.itemList = itemDataBase.LoadItemList("item-" + unit.affiliation + "-" + unit.uniqueId);
+                            //Bug:This way to load info is not collect.
+                            UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
+                            unit.itemList = loadUnit.itemList;
+                            unit.experience = loadUnit.experience;
+
+//                            unit.itemList = itemDataBase.LoadUnitInfo("item-" + unit.affiliation + "-" + unit.uniqueId);
                         }
                     }
 

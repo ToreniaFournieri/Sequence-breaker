@@ -165,6 +165,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Pilot\Pilot.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClass.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassForSave.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\07_Equipments\Equipment.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\AbilityClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\ActionSkillClass.cs" />
@@ -194,7 +195,7 @@
      <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\MissionController.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\PartyStatusIcons.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\03_Log\BattleLogEnhancedScrollController.cs" />
-     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BackPreviousView.cs" />
+     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\BackPreviousView.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\CellView.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\Data.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\DataList.cs" />
@@ -219,6 +220,7 @@
      <Compile Include="Assets\SequenceBreaker\08_Battle\Others.cs" />
      <Compile Include="Assets\SequenceBreaker\08_Battle\UnitInfoSet.cs" />
      <Compile Include="Assets\SequenceBreaker\09_Drop\DropEngine.cs" />
+     <Compile Include="Assets\SequenceBreaker\10_Global\ShowVersionInfo.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\TransparentMessageController.cs" />
      <None Include="Assets\00_Asset\01_Asset_SuperScrollView\Scripts\Version 2.4.0.txt" />
  <Reference Include="UnityEngine.UI">

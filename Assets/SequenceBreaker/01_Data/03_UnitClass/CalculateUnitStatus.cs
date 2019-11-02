@@ -164,14 +164,22 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             // (1-2) Ability caluculation -> SummedItemsAddAbility
             _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
-            foreach (Item item in unit.itemList)
+            if (unit.itemList != null)
             {
-                if (item != null)
+                foreach (Item item in unit.itemList)
                 {
-                    _summedItemsAddAbility.AddUp(item.TotaledAbility());
-                }
+                    if (item != null)
+                    {
+                        _summedItemsAddAbility.AddUp(item.TotaledAbility());
+                    }
 
+                }
             }
+            else
+            {
+                Debug.LogError("unit :" + unit.name + "( id:" + unit.affiliation + unit.uniqueId + "'s itemList is missing." );
+            }
+
             // (1-3) Ability caluculation -> CaluculatedAbility
             // Formula:
             //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy

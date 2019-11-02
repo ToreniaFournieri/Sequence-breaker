@@ -185,6 +185,7 @@
               </e>
               <e p="TuningStyleClass.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
+              <e p="UnitClassForSave.cs" t="Include" />
             </e>
             <e p="07_Equipments" t="Include">
               <e p="Equipment.cs" t="Include" />
@@ -240,8 +241,8 @@
           </e>
           <e p="04_Timeline Tab" t="Include">
             <e p="Log" t="Include">
-              <e p="BackPreviousView.cs" t="Include" />
               <e p="BattleLog" t="Include">
+                <e p="BackPreviousView.cs" t="Include" />
                 <e p="CellView.cs" t="Include" />
                 <e p="Data.cs" t="Include" />
                 <e p="DataList.cs" t="Include" />
@@ -282,6 +283,7 @@
             <e p="DropEngine.cs" t="Include" />
           </e>
           <e p="10_Global" t="Include">
+            <e p="ShowVersionInfo.cs" t="Include" />
             <e p="TransparentMessageController.cs" t="Include" />
           </e>
         </e>

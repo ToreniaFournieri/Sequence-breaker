@@ -147,7 +147,7 @@ namespace SequenceBreaker._08_Battle
                        + Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma()
                        + "% HP" + new string(' ', hPPercentSpace)
                        + Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma()
-                       + "%)" + "'s shield is healed by " + (int)healValue + "\n";
+                       + "%)" + " heals " + (int)healValue + " damage" + "\n";
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 
