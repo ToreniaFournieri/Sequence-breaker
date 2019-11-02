@@ -90,7 +90,7 @@ namespace SequenceBreaker._08_Battle
         {
             string damageControlAssistText = null;
             if (order.IsDamageControlAssist) { damageControlAssistText = "[damage control assist] "; }
-            FirstLine = damageControlAssistText + order.SkillEffectChosen.skill.name + " (Left:" + order.SkillEffectChosen.UsageCount + ") \n";
+            FirstLine = damageControlAssistText + order.SkillEffectChosen.skill.name + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
             var healBase = order.Actor.ability.generation * order.SkillEffectChosen.skill.magnification.heal * 10.0;
 
             // heal only same affiliation
