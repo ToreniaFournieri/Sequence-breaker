@@ -31,9 +31,9 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
         // to get current Ally Battle unit
         public List<BattleUnit> currentAllyUnitList;
 
+        public  CalculateUnitStatus calculateUnitStatus;
 
         //Internal use
-        private CalculateUnitStatus _calculateUnitStatus;
 
         private List<EffectClass> _allySkillsList;
         private List<EffectClass> _enemySkillsList;
@@ -257,7 +257,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
             foreach (var unit in unitList)
             {
                 CalculateCombatStatusFromUnit(unit);
-                battleUnits.Add(_calculateUnitStatus.battleUnit);
+                battleUnits.Add(calculateUnitStatus.battleUnit);
 
 
                 EffectClass effectClass;
@@ -267,13 +267,13 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                     var magnificationRate = 1.0;
                     switch (skillMaster.actionType)
                     {
-                        case ActionType.Counter: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.counter; break;
-                        case ActionType.Chain: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.chain; break;
-                        case ActionType.ReAttack: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.reAttack; break;
-                        case ActionType.Move: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.move; break;
-                        case ActionType.Interrupt: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.interrupt; break;
-                        case ActionType.AtBeginning: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atBeginning; break;
-                        case ActionType.AtEnding: magnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atEnding; break;
+                        case ActionType.Counter: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.counter; break;
+                        case ActionType.Chain: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.chain; break;
+                        case ActionType.ReAttack: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.reAttack; break;
+                        case ActionType.Move: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.move; break;
+                        case ActionType.Interrupt: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.interrupt; break;
+                        case ActionType.AtBeginning: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atBeginning; break;
+                        case ActionType.AtEnding: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atEnding; break;
                     }
 
                     // Skills Possibility Rate calculation
@@ -281,24 +281,24 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                     var possibilityMagnificationRate = 1.0;
                     switch (skillMaster.ability)
                     {
-                        case Ability.Power: abilityValue = _calculateUnitStatus.battleUnit.ability.power; break;
-                        case Ability.Generation: abilityValue = _calculateUnitStatus.battleUnit.ability.generation; break;
-                        case Ability.Responsiveness: abilityValue = _calculateUnitStatus.battleUnit.ability.responsiveness; break;
-                        case Ability.Intelligence: abilityValue = _calculateUnitStatus.battleUnit.ability.intelligence; break;
-                        case Ability.Precision: abilityValue = _calculateUnitStatus.battleUnit.ability.precision; break;
-                        case Ability.Luck: abilityValue = _calculateUnitStatus.battleUnit.ability.luck; break;
+                        case Ability.Power: abilityValue = calculateUnitStatus.battleUnit.ability.power; break;
+                        case Ability.Generation: abilityValue = calculateUnitStatus.battleUnit.ability.generation; break;
+                        case Ability.Responsiveness: abilityValue = calculateUnitStatus.battleUnit.ability.responsiveness; break;
+                        case Ability.Intelligence: abilityValue = calculateUnitStatus.battleUnit.ability.intelligence; break;
+                        case Ability.Precision: abilityValue = calculateUnitStatus.battleUnit.ability.precision; break;
+                        case Ability.Luck: abilityValue = calculateUnitStatus.battleUnit.ability.luck; break;
                         case Ability.None: abilityValue = 0.0; break;
                     }
 
                     switch (skillMaster.actionType)
                     {
-                        case ActionType.Counter: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.counter; break;
-                        case ActionType.Chain: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.chain; break;
-                        case ActionType.ReAttack: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.reAttack; break;
-                        case ActionType.Move: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.move; break;
-                        case ActionType.Interrupt: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.interrupt; break;
-                        case ActionType.AtBeginning: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atBeginning; break;
-                        case ActionType.AtEnding: possibilityMagnificationRate = _calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atEnding; break;
+                        case ActionType.Counter: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.counter; break;
+                        case ActionType.Chain: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.chain; break;
+                        case ActionType.ReAttack: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.reAttack; break;
+                        case ActionType.Move: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.move; break;
+                        case ActionType.Interrupt: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.interrupt; break;
+                        case ActionType.AtBeginning: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atBeginning; break;
+                        case ActionType.AtEnding: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atEnding; break;
                     }
 
                     var triggeredPossibilityValue = Math.Pow(((skillMaster.triggerBase.possibilityBaseRate + abilityValue /
@@ -312,7 +312,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                         case TuningStyle.Medic: isDamageControlAssitAble = true; break;
                     }
 
-                    effectClass = new EffectClass(character: _calculateUnitStatus.battleUnit, skill: skillMaster, actionType: skillMaster.actionType,
+                    effectClass = new EffectClass(character: calculateUnitStatus.battleUnit, skill: skillMaster, actionType: skillMaster.actionType,
                         offenseEffectMagnification: magnificationRate, triggeredPossibility: triggeredPossibilityValue, isDamageControlAssistAble: isDamageControlAssitAble,
                         usageCount: skillMaster.usageCount, veiledFromTurn: 1, veiledToTurn: skillMaster.veiledTurn);
 
@@ -326,12 +326,8 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
 
         private void CalculateCombatStatusFromUnit(UnitClass inputUnit)
         {
-            //sample implement 2019.8.6 should be deleted after this test.
-            {
-                _calculateUnitStatus = new CalculateUnitStatus(inputUnit);
-            }
-            //end sample implement 2019.8.6
-
+                calculateUnitStatus.Init(inputUnit);
+//                _calculateUnitStatus = new CalculateUnitStatus(inputUnit);
         }
 
 

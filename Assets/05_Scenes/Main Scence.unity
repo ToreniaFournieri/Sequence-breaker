@@ -1814,6 +1814,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
   - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
   currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
 --- !u!1 &240124707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2259,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291637266}
   m_CullTransparentMesh: 0
+--- !u!1 &296629312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296629313}
+  - component: {fileID: 296629314}
+  m_Layer: 0
+  m_Name: CalculateUnitStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296629313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296629312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2091428007}
+  m_Father: {fileID: 421160712}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &296629314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296629312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21c091ec0b3748068c30028454c3f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  battleUnit: {fileID: 0}
+  detailAbilityString: 
+  tuningStyleClass: {fileID: 2091428008}
+  t5LevelCoefficient: 100
+  t5LevelPowLittle: 0.372
+  t5LevelPowBig: 1.475
+  t5AbilityCoefficient: 2.6
+  t5AbilityPowDenominator: 20
+  t4LevelCoefficient: 100
+  t4LevelPowLittle: 0.372
+  t4LevelPowBig: 1.475
+  t4AbilityCoefficient: 2.6
+  t4AbilityPowDenominator: 20
+  t3LevelCoefficient: 100
+  t3LevelPowLittle: 0.34
+  t3LevelPowBig: 1
+  t3AbilityCoefficient: 2.1
+  t3AbilityPowDenominator: 20
+  t3AbilityBasedCoefficient: 0.3
+  t2LevelCoefficient: 100
+  t2LevelPowLittle: 0.1
+  t2LevelPowBig: 0.7
+  t2AbilityCoefficient: 2.1
+  t2AbilityPowDenominator: 20
+  t2AbilityBasedCoefficient: 0
+  powerCoefficient: 0.4
+  criticalHitCoefficient: 0.01
+  numberOfAttacksCoefficient: 8
+  accuracyCoefficient: 0.233
+  mobilityCoefficient: 0.233
+  defenseCoefficient: 0.4
+  counterintelligenceCoefficient: 1.2
+  repairCoefficient: 1.2
+  shieldCoefficient: 0.82
+  hpCoefficient: 0.67
 --- !u!1 &305792980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,8 +3122,8 @@ Transform:
   m_Children:
   - {fileID: 1190332929}
   - {fileID: 867495295}
-  - {fileID: 2091428007}
   - {fileID: 2113156145}
+  - {fileID: 296629313}
   m_Father: {fileID: 2123972852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3634,6 +3715,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46d2a3f2c477e40419221088be6c44ca, type: 2}
   - {fileID: 11400000, guid: 3062a21d41a3643faae5a94143bdbddb, type: 2}
   currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
 --- !u!1 &470334782
 GameObject:
   m_ObjectHideFlags: 0
@@ -9124,6 +9206,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
   characterTreeViewDataSourceMgr: {fileID: 1469652865}
   characterTreeViewWithStickyHeadScript: {fileID: 356212688}
+  calculateUnitStatus: {fileID: 296629314}
   characterNameText: {fileID: 1687822852}
   itemAmountText: {fileID: 1642664218}
   abilityText: {fileID: 707987500}
@@ -12731,6 +12814,7 @@ MonoBehaviour:
   enemyUnitSetList:
   - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
   currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
 --- !u!1 &1747319795
 GameObject:
   m_ObjectHideFlags: 0
@@ -15096,12 +15180,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091428006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 421160712}
-  m_RootOrder: 2
+  m_Father: {fileID: 296629313}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2091428008
 MonoBehaviour:
@@ -15581,7 +15665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 421160712}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113156146
 MonoBehaviour:

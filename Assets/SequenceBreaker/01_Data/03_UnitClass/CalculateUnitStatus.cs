@@ -37,6 +37,10 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
 
         // Environment Parameter
+        
+        // tuning style 
+        public TuningStyleClass tuningStyleClass;
+        
         // for combat status calculation
         public float t5LevelCoefficient;
         public float t5LevelPowLittle;
@@ -93,8 +97,15 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         private double _absorbShieldRatio;
         private bool _isDamageControlAssist;
 
-        public CalculateUnitStatus(UnitClass unitClass)
+        
+//        public CalculateUnitStatus(UnitClass unitClass)
+//        {
+
+        public void Init(UnitClass unitClass)
         {
+            
+            
+        
             _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
             unit = unitClass;
@@ -458,13 +469,13 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
 
             //Tier 5
-            t5LevelPowLittle = (float)0.372;
-            t5LevelPowBig = (float)1.475;
-            t5AbilityCoefficient = (float)2.6;
-            t5LevelCoefficient = (float)100.0;
-            t5AbilityPowDenominator = (float)20.0;
-            shieldCoefficient = (float)0.82;
-            hpCoefficient = (float)0.67;
+//            t5LevelPowLittle = (float)0.372;
+//            t5LevelPowBig = (float)1.475;
+//            t5AbilityCoefficient = (float)2.6;
+//            t5LevelCoefficient = (float)100.0;
+//            t5AbilityPowDenominator = (float)20.0;
+//            shieldCoefficient = (float)0.82;
+//            hpCoefficient = (float)0.67;
 
             _combatRaw.shieldMax =
                 //Unit.CoreFrame.Shield +
@@ -489,13 +500,13 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
 
             //Tier 4
-            t4LevelPowLittle = (float)0.372;
-            t4LevelPowBig = (float)1.475;
-            t4AbilityCoefficient = (float)2.6;
-            t4LevelCoefficient = (float)100.0;
-            t4AbilityPowDenominator = (float)20.0;
-            powerCoefficient = (float)0.4;
-            defenseCoefficient = (float)0.4;
+//            t4LevelCoefficient = (float)100.0;
+//            t4LevelPowLittle = (float)0.372;
+//            t4LevelPowBig = (float)1.475;
+//            t4AbilityCoefficient = (float)2.6;
+//            t4AbilityPowDenominator = (float)20.0;
+//            powerCoefficient = (float)0.4;
+//            defenseCoefficient = (float)0.4;
 
             _combatRaw.attack = (int)((
                                           (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
@@ -512,14 +523,14 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                                        ) * defenseCoefficient);
 
             // Tier 3
-            t3LevelPowLittle = (float)0.34;
-            t3LevelPowBig = (float)1.00;
-            t3AbilityCoefficient = (float)2.1;
-            t3LevelCoefficient = (float)100.0;
-            t3AbilityPowDenominator = (float)20.0;
-            t3AbilityBasedCoefficient = (float)0.3;
-            mobilityCoefficient = (float)0.233;
-            accuracyCoefficient = (float)0.233;
+//            t3LevelCoefficient = (float)100.0;
+//            t3LevelPowLittle = (float)0.34;
+//            t3LevelPowBig = (float)1.00;
+//            t3AbilityCoefficient = (float)2.1;
+//            t3AbilityPowDenominator = (float)20.0;
+//            t3AbilityBasedCoefficient = (float)0.3;
+//            mobilityCoefficient = (float)0.233;
+//            accuracyCoefficient = (float)0.233;
 
             _combatRaw.mobility = (int)((
                                             (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
@@ -536,14 +547,14 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                                         ) * accuracyCoefficient);
 
             //Tier 2
-            t2LevelPowLittle = (float)0.1;
-            t2LevelPowBig = (float)0.7;
-            t2AbilityCoefficient = (float)2.1;
-            t2LevelCoefficient = (float)100.0;
-            t2AbilityPowDenominator = (float)20.0;
-            t2AbilityBasedCoefficient = (float)0.0;
-            counterintelligenceCoefficient = (float)1.2;
-            repairCoefficient = (float)1.2;
+//            t2LevelCoefficient = (float)100.0;
+//            t2LevelPowLittle = (float)0.1;
+//            t2LevelPowBig = (float)0.7;
+//            t2AbilityCoefficient = (float)2.1;
+//            t2AbilityPowDenominator = (float)20.0;
+//            t2AbilityBasedCoefficient = (float)0.0;
+//            counterintelligenceCoefficient = (float)1.2;
+//            repairCoefficient = (float)1.2;
 
             _combatRaw.counterintelligence = (int)((
                                                        (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
@@ -561,14 +572,15 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             // Tier 1
             // critical hit = Level * Luck * CriticalHitCoefficient
-            criticalHitCoefficient = (float)0.01;
+//            criticalHitCoefficient = (float)0.01;
 
             _combatRaw.criticalHit = (int)(
                 (unit.level * _ability.luck * criticalHitCoefficient)
             );
 
             // Number of attacks
-            _combatRaw.numberOfAttacks = (int)(8);
+            // numberOfAttacksCoefficient + ( level / 4 )
+            _combatRaw.numberOfAttacks = (int)(numberOfAttacksCoefficient + (unit.level / 4.0));
 
             // Min range and Max range, default are 1.
             _combatRaw.minRange = (int)(1);
