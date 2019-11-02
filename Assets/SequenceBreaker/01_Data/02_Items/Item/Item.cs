@@ -53,9 +53,12 @@ namespace SequenceBreaker._01_Data._02_Items.Item
             CombatClass suffixCombat = new CombatClass();
             if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
 
-            combat.Add(itemBaseCombat);
-            combat.Add(prefixCombat);
-            combat.Add(suffixCombat);
+            for (int i = 0; i < amount; i++)
+            {
+                combat.Add(itemBaseCombat);
+                combat.Add(prefixCombat);
+                combat.Add(suffixCombat);
+            }
 
             combat.Pow(enhancedValue);
 

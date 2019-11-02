@@ -170,7 +170,8 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 {
                     if (item != null)
                     {
-                        _summedItemsAddAbility.AddUp(item.TotaledAbility());
+                            _summedItemsAddAbility.AddUp(item.TotaledAbility());
+
                     }
 
                 }
