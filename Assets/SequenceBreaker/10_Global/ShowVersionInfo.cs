@@ -10,7 +10,7 @@ public class ShowVersionInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        versionText.text = "Version: " + Application.version + " (α2)";
+        versionText.text = "Ver." + Application.version + " (α2)";
     }
 
     // Update is called once per frame
