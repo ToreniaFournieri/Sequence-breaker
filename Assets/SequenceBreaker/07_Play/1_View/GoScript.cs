@@ -47,6 +47,8 @@ namespace SequenceBreaker._07_Play._1_View
                 battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
                 battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
+                battleCopyList[wave].GetComponent<RunBattle>().missionLevel = runBattle1.missionLevel ;
+                
                 missionController.logListSria.battleList.Add(battleCopyList[wave]);
                 missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
 
