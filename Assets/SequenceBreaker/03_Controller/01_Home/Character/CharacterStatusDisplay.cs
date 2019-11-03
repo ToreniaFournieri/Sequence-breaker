@@ -38,12 +38,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         public void Init()
         {
             //GetItemList();
-            RefleshCharacterStatusAndItemList();
+            RefreshCharacterStatusAndItemList();
 
         }
 
-        // reflesh character status display
-        public void RefleshCharacterStatusAndItemList()
+        // refresh character status display
+        public void RefreshCharacterStatusAndItemList()
         {
             //Debug.Log("show character: " + UnitList[selectedUnitNo].Name);
             SetCharacterStatus(selectedUnitNo);
@@ -60,8 +60,8 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 // updating
                 this.selectedUnitNo = selectedUnitNo;
 
-                characterNameText.text = unitList[this.selectedUnitNo].name + " (Level:" + unitList[this.selectedUnitNo].level + ")";
-                itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
+                characterNameText.text = unitList[this.selectedUnitNo].TrueName();
+                                    itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
                 //                CalculateUnitStatus calculateUnitStatus = new CalculateUnitStatus(unitList[this.selectedUnitNo]);
 //                calculateUnitStatus(unitList[this.selectedUnitNo]);
@@ -89,6 +89,8 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             }
 
         }
+
+     
 
         public bool AddAndSaveItem(Item addItem)
         {

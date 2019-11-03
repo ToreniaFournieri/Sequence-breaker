@@ -168,7 +168,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
 
                 DoRefreshDataSource();
-                otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefleshCharacterStatusAndItemList();
+                otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefreshCharacterStatusAndItemList();
             }
         }
 

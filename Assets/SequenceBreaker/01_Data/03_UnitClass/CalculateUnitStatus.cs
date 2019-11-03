@@ -688,7 +688,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
 
 
-            battleUnit = new BattleUnit(uniqueId: 1, name: unitClass.name, affiliation: Affiliation.None, unitType: unitClass.unitType, ability: _ability,
+            battleUnit = new BattleUnit(uniqueId: 1, name: unitClass.TrueName(), affiliation: Affiliation.None, unitType: unitClass.unitType, ability: _ability,
                 combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
                 defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
 
@@ -696,7 +696,8 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             //set detail Ability strings
             detailAbilityString =
-                battleUnit.combat.shieldMax + " Shield \n"
+                "Experience: " + unit.experience + " (to next level: "+ unit.toNextLevel + ") \n"
+                +battleUnit.combat.shieldMax + " Shield \n"　
                                             + battleUnit.combat.hitPointMax + " HP\n"
                                             + battleUnit.combat.attack + " Attack \n"
                                             + battleUnit.combat.accuracy + " Accuracy \n"

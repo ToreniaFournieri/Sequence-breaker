@@ -47,10 +47,6 @@ namespace SequenceBreaker._08_Battle
 
                 for (var i = 0; i < affiliationCharacters.Count; i++)
                 {
-//                    var shieldSpace = (9 - affiliationCharacters[i].Combat.ShieldCurrent.WithComma().Length);
-//                    if (shieldSpace <= 0) { shieldSpace = 1; }
-//                    var hPSpace = (9 - affiliationCharacters[i].Combat.HitPointCurrent.WithComma().Length);
-//                    if (hPSpace <= 0) { hPSpace = 1; }
                     var shieldPercentSpace = (3 - Math.Round((affiliationCharacters[i].combat.shieldCurrent / (double)affiliationCharacters[i].combat.shieldMax * 100), 0).WithComma().Length);
                     var hPPercentSpace = (3 - Math.Round((affiliationCharacters[i].combat.hitPointCurrent / (double)affiliationCharacters[i].combat.hitPointMax * 100), 0).WithComma().Length);
 

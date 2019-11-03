@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S1-RogueTank
   m_EditorClassIdentifier: 
   uniqueId: 100002
-  name: '[Enemy]Rouge Tank'
+  name: Rouge Tank
   affiliation: 1
   unitType: 0
   itemCapacity: 6

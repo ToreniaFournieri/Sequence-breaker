@@ -128,7 +128,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     homeImage.color = Color.white;
                     
                     characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
-                    characterStatusDisplay.RefleshCharacterStatusAndItemList();
+                    characterStatusDisplay.RefreshCharacterStatusAndItemList();
                     homeTab.SetActive(true);
                     playTab.SetActive(false);
                     timelineTab.SetActive(false);

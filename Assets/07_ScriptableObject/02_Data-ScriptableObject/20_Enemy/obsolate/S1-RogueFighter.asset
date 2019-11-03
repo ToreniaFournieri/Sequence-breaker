@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S1-RogueFighter
   m_EditorClassIdentifier: 
   uniqueId: 100001
-  name: '[Enemy]Rouge Fighter'
+  name: Rouge Fighter
   affiliation: 1
   unitType: 3
   itemCapacity: 6

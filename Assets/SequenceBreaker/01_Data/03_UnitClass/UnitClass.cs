@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data._01_Skills;
 using SequenceBreaker._01_Data._02_Items.Item;
@@ -40,6 +42,20 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         }
 
+        public string TrueName()
+        {
+            // Short Name of tuningStyle
+            string tuningStyleFirstLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
+            
+            
+
+                return "[" + tuningStyleFirstLetter + "]"
+                       + name 
+                       +"[" + unitType + "]"
+                       + " (Lv:" + level + ")";
+            
+        }
+        
         
         // don't use itemList.Count. Because item may have multiple amount. use this.
         public int GetItemAmount()

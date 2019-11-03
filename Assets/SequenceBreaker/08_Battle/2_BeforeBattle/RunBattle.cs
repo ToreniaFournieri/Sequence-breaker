@@ -12,7 +12,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
 {
     public sealed class RunBattle : MonoBehaviour
     {
-        // Mission infomation
+        // Mission information
         public string missionText;
         public string location;
         public int missionLevel;
@@ -140,7 +140,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                 //set name with levels
                 foreach (var battleUnit in _enemyBattleUnits)
                 {
-                    battleUnit.name = battleUnit.name + " (Lv:" + enemyLevel + ")";
+                    battleUnit.name = battleUnit.name ;
                     missionLevel = enemyLevel;
                 }
 

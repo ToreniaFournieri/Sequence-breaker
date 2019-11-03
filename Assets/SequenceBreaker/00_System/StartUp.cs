@@ -37,6 +37,7 @@ namespace SequenceBreaker._00_System
             foreach (var unit in unitList)
             {
                 unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
+                unit.CalculateLevel();
             }
             
             a1.SetActive(true);

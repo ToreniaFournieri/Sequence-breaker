@@ -140,7 +140,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             characterStatusDisplay.RemoveAndSaveItem(item);
             
 
-            characterStatusDisplay.RefleshCharacterStatusAndItemList();
+            characterStatusDisplay.RefreshCharacterStatusAndItemList();
             otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
         }

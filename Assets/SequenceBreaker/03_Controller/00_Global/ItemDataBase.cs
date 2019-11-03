@@ -75,7 +75,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                         Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
                     }
                     
-                    Debug.Log("[Load] Unit :" + loadCharacterUnit.name + " experience: " + unitForLoad.experience);
+//                    Debug.Log("[Load] Unit :" + loadCharacterUnit.name + " experience: " + unitForLoad.experience);
 
                     loadCharacterUnit.experience = unitForLoad.experience;
 
@@ -139,7 +139,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                         bf.Serialize(file, unitForSave);
                         file.Close();
                         
-                        Debug.Log("[Save] ally: " + saveCharacterUnit.name + " experience point" +saveCharacterUnit.experience);
+//                        Debug.Log("[Save] ally: " + saveCharacterUnit.name + " experience point" +saveCharacterUnit.experience);
 
                         
             }

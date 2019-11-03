@@ -147,14 +147,14 @@ namespace SequenceBreaker._08_Battle
                         effect.InitializeEffect();
                     }
 
-                    if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
-                    {
-                        foreach (var effect in _effects)
-                        {
-                            Console.WriteLine(effect.character.name + " has a skill: " + effect.skill.name + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
-                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
-                        }
-                    }
+//                    if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
+//                    {
+//                        foreach (var effect in _effects)
+//                        {
+//                            Console.WriteLine(effect.character.name + " has a skill: " + effect.skill.name + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
+//                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
+//                        }
+//                    }
                     // _/_/_/_/_/_/ Effect setting end _/_/_/_/_/_/
 
                     var battleEnd = false;

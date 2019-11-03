@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: S8-01-LuBu
   m_EditorClassIdentifier: 
   uniqueId: 100020
-  name: '[Enemy]LuBu'
+  name: LuBu
   affiliation: 1
   unitType: 0
   itemCapacity: 20
   itemList: []
   coreFrame: {fileID: 11400000, guid: 9a0121a41fe624726ab20a9e95c2a084, type: 2}
   pilot: {fileID: 11400000, guid: 4517d99d171bf45cd83a1cc9738839e3, type: 2}
-  level: 0
+  level: 10
   experience: 0
   toNextLevel: 0
   skillsMaster:
