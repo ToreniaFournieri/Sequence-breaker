@@ -115,7 +115,7 @@ namespace SequenceBreaker._07_Play._1_View
             foreach (UnitClass allyUnit in missionController.allyUnitList)
             {
                 missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
-                Debug.Log("ally experience point" +allyUnit.experience);
+//                Debug.Log("[Save] ally: " + allyUnit.name + " experience point" +allyUnit.experience);
             }
 
             foreach (Item item in itemList)

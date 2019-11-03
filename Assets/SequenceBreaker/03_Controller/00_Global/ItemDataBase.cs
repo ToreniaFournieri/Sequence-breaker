@@ -74,6 +74,8 @@ namespace SequenceBreaker._03_Controller._00_Global
                         // first time to load file 
                         Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
                     }
+                    
+                    Debug.Log("[Load] Unit :" + loadCharacterUnit.name + " experience: " + unitForLoad.experience);
 
                     loadCharacterUnit.experience = unitForLoad.experience;
 
@@ -130,13 +132,15 @@ namespace SequenceBreaker._03_Controller._00_Global
             // save experience point
             if (saveCharacterUnit != null)
             {
-                UnitClassForSave unitForSave = new UnitClassForSave();
-                unitForSave.experience = saveCharacterUnit.experience;
+                UnitClassForSave unitForSave = new UnitClassForSave {experience = saveCharacterUnit.experience};
 
-                    var file = File.Create(Application.persistentDataPath + "/" +saveCharacterUnit.affiliation + "-"
-                                                                            + saveCharacterUnit.uniqueId +"unitInfo" + ".save");
+                var file = File.Create(Application.persistentDataPath + "/" +saveCharacterUnit.affiliation + "-"
+                                                                            + saveCharacterUnit.uniqueId +"-unitInfo" + ".save");
                         bf.Serialize(file, unitForSave);
                         file.Close();
+                        
+                        Debug.Log("[Save] ally: " + saveCharacterUnit.name + " experience point" +saveCharacterUnit.experience);
+
                         
             }
             

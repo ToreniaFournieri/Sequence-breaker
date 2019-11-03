@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Work-inventory
   m_EditorClassIdentifier: 
   uniqueId: 100
-  name: 
+  name: Ally Inventory
   affiliation: 0
   unitType: 0
   itemCapacity: 0
-  itemList: []
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 0}
   pilot: {fileID: 0}
   level: 0

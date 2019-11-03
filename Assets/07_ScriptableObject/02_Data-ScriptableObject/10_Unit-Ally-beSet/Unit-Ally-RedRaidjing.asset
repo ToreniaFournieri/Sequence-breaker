@@ -19,10 +19,13 @@ MonoBehaviour:
   itemCapacity: 16
   itemList:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
   level: 1
-  experience: 0
-  toNextLevel: 9
+  experience: 3
+  toNextLevel: 8
   skillsMaster:
   - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}

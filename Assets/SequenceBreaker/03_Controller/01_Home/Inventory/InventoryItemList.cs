@@ -32,7 +32,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void AddItemAndSave(Item addItem)
         {
-            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + inventory.itemList.Count);
+//            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + inventory.itemList.Count);
 
             // no item exist
             if (inventory.itemList.Count == 0)
@@ -78,7 +78,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void RemoveItemAndSave(Item removedItem)
         {
-            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + inventory.itemList.Count);
+//            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + inventory.itemList.Count);
             for (int i = inventory.itemList.Count - 1; i >= 0; i--)
             {
                 
