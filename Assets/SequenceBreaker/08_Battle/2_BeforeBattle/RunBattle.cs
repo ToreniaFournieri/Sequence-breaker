@@ -259,9 +259,9 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                 CalculateCombatStatusFromUnit(unit);
                 battleUnits.Add(calculateUnitStatus.battleUnit);
 
-
+                List<SkillsMasterClass> skillList = calculateUnitStatus.tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
                 EffectClass effectClass;
-                foreach (var skillMaster in unit.skillsMaster)
+                foreach (var skillMaster in skillList)
                 {
                     // Skills offenseEffectMagnification calculation
                     var magnificationRate = 1.0;

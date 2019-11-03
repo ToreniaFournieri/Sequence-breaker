@@ -26,6 +26,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         //output Ability Detail Text
         public string detailAbilityString;
+        
 
         //output middle data
         private AbilityClass _ability;

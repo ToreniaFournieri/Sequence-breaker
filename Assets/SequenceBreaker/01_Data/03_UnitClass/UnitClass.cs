@@ -28,7 +28,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         [SerializeField] public int experience;
          public int toNextLevel;
 
-        [SerializeField] public List<SkillsMasterClass> skillsMaster;
+//        [SerializeField] public List<SkillsMasterClass> skillsMaster;
 
         private int _levelUpAmount;
 
