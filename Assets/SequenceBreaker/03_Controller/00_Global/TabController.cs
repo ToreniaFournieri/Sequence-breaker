@@ -102,6 +102,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                             //Bug:This way to load info is not collect.
                             UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
                             unit.itemList = loadUnit.itemList;
+                            //experience should only load in initial not this timing.
                             unit.experience = loadUnit.experience;
 
 //                            unit.itemList = itemDataBase.LoadUnitInfo("item-" + unit.affiliation + "-" + unit.uniqueId);

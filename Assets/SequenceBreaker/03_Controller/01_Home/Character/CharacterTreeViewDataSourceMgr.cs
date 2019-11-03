@@ -38,8 +38,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
     public sealed class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
-        // Item data base 
-        public ItemDataBase itemDataBase;
         //public List<Item> itemList;
 
         public CharacterStatusDisplay characterStatusDisplay;

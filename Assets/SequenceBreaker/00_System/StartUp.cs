@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._00_Global;
+using SequenceBreaker._03_Controller._01_Home;
 using SequenceBreaker._03_Controller._02_Play;
 using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace SequenceBreaker._00_System
         //Item inventory
         public UnitClass inventory;
         //Ally inventory
+        public HomeContents homeContents;
 
 
         //wake up all main tab
@@ -29,6 +31,14 @@ namespace SequenceBreaker._00_System
         {
             //inventory
             inventory = itemDataBase.LoadUnitInfo(inventory);
+            
+            // homeContentList 0 is ally list ( this is temp)
+            List<UnitClass> unitList = homeContents.homeContentList[0].unitClassList;
+            foreach (var unit in unitList)
+            {
+                unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
+            }
+            
             a1.SetActive(true);
             a2.SetActive(true);
             a3.SetActive(true);

@@ -8989,6 +8989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
+  homeContents: {fileID: 1269381834}
   a1: {fileID: 449333225}
   a2: {fileID: 1160069815}
   a3: {fileID: 1870001500}
@@ -11037,7 +11038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b065f23218874546b8228be9374e370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDataBase: {fileID: 996112117}
   characterStatusDisplay: {fileID: 1252398280}
   otherInventoryTreeViewDataSourceMgr: {fileID: 1101192372}
 --- !u!1 &1471982452

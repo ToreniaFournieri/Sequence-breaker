@@ -111,7 +111,12 @@ namespace SequenceBreaker._07_Play._1_View
                 wave += 1;
             }
 
-
+            // gain experience
+            foreach (UnitClass allyUnit in missionController.allyUnitList)
+            {
+                missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
+                Debug.Log("ally experience point" +allyUnit.experience);
+            }
 
             foreach (Item item in itemList)
             {
@@ -122,6 +127,8 @@ namespace SequenceBreaker._07_Play._1_View
             {
                 missionController.inventoryItemList.AddItemAndSave(item);
             }
+            
+            
 
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 

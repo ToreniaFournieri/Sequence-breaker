@@ -77,7 +77,9 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 //Bug:This way to load info is not collect.
                 UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitList[this.selectedUnitNo]);
                 unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
-                unitList[this.selectedUnitNo].experience = loadUnit.experience;
+                
+                // not load experience point this.
+//                unitList[this.selectedUnitNo].experience = loadUnit.experience;
                     
 //                unitList[this.selectedUnitNo].itemList = itemDataBase.LoadUnitInfo("item-" + unitList[this.selectedUnitNo].affiliation + "-" + unitList[this.selectedUnitNo].uniqueId);
 
@@ -133,11 +135,8 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
             }
 
-//            unitList[selectedUnitNo].itemList.Add(addItem);
             itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
 
-//            itemDataBase.SaveUnitInfo("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
-//                unitList[selectedUnitNo].itemList);
             return false;
 
         }
@@ -162,18 +161,15 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
             itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
 
-//            itemDataBase.SaveUnitInfo("item-" + unitList[selectedUnitNo].affiliation + "-" + unitList[selectedUnitNo].uniqueId,
-//                unitList[selectedUnitNo].itemList);
+
         }
 
 
-        // for outernal use
+        // for external use
         public List<Item> GetItemList()
         {
             return unitList[selectedUnitNo].itemList;
-
-            //return itemDataBase.LoadUnitInfo("item-" + UnitList[selectedUnitNo].Affiliation + "-" + UnitList[selectedUnitNo].UniqueID);
-
+            
         }
 
 
