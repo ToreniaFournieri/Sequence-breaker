@@ -67,6 +67,11 @@ namespace SequenceBreaker._01_Data._02_Items._01_ItemMaster
 				if (combatBaseValue.accuracy != 0) { description += "Accuracy +" + CalculatedCombatValue().accuracy + " "; }
 				if (combatBaseValue.mobility != 0) { description += "Mobility +" + CalculatedCombatValue().mobility + " "; }
 				if (combatBaseValue.defense != 0) { description += "Defense +" + CalculatedCombatValue().defense + " "; }
+
+				if (combatBaseValue.numberOfAttacks != 0)
+				{
+					description += "Number of Attacks +" + CalculatedCombatValue().numberOfAttacks + " ";
+				}
 			}
 			//2. Skill content
 			foreach (SkillsMasterClass skill in skillsMasterList)
@@ -102,6 +107,11 @@ namespace SequenceBreaker._01_Data._02_Items._01_ItemMaster
 				if (combatBaseValue.accuracy != 0) { description += "(Accuracy +" + CalculatedCombatValue().accuracy + ")\n"; }
 				if (combatBaseValue.mobility != 0) { description += "(Mobility +" + CalculatedCombatValue().mobility + ")\n"; }
 				if (combatBaseValue.defense != 0) { description += "(Defense +" + CalculatedCombatValue().defense + ")\n"; }
+
+				if (combatBaseValue.numberOfAttacks != 0)
+				{
+					description += "(Number of Attacks" + CalculatedCombatValue().numberOfAttacks + ")\n";
+				}
 			}
 
 			//2. Skill content

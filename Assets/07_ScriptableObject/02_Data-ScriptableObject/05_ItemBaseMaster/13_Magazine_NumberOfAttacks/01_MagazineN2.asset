@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 01_MagazineN2
   m_EditorClassIdentifier: 
   itemId: 51301
-  itemName: Magazine N1
+  itemName: Magazine N2
   itemDescription: 
   icon: {fileID: 0}
   combatBaseValue: {fileID: 11400000, guid: 81975d9c6bf5e4786826d2033c86ce5b, type: 2}

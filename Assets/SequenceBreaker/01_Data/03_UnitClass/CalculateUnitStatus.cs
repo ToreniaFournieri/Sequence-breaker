@@ -703,7 +703,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                                             + battleUnit.combat.accuracy + " Accuracy \n"
                                             + battleUnit.combat.mobility + " Mobility \n"
                                             + battleUnit.combat.defense + " Defense\n"
-
+                                            + battleUnit.combat.numberOfAttacks + " Number of Attacks\n"
                                             + "(P:" + battleUnit.ability.power + " G:" + battleUnit.ability.generation
                                             + " S:" + battleUnit.ability.stability + " R:" + battleUnit.ability.responsiveness
                                             + " P:" + battleUnit.ability.precision + " I:" + battleUnit.ability.intelligence
