@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._03_Controller._00_Global;
 using SequenceBreaker._03_Controller._01_Home.Inventory;
@@ -149,7 +150,11 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         // this method is called from CharacterStatus Display . SetCharacterStatus
         private void DoRefreshDataSource()
         {
-
+            var itemList = characterStatusDisplay.GetItemList();
+            if (itemList != null && itemList.Count != 0 && itemList[0] != null)
+            {
+                itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+            }
 
             _mItemDataList.Clear();
             for (int i = 0; i < _mTreeViewItemCount; ++i)
@@ -160,7 +165,8 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 _mItemDataList.Add(tData);
 
 
-                foreach (Item item in characterStatusDisplay.GetItemList())
+//                foreach (Item item in characterStatusDisplay.GetItemList())
+                foreach (Item item in itemList)
                 {
                     if (item != null)
                     {

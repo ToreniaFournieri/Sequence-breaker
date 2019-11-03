@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._03_Controller._00_Global;
 using SequenceBreaker._03_Controller._01_Home.Character;
@@ -177,17 +178,20 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
         public void DoRefreshDataSource()
         {
             _mItemDataList.Clear();
+            
             for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData();
                 tData.MName = "Main Item Category: " + i;
                 tData.MIcon = "1";
                 _mItemDataList.Add(tData);
-
+                
 
                 if (isInfinityInventoryMode)
                 {
                     infinityInventoryItemList.Init();
+                    infinityInventoryItemList.inventory.itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId) )   ;
+
                     foreach (Item item in infinityInventoryItemList.inventory.itemList)
                     {
                         tData.AddChild(item);
@@ -196,8 +200,11 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 else
                 {
                     allyInventoryItemList.Init();
+                    
                     if (allyInventoryItemList.inventory.itemList != null)
                     {
+                        allyInventoryItemList.inventory.itemList.Sort((x, y) =>
+                            (x.baseItem.itemId - y.baseItem.itemId));
                         foreach (Item item in allyInventoryItemList.inventory.itemList)
                         {
                             tData.AddChild(item);
