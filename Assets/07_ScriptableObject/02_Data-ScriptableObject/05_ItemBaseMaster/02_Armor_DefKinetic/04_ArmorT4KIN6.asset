@@ -22,4 +22,4 @@ MonoBehaviour:
   addAbilityList: []
   magnificationMasterList:
   - {fileID: 11400000, guid: b2701ab04d8dd473e85f92353ed7bd96, type: 2}
-  - {fileID: 11400000, guid: 609d45ed052414dd8a71932fddf92cb2, type: 2}
+  - {fileID: 11400000, guid: 3ab9e027d520d4895b590b1bab4d6be6, type: 2}
