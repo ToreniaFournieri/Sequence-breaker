@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
-  m_Name: A01-Fighter
+  m_Name: A01-Sniper
   m_EditorClassIdentifier: 
-  uniqueId: 210103
-  name: A01-Fighter
+  uniqueId: 210109
+  name: A01-Sniper
   affiliation: 1
   unitType: 3
   itemCapacity: 4
   itemList: []
-  coreFrame: {fileID: 11400000, guid: 2d0d01d4b9b5c4ec6ba4027017e2081f, type: 2}
+  coreFrame: {fileID: 11400000, guid: 1f6aff855c27d4a4db78a5d8783024d4, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
   level: 0
   experience: 0

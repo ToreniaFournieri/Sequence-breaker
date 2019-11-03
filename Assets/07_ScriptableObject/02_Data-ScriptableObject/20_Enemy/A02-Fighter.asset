@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef752455533be463dbcaf6e1b0cb4038, type: 3}
   m_Name: A02-Fighter
   m_EditorClassIdentifier: 
-  uniqueId: 0
-  name: 
-  affiliation: 0
-  unitType: 0
-  itemCapacity: 0
+  uniqueId: 210203
+  name: A02-Fighter
+  affiliation: 1
+  unitType: 3
+  itemCapacity: 6
   itemList: []
-  coreFrame: {fileID: 0}
-  pilot: {fileID: 0}
+  coreFrame: {fileID: 11400000, guid: c2ee115aa5e5e4c4ba73436dc3d0653b, type: 2}
+  pilot: {fileID: 11400000, guid: 5f1146ce909de4353a64afb0f21ce591, type: 2}
   level: 0
   experience: 0
   toNextLevel: 0

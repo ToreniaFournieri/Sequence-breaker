@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: A03-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 0
-  name: 
-  affiliation: 0
-  unitType: 0
-  itemCapacity: 0
+  name: A03-FIghter
+  affiliation: 1
+  unitType: 3
+  itemCapacity: 8
   itemList: []
-  coreFrame: {fileID: 0}
-  pilot: {fileID: 0}
+  coreFrame: {fileID: 11400000, guid: c2ee115aa5e5e4c4ba73436dc3d0653b, type: 2}
+  pilot: {fileID: 11400000, guid: 5f1146ce909de4353a64afb0f21ce591, type: 2}
   level: 0
   experience: 0
   toNextLevel: 0

@@ -84,7 +84,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 
                 if (inventory.itemList[i].GetID() == removedItem.GetID())
                 {
-                    Debug.Log("itemList amount: " + inventory.itemList[i].amount);
+//                    Debug.Log("itemList amount: " + inventory.itemList[i].amount);
                     if (inventory.itemList[i].amount > 1)
                     {
                         inventory.itemList[i].amount -= 1;
