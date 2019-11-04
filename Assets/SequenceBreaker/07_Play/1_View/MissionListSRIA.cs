@@ -13,7 +13,7 @@ namespace SequenceBreaker._07_Play._1_View
 
     {
         //for battle calculation
-        public List<GameObject> battleList;
+//        public List<GameObject> battleList;
         public List<RunBattle> runBattleList;
 
         // Mission Controller (ally unit list and battle engine)
@@ -42,10 +42,10 @@ namespace SequenceBreaker._07_Play._1_View
         {
             base.Start();
 
-            if (battleList.Count > 0)
-            {
-                ChangeModelsAndReset(battleList.Count);
-            }
+//            if (runBattleList.Count > 0)
+//            {
+//                ChangeModelsAndReset(runBattleList.Count);
+//            }
             if (runBattleList.Count > 0)
             {
                 ChangeModelsAndReset(runBattleList.Count);
@@ -158,8 +158,10 @@ namespace SequenceBreaker._07_Play._1_View
         {
             var model = new ExpandableSimpleClientModel()
             {
-                MissionName = battleList[index].GetComponent<RunBattle>().missionText,
-                Location = battleList[index].GetComponent<RunBattle>().location,
+                MissionName = runBattleList[index].missionText,
+                Location = runBattleList[index].location,
+//                MissionName = battleList[index].GetComponent<RunBattle>().missionText,
+//                Location = battleList[index].GetComponent<RunBattle>().location,
 
                 NonExpandedSize = _prefabLayoutElement.preferredHeight
             };

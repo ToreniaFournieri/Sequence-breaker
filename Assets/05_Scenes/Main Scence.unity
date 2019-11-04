@@ -1871,14 +1871,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewport: {fileID: 1403468577}
-  battleList:
-  - {fileID: 208688197}
-  - {fileID: 465871540}
-  - {fileID: 1742020149}
   runBattleList:
   - {fileID: 208688199}
   - {fileID: 465871542}
   - {fileID: 1742020151}
+  - {fileID: 1753655651}
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
@@ -13223,7 +13220,7 @@ GameObject:
   - component: {fileID: 1753655650}
   - component: {fileID: 1753655651}
   m_Layer: 0
-  m_Name: Mission-A1
+  m_Name: Battle-A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
