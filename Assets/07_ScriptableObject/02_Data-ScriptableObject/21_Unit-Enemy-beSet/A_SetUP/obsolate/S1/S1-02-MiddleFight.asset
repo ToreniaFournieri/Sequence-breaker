@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 867da4489b1604abda79e694365c3fe0, type: 3}
-  m_Name: A2-02-MiddleFight
+  m_Name: S1-02-MiddleFight
   m_EditorClassIdentifier: 
   enemyUnitList:
-  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
-  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
+  - {fileID: 11400000, guid: 01419ad684dc04bc7be61b6246880927, type: 2}
+  - {fileID: 11400000, guid: c00f11bcf4b2e4549968ff4c2eb09f4c, type: 2}

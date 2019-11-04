@@ -146,18 +146,36 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             switch (unit.coreFrame.tuningStyle)
             {
+                case TuningStyle.Commander:
+                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 2, luck: 0);
+                    break;
+                case TuningStyle.Destroyer:
+                    _tuningStypeAbility  = new AbilityClass(power: 2, generation: 0, stability: 2, responsiveness: 2, precision: 0, intelligence: 0, luck: 0);
+                    break;
                 case TuningStyle.Fighter:
                     _tuningStypeAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
                     break;
-                case TuningStyle.Tank:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
-                    break;
-
-                case TuningStyle.Destroyer:
+                case TuningStyle.Gunner:
                     _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                    break;
+                case TuningStyle.Jammer:
+                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 0, responsiveness: 0, precision: 2, intelligence: 2, luck: 0);
+                    break;
+                case TuningStyle.Lancer:
+                    _tuningStypeAbility = new AbilityClass(power: 3, generation: 1, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Medic:
                     _tuningStypeAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
+                    break;
+                case TuningStyle.Reconnoiter:
+                    _tuningStypeAbility = new AbilityClass(power: 1, generation: 1, stability: 2, responsiveness: 3, precision: 0, intelligence: 0, luck: 0);
+                    break;
+                case TuningStyle.Sniper:
+                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 0, precision: 5, intelligence: 0, luck: 1);
+                    break;
+
+                case TuningStyle.Tank:
+                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                     break;
 
                 default:

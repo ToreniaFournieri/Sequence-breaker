@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
   m_Name: Pilot-CommonD
   m_EditorClassIdentifier: 
-  name: 
+  name: Enemy Pilot Name
   pilotStyle: 0
   race: 0
   preference: 0

@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
-  m_Name: Pilot-CommonC
+  m_Script: {fileID: 11500000, guid: 867da4489b1604abda79e694365c3fe0, type: 3}
+  m_Name: A1-2
   m_EditorClassIdentifier: 
-  name: Enemy Pilot Name
-  pilotStyle: 0
-  race: 0
-  preference: 0
-  pilotLevel: 0
-  addAbility: {fileID: 11400000, guid: 9ab29025fdb844258ac58a17f89d2ea0, type: 2}
+  enemyUnitList:
+  - {fileID: 11400000, guid: e41a84af84e464907b694112c8847973, type: 2}
+  - {fileID: 11400000, guid: 98ed2edba9880439a9d81231428d9f52, type: 2}

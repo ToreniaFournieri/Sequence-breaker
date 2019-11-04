@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 867da4489b1604abda79e694365c3fe0, type: 3}
-  m_Name: A1-01-NormalFight
+  m_Name: S2-04-BossFight
   m_EditorClassIdentifier: 
   enemyUnitList:
-  - {fileID: 11400000, guid: 01419ad684dc04bc7be61b6246880927, type: 2}
+  - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
+  - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
+  - {fileID: 11400000, guid: d24f2fd72b920423c8da56a786cbb7a8, type: 2}
+  - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}

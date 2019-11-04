@@ -9308,6 +9308,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231770188}
   m_CullTransparentMesh: 0
+--- !u!1 &1241718993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241718994}
+  m_Layer: 0
+  m_Name: B6_Enemybattle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1241718994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241718993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1753655650}
+  m_Father: {fileID: 2123972852}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252398278
 GameObject:
   m_ObjectHideFlags: 0
@@ -13181,6 +13212,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747319795}
   m_CullTransparentMesh: 0
+--- !u!1 &1753655649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753655650}
+  - component: {fileID: 1753655651}
+  m_Layer: 0
+  m_Name: Mission-A1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1753655650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753655649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1241718994}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753655651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753655649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionText: A1
+  location: '[Tutorial]'
+  missionLevelInitial: 1
+  missionLevelCurrent: 0
+  whichWin: 0
+  whichWinEachWaves: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  enemyUnitSetList:
+  - {fileID: 11400000, guid: afc34424a06d942108b28e7e57955c64, type: 2}
+  - {fileID: 11400000, guid: 56828c756721e472786c1065a66d39d5, type: 2}
+  - {fileID: 11400000, guid: 27b5de77f6c004dabbf23698d4139cc7, type: 2}
+  - {fileID: 11400000, guid: ffbd8553094db444082e334a03478f82, type: 2}
+  currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
 --- !u!1 &1766882181
 GameObject:
   m_ObjectHideFlags: 0
@@ -16113,6 +16201,7 @@ Transform:
   - {fileID: 607190634}
   - {fileID: 1988823739}
   - {fileID: 913453031}
+  - {fileID: 1241718994}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
