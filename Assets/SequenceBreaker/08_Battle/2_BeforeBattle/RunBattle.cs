@@ -259,66 +259,138 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                 CalculateCombatStatusFromUnit(unit);
                 battleUnits.Add(calculateUnitStatus.battleUnit);
 
-                List<SkillsMasterClass> skillList = calculateUnitStatus.tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
+//                List<SkillsMasterClass> skillList = calculateUnitStatus.tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
+                List<SkillsMasterClass> skillList = calculateUnitStatus.summedSkillList;
                 EffectClass effectClass;
-                foreach (var skillMaster in skillList)
-                {
-                    // Skills offenseEffectMagnification calculation
-                    var magnificationRate = 1.0;
-                    switch (skillMaster.actionType)
+
+                    foreach (var skillMaster in skillList)
                     {
-                        case ActionType.Counter: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.counter; break;
-                        case ActionType.Chain: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.chain; break;
-                        case ActionType.ReAttack: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.reAttack; break;
-                        case ActionType.Move: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.move; break;
-                        case ActionType.Interrupt: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.interrupt; break;
-                        case ActionType.AtBeginning: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atBeginning; break;
-                        case ActionType.AtEnding: magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower.atEnding; break;
+
+                        // Skills offenseEffectMagnification calculation
+                        var magnificationRate = 1.0;
+                        switch (skillMaster.actionType)
+                        {
+                            case ActionType.Counter:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .counter;
+                                break;
+                            case ActionType.Chain:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .chain;
+                                break;
+                            case ActionType.ReAttack:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .reAttack;
+                                break;
+                            case ActionType.Move:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .move;
+                                break;
+                            case ActionType.Interrupt:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .interrupt;
+                                break;
+                            case ActionType.AtBeginning:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .atBeginning;
+                                break;
+                            case ActionType.AtEnding:
+                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                    .atEnding;
+                                break;
+                        }
+
+                        // Skills Possibility Rate calculation
+                        var abilityValue = 0.0;
+                        var possibilityMagnificationRate = 1.0;
+                        switch (skillMaster.ability)
+                        {
+                            case Ability.Power:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.power;
+                                break;
+                            case Ability.Generation:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.generation;
+                                break;
+                            case Ability.Responsiveness:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.responsiveness;
+                                break;
+                            case Ability.Intelligence:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.intelligence;
+                                break;
+                            case Ability.Precision:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.precision;
+                                break;
+                            case Ability.Luck:
+                                abilityValue = calculateUnitStatus.battleUnit.ability.luck;
+                                break;
+                            case Ability.None:
+                                abilityValue = 0.0;
+                                break;
+                        }
+
+                        switch (skillMaster.actionType)
+                        {
+                            case ActionType.Counter:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.counter;
+                                break;
+                            case ActionType.Chain:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.chain;
+                                break;
+                            case ActionType.ReAttack:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.reAttack;
+                                break;
+                            case ActionType.Move:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.move;
+                                break;
+                            case ActionType.Interrupt:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.interrupt;
+                                break;
+                            case ActionType.AtBeginning:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.atBeginning;
+                                break;
+                            case ActionType.AtEnding:
+                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                    .triggerPossibility.atEnding;
+                                break;
+                        }
+
+                        var triggeredPossibilityValue = Math.Pow(((skillMaster.triggerBase.possibilityBaseRate +
+                                                                   abilityValue /
+                                                                   (100.0 + abilityValue * 2 * skillMaster.triggerBase
+                                                                        .possibilityWeight)) * 100), 3.0) / 40000 *
+                                                        magnificationRate;
+                        if (triggeredPossibilityValue > 1.0)
+                        {
+                            triggeredPossibilityValue = 1.0;
+                        }
+
+                        // damage control assist able check
+                        var isDamageControlAssitAble = false;
+                        switch (unit.coreFrame.tuningStyle)
+                        {
+                            case TuningStyle.Medic:
+                                isDamageControlAssitAble = true;
+                                break;
+                        }
+
+                        effectClass = new EffectClass(character: calculateUnitStatus.battleUnit, skill: skillMaster,
+                            actionType: skillMaster.actionType,
+                            offenseEffectMagnification: magnificationRate,
+                            triggeredPossibility: triggeredPossibilityValue,
+                            isDamageControlAssistAble: isDamageControlAssitAble,
+                            usageCount: skillMaster.usageCount, veiledFromTurn: 1,
+                            veiledToTurn: skillMaster.veiledTurn);
+
+                        skillsList.Add(effectClass);
+
                     }
-
-                    // Skills Possibility Rate calculation
-                    var abilityValue = 0.0;
-                    var possibilityMagnificationRate = 1.0;
-                    switch (skillMaster.ability)
-                    {
-                        case Ability.Power: abilityValue = calculateUnitStatus.battleUnit.ability.power; break;
-                        case Ability.Generation: abilityValue = calculateUnitStatus.battleUnit.ability.generation; break;
-                        case Ability.Responsiveness: abilityValue = calculateUnitStatus.battleUnit.ability.responsiveness; break;
-                        case Ability.Intelligence: abilityValue = calculateUnitStatus.battleUnit.ability.intelligence; break;
-                        case Ability.Precision: abilityValue = calculateUnitStatus.battleUnit.ability.precision; break;
-                        case Ability.Luck: abilityValue = calculateUnitStatus.battleUnit.ability.luck; break;
-                        case Ability.None: abilityValue = 0.0; break;
-                    }
-
-                    switch (skillMaster.actionType)
-                    {
-                        case ActionType.Counter: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.counter; break;
-                        case ActionType.Chain: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.chain; break;
-                        case ActionType.ReAttack: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.reAttack; break;
-                        case ActionType.Move: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.move; break;
-                        case ActionType.Interrupt: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.interrupt; break;
-                        case ActionType.AtBeginning: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atBeginning; break;
-                        case ActionType.AtEnding: possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification.triggerPossibility.atEnding; break;
-                    }
-
-                    var triggeredPossibilityValue = Math.Pow(((skillMaster.triggerBase.possibilityBaseRate + abilityValue /
-                                                               (100.0 + abilityValue * 2 * skillMaster.triggerBase.possibilityWeight)) * 100), 3.0) / 40000 * magnificationRate;
-                    if (triggeredPossibilityValue > 1.0) { triggeredPossibilityValue = 1.0; }
-
-                    // damage control assist able check
-                    var isDamageControlAssitAble = false;
-                    switch (unit.coreFrame.tuningStyle)
-                    {
-                        case TuningStyle.Medic: isDamageControlAssitAble = true; break;
-                    }
-
-                    effectClass = new EffectClass(character: calculateUnitStatus.battleUnit, skill: skillMaster, actionType: skillMaster.actionType,
-                        offenseEffectMagnification: magnificationRate, triggeredPossibility: triggeredPossibilityValue, isDamageControlAssistAble: isDamageControlAssitAble,
-                        usageCount: skillMaster.usageCount, veiledFromTurn: 1, veiledToTurn: skillMaster.veiledTurn);
-
-                    skillsList.Add(effectClass);
-
-                }
+                
             }
 
             return (battleUnits, skillsList);

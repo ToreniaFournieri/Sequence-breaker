@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data._01_Skills;
 using SequenceBreaker._01_Data._02_Items._01_ItemMaster;
 using SequenceBreaker._01_Data._02_Items.Item;
 using SequenceBreaker._01_Data._08_BattleUnitSub;
@@ -36,11 +37,15 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         private UnitSkillMagnificationClass _unitSkillMagnification;
         private FeatureClass _feature;
 
+        //Output Skill list
+        public List<SkillsMasterClass> summedSkillList;
 
         // Environment Parameter
         
         // tuning style 
         public TuningStyleClass tuningStyleClass;
+        
+        
         
         // for combat status calculation
         public float t5LevelCoefficient;
@@ -683,82 +688,131 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             _feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
                 hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
-
-
-
-
-
+            
 
             battleUnit = new BattleUnit(uniqueId: 1, name: unitClass.TrueName(), affiliation: Affiliation.None, unitType: unitClass.unitType, ability: _ability,
                 combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
                 defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
 
 
+            // Summed Skill calculation
+            // note: skill is not in battleUnit. is set effectClass, outside.
+            List<SkillsMasterClass> tuningSkills = tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
+            summedSkillList.Clear();
+            foreach (var skill in tuningSkills)
+            {
+                summedSkillList.Add(skill);
+            }
+
+            foreach (var item in unit.itemList)
+            {
+                if (item != null)
+                {
+                    if (item.prefixItem != null)
+                    {
+                        foreach (var skill in item.prefixItem.skillsMasterList)
+                        {
+                            summedSkillList.Add(skill);
+                        }
+                    }
+
+                    if (item.baseItem != null)
+                    {
+                        foreach (var skill in item.baseItem.skillsMasterList)
+                        {
+                            summedSkillList.Add(skill);
+                        }
+                    }
+
+                    if (item.suffixItem != null)
+                    {
+                        foreach (var skill in item.suffixItem.skillsMasterList)
+                        {
+                            summedSkillList.Add(skill);
+                        }
+                    }
+                }
+
+            }
+            
 
             //set detail Ability strings
             detailAbilityString =
-                "Experience: " + unit.experience + " (to next level: "+ unit.toNextLevel + ") \n"
-                +battleUnit.combat.shieldMax + " Shield \n"　
-                                            + battleUnit.combat.hitPointMax + " HP\n"
-                                            + battleUnit.combat.attack + " Attack \n"
-                                            + battleUnit.combat.accuracy + " Accuracy \n"
-                                            + battleUnit.combat.mobility + " Mobility \n"
-                                            + battleUnit.combat.defense + " Defense\n"
-                                            + battleUnit.combat.numberOfAttacks + " Number of Attacks\n"
-                                            + "(P:" + battleUnit.ability.power + " G:" + battleUnit.ability.generation
-                                            + " S:" + battleUnit.ability.stability + " R:" + battleUnit.ability.responsiveness
-                                            + " P:" + battleUnit.ability.precision + " I:" + battleUnit.ability.intelligence
-                                            + " L:" + battleUnit.ability.luck + ")\n"
-                                            + " \n"
+                "Experience: " + unit.experience + " (to next level: " + unit.toNextLevel + ") \n"
+                + battleUnit.combat.shieldMax + " Shield \n"
+                + battleUnit.combat.hitPointMax + " HP\n"
+                + battleUnit.combat.attack + " Attack \n"
+                + battleUnit.combat.accuracy + " Accuracy \n"
+                + battleUnit.combat.mobility + " Mobility \n"
+                + battleUnit.combat.defense + " Defense\n"
+                + battleUnit.combat.numberOfAttacks + " Number of Attacks\n"
+                + "(P:" + battleUnit.ability.power + " G:" + battleUnit.ability.generation
+                + " S:" + battleUnit.ability.stability + " R:" + battleUnit.ability.responsiveness
+                + " P:" + battleUnit.ability.precision + " I:" + battleUnit.ability.intelligence
+                + " L:" + battleUnit.ability.luck + ")\n"
+                + " \n"
 
-                                            + "<Offense> \n"
-                                            + "[Critical: x" + Math.Round(battleUnit.offenseMagnification.critical * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
-                                            + " & {" + summedOffenseList[1].percents + "}) \n"
-                                            + "[Kinetic: x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
-                                            + " & {" + summedOffenseList[2].percents + "}) \n"
+                + "<Offense> \n"
+                + "[Critical: x" + Math.Round(battleUnit.offenseMagnification.critical * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
+                + " & {" + summedOffenseList[1].percents + "}) \n"
+                + "[Kinetic: x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
+                + " & {" + summedOffenseList[2].percents + "}) \n"
 
-                                            + "[Chemical: x" + Math.Round(battleUnit.offenseMagnification.chemical * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
-                                            + " & {" + summedOffenseList[3].percents + "}) \n"
+                + "[Chemical: x" + Math.Round(battleUnit.offenseMagnification.chemical * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
+                + " & {" + summedOffenseList[3].percents + "}) \n"
 
-                                            + "[Thermal: x" + Math.Round(battleUnit.offenseMagnification.thermal * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
-                                            + " & {" + summedOffenseList[4].percents + "}) \n"
+                + "[Thermal: x" + Math.Round(battleUnit.offenseMagnification.thermal * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
+                + " & {" + summedOffenseList[4].percents + "}) \n"
 
-                                            + "[OptimumRangeBonus: x" + Math.Round(battleUnit.offenseMagnification.optimumRangeBonus * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
-                                            + " & {" + summedOffenseList[10].percents + "}) \n"
+                + "[OptimumRangeBonus: x" + Math.Round(battleUnit.offenseMagnification.optimumRangeBonus * 100) / 100 +
+                "] "
+                + " ("
+                + " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
+                + " & {" + summedOffenseList[10].percents + "}) \n"
 
-                                            + " \n"
+                + " \n"
 
-                                            + "<Deffense> \n"
-                                            + "[Critical: x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
-                                            + " & {" + summedDefenseList[1].percents + "}) \n"
+                + "<Deffense> \n"
+                + "[Critical: x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
+                + " & {" + summedDefenseList[1].percents + "}) \n"
 
-                                            + "[Kinetic: x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
-                                            + " & {" + summedDefenseList[2].percents + "}) \n"
+                + "[Kinetic: x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
+                + " & {" + summedDefenseList[2].percents + "}) \n"
 
-                                            + "[Chemical: x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
-                                            + " ("
-                                            + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
-                                            + " & {" + summedDefenseList[3].percents + "}) \n"
+                + "[Chemical: x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
+                + " ("
+                + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
+                + " & {" + summedDefenseList[3].percents + "}) \n"
 
-                                            + "[Thermal: x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
-                                            + " ("
-                                            + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
-                                            + " & {" + summedDefenseList[4].percents + "}) \n";
+                + "[Thermal: x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
+                + " ("
+                + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
+                + " & {" + summedDefenseList[4].percents + "}) \n"
 
+                + " \n"
+                + "[Skills]";
+
+            if (summedSkillList.Count == 0)
+            {
+                detailAbilityString += " (none)";
+            }
+            
+            foreach (var skill in summedSkillList)
+            {
+                detailAbilityString += skill.name + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
+            }
 
         }
 
