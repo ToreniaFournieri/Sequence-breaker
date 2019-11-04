@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionText: Village Patrol
   location: Elle vilage
-  missionLevel: 1
+  missionLevelInitial: 1
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -2028,7 +2028,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionText: Defend the Soylent plant
   location: Soylent Plant
-  missionLevel: 5
+  missionLevelInitial: 5
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -10663,8 +10663,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397488078}
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12964,7 +12964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionText: vs Ru Bu
   location: Yan Province
-  missionLevel: 10
+  missionLevelInitial: 10
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}

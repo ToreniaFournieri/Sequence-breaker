@@ -1,4 +1,5 @@
 ﻿using System;
+using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._01_Home;
 using SequenceBreaker._03_Controller._01_Home.Character;
@@ -127,8 +128,14 @@ namespace SequenceBreaker._03_Controller._00_Global
                     playImage.color = Color.gray;
                     homeImage.color = Color.white;
                     
-                    characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                    //only ally should calculate level
+                    if (characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].affiliation ==
+                        Affiliation.Ally)
+                    {
+                        characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                    }
                     characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
                     homeTab.SetActive(true);
                     playTab.SetActive(false);
                     timelineTab.SetActive(false);

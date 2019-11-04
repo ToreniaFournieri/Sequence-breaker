@@ -68,11 +68,11 @@ namespace SequenceBreaker._04_Timeline_Tab.Log
 
         public virtual void UpdateViews(TClientModel dataModel)
         {
-            NameText.text = dataModel.MissionName + " (lv:" + Battle.GetComponent<RunBattle>().missionLevel + ")";
+            NameText.text = dataModel.MissionName + " (lv:" + Battle.GetComponent<RunBattle>().missionLevelInitial + ")";
             LocationText.text = "  " + dataModel.Location;
 
 
-            LevelOfMissionText.text = "Lv: " + Battle.GetComponent<RunBattle>().missionLevel;
+            LevelOfMissionText.text = "Lv: " + Battle.GetComponent<RunBattle>().missionLevelInitial;
 
             string resultText = null;
 

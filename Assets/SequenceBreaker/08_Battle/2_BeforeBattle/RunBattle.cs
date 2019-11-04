@@ -15,7 +15,11 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
         // Mission information
         public string missionText;
         public string location;
-        public int missionLevel;
+        public int missionLevelInitial;
+        
+        
+        // depend on the slider value
+        public int missionLevelCurrent;
         public WhichWin whichWin;
         public List<WhichWin> whichWinEachWaves;
 
@@ -86,7 +90,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
 
             missionText = runbattle.missionText;
             location = runbattle.location;
-            missionLevel = runbattle.missionLevel;
+            missionLevelInitial = runbattle.missionLevelInitial;
             whichWin = runbattle.whichWin;
             dataList = runbattle.dataList;
             battleEnvironment = runbattle.battleEnvironment;
@@ -102,6 +106,17 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
             _battleList = new List<BattleEngine>();
             whichWinEachWaves = new List<WhichWin>();
             dataList = new List<List<Data>>();
+            
+            // set current enemy level
+            missionLevelCurrent = enemyLevel;
+//            foreach (var unitSet in enemyUnitSetList)
+//            {
+//                foreach (var unit in unitSet.enemyUnitList)
+//                {
+//                    unit.level = missionLevelCurrent;
+//                }
+//            }
+            
 
             (_allyBattleUnits, _allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
 
@@ -141,7 +156,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                 foreach (var battleUnit in _enemyBattleUnits)
                 {
                     battleUnit.name = battleUnit.name ;
-                    missionLevel = enemyLevel;
+                    missionLevelInitial = enemyLevel;
                 }
 
                 _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);

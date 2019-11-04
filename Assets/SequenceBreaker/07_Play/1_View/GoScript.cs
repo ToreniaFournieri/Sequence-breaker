@@ -21,6 +21,22 @@ namespace SequenceBreaker._07_Play._1_View
         // for mission controller
         public MissionController missionController;
 
+        public void ChangeMissionLevelValue()
+        {
+            if (runBattle != null)
+            {
+                foreach (var unitSet in runBattle.enemyUnitSetList)
+                {
+                    foreach (var unit in unitSet.enemyUnitList)
+                    {
+                        unit.level = (int) levelOfMissionSlider.value;
+                    }
+                }
+            }
+
+
+        }
+        
         public void GoBattle()
         {
             runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
@@ -29,7 +45,7 @@ namespace SequenceBreaker._07_Play._1_View
             RunBattle runBattle1 = runBattle;
             //get Mission name
             string missionName = runBattle1.missionText;
-            string missionLevel = " (lv:" + runBattle1.missionLevel + ")";
+            string missionLevel = " (lv:" + runBattle1.missionLevelInitial + ")";
 
             List<GameObject> battleCopyList = new List<GameObject>();
 
@@ -47,7 +63,7 @@ namespace SequenceBreaker._07_Play._1_View
                 battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
                 battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
-                battleCopyList[wave].GetComponent<RunBattle>().missionLevel = runBattle1.missionLevel ;
+                battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
                 
                 missionController.logListSria.battleList.Add(battleCopyList[wave]);
                 missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
