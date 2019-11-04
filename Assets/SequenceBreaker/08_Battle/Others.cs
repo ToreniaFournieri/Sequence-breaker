@@ -84,22 +84,22 @@ namespace SequenceBreaker._08_Battle
         // heal shield all actor's affiliation characters.
         public SkillLogicShieldHealClass(OrderClass order, List<BattleUnit> characters, bool isMulti, EnvironmentInfoClass environmentInfo)
         {
-            string damageControlAssistText = null;
-            if (order.IsDamageControlAssist) { damageControlAssistText = "[damage control assist] "; }
-            FirstLine = damageControlAssistText + order.SkillEffectChosen.skill.name + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
+            string rescueString = null;
+            if (order.IsRescue) { rescueString = "[Rescue] "; }
+            FirstLine = rescueString + order.SkillEffectChosen.skill.name + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
             var healBase = order.Actor.ability.generation * order.SkillEffectChosen.skill.magnification.heal * 10.0;
 
             // heal only same affiliation
             var healingCharacters = new List<BattleUnit>();
             if (isMulti)
             {
-                healingCharacters = order.IsDamageControlAssist ? characters.Where(arg => arg.affiliation == order.Actor.affiliation).ToList() 
+                healingCharacters = order.IsRescue ? characters.Where(arg => arg.affiliation == order.Actor.affiliation).ToList() 
                     : characters.Where(arg => arg.affiliation == order.Actor.affiliation && arg.combat.hitPointCurrent > 0).ToList();
             }
             else
             { // heal single find who should heal.
                 BattleUnit healingCharacter;
-                if (order.IsDamageControlAssist)//set crushed character.
+                if (order.IsRescue)//set crushed character.
                 {
                     healingCharacter = characters.FindLast(obj => obj == order.IndividualTarget);
                     if (healingCharacter != null) { healingCharacters.Add(healingCharacter); }
@@ -126,7 +126,7 @@ namespace SequenceBreaker._08_Battle
             {
                 var healValue = healBase * character.ability.generation * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100;
                 character.combat.shieldCurrent += (int)healValue;
-                if (order.IsDamageControlAssist && character.combat.hitPointCurrent == 0) //Damage controlled, then heal armor only 1%
+                if (order.IsRescue && character.combat.hitPointCurrent == 0) //Rescued, then heal armor only 1%
                 { character.combat.hitPointCurrent = (int)(character.combat.hitPointMax * 0.01); }
 
                 var shieldPercentSpace = (3 - Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma().Length);
@@ -197,10 +197,10 @@ namespace SequenceBreaker._08_Battle
 //Action order class
     public sealed class OrderClass
     {
-        public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, BattleUnit individualTarget, bool isDamageControlAssist)
+        public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, BattleUnit individualTarget, bool isRescue)
         {
             OrderCondition = orderCondition; Actor = actor; ActionType = actionType; SkillEffectProposed = skillEffectProposed;
-            ActionSpeed = actionSpeed; IndividualTarget = individualTarget; IsDamageControlAssist = isDamageControlAssist;
+            ActionSpeed = actionSpeed; IndividualTarget = individualTarget; IsRescue = isRescue;
             // By default, first list of SkillEffectProposed is selected if has.
             // You need override others if you want to change it.
             if (skillEffectProposed.Count >= 1) { SkillEffectChosen = skillEffectProposed[0]; }
@@ -221,18 +221,18 @@ namespace SequenceBreaker._08_Battle
                 {
                     List<BattleUnit> healTargets;
                     List<EffectClass> filteredEffectList = null;
-                    if (IsDamageControlAssist) //(1)Damage control assist is required?
+                    if (IsRescue) //(1)Rescue is required?
                     {
                         healTargets = characters.ToList().FindAll(obj => obj.affiliation == Actor.affiliation && obj.combat.hitPointCurrent == 0 && obj.IsCrushedJustNow);
                         healTargets.Sort((x, y) => y.combat.hitPointCurrent - x.combat.hitPointCurrent);
                     }
-                    else // non Damage control assisted. //(2)heal expected?
+                    else // non rescued. //(2)heal expected?
                     {
                         healTargets = characters.ToList().FindAll(obj => obj.combat.shieldCurrent == 0 && obj.affiliation == Actor.affiliation && obj.combat.hitPointCurrent > 0);
                         healTargets.Sort((x, y) => y.combat.hitPointCurrent - x.combat.hitPointCurrent);
                     }
 
-                    //If (1)damage control assisted or (2)heal is expected, check skill proposed. 0 shield and low HitPoint character should heal first
+                    //If (1)Rescue or (2)heal is expected, check skill proposed. 0 shield and low HitPoint character should heal first
                     if (healTargets.Count >= 2)//Multi heal recommended
                     {
                         filteredEffectList = validEffects.FindAll(obj => obj.skill.callSkillLogicName == CallSkillLogicName.ShieldHealMulti);
@@ -308,7 +308,7 @@ namespace SequenceBreaker._08_Battle
         public EffectClass SkillEffectChosen { get; private set; }
         public readonly int ActionSpeed;
         public BattleUnit IndividualTarget;
-        public readonly bool IsDamageControlAssist;
+        public readonly bool IsRescue;
     }
 
     public sealed class OrderStatusClass
@@ -393,13 +393,13 @@ namespace SequenceBreaker._08_Battle
             Log = null;
             // Status check
 
-            // Ally [Damage Control check]
+            // Ally [Rescue]
             var justCrushedAlly = characters.FindAll(obj => obj.affiliation == Affiliation.Ally && obj.IsCrushedJustNow);
             if (justCrushedAlly.Count > 0)
             {
                 var damageControlAssistCharacterHave = effects.FindAll(obj => obj.character.affiliation == Affiliation.Ally && obj.character.combat.hitPointCurrent > 0
-                                                                                                                            && obj.character.feature.damageControlAssist && obj.skill.isHeal); // get character who has damage control assist (doesnt matter can or cannot)
-                if (damageControlAssistCharacterHave.Count > 0 && orderStatus.DamageControlAssistCount == 0) // Damage control assist should be triggered but cannot..
+                                                                                                                            && obj.character.feature.damageControlAssist && obj.skill.isHeal); // get character who has rescue (doesnt matter can or cannot)
+                if (damageControlAssistCharacterHave.Count > 0 && orderStatus.DamageControlAssistCount == 0) // Rescue should be triggered but cannot..
                 {
                     var crushedCountText = "Help " + justCrushedAlly[0].name + " soon,";
                     if (justCrushedAlly.Count >= 2) { crushedCountText = justCrushedAlly.Count + " allys are being crushed." + " Help them soon!"; }
@@ -424,7 +424,7 @@ namespace SequenceBreaker._08_Battle
                 }
                 else if (orderStatus.DamageControlAssistCount > 0)
                 {
-                    //this.Log += "(Enemy may be triggered damage control assist.)  \n";
+                    //this.Log += "(Enemy may be triggered rescue.)  \n";
                 }
                 else // when happened
                 { Log += "(unexpected..) \n"; }

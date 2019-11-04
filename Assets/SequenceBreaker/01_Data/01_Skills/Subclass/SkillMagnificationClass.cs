@@ -27,7 +27,7 @@ namespace SequenceBreaker._01_Data._01_Skills.Subclass
         [FormerlySerializedAs("Accuracy")] public double accuracy;
         [FormerlySerializedAs("OptimumRangeMin")] public double optimumRangeMin;
         [FormerlySerializedAs("OptimumRangeMax")] public double optimumRangeMax;
- 
+
 
     }
 }

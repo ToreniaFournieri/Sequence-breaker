@@ -1806,6 +1806,7 @@ MonoBehaviour:
   missionText: Village Patrol
   location: Elle vilage
   missionLevelInitial: 1
+  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -2283,13 +2284,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296629312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -220.73065, y: 859.5111, z: -983.5469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2091428007}
-  m_Father: {fileID: 421160712}
-  m_RootOrder: 3
+  m_Father: {fileID: 913453031}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &296629314
 MonoBehaviour:
@@ -3124,7 +3125,6 @@ Transform:
   - {fileID: 1190332929}
   - {fileID: 867495295}
   - {fileID: 2113156145}
-  - {fileID: 296629313}
   m_Father: {fileID: 2123972852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3707,6 +3707,7 @@ MonoBehaviour:
   missionText: Defend the Soylent plant
   location: Soylent Plant
   missionLevelInitial: 5
+  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -6773,6 +6774,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908414585}
   m_CullTransparentMesh: 0
+--- !u!1 &913453030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913453031}
+  m_Layer: 0
+  m_Name: B5_Status_Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913453031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913453030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 996112116}
+  - {fileID: 296629313}
+  - {fileID: 1382343337}
+  m_Father: {fileID: 2123972852}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920969987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7534,12 +7568,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996112115}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1988823739}
-  m_RootOrder: 2
+  m_Father: {fileID: 913453031}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &996112117
 MonoBehaviour:
@@ -9921,7 +9955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1382343337}
   m_Layer: 0
-  m_Name: B3_Inventory
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9940,7 +9974,7 @@ Transform:
   m_Children:
   - {fileID: 171929589}
   - {fileID: 1826953317}
-  m_Father: {fileID: 2123972852}
+  m_Father: {fileID: 913453031}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384170907
@@ -10430,7 +10464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ver.0.0.0 (\u03B12)"
+  m_Text: "Ver.0.0.0.0 (\u03B12)"
 --- !u!222 &1404677199
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12965,6 +12999,7 @@ MonoBehaviour:
   missionText: vs Ru Bu
   location: Yan Province
   missionLevelInitial: 10
+  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
@@ -14708,9 +14743,8 @@ Transform:
   m_Children:
   - {fileID: 639922437}
   - {fileID: 1443377876}
-  - {fileID: 996112116}
   m_Father: {fileID: 2123972852}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1996159975
 GameObject:
@@ -15367,7 +15401,7 @@ MonoBehaviour:
   jammerSkills: []
   lancerSkills: []
   medicSkills:
-  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
+  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
   reconnoiterSkills: []
   sniperSkills: []
   tankSkills:
@@ -15919,8 +15953,8 @@ Transform:
   m_Children:
   - {fileID: 421160712}
   - {fileID: 607190634}
-  - {fileID: 1382343337}
   - {fileID: 1988823739}
+  - {fileID: 913453031}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

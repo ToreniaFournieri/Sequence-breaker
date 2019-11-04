@@ -17,7 +17,7 @@ MonoBehaviour:
   callSkillLogicName: 1
   isHeal: 1
   usageCount: 1
-  veiledTurn: 1
+  veiledTurn: 20
   ability: 2
   triggerBase: {fileID: 11400000, guid: ce1b6bc910a434a8e9c2213760b84169, type: 2}
   magnification: {fileID: 11400000, guid: 8654e92b85f8f436a9ae08262617f11d, type: 2}

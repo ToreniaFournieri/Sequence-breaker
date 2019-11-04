@@ -340,7 +340,7 @@ namespace SequenceBreaker._08_Battle
 
 
                                     var willSkip = false;
-                                    (firstLine, log) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include damage control assist.
+                                    (firstLine, log) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include rescue.
                                     if (firstLine != null)
                                     {
                                         battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
@@ -367,7 +367,7 @@ namespace SequenceBreaker._08_Battle
                                     }
 
 
-                                    if (order.IsDamageControlAssist) //only when Damage Control Assist
+                                    if (order.IsRescue) //only when rescure
                                     {
                                         var deleteOneActionOrderIfHave = orders.ToList();
                                         var deleteOneActionOrderRaw = deleteOneActionOrderIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
@@ -444,7 +444,7 @@ namespace SequenceBreaker._08_Battle
                                         battleResult, order.Actor, nestNumber, environmentInfo);
 
 
-                                    //Push order in reverse. counter -> chain -> reAttack -> Damage control assist
+                                    //Push order in reverse. counter -> chain -> reAttack -> rescue
                                     //Push Counter
                                     if (counterStack != null) {
                                     }
@@ -460,7 +460,7 @@ namespace SequenceBreaker._08_Battle
                                     }
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
-                                    //Push Damage Control Assist
+                                    //Push rescue
                                     if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
@@ -604,12 +604,12 @@ namespace SequenceBreaker._08_Battle
 
         // Skill check method
         private static Stack<OrderClass> SkillTriggerPossibilityCheck(BattleUnit actor, List<EffectClass> effects, List<BattleUnit> characters, OrderClass attackerOrder,
-            Stack<OrderClass> orders, ActionType actionType, bool shouldHeal, bool isDamageControlAssist,
+            Stack<OrderClass> orders, ActionType actionType, bool shouldHeal, bool isRescue,
             BattleResultClass battleResult, BattleUnit individualTarget, int nestNumber, EnvironmentInfoClass environmentInfo)
         {
-            if (attackerOrder != null && attackerOrder.IsDamageControlAssist) { return null; } //If previous move is Damage Control Assist, no counter, re-attack, chain and Damage control assist is triggered.
+            if (attackerOrder != null && attackerOrder.IsRescue) { return null; } //If previous move is Rescue no counter, re-attack, chain and Rescue is triggered.
             List<EffectClass> rawActionTypeEffects;
-            if (isDamageControlAssist) // Damage control assist is ActionType independent
+            if (isRescue) // Rescue is ActionType independent
             {
                 rawActionTypeEffects = effects.FindAll(obj => obj.UsageCount > 0 && obj.character.combat.hitPointCurrent > 0 &&
                                                                 obj.skill.isHeal == shouldHeal && obj.VeiledFromTurn <= environmentInfo.Turn && obj.VeiledToTurn >= environmentInfo.Turn);
@@ -659,12 +659,12 @@ namespace SequenceBreaker._08_Battle
                 case ActionType.AtBeginning:
                     matchedActionTypeEffects = rawActionTypeEffects;
                     break;
-                case ActionType.Any: //[Damage Control Assist skill logic]. ActionType independent so DCA is in ActionType.any.
-                    if (isDamageControlAssist) // Damage Control Assist skill logic
+                case ActionType.Any: //[Rescue skill logic]. ActionType independent so DCA is in ActionType.any.
+                    if (isRescue) // Rescue skill logic
                     {
                         // Actor's affiliation character is dead just now?
                         var crushedJustNowCounterAffiliationCharacter = characters.FindAll(obj => obj.IsCrushedJustNow && obj.affiliation == counterAffiliation);
-                        if (crushedJustNowCounterAffiliationCharacter.Count > 0) // Damage Control Assist required!
+                        if (crushedJustNowCounterAffiliationCharacter.Count > 0) // Rescue required!
                         { matchedActionTypeEffects = rawActionTypeEffects.FindAll(obj => obj.character.affiliation == counterAffiliation && obj.character.feature.damageControlAssist); }
                         // in case of friendly fired.
                         var crushedJustNowByFriendlyFiredCharacter = characters.FindAll(obj => attackerOrder != null && (obj.IsCrushedJustNow && obj.affiliation == attackerOrder.Actor.affiliation));
@@ -695,7 +695,7 @@ namespace SequenceBreaker._08_Battle
                 }
 
 
-                if (effect.skill.actionType == ActionType.Move && effect.IsDamageControlAssistAble) //Damage Control Assist Special Logic....
+                if (effect.skill.actionType == ActionType.Move && effect.IsRescueAble) //Rescue Special Logic....
                 {
                     // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
                     if (effect.skill.triggerTarget.afterAllMoved == false)
@@ -824,7 +824,7 @@ namespace SequenceBreaker._08_Battle
                         nest: nest + addCount, nestOrderNumber: nestNumber);
 
                     var skillsByOrder = new OrderClass(orderCondition: orderCondition, actor: character, actionType: actionType, skillEffectProposed: ref validEffectsPerActor, actionSpeed: 0,
-                        individualTarget: individualTarget, isDamageControlAssist: isDamageControlAssist);
+                        individualTarget: individualTarget, isRescue: isRescue);
                     skillsByOrderStack.Push(skillsByOrder); nestNumber++;
                 }
             }
@@ -846,7 +846,7 @@ namespace SequenceBreaker._08_Battle
                 case TargetType.Self: //Buff self
                     addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
                     addingEffect.Add(new EffectClass(character: order.Actor, skill: addingBuff, actionType: ActionType.None,
-                        offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.usageCount,
+                        offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isRescueAble: false, usageCount: addingBuff.usageCount,
                         veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
                     effects.Add(addingEffect[0]);
                     addingEffect[0].BuffToCharacter(currentTurn: turn);
@@ -889,7 +889,7 @@ namespace SequenceBreaker._08_Battle
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {
                         addingEffect.Add(new EffectClass(character: buffTargetCharacters[i], skill: addingBuff, actionType: ActionType.None,
-                            offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isDamageControlAssistAble: false, usageCount: addingBuff.usageCount,
+                            offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isRescueAble: false, usageCount: addingBuff.usageCount,
                             veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
                         effects.Add(addingEffect[i]);
 

@@ -802,7 +802,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 + " & {" + summedDefenseList[4].percents + "}) \n"
 
                 + " \n"
-                + "[Skills]";
+                + "[Skills] \n";
 
             if (summedSkillList.Count == 0)
             {

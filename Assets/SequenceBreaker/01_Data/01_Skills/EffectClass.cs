@@ -16,13 +16,13 @@ namespace SequenceBreaker._01_Data._01_Skills
         //private SkillsMasterClass _skill;
 
         // for normal skill
-        public EffectClass(BattleUnit character, SkillsMasterClass skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isDamageControlAssistAble, int usageCount,
+        public EffectClass(BattleUnit character, SkillsMasterClass skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isRescueAble, int usageCount,
             int veiledFromTurn, int veiledToTurn)
         {
 
             this.character = character; this.skill = skill; this.ActionType = actionType; this.offenseEffectMagnification = offenseEffectMagnification;
             this.triggeredPossibility = triggeredPossibility;
-            this.IsDamageControlAssistAble = isDamageControlAssistAble; this.UsageCount = usageCount;
+            this.IsRescueAble = isRescueAble; this.UsageCount = usageCount;
             this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
             this.SpentCount = 0;
 
@@ -41,7 +41,7 @@ namespace SequenceBreaker._01_Data._01_Skills
             else { this.IsntTriggeredBecause.Initialize(); }
 
             SkillsMasterClass copyedSkillsMaster = this.skill.DeepCopy(); //NEED TEST!! This may not works, i want copy the value, not reference.
-            this.IsDamageControlAssistAble = copyedSkillsMaster.isHeal; // sample implemented.
+            this.IsRescueAble = copyedSkillsMaster.isHeal; // sample implemented.
             this.ActionType = copyedSkillsMaster.actionType;
             this.BuffToCharacter(currentTurn: 1);
 
@@ -101,7 +101,7 @@ namespace SequenceBreaker._01_Data._01_Skills
 
         public IsntTriggeredBecauseClass IsntTriggeredBecause { get; set; }
         public ActionType ActionType { get; set; }
-        public bool IsDamageControlAssistAble { get; set; }
+        public bool IsRescueAble { get; set; }
         public int UsageCount { get; set; }
         public int SpentCount { get; set; }
         public int NextAccumulationCount { get; set; }

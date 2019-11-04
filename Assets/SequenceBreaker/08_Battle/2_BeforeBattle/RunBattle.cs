@@ -398,7 +398,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                             actionType: skillMaster.actionType,
                             offenseEffectMagnification: magnificationRate,
                             triggeredPossibility: triggeredPossibilityValue,
-                            isDamageControlAssistAble: isDamageControlAssitAble,
+                            isRescueAble: isDamageControlAssitAble,
                             usageCount: skillMaster.usageCount, veiledFromTurn: 1,
                             veiledToTurn: skillMaster.veiledTurn);
 
