@@ -2306,6 +2306,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   battleUnit: {fileID: 0}
   detailAbilityString: 
+  summedSkillList: []
   tuningStyleClass: {fileID: 2091428008}
   t5LevelCoefficient: 100
   t5LevelPowLittle: 0.372
@@ -7625,6 +7626,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ac27aae10a1df4d41bfbdb0ff0b9bc53, type: 2}
   - {fileID: 11400000, guid: 3a98350ef6cb74f08ad558da8245908e, type: 2}
   - {fileID: 11400000, guid: 4ad5872a5377440369626c1af813f1d2, type: 2}
+  - {fileID: 11400000, guid: 5d289cc65635a4f32992c3e7cf258c77, type: 2}
   prefixItemBaseMasterList: []
   suffixItemBaseMasterList: []
 --- !u!1 &1009119396

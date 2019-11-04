@@ -17,7 +17,7 @@ namespace SequenceBreaker._00_System
     {
         None, NormalAttack, BarrierCounterAvoidManyTimes, CounterNonCriticalAttack, ChainAllysCounter, FutureSightShot, ReAttackAfterCritical,
         InterruptTargetCounterReduceAccuracy, BarrierAll, Buffdefense12, Buffbarrier10,
-        ShieldHealSingle, ShieldHealplusSingle, ShieldHealAll
+        ShieldHealSingle, ShieldHealplusSingle, ShieldHealAll, ShieldHealLittle
     }
     public enum ReferenceStatistics { None, AllHitCount, CriticalHitCount, SkillHitCount, AllTotalBeenHitCount, CriticalBeenHitCount, SkillBeenHitCount, AvoidCount }
     public enum CallSkillLogicName { None, ShieldHealSingle, ShieldHealMulti, ReduceAccuracy }
