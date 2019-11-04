@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0581d20c6e42b4f18a96c94fc5d2e75b, type: 3}
   m_Name: triggerAccumulationMiddle
   m_EditorClassIdentifier: 
-  PossibilityBaseRate: 1
-  PossibilityWeight: 0
-  AccumulationReference: 7
-  AccumulationBaseRate: 10
-  AccumulationWeight: 1.5
+  possibilityBaseRate: 1
+  possibilityWeight: 0
+  accumulationReference: 7
+  accumulationBaseRate: 30
+  accumulationWeight: 1.5

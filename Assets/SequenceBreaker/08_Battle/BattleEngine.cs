@@ -870,12 +870,12 @@ namespace SequenceBreaker._08_Battle
                             case ReferenceStatistics.SkillHitCount: count = order.Actor.Statistics.SkillHitCount; break;
                         }
                         string nextText = null;
-                        if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next trigger: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usage count left."; }
-                        accumulationText = "(Accumulation " + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
+                        if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usage count left."; }
+                        accumulationText = "(" + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
 
-                    firstLine = order.SkillEffectChosen.skill.name + "! " + triggerPossibilityText + accumulationText + "\n"
-                                + new string(' ', 3) + order.Actor.name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns. " + "\n";
+                    firstLine = order.SkillEffectChosen.skill.name + "! " + triggerPossibilityText + accumulationText;
+                    log += order.Actor.name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns.";
                     if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                     if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
                     log += "\n";

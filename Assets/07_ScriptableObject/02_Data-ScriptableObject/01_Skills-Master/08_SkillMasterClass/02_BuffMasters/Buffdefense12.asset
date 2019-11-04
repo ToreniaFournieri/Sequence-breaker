@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
-  m_Name: SkillMaster-BarrierCounterAvoidManyTimes
+  m_Name: Buffdefense12
   m_EditorClassIdentifier: 
-  name: 2
-  actionType: 4
+  name: 9
+  actionType: 0
   callSkillLogicName: 0
   isHeal: 0
-  usageCount: 3
-  veiledTurn: 20
-  ability: 2
-  triggerBase: {fileID: 11400000, guid: 96690fc4f21c042b694a3ece68a94a27, type: 2}
+  usageCount: 0
+  veiledTurn: 5
+  ability: 0
+  triggerBase: {fileID: 11400000, guid: e28300c0f23a541079e3a5c1f0553172, type: 2}
   magnification: {fileID: 11400000, guid: 54784d6314fa8449ab4f7b8d7ee185f3, type: 2}
-  triggerTarget: {fileID: 11400000, guid: 9e44a1f71d6394bde9b70ccdbc94309c, type: 2}
-  buffTarget: {fileID: 11400000, guid: 3bc7145a230ed4cf0b2f666300b5e999, type: 2}
+  triggerTarget: {fileID: 11400000, guid: b58a1ec6450224a6aac4997962f90bbc, type: 2}
+  buffTarget: {fileID: 11400000, guid: 4a00b5bb57cf7465490ea7999c7697e3, type: 2}
   callingBuffName: 9
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

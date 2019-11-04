@@ -12102,7 +12102,7 @@ GameObject:
   - component: {fileID: 1663717965}
   - component: {fileID: 1663717967}
   m_Layer: 5
-  m_Name: A6_TransparentMessage
+  m_Name: A7_TransparentMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15025,7 +15025,7 @@ GameObject:
   - component: {fileID: 2041478660}
   - component: {fileID: 2041478659}
   m_Layer: 5
-  m_Name: GobackSwipeManager
+  m_Name: A6_GobackSwipeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15559,11 +15559,11 @@ MonoBehaviour:
   jammerSkills: []
   lancerSkills: []
   medicSkills:
-  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
+  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
   reconnoiterSkills: []
   sniperSkills: []
   tankSkills:
-  - {fileID: 11400000, guid: 640f57ab3a2b44d498151a6417aeed14, type: 2}
+  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
 --- !u!1 &2091460944
 GameObject:
   m_ObjectHideFlags: 0
