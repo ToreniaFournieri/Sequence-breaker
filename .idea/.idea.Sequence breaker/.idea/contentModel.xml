@@ -284,6 +284,7 @@
           </e>
           <e p="10_Global" t="Include">
             <e p="ShowVersionInfo.cs" t="Include" />
+            <e p="SwipeManager.cs" t="Include" />
             <e p="TransparentMessageController.cs" t="Include" />
           </e>
         </e>

@@ -221,6 +221,7 @@
      <Compile Include="Assets\SequenceBreaker\08_Battle\UnitInfoSet.cs" />
      <Compile Include="Assets\SequenceBreaker\09_Drop\DropEngine.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\ShowVersionInfo.cs" />
+     <Compile Include="Assets\SequenceBreaker\10_Global\SwipeManager.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\TransparentMessageController.cs" />
      <None Include="Assets\00_Asset\01_Asset_SuperScrollView\Scripts\Version 2.4.0.txt" />
  <Reference Include="UnityEngine.UI">
