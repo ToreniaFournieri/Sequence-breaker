@@ -167,12 +167,10 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\02_Items\Item\ItemForSave.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CalculateUnitStatus.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CoreFrame.cs" />
-     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CreateUnitList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Pilot\Pilot.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassForSave.cs" />
-     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitEditor.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitEntity.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitMaster.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitMasterList.cs" />

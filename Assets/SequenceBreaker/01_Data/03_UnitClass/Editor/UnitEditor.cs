@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using SequenceBreaker._00_System;
-using SequenceBreaker._01_Data._02_Items.Item;
 using UnityEditor;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 
-namespace SequenceBreaker._01_Data._03_UnitClass
+namespace SequenceBreaker._01_Data._03_UnitClass.Editor
 {
     public class UnitEditor : EditorWindow
     {

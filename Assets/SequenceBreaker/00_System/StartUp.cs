@@ -49,6 +49,7 @@ namespace SequenceBreaker._00_System
             HomeContentData homeContentData = new HomeContentData();
             homeContentData.contentText = "new enemy list";
             homeContentData.description = "[DEBUG]";
+            homeContentData.isInfinityInventoryMode = true;
             homeContentData.unitClassList = new List<UnitClass>();
             foreach (UnitMaster unitMaster in unitMasterList.unitList)
             {
