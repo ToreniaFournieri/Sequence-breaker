@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace SequenceBreaker._01_Data._03_UnitClass
 {
-    public class UnitEditor : MonoBehaviour
+    public class UnitEditor : EditorWindow
     {
         public UnitClassList unitClassList;
         private int viewIndex = 1;
         
-        [MenuItem ("Window/Inventory Item Editor %#e")]
+        [MenuItem ("Window/Unit List Editor %#e")]
         static void  Init () 
         {
             EditorWindow.GetWindow (typeof (UnitEditor));
@@ -27,19 +27,19 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         void  OnGUI () {
             GUILayout.BeginHorizontal ();
-            GUILayout.Label ("Inventory Item Editor", EditorStyles.boldLabel);
+            GUILayout.Label ("Unit Editor", EditorStyles.boldLabel);
             if (unitClassList != null) {
-                if (GUILayout.Button("Show Item List")) 
+                if (GUILayout.Button("Show Unit List")) 
                 {
                     EditorUtility.FocusProjectWindow();
                     Selection.activeObject = unitClassList;
                 }
             }
-            if (GUILayout.Button("Open Item List")) 
+            if (GUILayout.Button("Open Unit List")) 
             {
                 OpenItemList();
             }
-            if (GUILayout.Button("New Item List")) 
+            if (GUILayout.Button("New Unit List")) 
             {
                 EditorUtility.FocusProjectWindow();
                 Selection.activeObject = unitClassList;
@@ -50,11 +50,11 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             {
                 GUILayout.BeginHorizontal ();
                 GUILayout.Space(10);
-                if (GUILayout.Button("Create New Item List", GUILayout.ExpandWidth(false))) 
+                if (GUILayout.Button("Create New Unit List", GUILayout.ExpandWidth(false))) 
                 {
                     CreateNewItemList();
                 }
-                if (GUILayout.Button("Open Existing Item List", GUILayout.ExpandWidth(false))) 
+                if (GUILayout.Button("Open Existing Unit List", GUILayout.ExpandWidth(false))) 
                 {
                     OpenItemList();
                 }
@@ -100,37 +100,37 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 if (unitClassList.unitList.Count > 0) 
                 {
                     GUILayout.BeginHorizontal ();
-                    viewIndex = Mathf.Clamp (EditorGUILayout.IntField ("Current Item", viewIndex, GUILayout.ExpandWidth(false)), 1, unitClassList.unitList.Count);
+                    viewIndex = Mathf.Clamp (EditorGUILayout.IntField ("Current Unit", viewIndex, GUILayout.ExpandWidth(false)), 1, unitClassList.unitList.Count);
                     //Mathf.Clamp (viewIndex, 1, unitClassList.itemList.Count);
-                    EditorGUILayout.LabelField ("of   " +  unitClassList.unitList.Count.ToString() + "  items", "", GUILayout.ExpandWidth(false));
+                    EditorGUILayout.LabelField ("of   " +  unitClassList.unitList.Count.ToString() + "  units", "", GUILayout.ExpandWidth(false));
                     GUILayout.EndHorizontal ();
 
-//                    unitClassList.unitList[viewIndex-1].itemName = EditorGUILayout.TextField ("Item Name", unitClassList.unitList[viewIndex-1].itemName as string);
+                    unitClassList.unitList[viewIndex-1].Name = EditorGUILayout.TextField ("Unit Name", unitClassList.unitList[viewIndex-1].Name as string);
 //                    unitClassList.unitList[viewIndex-1].itemIcon = EditorGUILayout.ObjectField ("Item Icon", unitClassList.unitList[viewIndex-1].itemIcon, typeof (Texture2D), false) as Texture2D;
 //                    unitClassList.unitList[viewIndex-1].itemObject = EditorGUILayout.ObjectField ("Item Object", unitClassList.unitList[viewIndex-1].itemObject, typeof (Rigidbody), false) as Rigidbody;
 
                     GUILayout.Space(10);
 
-                    GUILayout.BeginHorizontal ();
+//                    GUILayout.BeginHorizontal ();
 //                    unitClassList.unitList[viewIndex-1].isUnique = (bool)EditorGUILayout.Toggle("Unique", unitClassList.unitList[viewIndex-1].isUnique, GUILayout.ExpandWidth(false));
 //                    unitClassList.unitList[viewIndex-1].isIndestructible = (bool)EditorGUILayout.Toggle("Indestructable", unitClassList.unitList[viewIndex-1].isIndestructible,  GUILayout.ExpandWidth(false));
 //                    unitClassList.unitList[viewIndex-1].isQuestItem = (bool)EditorGUILayout.Toggle("QuestItem", unitClassList.unitList[viewIndex-1].isQuestItem,  GUILayout.ExpandWidth(false));
-                    GUILayout.EndHorizontal ();
+//                    GUILayout.EndHorizontal ();
 
                     GUILayout.Space(10);
 
-                    GUILayout.BeginHorizontal ();
+//                    GUILayout.BeginHorizontal ();
 //                    unitClassList.unitList[viewIndex-1].isStackable = (bool)EditorGUILayout.Toggle("Stackable ", unitClassList.unitList[viewIndex-1].isStackable , GUILayout.ExpandWidth(false));
 //                    unitClassList.unitList[viewIndex-1].destroyOnUse = (bool)EditorGUILayout.Toggle("Destroy On Use", unitClassList.unitList[viewIndex-1].destroyOnUse,  GUILayout.ExpandWidth(false));
 //                    unitClassList.unitList[viewIndex-1].encumbranceValue = EditorGUILayout.FloatField("Encumberance", unitClassList.unitList[viewIndex-1].encumbranceValue,  GUILayout.ExpandWidth(false));
-                    GUILayout.EndHorizontal ();
+//                    GUILayout.EndHorizontal ();
 
                     GUILayout.Space(10);
 
                 } 
                 else 
                 {
-                    GUILayout.Label ("This Inventory List is Empty.");
+                    GUILayout.Label ("This Unit List is Empty.");
                 }
             }
             if (GUI.changed) 
@@ -148,7 +148,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             unitClassList = CreateUnitList.Create();
             if (unitClassList) 
             {
-                unitClassList.unitList = new List<UnitClass>();
+                unitClassList.unitList = new List<Unit>();
                 string relPath = AssetDatabase.GetAssetPath(unitClassList);
                 EditorPrefs.SetString("ObjectPath", relPath);
             }
@@ -156,13 +156,13 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         void OpenItemList () 
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Inventory Item List", "", "");
+            string absPath = EditorUtility.OpenFilePanel ("Select Inventory Unit List", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
                 unitClassList = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitClassList)) as UnitClassList;
                 if (unitClassList.unitList == null)
-                    unitClassList.unitList = new List<UnitClass>();
+                    unitClassList.unitList = new List<Unit>();
                 if (unitClassList) {
                     EditorPrefs.SetString("ObjectPath", relPath);
                 }
@@ -171,8 +171,8 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         void AddItem () 
         {
-            UnitClass unit = new UnitClass();
-            unit.name = "New Item";
+            Unit unit = new Unit();
+            unit.Name = "New unit";
             unitClassList.unitList.Add (unit);
             viewIndex = unitClassList.unitList.Count;
         }

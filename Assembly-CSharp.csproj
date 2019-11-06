@@ -170,6 +170,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CreateUnitList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Pilot\Pilot.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\TuningStyleClass.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Unit.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassForSave.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassList.cs" />

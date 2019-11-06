@@ -215,6 +215,7 @@
                 <e p="Pilot.cs" t="Include" />
               </e>
               <e p="TuningStyleClass.cs" t="Include" />
+              <e p="Unit.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
               <e p="UnitClassForSave.cs" t="Include" />
               <e p="UnitClassList.cs" t="Include" />
