@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5962,7 +5962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -103.36, y: -74.174}
+  m_AnchoredPosition: {x: -103.36035, y: -74.174}
   m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805998421
@@ -9068,7 +9068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
-  homeContents: {fileID: 1269381834}
+  homeDataSourceMgr: {fileID: 1009119398}
+  unitMasterList: {fileID: 11400000, guid: 791960fce904a49dbba1ea5b8698f7c5, type: 2}
   a1: {fileID: 449333225}
   a2: {fileID: 1160069815}
   a3: {fileID: 1870001500}
@@ -9592,6 +9593,14 @@ MonoBehaviour:
     mChecked: 0
     mIsExpand: 0
   - contentText: Enemy Equipment 3
+    description: '[DEBUG]'
+    unitClassList:
+    - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
+    isInfinityInventoryMode: 1
+    mId: 0
+    mChecked: 0
+    mIsExpand: 0
+  - contentText: ADD
     description: '[DEBUG]'
     unitClassList:
     - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
@@ -10726,7 +10735,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.000061, y: -95}
+  m_AnchoredPosition: {x: 19, y: -94.999985}
   m_SizeDelta: {x: 28.1, y: -941}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!114 &1420324701
@@ -14706,7 +14715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 132.8, y: 0}
+  m_AnchoredPosition: {x: 132.7998, y: 0}
   m_SizeDelta: {x: -265.6, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1973180633
@@ -15133,8 +15142,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.45001, y: -78.8}
-  m_SizeDelta: {x: 150.9, y: -477.7}
+  m_AnchoredPosition: {x: 15, y: -78.80001}
+  m_SizeDelta: {x: 30, y: -477.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041478659
 MonoBehaviour:
@@ -15148,7 +15157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0836bbc2c03ef4a1d98e53d65568cf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeThreshold: 50
+  swipeThreshold: 300
   timeThreshold: 0.3
   onSwipeLeft:
     m_PersistentCalls:

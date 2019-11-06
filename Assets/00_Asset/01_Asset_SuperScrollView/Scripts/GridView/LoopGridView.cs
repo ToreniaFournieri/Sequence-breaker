@@ -1187,7 +1187,7 @@ namespace _00_Asset._01_Asset_SuperScrollView.Scripts.GridView
                 string prefabName = data.mItemPrefab.name;
                 if (_mItemPoolDict.ContainsKey(prefabName))
                 {
-                    Debug.LogError("A item prefab with name " + prefabName + " has existed!");
+                    Debug.LogError("A item prefab with unitName " + prefabName + " has existed!");
                     continue;
                 }
                 RectTransform rtf = data.mItemPrefab.GetComponent<RectTransform>();

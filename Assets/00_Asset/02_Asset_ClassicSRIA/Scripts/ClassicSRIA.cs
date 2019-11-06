@@ -75,7 +75,7 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 		{ ChangeItemsCount(2, itemsCount, index, contentPanelEndEdgeStationary); }
 
 		/// <summary> Utility to smooth scroll. The scroll is animated (scroll is done gradually, throughout multiple frames) </summary>
-		/// <returns>If content size smaller or equal to viweport size, returns false. Else, returns if no smooth scroll animation was already playing or <paramref name="overrideCurrentScrollingAnimation"/> is true</returns>
+		/// <returns>If content size smaller or equal to viweport size, returns false. Else, returns if no smooth scroll animation was already playing or <paramref unitName="overrideCurrentScrollingAnimation"/> is true</returns>
 		public virtual bool SmoothScrollTo(int itemIndex, float duration = .75f, float normalizedOffsetFromViewportStart = 0f, float normalizedPositionOfItemPivotToUse = 0f, Action onDone = null, bool overrideCurrentScrollingAnimation = false)
 		{
 			if (ContentSize <= ViewportSize)
@@ -143,7 +143,7 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 				onDone();
 		}
 
-		/// <param name="changeMode">0=remove, 1=insert, 2=reset</param>
+		/// <param unitName="changeMode">0=remove, 1=insert, 2=reset</param>
 		void ChangeItemsCount(int changeMode, int itemsCount, int indexIfAppendingOrRemoving = -1, bool contentPanelEndEdgeStationary = false)
 		{
 			float ctInsetBefore;
@@ -281,8 +281,8 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 		/// <summary>
 		/// It assumes the transform has a parent
 		/// </summary>
-		/// <param name="child"></param>
-		/// <param name="parentHint"> the parent of child. used in order to prevent casting, in case the caller already has the parent stored in a variable</param>
+		/// <param unitName="child"></param>
+		/// <param unitName="parentHint"> the parent of child. used in order to prevent casting, in case the caller already has the parent stored in a variable</param>
 		/// <returns></returns>
 		public static float GetInsetFromParentTopEdge(this RectTransform child, RectTransform parentHint)
 		{
@@ -327,28 +327,28 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 		}
 
 		/// <summary> Optimized version of SetSizeFromParentEdgeWithCurrentAnchors(RectTransform.Edge fixedEdge, float newSize) when parent is known </summary>
-		/// <param name="parentHint"></param>
-		/// <param name="fixedEdge"></param>
-		/// <param name="newSize"></param>
+		/// <param unitName="parentHint"></param>
+		/// <param unitName="fixedEdge"></param>
+		/// <param unitName="newSize"></param>
 		public static void SetSizeFromParentEdgeWithCurrentAnchors(this RectTransform child, RectTransform parentHint, RectTransform.Edge fixedEdge, float newSize)
 		{
 			child.SetInsetAndSizeFromParentEdgeWithCurrentAnchors(parentHint, fixedEdge, child.GetInsetFromParentEdge(parentHint, fixedEdge), newSize);
 		}
 
 		/// <summary> NOTE: Use the optimized version if parent is known </summary>
-		/// <param name="fixedEdge"></param>
-		/// <param name="newInset"></param>
-		/// <param name="newSize"></param>
+		/// <param unitName="fixedEdge"></param>
+		/// <param unitName="newInset"></param>
+		/// <param unitName="newSize"></param>
 		public static void SetInsetAndSizeFromParentEdgeWithCurrentAnchors(this RectTransform child, RectTransform.Edge fixedEdge, float newInset, float newSize)
 		{
 			child.SetInsetAndSizeFromParentEdgeWithCurrentAnchors(child.parent as RectTransform, fixedEdge, newInset, newSize);
 		}
 
 		/// <summary> Optimized version of SetInsetAndSizeFromParentEdgeWithCurrentAnchors(RectTransform.Edge fixedEdge, float newInset, float newSize) when parent is known </summary>
-		/// <param name="parentHint"></param>
-		/// <param name="fixedEdge"></param>
-		/// <param name="newInset"></param>
-		/// <param name="newSize"></param>
+		/// <param unitName="parentHint"></param>
+		/// <param unitName="fixedEdge"></param>
+		/// <param unitName="newInset"></param>
+		/// <param unitName="newSize"></param>
 		public static void SetInsetAndSizeFromParentEdgeWithCurrentAnchors(this RectTransform child, RectTransform parentHint, RectTransform.Edge fixedEdge, float newInset, float newSize)
 		{ _setInsetAndSizeFromParentEdgeWithCurrentAnchorsMappedActions[fixedEdge](child, parentHint, newInset, newSize); }
 	}

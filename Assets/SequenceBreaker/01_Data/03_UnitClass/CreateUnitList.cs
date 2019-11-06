@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace SequenceBreaker._01_Data._03_UnitClass
 {
-    public class CreateUnitList : MonoBehaviour
+    public static class CreateUnitList
     {
-        [MenuItem("Assets/Create/Unit List")]
-        public static UnitListScriptable  Create()
+        [MenuItem("Assets/Create/UnitMaster")]
+        public static UnitMasterList  Create()
         {
-            UnitListScriptable asset = ScriptableObject.CreateInstance<UnitListScriptable>();
+            UnitMasterList asset = ScriptableObject.CreateInstance<UnitMasterList>();
             
 
-            AssetDatabase.CreateAsset(asset, "Assets/UnitListScriptable.asset");
+            AssetDatabase.CreateAsset(asset, "Assets/UnitMaster.asset");
             AssetDatabase.SaveAssets();
             return asset;
         }

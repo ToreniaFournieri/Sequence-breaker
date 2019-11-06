@@ -215,12 +215,12 @@
                 <e p="Pilot.cs" t="Include" />
               </e>
               <e p="TuningStyleClass.cs" t="Include" />
-              <e p="Unit.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
               <e p="UnitClassForSave.cs" t="Include" />
               <e p="UnitEditor.cs" t="Include" />
               <e p="UnitEntity.cs" t="Include" />
-              <e p="UnitListScriptable.cs" t="Include" />
+              <e p="UnitMaster.cs" t="Include" />
+              <e p="UnitMasterList.cs" t="Include" />
             </e>
             <e p="07_Equipments" t="Include">
               <e p="Equipment.cs" t="Include" />
@@ -321,12 +321,6 @@
             <e p="ShowVersionInfo.cs" t="Include" />
             <e p="SwipeManager.cs" t="Include" />
             <e p="TransparentMessageController.cs" t="Include" />
-          </e>
-          <e p="90_Test" t="Include">
-            <e p="CreateInventoryItemList.cs" t="Include" />
-            <e p="SInventoryItem.cs" t="Include" />
-            <e p="SInventoryItemEditor.cs" t="Include" />
-            <e p="SInventoryItemList.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -9,6 +9,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d550718ce014947f69b3dd53501d498a, type: 3}
+  m_Script: {fileID: 11500000, guid: e6eefaa62ecb0453bbd8756da36a74ab, type: 3}
   m_Name: InventoryItemList
   m_EditorClassIdentifier: 
+  itemList:
+  - itemName: New Item
+    itemIcon: {fileID: 0}
+    itemObject: {fileID: 0}
+    isUnique: 0
+    isIndestructible: 0
+    isQuestItem: 0
+    isStackable: 0
+    destroyOnUse: 0
+    encumbranceValue: 0
+  - itemName: New Item
+    itemIcon: {fileID: 0}
+    itemObject: {fileID: 0}
+    isUnique: 0
+    isIndestructible: 0
+    isQuestItem: 0
+    isStackable: 0
+    destroyOnUse: 0
+    encumbranceValue: 0
+  - itemName: test
+    itemIcon: {fileID: 0}
+    itemObject: {fileID: 0}
+    isUnique: 0
+    isIndestructible: 0
+    isQuestItem: 0
+    isStackable: 0
+    destroyOnUse: 0
+    encumbranceValue: 0

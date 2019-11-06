@@ -29,9 +29,10 @@ namespace SequenceBreaker._03_Controller._01_Home
 //        public GameObject jumpLinkGameObject;
 
         [SerializeField]public List<HomeContentData> homeContentList;
-        
-        
+
     }
+    
+    
 
 
 

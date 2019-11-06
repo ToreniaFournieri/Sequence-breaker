@@ -53,7 +53,7 @@ namespace _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.ListView
             {
                 return null;
             }
-            //get a new item. Every item can use a different prefab, the parameter of the NewListViewItem is the prefab’name. 
+            //get a new item. Every item can use a different prefab, the parameter of the NewListViewItem is the prefab’unitName. 
             //And all the prefabs should be listed in ItemPrefabList in LoopListView2 Inspector Setting
             LoopListViewItem2 item = listView.NewListViewItem("ItemPrefab1");
             ListItem5 itemScript = item.GetComponent<ListItem5>();

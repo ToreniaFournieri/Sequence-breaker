@@ -8,7 +8,7 @@
         /// <summary>
         /// Gets the number of cells in a list of data
         /// </summary>
-        /// <param name="scroller"></param>
+        /// <param unitName="scroller"></param>
         /// <returns></returns>
         int GetNumberOfCells(EnhancedScroller scroller);
 
@@ -16,8 +16,8 @@
         /// Gets the size of a cell view given the index of the data set.
         /// This allows you to have different sized cells
         /// </summary>
-        /// <param name="scroller"></param>
-        /// <param name="dataIndex"></param>
+        /// <param unitName="scroller"></param>
+        /// <param unitName="dataIndex"></param>
         /// <returns></returns>
         float GetCellViewSize(EnhancedScroller scroller, int dataIndex);
 
@@ -26,9 +26,9 @@
         /// of this function should request a new cell from the scroller so that it can
         /// properly recycle old cells.
         /// </summary>
-        /// <param name="scroller"></param>
-        /// <param name="dataIndex"></param>
-        /// <param name="cellIndex"></param>
+        /// <param unitName="scroller"></param>
+        /// <param unitName="dataIndex"></param>
+        /// <param unitName="cellIndex"></param>
         /// <returns></returns>
         EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex);
     }

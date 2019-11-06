@@ -152,7 +152,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
                 _enemyBattleUnits = new List<BattleUnit>();
                 (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
 
-                //set name with levels
+                //set unitName with levels
                 foreach (var battleUnit in _enemyBattleUnits)
                 {
                     battleUnit.name = battleUnit.name ;

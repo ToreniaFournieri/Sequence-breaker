@@ -10,7 +10,7 @@ namespace _00_Asset.Demo.Scripts
     // this work is performed in the Transition class, though).
     public class SceneTransition : MonoBehaviour
     {
-        public string scene = "<Insert scene name>";
+        public string scene = "<Insert scene unitName>";
         public float duration = 1.0f;
         public Color color = Color.black;
 

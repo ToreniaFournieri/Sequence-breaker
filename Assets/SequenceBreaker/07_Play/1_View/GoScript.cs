@@ -43,7 +43,7 @@ namespace SequenceBreaker._07_Play._1_View
 
             //Not works well
             RunBattle runBattle1 = runBattle;
-            //get Mission name
+            //get Mission unitName
             string missionName = runBattle1.missionText;
             string missionLevel = " (lv:" + runBattle1.missionLevelInitial + ")";
 
@@ -131,7 +131,7 @@ namespace SequenceBreaker._07_Play._1_View
             foreach (UnitClass allyUnit in missionController.allyUnitList)
             {
                 missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
-//                Debug.Log("[Save] ally: " + allyUnit.name + " experience point" +allyUnit.experience);
+//                Debug.Log("[Save] ally: " + allyUnit.unitName + " experience point" +allyUnit.experience);
             }
 
             foreach (Item item in itemList)

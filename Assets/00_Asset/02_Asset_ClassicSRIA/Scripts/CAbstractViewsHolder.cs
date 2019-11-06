@@ -21,8 +21,8 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts
 		{ Init(rootPrefab.gameObject, itemIndex, activateRootGameObject, callCollectViews); }
 
 		/// <summary>
-		/// Instantiates <paramref name="rootPrefabGo"/>, assigns it to root and sets its itemIndex to <paramref name="itemIndex"/>. 
-		/// Activates the new instance if <paramref name="activateRootGameObject"/> is true. Also calls CollectViews if <paramref name="callCollectViews"/> is true
+		/// Instantiates <paramref unitName="rootPrefabGo"/>, assigns it to root and sets its itemIndex to <paramref unitName="itemIndex"/>. 
+		/// Activates the new instance if <paramref unitName="activateRootGameObject"/> is true. Also calls CollectViews if <paramref unitName="callCollectViews"/> is true
 		/// </summary>
 		public virtual void Init(GameObject rootPrefabGo, int itemIndex, bool activateRootGameObject = true, bool callCollectViews = true)
 		{

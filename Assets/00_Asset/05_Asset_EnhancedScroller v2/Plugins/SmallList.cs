@@ -7,7 +7,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
     /// behaves like a list, automatically allocating new memory
     /// when needed, but not releasing it to garbage collection.
     /// </summary>
-    /// <typeparam name="T">The type of the list</typeparam>
+    /// <typeparam unitName="T">The type of the list</typeparam>
     public class SmallList<T>
     {
         /// <summary>
@@ -23,7 +23,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Indexed access to the list items
         /// </summary>
-        /// <param name="i"></param>
+        /// <param unitName="i"></param>
         /// <returns></returns>
         public T this[int i]
         {
@@ -82,7 +82,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Adds a new element to the array, creating more
         /// memory if necessary
         /// </summary>
-        /// <param name="item"></param>
+        /// <param unitName="item"></param>
         public void Add(T item)
         {
             if (Data == null || Count == Data.Length)
@@ -96,7 +96,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Adds a new element to the start of the array, creating more
         /// memory if necessary
         /// </summary>
-        /// <param name="item"></param>
+        /// <param unitName="item"></param>
         public void AddStart(T item)
         {
             Insert(item, 0);
@@ -106,7 +106,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Inserts a new element to the array at the index specified, creating more
         /// memory if necessary
         /// </summary>
-        /// <param name="item"></param>
+        /// <param unitName="item"></param>
         public void Insert(T item, int index)
         {
             if (Data == null || Count == Data.Length)
@@ -158,7 +158,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Removes an item from the data
         /// </summary>
-        /// <param name="item"></param>
+        /// <param unitName="item"></param>
         /// <returns></returns>
         public T Remove(T item)
         {
@@ -199,7 +199,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Determines if the data contains the item
         /// </summary>
-        /// <param name="item">The item to compare</param>
+        /// <param unitName="item">The item to compare</param>
         /// <returns>True if the item exists in teh data</returns>
         public bool Contains(T item)
         {

@@ -8,57 +8,57 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
     /// <summary>
     /// This delegate handles the visibility changes of cell views
     /// </summary>
-    /// <param name="cellView">The cell view that changed visibility</param>
+    /// <param unitName="cellView">The cell view that changed visibility</param>
     public delegate void CellViewVisibilityChangedDelegate(EnhancedScrollerCellView cellView);
 
     /// <summary>
     /// This delegate will be fired just before the cell view is recycled
     /// </summary>
-    /// <param name="cellView"></param>
+    /// <param unitName="cellView"></param>
     public delegate void CellViewWillRecycleDelegate(EnhancedScrollerCellView cellView);
 
     /// <summary>
     /// This delegate handles the scrolling callback of the ScrollRect.
     /// </summary>
-    /// <param name="scroller">The scroller that called the delegate</param>
-    /// <param name="val">The scroll value of the scroll rect</param>
-    /// <param name="scrollPosition">The scroll position in pixels from the start of the scroller</param>
+    /// <param unitName="scroller">The scroller that called the delegate</param>
+    /// <param unitName="val">The scroll value of the scroll rect</param>
+    /// <param unitName="scrollPosition">The scroll position in pixels from the start of the scroller</param>
     public delegate void ScrollerScrolledDelegate(EnhancedScroller scroller, Vector2 val, float scrollPosition);
 
     /// <summary>
     /// This delegate handles the snapping of the scroller.
     /// </summary>
-    /// <param name="scroller">The scroller that called the delegate</param>
-    /// <param name="cellIndex">The index of the cell view snapped on (this may be different than the data index in case of looping)</param>
-    /// <param name="dataIndex">The index of the data the view snapped on</param>
+    /// <param unitName="scroller">The scroller that called the delegate</param>
+    /// <param unitName="cellIndex">The index of the cell view snapped on (this may be different than the data index in case of looping)</param>
+    /// <param unitName="dataIndex">The index of the data the view snapped on</param>
     public delegate void ScrollerSnappedDelegate(EnhancedScroller scroller, int cellIndex, int dataIndex, EnhancedScrollerCellView cellView);
 
     /// <summary>
     /// This delegate handles the change in state of the scroller (scrolling or not scrolling)
     /// </summary>
-    /// <param name="scroller">The scroller that changed state</param>
-    /// <param name="scrolling">Whether or not the scroller is scrolling</param>
+    /// <param unitName="scroller">The scroller that changed state</param>
+    /// <param unitName="scrolling">Whether or not the scroller is scrolling</param>
     public delegate void ScrollerScrollingChangedDelegate(EnhancedScroller scroller, bool scrolling);
 
     /// <summary>
     /// This delegate handles the change in state of the scroller (jumping or not jumping)
     /// </summary>
-    /// <param name="scroller">The scroller that changed state</param>
-    /// <param name="tweening">Whether or not the scroller is tweening</param>
+    /// <param unitName="scroller">The scroller that changed state</param>
+    /// <param unitName="tweening">Whether or not the scroller is tweening</param>
     public delegate void ScrollerTweeningChangedDelegate(EnhancedScroller scroller, bool tweening);
 
     /// <summary>
     /// This delegate is called when a cell view is created for the first time (not reused)
     /// </summary>
-    /// <param name="scroller">The scroller that created the cell view</param>
-    /// <param name="cellView">The cell view that was created</param>
+    /// <param unitName="scroller">The scroller that created the cell view</param>
+    /// <param unitName="cellView">The cell view that was created</param>
     public delegate void CellViewInstantiated(EnhancedScroller scroller, EnhancedScrollerCellView cellView);
 
     /// <summary>
     /// This delegate is called when a cell view is reused from the recycled cell view list
     /// </summary>
-    /// <param name="scroller">The scroller that reused the cell view</param>
-    /// <param name="cellView">The cell view that was resused</param>
+    /// <param unitName="scroller">The scroller that reused the cell view</param>
+    /// <param unitName="cellView">The cell view that was resused</param>
     public delegate void CellViewReused(EnhancedScroller scroller, EnhancedScrollerCellView cellView);
 
     /// <summary>
@@ -527,7 +527,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Create a cell view, or recycle one if it already exists
         /// </summary>
-        /// <param name="cellPrefab">The prefab to use to create the cell view</param>
+        /// <param unitName="cellPrefab">The prefab to use to create the cell view</param>
         /// <returns></returns>
         public EnhancedScrollerCellView GetCellView(EnhancedScrollerCellView cellPrefab)
         {
@@ -564,7 +564,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// This resets the internal size list and refreshes the cell views
         /// </summary>
-        /// <param name="scrollPositionFactor">The percentage of the scroller to start at between 0 and 1, 0 being the start of the scroller</param>
+        /// <param unitName="scrollPositionFactor">The percentage of the scroller to start at between 0 and 1, 0 being the start of the scroller</param>
         public void ReloadData(float scrollPositionFactor = 0)
         {
             _reloadData = false;
@@ -673,14 +673,14 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Jump to a position in the scroller based on a dataIndex. This overload allows you
         /// to specify a specific offset within a cell as well.
         /// </summary>
-        /// <param name="dataIndex">he data index to jump to</param>
-        /// <param name="scrollerOffset">The offset from the start (top / left) of the scroller in the range 0..1.
+        /// <param unitName="dataIndex">he data index to jump to</param>
+        /// <param unitName="scrollerOffset">The offset from the start (top / left) of the scroller in the range 0..1.
         /// Outside this range will jump to the location before or after the scroller's viewable area</param>
-        /// <param name="cellOffset">The offset from the start (top / left) of the cell in the range 0..1</param>
-        /// <param name="useSpacing">Whether to calculate in the spacing of the scroller in the jump</param>
-        /// <param name="tweenType">What easing to use for the jump</param>
-        /// <param name="tweenTime">How long to interpolate to the jump point</param>
-        /// <param name="jumpComplete">This delegate is fired when the jump completes</param>
+        /// <param unitName="cellOffset">The offset from the start (top / left) of the cell in the range 0..1</param>
+        /// <param unitName="useSpacing">Whether to calculate in the spacing of the scroller in the jump</param>
+        /// <param unitName="tweenType">What easing to use for the jump</param>
+        /// <param unitName="tweenTime">How long to interpolate to the jump point</param>
+        /// <param unitName="jumpComplete">This delegate is fired when the jump completes</param>
         public void JumpToDataIndex(int dataIndex,
             float scrollerOffset = 0,
             float cellOffset = 0,
@@ -842,8 +842,8 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Gets the scroll position in pixels from the start of the scroller based on the cellViewIndex
         /// </summary>
-        /// <param name="cellViewIndex">The cell index to look for. This is used instead of dataIndex in case of looping</param>
-        /// <param name="insertPosition">Do we want the start or end of the cell view's position</param>
+        /// <param unitName="cellViewIndex">The cell index to look for. This is used instead of dataIndex in case of looping</param>
+        /// <param unitName="insertPosition">Do we want the start or end of the cell view's position</param>
         /// <returns></returns>
         public float GetScrollPositionForCellViewIndex(int cellViewIndex, CellViewPositionEnum insertPosition)
         {
@@ -882,8 +882,8 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Gets the scroll position in pixels from the start of the scroller based on the dataIndex
         /// </summary>
-        /// <param name="dataIndex">The data index to look for</param>
-        /// <param name="insertPosition">Do we want the start or end of the cell view's position</param>
+        /// <param unitName="dataIndex">The data index to look for</param>
+        /// <param unitName="insertPosition">Do we want the start or end of the cell view's position</param>
         /// <returns></returns>
         public float GetScrollPositionForDataIndex(int dataIndex, CellViewPositionEnum insertPosition)
         {
@@ -893,7 +893,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Gets the index of a cell view at a given position
         /// </summary>
-        /// <param name="position">The pixel offset from the start of the scroller</param>
+        /// <param unitName="position">The pixel offset from the start of the scroller</param>
         /// <returns></returns>
         public int GetCellViewIndexAtPosition(float position)
         {
@@ -909,7 +909,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// about the controller, but the controller should not know anything about the view.
         /// Use this method sparingly if you are trying to adhere to strict MVC design.
         /// </summary>
-        /// <param name="dataIndex">The data index of the cell view to return</param>
+        /// <param unitName="dataIndex">The data index of the cell view to return</param>
         /// <returns></returns>
         public EnhancedScrollerCellView GetCellViewAtDataIndex(int dataIndex)
         {
@@ -1124,7 +1124,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// This function will create an internal list of sizes and offsets to be used in all calculations.
         /// It also sets up the loop triggers and positions and initializes the cell views.
         /// </summary>
-        /// <param name="keepPosition">If true, then the scroller will try to go back to the position it was at before the resize</param>
+        /// <param unitName="keepPosition">If true, then the scroller will try to go back to the position it was at before the resize</param>
         private void _Resize(bool keepPosition)
         {
             // cache the original position
@@ -1204,7 +1204,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Updates the spacing on the scroller
         /// </summary>
-        /// <param name="spacing">new spacing value</param>
+        /// <param unitName="spacing">new spacing value</param>
         private void _UpdateSpacing(float spacing)
         {
             _updateSpacing = false;
@@ -1233,8 +1233,8 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Create a copy of the cell view sizes. This is only used in looping
         /// </summary>
-        /// <param name="numberOfTimes">How many times the copy should be made</param>
-        /// <param name="cellCount">How many cells to copy</param>
+        /// <param unitName="numberOfTimes">How many times the copy should be made</param>
+        /// <param unitName="cellCount">How many cells to copy</param>
         private void _DuplicateCellViewSizes(int numberOfTimes, int cellCount)
         {
             for (var i = 0; i < numberOfTimes; i++)
@@ -1263,7 +1263,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Get a recycled cell with a given identifier if available
         /// </summary>
-        /// <param name="cellPrefab">The prefab to check for</param>
+        /// <param unitName="cellPrefab">The prefab to check for</param>
         /// <returns></returns>
         private EnhancedScrollerCellView _GetRecycledCellView(EnhancedScrollerCellView cellPrefab)
         {
@@ -1371,7 +1371,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Recycles one cell view
         /// </summary>
-        /// <param name="cellView"></param>
+        /// <param unitName="cellView"></param>
         private void _RecycleCell(EnhancedScrollerCellView cellView)
         {
             if (cellViewWillRecycle != null) cellViewWillRecycle(cellView);
@@ -1396,8 +1396,8 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Creates a cell view, or recycles if it can
         /// </summary>
-        /// <param name="cellIndex">The index of the cell view</param>
-        /// <param name="listPosition">Whether to add the cell to the beginning or the end</param>
+        /// <param unitName="cellIndex">The index of the cell view</param>
+        /// <param unitName="listPosition">Whether to add the cell to the beginning or the end</param>
         private void _AddCellView(int cellIndex, ListPositionEnum listPosition)
         {
             if (NumberOfCells == 0) return;
@@ -1517,8 +1517,8 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Determines which cells can be seen
         /// </summary>
-        /// <param name="startIndex">The index of the first cell visible</param>
-        /// <param name="endIndex">The index of the last cell visible</param>
+        /// <param unitName="startIndex">The index of the first cell visible</param>
+        /// <param unitName="endIndex">The index of the last cell visible</param>
         private void _CalculateCurrentActiveCellRange(out int startIndex, out int endIndex)
         {
             startIndex = 0;
@@ -1537,9 +1537,9 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Gets the index of a cell at a given position based on a subset range.
         /// This function uses a recursive binary sort to find the index faster.
         /// </summary>
-        /// <param name="position">The pixel offset from the start of the scroller</param>
-        /// <param name="startIndex">The first index of the range</param>
-        /// <param name="endIndex">The last index of the rnage</param>
+        /// <param unitName="position">The pixel offset from the start of the scroller</param>
+        /// <param unitName="startIndex">The first index of the range</param>
+        /// <param unitName="endIndex">The last index of the rnage</param>
         /// <returns></returns>
         private int _GetCellIndexAtPosition(float position, int startIndex, int endIndex)
         {
@@ -1741,7 +1741,7 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// <summary>
         /// Handler for when the scroller changes value
         /// </summary>
-        /// <param name="val">The scroll rect's value</param>
+        /// <param unitName="val">The scroll rect's value</param>
         private void _ScrollRect_OnValueChanged(Vector2 val)
         {
             // set the internal scroll position
@@ -1848,11 +1848,11 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
         /// Moves the scroll position over time between two points given an easing function. When the
         /// tween is complete it will fire the jumpComplete delegate.
         /// </summary>
-        /// <param name="tweenType">The type of easing to use</param>
-        /// <param name="time">The amount of time to interpolate</param>
-        /// <param name="start">The starting scroll position</param>
-        /// <param name="end">The ending scroll position</param>
-        /// <param name="jumpComplete">The action to fire when the tween is complete</param>
+        /// <param unitName="tweenType">The type of easing to use</param>
+        /// <param unitName="time">The amount of time to interpolate</param>
+        /// <param unitName="start">The starting scroll position</param>
+        /// <param unitName="end">The ending scroll position</param>
+        /// <param unitName="jumpComplete">The action to fire when the tween is complete</param>
         /// <returns></returns>
         IEnumerator TweenPosition(TweenType tweenType, float time, float start, float end, Action tweenComplete)
         {
@@ -1914,12 +1914,12 @@ namespace _00_Asset._05_Asset_EnhancedScroller_v2.Plugins
 
                         if (end > start && newPosition > _loopLastJumpTrigger)
                         {
-                            //Debug.Log("name: " + name + " went past the last jump trigger, looping back around");
+                            //Debug.Log("unitName: " + unitName + " went past the last jump trigger, looping back around");
                             newPosition = _loopFirstScrollPosition + (newPosition - _loopLastJumpTrigger);
                         }
                         else if (start > end && newPosition < _loopFirstJumpTrigger)
                         {
-                            //Debug.Log("name: " + name + " went past the first jump trigger, looping back around");
+                            //Debug.Log("unitName: " + unitName + " went past the first jump trigger, looping back around");
                             newPosition = _loopLastScrollPosition - (_loopFirstJumpTrigger - newPosition);
                         }
                     }

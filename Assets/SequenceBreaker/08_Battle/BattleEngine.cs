@@ -151,7 +151,7 @@ namespace SequenceBreaker._08_Battle
 //                    {
 //                        foreach (var effect in _effects)
 //                        {
-//                            Console.WriteLine(effect.character.name + " has a skill: " + effect.skill.name + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
+//                            Console.WriteLine(effect.character.unitName + " has a skill: " + effect.skill.unitName + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
 //                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
 //                        }
 //                    }

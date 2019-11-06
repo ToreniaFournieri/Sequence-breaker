@@ -10,6 +10,7 @@ using UnityEngine.Serialization;
 
 namespace SequenceBreaker._01_Data._03_UnitClass
 {
+    
     [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
     public sealed class UnitClass : ScriptableObject
     {
@@ -60,11 +61,14 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         public int GetItemAmount()
         {
             int totalAmount = 0;
-            foreach (var item in itemList)
+            if (itemList != null)
             {
-                if (item != null)
+                foreach (var item in itemList)
                 {
-                    totalAmount += item.amount;
+                    if (item != null)
+                    {
+                        totalAmount += item.amount;
+                    }
                 }
             }
 

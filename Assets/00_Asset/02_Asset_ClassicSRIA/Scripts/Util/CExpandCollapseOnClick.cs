@@ -125,14 +125,14 @@ namespace _00_Asset._02_Asset_ClassicSRIA.Scripts.Util
         public interface ISizeChangesHandler
         {
             /// <summary>Called each frame during animation</summary>
-            /// <param name="rt">The animated RectTransform</param>
-            /// <param name="newSize">The requested size</param>
+            /// <param unitName="rt">The animated RectTransform</param>
+            /// <param unitName="newSize">The requested size</param>
             /// <returns>If it was accepted</returns>
             bool HandleSizeChangeRequest(RectTransform rt, float newSize);
 
-            /// <summary>Called when the animation ends and the item successfully expanded (<paramref name="expanded"/> is true) or collapsed (else)</summary>
-            /// <param name="rt">The animated RectTransform</param>
-            /// <param name="expanded">true if the item expanded. false, if collapsed</param>
+            /// <summary>Called when the animation ends and the item successfully expanded (<paramref unitName="expanded"/> is true) or collapsed (else)</summary>
+            /// <param unitName="rt">The animated RectTransform</param>
+            /// <param unitName="expanded">true if the item expanded. false, if collapsed</param>
             void OnExpandedStateChanged(RectTransform rt, bool expanded);
         }
 

@@ -1,16 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data._02_Items.Item;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 namespace SequenceBreaker._01_Data._03_UnitClass
 {
     public class UnitEditor : EditorWindow
     {
-        public UnitListScriptable unitListScriptable;
+        public UnitMasterList unitMasterList;
         private int viewIndex = 1;
         
-        [MenuItem ("Window/Unit List Editor %#e")]
+        [MenuItem ("Window/Unit Master Editor %#e")]
         static void  Init () 
         {
             EditorWindow.GetWindow (typeof (UnitEditor));
@@ -20,7 +24,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             if(EditorPrefs.HasKey("ObjectPath")) 
             {
                 string objectPath = EditorPrefs.GetString("ObjectPath");
-                unitListScriptable = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitListScriptable)) as UnitListScriptable;
+                unitMasterList = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitMasterList)) as UnitMasterList;
             }
 
         }
@@ -28,11 +32,11 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         void  OnGUI () {
             GUILayout.BeginHorizontal ();
             GUILayout.Label ("Unit Editor", EditorStyles.boldLabel);
-            if (unitListScriptable != null) {
+            if (unitMasterList != null) {
                 if (GUILayout.Button("Show Unit List")) 
                 {
                     EditorUtility.FocusProjectWindow();
-                    Selection.activeObject = unitListScriptable;
+                    Selection.activeObject = unitMasterList;
                 }
             }
             if (GUILayout.Button("Open Unit List")) 
@@ -42,11 +46,11 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             if (GUILayout.Button("New Unit List")) 
             {
                 EditorUtility.FocusProjectWindow();
-                Selection.activeObject = unitListScriptable;
+                Selection.activeObject = unitMasterList;
             }
             GUILayout.EndHorizontal ();
 
-            if (unitListScriptable == null) 
+            if (unitMasterList == null) 
             {
                 GUILayout.BeginHorizontal ();
                 GUILayout.Space(10);
@@ -63,8 +67,11 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             GUILayout.Space(20);
 
-            if (unitListScriptable != null) 
+            if (unitMasterList != null) 
             {
+                
+                
+                
                 GUILayout.BeginHorizontal ();
 
                 GUILayout.Space(10);
@@ -77,7 +84,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 GUILayout.Space(5);
                 if (GUILayout.Button("Next", GUILayout.ExpandWidth(false))) 
                 {
-                    if (viewIndex < unitListScriptable.unitList.Count) 
+                    if (viewIndex < unitMasterList.unitList.Count) 
                     {
                         viewIndex ++;
                     }
@@ -95,37 +102,96 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 }
 
                 GUILayout.EndHorizontal ();
-                if (unitListScriptable.unitList == null)
+                if (unitMasterList.unitList == null)
                     Debug.Log("wtf");
-                if (unitListScriptable.unitList.Count > 0) 
+                if (unitMasterList.unitList.Count > 0) 
                 {
                     GUILayout.BeginHorizontal ();
-                    viewIndex = Mathf.Clamp (EditorGUILayout.IntField ("Current Unit", viewIndex, GUILayout.ExpandWidth(false)), 1, unitListScriptable.unitList.Count);
+                    viewIndex = Mathf.Clamp (EditorGUILayout.IntField ("Current Unit", viewIndex, GUILayout.ExpandWidth(false)), 1, unitMasterList.unitList.Count);
                     //Mathf.Clamp (viewIndex, 1, unitListScriptable.itemList.Count);
-                    EditorGUILayout.LabelField ("of   " +  unitListScriptable.unitList.Count.ToString() + "  units", "", GUILayout.ExpandWidth(false));
+                    EditorGUILayout.LabelField ("of   " +  unitMasterList.unitList.Count.ToString() + "  units", "", GUILayout.ExpandWidth(false));
                     GUILayout.EndHorizontal ();
+                    
+                    // unitList own calculation
+                    if (unitMasterList.unitList[viewIndex - 1].autoGenerationMode)
+                    {
+                        //Get rank
+                        char coreFrameC = unitMasterList.unitList[viewIndex - 1].unitName.ToCharArray()[0];
+                        char rankC = unitMasterList.unitList[viewIndex - 1].unitName.ToCharArray()[1];
+                        char unitTypeC =unitMasterList.unitList[viewIndex - 1].unitName.ToCharArray()[2];
 
-                    unitListScriptable.unitList[viewIndex-1].Name = EditorGUILayout.TextField ("Unit Name", unitListScriptable.unitList[viewIndex-1].Name as string);
-//                    unitListScriptable.unitListScriptable[viewIndex-1].itemIcon = EditorGUILayout.ObjectField ("Item Icon", unitListScriptable.unitListScriptable[viewIndex-1].itemIcon, typeof (Texture2D), false) as Texture2D;
-//                    unitListScriptable.unitListScriptable[viewIndex-1].itemObject = EditorGUILayout.ObjectField ("Item Object", unitListScriptable.unitListScriptable[viewIndex-1].itemObject, typeof (Rigidbody), false) as Rigidbody;
+                        //1st coreFrame
+                        string coreFramePath = "11_Unit-Base-Master/01_CoreFrame/Core-" + rankC + "-" +coreFrameC;
+                        unitMasterList.unitList[viewIndex - 1].coreFrame = Resources.Load<CoreFrame>(coreFramePath);
+                        //2nd pilot
+                        string pilotPath = "11_Unit-Base-Master/02_Pilot/Pilot-Common" + rankC ;
+                        unitMasterList.unitList[viewIndex - 1].pilot = Resources.Load<Pilot.Pilot>(pilotPath);
+                        //3rd unitType
+                        UnitType unitType = UnitType.Beast;
+                        switch (unitTypeC)
+                        {
+                            case 'B':
+                                unitType = UnitType.Beast;
+                                break;
+                            case 'C':
+                                unitType = UnitType.Cyborg;
+                                break;
+                            case 'D':
+                                    unitType = UnitType.Drone;
+                                    break;
+                            case 'R':
+                                unitType = UnitType.Robot;
+                                break;
+                            case 'T':
+                                unitType = UnitType.Titan;
+                                break;
+                            default:
+//                                Debug.LogError("unexpected unitType :" + unitTypeC);
+                                break;
+                        }
+
+                        unitMasterList.unitList[viewIndex - 1].unitType = unitType;
+
+
+                    }
+                        
+
+                    unitMasterList.unitList[viewIndex-1].unitName = EditorGUILayout.TextField ("Unit Name", unitMasterList.unitList[viewIndex-1].unitName as string);
+                    unitMasterList.unitList[viewIndex-1].autoGenerationMode = EditorGUILayout.Toggle("autoGenerationMode", unitMasterList.unitList[viewIndex-1].autoGenerationMode );
+
+                    GUILayout.Label(" true:will generate unit Type from Unit name, 1st:CoreFrame, 2nd:Rank, 3rd:UnitType" );
+                    unitMasterList.unitList[viewIndex - 1].uniqueId =
+                        Math.Abs(unitMasterList.unitList[viewIndex - 1].unitName.GetHashCode());
+                    unitMasterList.unitList[viewIndex-1].uniqueId = EditorGUILayout.IntField("UniqueId", unitMasterList.unitList[viewIndex-1].uniqueId );
+                    unitMasterList.unitList[viewIndex - 1].affiliation = (Affiliation) EditorGUILayout.EnumPopup("Affiliation",
+                        unitMasterList.unitList[viewIndex - 1].affiliation );
+                    unitMasterList.unitList[viewIndex - 1].unitType = (UnitType) EditorGUILayout.EnumPopup("UnitType",
+                        unitMasterList.unitList[viewIndex - 1].unitType );
+                    unitMasterList.unitList[viewIndex - 1].itemCapacity = EditorGUILayout.IntField("itemCapacity", unitMasterList.unitList[viewIndex - 1].itemCapacity );
+                    
 
                     GUILayout.Space(10);
 
-//                    GUILayout.BeginHorizontal ();
+                    unitMasterList.unitList[viewIndex - 1].coreFrame =
+                            EditorGUILayout.ObjectField("CoreFrame", unitMasterList.unitList[viewIndex - 1].coreFrame, typeof (CoreFrame), false) as CoreFrame; 
+                    unitMasterList.unitList[viewIndex - 1].pilot =
+                        EditorGUILayout.ObjectField("Pilot", unitMasterList.unitList[viewIndex - 1].pilot, typeof (Pilot.Pilot), false) as Pilot.Pilot; 
+                    
+                    unitMasterList.unitList[viewIndex-1].experience = EditorGUILayout.IntField("experience", unitMasterList.unitList[viewIndex-1].experience );
+
+
+
+//                    unitListScriptable.unitListScriptable[viewIndex-1].itemIcon = EditorGUILayout.ObjectField ("Item Icon", unitListScriptable.unitListScriptable[viewIndex-1].itemIcon, typeof (Texture2D), false) as Texture2D;
+//                    unitListScriptable.unitListScriptable[viewIndex-1].itemObject = EditorGUILayout.ObjectField ("Item Object", unitListScriptable.unitListScriptable[viewIndex-1].itemObject, typeof (Rigidbody), false) as Rigidbody;
 //                    unitListScriptable.unitListScriptable[viewIndex-1].isUnique = (bool)EditorGUILayout.Toggle("Unique", unitListScriptable.unitListScriptable[viewIndex-1].isUnique, GUILayout.ExpandWidth(false));
 //                    unitListScriptable.unitListScriptable[viewIndex-1].isIndestructible = (bool)EditorGUILayout.Toggle("Indestructable", unitListScriptable.unitListScriptable[viewIndex-1].isIndestructible,  GUILayout.ExpandWidth(false));
 //                    unitListScriptable.unitListScriptable[viewIndex-1].isQuestItem = (bool)EditorGUILayout.Toggle("QuestItem", unitListScriptable.unitListScriptable[viewIndex-1].isQuestItem,  GUILayout.ExpandWidth(false));
-//                    GUILayout.EndHorizontal ();
-
-                    GUILayout.Space(10);
 
 //                    GUILayout.BeginHorizontal ();
 //                    unitListScriptable.unitListScriptable[viewIndex-1].isStackable = (bool)EditorGUILayout.Toggle("Stackable ", unitListScriptable.unitListScriptable[viewIndex-1].isStackable , GUILayout.ExpandWidth(false));
 //                    unitListScriptable.unitListScriptable[viewIndex-1].destroyOnUse = (bool)EditorGUILayout.Toggle("Destroy On Use", unitListScriptable.unitListScriptable[viewIndex-1].destroyOnUse,  GUILayout.ExpandWidth(false));
 //                    unitListScriptable.unitListScriptable[viewIndex-1].encumbranceValue = EditorGUILayout.FloatField("Encumberance", unitListScriptable.unitListScriptable[viewIndex-1].encumbranceValue,  GUILayout.ExpandWidth(false));
 //                    GUILayout.EndHorizontal ();
-
-                    GUILayout.Space(10);
 
                 } 
                 else 
@@ -135,7 +201,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             }
             if (GUI.changed) 
             {
-                EditorUtility.SetDirty(unitListScriptable);
+                EditorUtility.SetDirty(unitMasterList);
             }
         }
 
@@ -143,27 +209,27 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         {
             // There is no overwrite protection here!
             // There is No "Are you sure you want to overwrite your existing object?" if it exists.
-            // This should probably get a string from the user to create a new name and pass it ...
+            // This should probably get a string from the user to create a new unitName and pass it ...
             viewIndex = 1;
-            unitListScriptable = CreateUnitList.Create();
-            if (unitListScriptable) 
+            unitMasterList = CreateUnitList.Create();
+            if (unitMasterList) 
             {
-                unitListScriptable.unitList = new List<Unit>();
-                string relPath = AssetDatabase.GetAssetPath(unitListScriptable);
+                unitMasterList.unitList = new List<UnitMaster>();
+                string relPath = AssetDatabase.GetAssetPath(unitMasterList);
                 EditorPrefs.SetString("ObjectPath", relPath);
             }
         }
 
         void OpenItemList () 
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Inventory Unit List", "", "");
+            string absPath = EditorUtility.OpenFilePanel ("Select Unit List", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                unitListScriptable = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitListScriptable)) as UnitListScriptable;
-                if (unitListScriptable.unitList == null)
-                    unitListScriptable.unitList = new List<Unit>();
-                if (unitListScriptable) {
+                unitMasterList = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitMasterList)) as UnitMasterList;
+                if (unitMasterList.unitList == null)
+                    unitMasterList.unitList = new List<UnitMaster>();
+                if (unitMasterList) {
                     EditorPrefs.SetString("ObjectPath", relPath);
                 }
             }
@@ -171,15 +237,21 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         void AddItem () 
         {
-            Unit unit = new Unit();
-            unit.Name = "New unit";
-            unitListScriptable.unitList.Add (unit);
-            viewIndex = unitListScriptable.unitList.Count;
+            UnitMaster unitMaster = new UnitMaster();
+            unitMaster.unitName = "DAR-Destroyer";
+            unitMaster.affiliation = Affiliation.Enemy;
+            unitMaster.itemCapacity = 1;
+//            unitMaster.coreFrame = Resources.Load<CoreFrame>
+//                ("11_Unit-Base-Master/01_CoreFrame/Core-A-Destroyer");
+//            unitMaster.pilot = Resources.Load<Pilot.Pilot>("11_Unit-Base-Master/02_Pilot/Pilot-CommonA");
+            unitMaster.autoGenerationMode = true;
+            unitMasterList.unitList.Add (unitMaster);
+            viewIndex = unitMasterList.unitList.Count;
         }
 
         void DeleteItem (int index) 
         {
-            unitListScriptable.unitList.RemoveAt (index);
+            unitMasterList.unitList.RemoveAt (index);
         }
     }
     

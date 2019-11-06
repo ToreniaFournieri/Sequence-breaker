@@ -200,10 +200,10 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
                 }
             }
-            else
-            {
-                Debug.LogError("unit :" + unit.name + "( id:" + unit.affiliation + unit.uniqueId + "'s itemList is missing." );
-            }
+//            else
+//            {
+//                Debug.LogError("unit :" + unit.name + "( id:" + unit.affiliation + unit.uniqueId + "'s itemList is missing." );
+//            }
 
             // (1-3) Ability caluculation -> CaluculatedAbility
             // Formula:
@@ -217,32 +217,38 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             //(4)Offense/Defense/UnitSkill Magnification
 
             List<MagnificationMasterClass> itemMagnificationMasterList = new List<MagnificationMasterClass>();
-            foreach (Item item in unit.itemList)
+            if (unit.itemList != null)
             {
-                if (item != null)
+                foreach (Item item in unit.itemList)
                 {
-                    //item has prefix, base and suffix. each one has magnification master calss list. collect them all
-                    if (item.prefixItem != null)
+                    if (item != null)
                     {
-                        foreach (MagnificationMasterClass magnificationMaster in item.prefixItem.magnificationMasterList)
+                        //item has prefix, base and suffix. each one has magnification master calss list. collect them all
+                        if (item.prefixItem != null)
                         {
-                            itemMagnificationMasterList.Add(magnificationMaster);
+                            foreach (MagnificationMasterClass magnificationMaster in item.prefixItem
+                                .magnificationMasterList)
+                            {
+                                itemMagnificationMasterList.Add(magnificationMaster);
+                            }
                         }
-                    }
 
-                    if (item.baseItem != null)
-                    {
-                        foreach (MagnificationMasterClass magnificationMaster in item.baseItem.magnificationMasterList)
+                        if (item.baseItem != null)
                         {
-                            itemMagnificationMasterList.Add(magnificationMaster);
+                            foreach (MagnificationMasterClass magnificationMaster in item.baseItem
+                                .magnificationMasterList)
+                            {
+                                itemMagnificationMasterList.Add(magnificationMaster);
+                            }
                         }
-                    }
 
-                    if (item.suffixItem != null)
-                    {
-                        foreach (MagnificationMasterClass magnificationMaster in item.suffixItem.magnificationMasterList)
+                        if (item.suffixItem != null)
                         {
-                            itemMagnificationMasterList.Add(magnificationMaster);
+                            foreach (MagnificationMasterClass magnificationMaster in item.suffixItem
+                                .magnificationMasterList)
+                            {
+                                itemMagnificationMasterList.Add(magnificationMaster);
+                            }
                         }
                     }
                 }
@@ -659,11 +665,14 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             _combatItems = new CombatClass();
 
-            foreach (Item item in unit.itemList)
+            if (unit.itemList != null)
             {
-                if (item != null)
+                foreach (Item item in unit.itemList)
                 {
-                    _combatItems.Add(item.TotaledCombat());
+                    if (item != null)
+                    {
+                        _combatItems.Add(item.TotaledCombat());
+                    }
                 }
             }
 
@@ -722,37 +731,40 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 summedSkillList.Add(skill);
             }
 
-            foreach (var item in unit.itemList)
+            if (unit.itemList != null)
             {
-                if (item != null)
+                foreach (var item in unit.itemList)
                 {
-                    if (item.prefixItem != null)
+                    if (item != null)
                     {
-                        foreach (var skill in item.prefixItem.skillsMasterList)
+                        if (item.prefixItem != null)
                         {
-                            summedSkillList.Add(skill);
+                            foreach (var skill in item.prefixItem.skillsMasterList)
+                            {
+                                summedSkillList.Add(skill);
+                            }
+                        }
+
+                        if (item.baseItem != null)
+                        {
+                            foreach (var skill in item.baseItem.skillsMasterList)
+                            {
+                                summedSkillList.Add(skill);
+                            }
+                        }
+
+                        if (item.suffixItem != null)
+                        {
+                            foreach (var skill in item.suffixItem.skillsMasterList)
+                            {
+                                summedSkillList.Add(skill);
+                            }
                         }
                     }
 
-                    if (item.baseItem != null)
-                    {
-                        foreach (var skill in item.baseItem.skillsMasterList)
-                        {
-                            summedSkillList.Add(skill);
-                        }
-                    }
-
-                    if (item.suffixItem != null)
-                    {
-                        foreach (var skill in item.suffixItem.skillsMasterList)
-                        {
-                            summedSkillList.Add(skill);
-                        }
-                    }
                 }
-
             }
-            
+
 
             //set detail Ability strings
             detailAbilityString =

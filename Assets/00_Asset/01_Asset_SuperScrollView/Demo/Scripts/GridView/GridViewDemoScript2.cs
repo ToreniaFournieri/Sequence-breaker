@@ -58,7 +58,7 @@ namespace _00_Asset._01_Asset_SuperScrollView.Demo.Scripts.GridView
             }
             /*
             get a new item. Every item can use a different prefab, 
-            the parameter of the NewListViewItem is the prefab’name. 
+            the parameter of the NewListViewItem is the prefab’unitName. 
             And all the prefabs should be listed in ItemPrefabList in LoopGridView Inspector Setting
             */
             LoopGridViewItem item = gridView.NewListViewItem("ItemPrefab0");
