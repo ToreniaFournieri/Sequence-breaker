@@ -218,9 +218,9 @@
               <e p="Unit.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
               <e p="UnitClassForSave.cs" t="Include" />
-              <e p="UnitClassList.cs" t="Include" />
               <e p="UnitEditor.cs" t="Include" />
               <e p="UnitEntity.cs" t="Include" />
+              <e p="UnitListScriptable.cs" t="Include" />
             </e>
             <e p="07_Equipments" t="Include">
               <e p="Equipment.cs" t="Include" />

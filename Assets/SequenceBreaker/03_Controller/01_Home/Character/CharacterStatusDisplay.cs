@@ -13,7 +13,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
     {
 
         public ItemDataBase itemDataBase;
-        [FormerlySerializedAs("UnitList")] public List<UnitClass> unitList;
+        [FormerlySerializedAs("UnitListScriptable")] public List<UnitClass> unitList;
 
         public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
         public CharacterTreeViewWithStickyHeadScript characterTreeViewWithStickyHeadScript;
@@ -45,14 +45,14 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         // refresh character status display
         public void RefreshCharacterStatusAndItemList()
         {
-            //Debug.Log("show character: " + UnitList[selectedUnitNo].Name);
+            //Debug.Log("show character: " + UnitListScriptable[selectedUnitNo].Name);
             SetCharacterStatus(selectedUnitNo);
         }
 
 
         public void SetCharacterStatus(int selectedUnitNo)
         {
-            //Debug.Log("in SetCharacterStatus: " + UnitList[_selectedUnitNo].Name);
+            //Debug.Log("in SetCharacterStatus: " + UnitListScriptable[_selectedUnitNo].Name);
 
             if (unitList != null && selectedUnitNo < unitList.Count)
             {
@@ -63,8 +63,8 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
                                     itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
-                //                CalculateUnitStatus calculateUnitStatus = new CalculateUnitStatus(unitList[this.selectedUnitNo]);
-//                calculateUnitStatus(unitList[this.selectedUnitNo]);
+                //                CalculateUnitStatus calculateUnitStatus = new CalculateUnitStatus(unitListScriptable[this.selectedUnitNo]);
+//                calculateUnitStatus(unitListScriptable[this.selectedUnitNo]);
                 calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
                 abilityText.text = calculateUnitStatus.detailAbilityString;
 
@@ -79,9 +79,9 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
                 
                 // not load experience point this.
-//                unitList[this.selectedUnitNo].experience = loadUnit.experience;
+//                unitListScriptable[this.selectedUnitNo].experience = loadUnit.experience;
                     
-//                unitList[this.selectedUnitNo].itemList = itemDataBase.LoadUnitInfo("item-" + unitList[this.selectedUnitNo].affiliation + "-" + unitList[this.selectedUnitNo].uniqueId);
+//                unitListScriptable[this.selectedUnitNo].itemList = itemDataBase.LoadUnitInfo("item-" + unitListScriptable[this.selectedUnitNo].affiliation + "-" + unitListScriptable[this.selectedUnitNo].uniqueId);
 
                 characterTreeViewDataSourceMgr.Show();
                 characterTreeViewWithStickyHeadScript.Initialization();

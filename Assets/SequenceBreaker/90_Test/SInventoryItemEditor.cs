@@ -100,7 +100,7 @@ namespace SequenceBreaker._90_Test
                 {
                     GUILayout.BeginHorizontal ();
                     viewIndex = Mathf.Clamp (EditorGUILayout.IntField ("Current Item", viewIndex, GUILayout.ExpandWidth(false)), 1, inventoryItemList.itemList.Count);
-                    //Mathf.Clamp (viewIndex, 1, unitClassList.itemList.Count);
+                    //Mathf.Clamp (viewIndex, 1, unitListScriptable.itemList.Count);
                     EditorGUILayout.LabelField ("of   " +  inventoryItemList.itemList.Count.ToString() + "  items", "", GUILayout.ExpandWidth(false));
                     GUILayout.EndHorizontal ();
 
