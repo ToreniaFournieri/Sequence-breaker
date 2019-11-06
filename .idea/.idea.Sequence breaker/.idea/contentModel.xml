@@ -147,6 +147,36 @@
               <e p="SafeArea.cs" t="Include" />
             </e>
           </e>
+          <e p="07_ExcelImporter" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ExcelAssetScriptMenu.cs" t="Include" />
+              <e p="ExcelImporter.cs" t="Include" />
+              <e p="NPOI" t="Include">
+                <e p="Read Me.txt" t="Include" />
+                <e p="Release Notes.txt" t="Include" />
+              </e>
+              <e p="Templates" t="Include">
+                <e p="ExcelAssetScriptTemplete.cs.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Example" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Entity" t="Include">
+                  <e p="MstItemEntity.cs" t="Include" />
+                </e>
+                <e p="Example.cs" t="Include" />
+                <e p="ExcelAsset" t="Include">
+                  <e p="MstItems.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="ExcelAssetAttribute.cs" t="Include" />
+          </e>
+        </e>
+        <e p="06_Excel" t="Include">
+          <e p="sample-output" t="Include">
+            <e p="UnitImport.cs" t="Include" />
+          </e>
         </e>
         <e p="SequenceBreaker" t="Include">
           <e p="00_System" t="Include">
@@ -180,12 +210,16 @@
             <e p="03_UnitClass" t="Include">
               <e p="CalculateUnitStatus.cs" t="Include" />
               <e p="CoreFrame.cs" t="Include" />
+              <e p="CreateUnitList.cs" t="Include" />
               <e p="Pilot" t="Include">
                 <e p="Pilot.cs" t="Include" />
               </e>
               <e p="TuningStyleClass.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
               <e p="UnitClassForSave.cs" t="Include" />
+              <e p="UnitClassList.cs" t="Include" />
+              <e p="UnitEditor.cs" t="Include" />
+              <e p="UnitEntity.cs" t="Include" />
             </e>
             <e p="07_Equipments" t="Include">
               <e p="Equipment.cs" t="Include" />
@@ -286,6 +320,12 @@
             <e p="ShowVersionInfo.cs" t="Include" />
             <e p="SwipeManager.cs" t="Include" />
             <e p="TransparentMessageController.cs" t="Include" />
+          </e>
+          <e p="90_Test" t="Include">
+            <e p="CreateInventoryItemList.cs" t="Include" />
+            <e p="SInventoryItem.cs" t="Include" />
+            <e p="SInventoryItemEditor.cs" t="Include" />
+            <e p="SInventoryItemList.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -13,19 +13,18 @@ namespace SequenceBreaker._01_Data._03_UnitClass
     [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
     public sealed class UnitClass : ScriptableObject
     {
-        [SerializeField] public int uniqueId;
-        [SerializeField] public string name;
-        [SerializeField] public Affiliation affiliation;
-        [SerializeField] public UnitType unitType;
-        [SerializeField] public int itemCapacity;
-
-        [SerializeField] public List<Item> itemList;
+        public int uniqueId;
+        public string name;
+        public Affiliation affiliation;
+        public UnitType unitType;
+        public int itemCapacity;
+        public List<Item> itemList;
 
         public AbilityClass Ability { get; set; }
-        [SerializeField] public CoreFrame coreFrame;
-        [SerializeField] public Pilot.Pilot pilot;
-        [SerializeField] public int level;
-        [SerializeField] public int experience;
+        public CoreFrame coreFrame;
+        public Pilot.Pilot pilot;
+        public int level;
+        public int experience;
          public int toNextLevel;
 
 //        [SerializeField] public List<SkillsMasterClass> skillsMaster;

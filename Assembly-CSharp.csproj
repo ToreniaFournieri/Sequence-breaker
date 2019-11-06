@@ -145,6 +145,11 @@
      <Compile Include="Assets\00_Asset\05_Asset_EnhancedScroller v2\Plugins\IEnhancedScrollerDelegate.cs" />
      <Compile Include="Assets\00_Asset\05_Asset_EnhancedScroller v2\Plugins\SmallList.cs" />
      <Compile Include="Assets\00_Asset\06_CrystalFramework\Utility\SafeArea.cs" />
+     <Compile Include="Assets\00_Asset\07_ExcelImporter\Example\Scripts\Entity\MstItemEntity.cs" />
+     <Compile Include="Assets\00_Asset\07_ExcelImporter\Example\Scripts\Example.cs" />
+     <Compile Include="Assets\00_Asset\07_ExcelImporter\Example\Scripts\ExcelAsset\MstItems.cs" />
+     <Compile Include="Assets\00_Asset\07_ExcelImporter\ExcelAssetAttribute.cs" />
+     <Compile Include="Assets\06_Excel\sample-output\UnitImport.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\Enumeration.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\SimpleObjectPool.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\StartUp.cs" />
@@ -162,10 +167,14 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\02_Items\Item\ItemForSave.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CalculateUnitStatus.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CoreFrame.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\CreateUnitList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\Pilot\Pilot.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassForSave.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitClassList.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitEditor.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitEntity.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\07_Equipments\Equipment.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\AbilityClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\ActionSkillClass.cs" />
@@ -223,6 +232,10 @@
      <Compile Include="Assets\SequenceBreaker\10_Global\ShowVersionInfo.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\SwipeManager.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\TransparentMessageController.cs" />
+     <Compile Include="Assets\SequenceBreaker\90_Test\CreateInventoryItemList.cs" />
+     <Compile Include="Assets\SequenceBreaker\90_Test\SInventoryItem.cs" />
+     <Compile Include="Assets\SequenceBreaker\90_Test\SInventoryItemEditor.cs" />
+     <Compile Include="Assets\SequenceBreaker\90_Test\SInventoryItemList.cs" />
      <None Include="Assets\00_Asset\01_Asset_SuperScrollView\Scripts\Version 2.4.0.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Users/celvena/Sequence breaker/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
