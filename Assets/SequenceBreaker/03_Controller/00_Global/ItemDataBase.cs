@@ -36,8 +36,8 @@ namespace SequenceBreaker._03_Controller._00_Global
                 catch (IOException)
                 {
                     // first time to load file 
-                    Debug.Log("unable to load: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId +
-                              "-item");
+//                    Debug.Log("unable to load: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId +
+//                              "-item");
                     itemList.Clear();
                 }
 

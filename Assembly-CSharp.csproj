@@ -150,6 +150,8 @@
      <Compile Include="Assets\00_Asset\07_ExcelImporter\Example\Scripts\ExcelAsset\MstItems.cs" />
      <Compile Include="Assets\00_Asset\07_ExcelImporter\ExcelAssetAttribute.cs" />
      <Compile Include="Assets\06_Excel\sample-output\UnitImport.cs" />
+     <Compile Include="Assets\06_Excel\UnitMasterExcel\UnitMasterExcel.cs" />
+     <Compile Include="Assets\06_Excel\UnitMasterExcel\UnitMasterExcelImport.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\Enumeration.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\SimpleObjectPool.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\StartUp.cs" />

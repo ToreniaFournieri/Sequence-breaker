@@ -177,6 +177,10 @@
           <e p="sample-output" t="Include">
             <e p="UnitImport.cs" t="Include" />
           </e>
+          <e p="UnitMasterExcel" t="Include">
+            <e p="UnitMasterExcel.cs" t="Include" />
+            <e p="UnitMasterExcelImport.cs" t="Include" />
+          </e>
         </e>
         <e p="SequenceBreaker" t="Include">
           <e p="00_System" t="Include">
