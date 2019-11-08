@@ -13,11 +13,163 @@ MonoBehaviour:
   m_Name: UnitMasterExcelImport
   m_EditorClassIdentifier: 
   unitMasterExcel:
-  - unitName: Test01
-    uniqueId: 123678
-    affiliation: 0
+  - unitName: RA-Commander
+    uniqueId: 20000
+    affiliation: 1
     unitType: 3
     itemCapacity: 10
-    coreFrameString: Core-A-C
+    coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 14
+    level: 1
+  - unitName: RA-Destroyer
+    uniqueId: 20001
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Destroyer
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Fighter
+    uniqueId: 20002
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Fighter
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Gunner
+    uniqueId: 20003
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Gunner
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Jammer
+    uniqueId: 20004
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Jammer
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Lancer
+    uniqueId: 20005
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Lancer
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Medic
+    uniqueId: 20006
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Medic
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Reconnoiter
+    uniqueId: 20007
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Reconnoiter
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Sniper
+    uniqueId: 20008
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Sniper
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RA-Tank
+    uniqueId: 20009
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-A-Tank
+    pilotString: Pilot-CommonA
+    level: 1
+  - unitName: RB-Commander
+    uniqueId: 20010
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Commander
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Destroyer
+    uniqueId: 20011
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Destroyer
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Fighter
+    uniqueId: 20012
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Fighter
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Gunner
+    uniqueId: 20013
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Gunner
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Jammer
+    uniqueId: 20014
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Jammer
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Lancer
+    uniqueId: 20015
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Lancer
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Medic
+    uniqueId: 20016
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Medic
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Reconnoiter
+    uniqueId: 20017
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Reconnoiter
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Sniper
+    uniqueId: 20018
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Sniper
+    pilotString: Pilot-CommonB
+    level: 1
+  - unitName: RB-Tank
+    uniqueId: 20019
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 10
+    coreFrameString: Core-B-Tank
+    pilotString: Pilot-CommonB
+    level: 1

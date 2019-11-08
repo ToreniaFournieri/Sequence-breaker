@@ -6,12 +6,12 @@ namespace SequenceBreaker._01_Data._03_UnitClass.Editor
     public static class CreateUnitList
     {
         [MenuItem("Assets/Create/UnitMaster")]
-        public static UnitMasterList  Create()
+        public static UnitMasterList  Create(string pathAndName)
         {
             UnitMasterList asset = ScriptableObject.CreateInstance<UnitMasterList>();
             
-
-            AssetDatabase.CreateAsset(asset, "Assets/UnitMaster.asset");
+Debug.Log("path: " + pathAndName);
+            AssetDatabase.CreateAsset(asset, pathAndName);
             AssetDatabase.SaveAssets();
             return asset;
         }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46d664d504f894cdd8b1212b458f6ca2, type: 3}
-  m_Name: Core-B-D
+  m_Name: Core-A-Commander
   m_EditorClassIdentifier: 
-  name: Core-B
+  name: Core-A
   frameType: 0
-  tuningStyle: 2
-  shield: 150
-  hp: 300
+  tuningStyle: 1
+  shield: 75
+  hp: 150
