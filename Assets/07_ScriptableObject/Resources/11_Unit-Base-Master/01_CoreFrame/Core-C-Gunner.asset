@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46d664d504f894cdd8b1212b458f6ca2, type: 3}
-  m_Name: Core-C-Destroyer
+  m_Name: Core-C-Gunner
   m_EditorClassIdentifier: 
   name: Core-C
   frameType: 0
-  tuningStyle: 2
+  tuningStyle: 4
   shield: 300
   hp: 600
