@@ -51,6 +51,12 @@ namespace _00_Asset._08_Easy_Panel_Transitions.Scripts
 		public void Awake()
 		{
 			animState = AnimState.none;
+			
+			//Modification Torenia Fournieri
+			Debug.Log("Screen x:" + Screen.currentResolution.width + " y:" + Screen.currentResolution.height);
+			outAnimEndPosition = new Vector3(Screen.currentResolution.width / 0.491f + 10f,0f, 0f);
+
+			// End Modification
 		}
 
 		// Use this for initialization

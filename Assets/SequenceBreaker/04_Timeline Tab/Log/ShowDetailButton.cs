@@ -1,4 +1,5 @@
-﻿using SequenceBreaker._03_Controller._03_Log;
+﻿using _00_Asset._08_Easy_Panel_Transitions.Scripts;
+using SequenceBreaker._03_Controller._03_Log;
 using UnityEngine;
 
 namespace SequenceBreaker._04_Timeline_Tab.Log
@@ -18,12 +19,13 @@ namespace SequenceBreaker._04_Timeline_Tab.Log
             // pass the value of the result of Battle
             battleLogEnhancedScrollController.battle = battle;
             battleLogEnhancedScrollController.DrawBattleLog();
-
-            battleLog.SetActive(true);
-            logList.SetActive(false);       
-            logList.transform.SetAsFirstSibling();
             
-            Debug.Log("Show detail is pressed");
+            battleLog.GetComponent<PanelAnimator>().StartAnimIn();
+//            battleLog.SetActive(true);
+//            logList.SetActive(false);       
+            logList.transform.SetAsFirstSibling();
+//            
+//            Debug.Log("Show detail is pressed");
         }
     }
 }
