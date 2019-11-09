@@ -1,5 +1,5 @@
-﻿using _00_Asset._02_Asset_ClassicSRIA.Scripts;
-using _00_Asset._02_Asset_ClassicSRIA.Scripts.Util;
+﻿using _00_Asset._02_ClassicSRIA.Scripts;
+using _00_Asset._02_ClassicSRIA.Scripts.Util;
 using SequenceBreaker._03_Controller._02_Play;
 using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;

@@ -8,7 +8,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="00_Asset" t="Include">
-          <e p="01_Asset_SuperScrollView" t="Include">
+          <e p="01_SuperScrollView" t="Include">
             <e p="Demo" t="Include">
               <e p="Scripts" t="Include">
                 <e p="Common" t="Include">
@@ -110,7 +110,7 @@
               <e p="Version 2.4.0.txt" t="Include" />
             </e>
           </e>
-          <e p="02_Asset_ClassicSRIA" t="Include">
+          <e p="02_ClassicSRIA" t="Include">
             <e p="Scripts" t="Include">
               <e p="CAbstractViewsHolder.cs" t="Include" />
               <e p="ClassicSRIA.cs" t="Include" />
@@ -120,7 +120,7 @@
               </e>
             </e>
           </e>
-          <e p="03_Asset_GUIPack-Clean&amp;Minimalist" t="Include">
+          <e p="03_CleanMinimalist" t="Include">
             <e p="Demo" t="Include">
               <e p="Scripts" t="Include">
                 <e p="BasicButton.cs" t="Include" />
@@ -134,7 +134,7 @@
               </e>
             </e>
           </e>
-          <e p="05_Asset_EnhancedScroller v2" t="Include">
+          <e p="05_EnhancedScroller v2" t="Include">
             <e p="Plugins" t="Include">
               <e p="EnhancedScroller.cs" t="Include" />
               <e p="EnhancedScrollerCellView.cs" t="Include" />
@@ -171,6 +171,17 @@
               </e>
             </e>
             <e p="ExcelAssetAttribute.cs" t="Include" />
+          </e>
+          <e p="08_Easy Panel Transitions" t="Include">
+            <e p="Demo Scene" t="Include">
+              <e p="Trailer" t="Include">
+                <e p="restart.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="ButtonScript.cs" t="Include" />
+              <e p="PanelAnimator.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="06_Excel" t="Include">

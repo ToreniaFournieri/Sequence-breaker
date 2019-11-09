@@ -1,40 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using _00_Asset._07_ExcelImporter.Example.Scripts.Entity;
+using _00_Asset._07_ExcelImporter.Example.Scripts.ExcelAsset;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
-public class Example : MonoBehaviour
+namespace _00_Asset._07_ExcelImporter.Example.Scripts
 {
-	[SerializeField] MstItems mstItems;
-	[SerializeField] Text text;
-
-	void Start()
+	public class Example : MonoBehaviour
 	{
-		ShowItems();
-	}
+		[SerializeField] MstItems mstItems;
+		[SerializeField] Text text;
 
-	void ShowItems()
-	{
-		string str = "";
+		void Start()
+		{
+			ShowItems();
+		}
 
-		mstItems.Entities
-			.ForEach(entity => str += DescribeMstItemEntity(entity) + "\n");
+		void ShowItems()
+		{
+			string str = "";
 
-		text.text = str;
-	}
+			mstItems.Entities
+				.ForEach(entity => str += DescribeMstItemEntity(entity) + "\n");
 
-	string DescribeMstItemEntity(MstItemEntity entity)
-	{
-		return string.Format(
-			"{0} : {1}, {2}, {3}, {4}, {5}",
-			entity.id,
-			entity.name,
-			entity.price,
-			entity.isNotForSale,
-			entity.rate,
-			entity.category
-		);
+			text.text = str;
+		}
+
+		string DescribeMstItemEntity(MstItemEntity entity)
+		{
+			return string.Format(
+				"{0} : {1}, {2}, {3}, {4}, {5}",
+				entity.id,
+				entity.name,
+				entity.price,
+				entity.isNotForSale,
+				entity.rate,
+				entity.category
+			);
+		}
 	}
 }
 

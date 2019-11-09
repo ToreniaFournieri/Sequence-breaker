@@ -72,7 +72,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     catch (IOException)
                     {
                         // first time to load file 
-                        Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
+//                        Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
                     }
                     
 //                    Debug.Log("[Load] Unit :" + loadCharacterUnit.unitName + " experience: " + unitForLoad.experience);

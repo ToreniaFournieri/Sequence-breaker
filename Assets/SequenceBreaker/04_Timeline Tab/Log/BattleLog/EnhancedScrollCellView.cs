@@ -1,4 +1,4 @@
-﻿using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+﻿using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using UnityEngine;
 using UnityEngine.UI;
 

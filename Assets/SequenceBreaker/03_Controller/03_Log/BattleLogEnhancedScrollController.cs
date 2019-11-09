@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using _00_Asset._05_Asset_EnhancedScroller_v2.Plugins;
+using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using SequenceBreaker._00_System;
 using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
 using SequenceBreaker._08_Battle._2_BeforeBattle;

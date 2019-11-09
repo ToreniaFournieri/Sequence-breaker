@@ -1,10 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using _00_Asset._07_ExcelImporter.Example.Scripts.Entity;
 using UnityEngine;
 
-[ExcelAsset]
-public class MstItems : ScriptableObject
+namespace _00_Asset._07_ExcelImporter.Example.Scripts.ExcelAsset
 {
-	public List<MstItemEntity> Entities; 
+	[ExcelAsset]
+	public class MstItems : ScriptableObject
+	{
+		public List<MstItemEntity> Entities; 
+	}
 }
