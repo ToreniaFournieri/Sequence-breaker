@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset._08_Easy_Panel_Transitions.Scripts;
+using SequenceBreaker._03_Controller._00_Global;
+using UnityEngine;
+
+namespace SequenceBreaker._10_Global
+{
+    public sealed class SegueController : MonoBehaviour
+    {
+
+        // to get current tab
+        public TabController tabController;
+
+        // Home Tab
+        public List<GameObject> homeViewList;
+
+        // Play tab
+        public List<GameObject> playViewList;
+        
+        // Timeline tab
+        public List<GameObject> timelineViewList;
+
+        //temp
+        public GameObject battleList;
+
+        public void Start()
+        {
+            homeViewList.Add(tabController.defaultHomeView);
+            playViewList.Add(tabController.defaultPlayView);
+            timelineViewList.Add(tabController.defaultTimelineView);
+            
+            //temp
+            timelineViewList.Add(battleList);
+
+        }
+
+        public void BackPreviousView()
+        {
+            GameObject currentView = new GameObject();
+            GameObject previousView = new GameObject();
+
+            bool isVaild = false;
+            
+            switch (tabController.currentTab)
+            {
+                case "HomeTab":
+                    currentView = homeViewList.Last();
+                    if (homeViewList.Count >= 2)
+                    {
+                        homeViewList.RemoveAt(homeViewList.Count - 1);
+                        previousView = homeViewList.Last();
+                        previousView.SetActive(true);
+                        currentView.GetComponent<PanelAnimator>().StartAnimOut();
+                        if (previousView != null) { isVaild = true; }                        
+                    }
+                    
+                    break;
+                case "PlayTab":
+                    currentView = playViewList.Last();
+                    if (playViewList.Count >= 2)
+                    {
+                        playViewList.RemoveAt(playViewList.Count - 1);
+                        previousView = playViewList.Last();
+                        previousView.SetActive(true);
+                        currentView.GetComponent<PanelAnimator>().StartAnimOut();
+                        if (previousView != null) { isVaild = true; }                        
+                    }
+                    break; 
+                
+                case "TimelineTab":
+                     currentView = timelineViewList.Last();
+
+                     if (timelineViewList.Count >= 2)
+                     {
+                         timelineViewList.RemoveAt(timelineViewList.Count - 1);
+                         previousView = timelineViewList.Last();
+                         previousView.SetActive(true);
+                         currentView.GetComponent<PanelAnimator>().StartAnimOut();
+                         if (previousView != null) { isVaild = true; }
+                         
+                     }
+                     break;
+
+                default: 
+                    Debug.LogError("unexpected currentTab:" + tabController.currentTab); 
+                    break;
+            }
+
+            if (isVaild)
+            {
+                previousView.SetActive(true);
+                currentView.GetComponent<PanelAnimator>().StartAnimOut();
+            }
+
+
+        }
+        
+        
+        
+        
+    }
+}

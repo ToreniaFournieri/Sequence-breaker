@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
+namespace SequenceBreaker._10_Global
 {
     public  sealed class BackPreviousView : MonoBehaviour
     {
@@ -16,3 +16,4 @@ namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog
 
     }
 }
+

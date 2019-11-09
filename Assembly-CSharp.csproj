@@ -208,7 +208,6 @@
      <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\MissionController.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\02_Play\PartyStatusIcons.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\03_Log\BattleLogEnhancedScrollController.cs" />
-     <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\BackPreviousView.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\CellView.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\Data.cs" />
      <Compile Include="Assets\SequenceBreaker\04_Timeline Tab\Log\BattleLog\DataList.cs" />
@@ -233,6 +232,8 @@
      <Compile Include="Assets\SequenceBreaker\08_Battle\Others.cs" />
      <Compile Include="Assets\SequenceBreaker\08_Battle\UnitInfoSet.cs" />
      <Compile Include="Assets\SequenceBreaker\09_Drop\DropEngine.cs" />
+     <Compile Include="Assets\SequenceBreaker\10_Global\BackPreviousView.cs" />
+     <Compile Include="Assets\SequenceBreaker\10_Global\SegueController.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\ShowVersionInfo.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\SwipeManager.cs" />
      <Compile Include="Assets\SequenceBreaker\10_Global\TransparentMessageController.cs" />

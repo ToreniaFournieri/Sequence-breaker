@@ -30,7 +30,7 @@ namespace SequenceBreaker._03_Controller._00_Global
         public GameObject defaultHomeView;
         
         // current tab.
-        private string _currentTab;
+        public string currentTab;
 
         //For enemy unitClass load
         public ItemDataBase itemDataBase;
@@ -59,7 +59,7 @@ namespace SequenceBreaker._03_Controller._00_Global
             switch (toActivateTab)
             {
                 case "TimelineTab":
-                    if (_currentTab == toActivateTab)
+                    if (currentTab == toActivateTab)
                     {
                         defaultTimelineView.SetActive(true);
                         defaultTimelineView.transform.SetAsLastSibling();
@@ -81,7 +81,7 @@ namespace SequenceBreaker._03_Controller._00_Global
 
                     break;
                 case "PlayTab":
-                    if (_currentTab == toActivateTab)
+                    if (currentTab == toActivateTab)
                     {
                         defaultPlayView.SetActive(true);
                         defaultPlayView.transform.SetAsLastSibling();
@@ -115,7 +115,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     timelineTab.SetActive(false);
                     break;
                 case "HomeTab":
-                    if (_currentTab == toActivateTab)
+                    if (currentTab == toActivateTab)
                     {
                         defaultHomeView.SetActive(true);
                         defaultHomeView.transform.SetAsLastSibling();
@@ -141,10 +141,11 @@ namespace SequenceBreaker._03_Controller._00_Global
                     timelineTab.SetActive(false);
                     break;
                 default:
+                    Debug.LogError("unexpected tab value :" + toActivateTab);
                     break;
             }
 
-            _currentTab = toActivateTab;
+            currentTab = toActivateTab;
         }
     }
 }

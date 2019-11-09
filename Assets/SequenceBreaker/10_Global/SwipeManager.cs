@@ -15,6 +15,8 @@ namespace SequenceBreaker._10_Global
     public UnityEvent onSwipeUp;
     public UnityEvent onSwipeDown;
 
+    
+    
     private Vector2 _fingerDown;
     private DateTime _fingerDownTime;
     private Vector2 _fingerUp;
