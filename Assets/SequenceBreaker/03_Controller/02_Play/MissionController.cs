@@ -2,6 +2,7 @@
 using SequenceBreaker._01_Data;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._01_Home.Inventory;
+using SequenceBreaker._03_Controller._03_Log.LogList;
 using SequenceBreaker._04_Timeline_Tab.Log;
 using SequenceBreaker._10_Global;
 using UnityEngine;
@@ -20,10 +21,21 @@ namespace SequenceBreaker._03_Controller._02_Play
         public InventoryItemList inventoryItemList;
 
         public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
-        //public InventoryManager inventoryManager;
+
+        //[Obsolete]public InventoryManager inventoryManager;
         public LogListSria logListSria;
+        
+        // Keep runBattle list
+        public LogListDataSourceMgr logListDataSourceMgr;
+        
         [FormerlySerializedAs("TransparentMessageController")] public TransparentMessageController transparentMessageController;
 
+//        public void UpdateLogList()
+//        {
+//            logListDataSourceMgr.Init();
+//        }
+//        
+        
 
         public void UpdatePartyStatus()
         {

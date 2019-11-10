@@ -24,7 +24,7 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
         public List<WhichWin> whichWinEachWaves;
 
         //Output information
-        [FormerlySerializedAs("DataList")] public List<List<Data>> dataList;
+        public List<List<Data>> dataList;
 
         // environment setting
         public BattleEnvironment battleEnvironment;
@@ -37,6 +37,11 @@ namespace SequenceBreaker._08_Battle._2_BeforeBattle
 
         public  CalculateUnitStatus calculateUnitStatus;
 
+        //for SuperScroll use
+        public int mId;
+        public bool mChecked;
+        public bool mIsExpand;
+        
         //Internal use
 
         private List<EffectClass> _allySkillsList;

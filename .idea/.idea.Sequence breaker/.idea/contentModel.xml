@@ -290,6 +290,11 @@
             </e>
             <e p="03_Log" t="Include">
               <e p="BattleLogEnhancedScrollController.cs" t="Include" />
+              <e p="LogList" t="Include">
+                <e p="LogListDataSourceMgr.cs" t="Include" />
+                <e p="LogListItem.cs" t="Include" />
+                <e p="LogListItemHeightDemoScript.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="04_Timeline Tab" t="Include">
