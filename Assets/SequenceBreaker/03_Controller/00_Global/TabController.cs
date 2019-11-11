@@ -39,6 +39,9 @@ namespace SequenceBreaker._03_Controller._00_Global
         // For Home Character update 
         public CharacterStatusDisplay characterStatusDisplay;
         
+        // Segue controll
+        public SegueController segueController;
+        
         // Log list update
         private void Start()
         {
@@ -61,10 +64,10 @@ namespace SequenceBreaker._03_Controller._00_Global
                 case "TimelineTab":
                     if (currentTab == toActivateTab)
                     {
+                        segueController.InitTimeLineView();
                         
-                        
-                        defaultTimelineView.SetActive(true);
-                        defaultTimelineView.transform.SetAsLastSibling();
+//                        defaultTimelineView.SetActive(true);
+//                        defaultTimelineView.transform.SetAsLastSibling();
                     }
 //                    timelineButton.colors = activateColors;
 //                    playButton.colors = deactivateColors;
@@ -85,8 +88,10 @@ namespace SequenceBreaker._03_Controller._00_Global
                 case "PlayTab":
                     if (currentTab == toActivateTab)
                     {
-                        defaultPlayView.SetActive(true);
-                        defaultPlayView.transform.SetAsLastSibling();
+                        segueController.InitPlayView();
+
+//                        defaultPlayView.SetActive(true);
+//                        defaultPlayView.transform.SetAsLastSibling();
                     }
 //                    timelineButton.colors = deactivateColors;
 //                    playButton.colors = activateColors;
@@ -119,8 +124,10 @@ namespace SequenceBreaker._03_Controller._00_Global
                 case "HomeTab":
                     if (currentTab == toActivateTab)
                     {
-                        defaultHomeView.SetActive(true);
-                        defaultHomeView.transform.SetAsLastSibling();
+                        segueController.InitHomeView();
+
+//                        defaultHomeView.SetActive(true);
+//                        defaultHomeView.transform.SetAsLastSibling();
                     }
 //                    timelineButton.colors = deactivateColors;
 //                    playButton.colors = deactivateColors;

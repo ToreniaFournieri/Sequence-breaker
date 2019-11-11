@@ -25,10 +25,9 @@ namespace SequenceBreaker._10_Global
 
         public void Start()
         {
-            homeViewList.Add(tabController.defaultHomeView);
-            playViewList.Add(tabController.defaultPlayView);
-            timelineViewList.Add(tabController.defaultTimelineView);
-            
+            InitHomeView();
+            InitPlayView();
+            InitTimeLineView();
 
         }
 
@@ -41,6 +40,67 @@ namespace SequenceBreaker._10_Global
         {
             timelineViewList.Add(timelineView);
         }
+
+        public void InitHomeView()
+        {
+            if (homeViewList.Count >= 1)
+            {
+                Debug.Log("home view list count:" + homeViewList.Count);
+                for (int i = homeViewList.Count - 1 ; i >= 1; i--)
+                {
+                    homeViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
+                    homeViewList.RemoveAt(homeViewList.Count - 1);
+                }
+            }
+            else
+            {
+                homeViewList.Clear();
+                homeViewList.Add(tabController.defaultHomeView);
+            }
+        }
+
+        public void InitPlayView()
+        {
+            if (playViewList.Count >= 1)
+            {
+                Debug.Log("home view list count:" + playViewList.Count);
+                for (int i = playViewList.Count - 1 ; i >= 1; i--)
+                {
+                    playViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
+                    playViewList.RemoveAt(playViewList.Count - 1);
+                }
+            }
+            else
+            {
+                playViewList.Clear();
+                playViewList.Add(tabController.defaultHomeView);
+            }
+        }
+        
+        public void InitTimeLineView()
+        {
+            if (timelineViewList.Count >= 1)
+            {
+                Debug.Log("home view list count:" + timelineViewList.Count);
+                for (int i = timelineViewList.Count - 1 ; i >= 1; i--)
+                {
+                    timelineViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
+                    timelineViewList.RemoveAt(timelineViewList.Count - 1);
+                }
+            }
+            else
+            {
+                timelineViewList.Clear();
+                timelineViewList.Add(tabController.defaultHomeView);
+            }
+        }
+
+//        public void InitTimeLineView()
+//        {
+//            timelineViewList.Clear();
+//            timelineViewList.Add(tabController.defaultTimelineView);
+//
+//        }
 
         public void BackPreviousView()
         {

@@ -66,9 +66,9 @@ namespace SequenceBreaker._07_Play._1_View
                 battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
                 battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
                 
-                //Obsolete
-                missionController.logListSria.battleList.Add(battleCopyList[wave]);
-                missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
+//                //Obsolete
+//                missionController.logListSria.battleList.Add(battleCopyList[wave]);
+//                missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
                 
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
                 missionController.UpdatePartyStatus();
