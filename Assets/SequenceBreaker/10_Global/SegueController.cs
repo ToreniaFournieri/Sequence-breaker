@@ -32,6 +32,11 @@ namespace SequenceBreaker._10_Global
 
         }
 
+        public void StackHomeView(GameObject homeView)
+        {
+            homeViewList.Add(homeView);
+        }
+
         public void StackTimeLineView(GameObject timelineView)
         {
             timelineViewList.Add(timelineView);

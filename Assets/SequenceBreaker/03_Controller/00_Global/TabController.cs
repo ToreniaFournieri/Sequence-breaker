@@ -61,6 +61,8 @@ namespace SequenceBreaker._03_Controller._00_Global
                 case "TimelineTab":
                     if (currentTab == toActivateTab)
                     {
+                        
+                        
                         defaultTimelineView.SetActive(true);
                         defaultTimelineView.transform.SetAsLastSibling();
                     }
