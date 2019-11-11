@@ -287,6 +287,7 @@
             <e p="02_Play" t="Include">
               <e p="MissionController.cs" t="Include" />
               <e p="PartyStatusIcons.cs" t="Include" />
+              <e p="RunBattleList.cs" t="Include" />
             </e>
             <e p="03_Log" t="Include">
               <e p="BattleLogEnhancedScrollController.cs" t="Include" />

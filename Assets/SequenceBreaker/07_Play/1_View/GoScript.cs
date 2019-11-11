@@ -47,34 +47,37 @@ namespace SequenceBreaker._07_Play._1_View
             string missionName = runBattle1.missionText;
             string missionLevel = " (lv:" + runBattle1.missionLevelInitial + ")";
 
-            List<GameObject> battleCopyList = new List<GameObject>();
+//            List<GameObject> battleCopyList = new List<GameObject>();
+            List<RunBattle> runBattleCopyList = new List<RunBattle>();
 
 
             int wave = 0;
             foreach (List<Data> unused in runBattle1.dataList)
             {
-                battleCopyList.Add(new GameObject());
-                battleCopyList[wave].transform.parent = runBattle.transform;
-                battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
-                battleCopyList[wave].gameObject.AddComponent<RunBattle>();
+//                battleCopyList.Add(new GameObject());
+//                battleCopyList[wave].transform.parent = runBattle.transform;
+//                battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
+//                battleCopyList[wave].gameObject.AddComponent<RunBattle>();
 
                 RunBattle localRunBattle = runBattle1.Copy(wave);
-
-                battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
-
-                battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
-                battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
                 
-                //Obsolete
-                missionController.logListSria.battleList.Add(battleCopyList[wave]);
-                missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
+                localRunBattle.missionText +=  " [wave:" + (wave + 1) + "]";
+                localRunBattle.missionLevelInitial = runBattle1.missionLevelInitial ;
+                runBattleCopyList.Add(localRunBattle);
+//                battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
+//                battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
+//                battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
+                
+////                Obsolete
+//                missionController.logListSria.battleList.Add(battleCopyList[wave]);
+//                missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
                 
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
                 missionController.UpdatePartyStatus();
 
                 // temp 2019/11/10
 //                missionController.logListDataSourceMgr.InsertData(wave, battleCopyList[wave].GetComponent<RunBattle>());
-                missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
+                missionController.logListDataSourceMgr.runBattleList.Add(localRunBattle);
 
                 
                 wave += 1;
@@ -93,12 +96,12 @@ namespace SequenceBreaker._07_Play._1_View
             DropEngine dropEngine = new DropEngine();
 
             wave = 0;
-            foreach (GameObject battleCopy in battleCopyList)
+            foreach (RunBattle runbattle in runBattleCopyList)
             {
-                if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
+                if (runbattle.whichWin == WhichWin.AllyWin)
                 {
                     int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
-                    foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+                    foreach (EnemyUnitSet enemyUnitSet in runbattle.enemyUnitSetList)
                     {
                         List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: enemyUnitSet.enemyUnitList, seed: seed);
 
@@ -135,7 +138,7 @@ namespace SequenceBreaker._07_Play._1_View
                 }
 
                 missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
-                                                                                       + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
+                                                                                       + " wave:" + (wave + 1) + " [" + runbattle.whichWinEachWaves[wave] + "] ";
                 wave += 1;
             }
 
