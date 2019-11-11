@@ -22,8 +22,6 @@ namespace SequenceBreaker._10_Global
         // Timeline tab
         public List<GameObject> timelineViewList;
 
-        //temp
-        public GameObject battleList;
 
         public void Start()
         {
@@ -31,9 +29,12 @@ namespace SequenceBreaker._10_Global
             playViewList.Add(tabController.defaultPlayView);
             timelineViewList.Add(tabController.defaultTimelineView);
             
-            //temp
-            timelineViewList.Add(battleList);
 
+        }
+
+        public void StackTimeLineView(GameObject timelineView)
+        {
+            timelineViewList.Add(timelineView);
         }
 
         public void BackPreviousView()
