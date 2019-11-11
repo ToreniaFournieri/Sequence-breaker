@@ -23,7 +23,6 @@ namespace SequenceBreaker._03_Controller._03_Log.LogList
         
 
         //RunBattle external
-        [SerializeField]
         public List<RunBattle> runBattleList;
 //        public HomeContents homeContents;
         
@@ -179,14 +178,27 @@ namespace SequenceBreaker._03_Controller._03_Log.LogList
 
         void DoRefreshDataSource()
         {
-//            _mItemDataList.Clear();
-
-            _mItemDataList = runBattleList;
+            _mItemDataList.Clear();
             
-//                for (int i = 0; i < runBattleList.Count; ++i)
+            
+                for (int i = 0; i < runBattleList.Count; ++i)
+                {
+                    _mItemDataList.Add(runBattleList[i]);
+                }
+
+
+
+ 
+
+//            _mItemDataList = runBattleList;
+
+//            if (_mItemDataList != null)
+//            {
+//                if (_mItemDataList.Count != 0)
 //                {
-//                    _mItemDataList.Add(runBattleList[i]);
+//                    logListItemHeightDemoScript.UpdateNewContents();
 //                }
+//            }
         }
         
 

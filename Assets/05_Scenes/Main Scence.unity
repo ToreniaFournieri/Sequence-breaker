@@ -5220,7 +5220,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 738102033}
+<<<<<<< HEAD
   - {fileID: 1461604416}
+=======
+  - {fileID: 208688198}
+  - {fileID: 465871541}
+  - {fileID: 1742020150}
+>>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
   m_Father: {fileID: 2123972852}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8046,7 +8052,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10435,7 +10441,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 709966978}
+      - m_Target: {fileID: 649992060}
         m_MethodName: StartAnimIn
         m_Mode: 1
         m_Arguments:
@@ -12389,6 +12395,7 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+<<<<<<< HEAD
 --- !u!1 &1461604415
 GameObject:
   m_ObjectHideFlags: 0
@@ -12432,6 +12439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721c2edff972c416bab295043c72727f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
 --- !u!1 &1467885289
 GameObject:
   m_ObjectHideFlags: 0
@@ -15649,7 +15658,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
