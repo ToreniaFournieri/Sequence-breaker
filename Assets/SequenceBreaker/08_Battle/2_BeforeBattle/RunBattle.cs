@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 
 namespace SequenceBreaker._08_Battle._2_BeforeBattle
 {
-    public sealed class RunBattle : MonoBehaviour
+    public sealed class RunBattle 
     {
         // Mission information
         public string missionText;

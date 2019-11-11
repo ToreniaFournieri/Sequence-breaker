@@ -4,9 +4,13 @@ using UnityEngine;
 
 namespace SequenceBreaker._03_Controller._02_Play
 {
+
+    [System.Serializable]
     public sealed class RunBattleList : MonoBehaviour
     {
 
         public List<RunBattle> runBattleList;
+        
+        
     }
 }

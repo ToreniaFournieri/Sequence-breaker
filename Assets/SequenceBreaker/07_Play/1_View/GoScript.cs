@@ -39,7 +39,8 @@ namespace SequenceBreaker._07_Play._1_View
         
         public void GoBattle()
         {
-            runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+//            runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+            runBattle.Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
             //Not works well
             RunBattle runBattle1 = runBattle;
