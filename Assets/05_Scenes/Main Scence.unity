@@ -5226,6 +5226,9 @@ Transform:
   - {fileID: 208688198}
   - {fileID: 465871541}
   - {fileID: 1742020150}
+<<<<<<< HEAD
+>>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
+=======
 >>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
   m_Father: {fileID: 2123972852}
   m_RootOrder: 1
@@ -12396,6 +12399,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1461604415
 GameObject:
   m_ObjectHideFlags: 0
@@ -12439,6 +12443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721c2edff972c416bab295043c72727f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
 =======
 >>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
 --- !u!1 &1467885289
