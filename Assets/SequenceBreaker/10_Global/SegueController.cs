@@ -38,10 +38,9 @@ namespace SequenceBreaker._10_Global
 
         public void BackPreviousView()
         {
-            GameObject currentView = new GameObject();
-            GameObject previousView = new GameObject();
 
-            bool isVaild = false;
+            GameObject currentView;
+            GameObject previousView;
             
             switch (tabController.currentTab)
             {
@@ -53,7 +52,10 @@ namespace SequenceBreaker._10_Global
                         previousView = homeViewList.Last();
                         previousView.SetActive(true);
                         currentView.GetComponent<PanelAnimator>().StartAnimOut();
-                        if (previousView != null) { isVaild = true; }                        
+                        
+                        previousView.SetActive(true);
+                        currentView.GetComponent<PanelAnimator>().StartAnimOut(); 
+
                     }
                     
                     break;
@@ -65,7 +67,10 @@ namespace SequenceBreaker._10_Global
                         previousView = playViewList.Last();
                         previousView.SetActive(true);
                         currentView.GetComponent<PanelAnimator>().StartAnimOut();
-                        if (previousView != null) { isVaild = true; }                        
+                        
+                        previousView.SetActive(true);
+                        currentView.GetComponent<PanelAnimator>().StartAnimOut(); 
+
                     }
                     break; 
                 
@@ -78,7 +83,10 @@ namespace SequenceBreaker._10_Global
                          previousView = timelineViewList.Last();
                          previousView.SetActive(true);
                          currentView.GetComponent<PanelAnimator>().StartAnimOut();
-                         if (previousView != null) { isVaild = true; }
+                         
+                         previousView.SetActive(true);
+                         currentView.GetComponent<PanelAnimator>().StartAnimOut(); 
+
                          
                      }
                      break;
@@ -88,11 +96,6 @@ namespace SequenceBreaker._10_Global
                     break;
             }
 
-            if (isVaild)
-            {
-                previousView.SetActive(true);
-                currentView.GetComponent<PanelAnimator>().StartAnimOut();
-            }
 
 
         }

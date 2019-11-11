@@ -18,7 +18,10 @@ namespace SequenceBreaker._03_Controller._03_Log.LogList
         public Button mGoListDetail;
         // to jump list
         public GameObject jumpToGameObject;
-        
+
+
+        public RunBattle runBattle;
+        public BattleLogEnhancedScrollController battleLogEnhancedScrollController;
 //        public CharacterStatusDisplay characterStatusDisplay;
         
 //        //inventory switch debug mode true means infinity inventory.
@@ -51,6 +54,10 @@ namespace SequenceBreaker._03_Controller._03_Log.LogList
 
         }
 
+        public void GoBattleLog()
+        {
+            battleLogEnhancedScrollController.InitBattleLog(runBattle);
+        }
 
         void OnExpandBtnClicked()
         {
@@ -89,6 +96,8 @@ namespace SequenceBreaker._03_Controller._03_Log.LogList
             _mItemDataIndex = itemIndex;
             mContentText.text = itemData.missionText + "(lv: "+ itemData.missionLevelCurrent + ")";
             mDescriptionText.text = itemData.location;
+
+            runBattle = itemData;
             
             _mIsExpand = itemData.mIsExpand;
             OnExpandChanged();

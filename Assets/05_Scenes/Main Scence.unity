@@ -298,7 +298,7 @@ MonoBehaviour:
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
-  battle: {fileID: 0}
+  runbattle: {fileID: 0}
 --- !u!1 &42849285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,6 +1837,65 @@ RectTransform:
   m_AnchoredPosition: {x: -0.6455078, y: -0.62390137}
   m_SizeDelta: {x: 0.030029297, y: -1.5100098}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &208688197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208688198}
+  - component: {fileID: 208688199}
+  m_Layer: 0
+  m_Name: Battle-E1-Elle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208688198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208688197}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 916.14557, y: -870.6449, z: 914.96344}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 607190634}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208688199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208688197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionText: Village Patrol
+  location: Elle vilage
+  missionLevelInitial: 1
+  missionLevelCurrent: 0
+  whichWin: 0
+  whichWinEachWaves: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  enemyUnitSetList:
+  - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
+  - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
+  - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
+  currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
+  mId: 0
+  mChecked: 0
+  mIsExpand: 0
 --- !u!1 &240124707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.399902, y: -85.099976}
+  m_AnchoredPosition: {x: -15.399841, y: -85.099976}
   m_SizeDelta: {x: -31.9, y: -498.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240124709
@@ -1892,6 +1951,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewport: {fileID: 1403468577}
+  runBattleList:
+  - {fileID: 208688199}
+  - {fileID: 465871542}
+  - {fileID: 1742020151}
+  - {fileID: 1753655651}
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
@@ -2061,6 +2125,8 @@ MonoBehaviour:
   mExpandBtn: {fileID: 1556482240}
   mGoListDetail: {fileID: 1249414001}
   jumpToGameObject: {fileID: 709966976}
+  runBattle: {fileID: 0}
+  battleLogEnhancedScrollController: {fileID: 18717904}
 --- !u!1 &266413929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4119,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457134947}
   m_CullTransparentMesh: 0
+--- !u!1 &465871540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465871541}
+  - component: {fileID: 465871542}
+  m_Layer: 0
+  m_Name: Battle-E2-SoylentPlant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465871541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465871540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 288.44458, y: -103.254395, z: 588.3212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 607190634}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465871542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465871540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionText: Defend the Soylent plant
+  location: Soylent Plant
+  missionLevelInitial: 5
+  missionLevelCurrent: 0
+  whichWin: 0
+  whichWinEachWaves: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  enemyUnitSetList:
+  - {fileID: 11400000, guid: 798c1d4a264394c829827c16368aaaa6, type: 2}
+  - {fileID: 11400000, guid: 853979833a6384862a21028a7cf9b68f, type: 2}
+  - {fileID: 11400000, guid: 46d2a3f2c477e40419221088be6c44ca, type: 2}
+  - {fileID: 11400000, guid: 3062a21d41a3643faae5a94143bdbddb, type: 2}
+  currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
+  mId: 0
+  mChecked: 0
+  mIsExpand: 0
 --- !u!1 &470334782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,16 +5346,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 738102033}
-<<<<<<< HEAD
-  - {fileID: 1461604416}
-=======
   - {fileID: 208688198}
   - {fileID: 465871541}
   - {fileID: 1742020150}
-<<<<<<< HEAD
->>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
-=======
->>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
   m_Father: {fileID: 2123972852}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10444,8 +10563,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 649992060}
+      - m_Target: {fileID: 709966978}
         m_MethodName: StartAnimIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 256253022}
+        m_MethodName: GoBattleLog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10621,6 +10751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logListItemHeightDemoScript: {fileID: 1637048146}
+  runBattleList: []
 --- !u!1 &1269232430
 GameObject:
   m_ObjectHideFlags: 0
@@ -12398,55 +12529,6 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!1 &1461604415
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1461604416}
-  - component: {fileID: 1461604417}
-  m_Layer: 0
-  m_Name: BattleMaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1461604416
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461604415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 607190634}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1461604417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461604415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721c2edff972c416bab295043c72727f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-=======
->>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
-=======
->>>>>>> parent of 1e4fb4fc... Before runbattle MonoBehaviour  delete
 --- !u!1 &1467885289
 GameObject:
   m_ObjectHideFlags: 0
@@ -14713,6 +14795,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736414463}
   m_CullTransparentMesh: 0
+--- !u!1 &1742020149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742020150}
+  - component: {fileID: 1742020151}
+  m_Layer: 0
+  m_Name: Battle-E3-LuBu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1742020150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742020149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 607190634}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1742020151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742020149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionText: vs Ru Bu
+  location: Yan Province
+  missionLevelInitial: 10
+  missionLevelCurrent: 0
+  whichWin: 0
+  whichWinEachWaves: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  enemyUnitSetList:
+  - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
+  currentAllyUnitList: []
+  calculateUnitStatus: {fileID: 296629314}
+  mId: 0
+  mChecked: 0
+  mIsExpand: 0
 --- !u!1 &1747319795
 GameObject:
   m_ObjectHideFlags: 0
@@ -18234,7 +18373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 5}
+  m_AnchoredPosition: {x: -49.999878, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736

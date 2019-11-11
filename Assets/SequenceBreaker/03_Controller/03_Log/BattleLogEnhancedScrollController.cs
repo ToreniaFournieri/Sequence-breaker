@@ -67,8 +67,9 @@ namespace SequenceBreaker._03_Controller._03_Log
         ///
         // sample implemented 2019.8.6
 
-        [FormerlySerializedAs("Battle")] public GameObject battle;
-
+//        [FormerlySerializedAs("Battle")] public GameObject battle;
+        public RunBattle runbattle;
+        
         public BattleLogEnhancedScrollController(bool calculateLayout)
         {
             _calculateLayout = calculateLayout;
@@ -96,6 +97,12 @@ namespace SequenceBreaker._03_Controller._03_Log
 
         }
 
+        public void InitBattleLog(RunBattle initBattle)
+        {
+            runbattle = initBattle;
+            DrawBattleLog();
+        }
+
 
         public void DrawBattleLog()
         {
@@ -103,7 +110,7 @@ namespace SequenceBreaker._03_Controller._03_Log
             _data = new List<Data>();
 
             //2019.10.3 always DataList is set 0.
-            _data = battle.gameObject.GetComponent<RunBattle>().dataList[0];
+            _data = runbattle.dataList[0];
 
             DataList setDatalist = new DataList();
             setDatalist.data = _data;
