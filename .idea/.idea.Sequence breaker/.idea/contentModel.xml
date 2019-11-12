@@ -257,6 +257,8 @@
           </e>
           <e p="03_Controller" t="Include">
             <e p="00_Global" t="Include">
+              <e p="DragAndClose.cs" t="Include" />
+              <e p="DragTargetObject.cs" t="Include" />
               <e p="ItemDataBase.cs" t="Include" />
               <e p="TabController.cs" t="Include" />
             </e>

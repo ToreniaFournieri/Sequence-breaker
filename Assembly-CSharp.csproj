@@ -189,6 +189,8 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\OffenseMagnificationClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\UnitSkillMagnificationClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\BattleUnit.cs" />
+     <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\DragAndClose.cs" />
+     <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\DragTargetObject.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\ItemDataBase.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\00_Global\TabController.cs" />
      <Compile Include="Assets\SequenceBreaker\03_Controller\01_Home\Character\CharacterHeaderSizeChanger.cs" />

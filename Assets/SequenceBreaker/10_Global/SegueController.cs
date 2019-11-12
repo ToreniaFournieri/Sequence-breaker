@@ -102,6 +102,36 @@ namespace SequenceBreaker._10_Global
 //
 //        }
 
+        public void CancelView()
+        {
+            GameObject currentView;
+             switch (tabController.currentTab)
+            {
+                case "HomeTab":
+                    currentView = homeViewList.Last(); 
+                    currentView.GetComponent<PanelAnimator>().StartAnimIn();
+
+                    break;
+                case "PlayTab":
+                    currentView = playViewList.Last();
+                    currentView.GetComponent<PanelAnimator>().StartAnimIn();
+                    break; 
+                
+                case "TimelineTab":
+                     currentView = timelineViewList.Last();
+                     currentView.GetComponent<PanelAnimator>().StartAnimIn();
+
+
+                     break;
+
+                default: 
+                    Debug.LogError("unexpected currentTab:" + tabController.currentTab); 
+                    break;
+            }
+
+            
+        }
+
         public void BackPreviousView()
         {
 
