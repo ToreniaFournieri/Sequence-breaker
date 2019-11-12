@@ -47,7 +47,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                 bool onceHasBeenAdded = false;
                 for (int i = inventory.itemList.Count - 1; i >= 0; i--)
                 {
-                    if (inventory.itemList[i].GetID() == addItem.GetID())
+                    if (inventory.itemList[i].GetId() == addItem.GetId())
                     {
                         onceHasBeenAdded = true;
 
@@ -82,7 +82,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             for (int i = inventory.itemList.Count - 1; i >= 0; i--)
             {
                 
-                if (inventory.itemList[i].GetID() == removedItem.GetID())
+                if (inventory.itemList[i].GetId() == removedItem.GetId())
                 {
 //                    Debug.Log("itemList amount: " + inventory.itemList[i].amount);
                     if (inventory.itemList[i].amount > 1)

@@ -146,7 +146,7 @@ namespace _00_Asset._08_Easy_Panel_Transitions.Scripts
 				// Get the appropriate value from the AnimationCurve using a normalised value
 				float curveValue = inAnim.Evaluate((Time.timeSinceLevelLoad - animationStartTime) / (animationEndTime - animationStartTime));
 
-				// lerp between positions
+				// leap between positions
 				animObject.localPosition = Vector3.LerpUnclamped(animStartPosition, outAnimEndPosition, curveValue);
 			}
 			else

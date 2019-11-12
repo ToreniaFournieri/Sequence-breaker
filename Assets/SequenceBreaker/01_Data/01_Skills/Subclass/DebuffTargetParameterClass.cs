@@ -7,15 +7,7 @@ namespace SequenceBreaker._01_Data._01_Skills.Subclass
     [CreateAssetMenu(fileName = "debuffTarget-", menuName = "Skill/SubClass/DebuffTargetParameterClass", order = 16)]
     public sealed class DebuffTargetParameterClass : ScriptableObject
     {
-
-        //public DebuffTargetParameterClass(TargetType targetType, double barrierRemaining, double defenseMagnification, double mobilityMagnification, double attackMagnification,
-        // double accuracyMagnification, double criticalHitRateMagnification, double numberOfAttackMagnification)
-        //{
-        //    this.TargetType = targetType; this.BarrierRemaining = barrierRemaining; this.DefenseMagnification = defenseMagnification; this.MobilityMagnification = mobilityMagnification;
-        //    this.AttackMagnification = attackMagnification; this.AccuracyMagnification = accuracyMagnification; this.CriticalHitRateMagnification = criticalHitRateMagnification;
-        //    this.NumberOfAttackMagnification = numberOfAttackMagnification;
-        //}
-
+        
         [FormerlySerializedAs("TargetType")] public TargetType targetType;
         [FormerlySerializedAs("BarrierRemaining")] public double barrierRemaining;
         [FormerlySerializedAs("DefenseMagnification")] public double defenseMagnification;

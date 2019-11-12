@@ -12,9 +12,7 @@ namespace SequenceBreaker._01_Data._01_Skills
         [FormerlySerializedAs("OffenseEffectMagnification")] [SerializeField] public double offenseEffectMagnification;
         [FormerlySerializedAs("TriggeredPossibility")] [SerializeField] public double triggeredPossibility;
         [FormerlySerializedAs("AccumulationBaseRate")] [SerializeField] public int accumulationBaseRate;
-
-        //private SkillsMasterClass _skill;
-
+        
         // for normal skill
         public EffectClass(BattleUnit character, SkillsMasterClass skill, ActionType actionType, double offenseEffectMagnification, double triggeredPossibility, bool isRescueAble, int usageCount,
             int veiledFromTurn, int veiledToTurn)

@@ -122,42 +122,38 @@ namespace SequenceBreaker._01_Data._02_Items.Item
 
         public string TotaledCombatDescription()
         {
-            string descrption = null;
+            string description = null;
             CombatClass totaledCombat = this.TotaledCombat();
 
-            if (totaledCombat.shieldMax != 0) { descrption += "Shield +" + totaledCombat.shieldMax + "\n"; }
-            if (totaledCombat.hitPointMax != 0) { descrption += "HP +" + totaledCombat.hitPointMax + "\n"; }
-            if (totaledCombat.attack != 0) { descrption += "Attack +" + totaledCombat.attack + "\n"; }
-            if (totaledCombat.accuracy != 0) { descrption += "Accuracy +" + totaledCombat.accuracy + "\n"; }
-            if (totaledCombat.mobility != 0) { descrption += "Mobility +" + totaledCombat.mobility + "\n"; }
-            if (totaledCombat.defense != 0) { descrption += "Defense +" + totaledCombat.defense + "\n"; }
+            if (totaledCombat.shieldMax != 0) { description += "Shield +" + totaledCombat.shieldMax + "\n"; }
+            if (totaledCombat.hitPointMax != 0) { description += "HP +" + totaledCombat.hitPointMax + "\n"; }
+            if (totaledCombat.attack != 0) { description += "Attack +" + totaledCombat.attack + "\n"; }
+            if (totaledCombat.accuracy != 0) { description += "Accuracy +" + totaledCombat.accuracy + "\n"; }
+            if (totaledCombat.mobility != 0) { description += "Mobility +" + totaledCombat.mobility + "\n"; }
+            if (totaledCombat.defense != 0) { description += "Defense +" + totaledCombat.defense + "\n"; }
 
 
-            return descrption;
+            return description;
         }
 
         // ID but string type (this is temp)
-        public string GetID()
+        public string GetId()
         {
-            string prefixID = null;
-            if (prefixItem != null) { prefixID = ""+prefixItem.itemId; }
-            string baseID = null;
-            if (baseItem != null) { baseID = ""+baseItem.itemId; }
-            string suffixID= null;
-            if (suffixItem != null) { suffixID = ""+suffixItem.itemId; }
+            string prefixId = null;
+            if (prefixItem != null) { prefixId = ""+prefixItem.itemId; }
+            string baseId = null;
+            if (baseItem != null) { baseId = ""+baseItem.itemId; }
+            string suffixId= null;
+            if (suffixItem != null) { suffixId = ""+suffixItem.itemId; }
             
             
-            return "" + enhancedValue + prefixID + baseID + suffixID;
+            return "" + enhancedValue + prefixId + baseId + suffixId;
         }
 
         private string GetName()
         {
+            var amountString = "x" + amount + " ";
 
-            string amountString = null;
-//            if (amount >= 2)
-//            {
-                amountString = "x" + amount + " ";
-//            }
 
             string coefficient = null;
             if (enhancedValue > 1)
@@ -192,7 +188,7 @@ namespace SequenceBreaker._01_Data._02_Items.Item
         {
             string detailDescription = null;
 
-            string name = "<b>" + GetName() + "</b> \n";
+            string boldName = "<b>" + GetName() + "</b> \n";
 
             // Totaled combat status
             string totaledCombat = this.TotaledCombatDescription();
@@ -205,7 +201,7 @@ namespace SequenceBreaker._01_Data._02_Items.Item
             if (suffixItem != null) { description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
 
 
-            detailDescription = name + "\n" + totaledCombat + "\n" + description;
+            detailDescription = boldName + "\n" + totaledCombat + "\n" + description;
 
 
             return detailDescription;

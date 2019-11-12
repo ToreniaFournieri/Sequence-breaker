@@ -8,13 +8,6 @@ namespace SequenceBreaker._01_Data._01_Skills.Subclass
     public sealed class BuffTargetParameterClass : ScriptableObject
     {
 
-        //public BuffTargetParameterClass(TargetType targetType, int barrierRemaining, double defenseMagnification, double mobilityMagnification, double attackMagnification,
-        // double accuracyMagnification, double criticalHitRateMagnification, double numberOfAttackMagnification, int rangeMinCorrection, int rangeMaxCorrection)
-        //{
-        //    this.TargetType = targetType; this.BarrierRemaining = barrierRemaining; this.DefenseMagnification = defenseMagnification; this.MobilityMagnification = mobilityMagnification;
-        //    this.AttackMagnification = attackMagnification; this.AccuracyMagnification = accuracyMagnification; this.CriticalHitRateMagnification = criticalHitRateMagnification;
-        //    this.NumberOfAttackMagnification = numberOfAttackMagnification; this.RangeMinCorrection = rangeMinCorrection; this.RangeMaxCorrection = rangeMaxCorrection;
-        //}
 
         [FormerlySerializedAs("TargetType")] public TargetType targetType;
         [FormerlySerializedAs("BarrierRemaining")] public int barrierRemaining;

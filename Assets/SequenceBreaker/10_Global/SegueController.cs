@@ -57,11 +57,7 @@ namespace SequenceBreaker._10_Global
             }
             
             dragAndClose.Init();
-//            else
-//            {
-//                homeViewList.Clear();
-//                homeViewList.Add(tabController.defaultHomeView);
-//            }
+
         }
 
         public void InitPlayView()
@@ -77,18 +73,12 @@ namespace SequenceBreaker._10_Global
             }
             dragAndClose.Init();
 
-//            else
-//            {
-//                playViewList.Clear();
-//                playViewList.Add(tabController.defaultPlayView);
-//            }
         }
         
         public void InitTimeLineView()
         {
             if (timelineViewList.Count >= 1)
             {
-                Debug.Log("home view list count:" + timelineViewList.Count);
                 for (int i = timelineViewList.Count - 1 ; i >= 1; i--)
                 {
                     timelineViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
@@ -96,20 +86,9 @@ namespace SequenceBreaker._10_Global
                 }
             }
             dragAndClose.Init();
-
-//            else
-//            {
-//                timelineViewList.Clear();
-//                timelineViewList.Add(tabController.defaultTimelineView);
-//            }
+            
         }
 
-//        public void InitTimeLineView()
-//        {
-//            timelineViewList.Clear();
-//            timelineViewList.Add(tabController.defaultTimelineView);
-//
-//        }
 
         public void CancelView()
         {

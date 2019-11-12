@@ -4,18 +4,7 @@ using UnityEngine;
 
 namespace SequenceBreaker._03_Controller._01_Home.HomeList
 {
-
-//    public class HomeItemData
-//    {
-//        public int MId;
-//        public string MContentString;
-//        public string MDescriptionString;
-//        public List<UnitClass> MUnitClassList;
-//        public string MInventorySavedFileName;
-//
-//        public bool MChecked;
-//        public bool MIsExpand;
-//    }
+    
 
     public class HomeDataSourceMgr : MonoBehaviour
     {
@@ -26,10 +15,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         int _mLoadMoreCount = 20;
         float _mDataLoadLeftTime = 0;
         float _mDataRefreshLeftTime = 0;
-        bool _mIsWaittingRefreshData = false;
-//        bool _mIsWaitLoadingMoreData = false;
-//        public int mTotalDataCount;
-
+        bool _mIsWaitingRefreshData = false;
 
         //Home contents
         public HomeContents homeContents;
@@ -102,7 +88,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         {
             _mDataRefreshLeftTime = 1;
             _mOnRefreshFinished = onReflushFinished;
-            _mIsWaittingRefreshData = true;
+            _mIsWaitingRefreshData = true;
         }
 
         public void RequestLoadMoreDataList(int loadCount,System.Action onLoadMoreFinished)
@@ -110,17 +96,16 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             _mLoadMoreCount = loadCount;
             _mDataLoadLeftTime = 1;
             _mOnLoadMoreFinished = onLoadMoreFinished;
-//            _mIsWaitLoadingMoreData = true;
         }
 
         public void Update()
         {
-            if (_mIsWaittingRefreshData)
+            if (_mIsWaitingRefreshData)
             {
                 _mDataRefreshLeftTime -= Time.deltaTime;
                 if (_mDataRefreshLeftTime <= 0)
                 {
-                    _mIsWaittingRefreshData = false;
+                    _mIsWaitingRefreshData = false;
                     DoRefreshDataSource();
                     if (_mOnRefreshFinished != null)
                     {
@@ -128,25 +113,11 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
                     }
                 }
             }
-//            if (_mIsWaitLoadingMoreData)
-//            {
-//                _mDataLoadLeftTime -= Time.deltaTime;
-//                if (_mDataLoadLeftTime <= 0)
-//                {
-//                    _mIsWaitLoadingMoreData = false;
-//                    DoLoadMoreDataSource();
-//                    if (_mOnLoadMoreFinished != null)
-//                    {
-//                        _mOnLoadMoreFinished();
-//                    }
-//                }
-//            }
 
         }
 
         public void SetDataTotalCount(int count)
         {
-//            mTotalDataCount = count;
             DoRefreshDataSource();
         }
 
@@ -180,22 +151,6 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 
             }
         }
-
-//        void DoLoadMoreDataSource()
-//        {
-//            int count = _mItemDataList.Count;
-//            for (int k = 0; k < _mLoadMoreCount; ++k)
-//            {
-//                int i = k + count;
-//                HomeItemData tData = new HomeItemData();
-//                tData.MId = i;
-//                tData.MStarCount = Random.Range(0, 6);
-//                tData.MFileSize = Random.Range(20, 999);
-//                tData.MChecked = false;
-//                tData.MIsExpand = false;
-//                _mItemDataList.Add(tData);
-//            }
-//        }
 
         public void CheckAllItem()
         {

@@ -112,7 +112,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
                 bool onceHasBeenAdded = false;
                 for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
                 {
-                    if (unitList[selectedUnitNo].itemList[i].GetID() == addItem.GetID())
+                    if (unitList[selectedUnitNo].itemList[i].GetId() == addItem.GetId())
                     {
                         onceHasBeenAdded = true;
                         if (unitList[selectedUnitNo].itemList[i].amount >= 99)
@@ -147,7 +147,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         {
             for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
             {
-                if (unitList[selectedUnitNo].itemList[i].GetID() == removedItem.GetID())
+                if (unitList[selectedUnitNo].itemList[i].GetId() == removedItem.GetId())
                 {
                     if (unitList[selectedUnitNo].itemList[i].amount > 1)
                     {

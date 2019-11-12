@@ -8,13 +8,6 @@ namespace SequenceBreaker._01_Data._01_Skills.Subclass
     public sealed class TriggerTargetClass : ScriptableObject
     {
 
-        //public TriggerTargetClass(ActionType actionType, bool afterAllMoved, bool counter, bool chain,
-        // bool reAttack, bool heal, bool move, Range optimumRange, AttackType majestyAttackType, CriticalOrNot critical, ActorOrTargetUnit whoCrushed, bool onlyWhenBeenHitMoreThanOnce, bool onlyWhenAvoidMoreThanOnce)
-        //{
-        //    this.ActionType = actionType; this.AfterAllMoved = afterAllMoved; this.Counter = counter; this.Chain = chain; this.ReAttack = reAttack; this.Heal = Heal;
-        //    this.Move = move; this.OptimumRange = optimumRange; this.MajestyAttackType = majestyAttackType; this.Critical = critical; this.WhoCrushed = whoCrushed;
-        //    this.OnlyWhenBeenHitMoreThanOnce = onlyWhenBeenHitMoreThanOnce; this.OnlyWhenAvoidMoreThanOnce = onlyWhenAvoidMoreThanOnce;
-        //}
 
         [FormerlySerializedAs("ActionType")] public ActionType actionType;
         [FormerlySerializedAs("AfterAllMoved")] public bool afterAllMoved;
