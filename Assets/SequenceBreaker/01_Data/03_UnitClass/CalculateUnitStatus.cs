@@ -90,7 +90,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
         //middle data
         private AbilityClass _frameTypeAbility;
-        private AbilityClass _tuningStypeAbility;
+        private AbilityClass _tuningStyleAbility;
         private AbilityClass _summedItemsAddAbility;
 
         private CombatClass _combatRaw;
@@ -104,8 +104,6 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         private bool _isDamageControlAssist;
 
         
-//        public CalculateUnitStatus(UnitClass unitClass)
-//        {
 
         public void Init(UnitClass unitClass)
         {
@@ -117,7 +115,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             unit = unitClass;
 
             //(1) Ability
-            // (1-1) Ability caluculation -> CoreFrameAddAbility
+            // (1-1) Ability calculation -> CoreFrameAddAbility
             // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStyle.AddAbility
 
             switch (unit.coreFrame.frameType)
@@ -138,7 +136,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                     _frameTypeAbility = new AbilityClass(power: 2, generation: 6, stability: 3, responsiveness: 4, precision: 2, intelligence: 0, luck: 3);
                     break;
                 default:
-                    Debug.LogError("CoreFrame.FrameType unexpectet value, need FrameType case update! :" + unit.coreFrame.frameType);
+                    Debug.LogError("CoreFrame.FrameType unexpected value, need FrameType case update! :" + unit.coreFrame.frameType);
                     break;
             }
             _ability.AddUp(_frameTypeAbility);
@@ -147,35 +145,35 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             switch (unit.coreFrame.tuningStyle)
             {
                 case TuningStyle.Commander:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 2, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 2, luck: 0);
                     break;
                 case TuningStyle.Destroyer:
-                    _tuningStypeAbility  = new AbilityClass(power: 2, generation: 0, stability: 2, responsiveness: 2, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility  = new AbilityClass(power: 2, generation: 0, stability: 2, responsiveness: 2, precision: 0, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Fighter:
-                    _tuningStypeAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Gunner:
-                    _tuningStypeAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Jammer:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 0, responsiveness: 0, precision: 2, intelligence: 2, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 2, stability: 0, responsiveness: 0, precision: 2, intelligence: 2, luck: 0);
                     break;
                 case TuningStyle.Lancer:
-                    _tuningStypeAbility = new AbilityClass(power: 3, generation: 1, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 3, generation: 1, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Medic:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
                     break;
                 case TuningStyle.Reconnoiter:
-                    _tuningStypeAbility = new AbilityClass(power: 1, generation: 1, stability: 2, responsiveness: 3, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 1, generation: 1, stability: 2, responsiveness: 3, precision: 0, intelligence: 0, luck: 0);
                     break;
                 case TuningStyle.Sniper:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 0, precision: 5, intelligence: 0, luck: 1);
+                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 0, precision: 5, intelligence: 0, luck: 1);
                     break;
 
                 case TuningStyle.Tank:
-                    _tuningStypeAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
                     break;
 
                 default:
@@ -183,9 +181,9 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                     break;
             }
 
-            _ability.AddUp(_tuningStypeAbility);
+            _ability.AddUp(_tuningStyleAbility);
 
-            // (1-2) Ability caluculation -> SummedItemsAddAbility
+            // (1-2) Ability calculation -> SummedItemsAddAbility
             _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
 
             if (unit.itemList != null)
@@ -195,19 +193,13 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                     if (item != null)
                     {
                             _summedItemsAddAbility.AddUp(item.TotaledAbility());
-
                     }
-
                 }
             }
-//            else
-//            {
-//                Debug.LogError("unit :" + unit.name + "( id:" + unit.affiliation + unit.uniqueId + "'s itemList is missing." );
-//            }
 
-            // (1-3) Ability caluculation -> CaluculatedAbility
+            // (1-3) Ability calculation -> CalculatedAbility
             // Formula:
-            //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbiliy
+            //  Ability = CoreFrame.Ability + Pilot.AddAbility + SummedItemsAddAbility
             _ability.AddUp(unit.pilot.addAbility);
             _ability.AddUp(_summedItemsAddAbility);
 
@@ -223,7 +215,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
                 {
                     if (item != null)
                     {
-                        //item has prefix, base and suffix. each one has magnification master calss list. collect them all
+                        //item has prefix, base and suffix. each one has magnification master class list. collect them all
                         if (item.prefixItem != null)
                         {
                             foreach (MagnificationMasterClass magnificationMaster in item.prefixItem
@@ -256,19 +248,18 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             // Deduplication
             MagnificationComparer comparer = new MagnificationComparer();
-            IEnumerable<MagnificationMasterClass> deduplicationedMagnification = itemMagnificationMasterList.Distinct(comparer);
+            IEnumerable<MagnificationMasterClass> deduplicationMagnification = itemMagnificationMasterList.Distinct(comparer);
 
 
             // this List is magnificationTarget
             // magnificationTargetID is stand for enum magnificationTarget.
 
-            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationOffenseList;
-            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationDefenseList;
-            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationNoneList;
-
-            magnificationOffenseList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
-            magnificationDefenseList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
-            magnificationNoneList = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
+            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationOffenseList
+                = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
+            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationDefenseList
+                = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
+            List<(int magnificationTargetID, int _percent, double _ratio, List<int> _percentList)> magnificationNoneList
+                = new List<(int magnificationTargetID, int _percentSummed, double _ratioSummed, List<int> _percentList)>();
 
             // final value
             summedOffenseList = new List<(int magnificationTargetID, int percentValue, double ratioValue, double totalValue, string)>();
@@ -292,10 +283,9 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             }
 
-            //string _debuMagnificationText = null;
-            foreach (MagnificationMasterClass magnificationClass in deduplicationedMagnification)
+            foreach (MagnificationMasterClass magnificationClass in deduplicationMagnification)
             {
-                //fortest
+                //for test
                 (int magnificationTargetID, int _percent, double _ratio, List<int> _percentList) magnification;
 
                 switch (magnificationClass.offenseOrDefense)
@@ -635,7 +625,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             // some code here. omitted
 
 
-            // (2-5)Skill consideration of items equiped -> CombatItemSkillConsidered
+            // (2-5)Skill consideration of items equipped -> CombatItemSkillConsidered
             // Formula:
             //    CombatItemSkillConsidered.someValue = (CombatCoreSkillConsidered.someValue + itemList.skills.addCombat.someValue) * itemList.skills.amplifyCombat.someValue
 
@@ -659,9 +649,9 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             _combatRaw.attack = (int)(_combatRaw.attack * _defenseMagnification.attack);
             _combatRaw.defense = (int)(_combatRaw.defense * _defenseMagnification.defense);
 
-            // (2-7)Add combat value of items equiped -> CombatItemEquiped
+            // (2-7)Add combat value of items equipped -> CombatItemEquipped
             // Formula:
-            //    CombatItemEquiped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
+            //    CombatItemEquipped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
 
             _combatItems = new CombatClass();
 
@@ -680,7 +670,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
             // (2-8)Finalize
             // Formula:
-            //    CombatCaluculated = CombatItemEquiped
+            //    CombatCalculated = CombatItemEquipped
 
             _combat = new CombatClass();
             _combat.Add(_combatRaw);
@@ -693,14 +683,14 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             _hateInitial = 10;
             _hateMagnificationPerTurn = 0.667;
             //_optimumRangeBonusDefault = 1.2;
-            //_criticalMagnificationDefault = 1.4; this will obsolate
+            //_criticalMagnificationDefault = 1.4; this will obsolete
             // (3-2) 
             //   double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
             // Formula:
             //   absorbShieldInitial = CoreFrame.addFeature.absorbShield + Pilot.addFeature.absorbShield
             //   damageControlAssist = CoreFrame.TuningStyle.damageControlAssist
             //   hateInitial = (default value) + Pilot.addFeature.hate
-            //   hateMagnificationPerTurn = (defalut value) * Pilot.addFeature.hateMagnificationPerTurn
+            //   hateMagnificationPerTurn = (default value) * Pilot.addFeature.hateMagnificationPerTurn
 
             _isDamageControlAssist = false;
 
@@ -810,7 +800,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
 
                 + " \n"
 
-                + "<Deffense> \n"
+                + "<Defense> \n"
                 + "[Critical: x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] "
                 + " ("
                 + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
