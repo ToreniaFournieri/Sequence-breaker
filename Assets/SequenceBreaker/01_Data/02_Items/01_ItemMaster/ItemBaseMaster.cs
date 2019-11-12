@@ -172,7 +172,7 @@ namespace SequenceBreaker._01_Data._02_Items._01_ItemMaster
 
 				}
 
-				description += offenseOrDefense + magnification.magnificationTarget + " " + magnificationDetail + "]";
+				description += offenseOrDefense + magnification.magnificationTarget + " " + magnificationDetail + "] ";
 				if (!isShortText) { description += "\n"; }
 
 			}
