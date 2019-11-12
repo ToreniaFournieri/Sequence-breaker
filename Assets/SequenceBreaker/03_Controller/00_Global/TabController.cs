@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace SequenceBreaker._03_Controller._00_Global
 {
-    [System.Serializable]
+    [Serializable]
     public sealed class TabController : MonoBehaviour
     {
         public Image timelineImage;
@@ -31,7 +31,7 @@ namespace SequenceBreaker._03_Controller._00_Global
         // For Home Character update 
         public CharacterStatusDisplay characterStatusDisplay;
         
-        // Segue controll
+        // Segue control
         public SegueController segueController;
         
         // Log list update

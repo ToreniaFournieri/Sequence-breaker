@@ -33,11 +33,11 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 //            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
 //            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
-
-        void OnBackBtnClicked()
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-        }
+//
+//        void OnBackBtnClicked()
+//        {
+//            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+//        }
 
 
 
@@ -81,8 +81,8 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
             {
                 return;
             }
-            int count = 0;
-            if (int.TryParse(_mAddItemInput.text, out count) == false)
+
+            if (int.TryParse(_mAddItemInput.text, out var count) == false)
             {
                 return;
             }
@@ -96,8 +96,7 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
 
         void OnSetItemCountBtnClicked()
         {
-            int count = 0;
-            if (int.TryParse(_mSetCountInput.text, out count) == false)
+            if (int.TryParse(_mSetCountInput.text, out var count) == false)
             {
                 return;
             }

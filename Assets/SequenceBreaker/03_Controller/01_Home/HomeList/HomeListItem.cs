@@ -25,7 +25,6 @@ namespace SequenceBreaker._03_Controller._01_Home.HomeList
         
         //inventory switch debug mode true means infinity inventory.
         public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
-//        public bool isDebugMode;
         
         int _mItemDataIndex = -1;
         bool _mIsExpand;

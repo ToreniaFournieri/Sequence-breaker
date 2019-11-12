@@ -47,7 +47,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
 
 
-        // Other Inventory, whitch means character 
+        // Other Inventory, which means character 
         public CharacterTreeViewDataSourceMgr otherCharacterTreeViewDataSourceMgr;
 
 
@@ -59,11 +59,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         static InventoryTreeViewDataSourceMgr _instance = null;
         int _mTreeViewItemCount = 1;
-        //int mTreeViewChildItemCount = 10;
-
-
-        //int mTreeViewItemCount = 20;
-        //int mTreeViewChildItemCount = 30;
 
         public static InventoryTreeViewDataSourceMgr Get
         {
@@ -121,20 +116,14 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             return data.GetChild(childIndex);
         }
 
-        public int TreeViewItemCount
-        {
-            get
-            {
-                return _mItemDataList.Count;
-            }
-        }
+        public int TreeViewItemCount => _mItemDataList.Count;
 
         public int TotalTreeViewItemAndChildCount
         {
             get
             {
-                int count = _mItemDataList.Count;
-                int totalCount = 0;
+                var count = _mItemDataList.Count;
+                var totalCount = 0;
                 for (int i = 0; i < count; ++i)
                 {
                     totalCount = totalCount + _mItemDataList[i].ChildCount;
@@ -181,9 +170,10 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
             
             for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
-                InventoryTreeViewItemData tData = new InventoryTreeViewItemData();
-                tData.MName = "Main Item Category: " + i;
-                tData.MIcon = "1";
+                InventoryTreeViewItemData tData = new InventoryTreeViewItemData
+                {
+                    MName = "Main Item Category: " + i, MIcon = "1"
+                };
                 _mItemDataList.Add(tData);
                 
 

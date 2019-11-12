@@ -13,7 +13,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
         public bool isInfinityInventoryMode;
 
         public UnitClass inventory;
-//        public List<Item> itemList;
         public ItemDataBase itemDataBase;
 
         private void Start()
@@ -32,8 +31,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void AddItemAndSave(Item addItem)
         {
-//            Debug.Log("Inventory Add item: " + addItem.ItemName + " itemList Count:" + inventory.itemList.Count);
-
             // no item exist
             if (inventory.itemList.Count == 0)
             {
@@ -78,13 +75,11 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
 
         public void RemoveItemAndSave(Item removedItem)
         {
-//            Debug.Log("inventoryItem been removed: " + removedItem.ItemName + " itemList count:" + inventory.itemList.Count);
             for (int i = inventory.itemList.Count - 1; i >= 0; i--)
             {
                 
                 if (inventory.itemList[i].GetId() == removedItem.GetId())
                 {
-//                    Debug.Log("itemList amount: " + inventory.itemList[i].amount);
                     if (inventory.itemList[i].amount > 1)
                     {
                         inventory.itemList[i].amount -= 1;
@@ -111,15 +106,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
         {
             if (isInfinityInventoryMode)
             {
-//                itemList = itemDataBase.LoadUnitInfo("item-" + "Debug-" + "inventory");
-
                 inventory.itemList.Clear();
 
                 Item item;
                 foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
                 {
                     item = new Item();
-//                    Debug.Log("itemBaseMaster: " + itemBaseMaster.itemName);
                     item.prefixItem = null;
                     item.baseItem = itemBaseMaster;
                     item.suffixItem = null;
@@ -128,8 +120,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory
                     inventory.itemList.Add(item);
                 }
                 
-
-
 
             }
             else

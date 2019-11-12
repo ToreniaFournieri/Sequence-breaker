@@ -29,12 +29,7 @@ namespace SequenceBreaker._03_Controller._02_Play
         public LogListDataSourceMgr logListDataSourceMgr;
         
         [FormerlySerializedAs("TransparentMessageController")] public TransparentMessageController transparentMessageController;
-
-//        public void UpdateLogList()
-//        {
-//            logListDataSourceMgr.Init();
-//        }
-//        
+        
         
 
         public void UpdatePartyStatus()

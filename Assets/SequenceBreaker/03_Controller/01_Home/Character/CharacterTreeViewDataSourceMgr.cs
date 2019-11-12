@@ -12,16 +12,9 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         public string MName;
         public string MIcon;
 
-        List<Item> _mChildItemDataList = new List<Item>();
-
-        //public CharacterStatusDisplay characterStatusDisplay;
-
-        //List<Item> mChildItemDataList = new List<Item>();
-
-        public int ChildCount
-        {
-            get { return _mChildItemDataList.Count; }
-        }
+        readonly List<Item> _mChildItemDataList = new List<Item>();
+        
+        public int ChildCount => _mChildItemDataList.Count;
 
         public void AddChild(Item data)
         {
@@ -39,22 +32,16 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
 
     public sealed class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
-        //public List<Item> itemList;
 
         public CharacterStatusDisplay characterStatusDisplay;
 
         // other inventory
         public InventoryTreeViewDataSourceMgr otherInventoryTreeViewDataSourceMgr;
 
-        List<CharacterTreeViewItemData> _mItemDataList = new List<CharacterTreeViewItemData>();
+        readonly List<CharacterTreeViewItemData> _mItemDataList = new List<CharacterTreeViewItemData>();
 
-        static CharacterTreeViewDataSourceMgr _instance = null;
+        static CharacterTreeViewDataSourceMgr _instance;
         int _mTreeViewItemCount = 1;
-        //int mTreeViewChildItemCount = 10;
-
-
-        //int mTreeViewItemCount = 20;
-        //int mTreeViewChildItemCount = 30;
 
         public static CharacterTreeViewDataSourceMgr Get
         {
@@ -62,7 +49,7 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             {
                 if (_instance == null)
                 {
-                    _instance = Object.FindObjectOfType<CharacterTreeViewDataSourceMgr>();
+                    _instance = FindObjectOfType<CharacterTreeViewDataSourceMgr>();
                 }
                 return _instance;
             }
@@ -100,20 +87,10 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
         public Item GetItemChildDataByIndex(int itemIndex, int childIndex)
         {
             CharacterTreeViewItemData data = GetItemDataByIndex(itemIndex);
-            if (data == null)
-            {
-                return null;
-            }
-            return data.GetChild(childIndex);
+            return data?.GetChild(childIndex);
         }
 
-        public int TreeViewItemCount
-        {
-            get
-            {
-                return _mItemDataList.Count;
-            }
-        }
+        public int TreeViewItemCount => _mItemDataList.Count;
 
         public int TotalTreeViewItemAndChildCount
         {
@@ -159,22 +136,18 @@ namespace SequenceBreaker._03_Controller._01_Home.Character
             _mItemDataList.Clear();
             for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
-                CharacterTreeViewItemData tData = new CharacterTreeViewItemData();
-                tData.MName = "Character";
-                tData.MIcon = "1";
+                CharacterTreeViewItemData tData = new CharacterTreeViewItemData {MName = "Character", MIcon = "1"};
                 _mItemDataList.Add(tData);
 
 
-//                foreach (Item item in characterStatusDisplay.GetItemList())
-                foreach (Item item in itemList)
-                {
-                    if (item != null)
+                if (itemList != null)
+                    foreach (Item item in itemList)
                     {
-                        tData.AddChild(item);
+                        if (item != null)
+                        {
+                            tData.AddChild(item);
+                        }
                     }
-                }
-
-
             }
 
 

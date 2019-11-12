@@ -62,7 +62,7 @@ namespace SequenceBreaker._01_Data._08_BattleUnitSub
 
         public CombatClass Pow(int specifies)
         {
-            double raised = 1.2; // need to be think later. this value is temp.
+            const double raised = 1.2; // need to be think later. this value is temp.
 
             this.shieldCurrent = (int)(this.shieldCurrent * Math.Pow(raised, specifies));
             this.shieldMax = (int)(this.shieldMax * Math.Pow(raised, specifies));

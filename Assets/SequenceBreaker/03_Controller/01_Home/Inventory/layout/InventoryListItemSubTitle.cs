@@ -28,24 +28,12 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
 
         void OnButtonClicked()
         {
-            if (_mClickHandler != null)
-            {
-                _mClickHandler(_mTreeItemIndex);
-
-                //Debug.Log("mClickHandler is clicked! value: " + mTreeItemIndex);
-            }
+            _mClickHandler?.Invoke(_mTreeItemIndex);
 
         }
         public void SetExpand(bool expand)
         {
-            if (expand)
-            {
-                mArrow.transform.localEulerAngles = new Vector3(0, 0, -90);
-            }
-            else
-            {
-                mArrow.transform.localEulerAngles = new Vector3(0, 0, 90);
-            }
+            mArrow.transform.localEulerAngles = expand ? new Vector3(0, 0, -90) : new Vector3(0, 0, 90);
         }
 
         public void SetItemData(int treeItemIndex, bool expand)

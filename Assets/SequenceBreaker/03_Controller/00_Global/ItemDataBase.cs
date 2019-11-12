@@ -10,8 +10,6 @@ namespace SequenceBreaker._03_Controller._00_Global
 {
     public sealed class ItemDataBase :MonoBehaviour
     {
-
-//        public List<UnitClass> allyUnitList;
         public List<ItemBaseMaster> itemBaseMasterList;
         public List<ItemBaseMaster> prefixItemBaseMasterList;
         public List<ItemBaseMaster> suffixItemBaseMasterList;
@@ -36,8 +34,6 @@ namespace SequenceBreaker._03_Controller._00_Global
                 catch (IOException)
                 {
                     // first time to load file 
-//                    Debug.Log("unable to load: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId +
-//                              "-item");
                     itemList.Clear();
                 }
 
@@ -59,8 +55,7 @@ namespace SequenceBreaker._03_Controller._00_Global
             if (loadCharacterUnit != null)
             {
                     UnitClassForSave unitForLoad = new UnitClassForSave();
-                    ;
-//                    UnitClass loadUnit = new UnitClass();
+                    
                     try
                     {
                         var file = File.Open(Application.persistentDataPath + "/" + loadCharacterUnit.affiliation + "-"
@@ -75,8 +70,6 @@ namespace SequenceBreaker._03_Controller._00_Global
 //                        Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
                     }
                     
-//                    Debug.Log("[Load] Unit :" + loadCharacterUnit.unitName + " experience: " + unitForLoad.experience);
-
                     loadCharacterUnit.experience = unitForLoad.experience;
 
             }
@@ -138,9 +131,6 @@ namespace SequenceBreaker._03_Controller._00_Global
                                                                             + saveCharacterUnit.uniqueId +"-unitInfo" + ".save");
                         bf.Serialize(file, unitForSave);
                         file.Close();
-                        
-//                        Debug.Log("[Save] ally: " + saveCharacterUnit.unitName + " experience point" +saveCharacterUnit.experience);
-
                         
             }
             

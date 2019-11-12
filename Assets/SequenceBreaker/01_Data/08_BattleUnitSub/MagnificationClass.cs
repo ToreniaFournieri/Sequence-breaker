@@ -2,7 +2,7 @@
 using UnityEngine.Serialization;
 
 
-//Basic Magnification, offense and defense is acturally same.
+//Basic Magnification, offense and defense is actually same.
 namespace SequenceBreaker._01_Data._08_BattleUnitSub
 {
     public class MagnificationClass : ScriptableObject

@@ -239,9 +239,6 @@
               <e p="UnitMaster.cs" t="Include" />
               <e p="UnitMasterList.cs" t="Include" />
             </e>
-            <e p="07_Equipments" t="Include">
-              <e p="Equipment.cs" t="Include" />
-            </e>
             <e p="08_BattleUnitSub" t="Include">
               <e p="AbilityClass.cs" t="Include" />
               <e p="ActionSkillClass.cs" t="Include" />

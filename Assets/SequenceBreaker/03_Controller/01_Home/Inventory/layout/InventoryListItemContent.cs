@@ -11,22 +11,15 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
         public Text mNameText;
         public Image mIcon;
 
-        //public Image[] mStarArray;
-        //public Text mDescText;
         public Text mDescriptionText;
-        //public Color32 mRedStarColor = new Color32(249, 227, 101, 255);
-        //public Color32 mGrayStarColor = new Color32(215, 215, 215, 255);
         public GameObject mContentRootObj;
-
-        // Detail button = Detail Flag, handler
-        //public GameObject detailFlag;
+        
         // detail Flag click
         Action<Item> _mClickItemDetailHandler;
         // button in detailFlag
         public Button detailFlag;
 
         //button to select to transfer
-        //Action<Item> mClickItemContentHandler;
         public Button itemContent;
 
         //ItemList Character
@@ -48,12 +41,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
         public void Init()
         {
 
-            //for (int i = 0; i < mStarArray.Length; ++i)
-            //{
-            //    int index = i;
-            //ClickEventListener listener = ClickEventListener.Get(detailFlag.gameObject);
-            //listener.SetClickEventHandler(delegate (GameObject obj) { OnButtonClicked(); });
-            //}
 
             detailFlag.onClick.AddListener(OnButtonClicked);
             itemContent.onClick.AddListener(OnContentClicked);
@@ -83,10 +70,6 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
 
         }
 
-        //public void SetClickContentCallBack(Action<Item> clickHandler)
-        //{
-        //    mClickItemContentHandler = clickHandler;
-        //}
 
         // item content button clicked
         void OnContentClicked()
@@ -105,61 +88,19 @@ namespace SequenceBreaker._03_Controller._01_Home.Inventory.layout
                     inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
                 }
             }
-            //Debug.Log("sample");
 
-            //if (mClickItemContentHandler != null)
-            //{
-
-            //}
         }
 
-
-
-        //void OnStarClicked(int index)
-        //{
-        //    ItemData data = TreeViewDataSourceMgr.Get.GetItemChildDataByIndex(mItemDataIndex, mChildDataIndex);
-        //    if (data == null)
-        //    {
-        //        return;
-        //    }
-        //    if (index == 0 && data.mStarCount == 1)
-        //    {
-        //        data.mStarCount = 0;
-        //    }
-        //    else
-        //    {
-        //        data.mStarCount = index + 1;
-        //    }
-        //    //SetStarCount(data.mStarCount);
-        //}
-
-        //public void SetStarCount(int count)
-        //{
-        //    int i = 0;
-        //    for (; i < count; ++i)
-        //    {
-        //        mStarArray[i].color = mRedStarColor;
-        //    }
-        //    for (; i < mStarArray.Length; ++i)
-        //    {
-        //        mStarArray[i].color = mGrayStarColor;
-        //    }
-        //}
-
-
+        
 
         public void SetItemData(Item item, int itemIndex, int childIndex)
         {
             _mItemDataIndex = itemIndex;
             _mChildDataIndex = childIndex;
             mNameText.text = item.ItemName;
-            //mDescText.text = itemData.mFileSize.ToString() + "KB";
             mDescriptionText.text = item.ItemDescription;
-            //mIcon.sprite = null;
 
             this.item = item;
-            //mIcon.sprite = ResManager.Get.GetSpriteByName(itemData.mIcon);
-            //SetStarCount(itemData.mStarCount);
         }
 
 

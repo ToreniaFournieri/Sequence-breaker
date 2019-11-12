@@ -35,7 +35,6 @@ namespace SequenceBreaker._01_Data._08_BattleUnitSub
 
         public AbilityClass (AbilityClass first, AbilityClass second)
         {
-            //AbilityClass AddUp = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
             this.power = first.power + second.power;
             this.generation = first.generation + second.generation;
             this.stability = first.stability + second.stability;

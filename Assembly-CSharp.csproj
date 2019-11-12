@@ -179,7 +179,6 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitEntity.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitMaster.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\03_UnitClass\UnitMasterList.cs" />
-     <Compile Include="Assets\SequenceBreaker\01_Data\07_Equipments\Equipment.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\AbilityClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\ActionSkillClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\08_BattleUnitSub\CombatClass.cs" />

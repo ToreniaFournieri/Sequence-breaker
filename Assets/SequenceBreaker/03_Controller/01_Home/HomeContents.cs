@@ -13,7 +13,6 @@ namespace SequenceBreaker._03_Controller._01_Home
         [SerializeField] public string contentText;
         public string description;
         public List<UnitClass> unitClassList;
-//        public string inventorySavedFileName;
         public bool isInfinityInventoryMode;
         
         //for SuperScroll use
@@ -25,9 +24,7 @@ namespace SequenceBreaker._03_Controller._01_Home
     [Serializable]
     public class HomeContents : MonoBehaviour
     {
-
-//        public GameObject jumpLinkGameObject;
-
+        
         [SerializeField]public List<HomeContentData> homeContentList;
 
     }
