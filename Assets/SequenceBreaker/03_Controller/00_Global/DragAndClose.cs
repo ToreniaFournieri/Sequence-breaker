@@ -13,8 +13,6 @@ namespace SequenceBreaker._03_Controller._00_Global
 
         private void Start()
         {
-            
-
             Init();
         }
 
@@ -22,11 +20,8 @@ namespace SequenceBreaker._03_Controller._00_Global
         {
             targetTransform = gameObject.GetComponent<DragTargetObject>().segueController.GetCurrentView()
                     .transform;
-          
-
             _initialPosition = targetTransform.position;
                 _segueController = gameObject.GetComponent<DragTargetObject>().segueController;
-            
         }
 
         public void Update() {
@@ -48,19 +43,13 @@ namespace SequenceBreaker._03_Controller._00_Global
 
         public override void OnPointerUp(PointerEventData eventData) {
             _dragging = false;
-        
-//            Debug.Log(" mouse pos:" +(Input.mousePosition.x) );
-//            Debug.Log(" initial pos:" +(_initialPosition.x ) );
-
             if (Input.mousePosition.x - ( _initialPosition.x * 2.0/3.0) >= 0  )
             {
-//                Debug.Log("proceed");
                 // proceed
                 _segueController.BackPreviousView();
             }
             else
             {
-//                Debug.Log("canceled");
                 // quit 
                 _segueController.CancelView();
             }
