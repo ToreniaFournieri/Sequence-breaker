@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data._03_UnitClass;
 using SequenceBreaker._03_Controller._01_Home;
@@ -12,10 +13,6 @@ namespace SequenceBreaker._03_Controller._00_Global
     [System.Serializable]
     public sealed class TabController : MonoBehaviour
     {
-//        public Button timelineButton;
-//        public Button playButton;
-//        public Button homeButton;
-
         public Image timelineImage;
         public Image playImage;
         public Image homeImage;
@@ -23,11 +20,6 @@ namespace SequenceBreaker._03_Controller._00_Global
         public GameObject timelineTab;
         public GameObject playTab;
         public GameObject homeTab;
-
-        // default GameObject
-        public GameObject defaultTimelineView;
-        public GameObject defaultPlayView;
-        public GameObject defaultHomeView;
         
         // current tab.
         public string currentTab;
@@ -43,7 +35,7 @@ namespace SequenceBreaker._03_Controller._00_Global
         public SegueController segueController;
         
         // Log list update
-        private void Start()
+        private void Awake()
         {
 
             ActivateTab("TimelineTab");
@@ -51,13 +43,9 @@ namespace SequenceBreaker._03_Controller._00_Global
         }
 
 
+
         public void ActivateTab(string toActivateTab)
         {
-//            var colors = timelineButton.colors;
-//            var activateColors = colors;
-//            activateColors.normalColor = Color.white;
-//            var deactivateColors = colors;
-//            deactivateColors.normalColor = Color.gray;
             
             switch (toActivateTab)
             {
@@ -66,13 +54,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     {
                         segueController.InitTimeLineView();
                         
-//                        defaultTimelineView.SetActive(true);
-//                        defaultTimelineView.transform.SetAsLastSibling();
                     }
-//                    timelineButton.colors = activateColors;
-//                    playButton.colors = deactivateColors;
-//                    homeButton.colors = deactivateColors;
-                    
                     timelineImage.color = Color.white;
                     playImage.color = Color.gray;
                     homeImage.color = Color.gray;
@@ -80,22 +62,13 @@ namespace SequenceBreaker._03_Controller._00_Global
                     timelineTab.SetActive(true);
                     playTab.SetActive(false);
                     homeTab.SetActive(false);
-
-
-                    //BattleLogEnhancedScrollController.GetComponent<BattleLogEnhancedScrollController>().DrawBattleLog();
-
                     break;
                 case "PlayTab":
                     if (currentTab == toActivateTab)
                     {
                         segueController.InitPlayView();
 
-//                        defaultPlayView.SetActive(true);
-//                        defaultPlayView.transform.SetAsLastSibling();
                     }
-//                    timelineButton.colors = deactivateColors;
-//                    playButton.colors = activateColors;
-//                    homeButton.colors = deactivateColors;
 
                     timelineImage.color = Color.gray;
                     playImage.color = Color.white;
@@ -113,7 +86,6 @@ namespace SequenceBreaker._03_Controller._00_Global
                             //experience should only load in initial not this timing.
                             unit.experience = loadUnit.experience;
 
-//                            unit.itemList = itemDataBase.LoadUnitInfo("item-" + unit.affiliation + "-" + unit.uniqueId);
                         }
                     }
 
@@ -125,14 +97,7 @@ namespace SequenceBreaker._03_Controller._00_Global
                     if (currentTab == toActivateTab)
                     {
                         segueController.InitHomeView();
-
-//                        defaultHomeView.SetActive(true);
-//                        defaultHomeView.transform.SetAsLastSibling();
                     }
-//                    timelineButton.colors = deactivateColors;
-//                    playButton.colors = deactivateColors;
-//                    homeButton.colors = activateColors;
-                    
                     timelineImage.color = Color.gray;
                     playImage.color = Color.gray;
                     homeImage.color = Color.white;

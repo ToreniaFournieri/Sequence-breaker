@@ -22,6 +22,9 @@ namespace SequenceBreaker._10_Global
         // Timeline tab
         public List<GameObject> timelineViewList;
 
+        
+        // it is bad one but .. 
+        public DragAndClose dragAndClose;
 
         public void Start()
         {
@@ -52,11 +55,13 @@ namespace SequenceBreaker._10_Global
                     homeViewList.RemoveAt(homeViewList.Count - 1);
                 }
             }
-            else
-            {
-                homeViewList.Clear();
-                homeViewList.Add(tabController.defaultHomeView);
-            }
+            
+            dragAndClose.Init();
+//            else
+//            {
+//                homeViewList.Clear();
+//                homeViewList.Add(tabController.defaultHomeView);
+//            }
         }
 
         public void InitPlayView()
@@ -70,11 +75,13 @@ namespace SequenceBreaker._10_Global
                     playViewList.RemoveAt(playViewList.Count - 1);
                 }
             }
-            else
-            {
-                playViewList.Clear();
-                playViewList.Add(tabController.defaultHomeView);
-            }
+            dragAndClose.Init();
+
+//            else
+//            {
+//                playViewList.Clear();
+//                playViewList.Add(tabController.defaultPlayView);
+//            }
         }
         
         public void InitTimeLineView()
@@ -88,11 +95,13 @@ namespace SequenceBreaker._10_Global
                     timelineViewList.RemoveAt(timelineViewList.Count - 1);
                 }
             }
-            else
-            {
-                timelineViewList.Clear();
-                timelineViewList.Add(tabController.defaultHomeView);
-            }
+            dragAndClose.Init();
+
+//            else
+//            {
+//                timelineViewList.Clear();
+//                timelineViewList.Add(tabController.defaultTimelineView);
+//            }
         }
 
 //        public void InitTimeLineView()
@@ -132,6 +141,29 @@ namespace SequenceBreaker._10_Global
             
         }
 
+        public GameObject GetCurrentView()
+        {
+            switch (tabController.currentTab)
+            {
+                case "HomeTab":
+                    return  homeViewList.Last();
+                    break;
+                case "PlayTab":
+                    return  playViewList.Last();
+                    break; 
+                
+                case "TimelineTab":
+                     return timelineViewList.Last();
+                     break;
+
+                default: 
+                    Debug.LogError("unexpected currentTab:" + tabController.currentTab);
+
+                    return null;
+                    break;
+            }
+        }
+
         public void BackPreviousView()
         {
 
@@ -153,6 +185,10 @@ namespace SequenceBreaker._10_Global
                         currentView.GetComponent<PanelAnimator>().StartAnimOut(); 
 
                     }
+                    else
+                    {
+                        CancelView();
+                    }
                     
                     break;
                 case "PlayTab":
@@ -167,6 +203,10 @@ namespace SequenceBreaker._10_Global
                         previousView.SetActive(true);
                         currentView.GetComponent<PanelAnimator>().StartAnimOut(); 
 
+                    }
+                    else
+                    {
+                        CancelView();
                     }
                     break; 
                 
@@ -185,6 +225,12 @@ namespace SequenceBreaker._10_Global
 
                          
                      }
+                     else
+                     {
+                         CancelView();
+                     }
+
+                    
                      break;
 
                 default: 

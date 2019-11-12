@@ -1609,8 +1609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 58.5, y: 0.012512207}
-  m_SizeDelta: {x: 117, y: 0.024902}
+  m_AnchoredPosition: {x: 28.3, y: 0.012451172}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186155869
 MonoBehaviour:
@@ -1624,7 +1624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43f62b021a294eaf8ec4925b7226d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetView: {fileID: 649992056}
   segueController: {fileID: 278071414}
 --- !u!114 &186155870
 MonoBehaviour:
@@ -2273,7 +2272,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2432,9 +2431,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabController: {fileID: 1443377875}
-  homeViewList: []
-  playViewList: []
-  timelineViewList: []
+  homeViewList:
+  - {fileID: 1794051292}
+  playViewList:
+  - {fileID: 698195617}
+  timelineViewList:
+  - {fileID: 1783872528}
+  dragAndClose: {fileID: 186155870}
 --- !u!1 &289032373
 GameObject:
   m_ObjectHideFlags: 0
@@ -5791,6 +5794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698195618}
+  - component: {fileID: 698195619}
   m_Layer: 5
   m_Name: Sortie
   m_TagString: Untagged
@@ -5819,6 +5823,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &698195619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698195617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274107257918e45d7ad28c0284e12cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  inAnimDuration: 0.5
+  inAnimEndPosition: {x: 0, y: 0, z: 0}
+  outAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  outAnimDuration: 0.5
+  outAnimEndPosition: {x: 0, y: 0, z: 0}
+  startOffScreen: 0
+  AnimateInOnStart: 0
 --- !u!1 &707987498
 GameObject:
   m_ObjectHideFlags: 0
@@ -9903,7 +9973,7 @@ GameObject:
   - component: {fileID: 1184356221}
   - component: {fileID: 1184356223}
   m_Layer: 5
-  m_Name: A_mainCanvas
+  m_Name: mainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12101,9 +12171,6 @@ MonoBehaviour:
   timelineTab: {fileID: 1870001500}
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
-  defaultTimelineView: {fileID: 1783872528}
-  defaultPlayView: {fileID: 698195617}
-  defaultHomeView: {fileID: 1794051292}
   currentTab: 
   itemDataBase: {fileID: 996112117}
   homeContents: {fileID: 1269381834}
@@ -13438,7 +13505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1663717958
 GameObject:
@@ -16576,7 +16643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -1.7999878}
+  m_AnchoredPosition: {x: 15, y: -1.8000488}
   m_SizeDelta: {x: 30, y: -323.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041478659
@@ -17478,7 +17545,7 @@ Transform:
   - {fileID: 913453031}
   - {fileID: 1241718994}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129817246
 GameObject:

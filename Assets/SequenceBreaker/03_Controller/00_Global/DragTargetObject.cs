@@ -5,7 +5,9 @@ namespace SequenceBreaker._03_Controller._00_Global
 {
     public class DragTargetObject : MonoBehaviour
     {
-        public GameObject targetView;
+//        public GameObject targetView;
+
+//        public TabController tabcontroller;
 
         public SegueController segueController;
 
