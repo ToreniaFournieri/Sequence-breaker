@@ -14,17 +14,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass.Pilot
         [FormerlySerializedAs("PilotLevel")] [SerializeField] public int pilotLevel;
 
         [FormerlySerializedAs("AddAbility")] [SerializeField] public AbilityClass addAbility;
-
-        //[SerializeField] public int AddPower;
-        //[SerializeField] public int AddGeneration;
-        //[SerializeField] public int AddStability;
-        //[SerializeField] public int AddResponsiveness;
-        //[SerializeField] public int AddPrecision;
-        //[SerializeField] public int AddIntelligence;
-        //[SerializeField] public int AddLuck;
-
-
-
+        
     }
 
     public enum PilotStyle { RemoteControling , DirectBoarding, ArtificialIntelligence }

@@ -16,12 +16,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         public UnitType unitType;
         public int itemCapacity;
 
-//        public List<Item> itemList;
-//
         public CoreFrame coreFrame;
-//        public Pilot.Pilot pilot;
-//        public int level;
-//        public int experience;
-//        public int toNextLevel;
+
     }
 }

@@ -75,12 +75,7 @@ namespace SequenceBreaker._01_Data._03_UnitClass.Editor
             
 
                 GUILayout.Space(20);
-
-
-//                if (GUI.changed)
-//                {
-//                    EditorUtility.SetDirty(unitMasterList);
-//                }
+                
             
         }
         

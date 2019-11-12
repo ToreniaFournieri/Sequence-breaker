@@ -48,7 +48,7 @@ namespace SequenceBreaker._10_Global
         {
             if (homeViewList.Count >= 1)
             {
-                Debug.Log("home view list count:" + homeViewList.Count);
+//                Debug.Log("home view list count:" + homeViewList.Count);
                 for (int i = homeViewList.Count - 1 ; i >= 1; i--)
                 {
                     homeViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
@@ -64,7 +64,6 @@ namespace SequenceBreaker._10_Global
         {
             if (playViewList.Count >= 1)
             {
-                Debug.Log("home view list count:" + playViewList.Count);
                 for (int i = playViewList.Count - 1 ; i >= 1; i--)
                 {
                     playViewList[i].GetComponent<PanelAnimator>().StartAnimOut();

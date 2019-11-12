@@ -32,7 +32,6 @@ namespace SequenceBreaker._01_Data._03_UnitClass
             unitClass.affiliation = affiliation;
             unitClass.unitType = unitType;
             unitClass.itemCapacity = itemCapacity;
-//            unitClass.itemList = itemList;
             unitClass.coreFrame = coreFrame;
             unitClass.pilot = pilot;
             unitClass.level = 1;

@@ -26,10 +26,8 @@ namespace SequenceBreaker._01_Data._03_UnitClass
         public Pilot.Pilot pilot;
         public int level;
         public int experience;
-         public int toNextLevel;
-
-//        [SerializeField] public List<SkillsMasterClass> skillsMaster;
-
+        public int toNextLevel;
+         
         private int _levelUpAmount;
 
         public int GainExperience (int experienceAdd)
