@@ -6,7 +6,7 @@ namespace SequenceBreaker._03_Controller._00_Global
 {
     public class DragAndClose : EventTrigger
     {
-        public Transform targetTransform;
+        private Transform _targetTransform;
         private bool _dragging;
         private Vector3 _initialPosition;
         private SegueController _segueController ;
@@ -19,19 +19,19 @@ namespace SequenceBreaker._03_Controller._00_Global
 
         public void Init()
         {
-            targetTransform = gameObject.GetComponent<DragTargetObject>().segueController.GetCurrentView()
+            _targetTransform = gameObject.GetComponent<DragTargetObject>().segueController.GetCurrentView()
                     .transform;
-            _initialPosition = targetTransform.position;
+            _initialPosition = _targetTransform.position;
                 _segueController = gameObject.GetComponent<DragTargetObject>().segueController;
         }
 
         public void Update() {
             if (_dragging)
             {
-                var position = targetTransform.position;
+                var position = _targetTransform.position;
                 position =
                     new Vector2(_initialPosition.x + Input.mousePosition.x, position.y);
-                targetTransform.position = position;
+                _targetTransform.position = position;
             }
         }
         
