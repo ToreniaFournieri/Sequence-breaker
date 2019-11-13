@@ -36,6 +36,8 @@ namespace SequenceBreaker._03_GUIController.Segue
         
         public override void OnPointerDown(PointerEventData eventData) {
             _dragging = true;
+            Init();
+
         }
 
         public override void OnPointerUp(PointerEventData eventData) {

@@ -119,7 +119,7 @@ namespace SequenceBreaker._03_GUIController.Segue
             }
 
             currentTab = toActivateTab;
-            segueController.dragAndClose.Init();
+//            segueController.dragAndClose.Init();
             
         }
     }

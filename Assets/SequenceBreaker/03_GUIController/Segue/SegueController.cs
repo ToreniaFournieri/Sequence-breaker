@@ -54,7 +54,7 @@ namespace SequenceBreaker._03_GUIController.Segue
                 }
             }
             
-            dragAndClose.Init();
+//            dragAndClose.Init();
 
         }
 
@@ -68,7 +68,7 @@ namespace SequenceBreaker._03_GUIController.Segue
                     playViewList.RemoveAt(playViewList.Count - 1);
                 }
             }
-            dragAndClose.Init();
+//            dragAndClose.Init();
 
         }
         
@@ -82,7 +82,7 @@ namespace SequenceBreaker._03_GUIController.Segue
                     timelineViewList.RemoveAt(timelineViewList.Count - 1);
                 }
             }
-            dragAndClose.Init();
+//            dragAndClose.Init();
             
         }
 
@@ -214,7 +214,7 @@ namespace SequenceBreaker._03_GUIController.Segue
                     break;
             }
 
-            dragAndClose.Init();
+//            dragAndClose.Init();
 
 
         }
