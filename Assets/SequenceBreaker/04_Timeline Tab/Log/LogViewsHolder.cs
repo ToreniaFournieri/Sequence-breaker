@@ -1,7 +1,7 @@
 ﻿using _00_Asset._02_ClassicSRIA.Scripts;
 using _00_Asset._02_ClassicSRIA.Scripts.Util;
 using SequenceBreaker._00_System;
-using SequenceBreaker._03_Controller._03_Log;
+using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
 using SequenceBreaker._07_Play._1_View;
 using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using _00_Asset._02_ClassicSRIA.Scripts;
 using _00_Asset._02_ClassicSRIA.Scripts.Util;
-using SequenceBreaker._03_Controller._03_Log;
+using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
 using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;
 using UnityEngine.UI;

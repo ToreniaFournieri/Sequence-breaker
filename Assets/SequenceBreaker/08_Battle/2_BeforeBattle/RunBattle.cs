@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data;
-using SequenceBreaker._01_Data._01_Skills;
-using SequenceBreaker._01_Data._03_UnitClass;
+using SequenceBreaker._01_Data.BattleUnit;
+using SequenceBreaker._01_Data.Skills;
+using SequenceBreaker._01_Data.UnitClass;
 using SequenceBreaker._04_Timeline_Tab.Log.BattleLog;
 using UnityEngine;
 using UnityEngine.Serialization;

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using _00_Asset._07_ExcelImporter;
-using SequenceBreaker._01_Data._03_UnitClass;
+using SequenceBreaker._01_Data.UnitClass;
 using UnityEngine;
 
 namespace _06_Excel

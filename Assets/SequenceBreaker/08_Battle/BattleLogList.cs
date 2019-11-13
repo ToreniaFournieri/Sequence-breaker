@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data;
+using SequenceBreaker._01_Data.BattleUnit;
 using SequenceBreaker._04_Timeline_Tab;
 using UnityEngine;
 using UnityEngine.Serialization;

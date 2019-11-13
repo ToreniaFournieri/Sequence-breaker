@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data;
+using SequenceBreaker._01_Data.BattleUnit;
 using UnityEngine;
 
 namespace SequenceBreaker._04_Timeline_Tab.Log.BattleLog

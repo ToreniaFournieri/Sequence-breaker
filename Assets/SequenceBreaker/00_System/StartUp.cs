@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using SequenceBreaker._01_Data._03_UnitClass;
-using SequenceBreaker._03_Controller._00_Global;
-using SequenceBreaker._03_Controller._01_Home;
-using SequenceBreaker._03_Controller._01_Home.HomeList;
-using SequenceBreaker._03_Controller._02_Play;
+using SequenceBreaker._01_Data.Items.Item;
+using SequenceBreaker._01_Data.UnitClass;
+using SequenceBreaker._03_Controller.Home;
+using SequenceBreaker._03_Controller.Home.HomeList;
 using SequenceBreaker._08_Battle._2_BeforeBattle;
 using UnityEngine;
 

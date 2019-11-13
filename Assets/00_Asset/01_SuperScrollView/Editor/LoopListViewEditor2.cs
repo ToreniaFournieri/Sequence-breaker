@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _00_Asset._01_SuperScrollView.Scripts.Common;
+﻿using _00_Asset._01_SuperScrollView.Scripts.Common;
 using _00_Asset._01_SuperScrollView.Scripts.ListView;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEditor;
-using UnityEditorInternal;
+using UnityEngine;
 
-
-namespace SuperScrollView
+namespace _00_Asset._01_SuperScrollView.Editor
 {
 
     [CustomEditor(typeof(LoopListView2))]
-    public class LoopListViewEditor2 : Editor
+    public class LoopListViewEditor2 : UnityEditor.Editor
     {
 
         SerializedProperty mSupportScrollBar;

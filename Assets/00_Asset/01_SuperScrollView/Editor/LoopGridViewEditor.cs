@@ -1,18 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _00_Asset._01_SuperScrollView.Scripts.Common;
+﻿using _00_Asset._01_SuperScrollView.Scripts.Common;
 using _00_Asset._01_SuperScrollView.Scripts.GridView;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEditor;
-using UnityEditorInternal;
+using UnityEngine;
 
-
-namespace SuperScrollView
+namespace _00_Asset._01_SuperScrollView.Editor
 {
 
     [CustomEditor(typeof(LoopGridView))]
-    public class LoopGridViewEditor : Editor
+    public class LoopGridViewEditor : UnityEditor.Editor
     {
 
         SerializedProperty mGridFixedType;

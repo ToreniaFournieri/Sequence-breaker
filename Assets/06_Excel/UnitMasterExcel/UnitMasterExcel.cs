@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SequenceBreaker._00_System;
-using SequenceBreaker._01_Data._03_UnitClass;
-using SequenceBreaker._01_Data._03_UnitClass.Pilot;
+using SequenceBreaker._01_Data.UnitClass;
+using SequenceBreaker._01_Data.UnitClass.Pilot;
 using UnityEngine;
 
 namespace _06_Excel.UnitMasterExcel

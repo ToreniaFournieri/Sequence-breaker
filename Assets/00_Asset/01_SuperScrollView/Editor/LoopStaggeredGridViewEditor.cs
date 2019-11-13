@@ -1,17 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _00_Asset._01_SuperScrollView.Scripts.StaggeredGridView;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using _00_Asset._01_SuperScrollView.Scripts.StaggeredGridView;
 using UnityEditor;
-using UnityEditorInternal;
+using UnityEngine;
 
-
-namespace SuperScrollView
+namespace _00_Asset._01_SuperScrollView.Editor
 {
 
     [CustomEditor(typeof(LoopStaggeredGridView))]
-    public class LoopStaggeredGridViewEditor : Editor
+    public class LoopStaggeredGridViewEditor : UnityEditor.Editor
     {
 
         SerializedProperty mArrangeType;

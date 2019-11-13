@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data;
+using SequenceBreaker._01_Data.BattleUnit;
 using UnityEngine;
 
 // FUNCTION SEGMENT
