@@ -216,6 +216,7 @@ namespace SequenceBreaker._10_Global
                     break;
             }
 
+            dragAndClose.Init();
 
 
         }

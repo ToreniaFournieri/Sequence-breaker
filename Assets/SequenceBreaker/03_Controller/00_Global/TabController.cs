@@ -120,6 +120,8 @@ namespace SequenceBreaker._03_Controller._00_Global
             }
 
             currentTab = toActivateTab;
+            segueController.dragAndClose.Init();
+            
         }
     }
 }
