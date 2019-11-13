@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using SequenceBreaker._01_Data.Items.Item;
 using SequenceBreaker._01_Data.UnitClass;
-using SequenceBreaker._03_Controller.Home;
-using SequenceBreaker._03_Controller.Home.HomeList;
-using SequenceBreaker._08_Battle._2_BeforeBattle;
+using SequenceBreaker._04_Home.HomeListView;
 using UnityEngine;
 
 namespace SequenceBreaker._00_System

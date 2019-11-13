@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using SequenceBreaker._00_System;
+using SequenceBreaker._01_Data.Items.Item;
+using SequenceBreaker._01_Data.UnitClass;
+using SequenceBreaker._02_Drop;
+using SequenceBreaker._05_Play.Prepare;
+using SequenceBreaker._06_Timeline.BattleLogView;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SequenceBreaker._05_Play.MissionView
+{
+    public sealed class GoScript : MonoBehaviour
+    {
+        public Slider levelOfMissionSlider;
+        //public GameObject battle;
+        public RunBattle runBattle;
+
+        // for mission controller
+        public MissionController missionController;
+
+        public void ChangeMissionLevelValue()
+        {
+            if (runBattle != null)
+            {
+                foreach (var unitSet in runBattle.enemyUnitSetList)
+                {
+                    foreach (var unit in unitSet.enemyUnitList)
+                    {
+                        unit.level = (int) levelOfMissionSlider.value;
+                    }
+                }
+            }
+
+
+        }
+        
+        public void GoBattle()
+        {
+//            runBattle.GetComponent<RunBattle>().Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+            runBattle.Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
+
+            //Not works well
+            RunBattle runBattle1 = runBattle;
+            //get Mission unitName
+            string missionName = runBattle1.missionText;
+            string missionLevel = " (lv:" + runBattle1.missionLevelInitial + ")";
+
+            List<GameObject> battleCopyList = new List<GameObject>();
+
+
+            int wave = 0;
+            foreach (List<Data> unused in runBattle1.dataList)
+            {
+                battleCopyList.Add(new GameObject());
+                battleCopyList[wave].transform.parent = runBattle.transform;
+                battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
+                battleCopyList[wave].gameObject.AddComponent<RunBattle>();
+
+                RunBattle localRunBattle = runBattle1.Copy(wave);
+
+                battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
+
+                battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
+                battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
+                
+//                //Obsolete
+//                missionController.logListSria.battleList.Add(battleCopyList[wave]);
+//                missionController.logListSria.ChangeModelsAndReset(missionController.logListSria.battleList.Count + 1 - 1);
+                
+                missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
+                missionController.UpdatePartyStatus();
+
+                // temp 2019/11/10
+//                missionController.logListDataSourceMgr.InsertData(wave, battleCopyList[wave].GetComponent<RunBattle>());
+                missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
+
+                
+                wave += 1;
+
+            }
+            
+            missionController.logListDataSourceMgr.Refresh();
+            
+//            missionController.logListDataSourceMgr.Init();
+
+//            missionController.logListDataSourceMgr.runBattleList.Add(runBattle1);
+
+
+            // Drop list
+            List<Item> itemList = new List<Item>();
+            DropEngine dropEngine = new DropEngine();
+
+            wave = 0;
+            foreach (GameObject battleCopy in battleCopyList)
+            {
+                if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
+                {
+                    int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
+                    foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+                    {
+                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: enemyUnitSet.enemyUnitList, seed: seed);
+
+                        foreach (Item item in itemListLocal)
+                        {
+                            itemList.Add(item);
+                        }
+
+                        // Exp gain, not use copy data! lost reference means worthless.
+                        int experience = 0;
+                        foreach (UnitClass enemyUnit in enemyUnitSet.enemyUnitList)
+                        {
+                            experience += enemyUnit.ExperienceFromBeaten();
+                        }
+
+                        // Distribution, not use copied data! lost reference means worthless.
+                        experience /= missionController.allyUnitList.Count;
+
+                        foreach (UnitClass allyUnit in missionController.allyUnitList)
+                        {
+                            var levelUpAmount = allyUnit.GainExperience(experience);
+                            if (levelUpAmount > 0)
+                            {
+                                missionController
+                                        .transparentMessageController
+                                        .transparentText.text
+                                    += "\n " + "[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")";
+
+                            }
+                        }
+
+                    }
+
+                }
+
+                missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
+                                                                                       + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
+                wave += 1;
+            }
+
+            // gain experience
+            foreach (UnitClass allyUnit in missionController.allyUnitList)
+            {
+                missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
+//                Debug.Log("[Save] ally: " + allyUnit.unitName + " experience point" +allyUnit.experience);
+            }
+
+            foreach (Item item in itemList)
+            {
+                missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
+            }
+
+            foreach (var item in itemList)
+            {
+                missionController.inventoryItemList.AddItemAndSave(item);
+            }
+            
+            
+
+            missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+
+            missionController.transparentMessageController.transparentMessage.SetActive(true);
+
+
+
+        }
+    }
+}

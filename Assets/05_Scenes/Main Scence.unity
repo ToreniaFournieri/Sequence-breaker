@@ -5225,7 +5225,7 @@ GameObject:
   - component: {fileID: 649992058}
   - component: {fileID: 649992060}
   m_Layer: 5
-  m_Name: 02_CommonEquip
+  m_Name: 02_EquipView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14842,7 +14842,7 @@ GameObject:
   - component: {fileID: 1794051294}
   - component: {fileID: 1794051296}
   m_Layer: 5
-  m_Name: 01_Home List
+  m_Name: 01_HomeListView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

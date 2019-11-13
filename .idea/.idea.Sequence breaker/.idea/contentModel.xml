@@ -252,95 +252,87 @@
               <e p="UnitMasterList.cs" t="Include" />
             </e>
           </e>
-          <e p="03_Controller" t="Include">
-            <e p="GUIController" t="Include">
-              <e p="Segue" t="Include">
-                <e p="BackPreviousView.cs" t="Include" />
-                <e p="DragAndClose.cs" t="Include" />
-                <e p="DragTargetObject.cs" t="Include" />
-                <e p="SegueController.cs" t="Include" />
-                <e p="SwipeManager.cs" t="Include" />
-                <e p="TabController.cs" t="Include" />
-              </e>
-              <e p="ShowVersionInfo.cs" t="Include" />
-              <e p="TransparentMessageController.cs" t="Include" />
+          <e p="02_Drop" t="Include">
+            <e p="DropEngine.cs" t="Include" />
+          </e>
+          <e p="03_GUIController" t="Include">
+            <e p="Segue" t="Include">
+              <e p="BackPreviousView.cs" t="Include" />
+              <e p="DragAndClose.cs" t="Include" />
+              <e p="DragTargetObject.cs" t="Include" />
+              <e p="SegueController.cs" t="Include" />
+              <e p="SwipeManager.cs" t="Include" />
+              <e p="TabController.cs" t="Include" />
             </e>
-            <e p="Home" t="Include">
+            <e p="ShowVersionInfo.cs" t="Include" />
+            <e p="TransparentMessageController.cs" t="Include" />
+          </e>
+          <e p="04_Home" t="Include">
+            <e p="EquipView" t="Include">
               <e p="Character" t="Include">
                 <e p="CharacterHeaderSizeChanger.cs" t="Include" />
                 <e p="CharacterStatusDisplay.cs" t="Include" />
                 <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
                 <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
               </e>
-              <e p="HomeContents.cs" t="Include" />
-              <e p="HomeList" t="Include">
-                <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
-                <e p="HomeDataSourceMgr.cs" t="Include" />
-                <e p="HomeListItem.cs" t="Include" />
-              </e>
               <e p="Inventory" t="Include">
                 <e p="InventoryItemList.cs" t="Include" />
+                <e p="InventoryListItemContent.cs" t="Include" />
+                <e p="InventoryListItemSubTitle.cs" t="Include" />
                 <e p="InventoryTreeViewDataSourceMgr.cs" t="Include" />
                 <e p="InventoryTreeViewWithStickyHeadScript.cs" t="Include" />
-                <e p="layout" t="Include">
-                  <e p="InventoryListItemContent.cs" t="Include" />
-                  <e p="InventoryListItemSubTitle.cs" t="Include" />
-                </e>
+                <e p="ItemDetailViewController.cs" t="Include" />
               </e>
-              <e p="ItemDetailViewController.cs" t="Include" />
+              <e p="SwitchLayer.cs" t="Include" />
             </e>
-            <e p="Play" t="Include">
-              <e p="MissionController.cs" t="Include" />
-              <e p="PartyStatusIcons.cs" t="Include" />
+            <e p="HomeListView" t="Include">
+              <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
+              <e p="HomeContents.cs" t="Include" />
+              <e p="HomeDataSourceMgr.cs" t="Include" />
+              <e p="HomeListItem.cs" t="Include" />
             </e>
           </e>
-          <e p="04_Timeline Tab" t="Include">
-            <e p="Log" t="Include">
-              <e p="BattleLog" t="Include">
-                <e p="BattleLogEnhancedScrollController.cs" t="Include" />
-                <e p="CellView.cs" t="Include" />
-                <e p="Data.cs" t="Include" />
-                <e p="DataList.cs" t="Include" />
-                <e p="EnhancedScrollCellView.cs" t="Include" />
-                <e p="IconSet.cs" t="Include" />
-                <e p="ShowTargetUnit.cs" t="Include" />
-              </e>
-              <e p="LogList" t="Include">
-                <e p="LogListDataSourceMgr.cs" t="Include" />
-                <e p="LogListItem.cs" t="Include" />
-                <e p="LogListItemHeightDemoScript.cs" t="Include" />
-              </e>
-              <e p="LogListSRIA.cs" t="Include" />
-              <e p="LogViewsHolder.cs" t="Include" />
-              <e p="ShowDetailButton.cs" t="Include" />
+          <e p="05_Play" t="Include">
+            <e p="Battle" t="Include">
+              <e p="AttackFunction.cs" t="Include" />
+              <e p="BattleEngine.cs" t="Include" />
+              <e p="BattleEnvironment.cs" t="Include" />
+              <e p="BattleLogList.cs" t="Include" />
+              <e p="Others.cs" t="Include" />
+              <e p="UnitInfoSet.cs" t="Include" />
             </e>
-            <e p="LogButton.cs" t="Include" />
-          </e>
-          <e p="05_Unit_Calculation" t="Include">
-            <e p="SwitchLayer.cs" t="Include" />
-          </e>
-          <e p="07_Play" t="Include">
-            <e p="1_View" t="Include">
+            <e p="MissionView" t="Include">
               <e p="GoScript.cs" t="Include" />
+              <e p="MissionController.cs" t="Include" />
               <e p="MissionListSRIA.cs" t="Include" />
               <e p="MissionUpdateText.cs" t="Include" />
               <e p="MissionViewsHolder.cs" t="Include" />
+              <e p="PartyStatusIcons.cs" t="Include" />
             </e>
-          </e>
-          <e p="08_Battle" t="Include">
-            <e p="2_BeforeBattle" t="Include">
+            <e p="Prepare" t="Include">
               <e p="EnemyUnitSet.cs" t="Include" />
               <e p="RunBattle.cs" t="Include" />
             </e>
-            <e p="AttackFunction.cs" t="Include" />
-            <e p="BattleEngine.cs" t="Include" />
-            <e p="BattleEnvironment.cs" t="Include" />
-            <e p="BattleLogList.cs" t="Include" />
-            <e p="Others.cs" t="Include" />
-            <e p="UnitInfoSet.cs" t="Include" />
           </e>
-          <e p="09_Drop" t="Include">
-            <e p="DropEngine.cs" t="Include" />
+          <e p="06_Timeline" t="Include">
+            <e p="BattleLogView" t="Include">
+              <e p="BattleLogEnhancedScrollController.cs" t="Include" />
+              <e p="CellView.cs" t="Include" />
+              <e p="Data.cs" t="Include" />
+              <e p="DataList.cs" t="Include" />
+              <e p="EnhancedScrollCellView.cs" t="Include" />
+              <e p="IconSet.cs" t="Include" />
+              <e p="ShowTargetUnit.cs" t="Include" />
+            </e>
+            <e p="LogButton.cs" t="Include" />
+            <e p="LogListSRIA.cs" t="Include" />
+            <e p="LogListView" t="Include">
+              <e p="LogListDataSourceMgr.cs" t="Include" />
+              <e p="LogListItem.cs" t="Include" />
+              <e p="LogListItemHeightDemoScript.cs" t="Include" />
+            </e>
+            <e p="LogViewsHolder.cs" t="Include" />
+            <e p="ShowDetailButton.cs" t="Include" />
           </e>
         </e>
       </e>

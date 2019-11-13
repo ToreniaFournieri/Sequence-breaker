@@ -1,6 +1,6 @@
 ﻿using System;
 using SequenceBreaker._00_System;
-using SequenceBreaker._08_Battle;
+using SequenceBreaker._05_Play.Battle;
 using UnityEngine;
 using UnityEngine.Serialization;
 
