@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SequenceBreaker.Editor
 {
-    public static class CreateUnitList
+    public static class UnitMasterListCreate
     {
         [MenuItem("Assets/Create/UnitMaster")]
         public static UnitMasterList  Create(string pathAndName)

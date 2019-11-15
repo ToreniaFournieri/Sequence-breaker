@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data.UnitClass;
 using SequenceBreaker._01_Data.UnitClass.Pilot;
 using UnityEngine;
 
-namespace _06_Excel.UnitMasterExcel
+namespace SequenceBreaker.Editor
 {
     [Serializable]
     public class UnitMasterExcel
@@ -36,19 +35,6 @@ namespace _06_Excel.UnitMasterExcel
 
          return unitMaster;
          // level not used...
-
-         //        public int uniqueId;
-//        public Affiliation affiliation;
-//        public UnitType unitType;
-//        public int itemCapacity;
-//        public List<Item> itemList;
-//
-//        public CoreFrame coreFrame;
-//        public Pilot.Pilot pilot;
-//        public int experience;
-//        public bool autoGenerationMode;
-//
-
 
 
         }

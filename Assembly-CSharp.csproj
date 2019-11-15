@@ -153,8 +153,6 @@
      <Compile Include="Assets\00_Asset\08_Easy Panel Transitions\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\00_Asset\08_Easy Panel Transitions\Scripts\PanelAnimator.cs" />
      <Compile Include="Assets\06_Excel\sample-output\UnitImport.cs" />
-     <Compile Include="Assets\06_Excel\UnitMasterExcel\UnitMasterExcel.cs" />
-     <Compile Include="Assets\06_Excel\UnitMasterExcel\UnitMasterExcelImport.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\Enumeration.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\SimpleObjectPool.cs" />
      <Compile Include="Assets\SequenceBreaker\00_System\StartUp.cs" />

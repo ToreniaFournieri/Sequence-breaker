@@ -188,10 +188,6 @@
           <e p="sample-output" t="Include">
             <e p="UnitImport.cs" t="Include" />
           </e>
-          <e p="UnitMasterExcel" t="Include">
-            <e p="UnitMasterExcel.cs" t="Include" />
-            <e p="UnitMasterExcelImport.cs" t="Include" />
-          </e>
         </e>
         <e p="SequenceBreaker" t="Include">
           <e p="00_System" t="Include">
@@ -332,8 +328,14 @@
             <e p="ShowDetailButton.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
-            <e p="CreateUnitList.cs" t="Include" />
+            <e p="UnitMasterExcel.cs" t="Include" />
             <e p="UnitMasterExcelConverter.cs" t="Include" />
+            <e p="UnitMasterExcelImport.cs" t="Include" />
+            <e p="UnitMasterListCreate.cs" t="Include" />
+            <e p="UnitSetCreate.cs" t="Include" />
+            <e p="UnitSetExcel.cs" t="Include" />
+            <e p="UnitSetExcelConverter.cs" t="Include" />
+            <e p="UnitSetExcelImport.cs" t="Include" />
           </e>
         </e>
       </e>

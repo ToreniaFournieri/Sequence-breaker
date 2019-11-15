@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using _06_Excel.UnitMasterExcel;
 using SequenceBreaker._01_Data.UnitClass;
 using UnityEditor;
 using UnityEngine;
@@ -116,7 +115,7 @@ namespace SequenceBreaker.Editor
             
             string objectPath = EditorPrefs.GetString("ObjectPath");
 
-            unitMasterList = CreateUnitList.Create(objectPath);
+            unitMasterList = UnitMasterListCreate.Create(objectPath);
             if (unitMasterList) 
             {
                 unitMasterList.unitList = new List<UnitMaster>();

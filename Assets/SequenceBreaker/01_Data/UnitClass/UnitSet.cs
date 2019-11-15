@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace SequenceBreaker._01_Data.UnitClass
 {
-    public class UnitSet
+    public class UnitSet : ScriptableObject
     {
-        public List<UnitClass> unitList;
+        public List<List<UnitClass>> unitSetList;
 
     }
 }
