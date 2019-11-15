@@ -182,6 +182,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\Skills\Subclass\TriggerTargetClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\CalculateUnitStatus.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\CoreFrame.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\EnemyUnitSet.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\Pilot\Pilot.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClass.cs" />
@@ -189,6 +190,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitEntity.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMaster.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMasterList.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitSet.cs" />
      <Compile Include="Assets\SequenceBreaker\02_Drop\DropEngine.cs" />
      <Compile Include="Assets\SequenceBreaker\03_GUIController\Segue\BackPreviousView.cs" />
      <Compile Include="Assets\SequenceBreaker\03_GUIController\Segue\DragAndClose.cs" />
@@ -225,7 +227,6 @@
      <Compile Include="Assets\SequenceBreaker\05_Play\MissionView\MissionUpdateText.cs" />
      <Compile Include="Assets\SequenceBreaker\05_Play\MissionView\MissionViewsHolder.cs" />
      <Compile Include="Assets\SequenceBreaker\05_Play\MissionView\PartyStatusIcons.cs" />
-     <Compile Include="Assets\SequenceBreaker\05_Play\Prepare\EnemyUnitSet.cs" />
      <Compile Include="Assets\SequenceBreaker\05_Play\Prepare\RunBattle.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\BattleLogEnhancedScrollController.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\CellView.cs" />

@@ -32,9 +32,14 @@ namespace SequenceBreaker._05_Play.Prepare
         // Input data, Units list
         public List<EnemyUnitSet> enemyUnitSetList;
 
+        //unit List
+        public List<UnitSet> unitSetList;
+
+
         // to get current Ally Battle unit
         public List<BattleUnit> currentAllyUnitList;
 
+        
         public  CalculateUnitStatus calculateUnitStatus;
 
         //for SuperScroll use

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using SequenceBreaker._01_Data.UnitClass;
 using UnityEngine;
 
-namespace SequenceBreaker._05_Play.Prepare
+namespace SequenceBreaker._01_Data.UnitClass
 {
     [CreateAssetMenu(fileName = "EnemyUnitSet-", menuName = "Unit/EnemyUnitSet", order = 3)]
     public sealed class EnemyUnitSet : ScriptableObject

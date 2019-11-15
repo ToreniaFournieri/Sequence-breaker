@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using _06_Excel.UnitMasterExcel;
+using SequenceBreaker._01_Data.UnitClass;
 using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker._01_Data.UnitClass.Editor
+namespace SequenceBreaker.Editor
 {
     public class UnitMasterExcelConverter : EditorWindow
     {

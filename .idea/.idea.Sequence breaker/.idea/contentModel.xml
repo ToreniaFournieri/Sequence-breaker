@@ -237,10 +237,7 @@
             <e p="UnitClass" t="Include">
               <e p="CalculateUnitStatus.cs" t="Include" />
               <e p="CoreFrame.cs" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="CreateUnitList.cs" t="Include" />
-                <e p="UnitMasterExcelConverter.cs" t="Include" />
-              </e>
+              <e p="EnemyUnitSet.cs" t="Include" />
               <e p="Pilot" t="Include">
                 <e p="Pilot.cs" t="Include" />
               </e>
@@ -250,6 +247,7 @@
               <e p="UnitEntity.cs" t="Include" />
               <e p="UnitMaster.cs" t="Include" />
               <e p="UnitMasterList.cs" t="Include" />
+              <e p="UnitSet.cs" t="Include" />
             </e>
           </e>
           <e p="02_Drop" t="Include">
@@ -310,7 +308,6 @@
               <e p="PartyStatusIcons.cs" t="Include" />
             </e>
             <e p="Prepare" t="Include">
-              <e p="EnemyUnitSet.cs" t="Include" />
               <e p="RunBattle.cs" t="Include" />
             </e>
           </e>
@@ -333,6 +330,10 @@
             </e>
             <e p="LogViewsHolder.cs" t="Include" />
             <e p="ShowDetailButton.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="CreateUnitList.cs" t="Include" />
+            <e p="UnitMasterExcelConverter.cs" t="Include" />
           </e>
         </e>
       </e>

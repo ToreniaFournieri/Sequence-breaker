@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using SequenceBreaker._01_Data.UnitClass;
+using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker._01_Data.UnitClass.Editor
+namespace SequenceBreaker.Editor
 {
     public static class CreateUnitList
     {
