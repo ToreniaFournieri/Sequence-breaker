@@ -1,18 +1,34 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
+using SequenceBreaker._01_Data.UnitClass;
 
-public class UnitSetExcel : MonoBehaviour
+namespace SequenceBreaker.Editor
 {
-    // Start is called before the first frame update
-    void Start()
+    [Serializable]
+    public class UnitSetExcel
     {
+        public int missionId;
+        public int waveId;
         
-    }
+        // order UnitClass ScriptableObject name
+        public string unit1;
+        public string unit2;
+        public string unit3;
+        public string unit4;
+        public string unit5;
+        public string unit6;
+        public string unit7;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public List<UnitClass> GetUnitSet()
+        {
+            List<UnitClass> unitList = new List<UnitClass>();
+            
+            
+            
+            
+            return unitList;
+        }
+
+
     }
 }
