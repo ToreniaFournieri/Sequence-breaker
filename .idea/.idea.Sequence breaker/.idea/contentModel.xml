@@ -244,6 +244,7 @@
               <e p="UnitMaster.cs" t="Include" />
               <e p="UnitMasterList.cs" t="Include" />
               <e p="UnitSet.cs" t="Include" />
+              <e p="UnitWave.cs" t="Include" />
             </e>
           </e>
           <e p="02_Drop" t="Include">
@@ -336,6 +337,7 @@
             <e p="UnitSetExcel.cs" t="Include" />
             <e p="UnitSetExcelConverter.cs" t="Include" />
             <e p="UnitSetExcelImport.cs" t="Include" />
+            <e p="UnitWaveCreate.cs" t="Include" />
           </e>
         </e>
       </e>

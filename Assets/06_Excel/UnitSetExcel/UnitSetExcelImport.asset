@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd2f0244a90144e8a7b55830063793a, type: 3}
+  m_Name: UnitSetExcelImport
+  m_EditorClassIdentifier: 
+  unitSetExcelList:
+  - missionId: 1001
+    waveId: 1
+    unit1: BA-Fighter
+    unit2: 
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1001
+    waveId: 2
+    unit1: BA-Destroyer
+    unit2: 
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1001
+    waveId: 3
+    unit1: BA-Destroyer
+    unit2: BA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1001
+    waveId: 4
+    unit1: BA-Destroyer
+    unit2: BA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1002
+    waveId: 1
+    unit1: CA-Fighter
+    unit2: CA-Destroyer
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1002
+    waveId: 2
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1002
+    waveId: 3
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: CA-Destroyer
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionId: 1002
+    waveId: 4
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: CA-Destroyer
+    unit4: CA-Destroyer
+    unit5: 
+    unit6: 
+    unit7: 

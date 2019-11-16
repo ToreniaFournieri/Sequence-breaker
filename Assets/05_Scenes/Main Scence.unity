@@ -1867,6 +1867,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
   - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
   - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
+  unitSetList: []
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -3912,6 +3913,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 853979833a6384862a21028a7cf9b68f, type: 2}
   - {fileID: 11400000, guid: 46d2a3f2c477e40419221088be6c44ca, type: 2}
   - {fileID: 11400000, guid: 3062a21d41a3643faae5a94143bdbddb, type: 2}
+  unitSetList: []
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -7952,7 +7954,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11837,7 +11839,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397488078}
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14264,6 +14266,7 @@ MonoBehaviour:
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
+  unitSetList: []
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -14452,6 +14455,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56828c756721e472786c1065a66d39d5, type: 2}
   - {fileID: 11400000, guid: 27b5de77f6c004dabbf23698d4139cc7, type: 2}
   - {fileID: 11400000, guid: ffbd8553094db444082e334a03478f82, type: 2}
+  unitSetList: []
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -15220,7 +15224,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

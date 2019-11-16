@@ -11,13 +11,14 @@ namespace SequenceBreaker.Editor
         public UnitSet unitSet;
 
         private static string _excelPath = "UnitSetExcel";
-        private static string _targetPath = "UnitSetObjectPath";
+//        private static string _targetPath = "UnitSetObjectPath";
 
+        private string _targetPathWithoutName;
            
         [MenuItem("Window/Unit Set Excel Converter %#s")]
         static void Init()
         {
-            GetWindow(typeof(UnitMasterExcelConverter));
+            GetWindow(typeof(UnitSetExcelConverter));
         }
 
         private void OnEnable()
@@ -25,13 +26,13 @@ namespace SequenceBreaker.Editor
             if(EditorPrefs.HasKey(_excelPath)) 
             {
                 string excelPath = EditorPrefs.GetString(_excelPath);
-                unitSetExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitMasterExcelImport)) as UnitSetExcelImport;
+                unitSetExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
             }
-            if(EditorPrefs.HasKey(_targetPath)) 
-            {
-                string objectPath = EditorPrefs.GetString(_targetPath);
-                unitSet = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitMasterList)) as UnitSet;
-            }
+//            if(EditorPrefs.HasKey(_targetPath)) 
+//            {
+//                string objectPath = EditorPrefs.GetString(_targetPath);
+//                unitSet = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitSet)) as UnitSet;
+//            }
         }
         
         private void OnGUI()
@@ -57,19 +58,19 @@ namespace SequenceBreaker.Editor
 
             GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("2. Select [Export] Unit Set asset", GUILayout.ExpandWidth(false)))
+            if (GUILayout.Button("2. Select [Export] Unit Set path", GUILayout.ExpandWidth(false)))
             {
                 OpenTargetList();
             }
 
-            GUILayout.Label(unitSet ? unitSet.name : " Unselected");
+            GUILayout.Label(_targetPathWithoutName ?? " Unselected");
 
             GUILayout.EndHorizontal();
 
                     
             if (GUILayout.Button("3. Convert Excel to Unit Set", GUILayout.ExpandWidth(false)))
             {
-//                ConvertUnitListFromExcel();
+                ConvertUnitSetFromExcel();
             }
             GUILayout.Space(20);
         }
@@ -91,17 +92,57 @@ namespace SequenceBreaker.Editor
         
         void OpenTargetList () 
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Target List", "", "");
+//            string absPath = EditorUtility.OpenFilePanel ("Select Target List Path", "", "");
+
+            string absPath = EditorUtility.OpenFolderPanel ("Select Target List Path", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                unitSet = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitSet)) as UnitSet;
-                if (unitSet != null && unitSet.unitSetList == null)
-                    unitSet.unitSetList = new List<List<UnitClass>>();
-                if (unitSet) {
-                    EditorPrefs.SetString(_targetPath, relPath);
-                }
+                _targetPathWithoutName = relPath;
+//                Debug.Log(_targetPathWithoutName);
+//                unitSet = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitSet)) as UnitSet;
+//                if (unitSet != null && unitSet.unitSetList == null)
+//                    unitSet.unitSetList = new List<List<UnitClass>>();
+//                if (unitSet) {
+//                    EditorPrefs.SetString(_targetPath, relPath);
+//                }
             }
+        }
+
+        void ConvertUnitSetFromExcel()
+        {
+
+//            string objectPath = EditorPrefs.GetString(_targetPath);
+//            UnitWave unitWave = UnitWaveCreate.Create();
+
+            int currentMissionId = 0;
+//                int currentWave = 0;
+                foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
+                {
+                    
+                    Debug.Log("in loop of unitSetExcelImport.unitSetExcelList: " + unitMasterExcel.unit1);
+                    if (unitMasterExcel.missionId != currentMissionId)
+                    {
+                        //new mission start. so creat it.
+                        currentMissionId = unitMasterExcel.missionId;
+                        unitSet = UnitSetCreate.Create(_targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset");
+                        unitSet.unitSetList = new List<UnitWave>();
+
+                        unitSet.missionId = unitMasterExcel.missionId;
+                    }
+
+                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+//                    unitSet.unitSetList.Add(unitWave);
+
+                    UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
+                    if (unitWave.unitWave != null)
+                    {
+                        unitSet.unitSetList.Add(unitWave);
+                    }
+                }
+            
+            
+            
         }
 
     }
