@@ -1,19 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using _00_Asset._07_ExcelImporter;
+using UnityEngine;
 
 namespace SequenceBreaker.Editor
 {
+    [ExcelAsset]
     public class UnitSetExcelImport : ScriptableObject
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public List<UnitSetExcel> unitSetExcelList;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

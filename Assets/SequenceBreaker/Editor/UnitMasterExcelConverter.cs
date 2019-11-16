@@ -12,6 +12,9 @@ namespace SequenceBreaker.Editor
         
         private int viewIndex = 1;
 
+        private static string _excelPath = "ExcelPath";
+        private static string _targetPath = "ObjectPath";
+
         
         [MenuItem("Window/Unit Master Excel Converter %#e")]
         static void Init()
@@ -21,14 +24,14 @@ namespace SequenceBreaker.Editor
 
         private void OnEnable()
         {
-            if(EditorPrefs.HasKey("ExcelPath")) 
+            if(EditorPrefs.HasKey(_excelPath)) 
             {
-                string excelPath = EditorPrefs.GetString("ExcelPath");
+                string excelPath = EditorPrefs.GetString(_excelPath);
                 unitMasterExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitMasterExcelImport)) as UnitMasterExcelImport;
             }
-            if(EditorPrefs.HasKey("ObjectPath")) 
+            if(EditorPrefs.HasKey(_targetPath)) 
             {
-                string objectPath = EditorPrefs.GetString("ObjectPath");
+                string objectPath = EditorPrefs.GetString(_targetPath);
                 unitMasterList = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitMasterList)) as UnitMasterList;
             }
         }
@@ -70,11 +73,7 @@ namespace SequenceBreaker.Editor
                     {
                         ConvertUnitListFromExcel();
                     }
-            
-
-                GUILayout.Space(20);
-                
-            
+                    GUILayout.Space(20);
         }
         
         void OpenUnitMasterExcel () 
@@ -87,7 +86,7 @@ namespace SequenceBreaker.Editor
                 if (unitMasterExcelImport.unitMasterExcel == null)
                     unitMasterExcelImport.unitMasterExcel = new List<UnitMasterExcel>();
                 if (unitMasterExcelImport) {
-                    EditorPrefs.SetString("ExcelPath", relPath);
+                    EditorPrefs.SetString(_excelPath, relPath);
                 }
             }
         }
@@ -101,7 +100,7 @@ namespace SequenceBreaker.Editor
                 if (unitMasterList.unitList == null)
                     unitMasterList.unitList = new List<UnitMaster>();
                 if (unitMasterList) {
-                    EditorPrefs.SetString("ObjectPath", relPath);
+                    EditorPrefs.SetString(_targetPath, relPath);
                 }
             }
         }
@@ -113,7 +112,7 @@ namespace SequenceBreaker.Editor
             // This should probably get a string from the user to create a new unitName and pass it ...
             viewIndex = 1;
             
-            string objectPath = EditorPrefs.GetString("ObjectPath");
+            string objectPath = EditorPrefs.GetString(_targetPath);
 
             unitMasterList = UnitMasterListCreate.Create(objectPath);
             if (unitMasterList) 

@@ -11,7 +11,7 @@ namespace SequenceBreaker.Editor
         {
             UnitMasterList asset = ScriptableObject.CreateInstance<UnitMasterList>();
             
-Debug.Log("path: " + pathAndName);
+Debug.Log("Created. path: " + pathAndName);
             AssetDatabase.CreateAsset(asset, pathAndName);
             AssetDatabase.SaveAssets();
             return asset;
