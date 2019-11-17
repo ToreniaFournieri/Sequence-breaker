@@ -149,8 +149,9 @@ namespace SequenceBreaker.Editor
             viewIndex = 1;
 
             
-            if (unitClassList != null)
+            if (unitClassList == null)
             {
+                Debug.Log("changed");
                 unitClassList = UnitClassListCreate.Create(unitClassListPath);
             }
             unitClassList.unitList = new List<UnitClass>();

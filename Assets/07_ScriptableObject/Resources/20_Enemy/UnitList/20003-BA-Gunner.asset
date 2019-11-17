@@ -20,6 +20,6 @@ MonoBehaviour:
   itemList: []
   coreFrame: {fileID: 0}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
-  level: 0
+  level: 1
   experience: 0
   toNextLevel: 0

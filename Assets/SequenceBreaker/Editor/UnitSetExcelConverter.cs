@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SequenceBreaker._01_Data.UnitClass;
 using UnityEditor;
 using UnityEngine;
@@ -119,7 +120,29 @@ namespace SequenceBreaker.Editor
                     {
                         //new mission start. so creat it.
                         currentMissionId = unitMasterExcel.missionId;
-                        unitSet = UnitSetCreate.Create(_targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset");
+                        
+//                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset";
+                        
+
+                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId ;
+
+                            //load scriptable object from Resources need ref path.
+                            var q = "/Resources/";
+                            var index = _unitSetPath.IndexOf(q, StringComparison.Ordinal) + q.Length;
+                            string _refUnitSetPath = _unitSetPath.Substring(index);
+                            
+
+                        UnitSet unitSetCheck = Resources.Load<UnitSet>(_refUnitSetPath);
+                        if (unitSetCheck == null)
+                        {
+//                            Debug.Log("not exist missionId: " + currentMissionId + " Path:" + _refUnitSetPath );
+                            unitSet = UnitSetCreate.Create(_unitSetPath + ".asset");
+                        }
+                        else
+                        {
+                            unitSet = unitSetCheck;
+                        }
+
                         unitSet.unitSetList = new List<UnitWave>();
 
                         unitSet.missionId = unitMasterExcel.missionId;

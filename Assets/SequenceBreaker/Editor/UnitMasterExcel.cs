@@ -29,6 +29,7 @@ namespace SequenceBreaker.Editor
             unit.coreFrame = Resources.Load<CoreFrame>(coreFramePath);
             string pilotPath = "11_Unit-Base-Master/02_Pilot/" + pilotString ;
             unit.pilot = Resources.Load<Pilot>(pilotPath);
+            unit.level = 1;
 
             return unit;
 
