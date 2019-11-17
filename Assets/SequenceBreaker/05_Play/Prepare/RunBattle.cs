@@ -33,7 +33,7 @@ namespace SequenceBreaker._05_Play.Prepare
         public List<EnemyUnitSet> enemyUnitSetList;
 
         //unit List
-        public List<UnitSet> unitSetList;
+        public UnitSet unitSet;
 
 
         // to get current Ally Battle unit
@@ -134,63 +134,136 @@ namespace SequenceBreaker._05_Play.Prepare
             currentAllyUnitList = _allyBattleUnits;
 
             var wave = 0;
-            foreach (var enemyUnitSet in enemyUnitSetList )
+
+            if (unitSet != null)
             {
-
-
-                _battleList.Add(new BattleEngine());
-                _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
-
-                foreach (var unit in currentAllyUnitList)
+                // new method 
+                foreach (var unitWave in unitSet.unitSetList )
                 {
-                    var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
-                    allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
-                    allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
 
+
+                    _battleList.Add(new BattleEngine());
+                    _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
+
+                    foreach (var unit in currentAllyUnitList)
+                    {
+                        var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
+                        allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
+                        allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
+
+                    }
+
+                    var isFirstWave = false;
+                    if(wave == 0) { isFirstWave = true; }
+                    _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
+
+                    //adjust enemy level
+                        foreach (var unit in unitWave.unitWave)
+                        {
+                            unit.level = enemyLevel;
+                        }
+
+                    _enemyBattleUnits = new List<BattleUnit>();
+                    (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(unitWave.unitWave);
+
+                    //set unitName with levels
+                    foreach (var battleUnit in _enemyBattleUnits)
+                    {
+                        battleUnit.name = battleUnit.name ;
+                        missionLevelInitial = enemyLevel;
+                    }
+
+                    _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
+
+
+                    //[Battle start!!]
+                    _battleList[wave].Battle();
+
+                    whichWin = _battleList[wave].WhichWin;
+                    whichWinEachWaves.Add(_battleList[wave].WhichWin);
+
+                    currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
+
+                    dataList.Add(new List<Data>());
+                    SetBattleLogToData(wave);
+
+                    if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
+                    {
+                        // all ally units has been slain.
+                        break;
+                    }
+
+                    wave += 1;
                 }
-
-                var isFirstWave = false;
-                if(wave == 0) { isFirstWave = true; }
-                _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
-
-                //adjust enemy level
-                foreach (var unit in enemyUnitSet.enemyUnitList)
-                {
-                    unit.level = enemyLevel;
-
-                }
-                _enemyBattleUnits = new List<BattleUnit>();
-                (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
-
-                //set unitName with levels
-                foreach (var battleUnit in _enemyBattleUnits)
-                {
-                    battleUnit.name = battleUnit.name ;
-                    missionLevelInitial = enemyLevel;
-                }
-
-                _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
-
-
-                //[Battle start!!]
-                _battleList[wave].Battle();
-
-                whichWin = _battleList[wave].WhichWin;
-                whichWinEachWaves.Add(_battleList[wave].WhichWin);
-
-                currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
-
-                dataList.Add(new List<Data>());
-                SetBattleLogToData(wave);
-
-                if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
-                {
-                    // all ally units has been slain.
-                    break;
-                }
-
-                wave += 1;
+                
+                
             }
+            else
+            {
+                
+                // previous system ; will be obsolete
+                
+            
+            
+                foreach (var enemyUnitSet in enemyUnitSetList )
+                {
+
+
+                    _battleList.Add(new BattleEngine());
+                    _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: battleEnvironment.normalAttackSkillsMaster, buffMasters: battleEnvironment.buffMasters);
+
+                    foreach (var unit in currentAllyUnitList)
+                    {
+                        var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
+                        allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
+                        allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
+
+                    }
+
+                    var isFirstWave = false;
+                    if(wave == 0) { isFirstWave = true; }
+                    _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
+
+                    //adjust enemy level
+                    foreach (var unit in enemyUnitSet.enemyUnitList)
+                    {
+                        unit.level = enemyLevel;
+
+                    }
+                    _enemyBattleUnits = new List<BattleUnit>();
+                    (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
+
+                    //set unitName with levels
+                    foreach (var battleUnit in _enemyBattleUnits)
+                    {
+                        battleUnit.name = battleUnit.name ;
+                        missionLevelInitial = enemyLevel;
+                    }
+
+                    _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
+
+
+                    //[Battle start!!]
+                    _battleList[wave].Battle();
+
+                    whichWin = _battleList[wave].WhichWin;
+                    whichWinEachWaves.Add(_battleList[wave].WhichWin);
+
+                    currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
+
+                    dataList.Add(new List<Data>());
+                    SetBattleLogToData(wave);
+
+                    if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
+                    {
+                        // all ally units has been slain.
+                        break;
+                    }
+
+                    wave += 1;
+                }
+            }
+
 
         }
 

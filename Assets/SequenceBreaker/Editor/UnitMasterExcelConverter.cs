@@ -22,7 +22,7 @@ namespace SequenceBreaker.Editor
         private static string _unitClassPathId = "unitClassPath";
 
         private string _unitPath;
-        private string _unitClassListPath;
+        public string unitClassListPath;
         
         [MenuItem("Window/Unit Master Excel Converter %#e")]
         static void Init()
@@ -117,7 +117,7 @@ namespace SequenceBreaker.Editor
             if (absPath.StartsWith(Application.dataPath))
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                _unitClassListPath = relPath;
+                unitClassListPath = relPath;
                 unitClassList = AssetDatabase.LoadAssetAtPath(relPath, typeof(UnitClassList)) as UnitClassList;
                 if (unitClassList != null && unitClassList.unitList == null)
                     unitClassList.unitList = new List<UnitClass>();
@@ -151,7 +151,7 @@ namespace SequenceBreaker.Editor
             
             if (unitClassList != null)
             {
-                unitClassList = UnitClassListCreate.Create(_unitClassListPath);
+                unitClassList = UnitClassListCreate.Create(unitClassListPath);
             }
             unitClassList.unitList = new List<UnitClass>();
             foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)

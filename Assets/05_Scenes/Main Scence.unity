@@ -1867,7 +1867,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
   - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
   - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
-  unitSetList: []
+  unitSet: {fileID: 0}
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -3913,7 +3913,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 853979833a6384862a21028a7cf9b68f, type: 2}
   - {fileID: 11400000, guid: 46d2a3f2c477e40419221088be6c44ca, type: 2}
   - {fileID: 11400000, guid: 3062a21d41a3643faae5a94143bdbddb, type: 2}
-  unitSetList: []
+  unitSet: {fileID: 0}
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -14266,7 +14266,7 @@ MonoBehaviour:
   battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
-  unitSetList: []
+  unitSet: {fileID: 0}
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
@@ -14453,9 +14453,7 @@ MonoBehaviour:
   enemyUnitSetList:
   - {fileID: 11400000, guid: afc34424a06d942108b28e7e57955c64, type: 2}
   - {fileID: 11400000, guid: 56828c756721e472786c1065a66d39d5, type: 2}
-  - {fileID: 11400000, guid: 27b5de77f6c004dabbf23698d4139cc7, type: 2}
-  - {fileID: 11400000, guid: ffbd8553094db444082e334a03478f82, type: 2}
-  unitSetList: []
+  unitSet: {fileID: 11400000, guid: 3720ce64931144723bb2a54345f21e9d, type: 2}
   currentAllyUnitList: []
   calculateUnitStatus: {fileID: 296629314}
   mId: 0
