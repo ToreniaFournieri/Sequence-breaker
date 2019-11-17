@@ -92,7 +92,6 @@ namespace SequenceBreaker.Editor
         
         void OpenTargetList () 
         {
-//            string absPath = EditorUtility.OpenFilePanel ("Select Target List Path", "", "");
 
             string absPath = EditorUtility.OpenFolderPanel ("Select Target List Path", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
@@ -112,15 +111,10 @@ namespace SequenceBreaker.Editor
         void ConvertUnitSetFromExcel()
         {
 
-//            string objectPath = EditorPrefs.GetString(_targetPath);
-//            UnitWave unitWave = UnitWaveCreate.Create();
-
             int currentMissionId = 0;
-//                int currentWave = 0;
                 foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
                 {
                     
-//                    Debug.Log("in loop of unitSetExcelImport.unitSetExcelList: " + unitMasterExcel.unit1);
                     if (unitMasterExcel.missionId != currentMissionId)
                     {
                         //new mission start. so creat it.
@@ -131,9 +125,7 @@ namespace SequenceBreaker.Editor
                         unitSet.missionId = unitMasterExcel.missionId;
                     }
 
-//                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
-                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId ;
-//                    unitSet.unitSetList.Add(unitWave);
+                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
 
                     UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
                     if (unitWave.unitWave != null)

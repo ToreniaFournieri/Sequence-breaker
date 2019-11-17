@@ -242,8 +242,6 @@
               <e p="UnitClassForSave.cs" t="Include" />
               <e p="UnitClassList.cs" t="Include" />
               <e p="UnitEntity.cs" t="Include" />
-              <e p="UnitMaster.cs" t="Include" />
-              <e p="UnitMasterList.cs" t="Include" />
               <e p="UnitSet.cs" t="Include" />
               <e p="UnitWave.cs" t="Include" />
             </e>
@@ -335,7 +333,6 @@
             <e p="UnitMasterExcel.cs" t="Include" />
             <e p="UnitMasterExcelConverter.cs" t="Include" />
             <e p="UnitMasterExcelImport.cs" t="Include" />
-            <e p="UnitMasterListCreate.cs" t="Include" />
             <e p="UnitSetCreate.cs" t="Include" />
             <e p="UnitSetExcel.cs" t="Include" />
             <e p="UnitSetExcelConverter.cs" t="Include" />

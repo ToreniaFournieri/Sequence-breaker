@@ -187,8 +187,6 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClassForSave.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClassList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitEntity.cs" />
-     <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMaster.cs" />
-     <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMasterList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitSet.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitWave.cs" />
      <Compile Include="Assets\SequenceBreaker\02_Drop\DropEngine.cs" />
