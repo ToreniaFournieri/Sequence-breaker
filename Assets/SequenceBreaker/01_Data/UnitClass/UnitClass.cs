@@ -26,6 +26,21 @@ namespace SequenceBreaker._01_Data.UnitClass
          
         private int _levelUpAmount;
 
+        public void Copy(UnitClass unit)
+        {
+            uniqueId = unit.uniqueId;
+            name = unit.name;
+            affiliation = unit.affiliation;
+            unitType = unit.unitType;
+            itemCapacity = unit.itemCapacity;
+            itemList = unit.itemList;
+            coreFrame = unit.coreFrame;
+            pilot = unit.pilot;
+            level = unit.level;
+            experience = unit.experience;
+            toNextLevel = unit.toNextLevel;
+        }
+
         public int GainExperience (int experienceAdd)
         {
             experience += experienceAdd;

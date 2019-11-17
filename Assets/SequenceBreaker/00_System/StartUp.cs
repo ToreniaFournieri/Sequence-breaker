@@ -20,7 +20,8 @@ namespace SequenceBreaker._00_System
 
         
         //new Unit list
-        public UnitMasterList unitMasterList;
+//        public UnitMasterList unitMasterList;
+        public UnitClassList unitClassList;
 
         //wake up all main tab
         public GameObject a1;
@@ -48,9 +49,9 @@ namespace SequenceBreaker._00_System
             homeContentData.description = "[DEBUG]";
             homeContentData.isInfinityInventoryMode = true;
             homeContentData.unitClassList = new List<UnitClass>();
-            foreach (UnitMaster unitMaster in unitMasterList.unitList)
+            foreach (UnitClass unit in unitClassList.unitList)
             {
-                homeContentData.unitClassList.Add(unitMaster.GetUnitClass());
+                homeContentData.unitClassList.Add(unit);
             }
 
             homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);

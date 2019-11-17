@@ -185,6 +185,7 @@
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\TuningStyleClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClass.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClassForSave.cs" />
+     <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitClassList.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitEntity.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMaster.cs" />
      <Compile Include="Assets\SequenceBreaker\01_Data\UnitClass\UnitMasterList.cs" />

@@ -120,7 +120,7 @@ namespace SequenceBreaker.Editor
                 foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
                 {
                     
-                    Debug.Log("in loop of unitSetExcelImport.unitSetExcelList: " + unitMasterExcel.unit1);
+//                    Debug.Log("in loop of unitSetExcelImport.unitSetExcelList: " + unitMasterExcel.unit1);
                     if (unitMasterExcel.missionId != currentMissionId)
                     {
                         //new mission start. so creat it.
@@ -131,7 +131,8 @@ namespace SequenceBreaker.Editor
                         unitSet.missionId = unitMasterExcel.missionId;
                     }
 
-                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+//                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId ;
 //                    unitSet.unitSetList.Add(unitWave);
 
                     UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);

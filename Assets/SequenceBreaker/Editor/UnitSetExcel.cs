@@ -24,35 +24,36 @@ namespace SequenceBreaker.Editor
         { 
             UnitWave unitWave = UnitWaveCreate.Create(path);
 //            UnitWave unitWave = new UnitWave();
-            unitWave.unitWave = new List<int>();
-            string unitPath = "20_Enemy/" + "UnitMasterList";
-            UnitMasterList unitMasterList = Resources.Load<UnitMasterList>(unitPath);
+            unitWave.unitWave = new List<UnitClass>();
+            string unitPath = "20_Enemy/" + "UnitClassList";
+            UnitClassList unitClassList = Resources.Load<UnitClassList>(unitPath);
 
-            if (unit1 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit1)); }
-            if (unit2 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit2)); }
-            if (unit3 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit3)); }
-            if (unit4 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit4)); }
-            if (unit5 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit5)); }
-            if (unit6 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit6)); }
-            if (unit7 != null) { unitWave.unitWave.Add(GetUnitClass(unitMasterList, unit7)); }
+            Debug.Log("unit1:" + unit1 + " unit2:" + unit2);
+            if (unit1 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit1)); }
+            if (unit2 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit2)); }
+            if (unit3 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit3)); }
+            if (unit4 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit4)); }
+            if (unit5 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit5)); }
+            if (unit6 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit6)); }
+            if (unit7 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit7)); }
             
             return unitWave;
         }
 
-        private int GetUnitClass(UnitMasterList unitMasterList ,string unitString)
+        private UnitClass GetUnitClass(UnitClassList unitClassList ,string unitString)
         {
-            if (unitString != null && unitMasterList != null)
+            if (unitString != null && unitClassList != null)
             {
-                foreach (var unit in unitMasterList.unitList)
+                foreach (var unit in unitClassList.unitList)
                 {
-                    if (unit.unitName == unitString)
+                    if (unit.name == unitString)
                     {
-                        return unit.uniqueId;
+                        return unit;
                     }
                 }
             }
 
-            return -1;
+            return null;
         }
 
 

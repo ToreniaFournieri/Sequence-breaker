@@ -16,28 +16,24 @@ namespace SequenceBreaker.Editor
         public int itemCapacity;
         public string coreFrameString;
         public string pilotString;
-        public int level;
-        
-        
-        public UnitMaster GetUnitMaster()
+
+        public UnitClass GetUnitClass()
         {
-         UnitMaster unitMaster = new UnitMaster();
-         unitMaster.unitName = unitName;
-         unitMaster.uniqueId = uniqueId;
-         unitMaster.affiliation = affiliation;
-         unitMaster.unitType = unitType;
-         unitMaster.itemCapacity = itemCapacity;
-         string coreFramePath = "11_Unit-Base-Master/01_CoreFrame/" +coreFrameString;
-         unitMaster.coreFrame = Resources.Load<CoreFrame>(coreFramePath);
-         string pilotPath = "11_Unit-Base-Master/02_Pilot/" + pilotString ;
-         unitMaster.pilot = Resources.Load<Pilot>(pilotPath);
-         unitMaster.autoGenerationMode = false;
+            UnitClass unit = ScriptableObject.CreateInstance<UnitClass>();
+            unit.name = unitName;
+            unit.uniqueId = uniqueId;
+            unit.affiliation = affiliation;
+            unit.unitType = unitType;
+            unit.itemCapacity = itemCapacity;
+            string coreFramePath = "11_Unit-Base-Master/01_CoreFrame/" +coreFrameString;
+            unit.coreFrame = Resources.Load<CoreFrame>(coreFramePath);
+            string pilotPath = "11_Unit-Base-Master/02_Pilot/" + pilotString ;
+            unit.pilot = Resources.Load<Pilot>(pilotPath);
 
-         return unitMaster;
-         // level not used...
-
+            return unit;
 
         }
+
     }
 
  

@@ -8,13 +8,21 @@ namespace SequenceBreaker.Editor
     public class UnitMasterExcelConverter : EditorWindow
     {
         public UnitMasterExcelImport unitMasterExcelImport;
-        public UnitMasterList unitMasterList;
-        
+//        public UnitMasterList unitMasterList;
+        public UnitClassList unitClassList; 
+
+        private UnitClass _unit;
+
         private int viewIndex = 1;
 
-        private static string _excelPath = "ExcelPath";
-        private static string _targetPath = "ObjectPath";
+        private static string _excelPathId = "ExcelPath";
+//        private static string _targetPathId = "ObjectPath";
 
+        private static string _unitClassListPathId = "unitClassListPath";
+        private static string _unitClassPathId = "unitClassPath";
+
+        private string _unitPath;
+        private string _unitClassListPath;
         
         [MenuItem("Window/Unit Master Excel Converter %#e")]
         static void Init()
@@ -24,15 +32,15 @@ namespace SequenceBreaker.Editor
 
         private void OnEnable()
         {
-            if(EditorPrefs.HasKey(_excelPath)) 
+            if(EditorPrefs.HasKey(_excelPathId)) 
             {
-                string excelPath = EditorPrefs.GetString(_excelPath);
+                string excelPath = EditorPrefs.GetString(_excelPathId);
                 unitMasterExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitMasterExcelImport)) as UnitMasterExcelImport;
             }
-            if(EditorPrefs.HasKey(_targetPath)) 
+            if(EditorPrefs.HasKey(_unitClassListPathId)) 
             {
-                string objectPath = EditorPrefs.GetString(_targetPath);
-                unitMasterList = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitMasterList)) as UnitMasterList;
+                string objectPath = EditorPrefs.GetString(_unitClassListPathId);
+                unitClassList = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitClassList)) as UnitClassList;
             }
         }
 
@@ -59,17 +67,28 @@ namespace SequenceBreaker.Editor
 
                     GUILayout.BeginHorizontal();
 
-                    if (GUILayout.Button("2. Select [Export] Unit master asset", GUILayout.ExpandWidth(false)))
+                    if (GUILayout.Button("2. Select [Export] Unit Class List asset", GUILayout.ExpandWidth(false)))
                     {
-                        OpenItemList();
+                        OpenUnitClassList();
                     }
 
-                    GUILayout.Label(unitMasterList ? unitMasterList.name : " Unselected");
+                    GUILayout.Label(unitClassList ? unitClassList.name : " Unselected");
 
                     GUILayout.EndHorizontal();
 
+                    GUILayout.BeginHorizontal();
+
+                    if (GUILayout.Button("3. Select [Export] Unit Class Path", GUILayout.ExpandWidth(false)))
+                    {
+                        OpenUnitClass();
+                    }
+
+                    GUILayout.Label(_unitPath ?? " Unselected");
+
+                    GUILayout.EndHorizontal();
                     
-                    if (GUILayout.Button("3. Convert Excel to Unit List", GUILayout.ExpandWidth(false)))
+                    
+                    if (GUILayout.Button("4. Convert Excel to Unit List", GUILayout.ExpandWidth(false)))
                     {
                         ConvertUnitListFromExcel();
                     }
@@ -82,27 +101,44 @@ namespace SequenceBreaker.Editor
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+                
                 unitMasterExcelImport = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitMasterExcelImport)) as UnitMasterExcelImport;
                 if (unitMasterExcelImport.unitMasterExcel == null)
                     unitMasterExcelImport.unitMasterExcel = new List<UnitMasterExcel>();
                 if (unitMasterExcelImport) {
-                    EditorPrefs.SetString(_excelPath, relPath);
+                    EditorPrefs.SetString(_excelPathId, relPath);
                 }
             }
         }
-        void OpenItemList () 
+
+        void OpenUnitClassList()
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Unit List", "", "");
+            string absPath = EditorUtility.OpenFilePanel("Select Unit Class List", "", "");
+            if (absPath.StartsWith(Application.dataPath))
+            {
+                string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+                _unitClassListPath = relPath;
+                if (unitClassList.unitList == null)
+                    unitClassList.unitList = new List<UnitClass>();
+                if (unitClassList)
+                {
+                    EditorPrefs.SetString(_unitClassListPathId, relPath);
+
+                }
+            }
+        }
+
+
+        void OpenUnitClass()
+        {
+            string absPath = EditorUtility.OpenFolderPanel("Select Unit Class path", "", "");
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                unitMasterList = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitMasterList)) as UnitMasterList;
-                if (unitMasterList.unitList == null)
-                    unitMasterList.unitList = new List<UnitMaster>();
-                if (unitMasterList) {
-                    EditorPrefs.SetString(_targetPath, relPath);
-                }
+                _unitPath = relPath;
+
             }
+            
         }
         
         void ConvertUnitListFromExcel () 
@@ -111,20 +147,20 @@ namespace SequenceBreaker.Editor
             // There is No "Are you sure you want to overwrite your existing object?" if it exists.
             // This should probably get a string from the user to create a new unitName and pass it ...
             viewIndex = 1;
-            
-            string objectPath = EditorPrefs.GetString(_targetPath);
 
-            unitMasterList = UnitMasterListCreate.Create(objectPath);
-            if (unitMasterList) 
+
+            if (unitClassList != null)
             {
-                unitMasterList.unitList = new List<UnitMaster>();
-                foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)
-                {
-                    unitMasterList.unitList.Add(unitMasterExcel.GetUnitMaster());
-                }
-
+                unitClassList = UnitClassListCreate.Create(_unitClassListPath);
             }
-            
+            unitClassList.unitList = new List<UnitClass>();
+            foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)
+            {
+                _unit = null;
+                _unit = UnitCreate.Create(_unitPath,unitMasterExcel.GetUnitClass());
+                unitClassList.unitList.Add(_unit);
+            }
+                
 
 
         }

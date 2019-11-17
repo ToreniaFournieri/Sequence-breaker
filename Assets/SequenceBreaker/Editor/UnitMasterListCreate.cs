@@ -7,7 +7,7 @@ namespace SequenceBreaker.Editor
     public static class UnitMasterListCreate
     {
         [MenuItem("Assets/Create/UnitMaster")]
-        public static UnitMasterList  Create(string pathAndName)
+        public static UnitMasterList Create(string pathAndName)
         {
             UnitMasterList asset = ScriptableObject.CreateInstance<UnitMasterList>();
             

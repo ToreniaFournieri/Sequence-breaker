@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data.Items.Item;
+using UnityEditor;
+using UnityEngine;
 
 namespace SequenceBreaker._01_Data.UnitClass
 {
@@ -19,23 +21,25 @@ namespace SequenceBreaker._01_Data.UnitClass
         public int experience;
         public bool autoGenerationMode;
         
-        
-        public UnitClass GetUnitClass()
-        {
-            UnitClass unitClass = new UnitClass();
-
-            unitClass.name = unitName;
-            unitClass.uniqueId = uniqueId;
-            unitClass.affiliation = affiliation;
-            unitClass.unitType = unitType;
-            unitClass.itemCapacity = itemCapacity;
-            unitClass.coreFrame = coreFrame;
-            unitClass.pilot = pilot;
-            unitClass.level = 1;
-            unitClass.experience = experience;
-            return unitClass;
-            
-        }
+//        
+//        public UnitClass GetUnitClass(string path)
+//        {
+//            UnitClass unitClass = ScriptableObject.CreateInstance<UnitClass>();
+//            
+//            AssetDatabase.CreateAsset(unitClass, path);
+//            unitClass.name = unitName;
+//            unitClass.uniqueId = uniqueId;
+//            unitClass.affiliation = affiliation;
+//            unitClass.unitType = unitType;
+//            unitClass.itemCapacity = itemCapacity;
+//            unitClass.coreFrame = coreFrame;
+//            unitClass.pilot = pilot;
+//            unitClass.level = 1;
+//            unitClass.experience = experience;
+//            AssetDatabase.SaveAssets();
+//            return unitClass;
+//
+//        }
 
     }
     
