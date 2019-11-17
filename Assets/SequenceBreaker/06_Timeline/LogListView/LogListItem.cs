@@ -95,7 +95,7 @@ namespace SequenceBreaker._06_Timeline.LogListView
         public void SetItemData(RunBattle itemData, int itemIndex)
         {
             _mItemDataIndex = itemIndex;
-            mContentText.text = itemData.missionText + "(lv: "+ itemData.missionLevelCurrent + ")";
+            mContentText.text = itemData.missionText + "(lv: "+ itemData.missionLevelInitial + ")";
             mDescriptionText.text = itemData.location;
 
             runBattle = itemData;
