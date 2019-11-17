@@ -6,21 +6,21 @@ using UnityEngine;
 
 namespace SequenceBreaker._01_Data.UnitClass
 {
-    [System.Serializable]
-    public class UnitMaster
-    {
-        public string unitName;
-        public int uniqueId;
-        public Affiliation affiliation;
-        public UnitType unitType;
-        public int itemCapacity;
-        public List<Item> itemList;
-
-        public CoreFrame coreFrame;
-        public Pilot.Pilot pilot;
-        public int experience;
-        public bool autoGenerationMode;
-        
+//    [System.Serializable]
+//    public class UnitMaster
+//    {
+//        public string unitName;
+//        public int uniqueId;
+//        public Affiliation affiliation;
+//        public UnitType unitType;
+//        public int itemCapacity;
+//        public List<Item> itemList;
+//
+//        public CoreFrame coreFrame;
+//        public Pilot.Pilot pilot;
+//        public int experience;
+//        public bool autoGenerationMode;
+//        
 //        
 //        public UnitClass GetUnitClass(string path)
 //        {
@@ -41,7 +41,7 @@ namespace SequenceBreaker._01_Data.UnitClass
 //
 //        }
 
-    }
+//    }
     
     
 }

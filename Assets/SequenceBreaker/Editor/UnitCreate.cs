@@ -12,7 +12,8 @@ namespace SequenceBreaker.Editor
         {
             UnitClass asset = ScriptableObject.CreateInstance<UnitClass>();
             asset.Copy(unit);
-            AssetDatabase.CreateAsset(asset, path);
+            string pathWithName = path  + "/"+ unit.uniqueId + ".asset";
+            AssetDatabase.CreateAsset(asset, pathWithName);
             AssetDatabase.SaveAssets();
             return asset;
         }

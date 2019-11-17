@@ -28,7 +28,7 @@ namespace SequenceBreaker.Editor
             string unitPath = "20_Enemy/" + "UnitClassList";
             UnitClassList unitClassList = Resources.Load<UnitClassList>(unitPath);
 
-            Debug.Log("unit1:" + unit1 + " unit2:" + unit2);
+//            Debug.Log("unit1:" + unit1 + " unit2:" + unit2);
             if (unit1 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit1)); }
             if (unit2 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit2)); }
             if (unit3 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit3)); }

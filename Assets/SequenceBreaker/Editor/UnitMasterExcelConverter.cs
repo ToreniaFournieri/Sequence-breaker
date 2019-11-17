@@ -118,12 +118,12 @@ namespace SequenceBreaker.Editor
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
                 _unitClassListPath = relPath;
-                if (unitClassList.unitList == null)
+                unitClassList = AssetDatabase.LoadAssetAtPath(relPath, typeof(UnitClassList)) as UnitClassList;
+                if (unitClassList != null && unitClassList.unitList == null)
                     unitClassList.unitList = new List<UnitClass>();
                 if (unitClassList)
                 {
                     EditorPrefs.SetString(_unitClassListPathId, relPath);
-
                 }
             }
         }
@@ -148,7 +148,7 @@ namespace SequenceBreaker.Editor
             // This should probably get a string from the user to create a new unitName and pass it ...
             viewIndex = 1;
 
-
+            
             if (unitClassList != null)
             {
                 unitClassList = UnitClassListCreate.Create(_unitClassListPath);
@@ -161,7 +161,6 @@ namespace SequenceBreaker.Editor
                 unitClassList.unitList.Add(_unit);
             }
                 
-
 
         }
     }
