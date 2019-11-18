@@ -328,16 +328,20 @@
             <e p="ShowDetailButton.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
-            <e p="UnitClassListCreate.cs" t="Include" />
-            <e p="UnitCreate.cs" t="Include" />
-            <e p="UnitMasterExcel.cs" t="Include" />
-            <e p="UnitMasterExcelConverter.cs" t="Include" />
-            <e p="UnitMasterExcelImport.cs" t="Include" />
-            <e p="UnitSetCreate.cs" t="Include" />
-            <e p="UnitSetExcel.cs" t="Include" />
-            <e p="UnitSetExcelConverter.cs" t="Include" />
-            <e p="UnitSetExcelImport.cs" t="Include" />
-            <e p="UnitWaveCreate.cs" t="Include" />
+            <e p="10_UnitClass" t="Include">
+              <e p="UnitClassListCreate.cs" t="Include" />
+              <e p="UnitCreate.cs" t="Include" />
+              <e p="UnitMasterExcel.cs" t="Include" />
+              <e p="UnitMasterExcelConverter.cs" t="Include" />
+              <e p="UnitMasterExcelImport.cs" t="Include" />
+            </e>
+            <e p="11_UnitSet" t="Include">
+              <e p="UnitSetCreate.cs" t="Include" />
+              <e p="UnitSetExcel.cs" t="Include" />
+              <e p="UnitSetExcelConverter.cs" t="Include" />
+              <e p="UnitSetExcelImport.cs" t="Include" />
+              <e p="UnitWaveCreate.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>

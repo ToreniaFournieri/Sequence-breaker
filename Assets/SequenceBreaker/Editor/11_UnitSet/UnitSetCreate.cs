@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor
+namespace SequenceBreaker.Editor._11_UnitSet
 {
     public class UnitSetCreate 
     {

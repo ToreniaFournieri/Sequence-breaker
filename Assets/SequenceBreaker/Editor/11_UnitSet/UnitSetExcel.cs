@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SequenceBreaker._01_Data.UnitClass;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor
+namespace SequenceBreaker.Editor._11_UnitSet
 {
     [Serializable]
     public class UnitSetExcel

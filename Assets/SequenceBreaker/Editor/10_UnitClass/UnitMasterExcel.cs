@@ -4,7 +4,7 @@ using SequenceBreaker._01_Data.UnitClass;
 using SequenceBreaker._01_Data.UnitClass.Pilot;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor
+namespace SequenceBreaker.Editor._10_UnitClass
 {
     [Serializable]
     public class UnitMasterExcel

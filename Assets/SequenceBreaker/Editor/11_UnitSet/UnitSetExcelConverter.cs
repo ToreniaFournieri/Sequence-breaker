@@ -4,7 +4,7 @@ using SequenceBreaker._01_Data.UnitClass;
 using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor
+namespace SequenceBreaker.Editor._11_UnitSet
 {
     public class UnitSetExcelConverter : EditorWindow
     {
