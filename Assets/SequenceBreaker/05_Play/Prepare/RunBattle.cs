@@ -318,22 +318,22 @@ namespace SequenceBreaker._05_Play.Prepare
 
                 _data.Add(new Data
                 {
-                    index = i,
-                    turn = battle.LogList[i].OrderCondition.Turn,
-                    cellSize = 1300, // this is dummy, need to calculate later
-                    reactText = reactText,
-                    unitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
-                    firstLine = battle.LogList[i].FirstLine,
-                    mainText = battle.LogList[i].Log,
-                    affiliation = battle.LogList[i].WhichAffiliationAct,
-                    nestLevel = battle.LogList[i].OrderCondition.Nest,
-                    isDead = isDead,
-                    barrierRemains = barrierRemains,
-                    shieldRatio = shieldRatio,
-                    hPRatio = hPRatio,
-                    isHeaderInfo = battle.LogList[i].isHeaderInfo,
-                    headerText = battle.LogList[i].headerInfoText,
-                    characters = characters
+                    Index = i,
+                    Turn = battle.LogList[i].OrderCondition.Turn,
+                    CellSize = 1300, // this is dummy, need to calculate later
+                    ReactText = reactText,
+                    UnitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
+                    FirstLine = battle.LogList[i].FirstLine,
+                    MainText = battle.LogList[i].Log,
+                    Affiliation = battle.LogList[i].WhichAffiliationAct,
+                    NestLevel = battle.LogList[i].OrderCondition.Nest,
+                    IsDead = isDead,
+                    BarrierRemains = barrierRemains,
+                    ShieldRatio = shieldRatio,
+                    HpRatio = hPRatio,
+                    IsHeaderInfo = battle.LogList[i].isHeaderInfo,
+                    HeaderText = battle.LogList[i].headerInfoText,
+                    Characters = characters
                 });
 
                 // set all of data to data (activate)

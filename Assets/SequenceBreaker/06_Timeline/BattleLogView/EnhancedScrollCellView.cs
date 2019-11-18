@@ -22,7 +22,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
         public void SetData(Data data, bool calculateLayout)
         {
-            cellText.text = data.mainText;
+            cellText.text = data.MainText;
 
 
             // Only calculate the layout on the first pass.
@@ -33,7 +33,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                 Canvas.ForceUpdateCanvases();
 
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
-                data.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
         }
 

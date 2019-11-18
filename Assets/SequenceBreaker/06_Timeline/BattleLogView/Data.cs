@@ -5,33 +5,33 @@ using UnityEngine;
 
 namespace SequenceBreaker._06_Timeline.BattleLogView
 {
-    [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
-    public sealed class Data : ScriptableObject
+//    [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
+    public sealed class Data 
     {
-        public int index;
-        public int turn;
-        public string reactText;
-        public string unitInfo;
-        public string firstLine;
-        public string mainText;
+        public int Index;
+        public int Turn;
+        public string ReactText;
+        public string UnitInfo;
+        public string FirstLine;
+        public string MainText;
 
         /// <summary>
         /// We will store the cell size in the model so that the cell view can update it
         /// </summary>
-        public float cellSize;
-        public int nestLevel;
+        public float CellSize;
+        public int NestLevel;
 
-        public bool isDead;
-        public int barrierRemains;
-        public float shieldRatio;
-        public float hPRatio;
+        public bool IsDead;
+        public int BarrierRemains;
+        public float ShieldRatio;
+        public float HpRatio;
 
-        public string headerText;
-        public bool isHeaderInfo;
-        public List<BattleUnit> characters;
+        public string HeaderText;
+        public bool IsHeaderInfo;
+        public List<BattleUnit> Characters;
 
 
-        public Affiliation affiliation;
+        public Affiliation Affiliation;
     }
 
 }

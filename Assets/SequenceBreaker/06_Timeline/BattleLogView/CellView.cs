@@ -47,13 +47,13 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
         public void SetData(Data data, Data nextData, bool calculateLayout, Sprite unitSprite)
         //public void SetData(BattleLogClass battleLogLists, bool calculateLayout)
         {
-            reactText.text = data.reactText;
+            reactText.text = data.ReactText;
 
-            if (data.isHeaderInfo)
+            if (data.IsHeaderInfo)
             {
-                headerInfo.text = data.headerText;
+                headerInfo.text = data.HeaderText;
                 showTargetUnit.unitIconObjectPool = unitIconObjectPool;
-                showTargetUnit.SetUnitInfo(data.characters);
+                showTargetUnit.SetUnitInfo(data.Characters);
                 headerContent.SetActive(true);
             }
             else
@@ -62,9 +62,9 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                 headerContent.SetActive(false);
             }
 
-            unitInfo.text = data.unitInfo;
-            firstLine.text = data.firstLine;
-            mainText.text = data.mainText;
+            unitInfo.text = data.UnitInfo;
+            firstLine.text = data.FirstLine;
+            mainText.text = data.MainText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(36, 20, 20, 255); // dark red
             Color darkGreen = new Color32(20, 36, 20, 255); // dark green
@@ -73,7 +73,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
             unitIcon.color = unitColor;
 
-            if (data.isDead == true)
+            if (data.IsDead == true)
             {
                 mainUnit.SetActive(false);
             } else
@@ -91,17 +91,17 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                 iconMask.SetActive(false);
             }
 
-            hPBar.fillAmount = data.hPRatio;
-            shieldBar.fillAmount = data.shieldRatio;
+            hPBar.fillAmount = data.HpRatio;
+            shieldBar.fillAmount = data.ShieldRatio;
 
             //Set barrier remains 
-            if (data.barrierRemains > 0)
+            if (data.BarrierRemains > 0)
             { barrierObject.SetActive(true); }
             else
             { barrierObject.SetActive(false); }
-            barrierRemains.text = data.barrierRemains.ToString();
+            barrierRemains.text = data.BarrierRemains.ToString();
 
-            switch (data.affiliation)
+            switch (data.Affiliation)
             {
                 case Affiliation.Ally:
                     color = darkGreen;
@@ -116,7 +116,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             backgroundImage.color = color;
 
 
-            if (data.nestLevel > 0)
+            if (data.NestLevel > 0)
             {
                 separateLine.SetActive(false);
             }
@@ -124,11 +124,11 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             {
                 separateLine.SetActive(true);
             }
-            nestedLinePrevious.rectTransform.sizeDelta = new Vector2(4 * data.nestLevel, 136);
+            nestedLinePrevious.rectTransform.sizeDelta = new Vector2(4 * data.NestLevel, 136);
 
             if (nextData != null)
             {
-                nestedLine.rectTransform.sizeDelta = new Vector2(4 * nextData.nestLevel, 0);
+                nestedLine.rectTransform.sizeDelta = new Vector2(4 * nextData.NestLevel, 0);
             }
 
             // Only calculate the layout on the first pass.
@@ -139,7 +139,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                 Canvas.ForceUpdateCanvases();
 
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
-                data.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
                 //battleLogLists.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
         }

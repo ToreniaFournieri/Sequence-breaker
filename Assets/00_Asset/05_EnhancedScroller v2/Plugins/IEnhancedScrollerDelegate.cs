@@ -10,7 +10,7 @@
         /// </summary>
         /// <param unitName="scroller"></param>
         /// <returns></returns>
-        int GetNumberOfCells(EnhancedScroller scroller);
+        int GetNumberOfCells(EnhancedScroller enhancedScroller);
 
         /// <summary>
         /// Gets the size of a cell view given the index of the data set.
@@ -19,7 +19,7 @@
         /// <param unitName="scroller"></param>
         /// <param unitName="dataIndex"></param>
         /// <returns></returns>
-        float GetCellViewSize(EnhancedScroller scroller, int dataIndex);
+        float GetCellViewSize(EnhancedScroller enhancedScroller, int dataIndex);
 
         /// <summary>
         /// Gets the cell view that should be used for the data index. Your implementation
@@ -30,6 +30,6 @@
         /// <param unitName="dataIndex"></param>
         /// <param unitName="cellIndex"></param>
         /// <returns></returns>
-        EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex);
+        EnhancedScrollerCellView GetCellView(EnhancedScroller enhancedScroller, int dataIndex, int cellIndex);
     }
 }

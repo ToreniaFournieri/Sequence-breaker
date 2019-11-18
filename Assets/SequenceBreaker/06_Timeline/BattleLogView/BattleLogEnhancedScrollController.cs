@@ -19,9 +19,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
     {
         [FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
         private List<Data> _data;
-        //private List<Data> _dataOfAll;
-        //private List<Data> _dataOfFiltered;
-        //private List<BattleLogClass> battleLogLists;
+
 
         /// <summary>
         /// This member tells the scroller that we need
@@ -39,7 +37,6 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
         public Transform parentJumpIndex;
         public GameObject jumpIndexPrefab;
-        //public SimpleObjectPool jumpIndexObjectPool;
 
         public RectTransform canvasToGetWidth;
 
@@ -66,8 +63,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
         ///
         // sample implemented 2019.8.6
 
-//        [FormerlySerializedAs("Battle")] public GameObject battle;
-        public RunBattle runbattle;
+        public RunBattle runBattle;
         
         public BattleLogEnhancedScrollController(bool calculateLayout)
         {
@@ -83,11 +79,6 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             searchResultText.text = null;
         }
 
-        void Start()
-        {
-
-        }
-
         /// <summary>
         /// Populates the data with some random Lorum Ipsum text
         /// </summary>
@@ -98,7 +89,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
         public void InitBattleLog(RunBattle initBattle)
         {
-            runbattle = initBattle;
+            runBattle = initBattle;
             DrawBattleLog();
         }
 
@@ -109,9 +100,9 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             _data = new List<Data>();
 
             //2019.10.3 always DataList is set 0.
-            _data = runbattle.dataList[0];
+            _data = runBattle.dataList[0];
 
-            DataList setDatalist = new DataList();
+            DataList setDatalist = ScriptableObject.CreateInstance<DataList>();
             setDatalist.data = _data;
 
             dataList.Add(setDatalist);
@@ -132,11 +123,10 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
-                if (t1.mainText != null)
+                if (t1.MainText != null)
                 {
 
-                    //string[] lines = _battle.logList[i].Log.Split(new Char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    string[] lines = t1.mainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] lines = t1.MainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     count = lines.Length;
 
                     foreach (var t in lines)
@@ -154,13 +144,13 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
-                if (t1.isHeaderInfo)
+                if (t1.IsHeaderInfo)
                 {
                     cellSize = 1300;
                 }
 
                 //could be index is incorrect. 2019.9.5
-                t1.cellSize = cellSize;
+                t1.CellSize = cellSize;
 
 
             }
@@ -173,7 +163,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
                 int maxCount = _data.Count;
                 int maxTurn = 1;
-                if (maxCount > 1) { maxTurn = _data[maxCount - 1].turn + 1; }
+                if (maxCount > 1) { maxTurn = _data[maxCount - 1].Turn + 1; }
 
 
                 foreach (Transform child in parentJumpIndex)
@@ -188,7 +178,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                     _jumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
 
-                    int index = _data.FindIndex((obj) => obj.turn == i);
+                    int index = _data.FindIndex((obj) => obj.Turn == i);
                     _jumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                     GetComponentInParent<EventTrigger>();
@@ -213,14 +203,14 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             {
 
                 // mainText if found, set is Matched true
-                bool isMatched = (data.mainText != null && data.mainText.Contains(searchText.text)) || data.firstLine != null && data.firstLine.Contains(searchText.text);
+                bool isMatched = (data.MainText != null && data.MainText.Contains(searchText.text)) || data.FirstLine != null && data.FirstLine.Contains(searchText.text);
 
                 // firstLine if found set is Matched true
 
                 if (isMatched)
                 {
 //                    filteredData.Add(data);
-                    _searchedIndexList.Add(data.index);
+                    _searchedIndexList.Add(data.Index);
                 }
                 else
                 {
@@ -276,7 +266,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             var rectTransform = scroller.GetComponent<RectTransform>();
             var size = rectTransform.sizeDelta;
 
-            // set the dimensions to the largest size possible to acommodate all the cells
+            // set the dimensions to the largest size possible to accommodate all the cells
             rectTransform.sizeDelta = new Vector2(size.x, float.MaxValue);
 
             //// First Pass: reload the scroller so that it can populate the text UI elements in the cell view.
@@ -299,40 +289,54 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
         #region EnhancedScroller Handlers
 
-        public int GetNumberOfCells(EnhancedScroller scroller)
+        public int GetNumberOfCells(EnhancedScroller enhancedScroller)
         {
             //return battleLogLists.Count;
             return _data.Count;
         }
 
-        public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
+        public float GetCellViewSize(EnhancedScroller enhancedScroller, int dataIndex)
         {
             // we pull the size of the cell from the model.
             // First pass (frame countdown 2): this size will be zero as set in the LoadData function
             // Second pass (frame countdown 1): this size will be set to the content size fitter in the cell view
             // Third pass (frame countdown 0): this set value will be pulled here from the scroller
             //return battleLogLists[dataIndex].cellSize;
-            return _data[dataIndex].cellSize;
+            return _data[dataIndex].CellSize;
         }
 
-        public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
+        public EnhancedScrollerCellView GetCellView(EnhancedScroller enhancedScroller, int dataIndex, int cellIndex)
         {
-            CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
-            cellView.unitIconObjectPool = unitIconObjectPool;
+            CellView cellView = enhancedScroller.GetCellView(cellViewPrefab) as CellView;
+            if (cellView != null)
+            {
+                cellView.unitIconObjectPool = unitIconObjectPool;
 
-            // tell the cell view to calculate its layout on the first pass,
-            // otherwise just use the size set in the data.
-            //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
-            Data nextData = null;
-            if (dataIndex < _data.Count - 1) { nextData = _data[dataIndex + 1]; }
+                // tell the cell view to calculate its layout on the first pass,
+                // otherwise just use the size set in the data.
+                //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
+                Data nextData = null;
+                if (dataIndex < _data.Count - 1)
+                {
+                    nextData = _data[dataIndex + 1];
+                }
 
-            Sprite setSprite = null;
-            if (_data[dataIndex].affiliation == Affiliation.Ally) { setSprite = allyImage; }
-            else if (_data[dataIndex].affiliation == Affiliation.Enemy) { setSprite = enemyImage; }
+                Sprite setSprite = null;
+                if (_data[dataIndex].Affiliation == Affiliation.Ally)
+                {
+                    setSprite = allyImage;
+                }
+                else if (_data[dataIndex].Affiliation == Affiliation.Enemy)
+                {
+                    setSprite = enemyImage;
+                }
 
-            cellView.SetData(_data[dataIndex], nextData, _calculateLayout, setSprite);
+                cellView.SetData(_data[dataIndex], nextData, _calculateLayout, setSprite);
 
-            return cellView;
+                return cellView;
+            }
+
+            return null;
         }
 
         #endregion
@@ -343,8 +347,10 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             if (searchBar.transform.gameObject.activeSelf == false)
             {
                 RectTransform rectTransform = log;
-                rectTransform.offsetMin = new Vector2(log.offsetMin.x, log.offsetMin.y);
-                rectTransform.offsetMax = new Vector2(log.offsetMax.x, log.offsetMax.y - 100);
+                var offsetMin = log.offsetMin;
+                rectTransform.offsetMin = new Vector2(offsetMin.x, offsetMin.y);
+                var offsetMax = log.offsetMax;
+                rectTransform.offsetMax = new Vector2(offsetMax.x, offsetMax.y - 100);
                 //log = rectTransform;
                 searchBar.transform.gameObject.SetActive(true);
             }
@@ -353,8 +359,10 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
         public void SetSearchBarClose()
         {
             RectTransform rectTransform = log;
-            rectTransform.offsetMin = new Vector2(log.offsetMin.x, log.offsetMin.y);
-            rectTransform.offsetMax = new Vector2(log.offsetMax.x, log.offsetMax.y + 100);
+            var offsetMin = log.offsetMin;
+            rectTransform.offsetMin = new Vector2(offsetMin.x, offsetMin.y);
+            var offsetMax = log.offsetMax;
+            rectTransform.offsetMax = new Vector2(offsetMax.x, offsetMax.y + 100);
             //log = rectTransform;
             searchBar.transform.gameObject.SetActive(false);
             //_data = _dataOfAll;

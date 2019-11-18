@@ -18,7 +18,7 @@ namespace SequenceBreaker._06_Timeline
         public void ShowDetail()
         {
             // pass the value of the result of Battle
-            battleLogEnhancedScrollController.runbattle = battle.GetComponent<RunBattle>();
+            battleLogEnhancedScrollController.runBattle = battle.GetComponent<RunBattle>();
             battleLogEnhancedScrollController.DrawBattleLog();
             
             battleLog.GetComponent<PanelAnimator>().StartAnimIn();
