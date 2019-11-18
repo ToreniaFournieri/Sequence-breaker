@@ -13,24 +13,19 @@ namespace SequenceBreaker._05_Play.Battle
 //Function, display battle condition text
     public sealed class FuncBattleConditionsText
     {
-//        private readonly int _currentBattleWaves;
-
         public FuncBattleConditionsText(int currentTurn, List<BattleUnit> characters)
         {
-//            _currentBattleWaves = currentBattleWaves;
             CurrentTurn = currentTurn; Characters = characters;
         }
 
         public string FirstLine()
         {
             return "Turn " + CurrentTurn + "\n";
-            //return "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
         }
 
         public string Text()
         {
             string text = null;
-            //text += "Turn " + CurrentTurn + " of " + "wave " + "" + CurrentBattleWaves + "\n";
 
             // get each affiliation unit list.
             var allys = Characters.FindAll(x => x.affiliation == Affiliation.Ally);
@@ -68,7 +63,6 @@ namespace SequenceBreaker._05_Play.Battle
                 }
             }
 
-            //text += "------------------------------------\n";
             return text;
         }
         private int CurrentTurn { get; }
@@ -133,8 +127,6 @@ namespace SequenceBreaker._05_Play.Battle
                 if (shieldPercentSpace < 0) { shieldPercentSpace = 0; }
                 var hPPercentSpace = (3 - Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma().Length);
                 if (hPPercentSpace < 0) { hPPercentSpace = 0; }
-//                var healSpace = (6 - healValue.WithComma().Length);
-//                if (healSpace < 0) { healSpace = 0; }
 
 
                 // check overflow of shield current.

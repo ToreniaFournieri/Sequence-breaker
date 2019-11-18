@@ -19,7 +19,7 @@ namespace SequenceBreaker._05_Play.MissionView
 
         //Battle object
         public GameObject Battle;
-        public RunBattle Runbattle;
+        public RunBattle RunBattle;
 
         public GoScript GoScript;
 
@@ -45,11 +45,11 @@ namespace SequenceBreaker._05_Play.MissionView
 
         public void SetBattle()
         {
-            //Set battle gameobject to activate GO button
+            //Set battle gameObject to activate GO button
             var go = Root.GetChild(2);
             GoScript = go.GetComponent<GoScript>();
 
-            GoScript.runBattle = Runbattle;
+            GoScript.runBattle = RunBattle;
             GoScript.missionController = MissionController;
 
 
@@ -76,8 +76,8 @@ namespace SequenceBreaker._05_Play.MissionView
     {
 
         // Utility randomness methods
-        public static int Rand(int maxExcl) { return UnityEngine.Random.Range(0, maxExcl); }
-        public static float RandF(float max = 1f) { return UnityEngine.Random.Range(0, max); }
+        public static int Rand(int maxExcl) { return Random.Range(0, maxExcl); }
+        public static float RandF(float max = 1f) { return Random.Range(0, max); }
     }
 
     public class SimpleClientModel
@@ -85,7 +85,7 @@ namespace SequenceBreaker._05_Play.MissionView
         public string MissionName;
         public string Location;
 
-        //Obsolate
+        //Obsolete
         public float Availability01, ContractChance01, LongTermClient01;
         public bool IsOnline;
 

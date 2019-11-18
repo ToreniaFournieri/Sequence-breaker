@@ -34,7 +34,7 @@ namespace SequenceBreaker._01_Data.Items.Item
         //Copy
         public Item Copy()
         {
-            Item other = (Item)this.MemberwiseClone();
+            Item other = (Item)MemberwiseClone();
             return other;
         }
 
@@ -123,7 +123,7 @@ namespace SequenceBreaker._01_Data.Items.Item
         public string TotaledCombatDescription()
         {
             string description = null;
-            CombatClass totaledCombat = this.TotaledCombat();
+            CombatClass totaledCombat = TotaledCombat();
 
             if (totaledCombat.shieldMax != 0) { description += "Shield +" + totaledCombat.shieldMax + "\n"; }
             if (totaledCombat.hitPointMax != 0) { description += "HP +" + totaledCombat.hitPointMax + "\n"; }
@@ -191,7 +191,7 @@ namespace SequenceBreaker._01_Data.Items.Item
             string boldName = "<b>" + GetName() + "</b> \n";
 
             // Totaled combat status
-            string totaledCombat = this.TotaledCombatDescription();
+            string totaledCombat = TotaledCombatDescription();
 
 
             //description detail

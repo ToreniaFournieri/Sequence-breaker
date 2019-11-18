@@ -20,7 +20,7 @@ namespace SequenceBreaker._06_Timeline
             orderCondition.text = _battleLog.OrderCondition.ToString();
             log.text = _battleLog.Log;
 
-            this.transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+            transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
         }
 

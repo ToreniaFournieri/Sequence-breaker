@@ -54,7 +54,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
 
 
             mStickeyHeadItem.Init();
-            mStickeyHeadItem.SetClickCallBack(this.OnExpandClicked);
+            mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
             mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
@@ -112,7 +112,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 {
                     item.IsInitHandlerCalled = true;
                     itemScript.Init();
-                    itemScript.SetClickCallBack(this.OnExpandClicked);
+                    itemScript.SetClickCallBack(OnExpandClicked);
                 }
                 //update the TreeItem's content
                 item.UserIntData1 = treeItemIndex;

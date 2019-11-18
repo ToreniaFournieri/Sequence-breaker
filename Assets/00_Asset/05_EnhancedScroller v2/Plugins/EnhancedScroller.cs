@@ -1143,7 +1143,7 @@ namespace _00_Asset._05_EnhancedScroller_v2.Plugins
                 // make some more size entries to fill it up
                 if (offset < ScrollRectSize)
                 {
-                    int additionalRounds = Mathf.CeilToInt((float)Mathf.CeilToInt(ScrollRectSize / offset) / 2.0f) * 2;
+                    int additionalRounds = Mathf.CeilToInt(Mathf.CeilToInt(ScrollRectSize / offset) / 2.0f) * 2;
                     _DuplicateCellViewSizes(additionalRounds, cellCount);
                     _loopFirstCellIndex = cellCount * (1 + (additionalRounds / 2));
                 }
@@ -1565,7 +1565,7 @@ namespace _00_Asset._05_EnhancedScroller_v2.Plugins
             GameObject go;
 
             // cache some components
-            _scrollRect = this.GetComponent<ScrollRect>();
+            _scrollRect = GetComponent<ScrollRect>();
             _scrollRectTransform = _scrollRect.GetComponent<RectTransform>();
 
             // destroy any content objects if they exist. Likely there will be

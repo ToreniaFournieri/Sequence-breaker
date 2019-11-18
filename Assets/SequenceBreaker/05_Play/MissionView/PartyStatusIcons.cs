@@ -12,11 +12,7 @@ namespace SequenceBreaker._05_Play.MissionView
         public List<BattleUnit> partyBattleUnitList;
         public SimpleObjectPool allyUnitIconObjectPool;
         public Transform contentPanel;
-
-        private void Awake()
-        {
-
-        }
+        
 
         private void Start()
         {
@@ -49,9 +45,9 @@ namespace SequenceBreaker._05_Play.MissionView
 
 
                 // 1 is Shield bar
-                imageArray[1].fillAmount = (float)battleUnit.combat.shieldCurrent / (float)battleUnit.combat.shieldMax;
+                imageArray[1].fillAmount = battleUnit.combat.shieldCurrent / (float)battleUnit.combat.shieldMax;
                 // 2 is HP bar
-                imageArray[2].fillAmount = (float)battleUnit.combat.hitPointCurrent / (float)battleUnit.combat.hitPointMax;
+                imageArray[2].fillAmount = battleUnit.combat.hitPointCurrent / (float)battleUnit.combat.hitPointMax;
 
                 // 3 is icon?
 

@@ -16,7 +16,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             {
                 List<GameObject> children = new List<GameObject>();
 
-                foreach (Transform child in this.transform)
+                foreach (Transform child in transform)
                 {
                     // [1]This didn't work.
                     //GameObject toReturn = new GameObject();
@@ -52,12 +52,12 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
                         vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
 
-                        vsIcon.transform.parent = this.transform;
+                        vsIcon.transform.parent = transform;
                         isSwitchedAffiliation = true;
                     }
 
-                    float shieldRatio = ((float)battleUnits[i].combat.shieldCurrent / (float)battleUnits[i].combat.shieldMax);
-                    float hPRatio = ((float)battleUnits[i].combat.hitPointCurrent / (float)battleUnits[i].combat.hitPointMax);
+                    float shieldRatio = (battleUnits[i].combat.shieldCurrent / (float)battleUnits[i].combat.shieldMax);
+                    float hPRatio = (battleUnits[i].combat.hitPointCurrent / (float)battleUnits[i].combat.hitPointMax);
 
                     string deteriorationText = null;
                     if ((int)(battleUnits[i].Deterioration * 100) >= 1)
@@ -84,7 +84,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
                     //unitIcon.tag = "UnitHorizontalInfo";
                     //unitIcon.transform.localScale = new Vector3(1f, 1f, 1f); // didnt work
-                    unitIcon.transform.parent = this.transform;
+                    unitIcon.transform.parent = transform;
                 }
 
             }

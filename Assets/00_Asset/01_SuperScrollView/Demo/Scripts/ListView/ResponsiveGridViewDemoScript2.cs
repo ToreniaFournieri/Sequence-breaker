@@ -77,7 +77,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 int dif = c - count;
                 for (int i = 0; i < dif; ++i)
                 {
-                    GameObject go = Object.Instantiate(p0, Vector3.zero, Quaternion.identity, rf);
+                    GameObject go = Instantiate(p0, Vector3.zero, Quaternion.identity, rf);
                     RectTransform trf = go.GetComponent<RectTransform>();
                     trf.localScale = Vector3.one;
                     trf.anchoredPosition3D = Vector3.zero;
@@ -94,7 +94,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
 
                     ListItem5 go = itemScript.mItemList[itemScript.mItemList.Count - 1];
                     itemScript.mItemList.RemoveAt(itemScript.mItemList.Count - 1);
-                    Object.DestroyImmediate(go.gameObject);
+                    DestroyImmediate(go.gameObject);
                 }
             }
             float curX = padding;

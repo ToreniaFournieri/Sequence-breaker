@@ -28,7 +28,7 @@ namespace SequenceBreaker._04_Home.HomeListView
             {
                 if (_instance == null)
                 {
-                    _instance = Object.FindObjectOfType<HomeDataSourceMgr>();
+                    _instance = FindObjectOfType<HomeDataSourceMgr>();
                 }
                 return _instance;
             }

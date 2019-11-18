@@ -25,7 +25,7 @@ namespace SequenceBreaker._00_System
             // otherwise, create a new instance
             else
             {
-                spawnedGameObject = (GameObject)GameObject.Instantiate(prefab);
+                spawnedGameObject = Instantiate(prefab);
 
                 // add the PooledObject component to the prefab so we know it came from this pool
                 PooledObject pooledObject = spawnedGameObject.AddComponent<PooledObject>();

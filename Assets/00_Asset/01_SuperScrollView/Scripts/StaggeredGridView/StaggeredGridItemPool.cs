@@ -69,14 +69,14 @@ namespace _00_Asset._01_SuperScrollView.Scripts.StaggeredGridView
             int count = _mPooledItemList.Count;
             for (int i = 0; i < count; ++i)
             {
-                GameObject.DestroyImmediate(_mPooledItemList[i].gameObject);
+                Object.DestroyImmediate(_mPooledItemList[i].gameObject);
             }
             _mPooledItemList.Clear();
         }
         public LoopStaggeredGridViewItem CreateItem()
         {
 
-            GameObject go = GameObject.Instantiate<GameObject>(_mPrefabObj, Vector3.zero, Quaternion.identity, _mItemParent);
+            GameObject go = Object.Instantiate<GameObject>(_mPrefabObj, Vector3.zero, Quaternion.identity, _mItemParent);
             go.SetActive(true);
             RectTransform rf = go.GetComponent<RectTransform>();
             rf.localScale = Vector3.one;

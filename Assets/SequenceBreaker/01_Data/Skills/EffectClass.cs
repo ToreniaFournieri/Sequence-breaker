@@ -18,34 +18,51 @@ namespace SequenceBreaker._01_Data.Skills
             int veiledFromTurn, int veiledToTurn)
         {
 
-            this.character = character; this.skill = skill; this.ActionType = actionType; this.offenseEffectMagnification = offenseEffectMagnification;
+            this.character = character; this.skill = skill; ActionType = actionType; this.offenseEffectMagnification = offenseEffectMagnification;
             this.triggeredPossibility = triggeredPossibility;
-            this.IsRescueAble = isRescueAble; this.UsageCount = usageCount;
-            this.VeiledFromTurn = veiledFromTurn; this.VeiledToTurn = veiledToTurn;
-            this.SpentCount = 0;
+            IsRescueAble = isRescueAble; UsageCount = usageCount;
+            VeiledFromTurn = veiledFromTurn; VeiledToTurn = veiledToTurn;
+            SpentCount = 0;
 
 
-            this.accumulationBaseRate = (int)skill.triggerBase.accumulationBaseRate;
-            this.NextAccumulationCount = accumulationBaseRate;
-            this.IsntTriggeredBecause = new IsntTriggeredBecauseClass();
+            accumulationBaseRate = (int)skill.triggerBase.accumulationBaseRate;
+            NextAccumulationCount = accumulationBaseRate;
+            IsntTriggeredBecause = new IsntTriggeredBecauseClass();
+        }
+        
+        public void Set(BattleUnit.BattleUnit iCharacter, SkillsMasterClass iSkill, ActionType iActionType, double iOffenseEffectMagnification,
+            double iTriggeredPossibility, bool iIsRescueAble, int iUsageCount,
+            int veiledFromTurn, int veiledToTurn)
+        {
+
+            character = iCharacter; skill = iSkill; ActionType = iActionType; offenseEffectMagnification = iOffenseEffectMagnification;
+            triggeredPossibility = iTriggeredPossibility;
+            IsRescueAble = iIsRescueAble; UsageCount = iUsageCount;
+            VeiledFromTurn = veiledFromTurn; VeiledToTurn = veiledToTurn;
+            SpentCount = 0;
+
+
+            accumulationBaseRate = (int)iSkill.triggerBase.accumulationBaseRate;
+            NextAccumulationCount = accumulationBaseRate;
+            IsntTriggeredBecause = new IsntTriggeredBecauseClass();
         }
 
         public void InitializeEffect()
         {
-            this.SpentCount = 0;
-            this.NextAccumulationCount = accumulationBaseRate;
+            SpentCount = 0;
+            NextAccumulationCount = accumulationBaseRate;
 
-            if (this.IsntTriggeredBecause == null) { this.IsntTriggeredBecause = new IsntTriggeredBecauseClass(); }
-            else { this.IsntTriggeredBecause.Initialize(); }
+            if (IsntTriggeredBecause == null) { IsntTriggeredBecause = new IsntTriggeredBecauseClass(); }
+            else { IsntTriggeredBecause.Initialize(); }
 
-            SkillsMasterClass copyedSkillsMaster = this.skill.DeepCopy(); //NEED TEST!! This may not works, i want copy the value, not reference.
-            this.IsRescueAble = copyedSkillsMaster.isHeal; // sample implemented.
-            this.ActionType = copyedSkillsMaster.actionType;
-            this.BuffToCharacter(currentTurn: 1);
+            SkillsMasterClass copyedSkillsMaster = skill.DeepCopy(); //NEED TEST!! This may not works, i want copy the value, not reference.
+            IsRescueAble = copyedSkillsMaster.isHeal; // sample implemented.
+            ActionType = copyedSkillsMaster.actionType;
+            BuffToCharacter(currentTurn: 1);
 
-            this.UsageCount = copyedSkillsMaster.usageCount;
-            this.VeiledFromTurn = 1;
-            this.VeiledToTurn = 20;
+            UsageCount = copyedSkillsMaster.usageCount;
+            VeiledFromTurn = 1;
+            VeiledToTurn = 20;
 
         }
 
@@ -69,11 +86,11 @@ namespace SequenceBreaker._01_Data.Skills
             public IsntTriggeredBecauseClass() { Initialize(); }
             public void Initialize()
             {
-                this.IsItCalled = false; this.TriggerCondition = false; this.AfterAllMoved = false; this.TriggerTargetCounter = false; this.TriggerTargetChain = false;
-                this.TriggerTargetReAttack = false; this.TriggerTargetMove = false; this.Critical = false; this.NonCritical = false;
-                this.OnlyWhenBeenHitMoreThanOnce = false; this.OnlyWhenAvoidMoreThanOnce = false; this.AccumulationAvoid = false; this.AccumulationAllHitCount = false;
-                this.AccumulationAllTotalBeenHit = false; this.AccumulationCriticalBeenHit = false; this.AccumulationCriticalHit = false; this.AccumulationSkillBeenHit = false;
-                this.AccumulationSkillHit = false; this.TriggeredPossibility = false;
+                IsItCalled = false; TriggerCondition = false; AfterAllMoved = false; TriggerTargetCounter = false; TriggerTargetChain = false;
+                TriggerTargetReAttack = false; TriggerTargetMove = false; Critical = false; NonCritical = false;
+                OnlyWhenBeenHitMoreThanOnce = false; OnlyWhenAvoidMoreThanOnce = false; AccumulationAvoid = false; AccumulationAllHitCount = false;
+                AccumulationAllTotalBeenHit = false; AccumulationCriticalBeenHit = false; AccumulationCriticalHit = false; AccumulationSkillBeenHit = false;
+                AccumulationSkillHit = false; TriggeredPossibility = false;
             }
 
             public bool IsItCalled { get; set; }

@@ -19,7 +19,7 @@ namespace SequenceBreaker._05_Play.Prepare
         
         
         // depend on the slider value
-        public int missionLevelCurrent;
+//        public int missionLevelCurrent;
         public WhichWin whichWin;
         public List<WhichWin> whichWinEachWaves;
 
@@ -59,35 +59,35 @@ namespace SequenceBreaker._05_Play.Prepare
 
         public RunBattle Copy()
         {
-            var deepCopyRunbattle = new RunBattle();
-            deepCopyRunbattle.enemyUnitSetList = enemyUnitSetList;
-            deepCopyRunbattle.battleEnvironment = battleEnvironment;
-            deepCopyRunbattle.missionText = missionText;
-            deepCopyRunbattle.location = location;
-            deepCopyRunbattle.whichWin = whichWin;
-            deepCopyRunbattle.dataList = dataList;
-            deepCopyRunbattle.currentAllyUnitList = currentAllyUnitList;
-            deepCopyRunbattle.whichWinEachWaves = whichWinEachWaves;
+            var deepCopyRunBattle = new RunBattle();
+            deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
+            deepCopyRunBattle.battleEnvironment = battleEnvironment;
+            deepCopyRunBattle.missionText = missionText;
+            deepCopyRunBattle.location = location;
+            deepCopyRunBattle.whichWin = whichWin;
+            deepCopyRunBattle.dataList = dataList;
+            deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
+            deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
 
-            return deepCopyRunbattle;
+            return deepCopyRunBattle;
 
         }
 
         public RunBattle Copy(int wave)
         {
-            var deepCopyRunbattle = new RunBattle();
-            deepCopyRunbattle.enemyUnitSetList = enemyUnitSetList;
-            deepCopyRunbattle.battleEnvironment = battleEnvironment;
-            deepCopyRunbattle.missionText = missionText;
-            deepCopyRunbattle.location = location;
-            deepCopyRunbattle.whichWin = whichWinEachWaves[wave];
-            deepCopyRunbattle.dataList = new List<List<Data>>();
-            deepCopyRunbattle.dataList.Add(dataList[wave]);
-            deepCopyRunbattle.currentAllyUnitList = currentAllyUnitList;
-            deepCopyRunbattle.whichWinEachWaves = whichWinEachWaves;
+            var deepCopyRunBattle = new RunBattle();
+            deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
+            deepCopyRunBattle.battleEnvironment = battleEnvironment;
+            deepCopyRunBattle.missionText = missionText;
+            deepCopyRunBattle.location = location;
+            deepCopyRunBattle.whichWin = whichWinEachWaves[wave];
+            deepCopyRunBattle.dataList = new List<List<Data>>();
+            deepCopyRunBattle.dataList.Add(dataList[wave]);
+            deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
+            deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
 
 
-            return deepCopyRunbattle;
+            return deepCopyRunBattle;
 
         }
 
@@ -118,14 +118,8 @@ namespace SequenceBreaker._05_Play.Prepare
             dataList = new List<List<Data>>();
             
             // set current enemy level
-            missionLevelCurrent = enemyLevel;
-//            foreach (var unitSet in enemyUnitSetList)
-//            {
-//                foreach (var unit in unitSet.enemyUnitList)
-//                {
-//                    unit.level = missionLevelCurrent;
-//                }
-//            }
+//            missionLevelCurrent = enemyLevel;
+
             
 
             (_allyBattleUnits, _allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);

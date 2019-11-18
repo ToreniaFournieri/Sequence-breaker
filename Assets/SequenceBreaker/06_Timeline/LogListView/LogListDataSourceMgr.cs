@@ -35,7 +35,7 @@ namespace SequenceBreaker._06_Timeline.LogListView
             {
                 if (_instance == null)
                 {
-                    _instance = Object.FindObjectOfType<LogListDataSourceMgr>();
+                    _instance = FindObjectOfType<LogListDataSourceMgr>();
                 }
                 return _instance;
             }

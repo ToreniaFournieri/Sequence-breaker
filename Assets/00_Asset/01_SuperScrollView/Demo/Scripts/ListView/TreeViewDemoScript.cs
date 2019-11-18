@@ -102,7 +102,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 {
                     item.IsInitHandlerCalled = true;
                     itemScript.Init();
-                    itemScript.SetClickCallBack(this.OnExpandClicked);
+                    itemScript.SetClickCallBack(OnExpandClicked);
                 }
                 //update the TreeItem's content
                 itemScript.mText.text = treeViewItemData.mName;

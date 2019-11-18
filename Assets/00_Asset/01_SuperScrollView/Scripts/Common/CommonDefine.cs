@@ -50,7 +50,7 @@
 
         public bool Equals(RowColumnPair other)
         {
-            return this.MRow == other.MRow && this.MColumn == other.MColumn;
+            return MRow == other.MRow && MColumn == other.MColumn;
         }
 
         public static bool operator ==(RowColumnPair a, RowColumnPair b)

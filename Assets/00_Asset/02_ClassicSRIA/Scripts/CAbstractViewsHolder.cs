@@ -26,10 +26,10 @@ namespace _00_Asset._02_ClassicSRIA.Scripts
 		/// </summary>
 		public virtual void Init(GameObject rootPrefabGo, int itemIndex, bool activateRootGameObject = true, bool callCollectViews = true)
 		{
-			Root = (GameObject.Instantiate(rootPrefabGo) as GameObject).transform as RectTransform;
+			Root = (Object.Instantiate(rootPrefabGo) as GameObject).transform as RectTransform;
 			if (activateRootGameObject)
 				Root.gameObject.SetActive(true);
-			this.ItemIndex = itemIndex;
+			ItemIndex = itemIndex;
 
 			if (callCollectViews)
 				CollectViews();

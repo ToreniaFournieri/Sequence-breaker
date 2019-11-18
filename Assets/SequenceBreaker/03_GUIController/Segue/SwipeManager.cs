@@ -23,56 +23,56 @@ namespace SequenceBreaker._03_GUIController.Segue
 
     private void Update () {
       if (Input.GetMouseButtonDown(0)) {
-        this._fingerDown = Input.mousePosition;
-        this._fingerUp = Input.mousePosition;
-        this._fingerDownTime = DateTime.Now;
+        _fingerDown = Input.mousePosition;
+        _fingerUp = Input.mousePosition;
+        _fingerDownTime = DateTime.Now;
       }
       if (Input.GetMouseButtonUp(0)) {
-        this._fingerDown = Input.mousePosition;
-        this._fingerUpTime = DateTime.Now;
-        this.CheckSwipe();
+        _fingerDown = Input.mousePosition;
+        _fingerUpTime = DateTime.Now;
+        CheckSwipe();
       }
       foreach (Touch touch in Input.touches) {
         if (touch.phase == TouchPhase.Began) {
-          this._fingerDown = touch.position;
-          this._fingerUp = touch.position;
-          this._fingerDownTime = DateTime.Now;
+          _fingerDown = touch.position;
+          _fingerUp = touch.position;
+          _fingerDownTime = DateTime.Now;
         }
         if (touch.phase == TouchPhase.Ended) {
-          this._fingerDown = touch.position;
-          this._fingerUpTime = DateTime.Now;
-          this.CheckSwipe();
+          _fingerDown = touch.position;
+          _fingerUpTime = DateTime.Now;
+          CheckSwipe();
         }
       }
     }
 
     private void CheckSwipe() {
-      float duration = (float)this._fingerUpTime.Subtract(this._fingerDownTime).TotalSeconds;
-      if (duration > this.timeThreshold) return;
+      float duration = (float)_fingerUpTime.Subtract(_fingerDownTime).TotalSeconds;
+      if (duration > timeThreshold) return;
 
-      float deltaX = this._fingerDown.x - this._fingerUp.x;
-      if (Mathf.Abs(deltaX) > this.swipeThreshold) {
+      float deltaX = _fingerDown.x - _fingerUp.x;
+      if (Mathf.Abs(deltaX) > swipeThreshold) {
         if (deltaX > 0) {
-          this.onSwipeRight.Invoke();
+          onSwipeRight.Invoke();
           Debug.Log("right");
         } else if (deltaX < 0) {
-          this.onSwipeLeft.Invoke();
+          onSwipeLeft.Invoke();
           Debug.Log("left");
         }
       }
 
       float deltaY = _fingerDown.y - _fingerUp.y;
-      if (Mathf.Abs(deltaY) > this.swipeThreshold) {
+      if (Mathf.Abs(deltaY) > swipeThreshold) {
         if (deltaY > 0) {
-          this.onSwipeUp.Invoke();
+          onSwipeUp.Invoke();
           Debug.Log("up");
         } else if (deltaY < 0) {
-          this.onSwipeDown.Invoke();
+          onSwipeDown.Invoke();
           Debug.Log("down");
         }
       }
 
-      this._fingerUp = this._fingerDown;
+      _fingerUp = _fingerDown;
     }
   }
 }

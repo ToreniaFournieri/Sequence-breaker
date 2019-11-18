@@ -511,7 +511,7 @@ namespace SequenceBreaker._01_Data.UnitClass
                           (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
                           + Mathf.Pow(unit.level, t5LevelPowBig)
                           + unit.level * _ability.generation
-                          + Mathf.Pow(unit.level, (float)_ability.generation / t5AbilityPowDenominator) * t5AbilityCoefficient
+                          + Mathf.Pow(unit.level, _ability.generation / t5AbilityPowDenominator) * t5AbilityCoefficient
                       ) * shieldCoefficient
                       + unit.coreFrame.shield);
 
@@ -521,7 +521,7 @@ namespace SequenceBreaker._01_Data.UnitClass
                           (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
                           + Mathf.Pow(unit.level, t5LevelPowBig)
                           + unit.level * _ability.stability
-                          + Mathf.Pow(unit.level, (float)_ability.stability / t5AbilityPowDenominator) * t5AbilityCoefficient
+                          + Mathf.Pow(unit.level, _ability.stability / t5AbilityPowDenominator) * t5AbilityCoefficient
                       ) * hpCoefficient
                       + unit.coreFrame.hp
                 );
@@ -540,14 +540,14 @@ namespace SequenceBreaker._01_Data.UnitClass
                                           (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
                                           + Mathf.Pow(unit.level, t4LevelPowBig)
                                           + unit.level * _ability.power
-                                          + Mathf.Pow(unit.level, (float)_ability.power / t4AbilityPowDenominator) * t4AbilityCoefficient
+                                          + Mathf.Pow(unit.level, _ability.power / t4AbilityPowDenominator) * t4AbilityCoefficient
                                       ) * powerCoefficient);
 
             _combatRaw.defense = (int)((
                                            (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
                                            + Mathf.Pow(unit.level, t4LevelPowBig)
                                            + unit.level * _ability.stability
-                                           + Mathf.Pow(unit.level, (float)_ability.stability / t4AbilityPowDenominator) * t4AbilityCoefficient
+                                           + Mathf.Pow(unit.level, _ability.stability / t4AbilityPowDenominator) * t4AbilityCoefficient
                                        ) * defenseCoefficient);
 
             // Tier 3
@@ -564,14 +564,14 @@ namespace SequenceBreaker._01_Data.UnitClass
                                             (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
                                             + Mathf.Pow(unit.level, t3LevelPowBig)
                                             + unit.level * _ability.responsiveness * t3AbilityBasedCoefficient
-                                            + Mathf.Pow(unit.level, (float)_ability.responsiveness / t3AbilityPowDenominator) * t3AbilityCoefficient
+                                            + Mathf.Pow(unit.level, _ability.responsiveness / t3AbilityPowDenominator) * t3AbilityCoefficient
                                         ) * mobilityCoefficient);
 
             _combatRaw.accuracy = (int)((
                                             (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
                                             + Mathf.Pow(unit.level, t3LevelPowBig)
                                             + unit.level * _ability.precision * t3AbilityBasedCoefficient
-                                            + Mathf.Pow(unit.level, (float)_ability.precision / t3AbilityPowDenominator) * t3AbilityCoefficient
+                                            + Mathf.Pow(unit.level, _ability.precision / t3AbilityPowDenominator) * t3AbilityCoefficient
                                         ) * accuracyCoefficient);
 
             //Tier 2
@@ -588,14 +588,14 @@ namespace SequenceBreaker._01_Data.UnitClass
                                                        (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
                                                        + Mathf.Pow(unit.level, t2LevelPowBig)
                                                        + unit.level * _ability.intelligence * t2AbilityBasedCoefficient
-                                                       + Mathf.Pow(unit.level, (float)_ability.intelligence / t2AbilityPowDenominator) * t2AbilityCoefficient
+                                                       + Mathf.Pow(unit.level, _ability.intelligence / t2AbilityPowDenominator) * t2AbilityCoefficient
                                                    ) * counterintelligenceCoefficient);
 
             _combatRaw.repair = (int)((
                                           (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
                                           + Mathf.Pow(unit.level, t2LevelPowBig)
                                           + unit.level * _ability.generation * t2AbilityBasedCoefficient
-                                          + Mathf.Pow(unit.level, (float)_ability.generation / t2AbilityPowDenominator) * t2AbilityCoefficient
+                                          + Mathf.Pow(unit.level, _ability.generation / t2AbilityPowDenominator) * t2AbilityCoefficient
                                       ) * repairCoefficient);
 
             // Tier 1
@@ -611,8 +611,8 @@ namespace SequenceBreaker._01_Data.UnitClass
             _combatRaw.numberOfAttacks = (int)(numberOfAttacksCoefficient + (unit.level / 4.0));
 
             // Min range and Max range, default are 1.
-            _combatRaw.minRange = (int)(1);
-            _combatRaw.maxRange = (int)(6);
+            _combatRaw.minRange = 1;
+            _combatRaw.maxRange = 6;
 
             // Sample set kinetic Attack ratio
             _combatRaw.kineticAttackRatio = 1.0;
@@ -870,7 +870,7 @@ namespace SequenceBreaker._01_Data.UnitClass
                 if (
                     iLhs.offenseOrDefense == iRhs.offenseOrDefense &&
                     iLhs.magnificationPercent == iRhs.magnificationPercent &&
-                    System.Math.Abs(iLhs.magnificationRatio - iRhs.magnificationRatio) < System.Double.Epsilon &&
+                    Math.Abs(iLhs.magnificationRatio - iRhs.magnificationRatio) < Double.Epsilon &&
                     iLhs.magnificationTarget == iRhs.magnificationTarget &&
                     iLhs.magnificationType == iRhs.magnificationType
                 )

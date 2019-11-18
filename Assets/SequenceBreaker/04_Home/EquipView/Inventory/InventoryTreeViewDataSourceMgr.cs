@@ -63,7 +63,7 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
             {
                 if (_instance == null)
                 {
-                    _instance = Object.FindObjectOfType<InventoryTreeViewDataSourceMgr>();
+                    _instance = FindObjectOfType<InventoryTreeViewDataSourceMgr>();
                 }
                 return _instance;
             }

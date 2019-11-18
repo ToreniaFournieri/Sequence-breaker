@@ -11,13 +11,9 @@ namespace SequenceBreaker._05_Play.Battle
     [Serializable]
     public sealed class BattleLogClass
     {
-//        private readonly bool _isNavigation;
-//        private readonly int _importance;
         public BattleLogClass() { } // for null call
         public BattleLogClass(OrderConditionClass orderCondition, OrderClass order, string firstLine, string log, Affiliation whichAffiliationAct)
         {
-//            _isNavigation = isNavigation;
-//            _importance = importance;
             OrderCondition = orderCondition;
             if (order != null) { Order = order.Copy(); }
             FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct;
@@ -35,8 +31,7 @@ namespace SequenceBreaker._05_Play.Battle
 
         [FormerlySerializedAs("IsHeaderInfo")] public bool isHeaderInfo;
         [FormerlySerializedAs("HeaderInfoText")] public string headerInfoText;
-
-        //public float cellSize;
+        
     }
 
 
@@ -44,7 +39,6 @@ namespace SequenceBreaker._05_Play.Battle
     {
         public List<BattleLogClass> battleLogList;
         public Transform contentPanel;
-//        public RefreshController refreshController;
 
         public SimpleObjectPool buttonObjectPool;
 

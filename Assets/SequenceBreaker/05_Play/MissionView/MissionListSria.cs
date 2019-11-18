@@ -12,14 +12,12 @@ namespace SequenceBreaker._05_Play.MissionView
 
     {
         //for battle calculation
-//        public List<GameObject> battleList;
         public List<RunBattle> runBattleList;
 
         // Mission Controller (ally unit list and battle engine)
         public MissionController missionController;
 
         public RectTransform itemPrefab;
-//    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
 
         private List<ExpandableSimpleClientModel> Data { get; set; }
 
@@ -40,11 +38,7 @@ namespace SequenceBreaker._05_Play.MissionView
         protected override void Start()
         {
             base.Start();
-
-//            if (runBattleList.Count > 0)
-//            {
-//                ChangeModelsAndReset(runBattleList.Count);
-//            }
+            
             if (runBattleList.Count > 0)
             {
                 ChangeModelsAndReset(runBattleList.Count);
@@ -80,7 +74,7 @@ namespace SequenceBreaker._05_Play.MissionView
             instance.ExpandCollapseComponent.sizeChangesHandler = this;
 
             //Set battle gameObject to each instanced itemPrefab
-            instance.Runbattle = runBattleList[itemIndex];
+            instance.RunBattle = runBattleList[itemIndex];
             instance.MissionController = missionController;
 
             instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].missionLevelInitial;
@@ -97,33 +91,7 @@ namespace SequenceBreaker._05_Play.MissionView
         #endregion
 
         #region events from DrawerCommandPanel
-//        void OnAddItemRequested(bool atEnd)
-//        {
-//            int index = atEnd ? Data.Count : 0;
-//            Data.Insert(index, CreateNewModel(index));
-////        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
-//        }
-//        void OnRemoveItemRequested(bool fromEnd)
-//        {
-//            if (Data.Count == 0)
-//                return;
-//
-//            int index = fromEnd ? Data.Count - 1 : 0;
-//
-//            Data.RemoveAt(index);
-////        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
-//        }
-//    void OnItemCountChangeRequested() { ChangeModelsAndReset(demoUi.SetCountValue); }
-//        void OnScrollToRequested()
-//        {
-////        if (demoUi.ScrollToValue >= Data.Count)
-////            return;
-////
-////        demoUi.scrollToButton.interactable = false;
-////        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
-////        if (!started)
-////            demoUi.scrollToButton.interactable = true;
-//        }
+
         #endregion
 
         #region CExpandCollapseOnClick.ISizeChangesHandler implementation
@@ -159,9 +127,6 @@ namespace SequenceBreaker._05_Play.MissionView
             {
                 MissionName = runBattleList[index].missionText,
                 Location = runBattleList[index].location,
-//                MissionName = battleList[index].GetComponent<RunBattle>().missionText,
-//                Location = battleList[index].GetComponent<RunBattle>().location,
-
                 NonExpandedSize = _prefabLayoutElement.preferredHeight
             };
             model.SetRandom();

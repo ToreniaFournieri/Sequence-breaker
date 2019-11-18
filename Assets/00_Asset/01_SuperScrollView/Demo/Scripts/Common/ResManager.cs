@@ -19,7 +19,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             {
                 if (instance == null)
                 {
-                    instance = Object.FindObjectOfType<ResManager>();
+                    instance = FindObjectOfType<ResManager>();
                 }
                 return instance;
             }

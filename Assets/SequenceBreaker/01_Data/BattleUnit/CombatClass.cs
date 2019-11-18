@@ -31,31 +31,31 @@ namespace SequenceBreaker._01_Data.BattleUnit
 
         public CombatClass Copy()
         {
-            return (CombatClass)this.MemberwiseClone();
+            return (CombatClass)MemberwiseClone();
         }
 
 
         public CombatClass Add(CombatClass combatFrom)
         {
-            this.shieldCurrent += combatFrom.shieldCurrent;
-            this.shieldMax += combatFrom.shieldMax;
-            this.hitPointCurrent += combatFrom.hitPointCurrent;
-            this.hitPointMax += combatFrom.hitPointMax;
-            this.attack += combatFrom.attack;
-            this.kineticAttackRatio += combatFrom.kineticAttackRatio;
-            this.chemicalAttackRatio += combatFrom.chemicalAttackRatio;
-            this.thermalAttackRatio += combatFrom.thermalAttackRatio;
-            this.criticalHit += combatFrom.criticalHit;
-            this.numberOfAttacks += combatFrom.numberOfAttacks;
+            shieldCurrent += combatFrom.shieldCurrent;
+            shieldMax += combatFrom.shieldMax;
+            hitPointCurrent += combatFrom.hitPointCurrent;
+            hitPointMax += combatFrom.hitPointMax;
+            attack += combatFrom.attack;
+            kineticAttackRatio += combatFrom.kineticAttackRatio;
+            chemicalAttackRatio += combatFrom.chemicalAttackRatio;
+            thermalAttackRatio += combatFrom.thermalAttackRatio;
+            criticalHit += combatFrom.criticalHit;
+            numberOfAttacks += combatFrom.numberOfAttacks;
 
             //Note: MinRange and MaxRange is not be add up.
             //combatAdded.MinRange;
             //combatAdded.MaxRange;
-            this.accuracy += combatFrom.accuracy;
-            this.mobility += combatFrom.mobility;
-            this.defense += combatFrom.defense;
-            this.counterintelligence += combatFrom.counterintelligence;
-            this.repair += combatFrom.repair;
+            accuracy += combatFrom.accuracy;
+            mobility += combatFrom.mobility;
+            defense += combatFrom.defense;
+            counterintelligence += combatFrom.counterintelligence;
+            repair += combatFrom.repair;
 
             return this;
         }
@@ -64,25 +64,25 @@ namespace SequenceBreaker._01_Data.BattleUnit
         {
             const double raised = 1.2; // need to be think later. this value is temp.
 
-            this.shieldCurrent = (int)(this.shieldCurrent * Math.Pow(raised, specifies));
-            this.shieldMax = (int)(this.shieldMax * Math.Pow(raised, specifies));
-            this.hitPointCurrent = (int)(this.hitPointCurrent * Math.Pow(raised, specifies));
-            this.hitPointMax = (int)(this.hitPointMax * Math.Pow(raised, specifies));
-            this.attack = (int)(this.attack * Math.Pow(raised, specifies));
-            this.kineticAttackRatio = (int)(this.kineticAttackRatio * Math.Pow(raised, specifies));
-            this.chemicalAttackRatio = (int)(this.chemicalAttackRatio * Math.Pow(raised, specifies));
-            this.thermalAttackRatio = (int)(this.thermalAttackRatio * Math.Pow(raised, specifies));
-            this.criticalHit = (int)(this.criticalHit * Math.Pow(raised, specifies));
-            this.numberOfAttacks = (int)(this.numberOfAttacks * Math.Pow(raised, specifies));
+            shieldCurrent = (int)(shieldCurrent * Math.Pow(raised, specifies));
+            shieldMax = (int)(shieldMax * Math.Pow(raised, specifies));
+            hitPointCurrent = (int)(hitPointCurrent * Math.Pow(raised, specifies));
+            hitPointMax = (int)(hitPointMax * Math.Pow(raised, specifies));
+            attack = (int)(attack * Math.Pow(raised, specifies));
+            kineticAttackRatio = (int)(kineticAttackRatio * Math.Pow(raised, specifies));
+            chemicalAttackRatio = (int)(chemicalAttackRatio * Math.Pow(raised, specifies));
+            thermalAttackRatio = (int)(thermalAttackRatio * Math.Pow(raised, specifies));
+            criticalHit = (int)(criticalHit * Math.Pow(raised, specifies));
+            numberOfAttacks = (int)(numberOfAttacks * Math.Pow(raised, specifies));
 
             //Note: MinRange and MaxRange is not be add up.
             //combatAdded.MinRange;
             //combatAdded.MaxRange;
-            this.accuracy = (int)(this.accuracy * Math.Pow(raised, specifies));
-            this.mobility = (int)(this.mobility * Math.Pow(raised, specifies));
-            this.defense = (int)(this.defense * Math.Pow(raised, specifies));
-            this.counterintelligence = (int)(this.counterintelligence * Math.Pow(raised, specifies));
-            this.repair = (int)(this.repair * Math.Pow(raised, specifies));
+            accuracy = (int)(accuracy * Math.Pow(raised, specifies));
+            mobility = (int)(mobility * Math.Pow(raised, specifies));
+            defense = (int)(defense * Math.Pow(raised, specifies));
+            counterintelligence = (int)(counterintelligence * Math.Pow(raised, specifies));
+            repair = (int)(repair * Math.Pow(raised, specifies));
 
 
             return this;

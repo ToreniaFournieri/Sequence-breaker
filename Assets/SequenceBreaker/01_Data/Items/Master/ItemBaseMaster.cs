@@ -48,7 +48,7 @@ namespace SequenceBreaker._01_Data.Items.Master
 
 		public ItemBaseMaster Copy()
 		{
-			return (ItemBaseMaster)this.MemberwiseClone();
+			return (ItemBaseMaster)MemberwiseClone();
 		}
 		
 

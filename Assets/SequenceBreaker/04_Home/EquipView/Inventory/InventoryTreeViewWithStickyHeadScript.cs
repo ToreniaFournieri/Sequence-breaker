@@ -60,7 +60,7 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
 
 
             mStickeyHeadItem.Init();
-            mStickeyHeadItem.SetClickCallBack(this.OnExpandClicked);
+            mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
             mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
@@ -157,7 +157,7 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
                 {
                     item.IsInitHandlerCalled = true;
                     itemScript.Init();
-                    itemScript.SetClickCallBack(this.OnExpandClicked);
+                    itemScript.SetClickCallBack(OnExpandClicked);
                 }
                 //update the TreeItem's content
                 item.UserIntData1 = treeItemIndex;

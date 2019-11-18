@@ -4,6 +4,8 @@ using System.Linq;
 using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data.BattleUnit;
 using SequenceBreaker._01_Data.Skills;
+using UnityEngine;
+using Random = System.Random;
 
 namespace SequenceBreaker._05_Play.Battle
 {
@@ -242,11 +244,11 @@ namespace SequenceBreaker._05_Play.Battle
                                         case 2:
                                         {
                                             environmentInfo.Phase = 2;
-                                            firstLine = "[Main action phase] \n";
-                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
-                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
+//                                            firstLine = "[Main action phase] \n";
+//                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
+//                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
+//                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
+//                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
                                             //battleLogList.Add(battleLog);
 
                                             for (var i = 0; i <= aliveCharacters.Count - 1; i++)
@@ -261,9 +263,14 @@ namespace SequenceBreaker._05_Play.Battle
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
 
                                                 // Add normal attack skills
-                                                var normalAttackEffect = new EffectClass(aliveCharacters[i],
+//                                                var normalAttackEffect = new EffectClass(aliveCharacters[i],
+//                                                    _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
+//                                                    1.0, false, 1000, 1, 20);
+                                                var normalAttackEffect = ScriptableObject.CreateInstance<EffectClass>();
+                                                normalAttackEffect.Set(aliveCharacters[i],
                                                     _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
                                                     1.0, false, 1000, 1, 20);
+                                                
                                                 effectList.Add(normalAttackEffect);
                                                 orderForSort.Add(new OrderClass(orderCondition, aliveCharacters[i],
                                                     ActionType.Move, ref effectList,
@@ -366,7 +373,7 @@ namespace SequenceBreaker._05_Play.Battle
                                     }
 
 
-                                    if (order.IsRescue) //only when rescure
+                                    if (order.IsRescue) //only when rescue
                                     {
                                         var deleteOneActionOrderIfHave = orders.ToList();
                                         var deleteOneActionOrderRaw = deleteOneActionOrderIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
@@ -819,11 +826,11 @@ namespace SequenceBreaker._05_Play.Battle
                             addCount = 1;
                         }
                     }
-                    var orderCondition = new OrderConditionClass(wave: environmentInfo.Wave, turn: environmentInfo.Turn, phase: environmentInfo.Phase, orderNumber: orderNumber,
-                        nest: nest + addCount, nestOrderNumber: nestNumber);
+                    var orderCondition = new OrderConditionClass(environmentInfo.Wave, environmentInfo.Turn, environmentInfo.Phase, orderNumber,
+                        nest + addCount, nestNumber);
 
-                    var skillsByOrder = new OrderClass(orderCondition: orderCondition, actor: character, actionType: actionType, skillEffectProposed: ref validEffectsPerActor, actionSpeed: 0,
-                        individualTarget: individualTarget, isRescue: isRescue);
+                    var skillsByOrder = new OrderClass(orderCondition, character, actionType, ref validEffectsPerActor, 0,
+                        individualTarget, isRescue);
                     skillsByOrderStack.Push(skillsByOrder); nestNumber++;
                 }
             }
@@ -844,11 +851,17 @@ namespace SequenceBreaker._05_Play.Battle
             {
                 case TargetType.Self: //Buff self
                     addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
-                    addingEffect.Add(new EffectClass(character: order.Actor, skill: addingBuff, actionType: ActionType.None,
-                        offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isRescueAble: false, usageCount: addingBuff.usageCount,
-                        veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
+//                    addingEffect.Add(new EffectClass(order.Actor, addingBuff, ActionType.None,
+//                        1.0, 0.0, false, addingBuff.usageCount,
+//                        turn, (turn + addingBuff.veiledTurn)));
+                    EffectClass effectClass = ScriptableObject.CreateInstance<EffectClass>();
+                    effectClass.Set(order.Actor, addingBuff, ActionType.None,
+                        1.0, 0.0, false, addingBuff.usageCount,
+                        turn, (turn + addingBuff.veiledTurn));
+                    
+                    addingEffect.Add(effectClass);
                     effects.Add(addingEffect[0]);
-                    addingEffect[0].BuffToCharacter(currentTurn: turn);
+                    addingEffect[0].BuffToCharacter(turn);
                     order.Actor.buff.AddBarrier(addingEffect[0].skill.buffTarget.barrierRemaining);
 
                     string triggerPossibilityText = null;
@@ -868,7 +881,7 @@ namespace SequenceBreaker._05_Play.Battle
                             case ReferenceStatistics.SkillBeenHitCount: count = order.Actor.Statistics.SkillBeenHitCount; break;
                             case ReferenceStatistics.SkillHitCount: count = order.Actor.Statistics.SkillHitCount; break;
                         }
-                        string nextText = null;
+                        string nextText;
                         if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usage count left."; }
                         accumulationText = "(" + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
@@ -887,12 +900,18 @@ namespace SequenceBreaker._05_Play.Battle
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {
-                        addingEffect.Add(new EffectClass(character: buffTargetCharacters[i], skill: addingBuff, actionType: ActionType.None,
-                            offenseEffectMagnification: 1.0, triggeredPossibility: 0.0, isRescueAble: false, usageCount: addingBuff.usageCount,
-                            veiledFromTurn: turn, veiledToTurn: (turn + addingBuff.veiledTurn)));
+//                        addingEffect.Add(new EffectClass(buffTargetCharacters[i], addingBuff, ActionType.None,
+//                            1.0, 0.0, false, addingBuff.usageCount,
+//                            turn, (turn + addingBuff.veiledTurn)));
+                        EffectClass effectClass2 = ScriptableObject.CreateInstance<EffectClass>();
+                        effectClass2.Set(buffTargetCharacters[i], addingBuff, ActionType.None,
+                            1.0, 0.0, false, addingBuff.usageCount,
+                            turn, (turn + addingBuff.veiledTurn));
+
+                        addingEffect.Add(effectClass2);
                         effects.Add(addingEffect[i]);
 
-                        addingEffect[i].BuffToCharacter(currentTurn: turn);
+                        addingEffect[i].BuffToCharacter(turn);
                         buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
                         log += new string(' ', 3) + buffTargetCharacters[i].name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns.";
@@ -922,12 +941,12 @@ namespace SequenceBreaker._05_Play.Battle
             switch (order.SkillEffectChosen.skill.callSkillLogicName)
             {
                 case CallSkillLogicName.ShieldHealMulti:
-                    healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: true, environmentInfo: environmentInfo);
+                    healMulti = new SkillLogicShieldHealClass(order, characters, true, environmentInfo);
                     log += healMulti.Log;
                     firstLine = healMulti.FirstLine;
                     break;
                 case CallSkillLogicName.ShieldHealSingle:
-                    healMulti = new SkillLogicShieldHealClass(order: order, characters: characters, isMulti: false, environmentInfo: environmentInfo);
+                    healMulti = new SkillLogicShieldHealClass(order, characters, false, environmentInfo);
                     log += healMulti.Log;
                     firstLine = healMulti.FirstLine;
                     break;
@@ -945,7 +964,7 @@ namespace SequenceBreaker._05_Play.Battle
                 case TargetType.Self: break;
                 case TargetType.None: break;
                 default:
-                    var attack = new AttackFunction(order: order, characters: characters, environmentInfo: environmentInfo);
+                    var attack = new AttackFunction(order, characters, environmentInfo);
                     battleResult = attack.BattleResult;
                     battleLog = attack.BattleLog;
                     break;

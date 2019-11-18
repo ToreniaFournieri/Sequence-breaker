@@ -26,7 +26,7 @@ namespace SequenceBreaker._01_Data.Skills
 
         public SkillsMasterClass DeepCopy()
         {
-            SkillsMasterClass other = (SkillsMasterClass)this.MemberwiseClone();
+            SkillsMasterClass other = (SkillsMasterClass)MemberwiseClone();
             return other;
         }
     }

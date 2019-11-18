@@ -17,13 +17,13 @@ namespace SequenceBreaker._01_Data.BattleUnit
 
         public FeatureClass(double absorbShieldInitial, bool damageControlAssist, double hateInitial, double hateMagnificationPerTurn)
         {
-            this.absorbShieldRatioCurrent = absorbShieldInitial; this.absorbShieldRatioInitial = absorbShieldInitial;
-            this.absorbShieldMaxRatioCurrent = absorbShieldInitial * 3.0; this.absorbShieldMaxRatioInitial = absorbShieldInitial * 3.0;
+            absorbShieldRatioCurrent = absorbShieldInitial; absorbShieldRatioInitial = absorbShieldInitial;
+            absorbShieldMaxRatioCurrent = absorbShieldInitial * 3.0; absorbShieldMaxRatioInitial = absorbShieldInitial * 3.0;
             this.damageControlAssist = damageControlAssist;
-            this.hateInitial = hateInitial; this.hateCurrent = hateInitial; this.hateMagnificationPerTurn = hateMagnificationPerTurn;
+            this.hateInitial = hateInitial; hateCurrent = hateInitial; this.hateMagnificationPerTurn = hateMagnificationPerTurn;
         }
         // absorb level should i call?
         // int absorbLevel  1= (3 * absorbLevel)% of attack and total (9 + 3* absorbLevel)% of max shield heal  etc...
-        public void InitializeFeature() { this.hateCurrent = hateInitial; }
+        public void InitializeFeature() { hateCurrent = hateInitial; }
     }
 }
