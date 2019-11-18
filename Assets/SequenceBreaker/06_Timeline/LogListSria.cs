@@ -22,9 +22,7 @@ namespace SequenceBreaker._06_Timeline
 
         public GameObject transparentMessageController;
         public RectTransform itemPrefab;
-
-//    [FormerlySerializedAs("demoUI")] public DemoUi demoUi;
-
+        
         public List<LogClientModel> Data { get; private set; }
 
         LayoutElement _prefabLayoutElement;
@@ -61,12 +59,7 @@ namespace SequenceBreaker._06_Timeline
 
             StartCoroutine(DelayedClick());
         }
-
-        //public void AddBattleList(GameObject _battle)
-        //{
-        //    battleList.Add(_battle);
-        //}
-
+        
 
         IEnumerator DelayedClick()
         {
@@ -84,7 +77,6 @@ namespace SequenceBreaker._06_Timeline
 
             //Set battle gameObject to each instanced itemPrefab
             instance.Battle = battleList[itemIndex];
-            //instance.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
             instance.TransparentMessageController = transparentMessageController;
 
             instance.WhichWin = battleList[itemIndex].GetComponent<RunBattle>().whichWin;
@@ -102,37 +94,7 @@ namespace SequenceBreaker._06_Timeline
         #endregion
 
         #region events from DrawerCommandPanel
-//        void OnAddItemRequested(bool atEnd)
-//        {
-//            int index = atEnd ? Data.Count : 0;
-//            Data.Insert(index, CreateNewModel(index));
-////        InsertItems(index, 1, demoUi.freezeContentEndEdge.isOn);
-//        }
-//        void OnRemoveItemRequested(bool fromEnd)
-//        {
-//            if (Data.Count == 0)
-//                return;
-//
-//            int index = fromEnd ? Data.Count - 1 : 0;
-//
-//            Data.RemoveAt(index);
-////        RemoveItems(index, 1, demoUi.freezeContentEndEdge.isOn);
-//        }
 
-//        void OnItemCountChangeRequested()
-//        {
-////        ChangeModelsAndReset(demoUi.SetCountValue);
-//        }
-//        void OnScrollToRequested()
-//        {
-////        if (demoUi.ScrollToValue >= Data.Count)
-////            return;
-////
-////        demoUi.scrollToButton.interactable = false;
-////        bool started = SmoothScrollTo(demoUi.ScrollToValue, .75f, .5f, .5f, () => demoUi.scrollToButton.interactable = true);
-////        if (!started)
-////            demoUi.scrollToButton.interactable = true;
-//        }
         #endregion
 
         #region CExpandCollapseOnClick.ISizeChangesHandler implementation

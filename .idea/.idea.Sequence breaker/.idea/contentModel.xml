@@ -314,7 +314,6 @@
               <e p="Data.cs" t="Include" />
               <e p="DataList.cs" t="Include" />
               <e p="EnhancedScrollCellView.cs" t="Include" />
-              <e p="IconSet.cs" t="Include" />
               <e p="ShowTargetUnit.cs" t="Include" />
             </e>
             <e p="LogButton.cs" t="Include" />

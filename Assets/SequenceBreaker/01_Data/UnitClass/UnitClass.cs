@@ -11,7 +11,7 @@ namespace SequenceBreaker._01_Data.UnitClass
     public sealed class UnitClass : ScriptableObject
     {
         public int uniqueId;
-        public string name;
+        public new string name;
         public Affiliation affiliation;
         public UnitType unitType;
         public int itemCapacity;

@@ -5,7 +5,7 @@ namespace SequenceBreaker._01_Data.UnitClass
     [CreateAssetMenu(fileName = "CoreFrame-", menuName = "Unit/CoreFrame", order = 3)]
     public sealed class CoreFrame : ScriptableObject
     {
-        [SerializeField] public string name;
+        [SerializeField] public new string name;
 
         [SerializeField] public FrameType frameType;
         [SerializeField] public TuningStyle tuningStyle;

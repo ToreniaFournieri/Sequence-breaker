@@ -109,7 +109,7 @@ namespace SequenceBreaker._01_Data.UnitClass
             
             
         
-            _ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+            _ability = ScriptableObject.CreateInstance<AbilityClass>();
 
             unit = unitClass;
 
@@ -117,22 +117,27 @@ namespace SequenceBreaker._01_Data.UnitClass
             // (1-1) Ability calculation -> CoreFrameAddAbility
             // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStyle.AddAbility
 
+            _frameTypeAbility = ScriptableObject.CreateInstance<AbilityClass>();
             switch (unit.coreFrame.frameType)
             {
                 case FrameType.Caterpillar:
-                    _frameTypeAbility = new AbilityClass(power: 6, generation: 3, stability: 6, responsiveness: 3, precision: 2, intelligence: 0, luck: 0);
+                    _frameTypeAbility.Set(6, 3, 6, 3, 2, 0, 0);
+
                     break;
                 case FrameType.ReverseJointLegs:
-                    _frameTypeAbility = new AbilityClass(power: 3, generation: 3, stability: 3, responsiveness: 8, precision: 2, intelligence: 0, luck: 2);
+//                    _frameTypeAbility = new AbilityClass(3, 3, 3, 8, 2, 0, 2);
+                    _frameTypeAbility.Set(3, 3, 3, 8, 2, 0, 2); 
+
                     break;
                 case FrameType.SpiderLegs:
-                    _frameTypeAbility = new AbilityClass(power: 4, generation: 3, stability: 5, responsiveness: 4, precision: 3, intelligence: 0, luck: 1);
+//                    _frameTypeAbility = new AbilityClass(4, 3, 5, 4, 3, 0, 1);
+                    _frameTypeAbility.Set(4, 3, 5, 4, 3, 0, 1);
                     break;
                 case FrameType.TwoLegs:
-                    _frameTypeAbility = new AbilityClass(power: 5, generation: 3, stability: 4, responsiveness: 5, precision: 2, intelligence: 0, luck: 1);
+                    _frameTypeAbility.Set(5, 3, 4, 5, 2, 0, 1);
                     break;
                 case FrameType.Wheel:
-                    _frameTypeAbility = new AbilityClass(power: 2, generation: 6, stability: 3, responsiveness: 4, precision: 2, intelligence: 0, luck: 3);
+                    _frameTypeAbility.Set(2, 6, 3, 4, 2, 0, 3);
                     break;
                 default:
                     Debug.LogError("CoreFrame.FrameType unexpected value, need FrameType case update! :" + unit.coreFrame.frameType);
@@ -140,39 +145,40 @@ namespace SequenceBreaker._01_Data.UnitClass
             }
             _ability.AddUp(_frameTypeAbility);
 
+            _tuningStyleAbility = ScriptableObject.CreateInstance<AbilityClass>();
 
             switch (unit.coreFrame.tuningStyle)
             {
                 case TuningStyle.Commander:
-                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 2, luck: 0);
+                    _tuningStyleAbility.Set(0, 0, 0, 2, 2, 2, 0);
                     break;
                 case TuningStyle.Destroyer:
-                    _tuningStyleAbility  = new AbilityClass(power: 2, generation: 0, stability: 2, responsiveness: 2, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(2, 0, 2, 2, 0, 0, 0);
                     break;
                 case TuningStyle.Fighter:
-                    _tuningStyleAbility = new AbilityClass(power: 2, generation: 0, stability: 0, responsiveness: 2, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(2, 0, 0, 2, 2, 0, 0);
                     break;
                 case TuningStyle.Gunner:
-                    _tuningStyleAbility = new AbilityClass(power: 3, generation: 0, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(3, 0, 0, 0, 2, 0, 0);
                     break;
                 case TuningStyle.Jammer:
-                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 2, stability: 0, responsiveness: 0, precision: 2, intelligence: 2, luck: 0);
+                    _tuningStyleAbility.Set(0, 2, 0, 0, 2, 2, 0);
                     break;
                 case TuningStyle.Lancer:
-                    _tuningStyleAbility = new AbilityClass(power: 3, generation: 1, stability: 0, responsiveness: 0, precision: 2, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(3, 1, 0, 0, 2, 0, 0);
                     break;
                 case TuningStyle.Medic:
-                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 5, stability: 2, responsiveness: 0, precision: 0, intelligence: 1, luck: 0);
+                    _tuningStyleAbility.Set(0, 5, 2, 0, 0, 1, 0);
                     break;
                 case TuningStyle.Reconnoiter:
-                    _tuningStyleAbility = new AbilityClass(power: 1, generation: 1, stability: 2, responsiveness: 3, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(1, 1, 2, 3, 0, 0, 0);
                     break;
                 case TuningStyle.Sniper:
-                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 0, stability: 0, responsiveness: 0, precision: 5, intelligence: 0, luck: 1);
+                    _tuningStyleAbility.Set(0, 0, 0, 0, 5, 0, 1);
                     break;
 
                 case TuningStyle.Tank:
-                    _tuningStyleAbility = new AbilityClass(power: 0, generation: 2, stability: 4, responsiveness: 0, precision: 0, intelligence: 0, luck: 0);
+                    _tuningStyleAbility.Set(0, 2, 4, 0, 0, 0, 0);
                     break;
 
                 default:
@@ -183,7 +189,8 @@ namespace SequenceBreaker._01_Data.UnitClass
             _ability.AddUp(_tuningStyleAbility);
 
             // (1-2) Ability calculation -> SummedItemsAddAbility
-            _summedItemsAddAbility = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+            _summedItemsAddAbility = ScriptableObject.CreateInstance<AbilityClass>();
+            _summedItemsAddAbility.Set(0, 0, 0, 0, 0, 0, 0);
 
             if (unit.itemList != null)
             {
@@ -435,42 +442,43 @@ namespace SequenceBreaker._01_Data.UnitClass
 
 
             _offenseMagnification = new OffenseMagnificationClass(
-                optimumRangeBonus: summedOffenseList[10].totalValue,
-                critical: summedOffenseList[1].totalValue,
-                kinetic: summedOffenseList[2].totalValue,
-                chemical: summedOffenseList[3].totalValue,
-                thermal: summedOffenseList[4].totalValue,
-                vsBeast: summedOffenseList[5].totalValue,
-                vsCyborg: summedOffenseList[6].totalValue,
-                vsDrone: summedOffenseList[7].totalValue,
-                vsRobot: summedOffenseList[8].totalValue,
-                vsTitan: summedOffenseList[9].totalValue);
+                summedOffenseList[10].totalValue,
+                summedOffenseList[1].totalValue,
+                summedOffenseList[2].totalValue,
+                summedOffenseList[3].totalValue,
+                summedOffenseList[4].totalValue,
+                summedOffenseList[5].totalValue,
+                summedOffenseList[6].totalValue,
+                summedOffenseList[7].totalValue,
+                summedOffenseList[8].totalValue,
+                summedOffenseList[9].totalValue);
             _defenseMagnification = new DefenseMagnificationClass(
-                critical: summedDefenseList[1].totalValue,
-                kinetic: summedDefenseList[2].totalValue,
-                chemical: summedDefenseList[3].totalValue,
-                thermal: summedDefenseList[4].totalValue,
-                vsBeast: summedDefenseList[5].totalValue,
-                vsCyborg: summedDefenseList[6].totalValue,
-                vsDrone: summedDefenseList[7].totalValue,
-                vsRobot: summedDefenseList[8].totalValue,
-                vsTitan: summedDefenseList[9].totalValue,
-                shield: summedNoneList[11].totalValue,
-                hitPoint: summedNoneList[12].totalValue,
-                numberOfAttacks: summedNoneList[13].totalValue,
-                minRange: summedNoneList[14].totalValue,
-                maxRange: summedNoneList[15].totalValue,
-                accuracy: summedNoneList[16].totalValue,
-                mobility: summedNoneList[17].totalValue,
-                attack: summedNoneList[18].totalValue,
-                defense: summedNoneList[19].totalValue
+                summedDefenseList[1].totalValue,
+                summedDefenseList[2].totalValue,
+                summedDefenseList[3].totalValue,
+                summedDefenseList[4].totalValue,
+                summedDefenseList[5].totalValue,
+                summedDefenseList[6].totalValue,
+                summedDefenseList[7].totalValue,
+                summedDefenseList[8].totalValue,
+                summedDefenseList[9].totalValue,
+                summedNoneList[11].totalValue,
+                summedNoneList[12].totalValue,
+                summedNoneList[13].totalValue,
+                summedNoneList[14].totalValue,
+                summedNoneList[15].totalValue,
+                summedNoneList[16].totalValue,
+                summedNoneList[17].totalValue,
+                summedNoneList[18].totalValue,
+                summedNoneList[19].totalValue
             );
 
             _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+
             _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
 
 
-            _unitSkillMagnification = new UnitSkillMagnificationClass(offenseEffectPower: _offenseEffectPowerActionSkill, triggerPossibility: _triggerPossibilityActionSkill);
+            _unitSkillMagnification = new UnitSkillMagnificationClass(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
 
 
             //(2) Combat
@@ -652,7 +660,7 @@ namespace SequenceBreaker._01_Data.UnitClass
             // Formula:
             //    CombatItemEquipped.someValue = CombatItemSkillConsidered.someValue + itemList.addCombat.someValue * AmplifyEquipmentRate.someParts
 
-            _combatItems = new CombatClass();
+            _combatItems = ScriptableObject.CreateInstance<CombatClass>();
 
             if (unit.itemList != null)
             {
@@ -671,7 +679,7 @@ namespace SequenceBreaker._01_Data.UnitClass
             // Formula:
             //    CombatCalculated = CombatItemEquipped
 
-            _combat = new CombatClass();
+            _combat = ScriptableObject.CreateInstance<CombatClass>();
             _combat.Add(_combatRaw);
             if (_combatItems != null) { _combat.Add(_combatItems); }
 
@@ -702,13 +710,13 @@ namespace SequenceBreaker._01_Data.UnitClass
                     break;
             }
 
-            _feature = new FeatureClass(absorbShieldInitial: _absorbShieldRatio, damageControlAssist: _isDamageControlAssist,
-                hateInitial: _hateInitial, hateMagnificationPerTurn: _hateMagnificationPerTurn);
+            _feature = new FeatureClass(_absorbShieldRatio, _isDamageControlAssist,
+                _hateInitial, _hateMagnificationPerTurn);
             
 
-            battleUnit = new BattleUnit.BattleUnit(uniqueId: 1, name: unitClass.TrueName(), affiliation: Affiliation.None, unitType: unitClass.unitType, ability: _ability,
-                combat: _combat, feature: _feature, offenseMagnification: _offenseMagnification,
-                defenseMagnification: _defenseMagnification, skillMagnification: _unitSkillMagnification);
+            battleUnit = new BattleUnit.BattleUnit(1, unitClass.TrueName(), Affiliation.None, unitClass.unitType, _ability,
+                _combat, _feature, _offenseMagnification,
+                _defenseMagnification, _unitSkillMagnification);
 
 
             // Summed Skill calculation

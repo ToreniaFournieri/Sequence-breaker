@@ -48,12 +48,10 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
                         if (inventory.itemList[i].amount >= 99)
                         {
                             //nothing to do.
-                            continue;
                         }
                         else
                         {
                             inventory.itemList[i].amount += 1;
-                            continue;
                         }
                     }
                 }
@@ -85,7 +83,6 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
                     {
                         inventory.itemList.RemoveAt(i);
                     }
-                    continue;
                 }
             }
 
@@ -108,7 +105,7 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
                 Item item;
                 foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
                 {
-                    item = new Item();
+                    item = ScriptableObject.CreateInstance<Item>();
                     item.prefixItem = null;
                     item.baseItem = itemBaseMaster;
                     item.suffixItem = null;

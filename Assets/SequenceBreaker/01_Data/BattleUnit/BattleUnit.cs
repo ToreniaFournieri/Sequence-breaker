@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using SequenceBreaker._00_System;
 using SequenceBreaker._05_Play.Battle;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace SequenceBreaker._01_Data.BattleUnit
     public sealed class BattleUnit : ScriptableObject
     {
         [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
-        [FormerlySerializedAs("Name")] [SerializeField] public string name;
+        [FormerlySerializedAs("Name")] [SerializeField] public new string name;
         [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
         [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
         [FormerlySerializedAs("Buff")] [SerializeField] public BuffClass buff;
@@ -117,7 +118,7 @@ namespace SequenceBreaker._01_Data.BattleUnit
             }
             public string AllCriticalRatio()
             {
-                int countSpace = (3 - Math.Round(AllActivatedCount, 0).ToString().Length); if (countSpace <= 0) { countSpace = 0; }
+                int countSpace = (3 - Math.Round(AllActivatedCount, 0).ToString(CultureInfo.InvariantCulture).Length); if (countSpace <= 0) { countSpace = 0; }
                 int criticalCountRateSpace = (3 - Math.Round((CriticalActivatedCount / AllActivatedCount * 100), 1).WithComma().Length); if (criticalCountRateSpace <= 0) { criticalCountRateSpace = 0; }
                 int hitSpace = (5 - Math.Round(AllHitCount, 0).WithComma().Length); if (hitSpace <= 0) { hitSpace = 0; }
                 int criticalHitRateSpace = (3 - Math.Round((CriticalHitCount / AllHitCount * 100), 1).WithComma().Length); if (criticalHitRateSpace <= 0) { criticalHitRateSpace = 0; }

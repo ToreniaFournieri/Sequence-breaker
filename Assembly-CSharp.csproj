@@ -231,7 +231,6 @@
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\Data.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\DataList.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\EnhancedScrollCellView.cs" />
-     <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\IconSet.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\BattleLogView\ShowTargetUnit.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\LogButton.cs" />
      <Compile Include="Assets\SequenceBreaker\06_Timeline\LogListSria.cs" />

@@ -42,15 +42,15 @@ namespace SequenceBreaker._01_Data.Items.Item
         //Calculated
         public CombatClass TotaledCombat()
         {
-            CombatClass combat = new CombatClass();
+            CombatClass combat = ScriptableObject.CreateInstance<CombatClass>();
 
-            CombatClass itemBaseCombat = new CombatClass();
+            CombatClass itemBaseCombat = ScriptableObject.CreateInstance<CombatClass>();
             if (baseItem != null) { itemBaseCombat = baseItem.CalculatedCombatValue().Copy(); }
 
-            CombatClass prefixCombat = new CombatClass();
+            CombatClass prefixCombat = ScriptableObject.CreateInstance<CombatClass>();
             if (prefixItem != null) { prefixCombat = prefixItem.CalculatedCombatValue().Copy(); }
 
-            CombatClass suffixCombat = new CombatClass();
+            CombatClass suffixCombat = ScriptableObject.CreateInstance<CombatClass>();
             if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
 
             for (int i = 0; i < amount; i++)
@@ -68,7 +68,7 @@ namespace SequenceBreaker._01_Data.Items.Item
         //Calculated
         public AbilityClass TotaledAbility()
         {
-            AbilityClass ability = new AbilityClass(0, 0, 0, 0, 0, 0, 0);
+            AbilityClass ability = ScriptableObject.CreateInstance<AbilityClass>();
 
             List<ItemBaseMaster> itemBasesList = new List<ItemBaseMaster>();
 
@@ -186,8 +186,6 @@ namespace SequenceBreaker._01_Data.Items.Item
 
         public string GetItemDetailDescription()
         {
-            string detailDescription = null;
-
             string boldName = "<b>" + GetName() + "</b> \n";
 
             // Totaled combat status
@@ -201,7 +199,7 @@ namespace SequenceBreaker._01_Data.Items.Item
             if (suffixItem != null) { description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
 
 
-            detailDescription = boldName + "\n" + totaledCombat + "\n" + description;
+            var detailDescription = boldName + "\n" + totaledCombat + "\n" + description;
 
 
             return detailDescription;

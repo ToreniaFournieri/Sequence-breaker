@@ -14,9 +14,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
         float _mDataLoadLeftTime = 0;
         float _mDataRefreshLeftTime = 0;
         bool _mIsWaittingRefreshData = false;
-//        bool _mIsWaitLoadingMoreData = false;
-//        public int mTotalDataCount;
-
 
         // temp
         public LogListItemHeightDemoScript logListItemHeightDemoScript;
@@ -24,7 +21,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
 
         //RunBattle external
         public List<RunBattle> runBattleList;
-//        public HomeContents homeContents;
         
         static LogListDataSourceMgr _instance = null;
         private bool _isRunBattleNotNull;
@@ -42,11 +38,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
 
         }
 
-        private void Start()
-        {
-            
-        }
-
         void Awake()
         {
             Init();
@@ -55,8 +46,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
 
         public void Init()
         {
-//            _isRunBattleNotNull = runBattleList != null;
-
             DoRefreshDataSource();
         }
 
@@ -64,16 +53,8 @@ namespace SequenceBreaker._06_Timeline.LogListView
         {
             DoRefreshDataSource();
             
-//            if (logListItemHeightDemoScript != null)
-//            {
-//                if (logListItemHeightDemoScript.mLoopListView != null)
-//                {
-//                    if (Get.TotalItemCount > 0)
-//                    {
                         logListItemHeightDemoScript.UpdateNewContents();
-//                    }
-//                }
-//            }
+                        
         }
 
         public RunBattle GetItemDataByIndex(int index)
@@ -118,7 +99,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
             _mLoadMoreCount = loadCount;
             _mDataLoadLeftTime = 1;
             _mOnLoadMoreFinished = onLoadMoreFinished;
-//            _mIsWaitLoadingMoreData = true;
         }
 
         public void Update()
@@ -136,25 +116,12 @@ namespace SequenceBreaker._06_Timeline.LogListView
                     }
                 }
             }
-//            if (_mIsWaitLoadingMoreData)
-//            {
-//                _mDataLoadLeftTime -= Time.deltaTime;
-//                if (_mDataLoadLeftTime <= 0)
-//                {
-//                    _mIsWaitLoadingMoreData = false;
-//                    DoLoadMoreDataSource();
-//                    if (_mOnLoadMoreFinished != null)
-//                    {
-//                        _mOnLoadMoreFinished();
-//                    }
-//                }
-//            }
+
 
         }
 
         public void SetDataTotalCount(int count)
         {
-//            mTotalDataCount = count;
             DoRefreshDataSource();
         }
 
@@ -186,19 +153,7 @@ namespace SequenceBreaker._06_Timeline.LogListView
                     _mItemDataList.Add(runBattleList[i]);
                 }
 
-
-
- 
-
-//            _mItemDataList = runBattleList;
-
-//            if (_mItemDataList != null)
-//            {
-//                if (_mItemDataList.Count != 0)
-//                {
-//                    logListItemHeightDemoScript.UpdateNewContents();
-//                }
-//            }
+                
         }
         
 

@@ -58,7 +58,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
             }
             else
             {
-                //Need to false incase recycle object.
+                //Need to false in case recycle object.
                 headerContent.SetActive(false);
             }
 
@@ -73,7 +73,7 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
 
             unitIcon.color = unitColor;
 
-            if (data.IsDead == true)
+            if (data.IsDead)
             {
                 mainUnit.SetActive(false);
             } else
@@ -108,8 +108,6 @@ namespace SequenceBreaker._06_Timeline.BattleLogView
                     break;
                 case Affiliation.Enemy:
                     color = darkRed;
-                    break;
-                default:
                     break;
             }
 

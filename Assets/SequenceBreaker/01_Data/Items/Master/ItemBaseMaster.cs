@@ -3,7 +3,6 @@ using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data.BattleUnit;
 using SequenceBreaker._01_Data.Skills;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SequenceBreaker._01_Data.Items.Master
 {
@@ -20,7 +19,7 @@ namespace SequenceBreaker._01_Data.Items.Master
 		[SerializeField] public CombatClass combatBaseValue;
 
 		// item level like 2, 3...
-		[SerializeField] public int level = 0;
+		[SerializeField] public int level;
 
 		//2. Skill add
 		[SerializeField] public List<SkillsMasterClass> skillsMasterList;
@@ -36,7 +35,7 @@ namespace SequenceBreaker._01_Data.Items.Master
 		// be calculated by coefficient
 		public CombatClass CalculatedCombatValue()
 		{
-			CombatClass calculated = new CombatClass();
+			CombatClass calculated = CreateInstance<CombatClass>();
 			if (combatBaseValue != null)
 			{
 				calculated = combatBaseValue.Copy();
@@ -166,7 +165,7 @@ namespace SequenceBreaker._01_Data.Items.Master
 					case MagnificationType.None:
 						break;
 					default:
-						Debug.LogError("unexpected MagnificationType :" + magnification.magnificationTarget + " "  + magnification.magnificationType.ToString());
+						Debug.LogError("unexpected MagnificationType :" + magnification.magnificationTarget + " "  + magnification.magnificationType);
 						break;
 
 				}

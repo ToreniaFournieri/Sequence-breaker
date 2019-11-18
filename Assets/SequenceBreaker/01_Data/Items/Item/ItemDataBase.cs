@@ -38,7 +38,7 @@ namespace SequenceBreaker._01_Data.Items.Item
 
                 foreach (ItemForSave itemForSave in itemForSaveList)
                 {
-                    Item item = new Item();
+                    Item item = ScriptableObject.CreateInstance<Item>();
                     item.baseItem = itemBaseMasterList.Find(obj => obj.itemId == itemForSave.bI);
                     item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
                     item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);

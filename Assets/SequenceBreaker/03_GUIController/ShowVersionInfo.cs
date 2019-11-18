@@ -15,9 +15,5 @@ namespace SequenceBreaker._03_GUIController
         }
 
         // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

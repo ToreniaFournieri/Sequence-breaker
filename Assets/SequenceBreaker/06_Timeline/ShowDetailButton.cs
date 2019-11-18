@@ -22,11 +22,9 @@ namespace SequenceBreaker._06_Timeline
             battleLogEnhancedScrollController.DrawBattleLog();
             
             battleLog.GetComponent<PanelAnimator>().StartAnimIn();
-//            battleLog.SetActive(true);
-//            logList.SetActive(false);       
+
             logList.transform.SetAsFirstSibling();
-//            
-//            Debug.Log("Show detail is pressed");
+
         }
     }
 }

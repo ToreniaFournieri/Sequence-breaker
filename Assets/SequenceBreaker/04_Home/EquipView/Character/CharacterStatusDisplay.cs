@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SequenceBreaker._00_System;
 using SequenceBreaker._01_Data.Items.Item;
 using SequenceBreaker._01_Data.UnitClass;
 using UnityEngine;
@@ -27,10 +26,8 @@ namespace SequenceBreaker._04_Home.EquipView.Character
         [FormerlySerializedAs("AbilityText")] public Text abilityText;
 
         //for data save
-        public Affiliation affiliation;
-        [FormerlySerializedAs("uniqueID")] public int uniqueId;
         public int itemCapacity;
-        public int selectedUnitNo = 0;
+        public int selectedUnitNo;
     
 
         public void Init()
@@ -46,14 +43,14 @@ namespace SequenceBreaker._04_Home.EquipView.Character
         }
 
 
-        public void SetCharacterStatus(int selectedUnitNo)
+        public void SetCharacterStatus(int selectedUnitNumber)
         {
 
-            if (unitList != null && selectedUnitNo < unitList.Count)
+            if (unitList != null && selectedUnitNumber < unitList.Count)
             {
 
                 // updating
-                this.selectedUnitNo = selectedUnitNo;
+                this.selectedUnitNo = selectedUnitNumber;
 
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
                                     itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
@@ -63,8 +60,6 @@ namespace SequenceBreaker._04_Home.EquipView.Character
 
                 //for data save
                 itemCapacity = unitList[this.selectedUnitNo].itemCapacity;
-                affiliation = unitList[this.selectedUnitNo].affiliation;
-                uniqueId = unitList[this.selectedUnitNo].uniqueId;
 
                 // load from saved data
                 //Bug:This way to load info is not collect.

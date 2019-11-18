@@ -46,16 +46,12 @@ namespace SequenceBreaker._03_GUIController.Segue
         {
             if (homeViewList.Count >= 1)
             {
-//                Debug.Log("home view list count:" + homeViewList.Count);
                 for (int i = homeViewList.Count - 1 ; i >= 1; i--)
                 {
                     homeViewList[i].GetComponent<PanelAnimator>().StartAnimOut();
                     homeViewList.RemoveAt(homeViewList.Count - 1);
                 }
             }
-            
-//            dragAndClose.Init();
-
         }
 
         public void InitPlayView()
@@ -68,7 +64,6 @@ namespace SequenceBreaker._03_GUIController.Segue
                     playViewList.RemoveAt(playViewList.Count - 1);
                 }
             }
-//            dragAndClose.Init();
 
         }
         
@@ -82,7 +77,6 @@ namespace SequenceBreaker._03_GUIController.Segue
                     timelineViewList.RemoveAt(timelineViewList.Count - 1);
                 }
             }
-//            dragAndClose.Init();
             
         }
 
@@ -123,20 +117,16 @@ namespace SequenceBreaker._03_GUIController.Segue
             {
                 case "HomeTab":
                     return  homeViewList.Last();
-                    break;
                 case "PlayTab":
                     return  playViewList.Last();
-                    break; 
-                
+
                 case "TimelineTab":
                      return timelineViewList.Last();
-                     break;
 
                 default: 
                     Debug.LogError("unexpected currentTab:" + tabController.currentTab);
 
                     return null;
-                    break;
             }
         }
 

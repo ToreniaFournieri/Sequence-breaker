@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SequenceBreaker._01_Data.Items.Item;
 using SequenceBreaker._01_Data.UnitClass;
 using SequenceBreaker._04_Home.HomeListView;
@@ -15,12 +14,10 @@ namespace SequenceBreaker._00_System
         //Item inventory
         public UnitClass inventory;
         //Ally inventory
-//        public HomeContents homeContents;
         public HomeDataSourceMgr homeDataSourceMgr;
 
         
         //new Unit list
-//        public UnitMasterList unitMasterList;
         public UnitClassList unitClassList;
 
         //wake up all main tab

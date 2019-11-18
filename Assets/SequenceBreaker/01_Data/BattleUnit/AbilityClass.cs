@@ -21,6 +21,12 @@ namespace SequenceBreaker._01_Data.BattleUnit
             this.precision = precision; this.intelligence = intelligence; this.luck = luck;
         }
 
+        public void Set(int iPower, int iGeneration, int iStability, int iResponsiveness, int iPrecision, int iIntelligence, int iLuck)
+        {
+            this.power = iPower; this.generation = iGeneration; this.stability = iStability; this.responsiveness = iResponsiveness;
+            this.precision = iPrecision; this.intelligence = iIntelligence; this.luck = iLuck;
+        }
+        
         public AbilityClass(AbilityClass abilityClass)
         {
             power = abilityClass.power; generation = abilityClass.generation; stability = abilityClass.stability; responsiveness = abilityClass.responsiveness;

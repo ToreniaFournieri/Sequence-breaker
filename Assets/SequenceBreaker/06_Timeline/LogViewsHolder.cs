@@ -14,8 +14,7 @@ namespace SequenceBreaker._06_Timeline
         public LayoutElement LayoutElement;
         public Image AverageScoreFillImage;
         public Text NameText, LocationText;
-        //public Text averageScoreText;
-        //public RectTransform levelOfMission;
+
         public Slider LevelOfMissionSlider;
         public GameObject TransparentMessageController; // to display transparent message
 
@@ -45,7 +44,6 @@ namespace SequenceBreaker._06_Timeline
             ResultText = mainPanel.Find("NameAndLocationPanel/Result").GetComponent<Text>();
 
             LevelOfMissionText = mainPanel.Find("MissionImage/LevelText2").GetComponent<Text>();
-            //levelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
             NameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
             LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
 
@@ -54,17 +52,7 @@ namespace SequenceBreaker._06_Timeline
             DetailButton = showDetailPanel.GetComponent<ShowDetailButton>();
 
         }
-
-        //public void SetBattle()
-        //{
-        //    //Set battle gameobject to activate GO button
-        //    var go = root.GetChild(2);
-        //    goScript = go.GetComponent<GoScript>();
-
-        //    goScript.Battle = battle;
-        //    //goScript.battleLogEnhancedScrollController = battleLogEnhancedScrollController;
-        //    goScript.transparentMessage = transparentMessageController;
-        //}
+        
 
         public virtual void UpdateViews(TClientModel dataModel)
         {
@@ -94,9 +82,6 @@ namespace SequenceBreaker._06_Timeline
                     break;
             }
             ResultText.text = resultText;
-
-            //ShowDetailButton showDetailButton = detailButton.GetComponent<ShowDetailButton>();
-
             DetailButton.battle = Battle;
             DetailButton.battleLogEnhancedScrollController = BattleLogEnhancedScrollController;
             DetailButton.battleLog = BattleLog;
@@ -104,12 +89,6 @@ namespace SequenceBreaker._06_Timeline
 
         }
 
-        //void UpdateScores(LogList1ClientModel dataModel)
-        //{
-
-        //    //levelOfMissionText.text = "lv: " + (int)levelOfMissionSlider.value ;
-
-        //}
     }
 
     public class LogClientViewsHolder : LogClientViewsHolder<LogBaseClientModel>
@@ -117,13 +96,6 @@ namespace SequenceBreaker._06_Timeline
 
     }
 
-//public static class CUtil
-//{
-
-//    // Utility randomness methods
-//    public static int Rand(int maxExcl) { return UnityEngine.Random.Range(0, maxExcl); }
-//    public static float RandF(float max = 1f) { return UnityEngine.Random.Range(0, max); }
-//}
 
     public class LogBaseClientModel
     {
@@ -132,7 +104,7 @@ namespace SequenceBreaker._06_Timeline
         public WhichWin WhichWin;
         public string ResultText;
 
-        //Obsolate
+        //Obsolete
         public float Availability01, ContractChance01, LongTermClient01;
         public bool IsOnline;
 

@@ -35,9 +35,6 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
         public GameObject itemDetailView;
 
 
-        int _mItemDataIndex = -1;
-        int _mChildDataIndex = -1;
-
         public void Init()
         {
 
@@ -95,8 +92,6 @@ namespace SequenceBreaker._04_Home.EquipView.Inventory
 
         public void SetItemData(Item item, int itemIndex, int childIndex)
         {
-            _mItemDataIndex = itemIndex;
-            _mChildDataIndex = childIndex;
             mNameText.text = item.ItemName;
             mDescriptionText.text = item.ItemDescription;
 

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace _00_Asset._07_ExcelImporter.Example.Scripts.Entity
 {

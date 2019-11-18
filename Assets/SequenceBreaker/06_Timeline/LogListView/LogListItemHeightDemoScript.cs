@@ -35,15 +35,8 @@ namespace SequenceBreaker._06_Timeline.LogListView
 //            _mBackButton.onClick.AddListener(OnBackBtnClicked);
         }
 
-        void OnBackBtnClicked()
-        {
-            
-            // [ need to think it is correct (default of asset?)
-//            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-        }
 
-
-        //this seems wrong.. 2019.11.10 torenia
+        //this seems wrong.. 2019.11.10 Torenia
         public void UpdateNewContents()
         {
             mLoopListView.SetListItemCount(LogListDataSourceMgr.Get.TotalItemCount, false);
@@ -95,7 +88,7 @@ namespace SequenceBreaker._06_Timeline.LogListView
             {
                 return;
             }
-            int count = 0;
+            int count;
             if (int.TryParse(_mAddItemInput.text, out count) == false)
             {
                 return;

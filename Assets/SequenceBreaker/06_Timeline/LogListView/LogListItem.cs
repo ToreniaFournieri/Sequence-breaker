@@ -23,11 +23,7 @@ namespace SequenceBreaker._06_Timeline.LogListView
 
         public RunBattle runBattle;
         public BattleLogEnhancedScrollController battleLogEnhancedScrollController;
-//        public CharacterStatusDisplay characterStatusDisplay;
-        
-//        //inventory switch debug mode true means infinity inventory.
-//        public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
-//        public bool isDebugMode;
+
         
         int _mItemDataIndex = -1;
         bool _mIsExpand;
@@ -44,13 +40,11 @@ namespace SequenceBreaker._06_Timeline.LogListView
             {
                 rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 284f);
                 mExpandContentRoot.SetActive(true);
-//                mClickTip.text = "Shrink";
             }
             else
             {
                 rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 143f);
                 mExpandContentRoot.SetActive(false);
-//                mClickTip.text = "Expand";
             }
 
         }
@@ -83,10 +77,6 @@ namespace SequenceBreaker._06_Timeline.LogListView
                 return;
             }
 
-//            inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
-//            inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
-//            characterStatusDisplay.unitList = data.unitClassList;
-//            characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
 
