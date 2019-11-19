@@ -5,7 +5,6 @@ using UnityEngine;
 namespace SequenceBreaker._01_Data.UnitClass
 {
     [CreateAssetMenu(fileName = "UnitSet", menuName = "Unit/UnitSet", order = 11)]
-
     public class UnitSet : ScriptableObject
     {
         public int missionId;
