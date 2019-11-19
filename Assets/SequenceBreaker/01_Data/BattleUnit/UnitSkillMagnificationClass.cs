@@ -12,5 +12,11 @@ namespace SequenceBreaker._01_Data.BattleUnit
         public UnitSkillMagnificationClass(ActionSkillClass offenseEffectPower, ActionSkillClass triggerPossibility)
         { this.offenseEffectPower = offenseEffectPower; this.triggerPossibility = triggerPossibility; }
 
+        public void Set(ActionSkillClass iOffenseEffectPower, ActionSkillClass iTriggerPossibility)
+        {
+            offenseEffectPower = iOffenseEffectPower; 
+            triggerPossibility = iTriggerPossibility;
+        }
+
     }
 }

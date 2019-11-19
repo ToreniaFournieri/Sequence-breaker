@@ -22,6 +22,20 @@ namespace SequenceBreaker._01_Data.BattleUnit
             this.damageControlAssist = damageControlAssist;
             this.hateInitial = hateInitial; hateCurrent = hateInitial; this.hateMagnificationPerTurn = hateMagnificationPerTurn;
         }
+
+        public void Set(double iAbsorbShieldInitial, bool iDamageControlAssist, double iHateInitial, double iHateMagnificationPerTurn)
+        {
+            absorbShieldRatioCurrent = iAbsorbShieldInitial;
+            absorbShieldRatioInitial = iAbsorbShieldInitial;
+            absorbShieldMaxRatioCurrent = iAbsorbShieldInitial * 3.0; 
+            absorbShieldMaxRatioInitial = iAbsorbShieldInitial * 3.0;
+            damageControlAssist = iDamageControlAssist;
+            hateInitial = iHateInitial; 
+            hateCurrent = hateInitial;
+            hateMagnificationPerTurn = iHateMagnificationPerTurn;            
+        }
+        
+        
         // absorb level should i call?
         // int absorbLevel  1= (3 * absorbLevel)% of attack and total (9 + 3* absorbLevel)% of max shield heal  etc...
         public void InitializeFeature() { hateCurrent = hateInitial; }

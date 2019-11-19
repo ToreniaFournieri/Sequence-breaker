@@ -6,9 +6,9 @@ namespace SequenceBreaker._01_Data.BattleUnit
     [CreateAssetMenu(fileName = "DefenseMagnificationClass-", menuName = "BattleUnit/DefenseMagnificationClass", order = 22)]
     public sealed class DefenseMagnificationClass : MagnificationClass
     {
-        public DefenseMagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast,
-            double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
-            : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan) { }
+//        public DefenseMagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast,
+//            double vsCyborg, double vsDrone, double vsRobot, double vsTitan)
+//            : base(critical, kinetic, chemical, thermal, vsBeast, vsCyborg, vsDrone, vsRobot, vsTitan) { }
 
 
         public DefenseMagnificationClass(double critical, double kinetic, double chemical, double thermal, double vsBeast,
@@ -26,6 +26,32 @@ namespace SequenceBreaker._01_Data.BattleUnit
             this.mobility = mobility;
             this.attack = attack;
             this.defense = defense;
+        }
+
+        public void Set(double iCritical, double iKinetic, double iChemical, double iThermal, double iVsBeast,
+            double iVsCyborg, double iVsDrone, double iVsRobot, double iVsTitan,
+            double iShield, double iHitPoint, double iNumberOfAttacks, double iMinRange, double iMaxRange, double iAccuracy, double iMobility,
+            double iAttack, double iDefense)
+        {
+            critical = iCritical;
+            kinetic = iKinetic;
+            chemical = iChemical;
+            thermal = iThermal;
+            vsBeast = iVsBeast;
+            vsCyborg = iVsCyborg;
+            vsDrone = iVsDrone;
+            vsRobot = iVsRobot;
+            vsTitan = iVsTitan;
+            shield = iShield;
+            hitPoint = iHitPoint;
+            numberOfAttacks = iNumberOfAttacks;
+            minRange = iMinRange;
+            maxRange = iMaxRange;
+            accuracy = iAccuracy;
+            mobility = iMobility;
+            attack = iAttack;
+            defense = iDefense;
+            
         }
 
         public double shield;

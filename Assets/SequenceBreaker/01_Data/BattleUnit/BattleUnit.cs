@@ -53,6 +53,19 @@ namespace SequenceBreaker._01_Data.BattleUnit
             Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
         }
 
+        public void Set(int iUniqueId, string iName, Affiliation iAffiliation, UnitType iUnitType, AbilityClass iAbility, CombatClass iCombat, FeatureClass iFeature,
+            OffenseMagnificationClass iOffenseMagnification, DefenseMagnificationClass iDefenseMagnification, UnitSkillMagnificationClass iSkillMagnification)
+        {
+            
+            uniqueId = iUniqueId; name = iName; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
+            feature = iFeature; offenseMagnification = iOffenseMagnification; defenseMagnification = iDefenseMagnification; skillMagnification = iSkillMagnification;
+            //Initialize 
+            Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
+            IsBarrierExistJustBefore = false; IsCrushedJustNow = false; IsAvoidMoreThanOnce = false;
+            Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
+        }
+
+
 
         public class BuffClass
         {
@@ -85,7 +98,10 @@ namespace SequenceBreaker._01_Data.BattleUnit
             }
             public void AddBarrier(int addBarrierCount) { BarrierRemaining += addBarrierCount; }
             // take 1 barrier. true=barrier has, false= no barrier anymore
-            public bool RemoveBarrier() { if (BarrierRemaining > 0) { BarrierRemaining--; return true; } else { BarrierRemaining = 0; return false; } }
+            public bool RemoveBarrier() { if (BarrierRemaining > 0) { BarrierRemaining--; return true; }
+
+                BarrierRemaining = 0; return false;
+            }
         }
 
 

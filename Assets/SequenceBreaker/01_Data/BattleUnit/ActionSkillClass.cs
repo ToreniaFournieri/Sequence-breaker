@@ -20,5 +20,11 @@ namespace SequenceBreaker._01_Data.BattleUnit
             this.interrupt = interrupt; this.atBeginning = atBeginning; this.atEnding = atEnding;
         }
 
+        public void Set(double iMove, double iHeal, double iCounter, double iChain, double iReAttack, double iInterrupt, double iAtBeginning, double iAtEnding)
+        {
+            move = iMove; heal = iHeal; counter = iCounter; chain = iChain; reAttack = iReAttack;
+            interrupt = iInterrupt; atBeginning = iAtBeginning; atEnding = iAtEnding;
+        }
+
     }
 }
