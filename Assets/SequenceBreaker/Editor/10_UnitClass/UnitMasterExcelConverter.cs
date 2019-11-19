@@ -21,7 +21,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
         private static string _unitClassListPathId = "unitClassListPath";
         private static string _unitClassPathId = "unitClassPath";
 
-        private string _unitPath;
+        public string unitPath;
         public string unitClassListPath;
         
         [MenuItem("Window/Unit Master Excel Converter %#e")]
@@ -83,7 +83,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
                         OpenUnitClass();
                     }
 
-                    GUILayout.Label(_unitPath ?? " Unselected");
+                    GUILayout.Label(unitPath ?? " Unselected");
 
                     GUILayout.EndHorizontal();
                     
@@ -135,7 +135,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                _unitPath = relPath;
+                unitPath = relPath;
 
             }
             
@@ -158,7 +158,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
             foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)
             {
                 _unit = null;
-                _unit = UnitCreate.Create(_unitPath,unitMasterExcel.GetUnitClass());
+                _unit = UnitCreate.Create(unitPath,unitMasterExcel.GetUnitClass());
                 unitClassList.unitList.Add(_unit);
             }
                 

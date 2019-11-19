@@ -11,6 +11,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
         {
             UnitWave asset = ScriptableObject.CreateInstance<UnitWave>();
             
+            
             AssetDatabase.CreateAsset(asset, pathAndName);
             AssetDatabase.SaveAssets();
             return asset;

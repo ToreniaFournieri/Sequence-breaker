@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewWithStickyHeadScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs">
     <Files>
-      <File FileName="Assets/06_Script/03_Controller/03_Log/BattleLogEnhancedScrollController.cs" Line="18" Column="12" IsPinned="True" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewDataSourceMgr.cs" Line="200" Column="64" />
-      <File FileName="Assets/06_Script/03_Controller/01_Home/Inventory/InventoryTreeViewWithStickyHeadScript.cs" Line="88" Column="53" />
+      <File FileName="Assets/SequenceBreaker/01_Data/BattleUnit/MagnificationClass.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/01_Data/UnitClass/CalculateUnitStatus.cs" />
+      <File FileName="Assets/SequenceBreaker/06_Timeline/BattleLogView/CellView.cs" />
+      <File FileName="Assets/SequenceBreaker/05_Play/Battle/BattleEngine.cs" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitWaveCreate.cs" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs" Line="14" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -11,7 +14,7 @@
     <String>Assembly-CSharp-Editor.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="32dfc980-1b83-4e72-8825-3e7cdb22ef31" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5966894a-ea00-48de-8b5c-0877ecc5b80d" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
