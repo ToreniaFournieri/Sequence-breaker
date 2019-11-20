@@ -20,7 +20,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Destroyer
     uniqueId: 20001
     affiliation: 1
@@ -28,7 +27,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Destroyer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Fighter
     uniqueId: 20002
     affiliation: 1
@@ -36,7 +34,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Fighter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Gunner
     uniqueId: 20003
     affiliation: 1
@@ -44,7 +41,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Gunner
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Jammer
     uniqueId: 20004
     affiliation: 1
@@ -52,7 +48,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Jammer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Lancer
     uniqueId: 20005
     affiliation: 1
@@ -60,7 +55,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Lancer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Medic
     uniqueId: 20006
     affiliation: 1
@@ -68,7 +62,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Medic
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Reconnoiter
     uniqueId: 20007
     affiliation: 1
@@ -76,7 +69,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Reconnoiter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Sniper
     uniqueId: 20008
     affiliation: 1
@@ -84,7 +76,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Sniper
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BA-Tank
     uniqueId: 20009
     affiliation: 1
@@ -92,7 +83,6 @@ MonoBehaviour:
     itemCapacity: 3
     coreFrameString: Core-A-Tank
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: BB-Commander
     uniqueId: 20010
     affiliation: 1
@@ -100,7 +90,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Commander
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Destroyer
     uniqueId: 20011
     affiliation: 1
@@ -108,7 +97,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Destroyer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Fighter
     uniqueId: 20012
     affiliation: 1
@@ -116,7 +104,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Fighter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Gunner
     uniqueId: 20013
     affiliation: 1
@@ -124,7 +111,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Gunner
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Jammer
     uniqueId: 20014
     affiliation: 1
@@ -132,7 +118,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Jammer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Lancer
     uniqueId: 20015
     affiliation: 1
@@ -140,7 +125,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Lancer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Medic
     uniqueId: 20016
     affiliation: 1
@@ -148,7 +132,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Medic
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Reconnoiter
     uniqueId: 20017
     affiliation: 1
@@ -156,7 +139,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Reconnoiter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Sniper
     uniqueId: 20018
     affiliation: 1
@@ -164,7 +146,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Sniper
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BB-Tank
     uniqueId: 20019
     affiliation: 1
@@ -172,7 +153,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-B-Tank
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: BC-Commander
     uniqueId: 20020
     affiliation: 1
@@ -180,7 +160,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Commander
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Destroyer
     uniqueId: 20021
     affiliation: 1
@@ -188,7 +167,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Destroyer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Fighter
     uniqueId: 20022
     affiliation: 1
@@ -196,7 +174,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Fighter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Gunner
     uniqueId: 20023
     affiliation: 1
@@ -204,7 +181,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Gunner
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Jammer
     uniqueId: 20024
     affiliation: 1
@@ -212,7 +188,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Jammer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Lancer
     uniqueId: 20025
     affiliation: 1
@@ -220,7 +195,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Lancer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Medic
     uniqueId: 20026
     affiliation: 1
@@ -228,7 +202,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Medic
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Reconnoiter
     uniqueId: 20027
     affiliation: 1
@@ -236,7 +209,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Reconnoiter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Sniper
     uniqueId: 20028
     affiliation: 1
@@ -244,7 +216,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Sniper
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BC-Tank
     uniqueId: 20029
     affiliation: 1
@@ -252,7 +223,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-C-Tank
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: BD-Commander
     uniqueId: 20030
     affiliation: 1
@@ -260,7 +230,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Commander
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Destroyer
     uniqueId: 20031
     affiliation: 1
@@ -268,7 +237,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Destroyer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Fighter
     uniqueId: 20032
     affiliation: 1
@@ -276,7 +244,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Fighter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Gunner
     uniqueId: 20033
     affiliation: 1
@@ -284,7 +251,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Gunner
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Jammer
     uniqueId: 20034
     affiliation: 1
@@ -292,7 +258,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Jammer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Lancer
     uniqueId: 20035
     affiliation: 1
@@ -300,7 +265,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Lancer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Medic
     uniqueId: 20036
     affiliation: 1
@@ -308,7 +272,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Medic
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Reconnoiter
     uniqueId: 20037
     affiliation: 1
@@ -316,7 +279,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Reconnoiter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Sniper
     uniqueId: 20038
     affiliation: 1
@@ -324,7 +286,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Sniper
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: BD-Tank
     uniqueId: 20039
     affiliation: 1
@@ -332,7 +293,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-D-Tank
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CA-Commander
     uniqueId: 20040
     affiliation: 1
@@ -340,7 +300,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Destroyer
     uniqueId: 20041
     affiliation: 1
@@ -348,7 +307,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Destroyer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Fighter
     uniqueId: 20042
     affiliation: 1
@@ -356,7 +314,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Fighter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Gunner
     uniqueId: 20043
     affiliation: 1
@@ -364,7 +321,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Gunner
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Jammer
     uniqueId: 20044
     affiliation: 1
@@ -372,7 +328,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Jammer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Lancer
     uniqueId: 20045
     affiliation: 1
@@ -380,7 +335,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Lancer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Medic
     uniqueId: 20046
     affiliation: 1
@@ -388,7 +342,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Medic
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Reconnoiter
     uniqueId: 20047
     affiliation: 1
@@ -396,7 +349,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Reconnoiter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Sniper
     uniqueId: 20048
     affiliation: 1
@@ -404,7 +356,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Sniper
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CA-Tank
     uniqueId: 20049
     affiliation: 1
@@ -412,7 +363,6 @@ MonoBehaviour:
     itemCapacity: 4
     coreFrameString: Core-A-Tank
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: CB-Commander
     uniqueId: 20050
     affiliation: 1
@@ -420,7 +370,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Commander
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Destroyer
     uniqueId: 20051
     affiliation: 1
@@ -428,7 +377,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Destroyer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Fighter
     uniqueId: 20052
     affiliation: 1
@@ -436,7 +384,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Fighter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Gunner
     uniqueId: 20053
     affiliation: 1
@@ -444,7 +391,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Gunner
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Jammer
     uniqueId: 20054
     affiliation: 1
@@ -452,7 +398,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Jammer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Lancer
     uniqueId: 20055
     affiliation: 1
@@ -460,7 +405,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Lancer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Medic
     uniqueId: 20056
     affiliation: 1
@@ -468,7 +412,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Medic
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Reconnoiter
     uniqueId: 20057
     affiliation: 1
@@ -476,7 +419,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Reconnoiter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Sniper
     uniqueId: 20058
     affiliation: 1
@@ -484,7 +426,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Sniper
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CB-Tank
     uniqueId: 20059
     affiliation: 1
@@ -492,7 +433,6 @@ MonoBehaviour:
     itemCapacity: 8
     coreFrameString: Core-B-Tank
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: CC-Commander
     uniqueId: 20060
     affiliation: 1
@@ -500,7 +440,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Commander
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Destroyer
     uniqueId: 20061
     affiliation: 1
@@ -508,7 +447,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Destroyer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Fighter
     uniqueId: 20062
     affiliation: 1
@@ -516,7 +454,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Fighter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Gunner
     uniqueId: 20063
     affiliation: 1
@@ -524,7 +461,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Gunner
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Jammer
     uniqueId: 20064
     affiliation: 1
@@ -532,7 +468,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Jammer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Lancer
     uniqueId: 20065
     affiliation: 1
@@ -540,7 +475,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Lancer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Medic
     uniqueId: 20066
     affiliation: 1
@@ -548,7 +482,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Medic
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Reconnoiter
     uniqueId: 20067
     affiliation: 1
@@ -556,7 +489,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Reconnoiter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Sniper
     uniqueId: 20068
     affiliation: 1
@@ -564,7 +496,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Sniper
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CC-Tank
     uniqueId: 20069
     affiliation: 1
@@ -572,7 +503,6 @@ MonoBehaviour:
     itemCapacity: 12
     coreFrameString: Core-C-Tank
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: CD-Commander
     uniqueId: 20070
     affiliation: 1
@@ -580,7 +510,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Commander
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Destroyer
     uniqueId: 20071
     affiliation: 1
@@ -588,7 +517,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Destroyer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Fighter
     uniqueId: 20072
     affiliation: 1
@@ -596,7 +524,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Fighter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Gunner
     uniqueId: 20073
     affiliation: 1
@@ -604,7 +531,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Gunner
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Jammer
     uniqueId: 20074
     affiliation: 1
@@ -612,7 +538,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Jammer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Lancer
     uniqueId: 20075
     affiliation: 1
@@ -620,7 +545,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Lancer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Medic
     uniqueId: 20076
     affiliation: 1
@@ -628,7 +552,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Medic
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Reconnoiter
     uniqueId: 20077
     affiliation: 1
@@ -636,7 +559,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Reconnoiter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Sniper
     uniqueId: 20078
     affiliation: 1
@@ -644,7 +566,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Sniper
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: CD-Tank
     uniqueId: 20079
     affiliation: 1
@@ -652,7 +573,6 @@ MonoBehaviour:
     itemCapacity: 16
     coreFrameString: Core-D-Tank
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DA-Commander
     uniqueId: 20080
     affiliation: 1
@@ -660,7 +580,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Destroyer
     uniqueId: 20081
     affiliation: 1
@@ -668,7 +587,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Destroyer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Fighter
     uniqueId: 20082
     affiliation: 1
@@ -676,7 +594,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Fighter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Gunner
     uniqueId: 20083
     affiliation: 1
@@ -684,7 +601,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Gunner
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Jammer
     uniqueId: 20084
     affiliation: 1
@@ -692,7 +608,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Jammer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Lancer
     uniqueId: 20085
     affiliation: 1
@@ -700,7 +615,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Lancer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Medic
     uniqueId: 20086
     affiliation: 1
@@ -708,7 +622,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Medic
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Reconnoiter
     uniqueId: 20087
     affiliation: 1
@@ -716,7 +629,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Reconnoiter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Sniper
     uniqueId: 20088
     affiliation: 1
@@ -724,7 +636,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Sniper
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DA-Tank
     uniqueId: 20089
     affiliation: 1
@@ -732,7 +643,6 @@ MonoBehaviour:
     itemCapacity: 5
     coreFrameString: Core-A-Tank
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: DB-Commander
     uniqueId: 20090
     affiliation: 1
@@ -740,7 +650,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Commander
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Destroyer
     uniqueId: 20091
     affiliation: 1
@@ -748,7 +657,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Destroyer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Fighter
     uniqueId: 20092
     affiliation: 1
@@ -756,7 +664,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Fighter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Gunner
     uniqueId: 20093
     affiliation: 1
@@ -764,7 +671,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Gunner
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Jammer
     uniqueId: 20094
     affiliation: 1
@@ -772,7 +678,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Jammer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Lancer
     uniqueId: 20095
     affiliation: 1
@@ -780,7 +685,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Lancer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Medic
     uniqueId: 20096
     affiliation: 1
@@ -788,7 +692,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Medic
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Reconnoiter
     uniqueId: 20097
     affiliation: 1
@@ -796,7 +699,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Reconnoiter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Sniper
     uniqueId: 20098
     affiliation: 1
@@ -804,7 +706,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Sniper
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DB-Tank
     uniqueId: 20099
     affiliation: 1
@@ -812,7 +713,6 @@ MonoBehaviour:
     itemCapacity: 9
     coreFrameString: Core-B-Tank
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: DC-Commander
     uniqueId: 20100
     affiliation: 1
@@ -820,7 +720,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Commander
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Destroyer
     uniqueId: 20101
     affiliation: 1
@@ -828,7 +727,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Destroyer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Fighter
     uniqueId: 20102
     affiliation: 1
@@ -836,7 +734,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Fighter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Gunner
     uniqueId: 20103
     affiliation: 1
@@ -844,7 +741,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Gunner
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Jammer
     uniqueId: 20104
     affiliation: 1
@@ -852,7 +748,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Jammer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Lancer
     uniqueId: 20105
     affiliation: 1
@@ -860,7 +755,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Lancer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Medic
     uniqueId: 20106
     affiliation: 1
@@ -868,7 +762,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Medic
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Reconnoiter
     uniqueId: 20107
     affiliation: 1
@@ -876,7 +769,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Reconnoiter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Sniper
     uniqueId: 20108
     affiliation: 1
@@ -884,7 +776,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Sniper
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DC-Tank
     uniqueId: 20109
     affiliation: 1
@@ -892,7 +783,6 @@ MonoBehaviour:
     itemCapacity: 13
     coreFrameString: Core-C-Tank
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: DD-Commander
     uniqueId: 20110
     affiliation: 1
@@ -900,7 +790,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Commander
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Destroyer
     uniqueId: 20111
     affiliation: 1
@@ -908,7 +797,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Destroyer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Fighter
     uniqueId: 20112
     affiliation: 1
@@ -916,7 +804,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Fighter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Gunner
     uniqueId: 20113
     affiliation: 1
@@ -924,7 +811,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Gunner
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Jammer
     uniqueId: 20114
     affiliation: 1
@@ -932,7 +818,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Jammer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Lancer
     uniqueId: 20115
     affiliation: 1
@@ -940,7 +825,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Lancer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Medic
     uniqueId: 20116
     affiliation: 1
@@ -948,7 +832,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Medic
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Reconnoiter
     uniqueId: 20117
     affiliation: 1
@@ -956,7 +839,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Reconnoiter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Sniper
     uniqueId: 20118
     affiliation: 1
@@ -964,7 +846,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Sniper
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: DD-Tank
     uniqueId: 20119
     affiliation: 1
@@ -972,7 +853,6 @@ MonoBehaviour:
     itemCapacity: 17
     coreFrameString: Core-D-Tank
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RA-Commander
     uniqueId: 20120
     affiliation: 1
@@ -980,7 +860,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Destroyer
     uniqueId: 20121
     affiliation: 1
@@ -988,7 +867,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Destroyer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Fighter
     uniqueId: 20122
     affiliation: 1
@@ -996,7 +874,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Fighter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Gunner
     uniqueId: 20123
     affiliation: 1
@@ -1004,7 +881,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Gunner
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Jammer
     uniqueId: 20124
     affiliation: 1
@@ -1012,7 +888,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Jammer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Lancer
     uniqueId: 20125
     affiliation: 1
@@ -1020,7 +895,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Lancer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Medic
     uniqueId: 20126
     affiliation: 1
@@ -1028,7 +902,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Medic
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Reconnoiter
     uniqueId: 20127
     affiliation: 1
@@ -1036,7 +909,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Reconnoiter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Sniper
     uniqueId: 20128
     affiliation: 1
@@ -1044,7 +916,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Sniper
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RA-Tank
     uniqueId: 20129
     affiliation: 1
@@ -1052,7 +923,6 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: Core-A-Tank
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: RB-Commander
     uniqueId: 20130
     affiliation: 1
@@ -1060,7 +930,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Commander
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Destroyer
     uniqueId: 20131
     affiliation: 1
@@ -1068,7 +937,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Destroyer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Fighter
     uniqueId: 20132
     affiliation: 1
@@ -1076,7 +944,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Fighter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Gunner
     uniqueId: 20133
     affiliation: 1
@@ -1084,7 +951,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Gunner
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Jammer
     uniqueId: 20134
     affiliation: 1
@@ -1092,7 +958,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Jammer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Lancer
     uniqueId: 20135
     affiliation: 1
@@ -1100,7 +965,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Lancer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Medic
     uniqueId: 20136
     affiliation: 1
@@ -1108,7 +972,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Medic
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Reconnoiter
     uniqueId: 20137
     affiliation: 1
@@ -1116,7 +979,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Reconnoiter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Sniper
     uniqueId: 20138
     affiliation: 1
@@ -1124,7 +986,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Sniper
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RB-Tank
     uniqueId: 20139
     affiliation: 1
@@ -1132,7 +993,6 @@ MonoBehaviour:
     itemCapacity: 10
     coreFrameString: Core-B-Tank
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: RC-Commander
     uniqueId: 20140
     affiliation: 1
@@ -1140,7 +1000,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Commander
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Destroyer
     uniqueId: 20141
     affiliation: 1
@@ -1148,7 +1007,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Destroyer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Fighter
     uniqueId: 20142
     affiliation: 1
@@ -1156,7 +1014,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Fighter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Gunner
     uniqueId: 20143
     affiliation: 1
@@ -1164,7 +1021,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Gunner
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Jammer
     uniqueId: 20144
     affiliation: 1
@@ -1172,7 +1028,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Jammer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Lancer
     uniqueId: 20145
     affiliation: 1
@@ -1180,7 +1035,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Lancer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Medic
     uniqueId: 20146
     affiliation: 1
@@ -1188,7 +1042,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Medic
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Reconnoiter
     uniqueId: 20147
     affiliation: 1
@@ -1196,7 +1049,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Reconnoiter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Sniper
     uniqueId: 20148
     affiliation: 1
@@ -1204,7 +1056,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Sniper
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RC-Tank
     uniqueId: 20149
     affiliation: 1
@@ -1212,7 +1063,6 @@ MonoBehaviour:
     itemCapacity: 14
     coreFrameString: Core-C-Tank
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: RD-Commander
     uniqueId: 20150
     affiliation: 1
@@ -1220,7 +1070,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Commander
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Destroyer
     uniqueId: 20151
     affiliation: 1
@@ -1228,7 +1077,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Destroyer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Fighter
     uniqueId: 20152
     affiliation: 1
@@ -1236,7 +1084,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Fighter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Gunner
     uniqueId: 20153
     affiliation: 1
@@ -1244,7 +1091,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Gunner
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Jammer
     uniqueId: 20154
     affiliation: 1
@@ -1252,7 +1098,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Jammer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Lancer
     uniqueId: 20155
     affiliation: 1
@@ -1260,7 +1105,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Lancer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Medic
     uniqueId: 20156
     affiliation: 1
@@ -1268,7 +1112,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Medic
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Reconnoiter
     uniqueId: 20157
     affiliation: 1
@@ -1276,7 +1119,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Reconnoiter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Sniper
     uniqueId: 20158
     affiliation: 1
@@ -1284,7 +1126,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Sniper
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: RD-Tank
     uniqueId: 20159
     affiliation: 1
@@ -1292,7 +1133,6 @@ MonoBehaviour:
     itemCapacity: 18
     coreFrameString: Core-D-Tank
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TA-Commander
     uniqueId: 20160
     affiliation: 1
@@ -1300,7 +1140,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Commander
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Destroyer
     uniqueId: 20161
     affiliation: 1
@@ -1308,7 +1147,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Destroyer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Fighter
     uniqueId: 20162
     affiliation: 1
@@ -1316,7 +1154,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Fighter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Gunner
     uniqueId: 20163
     affiliation: 1
@@ -1324,7 +1161,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Gunner
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Jammer
     uniqueId: 20164
     affiliation: 1
@@ -1332,7 +1168,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Jammer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Lancer
     uniqueId: 20165
     affiliation: 1
@@ -1340,7 +1175,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Lancer
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Medic
     uniqueId: 20166
     affiliation: 1
@@ -1348,7 +1182,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Medic
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Reconnoiter
     uniqueId: 20167
     affiliation: 1
@@ -1356,7 +1189,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Reconnoiter
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Sniper
     uniqueId: 20168
     affiliation: 1
@@ -1364,7 +1196,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Sniper
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TA-Tank
     uniqueId: 20169
     affiliation: 1
@@ -1372,7 +1203,6 @@ MonoBehaviour:
     itemCapacity: 7
     coreFrameString: Core-A-Tank
     pilotString: Pilot-CommonA
-    level: 1
   - unitName: TB-Commander
     uniqueId: 20170
     affiliation: 1
@@ -1380,7 +1210,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Commander
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Destroyer
     uniqueId: 20171
     affiliation: 1
@@ -1388,7 +1217,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Destroyer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Fighter
     uniqueId: 20172
     affiliation: 1
@@ -1396,7 +1224,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Fighter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Gunner
     uniqueId: 20173
     affiliation: 1
@@ -1404,7 +1231,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Gunner
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Jammer
     uniqueId: 20174
     affiliation: 1
@@ -1412,7 +1238,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Jammer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Lancer
     uniqueId: 20175
     affiliation: 1
@@ -1420,7 +1245,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Lancer
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Medic
     uniqueId: 20176
     affiliation: 1
@@ -1428,7 +1252,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Medic
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Reconnoiter
     uniqueId: 20177
     affiliation: 1
@@ -1436,7 +1259,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Reconnoiter
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Sniper
     uniqueId: 20178
     affiliation: 1
@@ -1444,7 +1266,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Sniper
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TB-Tank
     uniqueId: 20179
     affiliation: 1
@@ -1452,7 +1273,6 @@ MonoBehaviour:
     itemCapacity: 11
     coreFrameString: Core-B-Tank
     pilotString: Pilot-CommonB
-    level: 1
   - unitName: TC-Commander
     uniqueId: 20180
     affiliation: 1
@@ -1460,7 +1280,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Commander
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Destroyer
     uniqueId: 20181
     affiliation: 1
@@ -1468,7 +1287,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Destroyer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Fighter
     uniqueId: 20182
     affiliation: 1
@@ -1476,7 +1294,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Fighter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Gunner
     uniqueId: 20183
     affiliation: 1
@@ -1484,7 +1301,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Gunner
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Jammer
     uniqueId: 20184
     affiliation: 1
@@ -1492,7 +1308,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Jammer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Lancer
     uniqueId: 20185
     affiliation: 1
@@ -1500,7 +1315,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Lancer
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Medic
     uniqueId: 20186
     affiliation: 1
@@ -1508,7 +1322,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Medic
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Reconnoiter
     uniqueId: 20187
     affiliation: 1
@@ -1516,7 +1329,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Reconnoiter
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Sniper
     uniqueId: 20188
     affiliation: 1
@@ -1524,7 +1336,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Sniper
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TC-Tank
     uniqueId: 20189
     affiliation: 1
@@ -1532,7 +1343,6 @@ MonoBehaviour:
     itemCapacity: 15
     coreFrameString: Core-C-Tank
     pilotString: Pilot-CommonC
-    level: 1
   - unitName: TD-Commander
     uniqueId: 20190
     affiliation: 1
@@ -1540,7 +1350,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Commander
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Destroyer
     uniqueId: 20191
     affiliation: 1
@@ -1548,7 +1357,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Destroyer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Fighter
     uniqueId: 20192
     affiliation: 1
@@ -1556,7 +1364,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Fighter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Gunner
     uniqueId: 20193
     affiliation: 1
@@ -1564,7 +1371,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Gunner
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Jammer
     uniqueId: 20194
     affiliation: 1
@@ -1572,7 +1378,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Jammer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Lancer
     uniqueId: 20195
     affiliation: 1
@@ -1580,7 +1385,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Lancer
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Medic
     uniqueId: 20196
     affiliation: 1
@@ -1588,7 +1392,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Medic
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Reconnoiter
     uniqueId: 20197
     affiliation: 1
@@ -1596,7 +1399,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Reconnoiter
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Sniper
     uniqueId: 20198
     affiliation: 1
@@ -1604,7 +1406,6 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Sniper
     pilotString: Pilot-CommonD
-    level: 1
   - unitName: TD-Tank
     uniqueId: 20199
     affiliation: 1
@@ -1612,4 +1413,3 @@ MonoBehaviour:
     itemCapacity: 19
     coreFrameString: Core-D-Tank
     pilotString: Pilot-CommonD
-    level: 1

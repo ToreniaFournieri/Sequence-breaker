@@ -254,7 +254,7 @@ MonoBehaviour:
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
-  runbattle: {fileID: 0}
+  runBattle: {fileID: 0}
 --- !u!1 &42849285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,10 +1859,8 @@ MonoBehaviour:
   missionText: Village Patrol
   location: Elle vilage
   missionLevelInitial: 1
-  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
-  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
   - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
@@ -2514,6 +2512,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   battleUnit: {fileID: 0}
   detailAbilityString: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   summedSkillList: []
   tuningStyleClass: {fileID: 2091428008}
   t5LevelCoefficient: 100
@@ -3904,10 +3903,8 @@ MonoBehaviour:
   missionText: Defend the Soylent plant
   location: Soylent Plant
   missionLevelInitial: 5
-  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
-  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: 798c1d4a264394c829827c16368aaaa6, type: 2}
   - {fileID: 11400000, guid: 853979833a6384862a21028a7cf9b68f, type: 2}
@@ -10410,8 +10407,6 @@ MonoBehaviour:
   characterNameText: {fileID: 1687822852}
   itemAmountText: {fileID: 1642664218}
   abilityText: {fileID: 707987500}
-  affiliation: 0
-  uniqueId: 0
   itemCapacity: 0
   selectedUnitNo: 0
 --- !u!1 &1266789293
@@ -14260,10 +14255,8 @@ MonoBehaviour:
   missionText: vs Ru Bu
   location: Yan Province
   missionLevelInitial: 10
-  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
-  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
   unitSet: {fileID: 0}
@@ -14446,10 +14439,8 @@ MonoBehaviour:
   missionText: A1
   location: '[Tutorial]'
   missionLevelInitial: 1
-  missionLevelCurrent: 0
   whichWin: 0
   whichWinEachWaves: 
-  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
   enemyUnitSetList:
   - {fileID: 11400000, guid: afc34424a06d942108b28e7e57955c64, type: 2}
   - {fileID: 11400000, guid: 56828c756721e472786c1065a66d39d5, type: 2}

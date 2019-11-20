@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitSetExcelList:
   - missionId: 1001
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 1
     unit1: BA-Fighter
     unit2: 
@@ -23,6 +28,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1001
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 2
     unit1: BA-Destroyer
     unit2: 
@@ -32,6 +42,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1001
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 3
     unit1: BA-Destroyer
     unit2: BA-Fighter
@@ -41,6 +56,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1001
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 4
     unit1: BA-Destroyer
     unit2: BA-Fighter
@@ -50,6 +70,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1002
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 1
     unit1: CA-Fighter
     unit2: CA-Destroyer
@@ -59,6 +84,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1002
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 2
     unit1: CA-Lancer
     unit2: CA-Fighter
@@ -68,6 +98,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1002
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 3
     unit1: CA-Lancer
     unit2: CA-Fighter
@@ -77,6 +112,11 @@ MonoBehaviour:
     unit6: 
     unit7: 
   - missionId: 1002
+    missionString: 
+    locationString: 
+    missionLevelInitial: 0
+    battleEnvironment: 
+    calculateUnitStatus: 
     waveId: 4
     unit1: CA-Lancer
     unit2: CA-Fighter
