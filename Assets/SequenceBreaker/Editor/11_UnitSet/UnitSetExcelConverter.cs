@@ -143,14 +143,14 @@ namespace SequenceBreaker.Editor._11_UnitSet
                             unitSet = unitSetCheck;
                         }
 
-                        unitSet.unitSetList = new List<UnitWave>();
+                        unitSet.unitSetList = new List<Runbattle>();
 
                         unitSet.missionId = unitMasterExcel.missionId;
                     }
 
                     var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
 
-                    UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
+                    Runbattle unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
                     if (unitWave.unitWave != null)
                     {
                         unitSet.unitSetList.Add(unitWave);

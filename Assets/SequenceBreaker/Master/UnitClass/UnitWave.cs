@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SequenceBreaker.Master.UnitClass
 {
-    public class UnitWave : ScriptableObject
+    public class Runbattle : ScriptableObject
     {
         public List<UnitClass> unitWave;
     }

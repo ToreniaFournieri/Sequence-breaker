@@ -8,7 +8,20 @@ namespace SequenceBreaker.Editor._11_UnitSet
     [Serializable]
     public class UnitSetExcel
     {
+
+        // header data
         public int missionId;
+        public string missionString;
+        public string locationString;
+        public int missionLevelInitial;
+
+
+        // header data and fixed one.
+        public string battleEnvironment;
+        public string calculateUnitStatus;
+
+
+        // item data
         public int waveId;
         
         // order UnitClass ScriptableObject name
@@ -20,9 +33,9 @@ namespace SequenceBreaker.Editor._11_UnitSet
         public string unit6;
         public string unit7;
 
-        public UnitWave GetUnitSet(string path)
+        public Runbattle GetUnitSet(string path)
         { 
-            UnitWave unitWave = UnitWaveCreate.Create(path);
+            Runbattle unitWave = UnitWaveCreate.Create(path);
 //            UnitWave unitWave = new UnitWave();
             unitWave.unitWave = new List<UnitClass>();
             string unitPath = "20_Enemy/" + "UnitClassList";

@@ -5,6 +5,7 @@ using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Skills;
+using SequenceBreaker.Play.Battle;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.UnitClass
@@ -25,7 +26,8 @@ namespace SequenceBreaker.Master.UnitClass
 
         //output Ability Detail Text
         public string detailAbilityString;
-        
+
+        public BattleEnvironment battleEnvironment;
 
         //output middle data
         private AbilityClass _ability;

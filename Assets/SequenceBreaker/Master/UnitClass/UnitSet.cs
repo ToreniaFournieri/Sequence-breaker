@@ -9,7 +9,7 @@ namespace SequenceBreaker.Master.UnitClass
         public int missionId;
 //        public int waveId;
 
-        public List<UnitWave> unitSetList;
+        public List<Runbattle> unitSetList;
         
 //                    public List<List<UnitClass>> unitSetList;
 
