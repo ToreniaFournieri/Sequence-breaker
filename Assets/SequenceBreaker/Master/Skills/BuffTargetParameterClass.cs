@@ -1,0 +1,24 @@
+﻿using SequenceBreaker.Environment;
+using UnityEngine;
+using UnityEngine.Serialization;
+
+namespace SequenceBreaker.Master.Skills
+{
+    [CreateAssetMenu(fileName = "buffTarget", menuName = "Skill/SubClass/BuffTargetParameterClass", order = 10)]
+    public sealed class BuffTargetParameterClass : ScriptableObject
+    {
+
+
+        [FormerlySerializedAs("TargetType")] public TargetType targetType;
+        [FormerlySerializedAs("BarrierRemaining")] public int barrierRemaining;
+        [FormerlySerializedAs("DefenseMagnification")] public double defenseMagnification;
+        [FormerlySerializedAs("MobilityMagnification")] public double mobilityMagnification;
+        [FormerlySerializedAs("AttackMagnification")] public double attackMagnification;
+        [FormerlySerializedAs("AccuracyMagnification")] public double accuracyMagnification;
+        [FormerlySerializedAs("CriticalHitRateMagnification")] public double criticalHitRateMagnification;
+        [FormerlySerializedAs("NumberOfAttackMagnification")] public double numberOfAttackMagnification;
+        [FormerlySerializedAs("RangeMinCorrection")] public int rangeMinCorrection;
+        [FormerlySerializedAs("RangeMaxCorrection")] public int rangeMaxCorrection;
+
+    }
+}

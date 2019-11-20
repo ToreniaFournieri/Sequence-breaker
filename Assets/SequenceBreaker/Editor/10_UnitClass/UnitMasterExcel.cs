@@ -1,7 +1,6 @@
 ﻿using System;
-using SequenceBreaker._00_System;
-using SequenceBreaker._01_Data.UnitClass;
-using SequenceBreaker._01_Data.UnitClass.Pilot;
+using SequenceBreaker.Environment;
+using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
 
 namespace SequenceBreaker.Editor._10_UnitClass

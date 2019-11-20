@@ -190,12 +190,64 @@
           </e>
         </e>
         <e p="SequenceBreaker" t="Include">
-          <e p="00_System" t="Include">
+          <e p="Drop" t="Include">
+            <e p="DropEngine.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="10_UnitClass" t="Include">
+              <e p="UnitClassListCreate.cs" t="Include" />
+              <e p="UnitCreate.cs" t="Include" />
+              <e p="UnitMasterExcel.cs" t="Include" />
+              <e p="UnitMasterExcelConverter.cs" t="Include" />
+              <e p="UnitMasterExcelImport.cs" t="Include" />
+            </e>
+            <e p="11_UnitSet" t="Include">
+              <e p="UnitSetCreate.cs" t="Include" />
+              <e p="UnitSetExcel.cs" t="Include" />
+              <e p="UnitSetExcelConverter.cs" t="Include" />
+              <e p="UnitSetExcelImport.cs" t="Include" />
+              <e p="UnitWaveCreate.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Environment" t="Include">
             <e p="Enumeration.cs" t="Include" />
             <e p="SimpleObjectPool.cs" t="Include" />
             <e p="StartUp.cs" t="Include" />
           </e>
-          <e p="01_Data" t="Include">
+          <e p="GUIController" t="Include">
+            <e p="Segue" t="Include">
+              <e p="BackPreviousView.cs" t="Include" />
+              <e p="DragAndClose.cs" t="Include" />
+              <e p="DragTargetObject.cs" t="Include" />
+              <e p="SegueController.cs" t="Include" />
+              <e p="SwipeManager.cs" t="Include" />
+              <e p="TabController.cs" t="Include" />
+            </e>
+            <e p="ShowVersionInfo.cs" t="Include" />
+            <e p="TransparentMessageController.cs" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="EquipView" t="Include">
+              <e p="CharacterHeaderSizeChanger.cs" t="Include" />
+              <e p="CharacterStatusDisplay.cs" t="Include" />
+              <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
+              <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
+              <e p="InventoryItemList.cs" t="Include" />
+              <e p="InventoryListItemContent.cs" t="Include" />
+              <e p="InventoryListItemSubTitle.cs" t="Include" />
+              <e p="InventoryTreeViewDataSourceMgr.cs" t="Include" />
+              <e p="InventoryTreeViewWithStickyHeadScript.cs" t="Include" />
+              <e p="ItemDetailViewController.cs" t="Include" />
+              <e p="SwitchLayer.cs" t="Include" />
+            </e>
+            <e p="HomeListView" t="Include">
+              <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
+              <e p="HomeContents.cs" t="Include" />
+              <e p="HomeDataSourceMgr.cs" t="Include" />
+              <e p="HomeListItem.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Master" t="Include">
             <e p="BattleUnit" t="Include">
               <e p="AbilityClass.cs" t="Include" />
               <e p="ActionSkillClass.cs" t="Include" />
@@ -208,35 +260,27 @@
               <e p="UnitSkillMagnificationClass.cs" t="Include" />
             </e>
             <e p="Items" t="Include">
-              <e p="Item" t="Include">
-                <e p="Item.cs" t="Include" />
-                <e p="ItemDataBase.cs" t="Include" />
-                <e p="ItemForSave.cs" t="Include" />
-              </e>
-              <e p="Master" t="Include">
-                <e p="AddAbilityClass.cs" t="Include" />
-                <e p="ItemBaseMaster.cs" t="Include" />
-                <e p="MagnificationMasterClass.cs" t="Include" />
-              </e>
+              <e p="AddAbilityClass.cs" t="Include" />
+              <e p="Item.cs" t="Include" />
+              <e p="ItemBaseMaster.cs" t="Include" />
+              <e p="ItemDataBase.cs" t="Include" />
+              <e p="ItemForSave.cs" t="Include" />
+              <e p="MagnificationMasterClass.cs" t="Include" />
             </e>
             <e p="Skills" t="Include">
+              <e p="BuffTargetParameterClass.cs" t="Include" />
+              <e p="DebuffTargetParameterClass.cs" t="Include" />
               <e p="EffectClass.cs" t="Include" />
+              <e p="SkillMagnificationClass.cs" t="Include" />
               <e p="SkillsMasterClass.cs" t="Include" />
-              <e p="Subclass" t="Include">
-                <e p="BuffTargetParameterClass.cs" t="Include" />
-                <e p="DebuffTargetParameterClass.cs" t="Include" />
-                <e p="SkillMagnificationClass.cs" t="Include" />
-                <e p="TriggerBaseClass.cs" t="Include" />
-                <e p="TriggerTargetClass.cs" t="Include" />
-              </e>
+              <e p="TriggerBaseClass.cs" t="Include" />
+              <e p="TriggerTargetClass.cs" t="Include" />
             </e>
             <e p="UnitClass" t="Include">
               <e p="CalculateUnitStatus.cs" t="Include" />
               <e p="CoreFrame.cs" t="Include" />
               <e p="EnemyUnitSet.cs" t="Include" />
-              <e p="Pilot" t="Include">
-                <e p="Pilot.cs" t="Include" />
-              </e>
+              <e p="Pilot.cs" t="Include" />
               <e p="TuningStyleClass.cs" t="Include" />
               <e p="UnitClass.cs" t="Include" />
               <e p="UnitClassForSave.cs" t="Include" />
@@ -246,47 +290,7 @@
               <e p="UnitWave.cs" t="Include" />
             </e>
           </e>
-          <e p="02_Drop" t="Include">
-            <e p="DropEngine.cs" t="Include" />
-          </e>
-          <e p="03_GUIController" t="Include">
-            <e p="Segue" t="Include">
-              <e p="BackPreviousView.cs" t="Include" />
-              <e p="DragAndClose.cs" t="Include" />
-              <e p="DragTargetObject.cs" t="Include" />
-              <e p="SegueController.cs" t="Include" />
-              <e p="SwipeManager.cs" t="Include" />
-              <e p="TabController.cs" t="Include" />
-            </e>
-            <e p="ShowVersionInfo.cs" t="Include" />
-            <e p="TransparentMessageController.cs" t="Include" />
-          </e>
-          <e p="04_Home" t="Include">
-            <e p="EquipView" t="Include">
-              <e p="Character" t="Include">
-                <e p="CharacterHeaderSizeChanger.cs" t="Include" />
-                <e p="CharacterStatusDisplay.cs" t="Include" />
-                <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
-                <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
-              </e>
-              <e p="Inventory" t="Include">
-                <e p="InventoryItemList.cs" t="Include" />
-                <e p="InventoryListItemContent.cs" t="Include" />
-                <e p="InventoryListItemSubTitle.cs" t="Include" />
-                <e p="InventoryTreeViewDataSourceMgr.cs" t="Include" />
-                <e p="InventoryTreeViewWithStickyHeadScript.cs" t="Include" />
-                <e p="ItemDetailViewController.cs" t="Include" />
-              </e>
-              <e p="SwitchLayer.cs" t="Include" />
-            </e>
-            <e p="HomeListView" t="Include">
-              <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
-              <e p="HomeContents.cs" t="Include" />
-              <e p="HomeDataSourceMgr.cs" t="Include" />
-              <e p="HomeListItem.cs" t="Include" />
-            </e>
-          </e>
-          <e p="05_Play" t="Include">
+          <e p="Play" t="Include">
             <e p="Battle" t="Include">
               <e p="AttackFunction.cs" t="Include" />
               <e p="BattleEngine.cs" t="Include" />
@@ -307,7 +311,7 @@
               <e p="RunBattle.cs" t="Include" />
             </e>
           </e>
-          <e p="06_Timeline" t="Include">
+          <e p="Timeline" t="Include">
             <e p="BattleLogView" t="Include">
               <e p="BattleLogEnhancedScrollController.cs" t="Include" />
               <e p="CellView.cs" t="Include" />
@@ -325,22 +329,6 @@
             </e>
             <e p="LogViewsHolder.cs" t="Include" />
             <e p="ShowDetailButton.cs" t="Include" />
-          </e>
-          <e p="Editor" t="Include">
-            <e p="10_UnitClass" t="Include">
-              <e p="UnitClassListCreate.cs" t="Include" />
-              <e p="UnitCreate.cs" t="Include" />
-              <e p="UnitMasterExcel.cs" t="Include" />
-              <e p="UnitMasterExcelConverter.cs" t="Include" />
-              <e p="UnitMasterExcelImport.cs" t="Include" />
-            </e>
-            <e p="11_UnitSet" t="Include">
-              <e p="UnitSetCreate.cs" t="Include" />
-              <e p="UnitSetExcel.cs" t="Include" />
-              <e p="UnitSetExcelConverter.cs" t="Include" />
-              <e p="UnitSetExcelImport.cs" t="Include" />
-              <e p="UnitWaveCreate.cs" t="Include" />
-            </e>
           </e>
         </e>
       </e>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SequenceBreaker._01_Data.UnitClass;
+using SequenceBreaker.Master.UnitClass;
 using UnityEditor;
 using UnityEngine;
 
