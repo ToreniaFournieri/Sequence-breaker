@@ -14,7 +14,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
         private static string _excelPath = "UnitSetExcel";
 //        private static string _targetPath = "UnitSetObjectPath";
 
-        private string _targetPathWithoutName;
+        public string targetPathWithoutName;
            
         [MenuItem("Window/Unit Set Excel Converter %#s")]
         static void Init()
@@ -64,7 +64,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
                 OpenTargetList();
             }
 
-            GUILayout.Label(_targetPathWithoutName ?? " Unselected");
+            GUILayout.Label(targetPathWithoutName ?? " Unselected");
 
             GUILayout.EndHorizontal();
 
@@ -98,7 +98,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
             if (absPath.StartsWith(Application.dataPath)) 
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                _targetPathWithoutName = relPath;
+                targetPathWithoutName = relPath;
 //                Debug.Log(_targetPathWithoutName);
 //                unitSet = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitSet)) as UnitSet;
 //                if (unitSet != null && unitSet.unitSetList == null)
@@ -124,7 +124,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
 //                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset";
                         
 
-                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId ;
+                        string _unitSetPath =  targetPathWithoutName + "/UnitSet-" + currentMissionId ;
 
                             //load scriptable object from Resources need ref path.
                             var q = "/Resources/";
@@ -148,7 +148,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
                         unitSet.missionId = unitMasterExcel.missionId;
                     }
 
-                    var unitWavePath = _targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+                    var unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
 
                     Runbattle unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
                     if (unitWave.unitWave != null)

@@ -17,7 +17,6 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
 
         // header data and fixed one.
-        public string battleEnvironment;
         public string calculateUnitStatus;
 
 
