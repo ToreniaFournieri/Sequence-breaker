@@ -15,7 +15,11 @@ namespace SequenceBreaker.Editor._11_UnitSet
 //        private static string _targetPath = "UnitSetObjectPath";
 
         public string targetPathWithoutName;
-           
+
+        public CalculateUnitStatus calculateUnitStatus;
+
+
+
         [MenuItem("Window/Unit Set Excel Converter %#s")]
         static void Init()
         {
@@ -68,8 +72,15 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
             GUILayout.EndHorizontal();
 
-                    
-            if (GUILayout.Button("3. Convert Excel to Unit Set", GUILayout.ExpandWidth(false)))
+            GUILayout.BeginHorizontal();
+
+            calculateUnitStatus = EditorGUILayout.ObjectField("3. Select Calculate unit status game object",
+                            calculateUnitStatus, typeof(CalculateUnitStatus), true) as CalculateUnitStatus;
+
+            GUILayout.EndHorizontal();
+
+
+            if (GUILayout.Button("4. Convert Excel to Unit Set", GUILayout.ExpandWidth(false)))
             {
                 ConvertUnitSetFromExcel();
             }
@@ -109,6 +120,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
             }
         }
 
+
         void ConvertUnitSetFromExcel()
         {
 
@@ -122,7 +134,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
                         currentMissionId = unitMasterExcel.missionId;
                         
 //                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset";
-                        
+
+
 
                         string _unitSetPath =  targetPathWithoutName + "/UnitSet-" + currentMissionId ;
 
