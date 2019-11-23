@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Play.Prepare;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,13 +11,18 @@ namespace SequenceBreaker.Editor._11_UnitSet
     {
         public UnitSetExcelImport unitSetExcelImport;
         public UnitSet unitSet;
-
-        private static string _excelPath = "UnitSetExcel";
-//        private static string _targetPath = "UnitSetObjectPath";
-
+        public RunBattle runbattle;
         public string targetPathWithoutName;
 
         public CalculateUnitStatus calculateUnitStatus;
+        private static string _excelPath = "UnitSetExcel";
+        private static string _unitSetPath = "UnitSetPath";
+        private static string _calculateUnitStatus = "CalculateUnitStatus";
+            
+
+//        private static string _targetPath = "UnitSetObjectPath";
+
+
 
 
 
@@ -33,13 +39,28 @@ namespace SequenceBreaker.Editor._11_UnitSet
                 string excelPath = EditorPrefs.GetString(_excelPath);
                 unitSetExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
             }
-//            if(EditorPrefs.HasKey(_targetPath)) 
-//            {
-//                string objectPath = EditorPrefs.GetString(_targetPath);
-//                unitSet = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitSet)) as UnitSet;
-//            }
+
+            if (EditorPrefs.HasKey(_unitSetPath))
+            {
+                targetPathWithoutName = EditorPrefs.GetString(_excelPath);
+            }
+
+            if (EditorPrefs.HasKey(_calculateUnitStatus))
+            {
+                int id = EditorPrefs.GetInt(_calculateUnitStatus, -1);
+                Debug.Log("should instanced by this id but don't... id: " + id);
+                calculateUnitStatus = EditorUtility.InstanceIDToObject(id) as CalculateUnitStatus;
+
+            }
+
+
+            //            if(EditorPrefs.HasKey(_targetPath)) 
+            //            {
+            //                string objectPath = EditorPrefs.GetString(_targetPath);
+            //                unitSet = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitSet)) as UnitSet;
+            //            }
         }
-        
+
         private void OnGUI()
         {
             
@@ -76,6 +97,12 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
             calculateUnitStatus = EditorGUILayout.ObjectField("3. Select Calculate unit status game object",
                             calculateUnitStatus, typeof(CalculateUnitStatus), true) as CalculateUnitStatus;
+            if (calculateUnitStatus)
+            {
+                int id = calculateUnitStatus.GetInstanceID();
+                EditorPrefs.SetInt(_calculateUnitStatus, id);
+            }
+
 
             GUILayout.EndHorizontal();
 
@@ -117,6 +144,11 @@ namespace SequenceBreaker.Editor._11_UnitSet
 //                if (unitSet) {
 //                    EditorPrefs.SetString(_targetPath, relPath);
 //                }
+
+            if (targetPathWithoutName != null)
+                {
+                    EditorPrefs.SetString(_unitSetPath, relPath);
+                }
             }
         }
 
@@ -132,9 +164,6 @@ namespace SequenceBreaker.Editor._11_UnitSet
                     {
                         //new mission start. so creat it.
                         currentMissionId = unitMasterExcel.missionId;
-                        
-//                        string _unitSetPath =  _targetPathWithoutName + "/UnitSet-" + currentMissionId + ".asset";
-
 
 
                         string _unitSetPath =  targetPathWithoutName + "/UnitSet-" + currentMissionId ;
@@ -156,14 +185,14 @@ namespace SequenceBreaker.Editor._11_UnitSet
                             unitSet = unitSetCheck;
                         }
 
-                        unitSet.unitSetList = new List<Runbattle>();
+                        unitSet.unitSetList = new List<UnitWave>();
 
                         unitSet.missionId = unitMasterExcel.missionId;
                     }
 
                     var unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
 
-                    Runbattle unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
+                    UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
                     if (unitWave.unitWave != null)
                     {
                         unitSet.unitSetList.Add(unitWave);

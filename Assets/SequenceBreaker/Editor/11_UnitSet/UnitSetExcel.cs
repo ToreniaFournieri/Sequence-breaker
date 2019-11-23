@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Play.Prepare;
 using UnityEngine;
 
 namespace SequenceBreaker.Editor._11_UnitSet
@@ -10,6 +12,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
     {
 
         // header data
+        public string missionCategory; //Identify the missions, mainstory or some sub story.
         public int missionId;
         public string missionString;
         public string locationString;
@@ -17,7 +20,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
 
         // header data and fixed one.
-        public string calculateUnitStatus;
+        //public string calculateUnitStatus;
 
 
         // item data
@@ -32,11 +35,11 @@ namespace SequenceBreaker.Editor._11_UnitSet
         public string unit6;
         public string unit7;
 
-        public Runbattle GetUnitSet(string path)
+        public UnitWave GetUnitSet(string path)
         { 
-            Runbattle unitWave = UnitWaveCreate.Create(path);
-//            UnitWave unitWave = new UnitWave();
-            unitWave.unitWave = new List<UnitClass>();
+            //MissionMaster mission = MissionCreate.Create(path);
+            UnitWave unitWave = new UnitWave();
+
             string unitPath = "20_Enemy/" + "UnitClassList";
             UnitClassList unitClassList = Resources.Load<UnitClassList>(unitPath);
 

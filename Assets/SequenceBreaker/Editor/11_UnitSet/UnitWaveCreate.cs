@@ -7,11 +7,11 @@ namespace SequenceBreaker.Editor._11_UnitSet
     public class UnitWaveCreate
     {
         [MenuItem("Assets/Create/UnitWave")]
-        public static Runbattle Create(string pathAndName)
+        public static UnitWave Create(string pathAndName)
         {
-            Runbattle asset = ScriptableObject.CreateInstance<Runbattle>();
-            
-            
+            UnitWave asset = ScriptableObject.CreateInstance<UnitWave>();
+
+
             AssetDatabase.CreateAsset(asset, pathAndName);
             AssetDatabase.SaveAssets();
             return asset;
