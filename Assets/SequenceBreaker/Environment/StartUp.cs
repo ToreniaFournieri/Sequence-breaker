@@ -9,8 +9,8 @@ namespace SequenceBreaker.Environment
     public sealed class StartUp : MonoBehaviour
     {
 
-        //For inventory management
-        public ItemDataBase itemDataBase;
+        ////For inventory management
+        //public ItemDataBase itemDataBase;
         //Item inventory
         public UnitClass inventory;
         //Ally inventory
@@ -30,13 +30,16 @@ namespace SequenceBreaker.Environment
         void Start()
         {
             //inventory
-            inventory = itemDataBase.LoadUnitInfo(inventory);
-            
+            //inventory = itemDataBase.LoadUnitInfo(inventory);
+            inventory = ItemDataBase.Get.LoadUnitInfo(inventory);
+
             // homeContentList 0 is ally list ( this is temp)
             List<UnitClass> unitList = homeDataSourceMgr.homeContents.homeContentList[0].unitClassList;
             foreach (var unit in unitList)
             {
-                unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
+                //unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
+                unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
+
                 unit.CalculateLevel();
             }
             

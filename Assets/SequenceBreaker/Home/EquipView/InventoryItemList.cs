@@ -9,7 +9,7 @@ namespace SequenceBreaker.Home.EquipView
         public bool isInfinityInventoryMode;
 
         public UnitClass inventory;
-        public ItemDataBase itemDataBase;
+        //public ItemDataBase itemDataBase;
 
         private void Start()
         {
@@ -91,7 +91,9 @@ namespace SequenceBreaker.Home.EquipView
 
         private void SaveFile()
         {
-            itemDataBase.SaveUnitInfo(inventory);
+
+            ItemDataBase.Get.SaveUnitInfo(inventory);
+            //itemDataBase.SaveUnitInfo(inventory);
             
         }
 
@@ -102,7 +104,7 @@ namespace SequenceBreaker.Home.EquipView
                 inventory.itemList.Clear();
 
                 Item item;
-                foreach (ItemBaseMaster itemBaseMaster in itemDataBase.itemBaseMasterList)
+                foreach (ItemBaseMaster itemBaseMaster in ItemDataBase.Get.itemBaseMasterList)
                 {
                     item = ScriptableObject.CreateInstance<Item>();
                     item.prefixItem = null;
@@ -117,7 +119,7 @@ namespace SequenceBreaker.Home.EquipView
             }
             else
             {
-                inventory = itemDataBase.LoadUnitInfo(inventory);
+                inventory = ItemDataBase.Get.LoadUnitInfo(inventory);
             }
         }
 

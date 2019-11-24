@@ -24,7 +24,7 @@ namespace SequenceBreaker.GUIController.Segue
         public string currentTab;
 
         //For enemy unitClass load
-        public ItemDataBase itemDataBase;
+        //public ItemDataBase itemDataBase;
         public HomeContents homeContents;
         
         // For Home Character update 
@@ -80,7 +80,8 @@ namespace SequenceBreaker.GUIController.Segue
                         foreach (var unit in homeContentData.unitClassList)
                         {
                             //Bug:This way to load info is not collect.
-                            UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
+                            //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
+                            UnitClass loadUnit = ItemDataBase.Get.LoadUnitInfo(unit);
                             unit.itemList = loadUnit.itemList;
                             //experience should only load in initial not this timing.
                             unit.experience = loadUnit.experience;

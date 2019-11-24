@@ -144,7 +144,8 @@ namespace SequenceBreaker.Play.MissionView
             // gain experience
             foreach (UnitClass allyUnit in missionController.allyUnitList)
             {
-                missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
+                ItemDataBase.Get.SaveUnitInfo(allyUnit);
+                //missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
             }
 
             foreach (Item item in itemList)

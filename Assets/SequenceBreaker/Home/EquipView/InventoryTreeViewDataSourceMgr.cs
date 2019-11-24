@@ -32,7 +32,7 @@ namespace SequenceBreaker.Home.EquipView
     public sealed class InventoryTreeViewDataSourceMgr : MonoBehaviour
     {
         // Item data base 
-        public ItemDataBase itemDataBase;
+        //public ItemDataBase itemDataBase;
 
         // inventory
         public InventoryItemList allyInventoryItemList;

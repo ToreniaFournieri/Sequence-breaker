@@ -12,6 +12,22 @@ namespace SequenceBreaker.Master.Items
         public List<ItemBaseMaster> prefixItemBaseMasterList;
         public List<ItemBaseMaster> suffixItemBaseMasterList;
 
+
+        static ItemDataBase _instance;
+        public static ItemDataBase Get
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<ItemDataBase>();
+                }
+                return _instance;
+            }
+
+        }
+
+
         // save flag
 
         public UnitClass.UnitClass LoadUnitInfo(UnitClass.UnitClass loadCharacterUnit)
