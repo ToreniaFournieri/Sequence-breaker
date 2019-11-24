@@ -53,8 +53,10 @@ namespace SequenceBreaker.Editor._10_UnitClass
             if (EditorPrefs.HasKey(_unitClassPathId))
             {
                 string objectPath = EditorPrefs.GetString(_unitClassPathId);
+                //unitPath = AssetDatabase.LoadAssetAtPath(objectPath, typeof(string)).ToString();
                 unitPath = objectPath;
 
+                Debug.Log("unitPath: " + unitPath);
             }
         }
 
@@ -100,6 +102,9 @@ namespace SequenceBreaker.Editor._10_UnitClass
 			GUILayout.Label(unitPath ?? " Unselected");
 
 			GUILayout.EndHorizontal();
+
+            GUILayout.Label("/07_ScriptableObject/Resources/20_Enemy/UnitList is correct path");
+
 
 
 			if (GUILayout.Button("4. Convert Excel to Unit List", GUILayout.ExpandWidth(false)))
@@ -154,7 +159,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
 
                 if (unitPath != null)
                 {
-                  EditorPrefs.SetString(_unitClassPathId, relPath);
+                  EditorPrefs.SetString(_unitClassPathId, unitPath);
                 }
 			}
 

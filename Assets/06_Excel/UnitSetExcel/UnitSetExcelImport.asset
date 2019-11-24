@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: UnitSetExcelImport
   m_EditorClassIdentifier: 
   unitSetExcelList:
-  - missionCategory: A
+  - missionString: '[Tutorial-1] Beginning'
+    missionCategory: A
     missionId: 1001
-    missionString: '[Tutorial-1] Beginning'
     locationString: Tutorial-location-1
     missionLevelInitial: 1
     waveId: 1
@@ -26,9 +26,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-1] Beginning'
+    missionCategory: A
     missionId: 1001
-    missionString: '[Tutorial-1] Beginning'
     locationString: Tutorial-location-1
     missionLevelInitial: 1
     waveId: 2
@@ -39,9 +39,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-1] Beginning'
+    missionCategory: A
     missionId: 1001
-    missionString: '[Tutorial-1] Beginning'
     locationString: Tutorial-location-1
     missionLevelInitial: 1
     waveId: 3
@@ -52,9 +52,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-1] Beginning'
+    missionCategory: A
     missionId: 1001
-    missionString: '[Tutorial-1] Beginning'
     locationString: Tutorial-location-1
     missionLevelInitial: 1
     waveId: 4
@@ -65,9 +65,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-2] Equip items'
+    missionCategory: A
     missionId: 1002
-    missionString: '[Tutorial-2] Equip items'
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 1
@@ -78,9 +78,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-2] Equip items'
+    missionCategory: A
     missionId: 1002
-    missionString: '[Tutorial-2] Equip items'
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 2
@@ -91,9 +91,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-2] Equip items'
+    missionCategory: A
     missionId: 1002
-    missionString: '[Tutorial-2] Equip items'
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 3
@@ -104,9 +104,9 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionCategory: A
+  - missionString: '[Tutorial-2] Equip items'
+    missionCategory: A
     missionId: 1002
-    missionString: '[Tutorial-2] Equip items'
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 4

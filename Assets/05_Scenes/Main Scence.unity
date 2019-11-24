@@ -1857,6 +1857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mission: {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
+  currentMissionName: 
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
@@ -3894,6 +3895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mission: {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
+  currentMissionName: 
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
@@ -14237,7 +14239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
+  mission: {fileID: 0}
+  currentMissionName: 
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
@@ -14416,7 +14419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
+  mission: {fileID: 0}
+  currentMissionName: 
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 

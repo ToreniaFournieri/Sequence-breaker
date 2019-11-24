@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f94a0c6741f54d5fbbf900880934973, type: 3}
   m_Name: Mission-1002
   m_EditorClassIdentifier: 
-  missionName: 
-  category: 
-  Id: 0
-  locationString: 
-  levelInitial: 0
-  unitSet: {fileID: 0}
+  missionName: '[Tutorial-2] Equip items'
+  category: A
+  Id: 1002
+  locationString: Tutorial-location-2
+  levelInitial: 3
+  unitSet: {fileID: 11400000, guid: d0ae3781d673b44fda8091b8edb52d99, type: 2}
   calculateUnitStatus: {fileID: 0}

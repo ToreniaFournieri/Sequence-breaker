@@ -12,9 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f785b9d4f51ba437b9648d0d8a98350a, type: 3}
   m_Name: 1001-4
   m_EditorClassIdentifier: 
-  missionCategory: 
-  missionId: 0
-  missionString: 
-  locationString: 
-  missionLevelInitial: 0
   unitWave: []

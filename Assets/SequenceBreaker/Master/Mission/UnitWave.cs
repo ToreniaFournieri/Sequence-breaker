@@ -8,11 +8,11 @@ namespace SequenceBreaker.Master.UnitClass
 
         // Header
         // only first missionCategory& missionId information is read. others are redundant.
-        public string missionCategory; 
-        public int missionId;
-        public string missionString;
-        public string locationString;
-        public int missionLevelInitial;
+        //public string missionCategory; 
+        //public int missionId;
+        //public string missionString;
+        //public string locationString;
+        //public int missionLevelInitial;
 
         //Item
         public List<UnitClass> unitWave;

@@ -187,8 +187,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
                     string _missionPath = targetPathWithoutName + "/Mission-" + currentMissionId;
 
                     var r = "/Resources/";
-                    var indexR = _unitSetPath.IndexOf(r, StringComparison.Ordinal) + r.Length;
-                    string _refMissionPath = _unitSetPath.Substring(indexR);
+                    var indexR = _missionPath.IndexOf(r, StringComparison.Ordinal) + r.Length;
+                    string _refMissionPath = _missionPath.Substring(indexR);
                     MissionMaster missionCheck = Resources.Load<MissionMaster>(_refMissionPath);
                     if (missionCheck == null)
                     {

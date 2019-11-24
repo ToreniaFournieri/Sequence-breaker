@@ -1,17 +1,9 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Timeline/LogListView/LogListItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/UnitClass/TuningStyleClass.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="215" Column="34" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/MissionMaster.cs" Line="22" Column="31" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs" Line="33" Column="29" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionListSria.cs" Line="44" Column="51" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="71" Column="82" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="190" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Timeline/LogListSria.cs" Line="72" Column="42" />
-      <File FileName="Assets/SequenceBreaker/Timeline/LogListView/LogListDataSourceMgr.cs" Line="19" Column="43" />
-      <File FileName="Assets/SequenceBreaker/Timeline/LogListView/LogListItemHeightDemoScript.cs" Line="8" Column="18" />
-      <File FileName="Assets/SequenceBreaker/Timeline/LogViewsHolder.cs" Line="57" Column="63" />
-      <File FileName="Assets/SequenceBreaker/Timeline/LogListView/LogListItem.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="51" Column="56" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs" Line="106" Column="26" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/TuningStyleClass.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
