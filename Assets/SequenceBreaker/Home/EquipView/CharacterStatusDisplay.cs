@@ -17,7 +17,8 @@ namespace SequenceBreaker.Home.EquipView
         public CharacterTreeViewWithStickyHeadScript characterTreeViewWithStickyHeadScript;
 
 
-        // character calculation 
+        // character calculation
+        //public CalculateUnitStatusMaster calculateUnitStatusMaster;
         public CalculateUnitStatus calculateUnitStatus;
 
         //Don't change these following values.
@@ -54,9 +55,14 @@ namespace SequenceBreaker.Home.EquipView
 
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
                                     itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
-                                    
+
+                //Debug.Log("id: " + unitList[this.selectedUnitNo].TrueName() + " ");
+
+
                 calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
-                abilityText.text = calculateUnitStatus.detailAbilityString;
+                    abilityText.text = calculateUnitStatus.detailAbilityString;
+                //calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
+                //abilityText.text = calculateUnitStatus.detailAbilityString;
 
                 //for data save
                 itemCapacity = unitList[this.selectedUnitNo].itemCapacity;

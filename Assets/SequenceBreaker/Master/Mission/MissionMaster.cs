@@ -27,9 +27,9 @@ namespace SequenceBreaker.Master.Mission
         [SerializeField]
         public UnitSet unitSet;
 
-        [SerializeField]
-        public CalculateUnitStatus calculateUnitStatus;
-
+        //[SerializeField]
+        //public CalculateUnitStatus calculateUnitStatus;
+        //public CalculateUnitStatusMaster calculateUnitStatusMaster;
 
 
     }

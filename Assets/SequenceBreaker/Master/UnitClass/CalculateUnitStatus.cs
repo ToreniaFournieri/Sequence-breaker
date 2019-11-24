@@ -27,7 +27,7 @@ namespace SequenceBreaker.Master.UnitClass
         //output Ability Detail Text
         public string detailAbilityString;
 
-        public BattleEnvironment battleEnvironment;
+        //public BattleEnvironment battleEnvironment;
 
         //output middle data
         private AbilityClass _ability;
@@ -37,55 +37,60 @@ namespace SequenceBreaker.Master.UnitClass
         private UnitSkillMagnificationClass _unitSkillMagnification;
         private FeatureClass _feature;
 
+
+        //input calculateUnitStatusMaster
+        public CalculateUnitStatusMaster master;
+
+
         //Output Skill list
         public List<SkillsMasterClass> summedSkillList;
 
-        // Environment Parameter
-        
-        // tuning style 
-        public TuningStyleClass tuningStyleClass;
-        
-        
-        
-        // for combat status calculation
-        public float t5LevelCoefficient;
-        public float t5LevelPowLittle;
-        public float t5LevelPowBig;
-        public float t5AbilityCoefficient;
-        public float t5AbilityPowDenominator;
+        //// Environment Parameter
 
-         public float t4LevelCoefficient;
-        public float t4LevelPowLittle;
-        public float t4LevelPowBig;
-        public float t4AbilityCoefficient;
-        public float t4AbilityPowDenominator;
-
-        public float t3LevelCoefficient;
-         public float t3LevelPowLittle;
-        public float t3LevelPowBig;
-        public float t3AbilityCoefficient;
-        public float t3AbilityPowDenominator;
-        public float t3AbilityBasedCoefficient;
-
-         public float t2LevelCoefficient;
-         public float t2LevelPowLittle;
-         public float t2LevelPowBig;
-        public float t2AbilityCoefficient;
-        public float t2AbilityPowDenominator;
-         public float t2AbilityBasedCoefficient;
+        //// tuning style 
+        ////public TuningStyleClass tuningStyleClass;
+        //public TuningStyleMaster tuningStyleMaster;
 
 
-        //efficient block
-        public float powerCoefficient;
-         public float criticalHitCoefficient;
-        public float numberOfAttacksCoefficient;
-         public float accuracyCoefficient;
-         public float mobilityCoefficient;
-        public float defenseCoefficient;
-         public float counterintelligenceCoefficient;
-        public float repairCoefficient;
-        public float shieldCoefficient;
-         public float hpCoefficient;
+        //// for combat status calculation
+        //public float t5LevelCoefficient;
+        //public float t5LevelPowLittle;
+        //public float t5LevelPowBig;
+        //public float t5AbilityCoefficient;
+        //public float t5AbilityPowDenominator;
+
+        //public float t4LevelCoefficient;
+        //public float t4LevelPowLittle;
+        //public float t4LevelPowBig;
+        //public float t4AbilityCoefficient;
+        //public float t4AbilityPowDenominator;
+
+        //public float t3LevelCoefficient;
+        //public float t3LevelPowLittle;
+        //public float t3LevelPowBig;
+        //public float t3AbilityCoefficient;
+        //public float t3AbilityPowDenominator;
+        //public float t3AbilityBasedCoefficient;
+
+        //public float t2LevelCoefficient;
+        //public float t2LevelPowLittle;
+        //public float t2LevelPowBig;
+        //public float t2AbilityCoefficient;
+        //public float t2AbilityPowDenominator;
+        //public float t2AbilityBasedCoefficient;
+
+
+        ////efficient block
+        //public float powerCoefficient;
+        //public float criticalHitCoefficient;
+        //public float numberOfAttacksCoefficient;
+        //public float accuracyCoefficient;
+        //public float mobilityCoefficient;
+        //public float defenseCoefficient;
+        //public float counterintelligenceCoefficient;
+        //public float repairCoefficient;
+        //public float shieldCoefficient;
+        //public float hpCoefficient;
 
 
         //middle data
@@ -103,13 +108,27 @@ namespace SequenceBreaker.Master.UnitClass
         private double _absorbShieldRatio;
         private bool _isDamageControlAssist;
 
-        
+
+        static CalculateUnitStatus _instance = null;
+        public static CalculateUnitStatus Get
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<CalculateUnitStatus>();
+                }
+                return _instance;
+            }
+
+        }
+
 
         public void Init(UnitClass unitClass)
         {
-            
-            
-        
+
+
+
             _ability = ScriptableObject.CreateInstance<AbilityClass>();
 
             unit = unitClass;
@@ -126,12 +145,12 @@ namespace SequenceBreaker.Master.UnitClass
 
                     break;
                 case FrameType.ReverseJointLegs:
-//                    _frameTypeAbility = new AbilityClass(3, 3, 3, 8, 2, 0, 2);
-                    _frameTypeAbility.Set(3, 3, 3, 8, 2, 0, 2); 
+                    //                    _frameTypeAbility = new AbilityClass(3, 3, 3, 8, 2, 0, 2);
+                    _frameTypeAbility.Set(3, 3, 3, 8, 2, 0, 2);
 
                     break;
                 case FrameType.SpiderLegs:
-//                    _frameTypeAbility = new AbilityClass(4, 3, 5, 4, 3, 0, 1);
+                    //                    _frameTypeAbility = new AbilityClass(4, 3, 5, 4, 3, 0, 1);
                     _frameTypeAbility.Set(4, 3, 5, 4, 3, 0, 1);
                     break;
                 case FrameType.TwoLegs:
@@ -199,7 +218,7 @@ namespace SequenceBreaker.Master.UnitClass
                 {
                     if (item != null)
                     {
-                            _summedItemsAddAbility.AddUp(item.TotaledAbility());
+                        _summedItemsAddAbility.AddUp(item.TotaledAbility());
                     }
                 }
             }
@@ -441,17 +460,17 @@ namespace SequenceBreaker.Master.UnitClass
             // after 11, should only affect status, so use OffenseOrDefense.none
             // 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 18:Attack, 19:Defence
 
-//            _offenseMagnification = new OffenseMagnificationClass(
-//                summedOffenseList[10].totalValue,
-//                summedOffenseList[1].totalValue,
-//                summedOffenseList[2].totalValue,
-//                summedOffenseList[3].totalValue,
-//                summedOffenseList[4].totalValue,
-//                summedOffenseList[5].totalValue,
-//                summedOffenseList[6].totalValue,
-//                summedOffenseList[7].totalValue,
-//                summedOffenseList[8].totalValue,
-//                summedOffenseList[9].totalValue);
+            //            _offenseMagnification = new OffenseMagnificationClass(
+            //                summedOffenseList[10].totalValue,
+            //                summedOffenseList[1].totalValue,
+            //                summedOffenseList[2].totalValue,
+            //                summedOffenseList[3].totalValue,
+            //                summedOffenseList[4].totalValue,
+            //                summedOffenseList[5].totalValue,
+            //                summedOffenseList[6].totalValue,
+            //                summedOffenseList[7].totalValue,
+            //                summedOffenseList[8].totalValue,
+            //                summedOffenseList[9].totalValue);
 
             _offenseMagnification = ScriptableObject.CreateInstance<OffenseMagnificationClass>();
             _offenseMagnification.Set(summedOffenseList[10].totalValue,
@@ -464,28 +483,28 @@ namespace SequenceBreaker.Master.UnitClass
                 summedOffenseList[7].totalValue,
                 summedOffenseList[8].totalValue,
                 summedOffenseList[9].totalValue);
-           
-//            _defenseMagnification = new DefenseMagnificationClass(
-//                summedDefenseList[1].totalValue,
-//                summedDefenseList[2].totalValue,
-//                summedDefenseList[3].totalValue,
-//                summedDefenseList[4].totalValue,
-//                summedDefenseList[5].totalValue,
-//                summedDefenseList[6].totalValue,
-//                summedDefenseList[7].totalValue,
-//                summedDefenseList[8].totalValue,
-//                summedDefenseList[9].totalValue,
-//                summedNoneList[11].totalValue,
-//                summedNoneList[12].totalValue,
-//                summedNoneList[13].totalValue,
-//                summedNoneList[14].totalValue,
-//                summedNoneList[15].totalValue,
-//                summedNoneList[16].totalValue,
-//                summedNoneList[17].totalValue,
-//                summedNoneList[18].totalValue,
-//                summedNoneList[19].totalValue
-//            );
-            
+
+            //            _defenseMagnification = new DefenseMagnificationClass(
+            //                summedDefenseList[1].totalValue,
+            //                summedDefenseList[2].totalValue,
+            //                summedDefenseList[3].totalValue,
+            //                summedDefenseList[4].totalValue,
+            //                summedDefenseList[5].totalValue,
+            //                summedDefenseList[6].totalValue,
+            //                summedDefenseList[7].totalValue,
+            //                summedDefenseList[8].totalValue,
+            //                summedDefenseList[9].totalValue,
+            //                summedNoneList[11].totalValue,
+            //                summedNoneList[12].totalValue,
+            //                summedNoneList[13].totalValue,
+            //                summedNoneList[14].totalValue,
+            //                summedNoneList[15].totalValue,
+            //                summedNoneList[16].totalValue,
+            //                summedNoneList[17].totalValue,
+            //                summedNoneList[18].totalValue,
+            //                summedNoneList[19].totalValue
+            //            );
+
             _defenseMagnification = ScriptableObject.CreateInstance<DefenseMagnificationClass>();
             _defenseMagnification.Set(summedDefenseList[1].totalValue,
                 summedDefenseList[2].totalValue,
@@ -506,16 +525,16 @@ namespace SequenceBreaker.Master.UnitClass
                 summedNoneList[18].totalValue,
                 summedNoneList[19].totalValue);
 
-//            _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+            //            _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
 
             _offenseEffectPowerActionSkill = ScriptableObject.CreateInstance<ActionSkillClass>();
             _offenseEffectPowerActionSkill.Set(1, 1, 1, 1, 1, 1, 1, 1);
 
-//            _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
+            //            _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
             _triggerPossibilityActionSkill = ScriptableObject.CreateInstance<ActionSkillClass>();
             _triggerPossibilityActionSkill.Set(1, 1, 1, 1, 1, 1, 1, 1);
 
-//            _unitSkillMagnification = new UnitSkillMagnificationClass(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
+            //            _unitSkillMagnification = new UnitSkillMagnificationClass(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
 
             _unitSkillMagnification = ScriptableObject.CreateInstance<UnitSkillMagnificationClass>();
             _unitSkillMagnification.Set(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
@@ -545,118 +564,118 @@ namespace SequenceBreaker.Master.UnitClass
 
 
             //Tier 5
-//            t5LevelPowLittle = (float)0.372;
-//            t5LevelPowBig = (float)1.475;
-//            t5AbilityCoefficient = (float)2.6;
-//            t5LevelCoefficient = (float)100.0;
-//            t5AbilityPowDenominator = (float)20.0;
-//            shieldCoefficient = (float)0.82;
-//            hpCoefficient = (float)0.67;
+            //            t5LevelPowLittle = (float)0.372;
+            //            t5LevelPowBig = (float)1.475;
+            //            t5AbilityCoefficient = (float)2.6;
+            //            t5LevelCoefficient = (float)100.0;
+            //            t5AbilityPowDenominator = (float)20.0;
+            //            shieldCoefficient = (float)0.82;
+            //            hpCoefficient = (float)0.67;
 
             _combatRaw.shieldMax =
                 //Unit.CoreFrame.Shield +
                 (int)((
-                          (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
-                          + Mathf.Pow(unit.level, t5LevelPowBig)
+                          (master.t5LevelCoefficient * Mathf.Pow(unit.level, master.t5LevelPowLittle))
+                          + Mathf.Pow(unit.level, master.t5LevelPowBig)
                           + unit.level * _ability.generation
-                          + Mathf.Pow(unit.level, _ability.generation / t5AbilityPowDenominator) * t5AbilityCoefficient
-                      ) * shieldCoefficient
+                          + Mathf.Pow(unit.level, _ability.generation / master.t5AbilityPowDenominator) * master.t5AbilityCoefficient
+                      ) * master.shieldCoefficient
                       + unit.coreFrame.shield);
 
             _combatRaw.hitPointMax =
                 //Unit.CoreFrame.HP +
                 (int)((
-                          (t5LevelCoefficient * Mathf.Pow(unit.level, t5LevelPowLittle))
-                          + Mathf.Pow(unit.level, t5LevelPowBig)
+                          (master.t5LevelCoefficient * Mathf.Pow(unit.level, master.t5LevelPowLittle))
+                          + Mathf.Pow(unit.level, master.t5LevelPowBig)
                           + unit.level * _ability.stability
-                          + Mathf.Pow(unit.level, _ability.stability / t5AbilityPowDenominator) * t5AbilityCoefficient
-                      ) * hpCoefficient
+                          + Mathf.Pow(unit.level, _ability.stability / master.t5AbilityPowDenominator) * master.t5AbilityCoefficient
+                      ) * master.hpCoefficient
                       + unit.coreFrame.hp
                 );
 
 
             //Tier 4
-//            t4LevelCoefficient = (float)100.0;
-//            t4LevelPowLittle = (float)0.372;
-//            t4LevelPowBig = (float)1.475;
-//            t4AbilityCoefficient = (float)2.6;
-//            t4AbilityPowDenominator = (float)20.0;
-//            powerCoefficient = (float)0.4;
-//            defenseCoefficient = (float)0.4;
+            //            t4LevelCoefficient = (float)100.0;
+            //            t4LevelPowLittle = (float)0.372;
+            //            t4LevelPowBig = (float)1.475;
+            //            t4AbilityCoefficient = (float)2.6;
+            //            t4AbilityPowDenominator = (float)20.0;
+            //            powerCoefficient = (float)0.4;
+            //            defenseCoefficient = (float)0.4;
 
             _combatRaw.attack = (int)((
-                                          (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
-                                          + Mathf.Pow(unit.level, t4LevelPowBig)
+                                          (master.t4LevelCoefficient * Mathf.Pow(unit.level, master.t4LevelPowLittle))
+                                          + Mathf.Pow(unit.level, master.t4LevelPowBig)
                                           + unit.level * _ability.power
-                                          + Mathf.Pow(unit.level, _ability.power / t4AbilityPowDenominator) * t4AbilityCoefficient
-                                      ) * powerCoefficient);
+                                          + Mathf.Pow(unit.level, _ability.power / master.t4AbilityPowDenominator) * master.t4AbilityCoefficient
+                                      ) * master.powerCoefficient);
 
             _combatRaw.defense = (int)((
-                                           (t4LevelCoefficient * Mathf.Pow(unit.level, t4LevelPowLittle))
-                                           + Mathf.Pow(unit.level, t4LevelPowBig)
+                                           (master.t4LevelCoefficient * Mathf.Pow(unit.level, master.t4LevelPowLittle))
+                                           + Mathf.Pow(unit.level, master.t4LevelPowBig)
                                            + unit.level * _ability.stability
-                                           + Mathf.Pow(unit.level, _ability.stability / t4AbilityPowDenominator) * t4AbilityCoefficient
-                                       ) * defenseCoefficient);
+                                           + Mathf.Pow(unit.level, _ability.stability / master.t4AbilityPowDenominator) * master.t4AbilityCoefficient
+                                       ) * master.defenseCoefficient);
 
             // Tier 3
-//            t3LevelCoefficient = (float)100.0;
-//            t3LevelPowLittle = (float)0.34;
-//            t3LevelPowBig = (float)1.00;
-//            t3AbilityCoefficient = (float)2.1;
-//            t3AbilityPowDenominator = (float)20.0;
-//            t3AbilityBasedCoefficient = (float)0.3;
-//            mobilityCoefficient = (float)0.233;
-//            accuracyCoefficient = (float)0.233;
+            //            t3LevelCoefficient = (float)100.0;
+            //            t3LevelPowLittle = (float)0.34;
+            //            t3LevelPowBig = (float)1.00;
+            //            t3AbilityCoefficient = (float)2.1;
+            //            t3AbilityPowDenominator = (float)20.0;
+            //            t3AbilityBasedCoefficient = (float)0.3;
+            //            mobilityCoefficient = (float)0.233;
+            //            accuracyCoefficient = (float)0.233;
 
             _combatRaw.mobility = (int)((
-                                            (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
-                                            + Mathf.Pow(unit.level, t3LevelPowBig)
-                                            + unit.level * _ability.responsiveness * t3AbilityBasedCoefficient
-                                            + Mathf.Pow(unit.level, _ability.responsiveness / t3AbilityPowDenominator) * t3AbilityCoefficient
-                                        ) * mobilityCoefficient);
+                                            (master.t3LevelCoefficient * Mathf.Pow(unit.level, master.t3LevelPowLittle))
+                                            + Mathf.Pow(unit.level, master.t3LevelPowBig)
+                                            + unit.level * _ability.responsiveness * master.t3AbilityBasedCoefficient
+                                            + Mathf.Pow(unit.level, _ability.responsiveness / master.t3AbilityPowDenominator) * master.t3AbilityCoefficient
+                                        ) * master.mobilityCoefficient);
 
             _combatRaw.accuracy = (int)((
-                                            (t3LevelCoefficient * Mathf.Pow(unit.level, t3LevelPowLittle))
-                                            + Mathf.Pow(unit.level, t3LevelPowBig)
-                                            + unit.level * _ability.precision * t3AbilityBasedCoefficient
-                                            + Mathf.Pow(unit.level, _ability.precision / t3AbilityPowDenominator) * t3AbilityCoefficient
-                                        ) * accuracyCoefficient);
+                                            (master.t3LevelCoefficient * Mathf.Pow(unit.level, master.t3LevelPowLittle))
+                                            + Mathf.Pow(unit.level, master.t3LevelPowBig)
+                                            + unit.level * _ability.precision * master.t3AbilityBasedCoefficient
+                                            + Mathf.Pow(unit.level, _ability.precision / master.t3AbilityPowDenominator) * master.t3AbilityCoefficient
+                                        ) * master.accuracyCoefficient);
 
             //Tier 2
-//            t2LevelCoefficient = (float)100.0;
-//            t2LevelPowLittle = (float)0.1;
-//            t2LevelPowBig = (float)0.7;
-//            t2AbilityCoefficient = (float)2.1;
-//            t2AbilityPowDenominator = (float)20.0;
-//            t2AbilityBasedCoefficient = (float)0.0;
-//            counterintelligenceCoefficient = (float)1.2;
-//            repairCoefficient = (float)1.2;
+            //            t2LevelCoefficient = (float)100.0;
+            //            t2LevelPowLittle = (float)0.1;
+            //            t2LevelPowBig = (float)0.7;
+            //            t2AbilityCoefficient = (float)2.1;
+            //            t2AbilityPowDenominator = (float)20.0;
+            //            t2AbilityBasedCoefficient = (float)0.0;
+            //            counterintelligenceCoefficient = (float)1.2;
+            //            repairCoefficient = (float)1.2;
 
             _combatRaw.counterintelligence = (int)((
-                                                       (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
-                                                       + Mathf.Pow(unit.level, t2LevelPowBig)
-                                                       + unit.level * _ability.intelligence * t2AbilityBasedCoefficient
-                                                       + Mathf.Pow(unit.level, _ability.intelligence / t2AbilityPowDenominator) * t2AbilityCoefficient
-                                                   ) * counterintelligenceCoefficient);
+                                                       (master.t2LevelCoefficient * Mathf.Pow(unit.level, master.t2LevelPowLittle))
+                                                       + Mathf.Pow(unit.level, master.t2LevelPowBig)
+                                                       + unit.level * _ability.intelligence * master.t2AbilityBasedCoefficient
+                                                       + Mathf.Pow(unit.level, _ability.intelligence / master.t2AbilityPowDenominator) * master.t2AbilityCoefficient
+                                                   ) * master.counterintelligenceCoefficient);
 
             _combatRaw.repair = (int)((
-                                          (t2LevelCoefficient * Mathf.Pow(unit.level, t2LevelPowLittle))
-                                          + Mathf.Pow(unit.level, t2LevelPowBig)
-                                          + unit.level * _ability.generation * t2AbilityBasedCoefficient
-                                          + Mathf.Pow(unit.level, _ability.generation / t2AbilityPowDenominator) * t2AbilityCoefficient
-                                      ) * repairCoefficient);
+                                          (master.t2LevelCoefficient * Mathf.Pow(unit.level, master.t2LevelPowLittle))
+                                          + Mathf.Pow(unit.level, master.t2LevelPowBig)
+                                          + unit.level * _ability.generation * master.t2AbilityBasedCoefficient
+                                          + Mathf.Pow(unit.level, _ability.generation / master.t2AbilityPowDenominator) * master.t2AbilityCoefficient
+                                      ) * master.repairCoefficient);
 
             // Tier 1
             // critical hit = Level * Luck * CriticalHitCoefficient
-//            criticalHitCoefficient = (float)0.01;
+            //            criticalHitCoefficient = (float)0.01;
 
             _combatRaw.criticalHit = (int)(
-                (unit.level * _ability.luck * criticalHitCoefficient)
+                (unit.level * _ability.luck * master.criticalHitCoefficient)
             );
 
             // Number of attacks
             // numberOfAttacksCoefficient + ( level / 4 )
-            _combatRaw.numberOfAttacks = (int)(numberOfAttacksCoefficient + (unit.level / 4.0));
+            _combatRaw.numberOfAttacks = (int)(master.numberOfAttacksCoefficient + (unit.level / 4.0));
 
             // Min range and Max range, default are 1.
             _combatRaw.minRange = 1;
@@ -752,17 +771,17 @@ namespace SequenceBreaker.Master.UnitClass
                     break;
             }
 
-            
-//            _feature = new FeatureClass(_absorbShieldRatio, _isDamageControlAssist,
-//                _hateInitial, _hateMagnificationPerTurn);
-            
+
+            //            _feature = new FeatureClass(_absorbShieldRatio, _isDamageControlAssist,
+            //                _hateInitial, _hateMagnificationPerTurn);
+
             _feature = ScriptableObject.CreateInstance<FeatureClass>();
             _feature.Set(_absorbShieldRatio, _isDamageControlAssist,
                 _hateInitial, _hateMagnificationPerTurn);
 
-//            battleUnit = new BattleUnit.BattleUnit(1, unitClass.TrueName(), Affiliation.None, unitClass.unitType, _ability,
-//                _combat, _feature, _offenseMagnification,
-//                _defenseMagnification, _unitSkillMagnification);
+            //            battleUnit = new BattleUnit.BattleUnit(1, unitClass.TrueName(), Affiliation.None, unitClass.unitType, _ability,
+            //                _combat, _feature, _offenseMagnification,
+            //                _defenseMagnification, _unitSkillMagnification);
 
             battleUnit = ScriptableObject.CreateInstance<BattleUnit.BattleUnit>();
             battleUnit.Set(1, unitClass.TrueName(), Affiliation.None, unitClass.unitType, _ability,
@@ -772,7 +791,7 @@ namespace SequenceBreaker.Master.UnitClass
 
             // Summed Skill calculation
             // note: skill is not in battleUnit. is set effectClass, outside.
-            List<SkillsMasterClass> tuningSkills = tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
+            List<SkillsMasterClass> tuningSkills = master.tuningStyleMaster.GetSkills(unit.coreFrame.tuningStyle);
             summedSkillList.Clear();
             foreach (var skill in tuningSkills)
             {
@@ -886,7 +905,7 @@ namespace SequenceBreaker.Master.UnitClass
             {
                 detailAbilityString += " (none)";
             }
-            
+
             foreach (var skill in summedSkillList)
             {
                 detailAbilityString += skill.name + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
@@ -950,4 +969,5 @@ namespace SequenceBreaker.Master.UnitClass
         }
 
     }
+
 }

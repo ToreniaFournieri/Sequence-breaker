@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a03ae05404d149c347d3938866c4, type: 3}
+  m_Name: CalculateUnitStatusMaster
+  m_EditorClassIdentifier: 
+  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  tuningStyleMaster: {fileID: 11400000, guid: 8db35af3803a94d17b2f7241f73a4ab7, type: 2}
+  t5LevelCoefficient: 100
+  t5LevelPowLittle: 0.372
+  t5LevelPowBig: 1.475
+  t5AbilityCoefficient: 2.6
+  t5AbilityPowDenominator: 20
+  t4LevelCoefficient: 100
+  t4LevelPowLittle: 0.372
+  t4LevelPowBig: 1.475
+  t4AbilityCoefficient: 2.6
+  t4AbilityPowDenominator: 20
+  t3LevelCoefficient: 100
+  t3LevelPowLittle: 0.34
+  t3LevelPowBig: 1
+  t3AbilityCoefficient: 2.1
+  t3AbilityPowDenominator: 20
+  t3AbilityBasedCoefficient: 0.3
+  t2LevelCoefficient: 100
+  t2LevelPowLittle: 0.1
+  t2LevelPowBig: 0.7
+  t2AbilityCoefficient: 2.1
+  t2AbilityPowDenominator: 20
+  t2AbilityBasedCoefficient: 0
+  powerCoefficient: 0.4
+  criticalHitCoefficient: 0.01
+  numberOfAttacksCoefficient: 8
+  accuracyCoefficient: 0.233
+  mobilityCoefficient: 0.233
+  defenseCoefficient: 0.4
+  counterintelligenceCoefficient: 1.2
+  repairCoefficient: 1.2
+  shieldCoefficient: 0.82
+  hpCoefficient: 0.67

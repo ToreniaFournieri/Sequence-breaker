@@ -15,7 +15,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
         public MissionMaster mission;
         public string targetPathWithoutName;
 
-        public CalculateUnitStatus calculateUnitStatus;
+        //public CalculateUnitStatus calculateUnitStatus;
+        //public CalculateUnitStatusMaster calculateUnitStatusMaster;
         private static string _excelPath = "UnitSetExcel";
         private static string _unitSetPath = "UnitSetPath";
         private static string _calculateUnitStatus = "CalculateUnitStatus";
@@ -48,12 +49,12 @@ namespace SequenceBreaker.Editor._11_UnitSet
                 targetPathWithoutName = EditorPrefs.GetString(_unitSetPath);
             }
 
-            if (EditorPrefs.HasKey(_calculateUnitStatus))
-            {
-                _calclatedUnitStatusId = EditorPrefs.GetInt(_calculateUnitStatus, -1);
-                calculateUnitStatus = EditorUtility.InstanceIDToObject(_calclatedUnitStatusId) as CalculateUnitStatus;
+            //if (EditorPrefs.HasKey(_calculateUnitStatus))
+            //{
+            //    _calclatedUnitStatusId = EditorPrefs.GetInt(_calculateUnitStatus, -1);
+            //    calculateUnitStatusMaster = EditorUtility.InstanceIDToObject(_calclatedUnitStatusId) as CalculateUnitStatusMaster;
 
-            }
+            //}
 
 
         }
@@ -92,17 +93,17 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
             GUILayout.BeginHorizontal();
 
-            calculateUnitStatus = EditorGUILayout.ObjectField("3. Select Calculate unit status game object",
-                            calculateUnitStatus, typeof(CalculateUnitStatus), true) as CalculateUnitStatus;
-            if (calculateUnitStatus)
-            {
-                if (_calclatedUnitStatusId != calculateUnitStatus.GetInstanceID())
-                {
-                    _calclatedUnitStatusId = calculateUnitStatus.GetInstanceID();
-                    EditorPrefs.SetInt(_calculateUnitStatus, _calclatedUnitStatusId);
-                    Debug.Log(" Saved id :" + _calclatedUnitStatusId);
-                }
-            }
+            //calculateUnitStatusMaster = EditorGUILayout.ObjectField("3. Select Calculate unit status game object",
+            //                calculateUnitStatusMaster, typeof(CalculateUnitStatusMaster), true) as CalculateUnitStatusMaster;
+            //if (calculateUnitStatusMaster)
+            //{
+            //    if (_calclatedUnitStatusId != calculateUnitStatusMaster.GetInstanceID())
+            //    {
+            //        _calclatedUnitStatusId = calculateUnitStatusMaster.GetInstanceID();
+            //        EditorPrefs.SetInt(_calculateUnitStatus, _calclatedUnitStatusId);
+            //        Debug.Log(" Saved id :" + _calclatedUnitStatusId);
+            //    }
+            //}
 
 
             GUILayout.EndHorizontal();
@@ -205,7 +206,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
                     mission.locationString = unitMasterExcel.locationString;
                     mission.levelInitial = unitMasterExcel.missionLevelInitial;
 
-                    mission.calculateUnitStatus = calculateUnitStatus;
+                    //mission.calculateUnitStatus.master = calculateUnitStatusMaster;
 
 
                 }

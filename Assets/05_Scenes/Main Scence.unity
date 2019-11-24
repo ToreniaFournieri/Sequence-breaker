@@ -2486,8 +2486,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -220.73065, y: 859.5111, z: -983.5469}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2091428007}
+  m_Children: []
   m_Father: {fileID: 913453031}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2506,41 +2505,8 @@ MonoBehaviour:
   unit: {fileID: 0}
   battleUnit: {fileID: 0}
   detailAbilityString: 
-  battleEnvironment: {fileID: 11400000, guid: 219d8f83cd13144d98c673f031f9bd86, type: 2}
+  master: {fileID: 11400000, guid: 6917696c05dc249cf962fda6479ea57c, type: 2}
   summedSkillList: []
-  tuningStyleClass: {fileID: 2091428008}
-  t5LevelCoefficient: 100
-  t5LevelPowLittle: 0.372
-  t5LevelPowBig: 1.475
-  t5AbilityCoefficient: 2.6
-  t5AbilityPowDenominator: 20
-  t4LevelCoefficient: 100
-  t4LevelPowLittle: 0.372
-  t4LevelPowBig: 1.475
-  t4AbilityCoefficient: 2.6
-  t4AbilityPowDenominator: 20
-  t3LevelCoefficient: 100
-  t3LevelPowLittle: 0.34
-  t3LevelPowBig: 1
-  t3AbilityCoefficient: 2.1
-  t3AbilityPowDenominator: 20
-  t3AbilityBasedCoefficient: 0.3
-  t2LevelCoefficient: 100
-  t2LevelPowLittle: 0.1
-  t2LevelPowBig: 0.7
-  t2AbilityCoefficient: 2.1
-  t2AbilityPowDenominator: 20
-  t2AbilityBasedCoefficient: 0
-  powerCoefficient: 0.4
-  criticalHitCoefficient: 0.01
-  numberOfAttacksCoefficient: 8
-  accuracyCoefficient: 0.233
-  mobilityCoefficient: 0.233
-  defenseCoefficient: 0.4
-  counterintelligenceCoefficient: 1.2
-  repairCoefficient: 1.2
-  shieldCoefficient: 0.82
-  hpCoefficient: 0.67
 --- !u!1 &305792980
 GameObject:
   m_ObjectHideFlags: 0
@@ -14239,7 +14205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: {fileID: 0}
+  mission: {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
   currentMissionName: 
   currentLevel: 0
   whichWin: 0
@@ -14419,7 +14385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mission: {fileID: 0}
+  mission: {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
   currentMissionName: 
   currentLevel: 0
   whichWin: 0
@@ -16800,65 +16766,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085128959}
   m_CullTransparentMesh: 0
---- !u!1 &2091428006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2091428007}
-  - component: {fileID: 2091428008}
-  m_Layer: 0
-  m_Name: CharacterBuild
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2091428007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091428006}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 296629313}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2091428008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091428006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db57c2a970aa43108c66978b44bd0b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  commanderSkills:
-  - {fileID: 11400000, guid: b009f4f98d73b4351ace72f8fd374199, type: 2}
-  destroyerSkills:
-  - {fileID: 11400000, guid: fb9a2c74b8de64f2c82cff5d956c78f0, type: 2}
-  fighterSkills:
-  - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
-  gunnerSkills:
-  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
-  jammerSkills: []
-  lancerSkills: []
-  medicSkills:
-  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
-  reconnoiterSkills: []
-  sniperSkills: []
-  tankSkills:
-  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
 --- !u!1 &2091460944
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
                 //unitPath = AssetDatabase.LoadAssetAtPath(objectPath, typeof(string)).ToString();
                 unitPath = objectPath;
 
-                Debug.Log("unitPath: " + unitPath);
+                //Debug.Log("unitPath: " + unitPath);
             }
         }
 
