@@ -77,9 +77,9 @@ namespace SequenceBreaker.Play.MissionView
             instance.RunBattle = runBattleList[itemIndex];
             instance.MissionController = missionController;
 
-            instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].currentLevel;
-            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].currentLevel + 30;
-            instance.LevelOfMissionSlider.value = runBattleList[itemIndex].currentLevel;
+            instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].mission.levelInitial;
+            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].mission.levelInitial + 30;
+            instance.LevelOfMissionSlider.value = runBattleList[itemIndex].mission.levelInitial;
 
 
             _mapRootToViewsHolder[instance.Root] = instance;
