@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Skills;
 using SequenceBreaker.Master.UnitClass;
 using SequenceBreaker.Play.Battle;
@@ -12,36 +13,42 @@ namespace SequenceBreaker.Play.Prepare
 {
     public sealed class RunBattle : MonoBehaviour
     {
-        // Mission information
 
-        public string missionText;
-        public string location;
-        public int missionLevelInitial;
-        
-        
+        //// [[Will be obsolete]] start
+        //// Mission information
+        //public string missionText;
+        //public string location;
+        //public int missionLevelInitial;
+
+        //// environment setting
+        ////public BattleEnvironment battleEnvironment;
+
+        //// Input data, Units list
+        //public List<EnemyUnitSet> enemyUnitSetList;
+
+        ////unit List
+        //public UnitSet unitSet;
+        //public CalculateUnitStatus calculateUnitStatus;
+
+        //// [[Will be obsolete]] end
+        public MissionMaster mission;
+        public string currentMissionName;
+        public int currentLevel;
+
+
         // depend on the slider value
-//        public int missionLevelCurrent;
+        //        public int missionLevelCurrent;
         public WhichWin whichWin;
         public List<WhichWin> whichWinEachWaves;
 
         //Output information
         public List<List<Data>> dataList;
 
-        // environment setting
-        //public BattleEnvironment battleEnvironment;
-
-        // Input data, Units list
-        public List<EnemyUnitSet> enemyUnitSetList;
-
-        //unit List
-        public UnitSet unitSet;
-
 
         // to get current Ally Battle unit
         public List<BattleUnit> currentAllyUnitList;
 
         
-        public  CalculateUnitStatus calculateUnitStatus;
 
         //for SuperScroll use
         public int mId;
@@ -61,15 +68,16 @@ namespace SequenceBreaker.Play.Prepare
         public RunBattle Copy()
         {
             var deepCopyRunBattle = new RunBattle();
-            deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
-            //deepCopyRunBattle.battleEnvironment = battleEnvironment;
-            deepCopyRunBattle.missionText = missionText;
-            deepCopyRunBattle.location = location;
+            //deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
+            ////deepCopyRunBattle.battleEnvironment = battleEnvironment;
+            //deepCopyRunBattle.missionText = missionText;
+            //deepCopyRunBattle.location = location;
             deepCopyRunBattle.whichWin = whichWin;
             deepCopyRunBattle.dataList = dataList;
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
-            deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
+            //deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
+            deepCopyRunBattle.mission = mission;
 
             return deepCopyRunBattle;
 
@@ -78,16 +86,17 @@ namespace SequenceBreaker.Play.Prepare
         public RunBattle Copy(int wave)
         {
             var deepCopyRunBattle = new RunBattle();
-            deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
-            //deepCopyRunBattle.battleEnvironment = battleEnvironment;
-            deepCopyRunBattle.missionText = missionText;
-            deepCopyRunBattle.location = location;
+            //deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
+            ////deepCopyRunBattle.battleEnvironment = battleEnvironment;
+            //deepCopyRunBattle.missionText = missionText;
+            //deepCopyRunBattle.location = location;
             deepCopyRunBattle.whichWin = whichWinEachWaves[wave];
             deepCopyRunBattle.dataList = new List<List<Data>>();
             deepCopyRunBattle.dataList.Add(dataList[wave]);
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
-            deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
+            //deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
+            deepCopyRunBattle.mission = mission;
 
 
             return deepCopyRunBattle;
@@ -101,15 +110,16 @@ namespace SequenceBreaker.Play.Prepare
         {
             var runbattle = runBattle.Copy();
 
-            missionText = runbattle.missionText;
-            location = runbattle.location;
-            missionLevelInitial = runbattle.missionLevelInitial;
+            //missionText = runbattle.missionText;
+            //location = runbattle.location;
+            //missionLevelInitial = runbattle.missionLevelInitial;
             whichWin = runbattle.whichWin;
             dataList = runbattle.dataList;
             //battleEnvironment = runbattle.battleEnvironment;
-            enemyUnitSetList = runbattle.enemyUnitSetList;
+            //enemyUnitSetList = runbattle.enemyUnitSetList;
             whichWinEachWaves = runbattle.whichWinEachWaves;
-            calculateUnitStatus = runbattle.calculateUnitStatus;
+            //calculateUnitStatus = runbattle.calculateUnitStatus;
+            mission = runbattle.mission;
 
 
         }
@@ -133,16 +143,16 @@ namespace SequenceBreaker.Play.Prepare
 
             var wave = 0;
 
-            if (unitSet != null)
-            {
+            //if (unitSet != null)
+            //{
                 // new method 
-                foreach (var unitWave in unitSet.unitSetList )
+                foreach (var unitWave in mission.unitSet.unitSetList )
                 {
 
 
                     _battleList.Add(new BattleEngine());
-                    _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: calculateUnitStatus.battleEnvironment.normalAttackSkillsMaster,
-                        buffMasters: calculateUnitStatus.battleEnvironment.buffMasters);
+                    _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: mission.calculateUnitStatus.battleEnvironment.normalAttackSkillsMaster,
+                        buffMasters: mission.calculateUnitStatus.battleEnvironment.buffMasters);
 
                     foreach (var unit in currentAllyUnitList)
                     {
@@ -168,8 +178,8 @@ namespace SequenceBreaker.Play.Prepare
                     //set unitName with levels
                     foreach (var battleUnit in _enemyBattleUnits)
                     {
-                        //battleUnit.name = battleUnit.name ;
-                        missionLevelInitial = enemyLevel;
+                    //battleUnit.name = battleUnit.name ;
+                    currentLevel = enemyLevel;
                     }
 
                     _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
@@ -177,6 +187,7 @@ namespace SequenceBreaker.Play.Prepare
 
                     //[Battle start!!]
                     _battleList[wave].Battle();
+
 
                     whichWin = _battleList[wave].WhichWin;
                     whichWinEachWaves.Add(_battleList[wave].WhichWin);
@@ -196,73 +207,73 @@ namespace SequenceBreaker.Play.Prepare
                 }
                 
                 
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 
-                // previous system ; will be obsolete
+            //    // previous system ; will be obsolete
                 
             
             
-                foreach (var enemyUnitSet in enemyUnitSetList )
-                {
+            //    foreach (var enemyUnitSet in enemyUnitSetList )
+            //    {
 
 
-                    _battleList.Add(new BattleEngine());
-                    _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: calculateUnitStatus.battleEnvironment.normalAttackSkillsMaster,
-                        buffMasters: calculateUnitStatus.battleEnvironment.buffMasters);
+            //        _battleList.Add(new BattleEngine());
+            //        _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: calculateUnitStatus.battleEnvironment.normalAttackSkillsMaster,
+            //            buffMasters: calculateUnitStatus.battleEnvironment.buffMasters);
 
-                    foreach (var unit in currentAllyUnitList)
-                    {
-                        var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
-                        allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
-                        allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
+            //        foreach (var unit in currentAllyUnitList)
+            //        {
+            //            var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
+            //            allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
+            //            allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
 
-                    }
+            //        }
 
-                    var isFirstWave = false;
-                    if(wave == 0) { isFirstWave = true; }
-                    _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
+            //        var isFirstWave = false;
+            //        if(wave == 0) { isFirstWave = true; }
+            //        _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
 
-                    //adjust enemy level
-                    foreach (var unit in enemyUnitSet.enemyUnitList)
-                    {
-                        unit.level = enemyLevel;
+            //        //adjust enemy level
+            //        foreach (var unit in enemyUnitSet.enemyUnitList)
+            //        {
+            //            unit.level = enemyLevel;
 
-                    }
-                    _enemyBattleUnits = new List<BattleUnit>();
-                    (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
+            //        }
+            //        _enemyBattleUnits = new List<BattleUnit>();
+            //        (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
 
-                    //set unitName with levels
-                    foreach (var battleUnit in _enemyBattleUnits)
-                    {
-                        //battleUnit.name = battleUnit.name ;
-                        missionLevelInitial = enemyLevel;
-                    }
+            //        //set unitName with levels
+            //        foreach (var battleUnit in _enemyBattleUnits)
+            //        {
+            //            //battleUnit.name = battleUnit.name ;
+            //            missionLevelInitial = enemyLevel;
+            //        }
 
-                    _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
+            //        _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
 
 
-                    //[Battle start!!]
-                    _battleList[wave].Battle();
+            //        //[Battle start!!]
+            //        _battleList[wave].Battle();
 
-                    whichWin = _battleList[wave].WhichWin;
-                    whichWinEachWaves.Add(_battleList[wave].WhichWin);
+            //        whichWin = _battleList[wave].WhichWin;
+            //        whichWinEachWaves.Add(_battleList[wave].WhichWin);
 
-                    currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
+            //        currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
 
-                    dataList.Add(new List<Data>());
-                    SetBattleLogToData(wave);
+            //        dataList.Add(new List<Data>());
+            //        SetBattleLogToData(wave);
 
-                    if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
-                    {
-                        // all ally units has been slain.
-                        break;
-                    }
+            //        if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
+            //        {
+            //            // all ally units has been slain.
+            //            break;
+            //        }
 
-                    wave += 1;
-                }
-            }
+            //        wave += 1;
+            //    }
+            //}
 
 
         }
@@ -355,10 +366,10 @@ namespace SequenceBreaker.Play.Prepare
             foreach (var unit in unitList)
             {
                 CalculateCombatStatusFromUnit(unit);
-                battleUnits.Add(calculateUnitStatus.battleUnit);
+                battleUnits.Add(mission.calculateUnitStatus.battleUnit);
 
 //                List<SkillsMasterClass> skillList = calculateUnitStatus.tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
-                List<SkillsMasterClass> skillList = calculateUnitStatus.summedSkillList;
+                List<SkillsMasterClass> skillList = mission.calculateUnitStatus.summedSkillList;
                 EffectClass effectClass;
 
                     foreach (var skillMaster in skillList)
@@ -369,31 +380,31 @@ namespace SequenceBreaker.Play.Prepare
                         switch (skillMaster.actionType)
                         {
                             case ActionType.Counter:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .counter;
                                 break;
                             case ActionType.Chain:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .chain;
                                 break;
                             case ActionType.ReAttack:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .reAttack;
                                 break;
                             case ActionType.Move:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .move;
                                 break;
                             case ActionType.Interrupt:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .interrupt;
                                 break;
                             case ActionType.AtBeginning:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .atBeginning;
                                 break;
                             case ActionType.AtEnding:
-                                magnificationRate = calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
+                                magnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification.offenseEffectPower
                                     .atEnding;
                                 break;
                         }
@@ -404,22 +415,22 @@ namespace SequenceBreaker.Play.Prepare
                         switch (skillMaster.ability)
                         {
                             case Ability.Power:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.power;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.power;
                                 break;
                             case Ability.Generation:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.generation;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.generation;
                                 break;
                             case Ability.Responsiveness:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.responsiveness;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.responsiveness;
                                 break;
                             case Ability.Intelligence:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.intelligence;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.intelligence;
                                 break;
                             case Ability.Precision:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.precision;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.precision;
                                 break;
                             case Ability.Luck:
-                                abilityValue = calculateUnitStatus.battleUnit.ability.luck;
+                                abilityValue = mission.calculateUnitStatus.battleUnit.ability.luck;
                                 break;
                             case Ability.None:
                                 abilityValue = 0.0;
@@ -429,31 +440,31 @@ namespace SequenceBreaker.Play.Prepare
                         switch (skillMaster.actionType)
                         {
                             case ActionType.Counter:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.counter;
                                 break;
                             case ActionType.Chain:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.chain;
                                 break;
                             case ActionType.ReAttack:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.reAttack;
                                 break;
                             case ActionType.Move:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.move;
                                 break;
                             case ActionType.Interrupt:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.interrupt;
                                 break;
                             case ActionType.AtBeginning:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.atBeginning;
                                 break;
                             case ActionType.AtEnding:
-                                possibilityMagnificationRate = calculateUnitStatus.battleUnit.skillMagnification
+                                possibilityMagnificationRate = mission.calculateUnitStatus.battleUnit.skillMagnification
                                     .triggerPossibility.atEnding;
                                 break;
                         }
@@ -477,7 +488,7 @@ namespace SequenceBreaker.Play.Prepare
                                 break;
                         }
 
-                        effectClass = new EffectClass(character: calculateUnitStatus.battleUnit, skill: skillMaster,
+                        effectClass = new EffectClass(character: mission.calculateUnitStatus.battleUnit, skill: skillMaster,
                             actionType: skillMaster.actionType,
                             offenseEffectMagnification: magnificationRate,
                             triggeredPossibility: triggeredPossibilityValue,
@@ -496,7 +507,7 @@ namespace SequenceBreaker.Play.Prepare
 
         private void CalculateCombatStatusFromUnit(UnitClass inputUnit)
         {
-                calculateUnitStatus.Init(inputUnit);
+            mission.calculateUnitStatus.Init(inputUnit);
 //                _calculateUnitStatus = new CalculateUnitStatus(inputUnit);
         }
 

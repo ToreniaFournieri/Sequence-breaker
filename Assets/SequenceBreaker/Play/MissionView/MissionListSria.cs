@@ -77,9 +77,9 @@ namespace SequenceBreaker.Play.MissionView
             instance.RunBattle = runBattleList[itemIndex];
             instance.MissionController = missionController;
 
-            instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].missionLevelInitial;
-            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].missionLevelInitial + 30;
-            instance.LevelOfMissionSlider.value = runBattleList[itemIndex].missionLevelInitial;
+            instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].currentLevel;
+            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].currentLevel + 30;
+            instance.LevelOfMissionSlider.value = runBattleList[itemIndex].currentLevel;
 
 
             _mapRootToViewsHolder[instance.Root] = instance;
@@ -125,8 +125,8 @@ namespace SequenceBreaker.Play.MissionView
         {
             var model = new ExpandableSimpleClientModel()
             {
-                MissionName = runBattleList[index].missionText,
-                Location = runBattleList[index].location,
+                MissionName = runBattleList[index].mission.missionName,
+                Location = runBattleList[index].mission.locationString,
                 NonExpandedSize = _prefabLayoutElement.preferredHeight
             };
             model.SetRandom();

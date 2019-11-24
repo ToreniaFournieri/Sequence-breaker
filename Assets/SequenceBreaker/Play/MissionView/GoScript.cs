@@ -24,13 +24,22 @@ namespace SequenceBreaker.Play.MissionView
         {
             if (runBattle != null)
             {
-                foreach (var unitSet in runBattle.enemyUnitSetList)
+                foreach (UnitWave unitWave in runBattle.mission.unitSet.unitSetList)
                 {
-                    foreach (var unit in unitSet.enemyUnitList)
+                    foreach (UnitClass unit in unitWave.unitWave)
                     {
-                        unit.level = (int) levelOfMissionSlider.value;
+                        unit.level = (int)levelOfMissionSlider.value;
                     }
                 }
+
+
+                //foreach (var unitSet in runBattle.enemyUnitSetList)
+                //{
+                //    foreach (var unit in unitSet.enemyUnitList)
+                //    {
+                //        unit.level = (int) levelOfMissionSlider.value;
+                //    }
+                //}
             }
 
 
@@ -42,9 +51,7 @@ namespace SequenceBreaker.Play.MissionView
 
             //Not works well
             RunBattle runBattle1 = runBattle;
-            //get Mission unitName
-            string missionName = runBattle1.missionText;
-            string missionLevel = " (lv:" + runBattle1.missionLevelInitial + ")";
+
 
             List<GameObject> battleCopyList = new List<GameObject>();
 
@@ -61,8 +68,8 @@ namespace SequenceBreaker.Play.MissionView
 
                 battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
-                battleCopyList[wave].GetComponent<RunBattle>().missionText += " [wave:" + (wave + 1) + "]";
-                battleCopyList[wave].GetComponent<RunBattle>().missionLevelInitial = runBattle1.missionLevelInitial ;
+                battleCopyList[wave].GetComponent<RunBattle>().currentMissionName = battleCopyList[wave].GetComponent<RunBattle>().mission.missionName + " [wave:" + (wave + 1) + "]";
+                battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel ;
                 
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
                 missionController.UpdatePartyStatus();
@@ -74,7 +81,11 @@ namespace SequenceBreaker.Play.MissionView
                 wave += 1;
 
             }
-            
+
+            //get Mission unitName
+            string missionName = runBattle1.mission.missionName;
+            string missionLevel = " (lv:" + battleCopyList[0].GetComponent<RunBattle>().currentLevel + ")";
+
             missionController.logListDataSourceMgr.Refresh();
             
 
@@ -88,9 +99,10 @@ namespace SequenceBreaker.Play.MissionView
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
                 {
                     int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
-                    foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+                    //foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+                        foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
                     {
-                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: enemyUnitSet.enemyUnitList, seed: seed);
+                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave, seed: seed);
 
                         foreach (Item item in itemListLocal)
                         {
@@ -99,7 +111,7 @@ namespace SequenceBreaker.Play.MissionView
 
                         // Exp gain, not use copy data! lost reference means worthless.
                         int experience = 0;
-                        foreach (UnitClass enemyUnit in enemyUnitSet.enemyUnitList)
+                        foreach (UnitClass enemyUnit in unitWave.unitWave)
                         {
                             experience += enemyUnit.ExperienceFromBeaten();
                         }

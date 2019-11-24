@@ -131,8 +131,8 @@ namespace SequenceBreaker.Timeline
 
             var model = new LogClientModel()
             {
-                MissionName = battleList[index].GetComponent<RunBattle>().missionText,
-                Location = battleList[index].GetComponent<RunBattle>().location,
+                MissionName = battleList[index].GetComponent<RunBattle>().currentMissionName,
+                Location = battleList[index].GetComponent<RunBattle>().mission.locationString,
                 WhichWin = battleList[index].GetComponent<RunBattle>().whichWin,
                 NonExpandedSize = _prefabLayoutElement.preferredHeight
             };

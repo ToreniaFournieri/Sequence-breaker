@@ -8,7 +8,7 @@ namespace SequenceBreaker.Master.Mission
     [CreateAssetMenu(fileName = "Mission-", menuName = "Mission/MissionMaster", order = 1)]
     public class MissionMaster : ScriptableObject
     {
-
+        
         // Mission information
         public string missionName;
 

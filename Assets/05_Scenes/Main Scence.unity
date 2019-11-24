@@ -1856,18 +1856,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: Village Patrol
-  location: Elle vilage
-  missionLevelInitial: 1
+  mission: {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
+  currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
-  enemyUnitSetList:
-  - {fileID: 11400000, guid: 8e1ce95da62b54c4c88b7d8760fee3c7, type: 2}
-  - {fileID: 11400000, guid: b5e3d8f868d714f4aaa04e23bd1f301d, type: 2}
-  - {fileID: 11400000, guid: c55da11d3fcf74d08b3f479448b67730, type: 2}
-  unitSet: {fileID: 0}
   currentAllyUnitList: []
-  calculateUnitStatus: {fileID: 296629314}
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -2183,7 +2176,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3900,19 +3893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: Defend the Soylent plant
-  location: Soylent Plant
-  missionLevelInitial: 5
+  mission: {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
+  currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
-  enemyUnitSetList:
-  - {fileID: 11400000, guid: 798c1d4a264394c829827c16368aaaa6, type: 2}
-  - {fileID: 11400000, guid: 853979833a6384862a21028a7cf9b68f, type: 2}
-  - {fileID: 11400000, guid: 46d2a3f2c477e40419221088be6c44ca, type: 2}
-  - {fileID: 11400000, guid: 3062a21d41a3643faae5a94143bdbddb, type: 2}
-  unitSet: {fileID: 0}
   currentAllyUnitList: []
-  calculateUnitStatus: {fileID: 296629314}
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -8822,7 +8807,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14252,16 +14237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: vs Ru Bu
-  location: Yan Province
-  missionLevelInitial: 10
+  mission: {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
+  currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
-  enemyUnitSetList:
-  - {fileID: 11400000, guid: 11735051becc341ca92653a40f0588c5, type: 2}
-  unitSet: {fileID: 0}
   currentAllyUnitList: []
-  calculateUnitStatus: {fileID: 296629314}
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -14436,17 +14416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b7bde646ad74c37a46fd258b1f9e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionText: A1
-  location: '[Tutorial]'
-  missionLevelInitial: 1
+  mission: {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
+  currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
-  enemyUnitSetList:
-  - {fileID: 11400000, guid: afc34424a06d942108b28e7e57955c64, type: 2}
-  - {fileID: 11400000, guid: 56828c756721e472786c1065a66d39d5, type: 2}
-  unitSet: {fileID: 11400000, guid: 3720ce64931144723bb2a54345f21e9d, type: 2}
   currentAllyUnitList: []
-  calculateUnitStatus: {fileID: 296629314}
   mId: 0
   mChecked: 0
   mIsExpand: 0
