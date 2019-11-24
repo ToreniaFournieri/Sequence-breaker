@@ -12,9 +12,9 @@ namespace SequenceBreaker.Editor._11_UnitSet
     {
 
         // header data
+        public string missionString;
         public string missionCategory; //Identify the missions, mainstory or some sub story.
         public int missionId;
-        public string missionString;
         public string locationString;
         public int missionLevelInitial;
 
@@ -36,13 +36,18 @@ namespace SequenceBreaker.Editor._11_UnitSet
         public string unit7;
 
         public UnitWave GetUnitSet(string path)
-        { 
+        {
+
+            UnitWave unitWave = UnitWaveCreate.Create(path);
+
             //MissionMaster mission = MissionCreate.Create(path);
-            UnitWave unitWave = new UnitWave();
+            //UnitWave unitWave = ScriptableObject.CreateInstance<UnitWave>();
+            unitWave.unitWave = new List<UnitClass>();
 
-            string unitPath = "20_Enemy/" + "UnitClassList";
+
+            string unitPath = "20_Enemy/" + "UnitClassList" ;
             UnitClassList unitClassList = Resources.Load<UnitClassList>(unitPath);
-
+            //Debug.Log("unitClassList: " + unitClassList.unitList.Capacity + " unit1: " + unit1);
 //            Debug.Log("unit1:" + unit1 + " unit2:" + unit2);
             if (unit1 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit1)); }
             if (unit2 != "") { unitWave.unitWave.Add(GetUnitClass(unitClassList, unit2)); }
@@ -63,6 +68,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
                 {
                     if (unit.name == unitString)
                     {
+                        //Debug.Log("unit exist :" + unitString);
                         return unit;
                     }
                 }

@@ -13,6 +13,7 @@ namespace SequenceBreaker.Play.Prepare
     public sealed class RunBattle : MonoBehaviour
     {
         // Mission information
+
         public string missionText;
         public string location;
         public int missionLevelInitial;

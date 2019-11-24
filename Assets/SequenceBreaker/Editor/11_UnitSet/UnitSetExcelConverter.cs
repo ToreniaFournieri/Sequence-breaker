@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.UnitClass;
 using SequenceBreaker.Play.Prepare;
 using UnityEditor;
@@ -11,7 +12,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
     {
         public UnitSetExcelImport unitSetExcelImport;
         public UnitSet unitSet;
-        public RunBattle runbattle;
+        public MissionMaster mission;
         public string targetPathWithoutName;
 
         public CalculateUnitStatus calculateUnitStatus;
@@ -22,7 +23,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
         private int _calclatedUnitStatusId;
 
-//        private static string _targetPath = "UnitSetObjectPath";
+        //        private static string _targetPath = "UnitSetObjectPath";
 
 
 
@@ -36,15 +37,15 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
         private void OnEnable()
         {
-            if(EditorPrefs.HasKey(_excelPath)) 
+            if (EditorPrefs.HasKey(_excelPath))
             {
                 string excelPath = EditorPrefs.GetString(_excelPath);
-                unitSetExcelImport = AssetDatabase.LoadAssetAtPath (excelPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
+                unitSetExcelImport = AssetDatabase.LoadAssetAtPath(excelPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
             }
 
             if (EditorPrefs.HasKey(_unitSetPath))
             {
-                targetPathWithoutName = EditorPrefs.GetString(_excelPath);
+                targetPathWithoutName = EditorPrefs.GetString(_unitSetPath);
             }
 
             if (EditorPrefs.HasKey(_calculateUnitStatus))
@@ -55,24 +56,19 @@ namespace SequenceBreaker.Editor._11_UnitSet
             }
 
 
-            //            if(EditorPrefs.HasKey(_targetPath)) 
-            //            {
-            //                string objectPath = EditorPrefs.GetString(_targetPath);
-            //                unitSet = AssetDatabase.LoadAssetAtPath (objectPath, typeof(UnitSet)) as UnitSet;
-            //            }
         }
 
         private void OnGUI()
         {
-            
+
             GUILayout.Label("Unit Set Excel Converter", EditorStyles.boldLabel);
 
-                
+
             GUILayout.Space(20);
 
-            
+
             GUILayout.Space(10);
-                    
+
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("1. Select [Import] Unit Set Excel asset", GUILayout.ExpandWidth(false)))
             {
@@ -119,32 +115,33 @@ namespace SequenceBreaker.Editor._11_UnitSet
             GUILayout.Space(20);
         }
 
-        void OpenUnitMasterExcel () 
+        void OpenUnitMasterExcel()
         {
-            string absPath = EditorUtility.OpenFilePanel ("Select Unit Set Excel", "", "");
-            if (absPath.StartsWith(Application.dataPath)) 
+            string absPath = EditorUtility.OpenFilePanel("Select Unit Set Excel", "", "");
+            if (absPath.StartsWith(Application.dataPath))
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                unitSetExcelImport = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
+                unitSetExcelImport = AssetDatabase.LoadAssetAtPath(relPath, typeof(UnitSetExcelImport)) as UnitSetExcelImport;
                 if (unitSetExcelImport != null && unitSetExcelImport.unitSetExcelList == null)
                     unitSetExcelImport.unitSetExcelList = new List<UnitSetExcel>();
-                if (unitSetExcelImport) {
+                if (unitSetExcelImport)
+                {
                     EditorPrefs.SetString(_excelPath, relPath);
                 }
             }
         }
-        
-        void OpenTargetList () 
+
+        void OpenTargetList()
         {
 
-            string absPath = EditorUtility.OpenFolderPanel ("Select Target List Path", "", "");
-            if (absPath.StartsWith(Application.dataPath)) 
+            string absPath = EditorUtility.OpenFolderPanel("Select Target List Path", "", "");
+            if (absPath.StartsWith(Application.dataPath))
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
                 targetPathWithoutName = relPath;
 
 
-            if (targetPathWithoutName != null)
+                if (targetPathWithoutName != null)
                 {
                     EditorPrefs.SetString(_unitSetPath, relPath);
                 }
@@ -156,50 +153,78 @@ namespace SequenceBreaker.Editor._11_UnitSet
         {
 
             int currentMissionId = 0;
-                foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
+            foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
+            {
+
+                if (unitMasterExcel.missionId != currentMissionId)
                 {
-                    
-                    if (unitMasterExcel.missionId != currentMissionId)
+                    //new mission start. so creat it.
+                    currentMissionId = unitMasterExcel.missionId;
+
+
+                    // UnitSet Create
+                    string _unitSetPath = targetPathWithoutName + "/UnitSet/UnitSet-" + currentMissionId;
+
+                    //load scriptable object from Resources need ref path.
+                    var q = "/Resources/";
+                    var indexQ = _unitSetPath.IndexOf(q, StringComparison.Ordinal) + q.Length;
+                    string _refUnitSetPath = _unitSetPath.Substring(indexQ);
+
+                    UnitSet unitSetCheck = Resources.Load<UnitSet>(_refUnitSetPath);
+                    if (unitSetCheck == null)
                     {
-                        //new mission start. so creat it.
-                        currentMissionId = unitMasterExcel.missionId;
+                        //                            Debug.Log("not exist missionId: " + currentMissionId + " Path:" + _refUnitSetPath );
+                        unitSet = UnitSetCreate.Create(_unitSetPath + ".asset");
+                    }
+                    else
+                    {
+                        unitSet = unitSetCheck;
+                    }
+                    unitSet.unitSetList = new List<UnitWave>();
+                    unitSet.missionId = unitMasterExcel.missionId;
 
+                    //2. Mission Create
+                    string _missionPath = targetPathWithoutName + "/Mission-" + currentMissionId;
 
-                        string _unitSetPath =  targetPathWithoutName + "/UnitSet-" + currentMissionId ;
-
-                            //load scriptable object from Resources need ref path.
-                            var q = "/Resources/";
-                            var index = _unitSetPath.IndexOf(q, StringComparison.Ordinal) + q.Length;
-                            string _refUnitSetPath = _unitSetPath.Substring(index);
-                            
-
-                        UnitSet unitSetCheck = Resources.Load<UnitSet>(_refUnitSetPath);
-                        if (unitSetCheck == null)
-                        {
-//                            Debug.Log("not exist missionId: " + currentMissionId + " Path:" + _refUnitSetPath );
-                            unitSet = UnitSetCreate.Create(_unitSetPath + ".asset");
-                        }
-                        else
-                        {
-                            unitSet = unitSetCheck;
-                        }
-
-                        unitSet.unitSetList = new List<UnitWave>();
-
-                        unitSet.missionId = unitMasterExcel.missionId;
+                    var r = "/Resources/";
+                    var indexR = _unitSetPath.IndexOf(r, StringComparison.Ordinal) + r.Length;
+                    string _refMissionPath = _unitSetPath.Substring(indexR);
+                    MissionMaster missionCheck = Resources.Load<MissionMaster>(_refMissionPath);
+                    if (missionCheck == null)
+                    {
+                        mission = MissionCreate.Create(_missionPath + ".asset");
+                    }
+                    else
+                    {
+                        mission = missionCheck;
                     }
 
-                    var unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+                    mission.category = unitMasterExcel.missionCategory;
+                    mission.Id = unitMasterExcel.missionId;
+                    mission.missionName = unitMasterExcel.missionString;
+                    mission.locationString = unitMasterExcel.locationString;
+                    mission.levelInitial = unitMasterExcel.missionLevelInitial;
 
-                    UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
-                    if (unitWave.unitWave != null)
-                    {
-                        unitSet.unitSetList.Add(unitWave);
-                    }
+                    mission.calculateUnitStatus = calculateUnitStatus;
+
+
                 }
-            
-            
-            
+
+                //var unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+                //Debug.Log("unitMasterExcel: " + unitMasterExcel.missionString);
+                string unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
+                UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
+                if (unitWave.unitWave != null)
+                {
+                    unitSet.unitSetList.Add(unitWave);
+                }
+
+
+                mission.unitSet = unitSet;
+            }
+
+
+
         }
 
     }

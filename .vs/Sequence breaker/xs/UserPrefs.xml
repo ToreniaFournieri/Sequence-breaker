@@ -1,15 +1,14 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="158" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs" Line="38" Column="19" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="8" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitWaveCreate.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/MissionMaster.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitSet.cs" Line="12" Column="29" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/MissionCreate.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="155" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/MissionMaster.cs" Line="14" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs" Line="38" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="6" Column="18" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitSet.cs" Line="11" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetCreate.cs" Line="12" Column="72" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="11" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitWaveCreate.cs" Line="10" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

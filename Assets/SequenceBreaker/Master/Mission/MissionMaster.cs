@@ -10,9 +10,12 @@ namespace SequenceBreaker.Master.Mission
     {
 
         // Mission information
-        public string missionText;
-        public string location;
-        public int missionLevelInitial;
+        public string missionName;
+
+        public string category; //Identify the missions, mainstory or some sub story.
+        public int Id;
+        public string locationString;
+        public int levelInitial;
 
 
         //unit List

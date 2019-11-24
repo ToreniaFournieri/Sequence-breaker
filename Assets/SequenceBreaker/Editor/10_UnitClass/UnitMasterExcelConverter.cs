@@ -11,8 +11,11 @@ namespace SequenceBreaker.Editor._10_UnitClass
 		//        public UnitMasterList unitMasterList;
 		public UnitClassList unitClassList;
 
+        public string unitClassListPath;
 
-		private UnitClass _unit;
+        public string unitPath;
+
+        private UnitClass _unit;
 
 		private int viewIndex = 1;
 
@@ -22,8 +25,6 @@ namespace SequenceBreaker.Editor._10_UnitClass
 		private static string _unitClassListPathId = "unitClassListPath";
 		private static string _unitClassPathId = "unitClassPath";
 
-		public string unitPath;
-		public string unitClassListPath;
 
 		[MenuItem("Window/Unit Master Excel Converter %#e")]
 		static void Init()
@@ -33,17 +34,29 @@ namespace SequenceBreaker.Editor._10_UnitClass
 
 		private void OnEnable()
 		{
-			if (EditorPrefs.HasKey(_excelPathId))
+            //1. Select [Import] Unit Master Excel asset
+            if (EditorPrefs.HasKey(_excelPathId))
 			{
 				string excelPath = EditorPrefs.GetString(_excelPathId);
 				unitMasterExcelImport = AssetDatabase.LoadAssetAtPath(excelPath, typeof(UnitMasterExcelImport)) as UnitMasterExcelImport;
 			}
-			if (EditorPrefs.HasKey(_unitClassListPathId))
+
+            //2. Select [Export] Unit Class List asset
+            if (EditorPrefs.HasKey(_unitClassListPathId))
 			{
 				string objectPath = EditorPrefs.GetString(_unitClassListPathId);
 				unitClassList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(UnitClassList)) as UnitClassList;
 			}
-		}
+
+
+            //3. Select [Export] Unit Class Path
+            if (EditorPrefs.HasKey(_unitClassPathId))
+            {
+                string objectPath = EditorPrefs.GetString(_unitClassPathId);
+                unitPath = objectPath;
+
+            }
+        }
 
 		private void OnGUI()
 		{
@@ -139,6 +152,10 @@ namespace SequenceBreaker.Editor._10_UnitClass
 				string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
 				unitPath = relPath;
 
+                if (unitPath != null)
+                {
+                  EditorPrefs.SetString(_unitClassPathId, relPath);
+                }
 			}
 
 		}

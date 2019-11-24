@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: UnitSetExcelImport
   m_EditorClassIdentifier: 
   unitSetExcelList:
-  - missionId: 1001
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1001
+    missionString: '[Tutorial-1] Beginning'
+    locationString: Tutorial-location-1
+    missionLevelInitial: 1
     waveId: 1
     unit1: BA-Fighter
     unit2: 
@@ -27,12 +26,11 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1001
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1001
+    missionString: '[Tutorial-1] Beginning'
+    locationString: Tutorial-location-1
+    missionLevelInitial: 1
     waveId: 2
     unit1: BA-Destroyer
     unit2: 
@@ -41,26 +39,24 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1001
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1001
+    missionString: '[Tutorial-1] Beginning'
+    locationString: Tutorial-location-1
+    missionLevelInitial: 1
     waveId: 3
     unit1: BA-Destroyer
-    unit2: BA-Fighter
+    unit2: 
     unit3: 
     unit4: 
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1001
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1001
+    missionString: '[Tutorial-1] Beginning'
+    locationString: Tutorial-location-1
+    missionLevelInitial: 1
     waveId: 4
     unit1: BA-Destroyer
     unit2: BA-Fighter
@@ -69,12 +65,11 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1002
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1002
+    missionString: '[Tutorial-2] Equip items'
+    locationString: Tutorial-location-2
+    missionLevelInitial: 3
     waveId: 1
     unit1: CA-Fighter
     unit2: CA-Destroyer
@@ -83,12 +78,11 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1002
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1002
+    missionString: '[Tutorial-2] Equip items'
+    locationString: Tutorial-location-2
+    missionLevelInitial: 3
     waveId: 2
     unit1: CA-Lancer
     unit2: CA-Fighter
@@ -97,12 +91,11 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1002
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1002
+    missionString: '[Tutorial-2] Equip items'
+    locationString: Tutorial-location-2
+    missionLevelInitial: 3
     waveId: 3
     unit1: CA-Lancer
     unit2: CA-Fighter
@@ -111,12 +104,11 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionId: 1002
-    missionString: 
-    locationString: 
-    missionLevelInitial: 0
-    battleEnvironment: 
-    calculateUnitStatus: 
+  - missionCategory: A
+    missionId: 1002
+    missionString: '[Tutorial-2] Equip items'
+    locationString: Tutorial-location-2
+    missionLevelInitial: 3
     waveId: 4
     unit1: CA-Lancer
     unit2: CA-Fighter
