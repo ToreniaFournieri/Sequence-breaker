@@ -2,7 +2,9 @@
 using SequenceBreaker.GUIController;
 using SequenceBreaker.Home.EquipView;
 using SequenceBreaker.Master.BattleUnit;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Play.Prepare;
 using SequenceBreaker.Timeline;
 using SequenceBreaker.Timeline.LogListView;
 using UnityEngine;
@@ -17,6 +19,10 @@ namespace SequenceBreaker.Play.MissionView
         public List<BattleUnit> allyCurrentBattleUnitList;
         public PartyStatusIcons partyStatusIcons;
 
+
+        // Mission List
+        public List<MissionMaster> missionMasterList;
+
         // inventory
         public InventoryItemList inventoryItemList;
 
@@ -30,7 +36,23 @@ namespace SequenceBreaker.Play.MissionView
         
         [FormerlySerializedAs("TransparentMessageController")] public TransparentMessageController transparentMessageController;
         
-        
+        public List<RunBattle> GetRunBattleList()
+        {
+
+            List<RunBattle> runBattlelist = new List<RunBattle>();
+          
+            foreach (MissionMaster mission in missionMasterList)
+            {
+                GameObject runBattleObject = new GameObject();
+                runBattleObject.transform.parent = this.transform;
+                runBattleObject.name = mission.missionName;
+                runBattleObject.AddComponent<RunBattle>();
+                runBattleObject.GetComponent<RunBattle>().mission = mission;
+                runBattlelist.Add(runBattleObject.GetComponent<RunBattle>());
+            }
+
+            return runBattlelist;
+        }
 
         public void UpdatePartyStatus()
         {

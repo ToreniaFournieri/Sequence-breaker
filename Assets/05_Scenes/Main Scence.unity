@@ -1484,7 +1484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInfinityInventoryMode: 0
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
-  itemDataBase: {fileID: 996112117}
 --- !u!1 &186155867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1897,6 @@ RectTransform:
   m_Children:
   - {fileID: 1403468577}
   - {fileID: 1058207416}
-  - {fileID: 1914120524}
   m_Father: {fileID: 698195618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5940,6 +5938,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   allyCurrentBattleUnitList: []
   partyStatusIcons: {fileID: 766314200}
+  missionMasterList:
+  - {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
+  - {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
+  - {fileID: 11400000, guid: 651c5e6693bda4a53b85a4de60bb123b, type: 2}
   inventoryItemList: {fileID: 171929590}
   inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
   logListSria: {fileID: 0}
@@ -9481,7 +9483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea58c63c930594522a781b1bc72f984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDataBase: {fileID: 996112117}
   allyInventoryItemList: {fileID: 171929590}
   infinityInventoryItemList: {fileID: 1826953318}
   isInfinityInventoryMode: 0
@@ -9876,7 +9877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b55eaaf102c403c89ea7af608a2ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDataBase: {fileID: 996112117}
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
   homeDataSourceMgr: {fileID: 1009119398}
   unitClassList: {fileID: 11400000, guid: 64b7babe0c2d84771b26a45c0b1fbfa7, type: 2}
@@ -11938,7 +11938,6 @@ MonoBehaviour:
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
   currentTab: 
-  itemDataBase: {fileID: 996112117}
   homeContents: {fileID: 1269381834}
   characterStatusDisplay: {fileID: 1252398280}
   segueController: {fileID: 278071414}
@@ -15001,7 +15000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInfinityInventoryMode: 1
   inventory: {fileID: 11400000, guid: 3dd50dcb47be34e0881dddb2d7ef1ba8, type: 2}
-  itemDataBase: {fileID: 996112117}
 --- !u!1 &1828949168
 GameObject:
   m_ObjectHideFlags: 0
@@ -15943,49 +15941,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 80.4}
   m_SizeDelta: {x: 0, y: -160.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1914120523
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1914120524}
-  - component: {fileID: 1914120525}
-  m_Layer: 0
-  m_Name: sampleLoglist
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1914120524
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914120523}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -437.34485, y: 578.7423, z: -193.41672}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 240124708}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914120525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914120523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fd437cef68a946758c7731d6d2771eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1915301751
 GameObject:
   m_ObjectHideFlags: 0

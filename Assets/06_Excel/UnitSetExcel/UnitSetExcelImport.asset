@@ -117,3 +117,55 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
+  - missionString: '[Tutorial-3] Kinetic Attack'
+    missionCategory: A
+    missionId: 1003
+    locationString: Tutorial-location-3
+    missionLevelInitial: 5
+    waveId: 1
+    unit1: DA-Fighter
+    unit2: 
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-3] Kinetic Attack'
+    missionCategory: A
+    missionId: 1003
+    locationString: Tutorial-location-3
+    missionLevelInitial: 5
+    waveId: 2
+    unit1: DA-Destroyer
+    unit2: DA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-3] Kinetic Attack'
+    missionCategory: A
+    missionId: 1003
+    locationString: Tutorial-location-3
+    missionLevelInitial: 5
+    waveId: 3
+    unit1: DA-Fighter
+    unit2: DA-Gunner
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-3] Kinetic Attack'
+    missionCategory: A
+    missionId: 1003
+    locationString: Tutorial-location-3
+    missionLevelInitial: 5
+    waveId: 4
+    unit1: DA-Fighter
+    unit2: DA-Jammer
+    unit3: DA-Lancer
+    unit4: DA-Gunner
+    unit5: DA-Commander
+    unit6: 
+    unit7: 

@@ -215,7 +215,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
                 //Debug.Log("unitMasterExcel: " + unitMasterExcel.missionString);
                 string unitWavePath = targetPathWithoutName + "/UnitWave/" + currentMissionId + "-" + unitMasterExcel.waveId + ".asset";
                 UnitWave unitWave = unitMasterExcel.GetUnitSet(unitWavePath);
-                if (unitWave.unitWave != null)
+                if (unitWave != null && unitWave.unitWave != null)
                 {
                     unitSet.unitSetList.Add(unitWave);
                 }

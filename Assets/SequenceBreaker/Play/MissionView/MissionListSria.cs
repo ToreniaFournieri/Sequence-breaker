@@ -38,7 +38,8 @@ namespace SequenceBreaker.Play.MissionView
         protected override void Start()
         {
             base.Start();
-            
+            runBattleList = missionController.GetRunBattleList();
+
             if (runBattleList.Count > 0)
             {
                 ChangeModelsAndReset(runBattleList.Count);
