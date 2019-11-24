@@ -18,7 +18,9 @@ namespace SequenceBreaker.Editor._11_UnitSet
         private static string _excelPath = "UnitSetExcel";
         private static string _unitSetPath = "UnitSetPath";
         private static string _calculateUnitStatus = "CalculateUnitStatus";
-            
+
+
+        private int _calclatedUnitStatusId;
 
 //        private static string _targetPath = "UnitSetObjectPath";
 
@@ -47,9 +49,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
             if (EditorPrefs.HasKey(_calculateUnitStatus))
             {
-                int id = EditorPrefs.GetInt(_calculateUnitStatus, -1);
-                Debug.Log("should instanced by this id but don't... id: " + id);
-                calculateUnitStatus = EditorUtility.InstanceIDToObject(id) as CalculateUnitStatus;
+                _calclatedUnitStatusId = EditorPrefs.GetInt(_calculateUnitStatus, -1);
+                calculateUnitStatus = EditorUtility.InstanceIDToObject(_calclatedUnitStatusId) as CalculateUnitStatus;
 
             }
 
@@ -99,8 +100,12 @@ namespace SequenceBreaker.Editor._11_UnitSet
                             calculateUnitStatus, typeof(CalculateUnitStatus), true) as CalculateUnitStatus;
             if (calculateUnitStatus)
             {
-                int id = calculateUnitStatus.GetInstanceID();
-                EditorPrefs.SetInt(_calculateUnitStatus, id);
+                if (_calclatedUnitStatusId != calculateUnitStatus.GetInstanceID())
+                {
+                    _calclatedUnitStatusId = calculateUnitStatus.GetInstanceID();
+                    EditorPrefs.SetInt(_calculateUnitStatus, _calclatedUnitStatusId);
+                    Debug.Log(" Saved id :" + _calclatedUnitStatusId);
+                }
             }
 
 
@@ -137,13 +142,7 @@ namespace SequenceBreaker.Editor._11_UnitSet
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
                 targetPathWithoutName = relPath;
-//                Debug.Log(_targetPathWithoutName);
-//                unitSet = AssetDatabase.LoadAssetAtPath (relPath, typeof(UnitSet)) as UnitSet;
-//                if (unitSet != null && unitSet.unitSetList == null)
-//                    unitSet.unitSetList = new List<List<UnitClass>>();
-//                if (unitSet) {
-//                    EditorPrefs.SetString(_targetPath, relPath);
-//                }
+
 
             if (targetPathWithoutName != null)
                 {
