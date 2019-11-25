@@ -120,7 +120,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.2.5.0
+  bundleVersion: 0.2.5.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -718,10 +718,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 922eb996-d36b-46af-a9a0-2cdeecf23d1b
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: Sequence breaker
-  organizationId: kohmai-works
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

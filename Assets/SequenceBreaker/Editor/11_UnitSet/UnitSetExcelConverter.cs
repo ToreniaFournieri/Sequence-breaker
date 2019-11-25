@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace SequenceBreaker.Editor._11_UnitSet
 {
+
     public class UnitSetExcelConverter : EditorWindow
     {
         public UnitSetExcelImport unitSetExcelImport;
@@ -152,6 +153,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
         void ConvertUnitSetFromExcel()
         {
+            //SerializedObject missionSerializedObject = new SerializedObject(mission);
+
 
             int currentMissionId = 0;
             foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
@@ -191,6 +194,8 @@ namespace SequenceBreaker.Editor._11_UnitSet
                     var indexR = _missionPath.IndexOf(r, StringComparison.Ordinal) + r.Length;
                     string _refMissionPath = _missionPath.Substring(indexR);
                     MissionMaster missionCheck = Resources.Load<MissionMaster>(_refMissionPath);
+
+
                     if (missionCheck == null)
                     {
                         mission = MissionCreate.Create(_missionPath + ".asset");
@@ -198,7 +203,10 @@ namespace SequenceBreaker.Editor._11_UnitSet
                     else
                     {
                         mission = missionCheck;
+                        //mission.Copy(missionCheck);
+
                     }
+
 
                     mission.category = unitMasterExcel.missionCategory;
                     mission.Id = unitMasterExcel.missionId;
@@ -222,9 +230,14 @@ namespace SequenceBreaker.Editor._11_UnitSet
 
 
                 mission.unitSet = unitSet;
+                EditorUtility.SetDirty(unitWave);
+                EditorUtility.SetDirty(unitSet);
+                EditorUtility.SetDirty(mission);
+
             }
 
 
+            //missionSerializedObject.ApplyModifiedProperties();
 
         }
 

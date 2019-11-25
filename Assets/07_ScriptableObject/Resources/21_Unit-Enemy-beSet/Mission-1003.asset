@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f94a0c6741f54d5fbbf900880934973, type: 3}
   m_Name: Mission-1003
   m_EditorClassIdentifier: 
-  missionName: 
-  category: 
-  Id: 0
-  locationString: 
-  levelInitial: 0
-  unitSet: {fileID: 0}
+  missionName: '[Tutorial-3] Kinetic Attack'
+  category: A
+  Id: 1003
+  locationString: Tutorial-location-3
+  levelInitial: 5
+  unitSet: {fileID: 11400000, guid: 9d05199fd0b7849259df7d912647bf1b, type: 2}

@@ -178,15 +178,16 @@ namespace SequenceBreaker.Editor._10_UnitClass
 				Debug.Log("changed");
 				unitClassList = UnitClassListCreate.Create(unitClassListPath);
 			}
-			unitClassList.unitList = new List<UnitClass>();
+            unitClassList.unitList = new List<UnitClass>();
 			foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)
 			{
 				_unit = null;
 				_unit = UnitCreate.Create(unitPath, unitMasterExcel.GetUnitClass());
 				unitClassList.unitList.Add(_unit);
 			}
+            EditorUtility.SetDirty(unitClassList);
 
 
-		}
-	}
+        }
+    }
 }

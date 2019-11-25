@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e6f04067f804239b987b20cb9bfaef, type: 3}
   m_Name: UnitSet-1002
   m_EditorClassIdentifier: 
-  missionId: 0
-  unitSetList: []
+  missionId: 1002
+  unitSetList:
+  - {fileID: 11400000, guid: 7f1f697d503b44ba885c7b53d55aa484, type: 2}
+  - {fileID: 11400000, guid: 61e2eda377d404d16935642997226fe6, type: 2}
+  - {fileID: 11400000, guid: 035baa16f50554a2fb4c37d982328bb4, type: 2}
+  - {fileID: 11400000, guid: bf63c818e843b423dacdaf57e17ce24f, type: 2}

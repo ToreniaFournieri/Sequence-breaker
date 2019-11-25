@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f94a0c6741f54d5fbbf900880934973, type: 3}
   m_Name: Mission-1001
   m_EditorClassIdentifier: 
-  missionName: 
-  category: 
-  Id: 0
-  locationString: 
-  levelInitial: 0
-  unitSet: {fileID: 0}
-  calculateUnitStatus: {fileID: 0}
+  missionName: '[Tutorial-1] Beginning'
+  category: A
+  Id: 1001
+  locationString: Tutorial-location-1
+  levelInitial: 1
+  unitSet: {fileID: 11400000, guid: b1a9d04fd9af24377bb67e682a4ede37, type: 2}

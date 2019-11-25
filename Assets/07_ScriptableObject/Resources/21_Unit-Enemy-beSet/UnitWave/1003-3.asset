@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f785b9d4f51ba437b9648d0d8a98350a, type: 3}
   m_Name: 1003-3
   m_EditorClassIdentifier: 
-  unitWave: []
+  unitWave:
+  - {fileID: 11400000, guid: 077f46030bce14d5796260136c0561b1, type: 2}
+  - {fileID: 11400000, guid: 1da9a2dcb3bf548f2bc1e974cb6b918d, type: 2}

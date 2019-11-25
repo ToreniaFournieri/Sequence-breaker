@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SequenceBreaker.Master.UnitClass
 {
+    [SerializeField]
     [CreateAssetMenu(fileName = "UnitSet", menuName = "Unit/UnitSet", order = 11)]
     public class UnitSet : ScriptableObject
     {

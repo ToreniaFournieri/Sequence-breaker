@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetCreate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionUpdateText.cs" Line="16" Column="10" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionListSria.cs" Line="41" Column="26" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="52" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="176" Column="54" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="62" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="6" Column="18" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="218" Column="38" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitWaveCreate.cs" Line="10" Column="31" />
-      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetCreate.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitClassListCreate.cs" Line="10" Column="56" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcelConverter.cs" Line="225" Column="60" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitSet.cs" Line="14" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/MissionMaster.cs" Line="50" Column="12" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs" Line="181" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitCreate.cs" Line="13" Column="76" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClassList.cs" Line="9" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="29" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/11_UnitSet/UnitSetExcel.cs" Line="59" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

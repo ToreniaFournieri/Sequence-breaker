@@ -18,4 +18,3 @@ MonoBehaviour:
   locationString: Tutorial-location-2
   levelInitial: 3
   unitSet: {fileID: 11400000, guid: d0ae3781d673b44fda8091b8edb52d99, type: 2}
-  calculateUnitStatus: {fileID: 0}

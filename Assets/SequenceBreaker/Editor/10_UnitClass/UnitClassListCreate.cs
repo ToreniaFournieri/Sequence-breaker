@@ -10,7 +10,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
         public static UnitClassList Create(string path)
         {
             UnitClassList asset = ScriptableObject.CreateInstance<UnitClassList>();
-            
+            //asset.Copy(unitClassList);
             AssetDatabase.CreateAsset(asset, path);
             AssetDatabase.SaveAssets();
             return asset;
