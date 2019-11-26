@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9883,6 +9883,7 @@ MonoBehaviour:
   a1: {fileID: 449333225}
   a2: {fileID: 1160069815}
   a3: {fileID: 1870001500}
+  missionController: {fileID: 738102034}
 --- !u!1 &1190332928
 GameObject:
   m_ObjectHideFlags: 0
@@ -10572,42 +10573,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
     - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
     isInfinityInventoryMode: 0
-    mId: 0
-    mChecked: 0
-    mIsExpand: 0
-  - contentText: Enemy Equipment 1
-    description: '[DEBUG]'
-    unitClassList:
-    - {fileID: 11400000, guid: c00f11bcf4b2e4549968ff4c2eb09f4c, type: 2}
-    - {fileID: 11400000, guid: 01419ad684dc04bc7be61b6246880927, type: 2}
-    isInfinityInventoryMode: 1
-    mId: 0
-    mChecked: 0
-    mIsExpand: 0
-  - contentText: Enemy Equipment 2
-    description: '[DEBUG]'
-    unitClassList:
-    - {fileID: 11400000, guid: d24f2fd72b920423c8da56a786cbb7a8, type: 2}
-    - {fileID: 11400000, guid: 0fa02a4eb673346dd89cd60a9ab7c5d4, type: 2}
-    - {fileID: 11400000, guid: 741774621cd6147f1a53046137502ff6, type: 2}
-    - {fileID: 11400000, guid: 59cb56b0cdb0846bda6e1968e0e37567, type: 2}
-    isInfinityInventoryMode: 1
-    mId: 0
-    mChecked: 0
-    mIsExpand: 0
-  - contentText: Enemy Equipment 3
-    description: '[DEBUG]'
-    unitClassList:
-    - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
-    isInfinityInventoryMode: 1
-    mId: 0
-    mChecked: 0
-    mIsExpand: 0
-  - contentText: ADD
-    description: '[DEBUG]'
-    unitClassList:
-    - {fileID: 11400000, guid: 935e6af2e864c4369a60c744c879b29e, type: 2}
-    isInfinityInventoryMode: 1
     mId: 0
     mChecked: 0
     mIsExpand: 0
@@ -11787,8 +11752,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397488078}
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.99999994
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

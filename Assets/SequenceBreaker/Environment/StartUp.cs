@@ -2,6 +2,7 @@
 using SequenceBreaker.Home.HomeListView;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Play.MissionView;
 using UnityEngine;
 
 namespace SequenceBreaker.Environment
@@ -25,6 +26,7 @@ namespace SequenceBreaker.Environment
         public GameObject a2;
         public GameObject a3;
 
+        public MissionController missionController;
 
         // Start is called before the first frame update
         void Start()
@@ -42,20 +44,46 @@ namespace SequenceBreaker.Environment
 
                 unit.CalculateLevel();
             }
-            
+
             // import additional enemy unit to home contents
-            HomeContentData homeContentData = new HomeContentData();
-            homeContentData.contentText = "new enemy list";
-            homeContentData.description = "[DEBUG]";
-            homeContentData.isInfinityInventoryMode = true;
-            homeContentData.unitClassList = new List<UnitClass>();
-            foreach (UnitClass unit in unitClassList.unitList)
+            HomeContentData homeContentData;
+
+            foreach (var mission in missionController.missionMasterList)
             {
-                homeContentData.unitClassList.Add(unit);
+                int waveInt = 1;
+
+                foreach (var unitSet in mission.unitSet.unitSetList)
+                {
+                    homeContentData = new HomeContentData();
+                    homeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
+                    homeContentData.description = "[Enemy info]";
+                    homeContentData.isInfinityInventoryMode = true;
+                    homeContentData.unitClassList = new List<UnitClass>();
+
+                    foreach (var unit in unitSet.unitWave)
+                    {
+                            homeContentData.unitClassList.Add(unit);
+                    }
+
+                    waveInt++;
+
+                    homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);
+                    homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, homeContentData);
+                }
+
             }
 
-            homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);
-            homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count -1,homeContentData);
+            //homeContentData.contentText = "new enemy list";
+            //homeContentData.description = "[DEBUG]";
+            //homeContentData.isInfinityInventoryMode = true;
+            //homeContentData.unitClassList = new List<UnitClass>();
+            //foreach (UnitClass unit in unitClassList.unitList)
+            //{
+            //    homeContentData.unitClassList.Add(unit);
+            //}
+
+            //homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);
+            //homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count -1,homeContentData);
             
             a1.SetActive(true);
             a2.SetActive(true);
