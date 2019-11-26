@@ -152,6 +152,48 @@ namespace SequenceBreaker.Master.Items
             
         }
 
+        public Item GetItemFromId(int prefixId, int baseId, int suffixId, int enhancedValue)
+        {
+            Item item = new Item();
+
+            if (prefixItemBaseMasterList != null && prefixItemBaseMasterList.Count > 0)
+            {
+                foreach (var prefix in prefixItemBaseMasterList)
+                {
+                    if (prefixId == prefix.itemId)
+                    {
+                        item.prefixItem = prefix;
+                    }
+                }
+            }
+            if (itemBaseMasterList != null && itemBaseMasterList.Count > 0)
+            {
+
+
+                foreach (var itemBase in itemBaseMasterList)
+                {
+                    if (baseId == itemBase.itemId)
+                    {
+                        item.baseItem = itemBase;
+                    }
+                }
+            }
+
+            if (suffixItemBaseMasterList != null && suffixItemBaseMasterList.Count > 0)
+            {
+                foreach (var suffix in suffixItemBaseMasterList)
+                {
+                    if (suffixId == suffix.itemId)
+                    {
+                        item.suffixItem = suffix;
+                    }
+                }
+            }
+            item.enhancedValue = enhancedValue;
+
+            return item;
+
+        }
 
     }
 }

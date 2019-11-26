@@ -73,17 +73,6 @@ namespace SequenceBreaker.Environment
 
             }
 
-            //homeContentData.contentText = "new enemy list";
-            //homeContentData.description = "[DEBUG]";
-            //homeContentData.isInfinityInventoryMode = true;
-            //homeContentData.unitClassList = new List<UnitClass>();
-            //foreach (UnitClass unit in unitClassList.unitList)
-            //{
-            //    homeContentData.unitClassList.Add(unit);
-            //}
-
-            //homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);
-            //homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count -1,homeContentData);
             
             a1.SetActive(true);
             a2.SetActive(true);

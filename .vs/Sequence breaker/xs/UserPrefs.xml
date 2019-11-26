@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/MissionController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Environment/StartUp.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitClassListCreate.cs" Line="10" Column="56" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcel.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="50" Column="43" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeContents.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="56" Column="81" />
+      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="85" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" Line="122" Column="46" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="76" Column="18" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="65" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

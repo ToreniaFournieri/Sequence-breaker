@@ -81,10 +81,19 @@ namespace SequenceBreaker.GUIController.Segue
                         {
                             //Bug:This way to load info is not collect.
                             //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
-                            UnitClass loadUnit = ItemDataBase.Get.LoadUnitInfo(unit);
-                            unit.itemList = loadUnit.itemList;
-                            //experience should only load in initial not this timing.
-                            unit.experience = loadUnit.experience;
+                            if (unit != null  &&unit.affiliation == Affiliation.Ally)
+                            {
+                                UnitClass loadUnit = ItemDataBase.Get.LoadUnitInfo(unit);
+                                unit.itemList = loadUnit.itemList;
+                                //experience should only load in initial not this timing.
+                                unit.experience = loadUnit.experience;
+
+                            }
+                            else
+                            {
+                                // enemy not load now. 201911.26 temp.
+                            }
+
 
                         }
                     }
