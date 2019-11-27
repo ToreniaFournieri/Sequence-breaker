@@ -154,7 +154,8 @@ namespace SequenceBreaker.Master.Items
 
         public Item GetItemFromId(int prefixId, int baseId, int suffixId, int enhancedValue)
         {
-            Item item = new Item();
+            //Item item = new Item();
+            Item item = ScriptableObject.CreateInstance<Item>();
 
             if (prefixItemBaseMasterList != null && prefixItemBaseMasterList.Count > 0)
             {
@@ -190,6 +191,7 @@ namespace SequenceBreaker.Master.Items
                 }
             }
             item.enhancedValue = enhancedValue;
+
 
             return item;
 

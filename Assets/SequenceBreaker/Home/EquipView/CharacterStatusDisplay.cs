@@ -53,8 +53,8 @@ namespace SequenceBreaker.Home.EquipView
                 // updating
                 this.selectedUnitNo = selectedUnitNumber;
 
-                Debug.Log(" unit:" + this.selectedUnitNo + " " + unitList.Count);
-                Debug.Log(" unit:" + unitList[this.selectedUnitNo].TrueName() );
+                //Debug.Log(" unit:" + this.selectedUnitNo + " " + unitList.Count);
+                //Debug.Log(" unit:" + unitList[this.selectedUnitNo].TrueName() );
 
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
                                     itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;

@@ -1,12 +1,17 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Environment/StartUp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/10_UnitClass/UnitCreate.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitClassListCreate.cs" Line="10" Column="56" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="56" Column="81" />
-      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="85" Column="30" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" Line="122" Column="46" />
-      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="76" Column="18" />
-      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="65" Column="52" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="40" Column="44" />
+      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="115" Column="48" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="62" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="71" Column="53" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeDataSourceMgr.cs" Line="20" Column="41" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelConverter.cs" Line="194" Column="33" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="158" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitCreate.cs" Line="13" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
