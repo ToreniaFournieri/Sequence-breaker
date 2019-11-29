@@ -64,8 +64,12 @@ namespace SequenceBreaker.Environment
                     {
                         //List<ItemIdSet> itemIdSetList = ItemDataBase.Get.itemPresetList.ItemFromId(unit.uniqueId);
 
-                        List<Item> itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
-                        unit.itemList = itemList;
+                        if (unit.uniqueId != 0)
+                        {
+                            List<Item> itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
+                            unit.itemList = itemList;
+                        }
+                    
                         //foreach (var set in itemIdSetList)
                         //{
                         //    Item item = ItemDataBase.Get.GetItemFromId(set.prefixId, set.baseId, set.suffixId, set.enhancedValue);

@@ -163,8 +163,9 @@ namespace SequenceBreaker.Master.Items
                 if (uniqueId == set.characterUniqueId)
                 {
                     foreach (var id in set.itemIdList)
+                    {
                         itemList.Add(this.GetItemFromId(id.prefixId, id.baseId, id.suffixId, id.enhancedValue));
-
+                    }
                 }
 
             }
