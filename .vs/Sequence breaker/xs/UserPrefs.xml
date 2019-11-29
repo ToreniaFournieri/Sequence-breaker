@@ -1,8 +1,14 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Items/ItemPreset.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="9" Column="15" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemForSave.cs" Line="5" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitMasterExcelImport.cs" Line="11" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Editor/10_UnitClass/UnitEquipment.cs" Line="10" Column="18" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="65" Column="99" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="157" Column="21" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="42" Column="32" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="84" Column="1" />
+      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="86" Column="71" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" Line="122" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

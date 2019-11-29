@@ -71,10 +71,19 @@ namespace SequenceBreaker.Home.EquipView
                 itemCapacity = unitList[this.selectedUnitNo].itemCapacity;
 
                 // load from saved data
-                //Bug:This way to load info is not collect.
-                UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitList[this.selectedUnitNo]);
-                unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
-                
+                //Bug:This way to load info is not collect
+
+                if (unitList[this.selectedUnitNo].affiliation == Environment.Affiliation.Enemy)
+                {
+                    // do not load
+                }
+                else
+                {
+                    UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitList[this.selectedUnitNo]);
+                    unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
+
+                }
+
                 // not load experience point this.
 
                 characterTreeViewDataSourceMgr.Show();

@@ -17,7 +17,7 @@ namespace SequenceBreaker.Environment
         //Ally inventory
         public HomeDataSourceMgr homeDataSourceMgr;
 
-        
+
         //new Unit list
         public UnitClassList unitClassList;
 
@@ -62,7 +62,20 @@ namespace SequenceBreaker.Environment
 
                     foreach (var unit in unitSet.unitWave)
                     {
-                            homeContentData.unitClassList.Add(unit);
+                        //List<ItemIdSet> itemIdSetList = ItemDataBase.Get.itemPresetList.ItemFromId(unit.uniqueId);
+
+                        List<Item> itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
+                        unit.itemList = itemList;
+                        //foreach (var set in itemIdSetList)
+                        //{
+                        //    Item item = ItemDataBase.Get.GetItemFromId(set.prefixId, set.baseId, set.suffixId, set.enhancedValue);
+                        //    if (item != null)
+                        //    {
+                        //        unit.itemList.Add(item);
+                        //    }
+                        //}
+
+                        homeContentData.unitClassList.Add(unit);
                     }
 
                     waveInt++;
@@ -73,7 +86,7 @@ namespace SequenceBreaker.Environment
 
             }
 
-            
+
             a1.SetActive(true);
             a2.SetActive(true);
             a3.SetActive(true);
@@ -83,19 +96,19 @@ namespace SequenceBreaker.Environment
         private void Awake()
         {
             Application.targetFrameRate = 60;
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
 
-                        // Only Unity Editor on debug
-                        Debug.unityLogger.logEnabled = true;
+            // Only Unity Editor on debug
+            Debug.unityLogger.logEnabled = true;
 
-            #else
+#else
                     // others debug off
                     Debug.unityLogger.logEnabled = false;
 
-            #endif
-            
- 
-            
+#endif
+
+
+
         }
 
         // Update is called once per frame

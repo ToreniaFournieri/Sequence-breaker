@@ -6,12 +6,14 @@ using UnityEngine;
 
 namespace SequenceBreaker.Master.Items
 {
-    public sealed class ItemDataBase :MonoBehaviour
+    public sealed class ItemDataBase : MonoBehaviour
     {
         public List<ItemBaseMaster> itemBaseMasterList;
         public List<ItemBaseMaster> prefixItemBaseMasterList;
         public List<ItemBaseMaster> suffixItemBaseMasterList;
 
+
+        public ItemPresetList itemPresetList;
 
         static ItemDataBase _instance;
         public static ItemDataBase Get
@@ -42,7 +44,7 @@ namespace SequenceBreaker.Master.Items
                 {
                     var file = File.Open(Application.persistentDataPath + "/" + loadCharacterUnit.affiliation + "-"
                                          + loadCharacterUnit.uniqueId + "-item" + ".save", FileMode.Open);
-                    itemForSaveList = (List<ItemForSave>) bf.Deserialize(file);
+                    itemForSaveList = (List<ItemForSave>)bf.Deserialize(file);
                     file.Close();
                 }
                 catch (IOException)
@@ -68,26 +70,26 @@ namespace SequenceBreaker.Master.Items
 
             if (loadCharacterUnit != null)
             {
-                    UnitClassForSave unitForLoad = new UnitClassForSave();
-                    
-                    try
-                    {
-                        var file = File.Open(Application.persistentDataPath + "/" + loadCharacterUnit.affiliation + "-"
-                                             + loadCharacterUnit.uniqueId +"-unitInfo" + ".save",
-                            FileMode.Open);
-                        unitForLoad = (UnitClassForSave) bf.Deserialize(file);
-                        file.Close();
-                    }
-                    catch (IOException)
-                    {
-                        // first time to load file 
-//                        Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
-                    }
-                    
-                    loadCharacterUnit.experience = unitForLoad.experience;
+                UnitClassForSave unitForLoad = new UnitClassForSave();
+
+                try
+                {
+                    var file = File.Open(Application.persistentDataPath + "/" + loadCharacterUnit.affiliation + "-"
+                                         + loadCharacterUnit.uniqueId + "-unitInfo" + ".save",
+                        FileMode.Open);
+                    unitForLoad = (UnitClassForSave)bf.Deserialize(file);
+                    file.Close();
+                }
+                catch (IOException)
+                {
+                    // first time to load file 
+                    //                        Debug.Log("unable to load unitInfo: " + loadCharacterUnit.affiliation + "-" + loadCharacterUnit.uniqueId);
+                }
+
+                loadCharacterUnit.experience = unitForLoad.experience;
 
             }
-            
+
             return loadCharacterUnit;
         }
 
@@ -129,7 +131,7 @@ namespace SequenceBreaker.Master.Items
                     }
                 }
 
-                FileStream file = File.Create(Application.persistentDataPath + "/" + saveCharacterUnit.affiliation +"-"
+                FileStream file = File.Create(Application.persistentDataPath + "/" + saveCharacterUnit.affiliation + "-"
                                               + saveCharacterUnit.uniqueId + "-item" + ".save");
 
                 bf.Serialize(file, itemForSaveList);
@@ -139,18 +141,40 @@ namespace SequenceBreaker.Master.Items
             // save experience point
             if (saveCharacterUnit != null)
             {
-                UnitClassForSave unitForSave = new UnitClassForSave {experience = saveCharacterUnit.experience};
+                UnitClassForSave unitForSave = new UnitClassForSave { experience = saveCharacterUnit.experience };
 
-                var file = File.Create(Application.persistentDataPath + "/" +saveCharacterUnit.affiliation + "-"
-                                                                            + saveCharacterUnit.uniqueId +"-unitInfo" + ".save");
-                        bf.Serialize(file, unitForSave);
-                        file.Close();
-                        
+                var file = File.Create(Application.persistentDataPath + "/" + saveCharacterUnit.affiliation + "-"
+                                                                            + saveCharacterUnit.uniqueId + "-unitInfo" + ".save");
+                bf.Serialize(file, unitForSave);
+                file.Close();
+
             }
-            
 
-            
+
+
         }
+
+        public List<Item> GetItemsFromUniqueId(int uniqueId)
+        {
+            List<Item> itemList = new List<Item>();
+
+            foreach (var set in itemPresetList.itemPresetList)
+            {
+                if (uniqueId == set.characterUniqueId)
+                {
+                    foreach (var id in set.itemIdList)
+                        itemList.Add(this.GetItemFromId(id.prefixId, id.baseId, id.suffixId, id.enhancedValue));
+
+                }
+
+            }
+            return itemList;
+
+
+        }
+
+
+
 
         public Item GetItemFromId(int prefixId, int baseId, int suffixId, int enhancedValue)
         {
@@ -192,7 +216,8 @@ namespace SequenceBreaker.Master.Items
             }
             item.enhancedValue = enhancedValue;
 
-
+            // it fix
+            item.amount = 1;
             return item;
 
         }

@@ -8378,6 +8378,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d289cc65635a4f32992c3e7cf258c77, type: 2}
   prefixItemBaseMasterList: []
   suffixItemBaseMasterList: []
+  itemPresetList: {fileID: 11400000, guid: 9c05df970d3874ee99391c96e01c96e7, type: 2}
 --- !u!1 &1009119396
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
         public string unitClassListPath;
 
         public string unitPath;
+        public string itemPresetPath;
 
         private UnitClass _unit;
 
@@ -25,6 +26,7 @@ namespace SequenceBreaker.Editor._10_UnitClass
 
         private static string _unitClassListPathId = "unitClassListPath";
         private static string _unitClassPathId = "unitClassPath";
+        private static string _itemPresetPathId = "itemPresetPath";
 
 
         [MenuItem("Window/Unit Master Excel Converter %#e")]
@@ -59,6 +61,15 @@ namespace SequenceBreaker.Editor._10_UnitClass
 
                 //Debug.Log("unitPath: " + unitPath);
             }
+
+            //4. Select [Export] Item Preset Path
+            if (EditorPrefs.HasKey(_itemPresetPathId))
+            {
+                string objectPath = EditorPrefs.GetString(_itemPresetPathId);
+                itemPresetPath = objectPath;
+
+            }
+
         }
 
         private void OnGUI()
@@ -103,12 +114,24 @@ namespace SequenceBreaker.Editor._10_UnitClass
             GUILayout.Label(unitPath ?? " Unselected");
 
             GUILayout.EndHorizontal();
-
             GUILayout.Label("/07_ScriptableObject/Resources/20_Enemy/UnitList is correct path");
 
 
+            GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("4. Convert Excel to Unit List", GUILayout.ExpandWidth(false)))
+
+            if (GUILayout.Button("4. Select [Export] Item Preset path", GUILayout.ExpandWidth(false)))
+            {
+                OpenItemPreset();
+            }
+            GUILayout.Label(itemPresetPath ?? " Unselected");
+
+            GUILayout.EndHorizontal();
+            GUILayout.Label("/07_ScriptableObject/Resources/22_EnemyItemPreset is correct path");
+
+
+
+            if (GUILayout.Button("5. Convert Excel to Unit List", GUILayout.ExpandWidth(false)))
             {
                 ConvertUnitListFromExcel();
             }
@@ -166,6 +189,23 @@ namespace SequenceBreaker.Editor._10_UnitClass
 
         }
 
+        void OpenItemPreset()
+        {
+            string absPath = EditorUtility.OpenFolderPanel("Select Item Preset path", "", "");
+            if (absPath.StartsWith(Application.dataPath))
+            {
+                string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+                itemPresetPath = relPath;
+
+                if (unitPath != null)
+                {
+                    EditorPrefs.SetString(_unitClassPathId, unitPath);
+                }
+            }
+
+        }
+
+
         void ConvertUnitListFromExcel()
         {
             // There is no overwrite protection here!
@@ -181,12 +221,10 @@ namespace SequenceBreaker.Editor._10_UnitClass
             }
             unitClassList.unitList = new List<UnitClass>();
 
-            foreach (var unitEquip in unitMasterExcelImport.unitEquipment)
-            {
+            string itemListPath = itemPresetPath + "/itemPresetList" + ".asset";
 
-            }
-
-
+            ItemPresetList itemPresetList = ItemPresetListCreate.Create(itemListPath);
+            itemPresetList.itemPresetList = new List<ItemPreset>();
 
             foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)
             {
@@ -195,46 +233,56 @@ namespace SequenceBreaker.Editor._10_UnitClass
                 unitClassList.unitList.Add(_unit);
                 _unit.itemList = new List<Item>();
 
+
+                string itemPath = itemPresetPath + "/itemPreset-" + _unit.uniqueId + ".asset" ;
+
+                
+
+                ItemPreset itemPreset = ItemPresetCreate.Create(itemPath);
+
+
+
                 foreach (var unitEquip in unitMasterExcelImport.unitEquipment)
                 {
                     if (_unit.uniqueId == unitEquip.uniqueId)
                     {
-                        //Debug.Log(" unit: " + _unit.TrueName() + " equipment id: " + unitEquip.equipment1);
-                        //Debug.Log("itemDatabese:" + ItemDataBase.Get.itemBaseMasterList.Count);
-                        if (unitEquip.equipment1 != 0)
-                        {
-                            Item newItem = ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment1, 0, 1);
 
-                            _unit.itemList.Add(newItem);
-                        }
-                        if (unitEquip.equipment2 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment2, 0, 1)); }
-                        if (unitEquip.equipment3 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment3, 0, 1)); }
-                        if (unitEquip.equipment4 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment4, 0, 1)); }
-                        if (unitEquip.equipment5 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment5, 0, 1)); }
-                        if (unitEquip.equipment6 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment6, 0, 1)); }
-                        if (unitEquip.equipment7 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment7, 0, 1)); }
-                        if (unitEquip.equipment8 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment8, 0, 1)); }
-                        if (unitEquip.equipment9 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment9, 0, 1)); }
-                        if (unitEquip.equipment10 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment10, 0, 1)); }
-                        if (unitEquip.equipment11 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment11, 0, 1)); }
-                        if (unitEquip.equipment12 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment12, 0, 1)); }
-                        if (unitEquip.equipment13 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment13, 0, 1)); }
-                        if (unitEquip.equipment14 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment14, 0, 1)); }
-                        if (unitEquip.equipment15 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment15, 0, 1)); }
-                        if (unitEquip.equipment16 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment16, 0, 1)); }
-                        if (unitEquip.equipment17 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment17, 0, 1)); }
-                        if (unitEquip.equipment18 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment18, 0, 1)); }
-                        if (unitEquip.equipment19 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment19, 0, 1)); }
-                        if (unitEquip.equipment20 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment20, 0, 1)); }
-                        if (unitEquip.equipment21 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment21, 0, 1)); }
-                        if (unitEquip.equipment22 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment22, 0, 1)); }
-                        if (unitEquip.equipment23 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment23, 0, 1)); }
-                        if (unitEquip.equipment24 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment24, 0, 1)); }
-                        if (unitEquip.equipment25 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment25, 0, 1)); }
-                        if (unitEquip.equipment26 != 0) { _unit.itemList.Add(ItemDataBase.Get.GetItemFromId(0, unitEquip.equipment26, 0, 1)); }
+                        itemPreset.characterUniqueId = _unit.uniqueId;
+                        itemPreset.itemIdList = new List<ItemIdSet>();
+                        ItemIdSet itemIdSet = new ItemIdSet();
+
+                        if (unitEquip.equipment1 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment1, 0, 1)); }
+                        if (unitEquip.equipment2 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment2, 0, 1)); }
+                        if (unitEquip.equipment3 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment3, 0, 1)); }
+                        if (unitEquip.equipment4 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment4, 0, 1)); }
+                        if (unitEquip.equipment5 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment5, 0, 1)); }
+                        if (unitEquip.equipment6 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment6, 0, 1)); }
+                        if (unitEquip.equipment7 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment7, 0, 1)); }
+                        if (unitEquip.equipment8 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment8, 0, 1)); }
+                        if (unitEquip.equipment9 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment9, 0, 1)); }
+                        if (unitEquip.equipment10 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment10, 0, 1)); }
+                        if (unitEquip.equipment11 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment11, 0, 1)); }
+                        if (unitEquip.equipment12 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment12, 0, 1)); }
+                        if (unitEquip.equipment13 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment13, 0, 1)); }
+                        if (unitEquip.equipment14 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment14, 0, 1)); }
+                        if (unitEquip.equipment15 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment15, 0, 1)); }
+                        if (unitEquip.equipment16 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment16, 0, 1)); }
+                        if (unitEquip.equipment17 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment17, 0, 1)); }
+                        if (unitEquip.equipment18 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment18, 0, 1)); }
+                        if (unitEquip.equipment19 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment19, 0, 1)); }
+                        if (unitEquip.equipment20 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment20, 0, 1)); }
+                        if (unitEquip.equipment21 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment21, 0, 1)); }
+                        if (unitEquip.equipment22 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment22, 0, 1)); }
+                        if (unitEquip.equipment23 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment23, 0, 1)); }
+                        if (unitEquip.equipment24 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment24, 0, 1)); }
+                        if (unitEquip.equipment25 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment25, 0, 1)); }
+                        if (unitEquip.equipment26 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment26, 0, 1)); }
                     }
                 }
+                EditorUtility.SetDirty(itemPreset);
+                itemPresetList.itemPresetList.Add(itemPreset);
 
+                EditorUtility.SetDirty(itemPresetList);
 
             }
             EditorUtility.SetDirty(unitClassList);
