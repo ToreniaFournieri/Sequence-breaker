@@ -282,7 +282,13 @@ namespace SequenceBreaker.Editor
 
             string itemListPath = itemPresetPath + "/itemPresetList" + ".asset";
 
-            ItemPresetList itemPresetList = ItemPresetListCreate.Create(itemListPath);
+            ItemPresetList itemPresetList;
+
+            itemPresetList = AssetDatabase.LoadAssetAtPath(itemListPath, typeof(ItemPresetList)) as ItemPresetList;
+            if (itemPresetList == null)
+            {
+                itemPresetList = ItemPresetListCreate.Create(itemListPath);
+            }
             itemPresetList.itemPresetList = new List<ItemPreset>();
 
             foreach (UnitMasterExcel unitMasterExcel in unitMasterExcelImport.unitMasterExcel)

@@ -117,8 +117,13 @@ namespace SequenceBreaker.Play.MissionView
                             experience += enemyUnit.ExperienceFromBeaten();
                         }
 
+
+
                         // Distribution, not use copied data! lost reference means worthless.
-                        experience /= missionController.allyUnitList.Count;
+                        experience = (int)Math.Ceiling((double)experience / (double)missionController.allyUnitList.Count);
+
+                        //Debug.Log("experience" + experience);
+
 
                         foreach (UnitClass allyUnit in missionController.allyUnitList)
                         {

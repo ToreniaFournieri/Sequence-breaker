@@ -14,23 +14,7 @@ namespace SequenceBreaker.Play.Prepare
     public sealed class RunBattle : MonoBehaviour
     {
 
-        //// [[Will be obsolete]] start
-        //// Mission information
-        //public string missionText;
-        //public string location;
-        //public int missionLevelInitial;
 
-        //// environment setting
-        ////public BattleEnvironment battleEnvironment;
-
-        //// Input data, Units list
-        //public List<EnemyUnitSet> enemyUnitSetList;
-
-        ////unit List
-        //public UnitSet unitSet;
-        //public CalculateUnitStatus calculateUnitStatus;
-
-        //// [[Will be obsolete]] end
         public MissionMaster mission;
         public string currentMissionName;
         public int currentLevel;
@@ -68,15 +52,11 @@ namespace SequenceBreaker.Play.Prepare
         public RunBattle Copy()
         {
             var deepCopyRunBattle = new RunBattle();
-            //deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
-            ////deepCopyRunBattle.battleEnvironment = battleEnvironment;
-            //deepCopyRunBattle.missionText = missionText;
-            //deepCopyRunBattle.location = location;
+
             deepCopyRunBattle.whichWin = whichWin;
             deepCopyRunBattle.dataList = dataList;
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
-            //deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
             deepCopyRunBattle.mission = mission;
 
             return deepCopyRunBattle;
@@ -86,16 +66,11 @@ namespace SequenceBreaker.Play.Prepare
         public RunBattle Copy(int wave)
         {
             var deepCopyRunBattle = new RunBattle();
-            //deepCopyRunBattle.enemyUnitSetList = enemyUnitSetList;
-            ////deepCopyRunBattle.battleEnvironment = battleEnvironment;
-            //deepCopyRunBattle.missionText = missionText;
-            //deepCopyRunBattle.location = location;
             deepCopyRunBattle.whichWin = whichWinEachWaves[wave];
             deepCopyRunBattle.dataList = new List<List<Data>>();
             deepCopyRunBattle.dataList.Add(dataList[wave]);
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
-            //deepCopyRunBattle.calculateUnitStatus = calculateUnitStatus;
             deepCopyRunBattle.mission = mission;
 
 
@@ -110,15 +85,9 @@ namespace SequenceBreaker.Play.Prepare
         {
             var runbattle = runBattle.Copy();
 
-            //missionText = runbattle.missionText;
-            //location = runbattle.location;
-            //missionLevelInitial = runbattle.missionLevelInitial;
             whichWin = runbattle.whichWin;
             dataList = runbattle.dataList;
-            //battleEnvironment = runbattle.battleEnvironment;
-            //enemyUnitSetList = runbattle.enemyUnitSetList;
             whichWinEachWaves = runbattle.whichWinEachWaves;
-            //calculateUnitStatus = runbattle.calculateUnitStatus;
             mission = runbattle.mission;
 
 
@@ -131,12 +100,6 @@ namespace SequenceBreaker.Play.Prepare
             whichWinEachWaves = new List<WhichWin>();
             dataList = new List<List<Data>>();
             
-            // set current enemy level
-//            missionLevelCurrent = enemyLevel;
-
-            
-
-
             (_allyBattleUnits, _allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
 
             currentAllyUnitList = new List<BattleUnit>();
@@ -144,18 +107,12 @@ namespace SequenceBreaker.Play.Prepare
 
             var wave = 0;
 
-            //if (unitSet != null)
-            //{
-                // new method 
                 foreach (var unitWave in mission.unitSet.unitSetList )
                 {
 
 
                     _battleList.Add(new BattleEngine());
 
-
-                //_battleList[wave].SetUpEnvironment(normalAttackSkillMaster: mission.calculateUnitStatus.master.battleEnvironment.normalAttackSkillsMaster,
-                //    buffMasters: mission.calculateUnitStatus.master.battleEnvironment.buffMasters);
 
                 _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: CalculateUnitStatus.Get.master.battleEnvironment.normalAttackSkillsMaster,
                         buffMasters: CalculateUnitStatus.Get.master.battleEnvironment.buffMasters);
@@ -184,7 +141,6 @@ namespace SequenceBreaker.Play.Prepare
                     //set unitName with levels
                     foreach (var battleUnit in _enemyBattleUnits)
                     {
-                    //battleUnit.name = battleUnit.name ;
                     currentLevel = enemyLevel;
                     }
 
@@ -212,74 +168,7 @@ namespace SequenceBreaker.Play.Prepare
                     wave += 1;
                 }
                 
-                
-            //}
-            //else
-            //{
-                
-            //    // previous system ; will be obsolete
-                
-            
-            
-            //    foreach (var enemyUnitSet in enemyUnitSetList )
-            //    {
 
-
-            //        _battleList.Add(new BattleEngine());
-            //        _battleList[wave].SetUpEnvironment(normalAttackSkillMaster: calculateUnitStatus.battleEnvironment.normalAttackSkillsMaster,
-            //            buffMasters: calculateUnitStatus.battleEnvironment.buffMasters);
-
-            //        foreach (var unit in currentAllyUnitList)
-            //        {
-            //            var allyBattleUnit = _allyBattleUnits.Find(obj => obj.uniqueId == unit.uniqueId);
-            //            allyBattleUnit.combat.shieldCurrent = unit.combat.shieldCurrent;
-            //            allyBattleUnit.combat.hitPointCurrent = unit.combat.hitPointCurrent;
-
-            //        }
-
-            //        var isFirstWave = false;
-            //        if(wave == 0) { isFirstWave = true; }
-            //        _battleList[wave].SetAllyBattleUnits(_allyBattleUnits, _allySkillsList, isFirstWave);
-
-            //        //adjust enemy level
-            //        foreach (var unit in enemyUnitSet.enemyUnitList)
-            //        {
-            //            unit.level = enemyLevel;
-
-            //        }
-            //        _enemyBattleUnits = new List<BattleUnit>();
-            //        (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(enemyUnitSet.enemyUnitList);
-
-            //        //set unitName with levels
-            //        foreach (var battleUnit in _enemyBattleUnits)
-            //        {
-            //            //battleUnit.name = battleUnit.name ;
-            //            missionLevelInitial = enemyLevel;
-            //        }
-
-            //        _battleList[wave].SetEnemyBattleUnits(_enemyBattleUnits, _enemySkillsList);
-
-
-            //        //[Battle start!!]
-            //        _battleList[wave].Battle();
-
-            //        whichWin = _battleList[wave].WhichWin;
-            //        whichWinEachWaves.Add(_battleList[wave].WhichWin);
-
-            //        currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
-
-            //        dataList.Add(new List<Data>());
-            //        SetBattleLogToData(wave);
-
-            //        if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
-            //        {
-            //            // all ally units has been slain.
-            //            break;
-            //        }
-
-            //        wave += 1;
-            //    }
-            //}
 
 
         }
@@ -374,7 +263,6 @@ namespace SequenceBreaker.Play.Prepare
                 CalculateCombatStatusFromUnit(unit);
                 battleUnits.Add(CalculateUnitStatus.Get.battleUnit);
 
-//                List<SkillsMasterClass> skillList = calculateUnitStatus.tuningStyleClass.GetSkills(unit.coreFrame.tuningStyle);
                 List<SkillsMasterClass> skillList = CalculateUnitStatus.Get.summedSkillList;
                 EffectClass effectClass;
 
@@ -515,8 +403,6 @@ namespace SequenceBreaker.Play.Prepare
         {
 
             CalculateUnitStatus.Get.Init(inputUnit);
-            //mission.calculateUnitStatus.Init(inputUnit);
-//                _calculateUnitStatus = new CalculateUnitStatus(inputUnit);
         }
 
 
