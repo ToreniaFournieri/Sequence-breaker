@@ -3,7 +3,7 @@ using SequenceBreaker.Environment;
 using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor._10_UnitClass
+namespace SequenceBreaker.Editor
 {
 	[Serializable]
 	public class UnitMasterExcel

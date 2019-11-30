@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Mission
 {
     public class UnitWave : ScriptableObject
     {
@@ -15,6 +15,6 @@ namespace SequenceBreaker.Master.UnitClass
         //public int missionLevelInitial;
 
         //Item
-        public List<UnitClass> unitWave;
+        public List<UnitClass.UnitClass> unitWave;
     }
 }

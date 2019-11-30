@@ -1,8 +1,8 @@
-﻿using SequenceBreaker.Master.UnitClass;
+﻿using SequenceBreaker.Master.Mission;
 using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor._11_UnitSet
+namespace SequenceBreaker.Editor
 {
     public class UnitSetCreate 
     {

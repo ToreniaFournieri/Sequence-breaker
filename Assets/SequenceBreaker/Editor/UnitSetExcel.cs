@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.UnitClass;
-using SequenceBreaker.Play.Prepare;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor._11_UnitSet
+namespace SequenceBreaker.Editor
 {
     [Serializable]
     public class UnitSetExcel

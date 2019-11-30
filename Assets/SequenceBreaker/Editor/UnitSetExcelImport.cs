@@ -2,7 +2,7 @@
 using _00_Asset._07_ExcelImporter;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor._11_UnitSet
+namespace SequenceBreaker.Editor
 {
     [ExcelAsset]
     public class UnitSetExcelImport : ScriptableObject

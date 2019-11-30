@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Mission
 {
     [SerializeField]
     [CreateAssetMenu(fileName = "UnitSet", menuName = "Unit/UnitSet", order = 11)]

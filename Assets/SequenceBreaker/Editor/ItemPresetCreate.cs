@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using SequenceBreaker.Master.Items;
+﻿using SequenceBreaker.Master.Items;
 using UnityEditor;
 using UnityEngine;
 
-namespace SequenceBreaker.Editor._10_UnitClass
+namespace SequenceBreaker.Editor
 {
     public class ItemPresetCreate
     {
