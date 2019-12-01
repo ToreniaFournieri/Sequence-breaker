@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: Buffdefense12
   m_EditorClassIdentifier: 
-  name: 9
+  skillName: 9
   actionType: 0
   callSkillLogicName: 0
   isHeal: 0
