@@ -369,9 +369,10 @@ namespace SequenceBreaker.Editor
 
                 }
 
-                EditorUtility.SetDirty(itemBaseMaster);
-
-
+                if (itemBaseMaster)
+                {
+                    EditorUtility.SetDirty(itemBaseMaster);
+                }
             }
 
 

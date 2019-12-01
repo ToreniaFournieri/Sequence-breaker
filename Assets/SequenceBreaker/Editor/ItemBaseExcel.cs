@@ -8,9 +8,9 @@ namespace SequenceBreaker.Editor
     [Serializable]
     public class ItemBaseExcel
     {
+        public string itemName;
         public int itemId;
 
-        public string itemName;
         public string itemDescription;
         //public string icon;
 

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 1029-GeneralArmor
+  m_EditorClassIdentifier: 
+  itemId: 1029
+  itemName: GeneralArmor
+  itemDescription: 
+  icon: {fileID: 0}
+  combatBaseValue: {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
+  level: 4
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
+  - {fileID: 11400000, guid: 1a511faeb60f14457801c4da28c5b03c, type: 2}
+  - {fileID: 11400000, guid: 5256f882c94964a08bbf5b5e60bad8c8, type: 2}
+  - {fileID: 11400000, guid: 3446bedc08004443f80120fc8f6f7900, type: 2}
