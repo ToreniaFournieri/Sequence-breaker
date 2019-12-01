@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Breastplate T2CR8
   itemDescription: 
   icon: {fileID: 0}
-  combatBaseValue: {fileID: 0}
+  combatBaseValue: {fileID: 11400000, guid: 1c7416fc081c94c118fcd61ff4210712, type: 2}
   level: 4
   skillsMasterList: []
   addAbilityList: []

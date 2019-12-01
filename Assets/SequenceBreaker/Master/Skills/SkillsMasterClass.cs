@@ -8,7 +8,7 @@ namespace SequenceBreaker.Master.Skills
     public sealed class SkillsMasterClass : ScriptableObject
     {
 
-        [FormerlySerializedAs("Name")] [SerializeField] public SkillName name;
+        [FormerlySerializedAs("Name")] [SerializeField] public SkillName skillName;
         [FormerlySerializedAs("ActionType")] [SerializeField] public ActionType actionType;
         [FormerlySerializedAs("CallSkillLogicName")] [SerializeField] public CallSkillLogicName callSkillLogicName;
         [FormerlySerializedAs("IsHeal")] [SerializeField] public bool isHeal;

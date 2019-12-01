@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-CounterNonCriticalAttack
   m_EditorClassIdentifier: 
-  Name: 3
-  ActionType: 4
-  CallSkillLogicName: 0
-  IsHeal: 0
-  UsageCount: 6
-  VeiledTurn: 20
-  Ability: 4
-  TriggerBase: {fileID: 11400000, guid: 6009639d35c9e4bea9a998cbb21f84e8, type: 2}
-  Magnification: {fileID: 11400000, guid: fc403c571c74b4f6a81bc647220a8082, type: 2}
-  TriggerTarget: {fileID: 11400000, guid: 9e44a1f71d6394bde9b70ccdbc94309c, type: 2}
-  BuffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
-  CallingBuffName: 0
-  DebuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}
+  skillName: 3
+  actionType: 4
+  callSkillLogicName: 0
+  isHeal: 0
+  usageCount: 6
+  veiledTurn: 20
+  ability: 4
+  triggerBase: {fileID: 11400000, guid: 6009639d35c9e4bea9a998cbb21f84e8, type: 2}
+  magnification: {fileID: 11400000, guid: fc403c571c74b4f6a81bc647220a8082, type: 2}
+  triggerTarget: {fileID: 11400000, guid: 9e44a1f71d6394bde9b70ccdbc94309c, type: 2}
+  buffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
+  callingBuffName: 0
+  debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

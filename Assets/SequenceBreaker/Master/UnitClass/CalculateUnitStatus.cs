@@ -908,7 +908,7 @@ namespace SequenceBreaker.Master.UnitClass
 
             foreach (var skill in summedSkillList)
             {
-                detailAbilityString += skill.name + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
+                detailAbilityString += skill.skillName + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
             }
 
         }

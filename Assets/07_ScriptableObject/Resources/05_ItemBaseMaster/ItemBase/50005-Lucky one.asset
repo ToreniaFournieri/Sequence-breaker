@@ -19,5 +19,6 @@ MonoBehaviour:
   combatBaseValue: {fileID: 0}
   level: 0
   skillsMasterList: []
-  addAbilityList: []
+  addAbilityList:
+  - {fileID: 11400000, guid: 18b4fb040fc434b7ba5bffc8d9d67db2, type: 2}
   magnificationMasterList: []

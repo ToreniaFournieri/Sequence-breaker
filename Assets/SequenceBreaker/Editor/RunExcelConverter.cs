@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using SequenceBreaker.Editor;
+using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Mission;
+using SequenceBreaker.Master.Skills;
 using SequenceBreaker.Master.UnitClass;
 using UnityEditor;
 using UnityEngine;
@@ -16,7 +18,7 @@ namespace SequenceBreaker.Editor
         public UnitClassList unitClassList;
 
         public string itemBasePath;
-        public string magnificationMasterListPath;
+        public string itemMasterPath;
         public string unitClassListPath;
         public string unitPath;
         public string itemPresetPath;
@@ -29,13 +31,13 @@ namespace SequenceBreaker.Editor
 
         private static string _itembasePathId = "itemBasePath";
         //        private static string _targetPathId = "ObjectPath";
-        private static string _magnificationMasterListPath = "magnificationMasterListPath";
+        private static string _itemMasterPathId = "itemMasterPath";
         private static string _unitClassListPathId = "unitClassListPath";
         private static string _unitClassPathId = "unitClassPath";
         private static string _itemPresetPathId = "itemPresetPath";
 
         // Magnification Master
-        public MagnificationMasterList magnificationMasterList;
+        public ItemMasterList itemMasterList;
 
         // Unit Set
         public UnitSetExcelImport unitSetExcelImport;
@@ -74,10 +76,10 @@ namespace SequenceBreaker.Editor
                 itemBasePath = objectPath;
             }
 
-            if (EditorPrefs.HasKey(_magnificationMasterListPath))
+            if (EditorPrefs.HasKey(_itemMasterPathId))
             {
-                string objectPath = EditorPrefs.GetString(_magnificationMasterListPath);
-                magnificationMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(MagnificationMasterList)) as MagnificationMasterList;
+                string objectPath = EditorPrefs.GetString(_itemMasterPathId);
+                itemMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(ItemMasterList)) as ItemMasterList;
             }
 
 
@@ -146,11 +148,11 @@ namespace SequenceBreaker.Editor
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("3. Select [Import] Magnification master list asset", GUILayout.ExpandWidth(false)))
+            if (GUILayout.Button("3. Select [Import] Item Master list asset", GUILayout.ExpandWidth(false)))
             {
-                OpenMagnificationMasterList();
+                OpenItemMasterList();
             }
-            GUILayout.Label(magnificationMasterList ? magnificationMasterList.name : " Unselected");
+            GUILayout.Label(itemMasterList ? itemMasterList.name : " Unselected");
             GUILayout.EndHorizontal();
 
 
@@ -247,17 +249,17 @@ namespace SequenceBreaker.Editor
 
         }
 
-        void OpenMagnificationMasterList()
+        void OpenItemMasterList()
         {
-            string absPath = EditorUtility.OpenFilePanel("Select Magnification master List", "", "");
+            string absPath = EditorUtility.OpenFilePanel("Select Item master List", "", "");
             if (absPath.StartsWith(Application.dataPath))
             {
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-                magnificationMasterListPath = relPath;
-                magnificationMasterList = AssetDatabase.LoadAssetAtPath(relPath, typeof(MagnificationMasterList)) as MagnificationMasterList;
-                if (magnificationMasterList)
+                itemMasterPath = relPath;
+                itemMasterList = AssetDatabase.LoadAssetAtPath(relPath, typeof(ItemMasterList)) as ItemMasterList;
+                if (itemMasterList)
                 {
-                    EditorPrefs.SetString(_magnificationMasterListPath, relPath);
+                    EditorPrefs.SetString(_itemMasterPathId, relPath);
                 }
             }
 
@@ -325,19 +327,38 @@ namespace SequenceBreaker.Editor
                 string savePath = itemBasePath + "/" + itemMaster.itemId + "-" + itemMaster.itemName + ".asset";
                 ItemBaseMaster itemBaseMaster = ItemBaseCreate.Create(savePath);
 
-                Debug.Log(" itemMaster :" + itemMaster.itemName);
+                //Debug.Log(" itemMaster :" + itemMaster.itemName);
 
                 itemBaseMaster.itemId = itemMaster.itemId;
                 itemBaseMaster.itemName = itemMaster.itemName;
                 itemBaseMaster.itemDescription = itemMaster.itemDescription;
                 //itemBaseMaster.icon
-                //itemBaseMaster.combatBaseValue
+
+                itemBaseMaster.combatBaseValue = new CombatClass();
+                foreach (CombatClass combat in itemMasterList.combatList)
+                {
+                    if (itemMaster.combatBaseValue == combat.name) { itemBaseMaster.combatBaseValue = combat; }
+                }
+
                 itemBaseMaster.level = itemMaster.level;
-                //itemBaseMaster.skillsMasterList
-                //itemBaseMaster.addAbilityList
+
+                itemBaseMaster.skillsMasterList = new List<SkillsMasterClass>();
+                foreach (SkillsMasterClass skills in itemMasterList.skillsList)
+                {
+                    if (itemMaster.skill1 == skills.name) { itemBaseMaster.skillsMasterList.Add(skills); }
+                    if (itemMaster.skill2 == skills.name) { itemBaseMaster.skillsMasterList.Add(skills); }
+                    if (itemMaster.skill3 == skills.name) { itemBaseMaster.skillsMasterList.Add(skills); }
+                }
+
+                itemBaseMaster.addAbilityList = new List<AddAbilityClass>();
+                foreach (AddAbilityClass ability in itemMasterList.abilityList)
+                {
+                    if(itemMaster.addAbility == ability.name) { itemBaseMaster.addAbilityList.Add(ability); }
+                }
+
                 itemBaseMaster.magnificationMasterList = new List<MagnificationMasterClass>();
 
-                foreach (var mag in magnificationMasterList.magnificationList)
+                foreach (var mag in itemMasterList.magnificationList)
                 {
                     if (itemMaster.magnific1 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
                     if (itemMaster.magnific2 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
@@ -345,7 +366,7 @@ namespace SequenceBreaker.Editor
                     if (itemMaster.magnific4 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
                     if (itemMaster.magnific5 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
                     if (itemMaster.magnific6 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
-                    
+
                 }
 
                 EditorUtility.SetDirty(itemBaseMaster);

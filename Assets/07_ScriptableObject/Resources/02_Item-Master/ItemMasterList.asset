@@ -10,8 +10,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a353bfc031a9947bf9f3c767835385b3, type: 3}
-  m_Name: MagnificationMasterList
+  m_Name: ItemMasterList
   m_EditorClassIdentifier: 
+  skillsList:
+  - {fileID: 11400000, guid: be9a44af6d9734330a4c43d457a76df3, type: 2}
+  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}
+  - {fileID: 11400000, guid: fb9a2c74b8de64f2c82cff5d956c78f0, type: 2}
+  - {fileID: 11400000, guid: 25c550991722f43b9b73e44f92d5e67a, type: 2}
+  - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
+  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
+  - {fileID: 11400000, guid: a67a728cf2b884375826f8227c7a05a0, type: 2}
+  - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
+  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
+  - {fileID: 11400000, guid: af4303c9780904f27a5d2152343267a4, type: 2}
+  - {fileID: 11400000, guid: 76f2be90af6714ae8879518a48c0e110, type: 2}
+  - {fileID: 11400000, guid: 28992cf2ddd774d7fb5b01e69607e48b, type: 2}
+  abilityList:
+  - {fileID: 11400000, guid: 649d6513ba161499cb7875eff29e13e9, type: 2}
+  - {fileID: 11400000, guid: 7f19c25e5083b4bc09f9648129058dfd, type: 2}
+  - {fileID: 11400000, guid: 8fc1ef3a2b9d14597827df2f320395c1, type: 2}
+  - {fileID: 11400000, guid: 18b4fb040fc434b7ba5bffc8d9d67db2, type: 2}
+  - {fileID: 11400000, guid: e86b5797aae4b451ebf0e21946160a27, type: 2}
+  - {fileID: 11400000, guid: 9b84dcb8a28954aae88225fb5cfec1cf, type: 2}
+  - {fileID: 11400000, guid: 9d0095f55375345d3b97f5a647fb4e26, type: 2}
+  - {fileID: 11400000, guid: f754e7c1732444cfd9321f1b514be47d, type: 2}
+  - {fileID: 11400000, guid: 5010b421dea214930ba6e2000c80bbba, type: 2}
+  - {fileID: 11400000, guid: 9edd231f130f247cead11dc327901c47, type: 2}
+  combatList:
+  - {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
+  - {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
+  - {fileID: 11400000, guid: 42bea3d11c53a4de3a653b0570286002, type: 2}
+  - {fileID: 11400000, guid: 1c7416fc081c94c118fcd61ff4210712, type: 2}
+  - {fileID: 11400000, guid: a5f9938b8617c47aa8ad5574e0823380, type: 2}
+  - {fileID: 11400000, guid: 3e71f98e69ed54250a523f6dbf66017a, type: 2}
+  - {fileID: 11400000, guid: 88b3ef6d164ad4b53831d6db0ae7b595, type: 2}
+  - {fileID: 11400000, guid: 81975d9c6bf5e4786826d2033c86ce5b, type: 2}
+  - {fileID: 11400000, guid: 91cd5bb9906604dac877fda113d7c4df, type: 2}
+  - {fileID: 11400000, guid: fd749ec4e8e274ce9930961c4f318afd, type: 2}
+  - {fileID: 11400000, guid: 32197bf36d9144b2aa6bf34461c1e8b9, type: 2}
+  - {fileID: 11400000, guid: 209c75d11968c4d42b0177e9c9fdb58a, type: 2}
+  - {fileID: 11400000, guid: 726385f75b0e34544bd1fb02ab2aedae, type: 2}
+  - {fileID: 11400000, guid: f00f781efa1fd4ef394cafa630b40d5a, type: 2}
+  - {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  - {fileID: 11400000, guid: 844907db2f82946298e47cf92f1c200b, type: 2}
+  - {fileID: 11400000, guid: 1cdecce2cf3f841bf9325dccfbe3ff1f, type: 2}
+  - {fileID: 11400000, guid: 5322041f800614049866c9471f74fd49, type: 2}
   magnificationList:
   - {fileID: 11400000, guid: be39a7bc3d8bc4f4889d8fd929086ad6, type: 2}
   - {fileID: 11400000, guid: ad2f002051ba243f99d514a8287b3d92, type: 2}

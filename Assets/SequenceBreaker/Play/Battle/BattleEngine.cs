@@ -36,11 +36,11 @@ namespace SequenceBreaker.Play.Battle
             _normalAttackSkillMaster = normalAttackSkillMaster;
             _buffMasters = buffMasters;
         }
-        
+
         //Set up Ally's BattleUnit and EffectClass.
         public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses, bool isFirstWave)
         {
-            
+
             foreach (var allyBattleUnit in allyBattleUnits)
             {
                 // Forced update Affiliation to ally(not worked?)
@@ -74,7 +74,7 @@ namespace SequenceBreaker.Play.Battle
                 enemyBattleUnit.uniqueId = _count;
                 enemyBattleUnit.combat.shieldCurrent = enemyBattleUnit.combat.shieldMax;
                 enemyBattleUnit.combat.hitPointCurrent = enemyBattleUnit.combat.hitPointMax;
-                
+
                 _characters.Add(enemyBattleUnit);
                 _count++;
             }
@@ -124,7 +124,7 @@ namespace SequenceBreaker.Play.Battle
 
                 if (battleWavesSet > 1) //  magnification per wave set
                 { _allyAttackMagnification *= (1 + allyAttackMagnificationPerWavesSet); _allyDefenseMagnification *= (1 + allyDefenseMagnificationPerWavesSet); }
-                
+
                 var allyWinCount = 0; var enemyWinCount = 0; var drawCount = 0;
 
                 for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
@@ -148,14 +148,14 @@ namespace SequenceBreaker.Play.Battle
                         effect.InitializeEffect();
                     }
 
-//                    if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
-//                    {
-//                        foreach (var effect in _effects)
-//                        {
-//                            Console.WriteLine(effect.character.unitName + " has a skill: " + effect.skill.unitName + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
-//                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
-//                        }
-//                    }
+                    //                    if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
+                    //                    {
+                    //                        foreach (var effect in _effects)
+                    //                        {
+                    //                            Console.WriteLine(effect.character.unitName + " has a skill: " + effect.skill.unitName + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
+                    //                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
+                    //                        }
+                    //                    }
                     // _/_/_/_/_/_/ Effect setting end _/_/_/_/_/_/
 
                     var battleEnd = false;
@@ -201,117 +201,117 @@ namespace SequenceBreaker.Play.Battle
                                     switch (actionPhase)
                                     {
                                         case 0:
-                                        {
-                                            environmentInfo.Phase = 0;
-                                            //log += "------------------------------------\n";
-                                            text = new FuncBattleConditionsText(turn, _characters);
-                                            //firstLine = text.FirstLine();
-                                            //log += text.Text();
-                                            log += null;
-
-                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, log,
-                                                Affiliation.None)
                                             {
-                                                isHeaderInfo = true,
-                                                headerInfoText = text.FirstLine()
-                                            };
-                                            var copiedBattleUnit = (from BattleUnit character in _characters
-                                                select character.Copy()).ToList();
-                                            battleLog.characters = copiedBattleUnit;
-                                            battleLogList.Add(battleLog);
-                                            break;
-                                        }
-                                        case 1:
-                                        {
-                                            environmentInfo.Phase = 1;
+                                                environmentInfo.Phase = 0;
+                                                //log += "------------------------------------\n";
+                                                text = new FuncBattleConditionsText(turn, _characters);
+                                                //firstLine = text.FirstLine();
+                                                //log += text.Text();
+                                                log += null;
 
-                                            // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
-
-                                            var skillTriggerPossibilityCheck = SkillTriggerPossibilityCheck(null, _effects,
-                                                _characters, null,
-                                                orders, ActionType.AtBeginning, false, false, null, null, 0,
-                                                environmentInfo);
-                                            while (skillTriggerPossibilityCheck != null &&
-                                                   skillTriggerPossibilityCheck.Count > 0)
-                                            {
-                                                orders.Push(skillTriggerPossibilityCheck.Pop());
-                                            }
-
-                                            break;
-                                        }
-                                        case 2:
-                                        {
-                                            environmentInfo.Phase = 2;
-//                                            firstLine = "[Main action phase] \n";
-//                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-//                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-//                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
-//                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
-                                            //battleLogList.Add(battleLog);
-
-                                            for (var i = 0; i <= aliveCharacters.Count - 1; i++)
-                                            {
-                                                var effectList = _effects.FindAll(obj =>
-                                                    obj.character == aliveCharacters[i] && obj.skill.actionType ==
-                                                                                        ActionType.Move
-                                                                                        && obj.UsageCount > 0 &&
-                                                                                        obj.VeiledFromTurn <= turn &&
-                                                                                        obj.VeiledToTurn >= turn);
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-
-                                                // Add normal attack skills
-//                                                var normalAttackEffect = new EffectClass(aliveCharacters[i],
-//                                                    _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
-//                                                    1.0, false, 1000, 1, 20);
-                                                var normalAttackEffect = ScriptableObject.CreateInstance<EffectClass>();
-                                                normalAttackEffect.Set(aliveCharacters[i],
-                                                    _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
-                                                    1.0, false, 1000, 1, 20);
-                                                
-                                                effectList.Add(normalAttackEffect);
-                                                orderForSort.Add(new OrderClass(orderCondition, aliveCharacters[i],
-                                                    ActionType.Move, ref effectList,
-                                                    (aliveCharacters[i].ability.responsiveness *
-                                                     r.Next(40 + aliveCharacters[i].ability.luck, 100)), null, false));
+                                                battleLog = new BattleLogClass(orderCondition, null, firstLine, log,
+                                                    Affiliation.None)
+                                                {
+                                                    isHeaderInfo = true,
+                                                    headerInfoText = text.FirstLine()
+                                                };
+                                                var copiedBattleUnit = (from BattleUnit character in _characters
+                                                                        select character.Copy()).ToList();
+                                                battleLog.characters = copiedBattleUnit;
+                                                battleLogList.Add(battleLog);
+                                                break;
                                             }
-
-                                            orderForSort.Sort((x, y) => x.ActionSpeed - y.ActionSpeed);
-                                            var orderNumber = orderForSort.Count;
-                                            foreach (var order in orderForSort)
+                                        case 1:
                                             {
-                                                order.OrderCondition.OrderNumber = orderNumber;
-                                                orderNumber--;
-                                            }
+                                                environmentInfo.Phase = 1;
 
-                                            foreach (var t in orderForSort)
+                                                // _/_/_/_/_/_/_/_/ At Beginning Skill _/_/_/_/_/_/_/_/_/_/
+
+                                                var skillTriggerPossibilityCheck = SkillTriggerPossibilityCheck(null, _effects,
+                                                    _characters, null,
+                                                    orders, ActionType.AtBeginning, false, false, null, null, 0,
+                                                    environmentInfo);
+                                                while (skillTriggerPossibilityCheck != null &&
+                                                       skillTriggerPossibilityCheck.Count > 0)
+                                                {
+                                                    orders.Push(skillTriggerPossibilityCheck.Pop());
+                                                }
+
+                                                break;
+                                            }
+                                        case 2:
                                             {
-                                                orders.Push(t);
-                                            }
+                                                environmentInfo.Phase = 2;
+                                                //                                            firstLine = "[Main action phase] \n";
+                                                //                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
+                                                //                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
+                                                //                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
+                                                //                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
+                                                //battleLogList.Add(battleLog);
 
-                                            break;
-                                        }
+                                                for (var i = 0; i <= aliveCharacters.Count - 1; i++)
+                                                {
+                                                    var effectList = _effects.FindAll(obj =>
+                                                        obj.character == aliveCharacters[i] && obj.skill.actionType ==
+                                                                                            ActionType.Move
+                                                                                            && obj.UsageCount > 0 &&
+                                                                                            obj.VeiledFromTurn <= turn &&
+                                                                                            obj.VeiledToTurn >= turn);
+                                                    orderCondition = new OrderConditionClass(environmentInfo.Wave,
+                                                        environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
+
+                                                    // Add normal attack skills
+                                                    //                                                var normalAttackEffect = new EffectClass(aliveCharacters[i],
+                                                    //                                                    _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
+                                                    //                                                    1.0, false, 1000, 1, 20);
+                                                    var normalAttackEffect = ScriptableObject.CreateInstance<EffectClass>();
+                                                    normalAttackEffect.Set(aliveCharacters[i],
+                                                        _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
+                                                        1.0, false, 1000, 1, 20);
+
+                                                    effectList.Add(normalAttackEffect);
+                                                    orderForSort.Add(new OrderClass(orderCondition, aliveCharacters[i],
+                                                        ActionType.Move, ref effectList,
+                                                        (aliveCharacters[i].ability.responsiveness *
+                                                         r.Next(40 + aliveCharacters[i].ability.luck, 100)), null, false));
+                                                }
+
+                                                orderForSort.Sort((x, y) => x.ActionSpeed - y.ActionSpeed);
+                                                var orderNumber = orderForSort.Count;
+                                                foreach (var order in orderForSort)
+                                                {
+                                                    order.OrderCondition.OrderNumber = orderNumber;
+                                                    orderNumber--;
+                                                }
+
+                                                foreach (var t in orderForSort)
+                                                {
+                                                    orders.Push(t);
+                                                }
+
+                                                break;
+                                            }
                                         case 3:
-                                        {
-                                            environmentInfo.Phase = 3;
-                                            log += new string(' ', 1) + "[At ending phase] \n";
-                                            //Initialize 
+                                            {
+                                                environmentInfo.Phase = 3;
+                                                log += new string(' ', 1) + "[At ending phase] \n";
+                                                //Initialize 
 
-                                            //Heal Shield by generation %
-                                            var shieldHeal = new ShieldHealFunction(_characters);
-                                            log += shieldHeal.Log;
-                                            var calculateHate = new CalculationHateMagnificationPerTurnFunction(_characters);
-                                            log += calculateHate.Log;
+                                                //Heal Shield by generation %
+                                                var shieldHeal = new ShieldHealFunction(_characters);
+                                                log += shieldHeal.Log;
+                                                var calculateHate = new CalculationHateMagnificationPerTurnFunction(_characters);
+                                                log += calculateHate.Log;
 
-                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                            battleLog = new BattleLogClass(orderCondition, null, null, log,
-                                                Affiliation.None);
-                                            battleLogList.Add(battleLog);
-                                            break;
-                                        }
+                                                orderCondition = new OrderConditionClass(environmentInfo.Wave,
+                                                    environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
+                                                battleLog = new BattleLogClass(orderCondition, null, null, log,
+                                                    Affiliation.None);
+                                                battleLogList.Add(battleLog);
+                                                break;
+                                            }
                                     }
                                 }
                                 //------------------------Action phase------------------------
@@ -379,7 +379,7 @@ namespace SequenceBreaker.Play.Battle
                                         var deleteOneActionOrderRaw = deleteOneActionOrderIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
                                         OrderClass deleteOneActionOrder = null;
                                         foreach (var effect in deleteOneActionOrderRaw.SkillEffectProposed)
-                                        { if (effect.skill.name == SkillName.NormalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
+                                        { if (effect.skill.skillName == SkillName.NormalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
                                         deleteOneActionOrderIfHave.Remove(deleteOneActionOrder);
                                         deleteOneActionOrderIfHave.Reverse();
                                         if (deleteOneActionOrder != null) //clear stack and input again
@@ -390,10 +390,11 @@ namespace SequenceBreaker.Play.Battle
                                     {
                                         string es = null;
                                         if (battleResult.NumberOfCrushed != 1) { es = "es"; }
-                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
+                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
                                         setStatisticsReporterFirstBlood.Set(Affiliation.Ally, order.Actor.name, battleResult.TotalDealtDamage, t);
-                                        if (battleLogClass != null) {
+                                        if (battleLogClass != null)
+                                        {
                                         }
                                         allyFirstBlood = true;
 
@@ -402,7 +403,7 @@ namespace SequenceBreaker.Play.Battle
                                     {
                                         string es = null;
                                         if (battleResult.NumberOfCrushed != 1) { es = "es"; }
-                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.name + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
+                                        var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
                                         setStatisticsReporterFirstBlood.Set(Affiliation.Enemy, order.Actor.name, battleResult.TotalDealtDamage, t);
                                         if (battleLogClass != null) { setStatisticsReporterFirstBlood.BattleLogEnemy = battleLogClass; }
@@ -417,11 +418,15 @@ namespace SequenceBreaker.Play.Battle
                                             allyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.AllyWin;
                                             WhichWin = WhichWin.AllyWin;
                                         }
-                                        if (battleResult.IsEnemyWin) { enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.EnemyWin;
+                                        if (battleResult.IsEnemyWin)
+                                        {
+                                            enemyWinCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.EnemyWin;
                                             WhichWin = WhichWin.EnemyWin;
 
                                         }
-                                        if (battleResult.IsDraw) { drawCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.Draw;
+                                        if (battleResult.IsDraw)
+                                        {
+                                            drawCount++; statisticsReporterWhichWins[battleWave - 1] = WhichWin.Draw;
                                             WhichWin = WhichWin.Draw;
                                         }
                                     }
@@ -452,17 +457,20 @@ namespace SequenceBreaker.Play.Battle
 
                                     //Push order in reverse. counter -> chain -> reAttack -> rescue
                                     //Push Counter
-                                    if (counterStack != null) {
+                                    if (counterStack != null)
+                                    {
                                     }
                                     while (counterStack != null && counterStack.Count > 0) { orders.Push(counterStack.Pop()); nestNumber++; }
 
                                     //Push Chain
-                                    if (chainStack != null) {
+                                    if (chainStack != null)
+                                    {
                                     }
                                     while (chainStack != null && chainStack.Count > 0) { orders.Push(chainStack.Pop()); nestNumber++; }
 
                                     //Push ReAttack
-                                    if (reAttackStack != null) {
+                                    if (reAttackStack != null)
+                                    {
                                     }
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
@@ -544,7 +552,7 @@ namespace SequenceBreaker.Play.Battle
                 logPerWavesSets[battleWavesSet - 1] += "\n";
                 if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.AllyWin).Any())
                 {
-//                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
+                    //                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
                     //logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodAlly.AllyContentText + " " + bestFirstBloodAlly.BattleLogAlly.OrderCondition + "\n";
                 }
                 logPerWavesSets[battleWavesSet - 1] += "Enemy info: MVP(times) \n";
@@ -575,7 +583,7 @@ namespace SequenceBreaker.Play.Battle
                 headerInfoText = text.FirstLine()
             };
             var copiedBattleUnitLast = (from BattleUnit character in _characters
-                select character.Copy()).ToList();
+                                        select character.Copy()).ToList();
             battleLogFinal.characters = copiedBattleUnitLast;
             battleLogList.Add(battleLogFinal);
 
@@ -696,7 +704,7 @@ namespace SequenceBreaker.Play.Battle
                 if (effect.skill.actionType != ActionType.Move && effect.skill.triggerTarget.afterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
                 {
                     var checkOrders = orders.ToList();
-                    if (checkOrders.FindLast(obj => obj.Actor == effect.character && obj.SkillEffectChosen.skill.name == SkillName.NormalAttack) == null)
+                    if (checkOrders.FindLast(obj => obj.Actor == effect.character && obj.SkillEffectChosen.skill.skillName == SkillName.NormalAttack) == null)
                     { effect.IsntTriggeredBecause.AfterAllMoved = true; continue; }// no normalAttack left, which means no action.   
                 }
 
@@ -797,7 +805,10 @@ namespace SequenceBreaker.Play.Battle
                 }
 
                 var possibility = environmentInfo.R.Next(0, 1000) / 1000.0; //TriggerPossibility Check
-                if (effect.triggeredPossibility >= possibility) { validEffects.Add(effect); } else { effect.IsntTriggeredBecause.TriggeredPossibility = true;
+                if (effect.triggeredPossibility >= possibility) { validEffects.Add(effect); }
+                else
+                {
+                    effect.IsntTriggeredBecause.TriggeredPossibility = true;
                 }
             }
 
@@ -850,15 +861,15 @@ namespace SequenceBreaker.Play.Battle
             switch (order.SkillEffectChosen.skill.buffTarget.targetType)
             {
                 case TargetType.Self: //Buff self
-                    addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
-//                    addingEffect.Add(new EffectClass(order.Actor, addingBuff, ActionType.None,
-//                        1.0, 0.0, false, addingBuff.usageCount,
-//                        turn, (turn + addingBuff.veiledTurn)));
+                    addingBuff = buffMasters.FindLast(obj => obj.skillName == order.SkillEffectChosen.skill.callingBuffName);
+                    //                    addingEffect.Add(new EffectClass(order.Actor, addingBuff, ActionType.None,
+                    //                        1.0, 0.0, false, addingBuff.usageCount,
+                    //                        turn, (turn + addingBuff.veiledTurn)));
                     EffectClass effectClass = ScriptableObject.CreateInstance<EffectClass>();
                     effectClass.Set(order.Actor, addingBuff, ActionType.None,
                         1.0, 0.0, false, addingBuff.usageCount,
                         turn, (turn + addingBuff.veiledTurn));
-                    
+
                     addingEffect.Add(effectClass);
                     effects.Add(addingEffect[0]);
                     addingEffect[0].BuffToCharacter(turn);
@@ -886,23 +897,23 @@ namespace SequenceBreaker.Play.Battle
                         accumulationText = "(" + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
 
-                    firstLine = order.SkillEffectChosen.skill.name + "! " + triggerPossibilityText + accumulationText;
-                    log += order.Actor.name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns.";
+                    firstLine = order.SkillEffectChosen.skill.skillName + "! " + triggerPossibilityText + accumulationText;
+                    log += order.Actor.name + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns.";
                     if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                     if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
                     log += "\n";
                     break;
                 case TargetType.Multi: //Buff attacker's side all
-                    addingBuff = buffMasters.FindLast(obj => obj.name == order.SkillEffectChosen.skill.callingBuffName);
+                    addingBuff = buffMasters.FindLast(obj => obj.skillName == order.SkillEffectChosen.skill.callingBuffName);
                     var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
-                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.name 
+                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName
                                 + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) ";
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {
-//                        addingEffect.Add(new EffectClass(buffTargetCharacters[i], addingBuff, ActionType.None,
-//                            1.0, 0.0, false, addingBuff.usageCount,
-//                            turn, (turn + addingBuff.veiledTurn)));
+                        //                        addingEffect.Add(new EffectClass(buffTargetCharacters[i], addingBuff, ActionType.None,
+                        //                            1.0, 0.0, false, addingBuff.usageCount,
+                        //                            turn, (turn + addingBuff.veiledTurn)));
                         EffectClass effectClass2 = ScriptableObject.CreateInstance<EffectClass>();
                         effectClass2.Set(buffTargetCharacters[i], addingBuff, ActionType.None,
                             1.0, 0.0, false, addingBuff.usageCount,
@@ -914,7 +925,7 @@ namespace SequenceBreaker.Play.Battle
                         addingEffect[i].BuffToCharacter(turn);
                         buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
-                        log += new string(' ', 3) + buffTargetCharacters[i].name + " gets " + addingBuff.name + " which will last " + addingBuff.veiledTurn + " turns.";
+                        log += new string(' ', 3) + buffTargetCharacters[i].name + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns.";
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
                         { log += new string(' ', 4) + "[Defense: " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)

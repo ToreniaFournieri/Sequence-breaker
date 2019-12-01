@@ -10,7 +10,7 @@ namespace SequenceBreaker.Play.Battle
     public static class ObjectExtensions { public static string WithComma(this object self) { return $"{self:#,##0}"; } } //With comma override Object
 
 
-//Function, display battle condition text
+    //Function, display battle condition text
     public sealed class FuncBattleConditionsText
     {
         public FuncBattleConditionsText(int currentTurn, List<BattleUnit> characters)
@@ -72,7 +72,7 @@ namespace SequenceBreaker.Play.Battle
 
 
 
-//[[Skill logic ]]
+    //[[Skill logic ]]
     public sealed class SkillLogicShieldHealClass
     {
         // heal shield all actor's affiliation characters.
@@ -80,14 +80,14 @@ namespace SequenceBreaker.Play.Battle
         {
             string rescueString = null;
             if (order.IsRescue) { rescueString = "[Rescue] "; }
-            FirstLine = rescueString + order.SkillEffectChosen.skill.name + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
+            FirstLine = rescueString + order.SkillEffectChosen.skill.skillName + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
             var healBase = order.Actor.ability.generation * order.SkillEffectChosen.skill.magnification.heal * 10.0;
 
             // heal only same affiliation
             var healingCharacters = new List<BattleUnit>();
             if (isMulti)
             {
-                healingCharacters = order.IsRescue ? characters.Where(arg => arg.affiliation == order.Actor.affiliation).ToList() 
+                healingCharacters = order.IsRescue ? characters.Where(arg => arg.affiliation == order.Actor.affiliation).ToList()
                     : characters.Where(arg => arg.affiliation == order.Actor.affiliation && arg.combat.hitPointCurrent > 0).ToList();
             }
             else
@@ -149,7 +149,7 @@ namespace SequenceBreaker.Play.Battle
 
 
 
-//Report for struct
+    //Report for struct
     public sealed class StatisticsReporterFirstBloodClass
     {
         public StatisticsReporterFirstBloodClass(int battleWave)
@@ -186,7 +186,7 @@ namespace SequenceBreaker.Play.Battle
         public WhichWin WhichWin { get; set; }
     }
 
-//Action order class
+    //Action order class
     public sealed class OrderClass
     {
         public OrderClass(OrderConditionClass orderCondition, BattleUnit actor, ActionType actionType, ref List<EffectClass> skillEffectProposed, int actionSpeed, BattleUnit individualTarget, bool isRescue)
@@ -306,8 +306,10 @@ namespace SequenceBreaker.Play.Battle
     public sealed class OrderStatusClass
     {
         public OrderStatusClass() { Initialize(); }
-        public void Initialize() {
-            DamageControlAssistCount = 0; }
+        public void Initialize()
+        {
+            DamageControlAssistCount = 0;
+        }
 
         public int DamageControlAssistCount { get; set; }
     }
@@ -347,7 +349,8 @@ namespace SequenceBreaker.Play.Battle
             {
                 character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
                 Log = "";
-            } }
+            }
+        }
         public string Log { get; }
     }
 
@@ -357,7 +360,7 @@ namespace SequenceBreaker.Play.Battle
 
 
 
-//Check wipe out and should continue the battle
+    //Check wipe out and should continue the battle
     public sealed class WipeOutCheck
     {
         public WipeOutCheck(List<BattleUnit> characters)
@@ -377,7 +380,7 @@ namespace SequenceBreaker.Play.Battle
         public bool IsEnemyWin { get; }
     }
 
-//NavigatorReaction
+    //NavigatorReaction
     public sealed class NavigatorSpeechAfterMoveClass
     {
         public NavigatorSpeechAfterMoveClass(string navigatorName, OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, OrderStatusClass orderStatus)

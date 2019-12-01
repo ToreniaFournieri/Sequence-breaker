@@ -108,48 +108,48 @@ namespace SequenceBreaker.Play.Battle
                     switch (order.SkillEffectChosen.skill.magnification.attackTarget)
                     {
                         case TargetType.Multi:
-                        {
-                            if (isNeedCreateTargetPossibilityBox)
                             {
-                                targetPossibilityBox.Clear(); // initialize targetPossibilityBox
-                                const double basicTargetRatio = 2.0 / 3.0; //Tier 1: Basic Target ratio
-                                const double optimumTargetRatio = 1.0 / 3.0; //Tier 2: Optimum Target ratio
-                                double optimumTargetBonus = 0;
-                                for (var opponent = 0; opponent < survivedOpponents.Count; opponent++)
+                                if (isNeedCreateTargetPossibilityBox)
                                 {
-                                    if (opponent >= minTargetOptimumRange && opponent <= maxTargetOptimumRange)
+                                    targetPossibilityBox.Clear(); // initialize targetPossibilityBox
+                                    const double basicTargetRatio = 2.0 / 3.0; //Tier 1: Basic Target ratio
+                                    const double optimumTargetRatio = 1.0 / 3.0; //Tier 2: Optimum Target ratio
+                                    double optimumTargetBonus = 0;
+                                    for (var opponent = 0; opponent < survivedOpponents.Count; opponent++)
                                     {
-                                        optimumTargetBonus = optimumTargetRatio / (1 + maxTargetOptimumRange - minTargetOptimumRange);
-                                        survivedOpponents[opponent].IsOptimumTarget = true;
+                                        if (opponent >= minTargetOptimumRange && opponent <= maxTargetOptimumRange)
+                                        {
+                                            optimumTargetBonus = optimumTargetRatio / (1 + maxTargetOptimumRange - minTargetOptimumRange);
+                                            survivedOpponents[opponent].IsOptimumTarget = true;
+                                        }
+                                        else { survivedOpponents[opponent].IsOptimumTarget = false; }
+                                        var targetPossibilityTicket = (int)((basicTargetRatio / Math.Pow(2.0, opponent) + optimumTargetBonus) * 50);
+                                        targetPossibilityTicket += (int)(survivedOpponents[opponent].feature.hateCurrent);// add Hate value 
+                                        if (targetPossibilityTicket == 0) { targetPossibilityTicket = 1; }//at Least one chance to hit.
+                                        for (var ticket = tickets; ticket <= targetPossibilityTicket + tickets; ticket++) { targetPossibilityBox.Add(opponent); } //Put tickets into Box with opponent column number (expected: column recalculated when they crushed)
+                                        tickets += targetPossibilityTicket;
                                     }
-                                    else { survivedOpponents[opponent].IsOptimumTarget = false; }
-                                    var targetPossibilityTicket = (int)((basicTargetRatio / Math.Pow(2.0, opponent) + optimumTargetBonus) * 50);
-                                    targetPossibilityTicket += (int)(survivedOpponents[opponent].feature.hateCurrent);// add Hate value 
-                                    if (targetPossibilityTicket == 0) { targetPossibilityTicket = 1; }//at Least one chance to hit.
-                                    for (var ticket = tickets; ticket <= targetPossibilityTicket + tickets; ticket++) { targetPossibilityBox.Add(opponent); } //Put tickets into Box with opponent column number (expected: column recalculated when they crushed)
-                                    tickets += targetPossibilityTicket;
                                 }
+                                else { tickets = totalTickets; }// get previous total tickets
+                                var index = environmentInfo.R.Next(0, tickets);
+                                var targetColumn = targetPossibilityBox[index];
+                                totalTickets = tickets;
+                                toTarget = survivedOpponents[targetColumn];
+                                break;
                             }
-                            else { tickets = totalTickets; }// get previous total tickets
-                            var index = environmentInfo.R.Next(0, tickets);
-                            var targetColumn = targetPossibilityBox[index];
-                            totalTickets = tickets;
-                            toTarget = survivedOpponents[targetColumn];
-                            break;
-                        }
                         // if individual target exist, choose he/she.
                         case TargetType.Single when survivedOpponents.Count == 0:
                             continue; //enemy all wipe out
                         case TargetType.Single:
-                        {
-                            for (var opponent = 0; opponent < survivedOpponents.Count; opponent++)
                             {
-                                if (opponent >= minTargetOptimumRange && opponent <= maxTargetOptimumRange) { survivedOpponents[opponent].IsOptimumTarget = true; }
-                                else { survivedOpponents[opponent].IsOptimumTarget = false; }
+                                for (var opponent = 0; opponent < survivedOpponents.Count; opponent++)
+                                {
+                                    if (opponent >= minTargetOptimumRange && opponent <= maxTargetOptimumRange) { survivedOpponents[opponent].IsOptimumTarget = true; }
+                                    else { survivedOpponents[opponent].IsOptimumTarget = false; }
+                                }
+                                toTarget = opponents.Find(character1 => character1 == order.IndividualTarget);
+                                break;
                             }
-                            toTarget = opponents.Find(character1 => character1 == order.IndividualTarget);
-                            break;
-                        }
                         default:
                             Debug.Log("unexpected. basic attack function, targetType is not single nor multi. info:" + environmentInfo.Info() + " " + order.OrderCondition);
                             break;
@@ -289,7 +289,7 @@ namespace SequenceBreaker.Play.Battle
 
                 // Hate Management
                 double criticalHateAdd = 0; if (criticalReduction > 0) { criticalHateAdd = 30; }
-                double skillHateAdd = 0; if (order.SkillEffectChosen != null) { if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack) { skillHateAdd = 50; } }
+                double skillHateAdd = 0; if (order.SkillEffectChosen != null) { if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack) { skillHateAdd = 50; } }
                 double crushedHateAdd = 0;
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 { if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushedHateAdd += 100; } }
@@ -306,7 +306,7 @@ namespace SequenceBreaker.Play.Battle
                             characters[toTargetUniqueId].Statistics.CriticalTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.CriticalBeenHitCount++;
                         }
-                        if (order.SkillEffectChosen != null && order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
+                        if (order.SkillEffectChosen != null && order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
                         {
                             characters[toTargetUniqueId].Statistics.SkillTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.SkillBeenHitCount++;
@@ -329,7 +329,7 @@ namespace SequenceBreaker.Play.Battle
 
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
+                    if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
                     {
                         order.Actor.Statistics.SkillActivatedCount++;
                         order.Actor.Statistics.SkillHitCount += numberOfSuccessAttacks;
@@ -341,12 +341,12 @@ namespace SequenceBreaker.Play.Battle
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.skill.name != SkillName.NormalAttack)
+                    if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
                     { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
                 }
                 string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1) { sNumberOfAttacks = "s"; }
                 string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
-                var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.skill.name.ToString(); }
+                var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.skill.skillName.ToString(); }
                 var majorityElement = " [mixed]";
                 if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic]"; }
                 if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical]"; }
@@ -356,7 +356,7 @@ namespace SequenceBreaker.Play.Battle
 
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
                                 + order.Actor.combat.numberOfAttacks + "time" + sNumberOfAttacks +
-                                " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText ;
+                                " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
@@ -375,13 +375,13 @@ namespace SequenceBreaker.Play.Battle
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
 
                         string s = null;
-                        
+
                         if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = "s"; }
                         var damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma().Length);
                         if (damageSpace < 0) { damageSpace = 0; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
-                        
+
                         log += opponents[fTargetColumn].name + " takes " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage ("
                                + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
                                + totalIndividualHits[opponents[fTargetColumn].uniqueId] + barrierWords + optimumRangeWords + " \n";
