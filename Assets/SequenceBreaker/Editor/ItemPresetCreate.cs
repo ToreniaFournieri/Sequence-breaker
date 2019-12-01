@@ -9,10 +9,15 @@ namespace SequenceBreaker.Editor
         [MenuItem("Assets/Create/ItemPreset")]
         public static ItemPreset Create(string path)
         {
-            ItemPreset asset = ScriptableObject.CreateInstance<ItemPreset>();
-            //asset.Copy(unitClassList);
-            AssetDatabase.CreateAsset(asset, path);
-            AssetDatabase.SaveAssets();
+            ItemPreset asset = AssetDatabase.LoadAssetAtPath(path, typeof(ItemPreset)) as ItemPreset;
+            if (asset == null)
+            {
+                asset = ScriptableObject.CreateInstance<ItemPreset>();
+                AssetDatabase.CreateAsset(asset, path);
+                AssetDatabase.SaveAssets();
+
+            }
+
             return asset;
         }
     }

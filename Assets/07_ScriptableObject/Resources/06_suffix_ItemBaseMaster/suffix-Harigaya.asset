@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
   m_Name: suffix-Harigaya
   m_EditorClassIdentifier: 
+  itemId: 0
   itemName: '"Harigaya"'
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: 3e71f98e69ed54250a523f6dbf66017a, type: 2}
-  Level: 3
-  SkillsMasterList:
-  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
-  AddAbilityList:
-  - {fileID: 11400000, guid: 9b84dcb8a28954aae88225fb5cfec1cf, type: 2}
-  MagnificationMasterList: []
+  combatBaseValue: {fileID: 0}
+  level: 0
+  skillsMasterList: []
+  addAbilityList:
+  - {fileID: 11400000, guid: 18b4fb040fc434b7ba5bffc8d9d67db2, type: 2}
+  magnificationMasterList: []

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 1001-2
   m_EditorClassIdentifier: 
   unitWave:
-  - {fileID: 11400000, guid: e0c219dab33b745c9b9739eafaab6bb6, type: 2}
+  - {fileID: 0}

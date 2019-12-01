@@ -13,10 +13,11 @@ namespace SequenceBreaker.Drop
         private List<UnitClass> _enemyUnitList;
         private List<Item> _dropItemList;
 
-        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList, int seed)
+        //public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList, int seed)
+        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList, System.Random random)
         {
             _dropItemList = new List<Item>();
-            System.Random r = new System.Random(seed);
+            //System.Random r = new System.Random(seed);
 
             //1.Correct all item of enemy units
             foreach (UnitClass unit in enemyUnitList)
@@ -26,7 +27,7 @@ namespace SequenceBreaker.Drop
                     //2.[UNIMPLEMENTED] Remove undroppable item if it is.                
 
                     //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
-                    if (_itemDropRatio >= r.NextDouble())
+                    if (_itemDropRatio >= random.NextDouble())
                     {
                         _dropItemList.Add(item);
                     }

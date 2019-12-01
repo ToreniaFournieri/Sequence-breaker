@@ -99,11 +99,13 @@ namespace SequenceBreaker.Play.MissionView
             {
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
                 {
-                    int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
+                    int seed = (int)DateTime.Now.Ticks;
+                    System.Random random = new System.Random(seed);
+                    // when you find something wrong, use seed value to Reproduction the situation
                     //foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
-                        foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
+                    foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
                     {
-                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave, seed: seed);
+                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave, random: random);
 
                         foreach (Item item in itemListLocal)
                         {

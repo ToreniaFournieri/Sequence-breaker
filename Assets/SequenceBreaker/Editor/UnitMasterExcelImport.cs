@@ -7,8 +7,9 @@ namespace SequenceBreaker.Editor
 	[ExcelAsset]
 	public class UnitMasterExcelImport : ScriptableObject
 	{
-		public List<UnitMasterExcel> unitMasterExcel; // Replace 'EntityType' to an actual type that is serializable.
-        public List<UnitEquipment> unitEquipment;
+		public List<UnitMasterExcel> unitMaster; // Replace 'EntityType' to an actual type that is serializable.
+        public List<UnitEquipmentExcel> unitEquipment;
+        public List<ItemBaseExcel> itemBase;
 	}
 
 }

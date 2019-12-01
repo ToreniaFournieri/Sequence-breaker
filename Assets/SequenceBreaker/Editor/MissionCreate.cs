@@ -7,15 +7,21 @@ namespace SequenceBreaker.Editor
     public class MissionCreate
     {
         [MenuItem("Assets/Create/Mission")]
-        public static MissionMaster Create(string pathAndName)
+        public static MissionMaster Create(string path)
         {
-            MissionMaster asset = ScriptableObject.CreateInstance<MissionMaster>();
+            MissionMaster asset = AssetDatabase.LoadAssetAtPath(path, typeof(MissionMaster)) as MissionMaster;
+            if (asset == null)
+            {
+                asset = ScriptableObject.CreateInstance<MissionMaster>();
+                AssetDatabase.CreateAsset(asset, path);
+                AssetDatabase.SaveAssets();
 
-            //RunBattle asset = ScriptableObject.CreateInstance<RunBattle>();
+            }
 
+            //MissionMaster asset = ScriptableObject.CreateInstance<MissionMaster>();
 
-            AssetDatabase.CreateAsset(asset, pathAndName);
-            AssetDatabase.SaveAssets();
+            //AssetDatabase.CreateAsset(asset, pathAndName);
+            //AssetDatabase.SaveAssets();
             return asset;
         }
     }
