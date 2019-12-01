@@ -16,6 +16,7 @@ namespace SequenceBreaker.Editor
         public UnitClassList unitClassList;
 
         public string itemBasePath;
+        public string magnificationMasterListPath;
         public string unitClassListPath;
         public string unitPath;
         public string itemPresetPath;
@@ -28,10 +29,13 @@ namespace SequenceBreaker.Editor
 
         private static string _itembasePathId = "itemBasePath";
         //        private static string _targetPathId = "ObjectPath";
-
+        private static string _magnificationMasterListPath = "magnificationMasterListPath";
         private static string _unitClassListPathId = "unitClassListPath";
         private static string _unitClassPathId = "unitClassPath";
         private static string _itemPresetPathId = "itemPresetPath";
+
+        // Magnification Master
+        public MagnificationMasterList magnificationMasterList;
 
         // Unit Set
         public UnitSetExcelImport unitSetExcelImport;
@@ -69,6 +73,14 @@ namespace SequenceBreaker.Editor
                 string objectPath = EditorPrefs.GetString(_itembasePathId);
                 itemBasePath = objectPath;
             }
+
+            if (EditorPrefs.HasKey(_magnificationMasterListPath))
+            {
+                string objectPath = EditorPrefs.GetString(_magnificationMasterListPath);
+                magnificationMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(MagnificationMasterList)) as MagnificationMasterList;
+            }
+
+
 
             //2. Select [Export] Unit Class List asset
             if (EditorPrefs.HasKey(_unitClassListPathId))
@@ -130,7 +142,15 @@ namespace SequenceBreaker.Editor
             {
                 OpenItemBase();
             }
-            GUILayout.Label(itemBasePath ?? " Unselected");
+            GUILayout.Label(itemBasePath != null ? itemBasePath : " Unselected");
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("3. Select [Import] Magnification master list asset", GUILayout.ExpandWidth(false)))
+            {
+                OpenMagnificationMasterList();
+            }
+            GUILayout.Label(magnificationMasterList ? magnificationMasterList.name : " Unselected");
             GUILayout.EndHorizontal();
 
 
@@ -185,6 +205,7 @@ namespace SequenceBreaker.Editor
 
             if (GUILayout.Button("10.[PRESS] Convert Excel to ScriptableObject", GUILayout.ExpandWidth(false)))
             {
+                ConvertItemFromExcel();
                 ConvertUnitListFromExcel();
                 ConvertUnitSetFromExcel();
             }
@@ -225,6 +246,23 @@ namespace SequenceBreaker.Editor
             }
 
         }
+
+        void OpenMagnificationMasterList()
+        {
+            string absPath = EditorUtility.OpenFilePanel("Select Magnification master List", "", "");
+            if (absPath.StartsWith(Application.dataPath))
+            {
+                string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+                magnificationMasterListPath = relPath;
+                magnificationMasterList = AssetDatabase.LoadAssetAtPath(relPath, typeof(MagnificationMasterList)) as MagnificationMasterList;
+                if (magnificationMasterList)
+                {
+                    EditorPrefs.SetString(_magnificationMasterListPath, relPath);
+                }
+            }
+
+        }
+
 
 
         void OpenUnitClassList()
@@ -277,6 +315,47 @@ namespace SequenceBreaker.Editor
 
         }
 
+        void ConvertItemFromExcel()
+        {
+
+
+            foreach (ItemBaseExcel itemMaster in unitMasterExcelImport.itemBase)
+            {
+
+                string savePath = itemBasePath + "/" + itemMaster.itemId + "-" + itemMaster.itemName + ".asset";
+                ItemBaseMaster itemBaseMaster = ItemBaseCreate.Create(savePath);
+
+                Debug.Log(" itemMaster :" + itemMaster.itemName);
+
+                itemBaseMaster.itemId = itemMaster.itemId;
+                itemBaseMaster.itemName = itemMaster.itemName;
+                itemBaseMaster.itemDescription = itemMaster.itemDescription;
+                //itemBaseMaster.icon
+                //itemBaseMaster.combatBaseValue
+                itemBaseMaster.level = itemMaster.level;
+                //itemBaseMaster.skillsMasterList
+                //itemBaseMaster.addAbilityList
+                itemBaseMaster.magnificationMasterList = new List<MagnificationMasterClass>();
+
+                foreach (var mag in magnificationMasterList.magnificationList)
+                {
+                    if (itemMaster.magnific1 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    if (itemMaster.magnific2 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    if (itemMaster.magnific3 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    if (itemMaster.magnific4 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    if (itemMaster.magnific5 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    if (itemMaster.magnific6 == mag.name) { itemBaseMaster.magnificationMasterList.Add(mag); }
+                    
+                }
+
+                EditorUtility.SetDirty(itemBaseMaster);
+
+
+            }
+
+
+        }
+
 
         void ConvertUnitListFromExcel()
         {
@@ -301,7 +380,7 @@ namespace SequenceBreaker.Editor
 
             //if (itemPresetList == null)
             //{
-                itemPresetList = ItemPresetListCreate.Create(itemListPath);
+            itemPresetList = ItemPresetListCreate.Create(itemListPath);
             //}
             itemPresetList.itemPresetList = new List<ItemPreset>();
 
@@ -313,9 +392,9 @@ namespace SequenceBreaker.Editor
                 _unit.itemList = new List<Item>();
 
 
-                string itemPath = itemPresetPath + "/itemPreset-" + _unit.uniqueId + ".asset" ;
+                string itemPath = itemPresetPath + "/itemPreset-" + _unit.uniqueId + ".asset";
 
-                
+
 
                 ItemPreset itemPreset = ItemPresetCreate.Create(itemPath);
 
@@ -484,7 +563,7 @@ namespace SequenceBreaker.Editor
 
 
                 mission.unitSet = unitSet;
-                
+
                 EditorUtility.SetDirty(unitSet);
                 EditorUtility.SetDirty(mission);
 

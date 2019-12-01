@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 1003-4
   m_EditorClassIdentifier: 
   unitWave:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 077f46030bce14d5796260136c0561b1, type: 2}
+  - {fileID: 11400000, guid: 098744a3f04ac4b59a2ec3501eb949f7, type: 2}
+  - {fileID: 11400000, guid: 69b8706198e474c11a08ecae273087a9, type: 2}
+  - {fileID: 11400000, guid: 1da9a2dcb3bf548f2bc1e974cb6b918d, type: 2}
+  - {fileID: 11400000, guid: 1466308024e7c461ab27f9e68161abfc, type: 2}

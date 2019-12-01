@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionId: 1001
   unitSetList:
-  - {fileID: 11400000, guid: 49da4ff3d990345f5bb8e620fac77b5f, type: 2}
   - {fileID: 11400000, guid: 1581625abcc7d4149af6630aa0a474d6, type: 2}
   - {fileID: 11400000, guid: c0b81f111414947ed8cda55c335df960, type: 2}
   - {fileID: 11400000, guid: 118362acdaada4a1598999a44ed34db2, type: 2}

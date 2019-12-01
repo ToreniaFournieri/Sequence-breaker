@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a366f4f3ab5a4c6dbe96ab1cf220419, type: 3}
   m_Name: UnitMasterExcelImport
   m_EditorClassIdentifier: 
-  unitMasterExcel:
+  unitMaster:
   - unitName: BA-Commander
     uniqueId: 20000
     affiliation: 1
@@ -6814,4 +6814,79 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-  itemBaseExcel: []
+  itemBase:
+  - itemId: 50001
+    itemName: Breastplate T0CR10
+    itemDescription: 
+    combatBaseValue: 014_Breastplate
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemId: 50002
+    itemName: Breastplate T1CR9
+    itemDescription: 
+    combatBaseValue: 014_Breastplate
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemId: 50003
+    itemName: Breastplate T2CR8
+    itemDescription: 
+    combatBaseValue: 014_Breastplate
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemId: 50004
+    itemName: Heal unit
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: ShiledHeal-little
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemId: 50005
+    itemName: Lucky one
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: S1Luck
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
