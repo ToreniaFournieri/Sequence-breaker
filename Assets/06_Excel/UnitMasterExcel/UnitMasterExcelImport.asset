@@ -6815,8 +6815,8 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   itemBase:
-  - itemId: 1001
-    itemName: Breastplate T0CR10
+  - itemName: Breastplate T0CR10
+    itemId: 1001
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 0
@@ -6830,8 +6830,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1002
-    itemName: Breastplate T1CR9
+  - itemName: Breastplate T1CR9
+    itemId: 1002
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 2
@@ -6845,8 +6845,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1003
-    itemName: Breastplate T2CR8
+  - itemName: Breastplate T2CR8
+    itemId: 1003
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 4
@@ -6860,8 +6860,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1004
-    itemName: Breastplate T3CR7
+  - itemName: Breastplate T3CR7
+    itemId: 1004
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 6
@@ -6875,8 +6875,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1005
-    itemName: Breastplate T4CR6
+  - itemName: Breastplate T4CR6
+    itemId: 1005
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 8
@@ -6890,8 +6890,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1006
-    itemName: Breastplate T5CR5
+  - itemName: Breastplate T5CR5
+    itemId: 1006
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 10
@@ -6905,8 +6905,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1007
-    itemName: Breastplate T6CR4
+  - itemName: Breastplate T6CR4
+    itemId: 1007
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 12
@@ -6920,8 +6920,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1008
-    itemName: Breastplate U4CR10
+  - itemName: Breastplate U4CR10
+    itemId: 1008
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 8
@@ -6935,8 +6935,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1009
-    itemName: Breastplate U5CR9
+  - itemName: Breastplate U5CR9
+    itemId: 1009
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 10
@@ -6950,8 +6950,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1010
-    itemName: Breastplate U6CR8
+  - itemName: Breastplate U6CR8
+    itemId: 1010
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 12
@@ -6965,8 +6965,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1011
-    itemName: Breastplate U7CR7
+  - itemName: Breastplate U7CR7
+    itemId: 1011
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 14
@@ -6980,8 +6980,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1012
-    itemName: Breastplate U8CR6
+  - itemName: Breastplate U8CR6
+    itemId: 1012
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 16
@@ -6995,8 +6995,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1013
-    itemName: Breastplate U9CR5
+  - itemName: Breastplate U9CR5
+    itemId: 1013
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 18
@@ -7010,8 +7010,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1014
-    itemName: Breastplate U10CR4
+  - itemName: Breastplate U10CR4
+    itemId: 1014
     itemDescription: 
     combatBaseValue: 014_Breastplate
     level: 20
@@ -7025,8 +7025,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1015
-    itemName: Armor T0KIN10
+  - itemName: Armor T0KIN10
+    itemId: 1015
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 0
@@ -7040,8 +7040,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1016
-    itemName: Armor T1KIN9
+  - itemName: Armor T1KIN9
+    itemId: 1016
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 2
@@ -7055,8 +7055,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1017
-    itemName: Armor T2KIN8
+  - itemName: Armor T2KIN8
+    itemId: 1017
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 4
@@ -7070,8 +7070,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1018
-    itemName: Armor T3KIN7
+  - itemName: Armor T3KIN7
+    itemId: 1018
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 6
@@ -7085,8 +7085,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1019
-    itemName: Armor T4KIN6
+  - itemName: Armor T4KIN6
+    itemId: 1019
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 8
@@ -7100,8 +7100,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1020
-    itemName: Armor T5KIN5
+  - itemName: Armor T5KIN5
+    itemId: 1020
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 10
@@ -7115,8 +7115,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1021
-    itemName: Armor T6KIN4
+  - itemName: Armor T6KIN4
+    itemId: 1021
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 12
@@ -7130,8 +7130,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1022
-    itemName: Armor U4KIN10
+  - itemName: Armor U4KIN10
+    itemId: 1022
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 8
@@ -7145,8 +7145,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1023
-    itemName: Armor U5KIN9
+  - itemName: Armor U5KIN9
+    itemId: 1023
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 10
@@ -7160,8 +7160,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1024
-    itemName: Armor U6KIN8
+  - itemName: Armor U6KIN8
+    itemId: 1024
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 12
@@ -7175,8 +7175,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1025
-    itemName: Armor U7KIN7
+  - itemName: Armor U7KIN7
+    itemId: 1025
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 14
@@ -7190,8 +7190,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1026
-    itemName: Armor U8KIN6
+  - itemName: Armor U8KIN6
+    itemId: 1026
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 16
@@ -7205,8 +7205,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1027
-    itemName: Armor U9KIN5
+  - itemName: Armor U9KIN5
+    itemId: 1027
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 18
@@ -7220,8 +7220,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1028
-    itemName: Armor U10KIN4
+  - itemName: Armor U10KIN4
+    itemId: 1028
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 20
@@ -7235,8 +7235,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1029
-    itemName: GeneralArmor
+  - itemName: GeneralArmor
+    itemId: 1029
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 4
@@ -7250,8 +7250,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1030
-    itemName: AntiKineticArmor
+  - itemName: AntiKineticArmor
+    itemId: 1030
     itemDescription: 
     combatBaseValue: 
     level: 0
@@ -7265,8 +7265,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1031
-    itemName: Heavy Armor T1
+  - itemName: Heavy Armor T1
+    itemId: 1031
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 2
@@ -7280,8 +7280,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1032
-    itemName: Armor T0CHE10
+  - itemName: Armor T0CHE10
+    itemId: 1032
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 0
@@ -7295,8 +7295,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1033
-    itemName: Armor T1CHE9
+  - itemName: Armor T1CHE9
+    itemId: 1033
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 2
@@ -7310,8 +7310,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1034
-    itemName: Armor T2CHE8
+  - itemName: Armor T2CHE8
+    itemId: 1034
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 4
@@ -7325,8 +7325,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1035
-    itemName: Armor T3CHE7
+  - itemName: Armor T3CHE7
+    itemId: 1035
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 6
@@ -7340,8 +7340,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1036
-    itemName: Armor T4CHE6
+  - itemName: Armor T4CHE6
+    itemId: 1036
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 8
@@ -7355,8 +7355,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1037
-    itemName: Armor T5CHE5
+  - itemName: Armor T5CHE5
+    itemId: 1037
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 10
@@ -7370,8 +7370,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1038
-    itemName: Armor T6CHE4
+  - itemName: Armor T6CHE4
+    itemId: 1038
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 12
@@ -7385,8 +7385,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1039
-    itemName: Armor U4CHE10
+  - itemName: Armor U4CHE10
+    itemId: 1039
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 8
@@ -7400,8 +7400,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1040
-    itemName: Armor U5CHE9
+  - itemName: Armor U5CHE9
+    itemId: 1040
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 10
@@ -7415,8 +7415,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1041
-    itemName: Armor U6CHE8
+  - itemName: Armor U6CHE8
+    itemId: 1041
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 12
@@ -7430,8 +7430,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1042
-    itemName: Armor U7CHE7
+  - itemName: Armor U7CHE7
+    itemId: 1042
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 14
@@ -7445,8 +7445,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1043
-    itemName: Armor U8CHE6
+  - itemName: Armor U8CHE6
+    itemId: 1043
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 16
@@ -7460,8 +7460,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1044
-    itemName: Armor U9CHE5
+  - itemName: Armor U9CHE5
+    itemId: 1044
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 18
@@ -7475,8 +7475,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1045
-    itemName: Armor U10CHE4
+  - itemName: Armor U10CHE4
+    itemId: 1045
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 20
@@ -7490,8 +7490,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1046
-    itemName: Armor T0THE10
+  - itemName: Armor T0THE10
+    itemId: 1046
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 0
@@ -7505,8 +7505,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1047
-    itemName: Armor T1THE9
+  - itemName: Armor T1THE9
+    itemId: 1047
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 2
@@ -7520,8 +7520,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1048
-    itemName: Armor T2THE8
+  - itemName: Armor T2THE8
+    itemId: 1048
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 4
@@ -7535,8 +7535,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1049
-    itemName: Armor T3THE7
+  - itemName: Armor T3THE7
+    itemId: 1049
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 6
@@ -7550,8 +7550,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1050
-    itemName: Armor T4THE6
+  - itemName: Armor T4THE6
+    itemId: 1050
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 8
@@ -7565,8 +7565,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1051
-    itemName: Armor T5THE5
+  - itemName: Armor T5THE5
+    itemId: 1051
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 10
@@ -7580,8 +7580,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1052
-    itemName: Armor T6THE4
+  - itemName: Armor T6THE4
+    itemId: 1052
     itemDescription: 
     combatBaseValue: 011_ArmorDefT
     level: 12
@@ -7595,8 +7595,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1053
-    itemName: Armor U4THE10
+  - itemName: Armor U4THE10
+    itemId: 1053
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 8
@@ -7610,8 +7610,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1054
-    itemName: Armor U5THE9
+  - itemName: Armor U5THE9
+    itemId: 1054
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 10
@@ -7625,8 +7625,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1055
-    itemName: Armor U6THE8
+  - itemName: Armor U6THE8
+    itemId: 1055
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 12
@@ -7640,8 +7640,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1056
-    itemName: Armor U7THE7
+  - itemName: Armor U7THE7
+    itemId: 1056
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 14
@@ -7655,8 +7655,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1057
-    itemName: Armor U8THE6
+  - itemName: Armor U8THE6
+    itemId: 1057
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 16
@@ -7670,8 +7670,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1058
-    itemName: Armor U9THE5
+  - itemName: Armor U9THE5
+    itemId: 1058
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 18
@@ -7685,8 +7685,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1059
-    itemName: Armor U10THE4
+  - itemName: Armor U10THE4
+    itemId: 1059
     itemDescription: 
     combatBaseValue: 012_ArmorDefU
     level: 20
@@ -7700,8 +7700,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1060
-    itemName: Shield A0SH10
+  - itemName: Shield A0SH10
+    itemId: 1060
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 0
@@ -7715,8 +7715,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1061
-    itemName: Shield A1SH9
+  - itemName: Shield A1SH9
+    itemId: 1061
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 2
@@ -7730,8 +7730,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1062
-    itemName: Shield A2SH8
+  - itemName: Shield A2SH8
+    itemId: 1062
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 4
@@ -7745,8 +7745,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1063
-    itemName: Shield A3SH7
+  - itemName: Shield A3SH7
+    itemId: 1063
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 6
@@ -7760,8 +7760,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1064
-    itemName: Shield A4SH6
+  - itemName: Shield A4SH6
+    itemId: 1064
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 8
@@ -7775,8 +7775,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1065
-    itemName: Shield A5SH5
+  - itemName: Shield A5SH5
+    itemId: 1065
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 10
@@ -7790,8 +7790,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1066
-    itemName: Shield A6SH4
+  - itemName: Shield A6SH4
+    itemId: 1066
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 12
@@ -7805,8 +7805,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1067
-    itemName: Shield B4SH10
+  - itemName: Shield B4SH10
+    itemId: 1067
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 8
@@ -7820,8 +7820,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1068
-    itemName: Shield B5SH9
+  - itemName: Shield B5SH9
+    itemId: 1068
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 10
@@ -7835,8 +7835,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1069
-    itemName: Shield B6SH8
+  - itemName: Shield B6SH8
+    itemId: 1069
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 12
@@ -7850,8 +7850,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1070
-    itemName: Shield B7SH7
+  - itemName: Shield B7SH7
+    itemId: 1070
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 14
@@ -7865,8 +7865,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1071
-    itemName: Shield B8SH6
+  - itemName: Shield B8SH6
+    itemId: 1071
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 16
@@ -7880,8 +7880,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1072
-    itemName: Shield B9SH5
+  - itemName: Shield B9SH5
+    itemId: 1072
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 18
@@ -7895,8 +7895,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1073
-    itemName: Shield B10SH4
+  - itemName: Shield B10SH4
+    itemId: 1073
     itemDescription: 
     combatBaseValue: 110_ShieldShi
     level: 20
@@ -7910,8 +7910,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1074
-    itemName: Body A0HP10
+  - itemName: Body A0HP10
+    itemId: 1074
     itemDescription: 
     combatBaseValue: 120_Body
     level: 0
@@ -7925,8 +7925,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1075
-    itemName: Body A1HP9
+  - itemName: Body A1HP9
+    itemId: 1075
     itemDescription: 
     combatBaseValue: 120_Body
     level: 2
@@ -7940,8 +7940,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1076
-    itemName: Body A2HP8
+  - itemName: Body A2HP8
+    itemId: 1076
     itemDescription: 
     combatBaseValue: 120_Body
     level: 4
@@ -7955,8 +7955,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1077
-    itemName: Body A3HP7
+  - itemName: Body A3HP7
+    itemId: 1077
     itemDescription: 
     combatBaseValue: 120_Body
     level: 6
@@ -7970,8 +7970,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1078
-    itemName: Body A4HP6
+  - itemName: Body A4HP6
+    itemId: 1078
     itemDescription: 
     combatBaseValue: 120_Body
     level: 8
@@ -7985,8 +7985,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1079
-    itemName: Body A5HP5
+  - itemName: Body A5HP5
+    itemId: 1079
     itemDescription: 
     combatBaseValue: 120_Body
     level: 10
@@ -8000,8 +8000,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1080
-    itemName: Body A6HP4
+  - itemName: Body A6HP4
+    itemId: 1080
     itemDescription: 
     combatBaseValue: 120_Body
     level: 12
@@ -8015,8 +8015,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1081
-    itemName: Body B4HP10
+  - itemName: Body B4HP10
+    itemId: 1081
     itemDescription: 
     combatBaseValue: 120_Body
     level: 8
@@ -8030,8 +8030,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1082
-    itemName: Body B5HP9
+  - itemName: Body B5HP9
+    itemId: 1082
     itemDescription: 
     combatBaseValue: 120_Body
     level: 10
@@ -8045,8 +8045,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1083
-    itemName: Body B6HP8
+  - itemName: Body B6HP8
+    itemId: 1083
     itemDescription: 
     combatBaseValue: 120_Body
     level: 12
@@ -8060,8 +8060,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1084
-    itemName: Body B7HP7
+  - itemName: Body B7HP7
+    itemId: 1084
     itemDescription: 
     combatBaseValue: 120_Body
     level: 14
@@ -8075,8 +8075,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1085
-    itemName: Body B8HP6
+  - itemName: Body B8HP6
+    itemId: 1085
     itemDescription: 
     combatBaseValue: 120_Body
     level: 16
@@ -8090,8 +8090,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1086
-    itemName: Body B9HP5
+  - itemName: Body B9HP5
+    itemId: 1086
     itemDescription: 
     combatBaseValue: 120_Body
     level: 18
@@ -8105,8 +8105,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1087
-    itemName: Body B10HP4
+  - itemName: Body B10HP4
+    itemId: 1087
     itemDescription: 
     combatBaseValue: 120_Body
     level: 20
@@ -8120,8 +8120,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1088
-    itemName: Magazine N1
+  - itemName: Magazine N1
+    itemId: 1088
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 0
@@ -8135,8 +8135,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1089
-    itemName: Magazine N2
+  - itemName: Magazine N2
+    itemId: 1089
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 4
@@ -8150,8 +8150,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1090
-    itemName: Magazine N3
+  - itemName: Magazine N3
+    itemId: 1090
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 7
@@ -8165,8 +8165,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1091
-    itemName: Magazine N4
+  - itemName: Magazine N4
+    itemId: 1091
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 8
@@ -8180,8 +8180,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1092
-    itemName: Magazine N5
+  - itemName: Magazine N5
+    itemId: 1092
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 9
@@ -8195,8 +8195,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1093
-    itemName: Magazine N6
+  - itemName: Magazine N6
+    itemId: 1093
     itemDescription: 
     combatBaseValue: 130_MagazineNoA
     level: 10
@@ -8210,8 +8210,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1094
-    itemName: Head H0AC10
+  - itemName: Head H0AC10
+    itemId: 1094
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 0
@@ -8225,8 +8225,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1095
-    itemName: Head H1AC9
+  - itemName: Head H1AC9
+    itemId: 1095
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 2
@@ -8240,8 +8240,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1096
-    itemName: Head H2AC8
+  - itemName: Head H2AC8
+    itemId: 1096
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 4
@@ -8255,8 +8255,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1097
-    itemName: Head H3AC7
+  - itemName: Head H3AC7
+    itemId: 1097
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 6
@@ -8270,8 +8270,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1098
-    itemName: Head H4AC6
+  - itemName: Head H4AC6
+    itemId: 1098
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 8
@@ -8285,8 +8285,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1099
-    itemName: Head H5AC5
+  - itemName: Head H5AC5
+    itemId: 1099
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 10
@@ -8300,8 +8300,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1100
-    itemName: Head H4AC4
+  - itemName: Head H4AC4
+    itemId: 1100
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 12
@@ -8315,8 +8315,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1101
-    itemName: Head J4AC10
+  - itemName: Head J4AC10
+    itemId: 1101
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 8
@@ -8330,8 +8330,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1102
-    itemName: Head J4AC9
+  - itemName: Head J4AC9
+    itemId: 1102
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 10
@@ -8345,8 +8345,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1103
-    itemName: Head J5AC8
+  - itemName: Head J5AC8
+    itemId: 1103
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 12
@@ -8360,8 +8360,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1104
-    itemName: Head J6AC7
+  - itemName: Head J6AC7
+    itemId: 1104
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 14
@@ -8375,8 +8375,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1105
-    itemName: Head J7AC6
+  - itemName: Head J7AC6
+    itemId: 1105
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 16
@@ -8390,8 +8390,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1106
-    itemName: Head J8AC5
+  - itemName: Head J8AC5
+    itemId: 1106
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 18
@@ -8405,8 +8405,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1107
-    itemName: Head J9AC4
+  - itemName: Head J9AC4
+    itemId: 1107
     itemDescription: 
     combatBaseValue: 160_HeadAccCou
     level: 20
@@ -8420,8 +8420,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1108
-    itemName: Leg T0M10
+  - itemName: Leg T0M10
+    itemId: 1108
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 0
@@ -8435,8 +8435,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1109
-    itemName: Leg T1M9
+  - itemName: Leg T1M9
+    itemId: 1109
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 2
@@ -8450,8 +8450,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1110
-    itemName: Leg T2M8
+  - itemName: Leg T2M8
+    itemId: 1110
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 4
@@ -8465,8 +8465,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1111
-    itemName: Leg T3M7
+  - itemName: Leg T3M7
+    itemId: 1111
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 6
@@ -8480,8 +8480,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1112
-    itemName: Leg T4M6
+  - itemName: Leg T4M6
+    itemId: 1112
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 8
@@ -8495,8 +8495,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1113
-    itemName: Leg T5M5
+  - itemName: Leg T5M5
+    itemId: 1113
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 10
@@ -8510,8 +8510,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1114
-    itemName: Leg T6M4
+  - itemName: Leg T6M4
+    itemId: 1114
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 12
@@ -8525,8 +8525,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1115
-    itemName: Leg U4M10
+  - itemName: Leg U4M10
+    itemId: 1115
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 8
@@ -8540,8 +8540,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1116
-    itemName: Leg U5M9
+  - itemName: Leg U5M9
+    itemId: 1116
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 10
@@ -8555,8 +8555,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1117
-    itemName: Leg U6M8
+  - itemName: Leg U6M8
+    itemId: 1117
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 12
@@ -8570,8 +8570,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1118
-    itemName: Leg U7M7
+  - itemName: Leg U7M7
+    itemId: 1118
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 14
@@ -8585,8 +8585,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1119
-    itemName: Leg U8M6
+  - itemName: Leg U8M6
+    itemId: 1119
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 16
@@ -8600,8 +8600,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1120
-    itemName: Leg U9M5
+  - itemName: Leg U9M5
+    itemId: 1120
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 18
@@ -8615,8 +8615,8 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1121
-    itemName: Leg U10M4
+  - itemName: Leg U10M4
+    itemId: 1121
     itemDescription: 
     combatBaseValue: 170_LegMob
     level: 20
@@ -8630,646 +8630,421 @@ MonoBehaviour:
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1122
-    itemName: 
+  - itemName: Arm A0AT10
+    itemId: 1122
     itemDescription: 
-    combatBaseValue: 
+    combatBaseValue: 180_ArmAttackHP
     level: 0
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A1AT9
+    itemId: 1123
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A2AT8
+    itemId: 1124
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A3AT7
+    itemId: 1125
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A4AT6
+    itemId: 1126
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A5AT5
+    itemId: 1127
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A6AT4
+    itemId: 1128
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B4AT10
+    itemId: 1129
+    itemDescription: 
+    combatBaseValue: 180_ArmAttackHP
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseAttack10Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1123
-    itemName: 
+  - itemName: Arm B5AT9
+    itemId: 1130
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 10
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack9Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1124
-    itemName: 
+  - itemName: Arm B6AT8
+    itemId: 1131
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 12
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack8Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1125
-    itemName: 
+  - itemName: Arm B7AT7
+    itemId: 1132
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 14
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack7Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1126
-    itemName: 
+  - itemName: Arm B8AT6
+    itemId: 1133
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 16
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack6Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1127
-    itemName: 
+  - itemName: Arm B9AT5
+    itemId: 1134
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 18
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack5Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1128
-    itemName: 
+  - itemName: Arm B10AT4
+    itemId: 1135
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 180_ArmAttackHP
+    level: 20
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseAttack4Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1129
-    itemName: 
+  - itemName: Structure S0DEF10
+    itemId: 1136
     itemDescription: 
-    combatBaseValue: 
+    combatBaseValue: 190_Structure
     level: 0
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S1DEF9
+    itemId: 1137
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S2DEF8
+    itemId: 1138
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S3DEF7
+    itemId: 1139
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S4DEF6
+    itemId: 1140
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S5DEF5
+    itemId: 1141
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S6DEF4
+    itemId: 1142
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T4DEF10
+    itemId: 1143
+    itemDescription: 
+    combatBaseValue: 190_Structure
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility: 
+    magnific1: BaseDefense10Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1130
-    itemName: 
+  - itemName: Structure T5DEF9
+    itemId: 1144
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 10
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefense9Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1131
-    itemName: 
+  - itemName: Structure T6DEF8
+    itemId: 1145
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 12
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefense8Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1132
-    itemName: 
+  - itemName: Structure T7DEF7
+    itemId: 1146
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 14
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefense7Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1133
-    itemName: 
+  - itemName: Structure T8DEF6
+    itemId: 1147
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 16
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefense6Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1134
-    itemName: 
+  - itemName: Structure T9DEF5
+    itemId: 1148
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 18
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
+    magnific1: BaseDefense5Percent
     magnific2: 
     magnific3: 
     magnific4: 
     magnific5: 
     magnific6: 
-  - itemId: 1135
-    itemName: 
+  - itemName: Structure T10DEF4
+    itemId: 1149
     itemDescription: 
-    combatBaseValue: 
-    level: 0
+    combatBaseValue: 190_Structure
+    level: 20
     skill1: 
     skill2: 
     skill3: 
     addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1136
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1137
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1138
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1139
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1140
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1141
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1142
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1143
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1144
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1145
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1146
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1147
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1148
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1149
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1150
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1151
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1152
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1153
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1154
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1155
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1156
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1157
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1158
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1159
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1160
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1161
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1162
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1163
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
-    magnific2: 
-    magnific3: 
-    magnific4: 
-    magnific5: 
-    magnific6: 
-  - itemId: 1164
-    itemName: 
-    itemDescription: 
-    combatBaseValue: 
-    level: 0
-    skill1: 
-    skill2: 
-    skill3: 
-    addAbility: 
-    magnific1: 
+    magnific1: BaseDefense4Percent
     magnific2: 
     magnific3: 
     magnific4: 
