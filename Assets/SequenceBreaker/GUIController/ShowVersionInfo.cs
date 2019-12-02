@@ -10,7 +10,7 @@ namespace SequenceBreaker.GUIController
         // Start is called before the first frame update
         void Start()
         {
-            versionText.text = "Ver." + Application.version ;
+            versionText.text = "Ver." + Application.version + " (α3)" ;
 
         }
 
