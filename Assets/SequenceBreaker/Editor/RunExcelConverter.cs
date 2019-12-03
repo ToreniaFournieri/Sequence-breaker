@@ -353,7 +353,9 @@ namespace SequenceBreaker.Editor
                 itemBaseMaster.addAbilityList = new List<AddAbilityClass>();
                 foreach (AddAbilityClass ability in itemMasterList.abilityList)
                 {
-                    if(itemMaster.addAbility == ability.name) { itemBaseMaster.addAbilityList.Add(ability); }
+                    if (itemMaster.addAbility1 == ability.name) { itemBaseMaster.addAbilityList.Add(ability); }
+                    if (itemMaster.addAbility2 == ability.name) { itemBaseMaster.addAbilityList.Add(ability); }
+                    if (itemMaster.addAbility3 == ability.name) { itemBaseMaster.addAbilityList.Add(ability); }
                 }
 
                 itemBaseMaster.magnificationMasterList = new List<MagnificationMasterClass>();

@@ -26,7 +26,9 @@ namespace SequenceBreaker.Editor
         public string skill3;
 
         //3. Ability add value
-        public string addAbility;
+        public string addAbility1;
+        public string addAbility2;
+        public string addAbility3;
 
         //4. Offense or defense magnification set
         public string magnific1;

@@ -26,16 +26,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 76f2be90af6714ae8879518a48c0e110, type: 2}
   - {fileID: 11400000, guid: 28992cf2ddd774d7fb5b01e69607e48b, type: 2}
   abilityList:
-  - {fileID: 11400000, guid: 649d6513ba161499cb7875eff29e13e9, type: 2}
   - {fileID: 11400000, guid: 7f19c25e5083b4bc09f9648129058dfd, type: 2}
+  - {fileID: 11400000, guid: 7fbac78dd25f5407fad3e499bbeb0d44, type: 2}
+  - {fileID: 11400000, guid: 1da098a11d1804bf7accb376d6bf6947, type: 2}
   - {fileID: 11400000, guid: 8fc1ef3a2b9d14597827df2f320395c1, type: 2}
+  - {fileID: 11400000, guid: 3fff8e43b76e0424aa771c49b26cd6df, type: 2}
+  - {fileID: 11400000, guid: 1505b72db1eca4e0ea198bb93d3624de, type: 2}
   - {fileID: 11400000, guid: 18b4fb040fc434b7ba5bffc8d9d67db2, type: 2}
+  - {fileID: 11400000, guid: 059a76cbae6de401b92a85751a1a5e6e, type: 2}
+  - {fileID: 11400000, guid: f70a908d002c54074a5cceda8a091a50, type: 2}
+  - {fileID: 11400000, guid: 649d6513ba161499cb7875eff29e13e9, type: 2}
   - {fileID: 11400000, guid: e86b5797aae4b451ebf0e21946160a27, type: 2}
-  - {fileID: 11400000, guid: 9b84dcb8a28954aae88225fb5cfec1cf, type: 2}
-  - {fileID: 11400000, guid: 9d0095f55375345d3b97f5a647fb4e26, type: 2}
-  - {fileID: 11400000, guid: f754e7c1732444cfd9321f1b514be47d, type: 2}
   - {fileID: 11400000, guid: 5010b421dea214930ba6e2000c80bbba, type: 2}
+  - {fileID: 11400000, guid: baa7d9f57a2714e88bf8ec83d1cd52a1, type: 2}
+  - {fileID: 11400000, guid: 9b84dcb8a28954aae88225fb5cfec1cf, type: 2}
+  - {fileID: 11400000, guid: acc8e4b1895e64e4aaa30cddd698a15b, type: 2}
+  - {fileID: 11400000, guid: 5be571bd388244bf0bba2d70665fd42e, type: 2}
+  - {fileID: 11400000, guid: 9d0095f55375345d3b97f5a647fb4e26, type: 2}
+  - {fileID: 11400000, guid: 50570b8594c804e3babc3d2f073630b7, type: 2}
+  - {fileID: 11400000, guid: 8f03c07831b54473f8c49afa125f4c55, type: 2}
+  - {fileID: 11400000, guid: f754e7c1732444cfd9321f1b514be47d, type: 2}
   - {fileID: 11400000, guid: 9edd231f130f247cead11dc327901c47, type: 2}
+  - {fileID: 11400000, guid: 6dbb971c48ca345dd94bd1c7198fe9fb, type: 2}
   combatList:
   - {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
   - {fileID: 11400000, guid: 5ee2d029b40bf49d5b927b5ebabb9971, type: 2}
