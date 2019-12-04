@@ -15,6 +15,6 @@ MonoBehaviour:
   characterUniqueId: 20007
   itemIdList:
   - prefixId: 0
-    baseId: 50200
+    baseId: 1001
     suffixId: 0
     enhancedValue: 1
