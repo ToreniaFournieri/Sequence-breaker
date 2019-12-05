@@ -2630,8 +2630,8 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20045
-    equipment1: 0
-    equipment2: 0
+    equipment1: 1206
+    equipment2: 1207
     equipment3: 0
     equipment4: 0
     equipment5: 0
@@ -2738,7 +2738,7 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20049
-    equipment1: 0
+    equipment1: 1208
     equipment2: 0
     equipment3: 0
     equipment4: 0
