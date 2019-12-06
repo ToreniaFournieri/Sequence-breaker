@@ -18,3 +18,11 @@ MonoBehaviour:
     baseId: 1122
     suffixId: 0
     enhancedValue: 1
+  - prefixId: 0
+    baseId: 1192
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1210
+    suffixId: 0
+    enhancedValue: 1

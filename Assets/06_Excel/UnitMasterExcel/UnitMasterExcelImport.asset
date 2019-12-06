@@ -1577,9 +1577,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20006
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1255
+    equipment2: 1256
+    equipment3: 1015
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -1605,8 +1605,8 @@ MonoBehaviour:
     equipment26: 0
   - uniqueId: 20007
     equipment1: 1001
-    equipment2: 0
-    equipment3: 0
+    equipment2: 1094
+    equipment3: 1108
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -1632,8 +1632,8 @@ MonoBehaviour:
     equipment26: 0
   - uniqueId: 20008
     equipment1: 1122
-    equipment2: 0
-    equipment3: 0
+    equipment2: 1192
+    equipment3: 1210
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -11128,6 +11128,108 @@ MonoBehaviour:
     addAbility2: 
     addAbility3: 
     magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R0H09
+    itemId: 1255
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.09
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R1H08
+    itemId: 1256
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.08
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R2H07
+    itemId: 1257
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.07
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R3H06
+    itemId: 1258
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.06
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R4H05
+    itemId: 1259
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.05
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R5H04
+    itemId: 1260
+    itemDescription: 
+    combatBaseValue: 400_Repair
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.04
     magnific2: 
     magnific3: 
     magnific4: 

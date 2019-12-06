@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbfc709caf5744ff59a5788601fec086, type: 3}
-  m_Name: 400_InternalRep
+  m_Name: 400_Repair
   m_EditorClassIdentifier: 
-  ShieldCurrent: 0
-  ShieldMax: 0
-  HitPointCurrent: 0
-  HitPointMax: 0
-  Attack: 0
-  KineticAttackRatio: 0
-  ChemicalAttackRatio: 0
-  ThermalAttackRatio: 0
-  CriticalHit: 0
-  NumberOfAttacks: 0
-  MinRange: 0
-  MaxRange: 0
-  Accuracy: 0
-  Mobility: 0
-  Defense: 0
-  Counterintelligence: 0
-  Repair: 10
+  shieldCurrent: 0
+  shieldMax: 0
+  hitPointCurrent: 0
+  hitPointMax: 0
+  attack: 0
+  kineticAttackRatio: 0
+  chemicalAttackRatio: 0
+  thermalAttackRatio: 0
+  criticalHit: 0
+  numberOfAttacks: 0
+  minRange: 0
+  maxRange: 0
+  accuracy: 0
+  mobility: 0
+  defense: 0
+  counterintelligence: 0
+  repair: 10

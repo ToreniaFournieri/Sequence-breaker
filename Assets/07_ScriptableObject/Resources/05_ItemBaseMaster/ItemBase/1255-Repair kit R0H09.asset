@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: 1255-Repair kit R0H09
+  m_EditorClassIdentifier: 
+  itemId: 1255
+  itemName: Repair kit R0H09
+  itemDescription: 
+  icon: {fileID: 0}
+  combatBaseValue: {fileID: 11400000, guid: 1cdecce2cf3f841bf9325dccfbe3ff1f, type: 2}
+  level: 0
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
+  - {fileID: 11400000, guid: fa3a7a6c1a32c4e33bc870b6baf9e575, type: 2}
