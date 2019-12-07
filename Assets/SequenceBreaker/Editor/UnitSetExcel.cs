@@ -43,6 +43,7 @@ namespace SequenceBreaker.Editor
             //UnitWave unitWave = ScriptableObject.CreateInstance<UnitWave>();
             unitWave.unitWave = new List<UnitClass>();
 
+            //Debug.Log("path:" + path + " ");
 
             string unitPath = "20_Enemy/" + "UnitClassList" ;
             UnitClassList unitClassList = Resources.Load<UnitClassList>(unitPath);

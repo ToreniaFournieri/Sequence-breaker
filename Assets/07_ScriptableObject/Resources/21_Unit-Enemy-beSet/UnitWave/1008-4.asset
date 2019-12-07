@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f785b9d4f51ba437b9648d0d8a98350a, type: 3}
-  m_Name: 1002-4
+  m_Name: 1008-4
   m_EditorClassIdentifier: 
   unitWave:
-  - {fileID: 11400000, guid: 05f82d73a55f6499594166eebb831b0c, type: 2}
-  - {fileID: 11400000, guid: 125244b86367d42168503c945d6b7db9, type: 2}
-  - {fileID: 11400000, guid: 8fe80d36e9d294373a92306631db1269, type: 2}
-  - {fileID: 11400000, guid: 8fe80d36e9d294373a92306631db1269, type: 2}
+  - {fileID: 11400000, guid: 077f46030bce14d5796260136c0561b1, type: 2}
+  - {fileID: 11400000, guid: 098744a3f04ac4b59a2ec3501eb949f7, type: 2}
+  - {fileID: 11400000, guid: 69b8706198e474c11a08ecae273087a9, type: 2}
+  - {fileID: 11400000, guid: 1da9a2dcb3bf548f2bc1e974cb6b918d, type: 2}
+  - {fileID: 11400000, guid: e8d1051690d48447fa1529b5d23485b2, type: 2}

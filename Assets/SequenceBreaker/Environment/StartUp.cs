@@ -64,7 +64,7 @@ namespace SequenceBreaker.Environment
                     {
                         //List<ItemIdSet> itemIdSetList = ItemDataBase.Get.itemPresetList.ItemFromId(unit.uniqueId);
 
-                        if (unit.uniqueId != 0)
+                        if (unit.uniqueId != 0 && unit != null)
                         {
                             List<Item> itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;

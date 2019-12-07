@@ -46,19 +46,6 @@ MonoBehaviour:
     missionLevelInitial: 1
     waveId: 3
     unit1: BA-Destroyer
-    unit2: 
-    unit3: 
-    unit4: 
-    unit5: 
-    unit6: 
-    unit7: 
-  - missionString: '[Tutorial-1] Beginning'
-    missionCategory: A
-    missionId: 1001
-    locationString: Tutorial-location-1
-    missionLevelInitial: 1
-    waveId: 4
-    unit1: BA-Destroyer
     unit2: BA-Fighter
     unit3: 
     unit4: 
@@ -71,8 +58,8 @@ MonoBehaviour:
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 1
-    unit1: CA-Fighter
-    unit2: CA-Destroyer
+    unit1: BA-Commander
+    unit2: 
     unit3: 
     unit4: 
     unit5: 
@@ -84,8 +71,8 @@ MonoBehaviour:
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 2
-    unit1: CA-Lancer
-    unit2: CA-Fighter
+    unit1: BA-Lancer
+    unit2: 
     unit3: 
     unit4: 
     unit5: 
@@ -97,23 +84,10 @@ MonoBehaviour:
     locationString: Tutorial-location-2
     missionLevelInitial: 3
     waveId: 3
-    unit1: CA-Lancer
-    unit2: CA-Fighter
-    unit3: CA-Destroyer
+    unit1: BA-Reconnoiter
+    unit2: BA-Commander
+    unit3: 
     unit4: 
-    unit5: 
-    unit6: 
-    unit7: 
-  - missionString: '[Tutorial-2] Equip items'
-    missionCategory: A
-    missionId: 1002
-    locationString: Tutorial-location-2
-    missionLevelInitial: 3
-    waveId: 4
-    unit1: CA-Lancer
-    unit2: CA-Fighter
-    unit3: CA-Destroyer
-    unit4: CA-Destroyer
     unit5: 
     unit6: 
     unit7: 
@@ -123,8 +97,8 @@ MonoBehaviour:
     locationString: Tutorial-location-3
     missionLevelInitial: 5
     waveId: 1
-    unit1: DA-Fighter
-    unit2: 
+    unit1: BA-Gunner
+    unit2: BA-Sniper
     unit3: 
     unit4: 
     unit5: 
@@ -136,9 +110,9 @@ MonoBehaviour:
     locationString: Tutorial-location-3
     missionLevelInitial: 5
     waveId: 2
-    unit1: DA-Destroyer
-    unit2: DA-Fighter
-    unit3: 
+    unit1: BA-Commander
+    unit2: BA-Gunner
+    unit3: BA-Sniper
     unit4: 
     unit5: 
     unit6: 
@@ -149,6 +123,188 @@ MonoBehaviour:
     locationString: Tutorial-location-3
     missionLevelInitial: 5
     waveId: 3
+    unit1: BA-Fighter
+    unit2: BA-Destroyer
+    unit3: BA-Commander
+    unit4: BA-Sniper
+    unit5: BA-Lancer
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-4] Defense Kinetic'
+    missionCategory: A
+    missionId: 1004
+    locationString: Tutorial-location-4
+    missionLevelInitial: 7
+    waveId: 1
+    unit1: BA-Tank
+    unit2: BA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-4] Defense Kinetic'
+    missionCategory: A
+    missionId: 1004
+    locationString: Tutorial-location-4
+    missionLevelInitial: 7
+    waveId: 2
+    unit1: BA-Tank
+    unit2: BA-Destroyer
+    unit3: BA-Commander
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-4] Defense Kinetic'
+    missionCategory: A
+    missionId: 1004
+    locationString: Tutorial-location-4
+    missionLevelInitial: 7
+    waveId: 3
+    unit1: BA-Tank
+    unit2: BA-Lancer
+    unit3: BA-Gunner
+    unit4: BA-Jammer
+    unit5: BA-Sniper
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-5] Medic'
+    missionCategory: A
+    missionId: 1005
+    locationString: Tutorial-location-5
+    missionLevelInitial: 9
+    waveId: 1
+    unit1: BA-Fighter
+    unit2: BA-Destroyer
+    unit3: BA-Medic
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-5] Medic'
+    missionCategory: A
+    missionId: 1005
+    locationString: Tutorial-location-5
+    missionLevelInitial: 9
+    waveId: 2
+    unit1: BA-Fighter
+    unit2: BA-Destroyer
+    unit3: BA-Gunner
+    unit4: BA-Gunner
+    unit5: BA-Medic
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-5] Medic'
+    missionCategory: A
+    missionId: 1005
+    locationString: Tutorial-location-5
+    missionLevelInitial: 9
+    waveId: 3
+    unit1: BA-Fighter
+    unit2: BA-Destroyer
+    unit3: BA-Gunner
+    unit4: BA-Gunner
+    unit5: BA-Commander
+    unit6: BA-Medic
+    unit7: 
+  - missionString: '[Tutorial-6] Middle Point'
+    missionCategory: A
+    missionId: 1006
+    locationString: Tutorial-location-6
+    missionLevelInitial: 11
+    waveId: 1
+    unit1: BA-Tank
+    unit2: BA-Fighter
+    unit3: BA-Destroyer
+    unit4: BA-Gunner
+    unit5: BA-Gunner
+    unit6: BA-Commander
+    unit7: BA-Medic
+  - missionString: '[Tutorial-7] Cyborg'
+    missionCategory: A
+    missionId: 1007
+    locationString: Tutorial-location-7
+    missionLevelInitial: 13
+    waveId: 1
+    unit1: CA-Fighter
+    unit2: CA-Destroyer
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-7] Cyborg'
+    missionCategory: A
+    missionId: 1007
+    locationString: Tutorial-location-7
+    missionLevelInitial: 13
+    waveId: 2
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-7] Cyborg'
+    missionCategory: A
+    missionId: 1007
+    locationString: Tutorial-location-7
+    missionLevelInitial: 13
+    waveId: 3
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: CA-Destroyer
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-7] Cyborg'
+    missionCategory: A
+    missionId: 1007
+    locationString: Tutorial-location-7
+    missionLevelInitial: 13
+    waveId: 4
+    unit1: CA-Lancer
+    unit2: CA-Fighter
+    unit3: CA-Destroyer
+    unit4: CA-Destroyer
+    unit5: CA-Medic
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-8] Drone'
+    missionCategory: A
+    missionId: 1008
+    locationString: Tutorial-location-8
+    missionLevelInitial: 15
+    waveId: 1
+    unit1: DA-Fighter
+    unit2: 
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-8] Drone'
+    missionCategory: A
+    missionId: 1008
+    locationString: Tutorial-location-8
+    missionLevelInitial: 15
+    waveId: 2
+    unit1: DA-Destroyer
+    unit2: DA-Fighter
+    unit3: 
+    unit4: 
+    unit5: 
+    unit6: 
+    unit7: 
+  - missionString: '[Tutorial-8] Drone'
+    missionCategory: A
+    missionId: 1008
+    locationString: Tutorial-location-8
+    missionLevelInitial: 15
+    waveId: 3
     unit1: DA-Fighter
     unit2: DA-Gunner
     unit3: 
@@ -156,16 +312,16 @@ MonoBehaviour:
     unit5: 
     unit6: 
     unit7: 
-  - missionString: '[Tutorial-3] Kinetic Attack'
+  - missionString: '[Tutorial-8] Drone'
     missionCategory: A
-    missionId: 1003
-    locationString: Tutorial-location-3
-    missionLevelInitial: 5
+    missionId: 1008
+    locationString: Tutorial-location-8
+    missionLevelInitial: 15
     waveId: 4
     unit1: DA-Fighter
     unit2: DA-Jammer
     unit3: DA-Lancer
     unit4: DA-Gunner
-    unit5: DA-Commander
+    unit5: DA-Medic
     unit6: 
     unit7: 

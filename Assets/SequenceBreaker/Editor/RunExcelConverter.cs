@@ -509,7 +509,9 @@ namespace SequenceBreaker.Editor
         void ConvertUnitSetFromExcel()
         {
             //SerializedObject missionSerializedObject = new SerializedObject(mission);
-
+            string missionMasterListPath = targetPathWithoutName + "/MissionMasterList.asset";
+            MissionMasterList missionMasterList = MissionListCreate.Create(missionMasterListPath);
+            missionMasterList.missionMasterList = new List<MissionMaster>();
 
             int currentMissionId = 0;
             foreach (var unitMasterExcel in unitSetExcelImport.unitSetExcelList)
@@ -590,10 +592,10 @@ namespace SequenceBreaker.Editor
 
                 EditorUtility.SetDirty(unitSet);
                 EditorUtility.SetDirty(mission);
-
+                missionMasterList.missionMasterList.Add(mission);
             }
 
-
+            EditorUtility.SetDirty(missionMasterList);
             //missionSerializedObject.ApplyModifiedProperties();
 
         }

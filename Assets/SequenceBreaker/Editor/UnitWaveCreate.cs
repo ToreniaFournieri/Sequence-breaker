@@ -7,13 +7,19 @@ namespace SequenceBreaker.Editor
     public class UnitWaveCreate
     {
         [MenuItem("Assets/Create/UnitWave")]
-        public static UnitWave Create(string pathAndName)
+        public static UnitWave Create(string path)
         {
-            UnitWave asset = ScriptableObject.CreateInstance<UnitWave>();
+            UnitWave asset = AssetDatabase.LoadAssetAtPath(path, typeof(UnitWave)) as UnitWave;
 
+            //UnitWave asset = ScriptableObject.CreateInstance<UnitWave>();
+            if (asset == null)
+            {
+                asset = ScriptableObject.CreateInstance<UnitWave>();
+                AssetDatabase.CreateAsset(asset, path);
+                AssetDatabase.SaveAssets();
+                return asset;
+            }
 
-            AssetDatabase.CreateAsset(asset, pathAndName);
-            AssetDatabase.SaveAssets();
             return asset;
         }
     }
