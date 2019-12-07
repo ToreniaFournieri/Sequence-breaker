@@ -5938,10 +5938,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
   allyCurrentBattleUnitList: []
   partyStatusIcons: {fileID: 766314200}
-  missionMasterList:
-  - {fileID: 11400000, guid: b88e52accb7d543d38f03d914d76d0ea, type: 2}
-  - {fileID: 11400000, guid: fdbf5f9a1d764477ba729a3404672e02, type: 2}
-  - {fileID: 11400000, guid: 651c5e6693bda4a53b85a4de60bb123b, type: 2}
+  missionList: {fileID: 11400000, guid: f4ae10b04f0174c37818cbef541d137b, type: 2}
   inventoryItemList: {fileID: 171929590}
   inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
   logListSria: {fileID: 0}

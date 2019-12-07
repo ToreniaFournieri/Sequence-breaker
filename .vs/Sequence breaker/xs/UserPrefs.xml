@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Environment/StartUp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/GoScript.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="598" Column="55" />
+      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="598" Column="68" />
       <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="6" Column="18" />
       <File FileName="Assets/SequenceBreaker/Editor/UnitWaveCreate.cs" Line="11" Column="1" />
       <File FileName="Assets/SequenceBreaker/Editor/UnitSetExcel.cs" Line="46" Column="47" />
@@ -14,7 +14,8 @@
       <File FileName="Assets/SequenceBreaker/Editor/MissionCreate.cs" Line="6" Column="1" />
       <File FileName="Assets/SequenceBreaker/Editor/MissionListCreate.cs" Line="23" Column="1" />
       <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="24" Column="56" />
-      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="51" Column="75" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="51" Column="85" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="45" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

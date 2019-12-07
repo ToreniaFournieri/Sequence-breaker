@@ -170,6 +170,7 @@ namespace SequenceBreaker.Play.MissionView
 
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
+            missionController.transparentMessageController.transparentMessage.transform.SetAsLastSibling();
             missionController.transparentMessageController.transparentMessage.SetActive(true);
 
 
