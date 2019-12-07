@@ -9449,7 +9449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -84.54999}
+  m_AnchoredPosition: {x: 0, y: -84.549866}
   m_SizeDelta: {x: 0, y: -169.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1091635446
@@ -10057,6 +10057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
+  allyUnitSet: {fileID: 11400000, guid: 92a167c18cb6542c59f7fa9232e1ea25, type: 2}
   homeDataSourceMgr: {fileID: 1009119398}
   unitClassList: {fileID: 11400000, guid: 64b7babe0c2d84771b26a45c0b1fbfa7, type: 2}
   a1: {fileID: 449333225}
@@ -10745,17 +10746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a928e96743d14c19b123a36621ef9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeContentList:
-  - contentText: Ally Equipment
-    description: 
-    unitClassList:
-    - {fileID: 11400000, guid: 760eea04b6c994cadb1492f2cf393edd, type: 2}
-    - {fileID: 11400000, guid: aad9af58ae519424d91ec57663a8ba8e, type: 2}
-    - {fileID: 11400000, guid: f022278dde0114588ab314e61abd533b, type: 2}
-    isInfinityInventoryMode: 0
-    mId: 0
-    mChecked: 0
-    mIsExpand: 0
+  homeContentList: []
 --- !u!1 &1281995499
 GameObject:
   m_ObjectHideFlags: 0

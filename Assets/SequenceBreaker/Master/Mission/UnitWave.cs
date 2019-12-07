@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace SequenceBreaker.Master.Mission
 {
+
+    [CreateAssetMenu(fileName = "UnitWave-", menuName = "Unit/UnitWave", order = 11)]
     public class UnitWave : ScriptableObject
     {
 

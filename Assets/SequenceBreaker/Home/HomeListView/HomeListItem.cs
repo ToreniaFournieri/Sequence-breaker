@@ -1,4 +1,5 @@
-﻿using _00_Asset._01_SuperScrollView.Scripts.ListView;
+﻿using System;
+using _00_Asset._01_SuperScrollView.Scripts.ListView;
 using SequenceBreaker.Home.EquipView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -71,8 +72,11 @@ namespace SequenceBreaker.Home.HomeListView
             HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
+
                 return;
             }
+            //Debug.Log("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count );
+            //Console.WriteLine("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count);
 
             inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
             inventoryTreeViewDataSourceMgr.DoRefreshDataSource();

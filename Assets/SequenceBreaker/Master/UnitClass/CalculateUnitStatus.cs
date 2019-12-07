@@ -133,6 +133,8 @@ namespace SequenceBreaker.Master.UnitClass
 
             unit = unitClass;
 
+            //Debug.Log("unit name in CalculateUnitStatus :" + unit.TrueName());
+
             //(1) Ability
             // (1-1) Ability calculation -> CoreFrameAddAbility
             // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStyle.AddAbility
@@ -910,6 +912,12 @@ namespace SequenceBreaker.Master.UnitClass
             {
                 detailAbilityString += skill.skillName + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
             }
+
+
+
+            //Console.WriteLine("unit name in CalculateUnitStatus :" + unit.TrueName());
+            //Debug.Log("unit name in CalculateUnitStatus :" + unit.TrueName());
+
 
         }
 

@@ -2,6 +2,7 @@
 using SequenceBreaker.GUIController;
 using SequenceBreaker.Home.HomeListView;
 using SequenceBreaker.Master.Items;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.UnitClass;
 using SequenceBreaker.Play.MissionView;
 using UnityEngine;
@@ -15,6 +16,9 @@ namespace SequenceBreaker.Environment
         //public ItemDataBase itemDataBase;
         //Item inventory
         public UnitClass inventory;
+
+        //Ally set
+        public UnitSet allyUnitSet;
         //Ally inventory
         public HomeDataSourceMgr homeDataSourceMgr;
 
@@ -41,18 +45,46 @@ namespace SequenceBreaker.Environment
 
             transparentMessageController.transparentMessage.SetActive(true);
 
-            // homeContentList 0 is ally list ( this is temp)
-            List<UnitClass> unitList = homeDataSourceMgr.homeContents.homeContentList[0].unitClassList;
-            foreach (var unit in unitList)
-            {
-                //unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
-                unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
 
-                unit.CalculateLevel();
+            //Import ally info
+            HomeContentData allyHomeContentData;
+
+            if (allyUnitSet != null && allyUnitSet.unitSetList != null)
+            {
+                allyHomeContentData = new HomeContentData();
+                allyHomeContentData.contentText = "Ally Equipment";
+                allyHomeContentData.description = "Equip items for playable characters. ";
+                allyHomeContentData.isInfinityInventoryMode = false;
+                allyHomeContentData.unitClassList = new List<UnitClass>();
+                foreach (UnitWave wave in allyUnitSet.unitSetList)
+                {
+                   foreach (UnitClass unit in wave.unitWave)
+                    {
+                        unit.itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
+                        unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
+                        unit.CalculateLevel();
+                        allyHomeContentData.unitClassList.Add(unit);
+                    }
+                }
+
+                homeDataSourceMgr.homeContents.homeContentList.Add(allyHomeContentData);
+                homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, allyHomeContentData);
+
             }
 
+
+            //List<UnitClass> unitList = homeDataSourceMgr.homeContents.homeContentList[0].unitClassList;
+            //foreach (var unit in unitList)
+            //{
+            //    //unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
+            //    unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
+
+            //    unit.CalculateLevel();
+            //}
+
+
             // import additional enemy unit to home contents
-            HomeContentData homeContentData;
+            HomeContentData enemyHomeContentData;
 
             foreach (var mission in missionController.missionList.missionMasterList)
                 //foreach (var mission in missionController.missionMasterList)
@@ -61,11 +93,11 @@ namespace SequenceBreaker.Environment
 
                 foreach (var unitSet in mission.unitSet.unitSetList)
                 {
-                    homeContentData = new HomeContentData();
-                    homeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
-                    homeContentData.description = "[Enemy info]";
-                    homeContentData.isInfinityInventoryMode = true;
-                    homeContentData.unitClassList = new List<UnitClass>();
+                    enemyHomeContentData = new HomeContentData();
+                    enemyHomeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
+                    enemyHomeContentData.description = "[Enemy info]";
+                    enemyHomeContentData.isInfinityInventoryMode = true;
+                    enemyHomeContentData.unitClassList = new List<UnitClass>();
 
                     foreach (var unit in unitSet.unitWave)
                     {
@@ -86,13 +118,13 @@ namespace SequenceBreaker.Environment
                         //    }
                         //}
 
-                        homeContentData.unitClassList.Add(unit);
+                        enemyHomeContentData.unitClassList.Add(unit);
                     }
 
                     waveInt++;
 
-                    homeDataSourceMgr.homeContents.homeContentList.Add(homeContentData);
-                    homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, homeContentData);
+                    homeDataSourceMgr.homeContents.homeContentList.Add(enemyHomeContentData);
+                    homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, enemyHomeContentData);
                 }
 
             }
