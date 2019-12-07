@@ -592,7 +592,11 @@ namespace SequenceBreaker.Editor
 
                 EditorUtility.SetDirty(unitSet);
                 EditorUtility.SetDirty(mission);
-                missionMasterList.missionMasterList.Add(mission);
+
+                if (unitMasterExcel.waveId == 1)
+                {
+                    missionMasterList.missionMasterList.Add(mission);
+                }
             }
 
             EditorUtility.SetDirty(missionMasterList);

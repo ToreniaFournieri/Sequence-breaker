@@ -48,7 +48,8 @@ namespace SequenceBreaker.Environment
             // import additional enemy unit to home contents
             HomeContentData homeContentData;
 
-            foreach (var mission in missionController.missionMasterList)
+            foreach (var mission in missionController.missionList.missionMasterList)
+                //foreach (var mission in missionController.missionMasterList)
             {
                 int waveInt = 1;
 

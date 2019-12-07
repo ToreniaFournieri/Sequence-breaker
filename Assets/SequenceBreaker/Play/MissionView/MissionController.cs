@@ -21,7 +21,8 @@ namespace SequenceBreaker.Play.MissionView
 
 
         // Mission List
-        public List<MissionMaster> missionMasterList;
+        //public List<MissionMaster> missionMasterList;
+        public MissionMasterList missionList;
 
         // inventory
         public InventoryItemList inventoryItemList;
@@ -40,8 +41,8 @@ namespace SequenceBreaker.Play.MissionView
         {
 
             List<RunBattle> runBattlelist = new List<RunBattle>();
-          
-            foreach (MissionMaster mission in missionMasterList)
+
+            foreach (MissionMaster mission in missionList.missionMasterList)
             {
                 GameObject runBattleObject = new GameObject();
                 runBattleObject.transform.parent = this.transform;
@@ -50,6 +51,16 @@ namespace SequenceBreaker.Play.MissionView
                 runBattleObject.GetComponent<RunBattle>().mission = mission;
                 runBattlelist.Add(runBattleObject.GetComponent<RunBattle>());
             }
+
+            //foreach (MissionMaster mission in missionMasterList)
+            //{
+            //    GameObject runBattleObject = new GameObject();
+            //    runBattleObject.transform.parent = this.transform;
+            //    runBattleObject.name = mission.missionName;
+            //    runBattleObject.AddComponent<RunBattle>();
+            //    runBattleObject.GetComponent<RunBattle>().mission = mission;
+            //    runBattlelist.Add(runBattleObject.GetComponent<RunBattle>());
+            //}
 
             return runBattlelist;
         }
