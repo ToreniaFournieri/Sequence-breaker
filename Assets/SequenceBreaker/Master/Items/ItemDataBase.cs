@@ -30,6 +30,31 @@ namespace SequenceBreaker.Master.Items
         }
 
 
+        //Warning should only use for a game reset.
+        public void DeleteAllSavedFiles(bool reallyDeleteAlFiles)
+        {
+            if (reallyDeleteAlFiles)
+            {
+                DirectoryInfo info = new DirectoryInfo(Application.persistentDataPath);
+                FileInfo[] fileInfo = info.GetFiles();
+                foreach (FileInfo file in fileInfo)
+                {
+                    // sample implement
+                    if (file.Name.Contains("Ally"))
+                    {
+                        //Debug.Log("file name: " + file.Name);
+                        //if(file.Name == "Ally-100001-item.save")
+                        //{
+                            file.Delete();
+
+                        //}
+                    }
+
+                }
+
+            }
+        }
+
         // save flag
 
         public UnitClass.UnitClass LoadUnitInfo(UnitClass.UnitClass loadCharacterUnit)
