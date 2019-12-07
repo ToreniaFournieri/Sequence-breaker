@@ -45,7 +45,7 @@ namespace SequenceBreaker.Play.MissionView
 
 
         }
-        
+
         public void GoBattle()
         {
             runBattle.Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
@@ -70,15 +70,15 @@ namespace SequenceBreaker.Play.MissionView
                 battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
                 battleCopyList[wave].GetComponent<RunBattle>().currentMissionName = battleCopyList[wave].GetComponent<RunBattle>().mission.missionName + " [wave:" + (wave + 1) + "]";
-                battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel ;
-                
+                battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
+
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
                 missionController.UpdatePartyStatus();
 
                 // temp 2019/11/10
                 missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
 
-                
+
                 wave += 1;
 
             }
@@ -88,7 +88,7 @@ namespace SequenceBreaker.Play.MissionView
             string missionLevel = " (lv:" + battleCopyList[0].GetComponent<RunBattle>().currentLevel + ")";
 
             missionController.logListDataSourceMgr.Refresh();
-            
+
 
             // Drop list
             List<Item> itemList = new List<Item>();
@@ -132,10 +132,13 @@ namespace SequenceBreaker.Play.MissionView
                             var levelUpAmount = allyUnit.GainExperience(experience);
                             if (levelUpAmount > 0)
                             {
-                                missionController
-                                        .transparentMessageController
-                                        .transparentText.text
-                                    += "\n " + "[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")";
+
+                                missionController.transparentMessageController
+                                    .AddTextAndActive("[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")");
+                                //missionController
+                                //        .transparentMessageController
+                                //        .transparentText.text
+                                //    += "\n " + "[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")";
 
                             }
                         }
@@ -144,8 +147,12 @@ namespace SequenceBreaker.Play.MissionView
 
                 }
 
-                missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
-                                                                                       + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
+                missionController.transparentMessageController
+                            .AddTextAndActive("Mission: " + missionName + missionLevel
+                           + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ");
+
+                //missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
+                //                                                                           + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
                 wave += 1;
             }
 
@@ -158,20 +165,21 @@ namespace SequenceBreaker.Play.MissionView
 
             foreach (Item item in itemList)
             {
-                missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
+                missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName);
+
+                //missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
             }
 
             foreach (var item in itemList)
             {
                 missionController.inventoryItemList.AddItemAndSave(item);
             }
-            
-            
+
+
 
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
-            missionController.transparentMessageController.transparentMessage.transform.SetAsLastSibling();
-            missionController.transparentMessageController.transparentMessage.SetActive(true);
+            //missionController.transparentMessageController.transparentMessage.SetActive(true);
 
 
 

@@ -90,7 +90,7 @@ namespace SequenceBreaker.Play.Battle
         public void Battle()
         {
             var startDateTime = DateTime.Now;
-            Console.WriteLine("start:" + startDateTime);
+            //Console.WriteLine("start:" + startDateTime);
             // Battle environment setting
             const int battleWavesSets = 1;
             const int battleWaves = 1; // one set of battle 
@@ -608,7 +608,7 @@ namespace SequenceBreaker.Play.Battle
             var processedTimeSpan = finishDateTime - startDateTime;
             finalLog += "finished:" + finishDateTime + " processed time:" + processedTimeSpan + " seed:" + seed + "\n";
 
-            Console.WriteLine(finalLog);
+            //Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0);
             var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.None);
             battleLogDisplayList.Add(finalLogList);

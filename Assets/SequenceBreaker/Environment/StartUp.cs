@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker.GUIController;
 using SequenceBreaker.Home.HomeListView;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.UnitClass;
@@ -28,12 +29,17 @@ namespace SequenceBreaker.Environment
 
         public MissionController missionController;
 
+        public TransparentMessageController transparentMessageController;
+
         // Start is called before the first frame update
         void Start()
         {
             //inventory
             //inventory = itemDataBase.LoadUnitInfo(inventory);
             inventory = ItemDataBase.Get.LoadUnitInfo(inventory);
+
+
+            transparentMessageController.transparentMessage.SetActive(true);
 
             // homeContentList 0 is ally list ( this is temp)
             List<UnitClass> unitList = homeDataSourceMgr.homeContents.homeContentList[0].unitClassList;

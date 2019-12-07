@@ -10,11 +10,27 @@ namespace SequenceBreaker.GUIController
 
         public void CloseMessage()
         {
-            transparentMessage.SetActive(false);
             transparentText.text = null;
+            transparentMessage.SetActive(false);
 
         }
 
+        public void AddTextAndActive(string message)
+        {
+            if (transparentMessage.activeInHierarchy == false)
+            {
+                transparentText.text = null;
+            }
+            else
+            {
+                transparentText.text += "\n";
+            }
 
+            transparentText.text += message;
+
+            transparentMessage.SetActive(true);
+
+
+        }
     }
 }

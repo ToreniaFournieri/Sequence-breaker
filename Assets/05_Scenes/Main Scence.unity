@@ -1516,12 +1516,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 740450689}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.038086, y: 0}
-  m_SizeDelta: {x: 100, y: -320}
+  m_AnchoredPosition: {x: 50.038086, y: -130.7}
+  m_SizeDelta: {x: 100, y: -581.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &186155869
 MonoBehaviour:
@@ -1902,7 +1902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.275, y: -166.76}
+  m_AnchoredPosition: {x: 0.2750244, y: -166.76001}
   m_SizeDelta: {x: -0.55017, y: -335.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &240124709
@@ -5980,8 +5980,8 @@ RectTransform:
   - {fileID: 1160069816}
   - {fileID: 1870001501}
   - {fileID: 856387767}
-  - {fileID: 1663717959}
   - {fileID: 186155868}
+  - {fileID: 1663717959}
   m_Father: {fileID: 1184356220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10063,6 +10063,7 @@ MonoBehaviour:
   a2: {fileID: 1160069815}
   a3: {fileID: 1870001500}
   missionController: {fileID: 738102034}
+  transparentMessageController: {fileID: 639922438}
 --- !u!1 &1190332928
 GameObject:
   m_ObjectHideFlags: 0
@@ -13439,7 +13440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1663717959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13453,12 +13454,12 @@ RectTransform:
   m_Children:
   - {fileID: 1716563093}
   m_Father: {fileID: 740450689}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 160}
-  m_SizeDelta: {x: 907, y: 69.3}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1663717960
 MonoBehaviour:
@@ -14142,10 +14143,10 @@ RectTransform:
   m_Father: {fileID: 1663717959}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 238.86919, y: -20.872065}
-  m_SizeDelta: {x: 477.73837, y: 41.74413}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716563094
 MonoBehaviour:
@@ -14178,7 +14179,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Transparent Massage is here
+  m_Text: 
 --- !u!222 &1716563095
 CanvasRenderer:
   m_ObjectHideFlags: 0
