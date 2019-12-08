@@ -1,17 +1,10 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/GoScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/StompyRobot/SRDebugger/Scripts/SRDebug.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="108" Column="72" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="18" Column="16" />
-      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="11" Column="86" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" Line="122" Column="50" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="41" Column="60" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeDataSourceMgr.cs" Line="40" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="75" Column="96" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeChangeItemHeightDemoScript.cs" Line="104" Column="64" />
-      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="86" Column="75" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="159" Column="31" />
+      <File FileName="Assets/00_Asset/StompyRobot/SRDebugger/README.txt" Line="1" Column="1" />
+      <File FileName="Assets/00_Asset/StompyRobot/SRDebugger/Scripts/AutoInitialize.cs" Line="32" Column="29" />
+      <File FileName="Assets/00_Asset/StompyRobot/SRDebugger/Scripts/SRDebug.cs" Line="14" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
