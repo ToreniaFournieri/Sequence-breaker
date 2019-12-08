@@ -27,7 +27,7 @@ namespace SequenceBreaker.GUIController
         {
 
             Debug.Log("Reset has been pressed!");
-            //ItemDataBase.instance.DeleteAllSavedFiles(true);
+            ItemDataBase.instance.DeleteAllSavedFiles(true);
         }
 
 
