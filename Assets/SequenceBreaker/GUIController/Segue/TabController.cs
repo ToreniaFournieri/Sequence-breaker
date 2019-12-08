@@ -83,7 +83,7 @@ namespace SequenceBreaker.GUIController.Segue
                             //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
                             if (unit != null  &&unit.affiliation == Affiliation.Ally)
                             {
-                                UnitClass loadUnit = ItemDataBase.Get.LoadUnitInfo(unit);
+                                UnitClass loadUnit = ItemDataBase.instance.LoadUnitInfo(unit);
                                 unit.itemList = loadUnit.itemList;
                                 //experience should only load in initial not this timing.
                                 unit.experience = loadUnit.experience;

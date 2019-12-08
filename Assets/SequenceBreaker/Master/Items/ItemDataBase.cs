@@ -15,20 +15,42 @@ namespace SequenceBreaker.Master.Items
 
         public ItemPresetList itemPresetList;
 
-        static ItemDataBase _instance;
-        public static ItemDataBase Get
+        public static ItemDataBase instance;
+        //public static ItemDataBase Get
+        //{
+        //    get
+        //    {
+        //        if (instance == null)
+        //        {
+        //            instance = FindObjectOfType<ItemDataBase>();
+        //        }
+        //        return instance;
+        //    }
+
+        //}
+
+        private void Awake()
         {
-            get
+            Debug.Log("ItemDataBase.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+
+            if (instance == null)
             {
-                if (_instance == null)
+                instance = this;  //This is the first Singleton instance. Retain a handle to it.
+            }
+            else
+            {
+                if (instance != this)
                 {
-                    _instance = FindObjectOfType<ItemDataBase>();
+                    Destroy(this); //This is a duplicate Singleton. Destroy this instance.
                 }
-                return _instance;
+                else
+                {
+                    //Existing Singleton instance found. All is good. No change.
+                }
             }
 
+            DontDestroyOnLoad(gameObject);
         }
-
 
         //Warning should only use for a game reset.
         public void DeleteAllSavedFiles(bool reallyDeleteAlFiles)

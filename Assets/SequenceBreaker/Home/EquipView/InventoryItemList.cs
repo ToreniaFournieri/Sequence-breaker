@@ -92,7 +92,7 @@ namespace SequenceBreaker.Home.EquipView
         private void SaveFile()
         {
 
-            ItemDataBase.Get.SaveUnitInfo(inventory);
+            ItemDataBase.instance.SaveUnitInfo(inventory);
             //itemDataBase.SaveUnitInfo(inventory);
             
         }
@@ -104,7 +104,7 @@ namespace SequenceBreaker.Home.EquipView
                 inventory.itemList.Clear();
 
                 Item item;
-                foreach (ItemBaseMaster itemBaseMaster in ItemDataBase.Get.itemBaseMasterList)
+                foreach (ItemBaseMaster itemBaseMaster in ItemDataBase.instance.itemBaseMasterList)
                 {
                     item = ScriptableObject.CreateInstance<Item>();
                     item.prefixItem = null;
@@ -119,7 +119,7 @@ namespace SequenceBreaker.Home.EquipView
             }
             else
             {
-                inventory = ItemDataBase.Get.LoadUnitInfo(inventory);
+                inventory = ItemDataBase.instance.LoadUnitInfo(inventory);
             }
         }
 

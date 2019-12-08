@@ -40,7 +40,7 @@ namespace SequenceBreaker.Environment
         {
             //inventory
             //inventory = itemDataBase.LoadUnitInfo(inventory);
-            inventory = ItemDataBase.Get.LoadUnitInfo(inventory);
+            inventory = ItemDataBase.instance.LoadUnitInfo(inventory);
 
 
             transparentMessageController.transparentMessage.SetActive(true);
@@ -60,8 +60,8 @@ namespace SequenceBreaker.Environment
                 {
                    foreach (UnitClass unit in wave.unitWave)
                     {
-                        unit.itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
-                        unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
+                        unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
+                        unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
                         unit.CalculateLevel();
                         allyHomeContentData.unitClassList.Add(unit);
                     }
@@ -105,7 +105,7 @@ namespace SequenceBreaker.Environment
 
                         if (unit.uniqueId != 0 && unit != null)
                         {
-                            List<Item> itemList = ItemDataBase.Get.GetItemsFromUniqueId(unit.uniqueId);
+                            List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;
                         }
                     
