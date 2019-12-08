@@ -19,7 +19,8 @@ namespace SequenceBreaker.Home.HomeListView
         // Use this for initialization
         void Start()
         {
-            mLoopListView.InitListView(HomeDataSourceMgr.Get.TotalItemCount, OnGetItemByIndex);
+
+            mLoopListView.InitListView(HomeDataSourceMgr.instance.TotalItemCount, OnGetItemByIndex);
 
 //            _mSetCountButton = GameObject.Find("ButtonPanel/buttonGroup1/SetCountButton").GetComponent<Button>();
 //            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
@@ -43,12 +44,12 @@ namespace SequenceBreaker.Home.HomeListView
 
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
-            if (index < 0 || index >= HomeDataSourceMgr.Get.TotalItemCount)
+            if (index < 0 || index >= HomeDataSourceMgr.instance.TotalItemCount)
             {
                 return null;
             }
 
-            HomeContentData itemData = HomeDataSourceMgr.Get.GetItemDataByIndex(index);
+            HomeContentData itemData = HomeDataSourceMgr.instance.GetItemDataByIndex(index);
             if (itemData == null)
             {
                 return null;
@@ -87,7 +88,7 @@ namespace SequenceBreaker.Home.HomeListView
                 return;
             }
             count = mLoopListView.ItemTotalCount + count;
-            if (count < 0 || count > HomeDataSourceMgr.Get.TotalItemCount)
+            if (count < 0 || count > HomeDataSourceMgr.instance.TotalItemCount)
             {
                 return;
             }
@@ -100,7 +101,7 @@ namespace SequenceBreaker.Home.HomeListView
             {
                 return;
             }
-            if (count < 0 || count > HomeDataSourceMgr.Get.TotalItemCount)
+            if (count < 0 || count > HomeDataSourceMgr.instance.TotalItemCount)
             {
                 return;
             }

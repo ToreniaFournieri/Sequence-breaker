@@ -54,7 +54,8 @@ namespace SequenceBreaker.Home.HomeListView
 
         void OnExpandBtnClicked()
         {
-            HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
+            HomeContentData data = HomeDataSourceMgr.instance.GetItemDataByIndex(_mItemDataIndex);
+            //HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
                 return;
@@ -69,7 +70,9 @@ namespace SequenceBreaker.Home.HomeListView
         // go detail button clicked
         void OnGoListBtnClicked()
         {
-            HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
+            HomeContentData data = HomeDataSourceMgr.instance.GetItemDataByIndex(_mItemDataIndex);
+
+            //HomeContentData data = HomeDataSourceMgr.Get.GetItemDataByIndex(_mItemDataIndex);
             if (data == null)
             {
 

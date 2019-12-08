@@ -19,21 +19,24 @@ namespace SequenceBreaker.Home.HomeListView
         //Home contents
         public HomeContents homeContents;
         
-        static HomeDataSourceMgr _instance = null;
         private bool _isHomeContentsNotNull;
 
-        public static HomeDataSourceMgr Get
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<HomeDataSourceMgr>();
-                }
-                return _instance;
-            }
+        public static HomeDataSourceMgr instance = null;
 
-        }
+
+        //public static HomeDataSourceMgr Get
+        //{
+        //    get
+        //    {
+        //        if (_instance == null)
+        //        {
+        //            _instance = FindObjectOfType<HomeDataSourceMgr>();
+        //            //_instance = FindObjectOfType<HomeDataSourceMgr>();
+        //        }
+        //        return _instance;
+        //    }
+
+        //}
 
         private void Start()
         {
@@ -42,12 +45,34 @@ namespace SequenceBreaker.Home.HomeListView
 
         void Awake()
         {
+            Debug.Log("TestSingleton.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+
+            if (instance == null)
+            {
+                instance = this;  //This is the first Singleton instance. Retain a handle to it.
+            }
+            else
+            {
+                if (instance != this)
+                {
+                    Destroy(this); //This is a duplicate Singleton. Destroy this instance.
+                }
+                else
+                {
+                    //Existing Singleton instance found. All is good. No change.
+                }
+            }
+
+            DontDestroyOnLoad(gameObject);
+
             Init();
         }
 
 
         public void Init()
         {
+
+
             _isHomeContentsNotNull = homeContents != null;
 
             DoRefreshDataSource();

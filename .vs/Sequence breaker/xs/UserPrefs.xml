@@ -1,8 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/HomeListView/HomeChangeItemHeightDemoScript.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="59" Column="67" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="38" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="45" Column="64" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="11" Column="86" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryItemList.cs" Line="102" Column="41" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="41" Column="60" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeDataSourceMgr.cs" Line="41" Column="29" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="75" Column="96" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeChangeItemHeightDemoScript.cs" Line="22" Column="62" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

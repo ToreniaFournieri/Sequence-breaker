@@ -8,6 +8,7 @@ namespace SequenceBreaker.Master.Items
 
 
     [Serializable]
+    [CreateAssetMenu(fileName = "ItemPreset", menuName = "Item/ItemPreset", order = 7)]
     public class ItemPreset : ScriptableObject
     {
         public int characterUniqueId;
