@@ -16,18 +16,7 @@ namespace SequenceBreaker.Master.Items
         public ItemPresetList itemPresetList;
 
         public static ItemDataBase instance;
-        //public static ItemDataBase Get
-        //{
-        //    get
-        //    {
-        //        if (instance == null)
-        //        {
-        //            instance = FindObjectOfType<ItemDataBase>();
-        //        }
-        //        return instance;
-        //    }
 
-        //}
 
         private void Awake()
         {

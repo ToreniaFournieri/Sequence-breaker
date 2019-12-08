@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using SequenceBreaker.Master.Items;
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace SequenceBreaker.GUIController
+{
+    public class ResetGameProgress : MonoBehaviour
+    {
+        private UnityAction unityAction;
+
+        private void Start()
+        {
+            unityAction += ResetGame;
+        }
+
+        public void Reset()
+        {
+            PopupWindowSingleton.instance.SetPopUpwindow("Reset Game Progress?"
+                        , "This action cannot undo. Delete all your saved file?", unityAction);
+    
+        }
+
+
+        void ResetGame()
+        {
+
+            Debug.Log("Reset has been pressed!");
+            //ItemDataBase.instance.DeleteAllSavedFiles(true);
+        }
+
+
+    }
+
+}
