@@ -10,27 +10,46 @@ namespace SequenceBreaker.Timeline.BattleLogView
     {
         public SimpleObjectPool unitIconObjectPool;
 
+
+        private void Awake()
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.parent.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        private void Start()
+        {
+            //transform.localScale = new Vector3(1, 1, 1);
+
+        }
+
         public void SetUnitInfo(List<BattleUnit> battleUnits)
         {
             if (battleUnits != null)
             {
+                gameObject.SetActive(false);
+
+
                 List<GameObject> children = new List<GameObject>();
 
                 foreach (Transform child in transform)
                 {
+                    child.transform.localScale = new Vector3(1, 1, 1);
                     children.Add(child.gameObject);
+
+                    //unitIconObjectPool.ReturnObject(child.gameObject);
 
                 }
 
                 // Somehow, this works.
                 foreach (GameObject child in children)
                 {
+                    //child.transform.localScale = new Vector3(1, 1, 1);
                     unitIconObjectPool.ReturnObject(child);
                 }
 
                 bool isSwitchedAffiliation = false;
 
-                transform.localScale = new Vector3(1, 1, 1);
 
                 foreach (var unit in battleUnits)
                 {
@@ -59,6 +78,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     }
 
                     GameObject unitIcon = unitIconObjectPool.GetObject();
+                    //unitIcon.transform.localScale = new Vector3(1, 1, 1);
 
                     // set barrier remains icon
                     unitIcon.GetComponent<UnitInfoSet>().barrierRemains.text = unit.buff.BarrierRemaining.ToString();
@@ -74,10 +94,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
 
                     unitIcon.transform.parent = transform;
-
                     unitIcon.transform.localScale = new Vector3(1, 1, 1);
 
+
                 }
+
+                gameObject.SetActive(true);
 
             }
         }

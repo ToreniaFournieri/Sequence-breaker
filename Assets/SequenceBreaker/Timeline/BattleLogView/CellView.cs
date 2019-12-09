@@ -49,6 +49,9 @@ namespace SequenceBreaker.Timeline.BattleLogView
         {
             reactText.text = data.ReactText;
 
+            headerContent.SetActive(false);
+
+
             if (data.IsHeaderInfo)
             {
                 headerInfo.text = data.HeaderText;
@@ -59,7 +62,6 @@ namespace SequenceBreaker.Timeline.BattleLogView
             else
             {
                 //Need to false in case recycle object.
-                headerContent.SetActive(false);
             }
 
             unitInfo.text = data.UnitInfo;
