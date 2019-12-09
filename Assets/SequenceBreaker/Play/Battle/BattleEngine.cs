@@ -16,12 +16,11 @@ namespace SequenceBreaker.Play.Battle
         public WhichWin WhichWin = WhichWin.None; // get only last one
         // output data for sequence battle.
         public List<BattleUnit> AllyBattleUnitsList;
-        private static double _allyAttackMagnification = 1.0;
-        private static double _allyDefenseMagnification = 1.0;
+        //private static double _allyAttackMagnification = 1.0;
+        //private static double _allyDefenseMagnification = 1.0;
 
         private int _count;
         private readonly List<BattleUnit> _characters = new List<BattleUnit>();
-        private AbilityClass[] _abilities;
 
         //Skill make logic , test: one character per one skill
         private SkillsMasterClass _normalAttackSkillMaster;
@@ -90,18 +89,17 @@ namespace SequenceBreaker.Play.Battle
         public void Battle()
         {
             var startDateTime = DateTime.Now;
-            //Console.WriteLine("start:" + startDateTime);
             // Battle environment setting
             const int battleWavesSets = 1;
             const int battleWaves = 1; // one set of battle 
-            const string navigatorName = "Navigator";
+            //const string navigatorName = "Navigator";
 
-            //BattleWaveSet variables
-            const double allyAttackMagnificationPerWavesSet = 0.0;
-            const double allyDefenseMagnificationPerWavesSet = 0.0;
+            ////BattleWaveSet variables
+            //const double allyAttackMagnificationPerWavesSet = 0.0;
+            //const double allyDefenseMagnificationPerWavesSet = 0.0;
 
             FuncBattleConditionsText text;
-            var seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
+            int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
             //seed = 1086664070; // Reproduction.
             var r = new Random(seed);
 
@@ -116,47 +114,37 @@ namespace SequenceBreaker.Play.Battle
 
             //------------------------Battle Main Engine------------------------
             //Logic: Number of Battle
-            for (var battleWavesSet = 1; battleWavesSet <= battleWavesSets; battleWavesSet++)
+            for (int battleWavesSet = 1; battleWavesSet <= battleWavesSets; battleWavesSet++)
             {
                 //set up set info
                 var statisticsReporterFirstBlood = new List<StatisticsReporterFirstBloodClass>();
                 var statisticsReporterWhichWins = new WhichWin[battleWaves];
 
-                if (battleWavesSet > 1) //  magnification per wave set
-                { _allyAttackMagnification *= (1 + allyAttackMagnificationPerWavesSet); _allyDefenseMagnification *= (1 + allyDefenseMagnificationPerWavesSet); }
+                //if (battleWavesSet > 1) //  magnification per wave set
+                //{ _allyAttackMagnification *= (1 + allyAttackMagnificationPerWavesSet); _allyDefenseMagnification *= (1 + allyDefenseMagnificationPerWavesSet); }
 
                 var allyWinCount = 0; var enemyWinCount = 0; var drawCount = 0;
 
-                for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
+                for (int battleWave = 1; battleWave <= battleWaves; battleWave++)
                 {
                     var allyFirstBlood = false;
                     var enemyFirstBlood = false; // Set up Phase
                     statisticsReporterFirstBlood.Add(new StatisticsReporterFirstBloodClass(battleWave));
 
-                    foreach (var t in _characters)
+                    foreach (BattleUnit battleUnit in _characters)
                     {
                         //Stop healing
-                        t.Deterioration = 0.0; //Deterioration initialize to 0.0
-                        t.buff.InitializeBuff(); //Buff initialize
-                        t.buff.BarrierRemaining = 0; //Barrier initialize
-                        t.feature.InitializeFeature(); //Feature initialize
-                        t.Statistics.Initialize(); // Initialise
+                        battleUnit.Deterioration = 0.0; //Deterioration initialize to 0.0
+                        battleUnit.buff.InitializeBuff(); //Buff initialize
+                        battleUnit.buff.BarrierRemaining = 0; //Barrier initialize
+                        battleUnit.feature.InitializeFeature(); //Feature initialize
+                        battleUnit.Statistics.Initialize(); // Initialise
                     }
-                    //effects will be set by outside of this battle engine, so effect initialize make different.
+                    //effects will be set by outside of this battle engine, so effect initialize is needed.
                     foreach (var effect in _effects)
                     {
                         effect.InitializeEffect();
                     }
-
-                    //                    if (battleWave == battleWaves && battleWavesSet == battleWavesSets) // only last battle display inside.
-                    //                    {
-                    //                        foreach (var effect in _effects)
-                    //                        {
-                    //                            Console.WriteLine(effect.character.unitName + " has a skill: " + effect.skill.unitName + ". [possibility:" + (int)(effect.triggeredPossibility * 1000) / 10.0 + "%]"
-                    //                                              + " Left:" + effect.UsageCount + " Offense Magnification:" + effect.offenseEffectMagnification + " " + effect.character.buff.DefenseMagnification);
-                    //                        }
-                    //                    }
-                    // _/_/_/_/_/_/ Effect setting end _/_/_/_/_/_/
 
                     var battleEnd = false;
                     currentBattleWaves = battleWave;
@@ -479,15 +467,15 @@ namespace SequenceBreaker.Play.Battle
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
 
-                                    //Navigation Logic
-                                    var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
-                                        _characters, _effects, orderStatus);
+                                    ////Navigation Logic
+                                    //var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
+                                    //    _characters, _effects, orderStatus);
 
-                                    var navigationLog = navigatorSpeechAfterMove.Log;
-                                    if (navigationLog == null) continue;
-                                    //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
-                                    battleLogList.Add(battleLog);
+                                    //var navigationLog = navigatorSpeechAfterMove.Log;
+                                    //if (navigationLog == null) continue;
+                                    ////navigationLog += new string(' ', 2) + "-------------\n";
+                                    //battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
+                                    //battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
                             } // action Phase.
@@ -533,9 +521,9 @@ namespace SequenceBreaker.Play.Battle
                     }
                 } //Battle waves
 
-                subLogPerWavesSets[battleWavesSet - 1] += "[Set:" + battleWavesSet + "] Battle count:" + (allyWinCount + enemyWinCount + drawCount) + " Win:" + (allyWinCount) + " lost:" + (enemyWinCount)
-                                                          + " Win Ratio:" + (int)(allyWinCount / (double)(allyWinCount + enemyWinCount + drawCount) * 100)
-                                                          + "% Ally:[Attack x" + Math.Round(_allyAttackMagnification, 2) + "] [Defense x" + Math.Round(_allyDefenseMagnification, 2) + "] \n";
+                //subLogPerWavesSets[battleWavesSet - 1] += "[Set:" + battleWavesSet + "] Battle count:" + (allyWinCount + enemyWinCount + drawCount) + " Win:" + (allyWinCount) + " lost:" + (enemyWinCount)
+                //                                          + " Win Ratio:" + (int)(allyWinCount / (double)(allyWinCount + enemyWinCount + drawCount) * 100)
+                //                                          + "% Ally:[Attack x" + Math.Round(_allyAttackMagnification, 2) + "] [Defense x" + Math.Round(_allyDefenseMagnification, 2) + "] \n";
                 //statistics reporter open
                 for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
                 {
@@ -600,8 +588,8 @@ namespace SequenceBreaker.Play.Battle
             finalLog += text.Text();
 
             for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }
-            finalLog += " Ally attack magnification per waves set: x" + (1 + allyAttackMagnificationPerWavesSet) + "\n";
-            finalLog += " Ally defense magnification per waves set: x" + (1 + allyDefenseMagnificationPerWavesSet) + "\n";
+            //finalLog += " Ally attack magnification per waves set: x" + (1 + allyAttackMagnificationPerWavesSet) + "\n";
+            //finalLog += " Ally defense magnification per waves set: x" + (1 + allyDefenseMagnificationPerWavesSet) + "\n";
             for (var i = 0; i < battleWavesSets; i++) { finalLog += subLogPerWavesSets[i]; }
 
             var finishDateTime = DateTime.Now;
