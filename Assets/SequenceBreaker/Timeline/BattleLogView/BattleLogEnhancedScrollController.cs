@@ -61,6 +61,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         /// Battle Information
         /// </summary>
         ///
+
         // sample implemented 2019.8.6
 
         public RunBattle runBattle;
@@ -71,8 +72,6 @@ namespace SequenceBreaker.Timeline.BattleLogView
         }
         // end sample implemented 2019.8.6
 
-
-        //private BattleEngine _battle;
         private void Awake()
         {
             searchBar.transform.gameObject.SetActive(false);
@@ -82,10 +81,10 @@ namespace SequenceBreaker.Timeline.BattleLogView
         /// <summary>
         /// Populates the data with some random Lorum Ipsum text
         /// </summary>
-        private void LoadData()
-        {
+        //private void LoadData()
+        //{
 
-        }
+        //}
 
         public void InitBattleLog(RunBattle initBattle)
         {

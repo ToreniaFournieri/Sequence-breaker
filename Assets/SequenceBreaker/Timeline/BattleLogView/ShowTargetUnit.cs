@@ -30,6 +30,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 bool isSwitchedAffiliation = false;
 
+                transform.localScale = new Vector3(1, 1, 1);
+
                 foreach (var unit in battleUnits)
                 {
                     // Display vs words just before enemy start.
@@ -43,6 +45,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
 
                         vsIcon.transform.parent = transform;
+                        vsIcon.transform.localScale = new Vector3(1, 1, 1);
                         isSwitchedAffiliation = true;
                     }
 
@@ -69,7 +72,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
 
+
                     unitIcon.transform.parent = transform;
+
+                    unitIcon.transform.localScale = new Vector3(1, 1, 1);
+
                 }
 
             }

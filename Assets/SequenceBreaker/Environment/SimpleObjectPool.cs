@@ -34,6 +34,9 @@ namespace SequenceBreaker.Environment
 
             // put the instance in the root of the scene and enable it
             spawnedGameObject.transform.SetParent(null);
+
+            //Torenia modification 2019.12.9 force localScale to 1,1,1,
+            spawnedGameObject.transform.localScale = new Vector3(1, 1, 1);
             spawnedGameObject.SetActive(true);
 
             // return a reference to the instance
@@ -50,6 +53,9 @@ namespace SequenceBreaker.Environment
             {
                 // make the instance a child of this and disable it
                 toReturn.transform.SetParent(transform);
+
+                //Torenia modification 2019.12.9 force localScale to 1,1,1,
+                toReturn.transform.localScale = new Vector3(1, 1, 1);
                 toReturn.SetActive(false);
 
                 // add the instance to the collection of inactive instances
