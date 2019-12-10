@@ -69,7 +69,12 @@ namespace SequenceBreaker.Home.EquipView
 
         }
 
-        void Awake()
+        //void Awake()
+        //{
+        //    Init();
+        //}
+
+        private void Start()
         {
             Init();
         }

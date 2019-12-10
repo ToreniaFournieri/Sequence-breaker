@@ -468,7 +468,7 @@ MonoBehaviour:
   itemContent: {fileID: 57300775}
   isCharacterInventory: 0
   characterTreeViewDataSourceMgr: {fileID: 0}
-  inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
+  inventoryTreeViewDataSourceMgr: {fileID: 0}
   item: {fileID: 0}
   itemDetailView: {fileID: 2073615706}
 --- !u!114 &57300773
@@ -1352,51 +1352,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143907253}
   m_CullTransparentMesh: 0
---- !u!1 &147217311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 147217312}
-  - component: {fileID: 147217313}
-  m_Layer: 0
-  m_Name: InventoryMain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &147217312
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147217311}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.6666, y: -879.08295, z: 0}
-  m_LocalScale: {x: 1.4799376, y: 1.4799376, z: 1.4799376}
-  m_Children: []
-  m_Father: {fileID: 1973180632}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &147217313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147217311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f1bf7459ee5341399ee1de6e2fbff86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mLoopListView: {fileID: 1506471908}
-  mStickeyHeadItem: {fileID: 2110743964}
 --- !u!1 &156208635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5989,7 +5944,7 @@ MonoBehaviour:
   partyStatusIcons: {fileID: 766314200}
   missionList: {fileID: 11400000, guid: f4ae10b04f0174c37818cbef541d137b, type: 2}
   inventoryItemList: {fileID: 171929590}
-  inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
+  inventoryTreeViewDataSourceMgr: {fileID: 1973180634}
   logListSria: {fileID: 0}
   logListDataSourceMgr: {fileID: 1266789296}
   transparentMessageController: {fileID: 639922438}
@@ -9551,54 +9506,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092624511}
   m_CullTransparentMesh: 0
---- !u!1 &1101192370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1101192371}
-  - component: {fileID: 1101192372}
-  m_Layer: 0
-  m_Name: InventoryDataSourceMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1101192371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101192370}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.6666, y: -879.08295, z: 0}
-  m_LocalScale: {x: 1.4799376, y: 1.4799376, z: 1.4799376}
-  m_Children: []
-  m_Father: {fileID: 1973180632}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1101192372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101192370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea58c63c930594522a781b1bc72f984f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allyInventoryItemList: {fileID: 171929590}
-  infinityInventoryItemList: {fileID: 1826953318}
-  isInfinityInventoryMode: 0
-  otherCharacterTreeViewDataSourceMgr: {fileID: 1469652865}
-  inventoryTreeViewWithStickyHeadScript: {fileID: 147217313}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
@@ -12719,7 +12626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStatusDisplay: {fileID: 1252398280}
-  otherInventoryTreeViewDataSourceMgr: {fileID: 1101192372}
+  otherInventoryTreeViewDataSourceMgr: {fileID: 1973180634}
 --- !u!1 &1471982452
 GameObject:
   m_ObjectHideFlags: 0
@@ -15659,9 +15566,9 @@ GameObject:
   - component: {fileID: 1794051295}
   - component: {fileID: 1794051294}
   - component: {fileID: 1794051296}
+  - component: {fileID: 1794051297}
   - component: {fileID: 1794051299}
   - component: {fileID: 1794051298}
-  - component: {fileID: 1794051297}
   m_Layer: 5
   m_Name: 01_EquipListView
   m_TagString: Untagged
@@ -17020,6 +16927,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1973180632}
   - component: {fileID: 1973180633}
+  - component: {fileID: 1973180634}
+  - component: {fileID: 1973180635}
   m_Layer: 5
   m_Name: 1_Inventory
   m_TagString: Untagged
@@ -17040,8 +16949,6 @@ RectTransform:
   m_Children:
   - {fileID: 1506471907}
   - {fileID: 457134948}
-  - {fileID: 147217312}
-  - {fileID: 1101192371}
   m_Father: {fileID: 649992057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17058,6 +16965,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973180631}
   m_CullTransparentMesh: 0
+--- !u!114 &1973180634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973180631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea58c63c930594522a781b1bc72f984f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyInventoryItemList: {fileID: 171929590}
+  infinityInventoryItemList: {fileID: 1826953318}
+  isInfinityInventoryMode: 0
+  otherCharacterTreeViewDataSourceMgr: {fileID: 1469652865}
+  inventoryTreeViewWithStickyHeadScript: {fileID: 1973180635}
+--- !u!114 &1973180635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973180631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1bf7459ee5341399ee1de6e2fbff86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mLoopListView: {fileID: 1506471908}
+  mStickeyHeadItem: {fileID: 2110743964}
 --- !u!1 &1984612208
 GameObject:
   m_ObjectHideFlags: 0
@@ -18208,7 +18146,7 @@ MonoBehaviour:
   mGoListDetail: {fileID: 920969988}
   jumpToGameObject: {fileID: 649992056}
   characterStatusDisplay: {fileID: 1252398280}
-  inventoryTreeViewDataSourceMgr: {fileID: 1101192372}
+  inventoryTreeViewDataSourceMgr: {fileID: 1973180634}
 --- !u!114 &2133656637
 MonoBehaviour:
   m_ObjectHideFlags: 0
