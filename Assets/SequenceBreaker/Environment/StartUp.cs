@@ -20,7 +20,7 @@ namespace SequenceBreaker.Environment
         //Ally set
         public UnitSet allyUnitSet;
         //Ally inventory
-        public HomeDataSourceMgr homeDataSourceMgr;
+        public EquipListDataSourceMgr equipListDataSourceMgr;
 
 
         //new Unit list
@@ -47,28 +47,28 @@ namespace SequenceBreaker.Environment
 
 
             //Import ally info
-            HomeContentData allyHomeContentData;
+            EquipListContentData allyEquipListContentData;
 
             if (allyUnitSet != null && allyUnitSet.unitSetList != null)
             {
-                allyHomeContentData = new HomeContentData();
-                allyHomeContentData.contentText = "Ally Equipment";
-                allyHomeContentData.description = "Equip items for playable characters. ";
-                allyHomeContentData.isInfinityInventoryMode = false;
-                allyHomeContentData.unitClassList = new List<UnitClass>();
+                allyEquipListContentData = new EquipListContentData();
+                allyEquipListContentData.contentText = "Ally Equipment";
+                allyEquipListContentData.description = "Equip items for playable characters. ";
+                allyEquipListContentData.isInfinityInventoryMode = false;
+                allyEquipListContentData.unitClassList = new List<UnitClass>();
                 foreach (UnitWave wave in allyUnitSet.unitSetList)
                 {
-                   foreach (UnitClass unit in wave.unitWave)
+                    foreach (UnitClass unit in wave.unitWave)
                     {
                         unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                         unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
                         unit.CalculateLevel();
-                        allyHomeContentData.unitClassList.Add(unit);
+                        allyEquipListContentData.unitClassList.Add(unit);
                     }
                 }
 
-                homeDataSourceMgr.homeContents.homeContentList.Add(allyHomeContentData);
-                homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, allyHomeContentData);
+                equipListDataSourceMgr.equipListContents.equipListContentList.Add(allyEquipListContentData);
+                equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, allyEquipListContentData);
 
             }
 
@@ -84,16 +84,16 @@ namespace SequenceBreaker.Environment
 
 
             // import additional enemy unit to home contents
-            HomeContentData enemyHomeContentData;
+            EquipListContentData enemyHomeContentData;
 
             foreach (var mission in missionController.missionList.missionMasterList)
-                //foreach (var mission in missionController.missionMasterList)
+            //foreach (var mission in missionController.missionMasterList)
             {
                 int waveInt = 1;
 
                 foreach (var unitSet in mission.unitSet.unitSetList)
                 {
-                    enemyHomeContentData = new HomeContentData();
+                    enemyHomeContentData = new EquipListContentData();
                     enemyHomeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
                     enemyHomeContentData.description = "[Enemy info]";
                     enemyHomeContentData.isInfinityInventoryMode = true;
@@ -108,7 +108,7 @@ namespace SequenceBreaker.Environment
                             List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;
                         }
-                    
+
                         //foreach (var set in itemIdSetList)
                         //{
                         //    Item item = ItemDataBase.Get.GetItemFromId(set.prefixId, set.baseId, set.suffixId, set.enhancedValue);
@@ -123,8 +123,8 @@ namespace SequenceBreaker.Environment
 
                     waveInt++;
 
-                    homeDataSourceMgr.homeContents.homeContentList.Add(enemyHomeContentData);
-                    homeDataSourceMgr.InsertData(homeDataSourceMgr.homeContents.homeContentList.Count - 1, enemyHomeContentData);
+                    equipListDataSourceMgr.equipListContents.equipListContentList.Add(enemyHomeContentData);
+                    equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, enemyHomeContentData);
                 }
 
             }
@@ -145,8 +145,8 @@ namespace SequenceBreaker.Environment
             Debug.unityLogger.logEnabled = true;
 
 #else
-                    // others debug off
-                    Debug.unityLogger.logEnabled = false;
+            // others debug off
+            Debug.unityLogger.logEnabled = false;
 
 #endif
 

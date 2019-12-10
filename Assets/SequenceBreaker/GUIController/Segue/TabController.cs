@@ -19,45 +19,45 @@ namespace SequenceBreaker.GUIController.Segue
         public GameObject timelineTab;
         public GameObject playTab;
         public GameObject homeTab;
-        
+
         // current tab.
         public string currentTab;
 
         //For enemy unitClass load
         //public ItemDataBase itemDataBase;
-        public HomeContents homeContents;
-        
+        public EquipListContents equipListContents;
+
         // For Home Character update 
         public CharacterStatusDisplay characterStatusDisplay;
-        
+
         // Segue control
         public SegueController segueController;
-        
+
         // Log list update
         private void Awake()
         {
 
             ActivateTab("TimelineTab");
-            
+
         }
 
 
 
         public void ActivateTab(string toActivateTab)
         {
-            
+
             switch (toActivateTab)
             {
                 case "TimelineTab":
                     if (currentTab == toActivateTab)
                     {
                         segueController.InitTimeLineView();
-                        
+
                     }
                     timelineImage.color = Color.white;
                     playImage.color = Color.gray;
                     homeImage.color = Color.gray;
-                    
+
                     timelineTab.SetActive(true);
                     playTab.SetActive(false);
                     homeTab.SetActive(false);
@@ -73,15 +73,15 @@ namespace SequenceBreaker.GUIController.Segue
                     playImage.color = Color.white;
                     homeImage.color = Color.gray;
 
-                    
-//                     unit load
-                    foreach (var homeContentData in homeContents.homeContentList)
+
+                    //                     unit load
+                    foreach (var equipListContentData in equipListContents.equipListContentList)
                     {
-                        foreach (var unit in homeContentData.unitClassList)
+                        foreach (var unit in equipListContentData.unitClassList)
                         {
                             //Bug:This way to load info is not collect.
                             //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
-                            if (unit != null  &&unit.affiliation == Affiliation.Ally)
+                            if (unit != null && unit.affiliation == Affiliation.Ally)
                             {
                                 UnitClass loadUnit = ItemDataBase.instance.LoadUnitInfo(unit);
                                 unit.itemList = loadUnit.itemList;
@@ -110,7 +110,7 @@ namespace SequenceBreaker.GUIController.Segue
                     timelineImage.color = Color.gray;
                     playImage.color = Color.gray;
                     homeImage.color = Color.white;
-                    
+
                     //only ally should calculate level
                     if (characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].affiliation ==
                         Affiliation.Ally)
@@ -129,8 +129,8 @@ namespace SequenceBreaker.GUIController.Segue
             }
 
             currentTab = toActivateTab;
-//            segueController.dragAndClose.Init();
-            
+            //            segueController.dragAndClose.Init();
+
         }
     }
 }
