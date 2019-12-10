@@ -1,8 +1,8 @@
-﻿using SRDebugger.Internal;
-using SRDebugger.Profiler;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler;
 using UnityEditor;
 
-namespace SRDebugger.Editor
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
     [CustomEditor(typeof (ProfilerCameraListener))]
     public class ProfilerCameraListenerEditor : UnityEditor.Editor

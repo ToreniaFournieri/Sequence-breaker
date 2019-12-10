@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.Profiler
-{
-    using System;
-    using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler
+{
     /// <summary>
     /// The profiler has a separate monobehaviour to listen for LateUpdate, and is placed
     /// at the end of the script execution order.

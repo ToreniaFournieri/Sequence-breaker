@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.Services
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public delegate void PinEntryCompleteCallback(bool validPinEntered);
 
     public interface IPinEntryService

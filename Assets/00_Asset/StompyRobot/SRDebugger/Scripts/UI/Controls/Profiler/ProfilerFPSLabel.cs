@@ -1,10 +1,11 @@
-﻿namespace SRDebugger.UI
-{
-    using Services;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Profiler
+{
     public class ProfilerFPSLabel : SRMonoBehaviourEx
     {
         private float _nextUpdate;

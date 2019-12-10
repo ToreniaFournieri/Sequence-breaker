@@ -1,10 +1,10 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [RequireComponent(typeof (RectTransform))]
     [ExecuteInEditMode]
     [AddComponentMenu(ComponentMenuPaths.ContentFitText)]

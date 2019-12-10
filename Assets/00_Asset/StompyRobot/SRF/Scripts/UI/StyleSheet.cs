@@ -1,11 +1,11 @@
-﻿namespace SRF.UI
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Helpers;
-    using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [Serializable]
     public class Style
     {

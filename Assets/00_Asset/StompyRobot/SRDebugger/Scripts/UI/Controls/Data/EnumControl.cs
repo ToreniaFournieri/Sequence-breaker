@@ -1,14 +1,14 @@
 ﻿// ReSharper disable once RedundantUsingDirective
-using System.Reflection;
 
-namespace SRDebugger.UI.Controls.Data
+using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
 {
-    using System;
-    using SRF;
-    using SRF.UI;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     public class EnumControl : DataBoundControl
     {
         private object _lastValue;

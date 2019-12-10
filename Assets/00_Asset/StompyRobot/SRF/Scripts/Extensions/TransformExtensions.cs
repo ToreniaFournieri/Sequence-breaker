@@ -1,8 +1,8 @@
-﻿namespace SRF
-{
-    using System.Collections.Generic;
-    using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Extensions
+{
     public static class SRFTransformExtensions
     {
         public static IEnumerable<Transform> GetChildren(this Transform t)

@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using Internal;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public interface IOptionsService
     {
         /// <summary>

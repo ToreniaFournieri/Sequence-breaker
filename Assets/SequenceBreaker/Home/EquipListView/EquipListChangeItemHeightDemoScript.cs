@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SequenceBreaker.Home.HomeListView
+namespace SequenceBreaker.Home.EquipListView
 {
 
     public class EquipListChangeItemHeightDemoScript : MonoBehaviour

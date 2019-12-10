@@ -1,9 +1,10 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [RequireComponent(typeof (Graphic))]
     [ExecuteInEditMode]
     [AddComponentMenu(ComponentMenuPaths.InheritColour)]

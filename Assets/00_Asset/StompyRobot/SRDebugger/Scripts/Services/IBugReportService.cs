@@ -1,7 +1,7 @@
-﻿namespace SRDebugger.Services
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public class BugReport
     {
         public List<ConsoleEntry> ConsoleLog;

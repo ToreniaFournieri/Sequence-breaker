@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.Internal
-{
-    using Services;
-    using SRF.Service;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
+{
     public static class Service
     {
         private static IConsoleService _consoleService;

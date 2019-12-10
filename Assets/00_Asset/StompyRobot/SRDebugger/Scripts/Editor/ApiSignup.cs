@@ -5,11 +5,11 @@ using System.IO;
 using System.Net;
 using System.Net.Cache;
 using System.Text;
-using SRDebugger.Internal;
-using SRF;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.External;
 using UnityEngine;
 
-namespace SRDebugger.Editor
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
     public static class ApiSignup
     {

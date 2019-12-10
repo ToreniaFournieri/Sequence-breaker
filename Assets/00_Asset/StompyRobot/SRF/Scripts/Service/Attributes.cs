@@ -1,7 +1,7 @@
-﻿namespace SRF.Service
-{
-    using System;
+﻿using System;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Service
+{
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class ServiceAttribute : Attribute
     {

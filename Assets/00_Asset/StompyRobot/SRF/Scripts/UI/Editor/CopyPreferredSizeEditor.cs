@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace SRF.UI.Editor
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI.Editor
 {
     [CustomEditor(typeof (CopyPreferredSize))]
     [CanEditMultipleObjects]

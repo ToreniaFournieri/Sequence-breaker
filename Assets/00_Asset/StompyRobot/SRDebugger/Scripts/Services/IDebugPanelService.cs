@@ -1,7 +1,7 @@
-﻿namespace SRDebugger.Services
-{
-    using System;
+﻿using System;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public interface IDebugPanelService
     {
         /// <summary>

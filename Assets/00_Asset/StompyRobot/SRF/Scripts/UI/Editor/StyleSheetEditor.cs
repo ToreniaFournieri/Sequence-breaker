@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace SRF.UI.Editor
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI.Editor
 {
     [CustomEditor(typeof (StyleSheet))]
     public class StyleSheetEditor : UnityEditor.Editor

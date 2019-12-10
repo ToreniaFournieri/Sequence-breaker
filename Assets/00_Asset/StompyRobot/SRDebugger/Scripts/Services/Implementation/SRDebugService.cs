@@ -1,13 +1,15 @@
-﻿namespace SRDebugger.Services.Implementation
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
 {
-    using System;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
     using Object = UnityEngine.Object;
-    using SRF.UI;
-    using UnityEngine.UI;
 
     [Service(typeof (IDebugService))]
     public class SRDebugService : IDebugService

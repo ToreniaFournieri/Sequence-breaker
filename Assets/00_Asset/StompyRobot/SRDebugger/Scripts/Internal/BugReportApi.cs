@@ -1,21 +1,18 @@
-﻿
-using System.IO;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Text;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.External;
+using UnityEngine;
 using UnityEngine.Networking;
 
 #if NETFX_CORE
 using UnityEngine.Windows;
 #endif
 
-namespace SRDebugger.Internal
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Services;
-    using SRF;
-    using UnityEngine;
-
     public class BugReportApi
     {
         private readonly string _apiKey;

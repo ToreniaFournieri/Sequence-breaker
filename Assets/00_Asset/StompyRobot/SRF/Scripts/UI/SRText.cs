@@ -1,10 +1,10 @@
-﻿namespace SRF.UI
-{
-    using System;
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     /// <summary>
     /// Adds a LayoutDirty callback to the default Text component.
     /// </summary>

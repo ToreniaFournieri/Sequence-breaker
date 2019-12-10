@@ -1,11 +1,11 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using System;
-    using Controls;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.Serialization;
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.Serialization;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class SRTab : SRMonoBehaviourEx
     {
         /// <summary>

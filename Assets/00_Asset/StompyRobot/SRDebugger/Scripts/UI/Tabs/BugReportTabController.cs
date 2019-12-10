@@ -1,9 +1,10 @@
-﻿namespace SRDebugger.UI.Tabs
-{
-    using Other;
-    using SRF;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Tabs
+{
     public class BugReportTabController : SRMonoBehaviourEx, IEnableTab
     {
         [RequiredField] public BugReportSheetController BugReportSheetPrefab;

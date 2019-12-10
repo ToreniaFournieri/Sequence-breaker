@@ -1,9 +1,9 @@
-﻿namespace SRF.Helpers
-{
-    using System;
-    using System.Linq;
-    using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Helpers
+{
     public class PropertyReference
     {
         private readonly PropertyInfo _property;

@@ -1,15 +1,15 @@
 ﻿// ReSharper disable once RedundantUsingDirective
-using System.Linq;
 
-namespace SRF
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
+
+namespace _00_Asset.StompyRobot.SRF.Scripts.Components
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using Helpers;
-    using Service;
-    using UnityEngine;
-
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field)]
     public sealed class RequiredFieldAttribute : Attribute
     {

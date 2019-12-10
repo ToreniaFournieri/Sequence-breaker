@@ -1,12 +1,13 @@
-﻿namespace SRDebugger.Internal
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using SRF;
-    using UI.Controls;
-    using UI.Controls.Data;
-    using UnityEngine;
     using Object = UnityEngine.Object;
 
     public static class OptionControlFactory

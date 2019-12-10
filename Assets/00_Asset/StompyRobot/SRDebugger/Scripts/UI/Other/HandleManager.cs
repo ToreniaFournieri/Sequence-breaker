@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using SRF;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     /// <summary>
     /// Handles enabling/disabling handle objects for different anchoring modes
     /// </summary>

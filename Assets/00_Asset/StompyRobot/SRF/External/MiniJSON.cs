@@ -27,16 +27,15 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Text;
 
-namespace SRF
+namespace _00_Asset.StompyRobot.SRF.External
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-
     // Example usage:
     //
     //  using UnityEngine;

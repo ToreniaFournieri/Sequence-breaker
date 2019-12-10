@@ -1,7 +1,9 @@
-﻿namespace SRF.Components
+﻿using System.Diagnostics;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+
+namespace _00_Asset.StompyRobot.SRF.Scripts.Components
 {
-    using System.Diagnostics;
-    using UnityEngine;
     using Debug = UnityEngine.Debug;
 
     /// <summary>

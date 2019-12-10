@@ -1,10 +1,12 @@
 ﻿//#define ENABLE_LOGGING
 
-namespace SRF.Service
+using System.Collections;
+using System.Diagnostics;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+
+namespace _00_Asset.StompyRobot.SRF.Scripts.Service
 {
-    using System.Collections;
-    using System.Diagnostics;
-    using UnityEngine;
     using Debug = UnityEngine.Debug;
 
     public abstract class SRSceneServiceBase<T, TImpl> : SRServiceBase<T>, IAsyncService

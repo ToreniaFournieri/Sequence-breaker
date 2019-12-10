@@ -1,10 +1,10 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     /// <summary>
     /// Copies the preferred size of another layout element (useful for a parent object basing its sizing from a child
     /// element).

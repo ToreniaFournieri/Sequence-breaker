@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SequenceBreaker.Home.HomeListView
+namespace SequenceBreaker.Home.EquipListView
 {
     
 

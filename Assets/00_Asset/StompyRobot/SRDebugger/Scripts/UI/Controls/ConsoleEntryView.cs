@@ -1,13 +1,13 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using System;
-    using Services;
-    using SRF;
-    using SRF.UI;
-    using SRF.UI.Layout;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using _00_Asset.StompyRobot.SRF.Scripts.UI.Layout;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
+{
     [RequireComponent(typeof (RectTransform))]
     public class ConsoleEntryView : SRMonoBehaviourEx, IVirtualView
     {

@@ -1,13 +1,11 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace SRDebugger.UI.Other
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
 {
-    using Internal;
-    using SRF;
-    using UnityEngine;
-
     [RequireComponent(typeof (Canvas))]
     public class ConfigureCanvasFromSettings : SRMonoBehaviour
     {

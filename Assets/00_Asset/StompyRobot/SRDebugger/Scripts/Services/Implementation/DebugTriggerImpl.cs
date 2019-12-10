@@ -1,16 +1,16 @@
-﻿#if !(UNITY_4_6 || UNITY_4_7  || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3)
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
+
+#if !(UNITY_4_6 || UNITY_4_7  || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3)
 #define USE_NEW_SCENE_MANAGEMENT
 #endif
 
-namespace SRDebugger.Services.Implementation
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
 {
-    using System;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UI.Other;
-    using UnityEngine;
-
     [Service(typeof (IDebugTriggerService))]
     public class DebugTriggerImpl : SRServiceBase<IDebugTriggerService>, IDebugTriggerService
     {

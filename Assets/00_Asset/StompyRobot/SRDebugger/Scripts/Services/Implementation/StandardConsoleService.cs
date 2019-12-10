@@ -1,8 +1,9 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using SRF.Service;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IConsoleService))]
     public class StandardConsoleService : IConsoleService
     {

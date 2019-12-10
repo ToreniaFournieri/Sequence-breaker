@@ -1,11 +1,11 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using Controls;
-    using SRF;
-    using SRF.UI;
-    using UnityEngine;
-    using UnityEngine.Serialization;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
+using UnityEngine.Serialization;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class TriggerRoot : SRMonoBehaviourEx
     {
         [RequiredField] public Canvas Canvas;

@@ -1,12 +1,12 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using Internal;
-    using SRF.Service;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IOptionsService))]
     public class OptionsServiceImpl : IOptionsService
     {

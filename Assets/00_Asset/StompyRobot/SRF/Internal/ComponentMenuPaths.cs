@@ -1,4 +1,4 @@
-﻿namespace SRF.Internal
+﻿namespace _00_Asset.StompyRobot.SRF.Internal
 {
     internal static class ComponentMenuPaths
     {

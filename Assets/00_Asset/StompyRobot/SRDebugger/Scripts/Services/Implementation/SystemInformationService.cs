@@ -1,12 +1,14 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.StompyRobot.SRF.External;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     /// <summary>
     /// Reports system specifications and environment information. Information that can
     /// be used to identify a user is marked as private, and won't be included in any generated

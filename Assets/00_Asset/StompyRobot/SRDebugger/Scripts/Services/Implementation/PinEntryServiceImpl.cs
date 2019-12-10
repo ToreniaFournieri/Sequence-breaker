@@ -1,14 +1,14 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UI.Controls;
-    using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IPinEntryService))]
     public class PinEntryServiceImpl : SRServiceBase<IPinEntryService>, IPinEntryService
     {

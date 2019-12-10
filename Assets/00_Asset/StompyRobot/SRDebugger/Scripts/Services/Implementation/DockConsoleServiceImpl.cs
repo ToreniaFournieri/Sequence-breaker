@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using Internal;
-    using SRF.Service;
-    using UI.Other;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IDockConsoleService))]
     public class DockConsoleServiceImpl : IDockConsoleService
     {

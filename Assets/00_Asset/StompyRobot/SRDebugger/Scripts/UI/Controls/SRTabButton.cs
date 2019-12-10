@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using SRF;
-    using SRF.UI;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
+{
     public class SRTabButton : SRMonoBehaviourEx
     {
         [RequiredField] public Behaviour ActiveToggle;

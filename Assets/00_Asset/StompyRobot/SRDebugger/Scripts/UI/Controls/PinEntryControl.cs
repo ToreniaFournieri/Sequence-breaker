@@ -1,11 +1,12 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
+{
     public delegate void PinEntryControlCallback(IList<int> result, bool didCancel);
 
     public class PinEntryControl : SRMonoBehaviourEx

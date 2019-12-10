@@ -1,17 +1,18 @@
-﻿namespace SRDebugger.UI.Tabs
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using Controls;
-    using Controls.Data;
-    using Internal;
-    using Other;
-    using Services;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Tabs
+{
     public class OptionsTabController : SRMonoBehaviourEx
     {
         private class CategoryInstance

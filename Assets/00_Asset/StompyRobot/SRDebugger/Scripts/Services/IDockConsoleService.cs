@@ -1,4 +1,4 @@
-﻿namespace SRDebugger.Services
+﻿namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
 {
     public interface IDockConsoleService
     {

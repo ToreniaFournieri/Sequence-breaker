@@ -1,10 +1,12 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.Serialization;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [ExecuteInEditMode]
     [AddComponentMenu(ComponentMenuPaths.StyleComponent)]
     public class StyleComponent : SRMonoBehaviour

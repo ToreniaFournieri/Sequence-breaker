@@ -1,9 +1,9 @@
-﻿namespace SRF.Helpers
-{
-    using System;
-    using System.Reflection;
+﻿using System;
+using System.Reflection;
 
-    public static class SRReflection
+namespace _00_Asset.StompyRobot.SRF.Scripts.Helpers
+{
+	public static class SRReflection
     {
         public static void SetPropertyValue(object obj, PropertyInfo p, object value)
         {

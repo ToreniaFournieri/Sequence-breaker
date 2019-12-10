@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using UnityEngine;
 
-namespace SRDebugger.Services
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
 {
-    using System;
-    using Internal;
-
     public interface IPinnedUIService
     {
         event Action<OptionDefinition, bool> OptionPinStateChanged;

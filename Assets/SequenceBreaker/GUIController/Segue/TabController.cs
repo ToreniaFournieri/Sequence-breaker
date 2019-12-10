@@ -1,7 +1,7 @@
 ﻿using System;
 using SequenceBreaker.Environment;
+using SequenceBreaker.Home.EquipListView;
 using SequenceBreaker.Home.EquipView;
-using SequenceBreaker.Home.HomeListView;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.UnitClass;
 using UnityEngine;

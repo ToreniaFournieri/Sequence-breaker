@@ -183,6 +183,230 @@
               <e p="PanelAnimator.cs" t="Include" />
             </e>
           </e>
+          <e p="StompyRobot" t="Include">
+            <e p="SRDebugger" t="Include">
+              <e p="README.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="AutoInitialize.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="ApiSignup.cs" t="Include" />
+                  <e p="ApiSignupWindow.cs" t="Include" />
+                  <e p="Migrations.cs" t="Include" />
+                  <e p="ProfilerCameraListenerEditor.cs" t="Include" />
+                  <e p="SettingsEditor.cs" t="Include" />
+                  <e p="SettingsWindow.cs" t="Include" />
+                  <e p="SROptionsWindow.cs" t="Include" />
+                  <e p="WelcomeWindow.cs" t="Include" />
+                </e>
+                <e p="Internal" t="Include">
+                  <e p="Api.cs" t="Include" />
+                  <e p="ApiUtil.cs" t="Include" />
+                  <e p="BugReportApi.cs" t="Include" />
+                  <e p="BugReportScreenshotUtil.cs" t="Include" />
+                  <e p="CircularBuffer.cs" t="Include" />
+                  <e p="EditorUtil.cs" t="Include" />
+                  <e p="OptionControlFactory.cs" t="Include" />
+                  <e p="OptionDefinition.cs" t="Include" />
+                  <e p="Paths.cs" t="Include" />
+                  <e p="Service.cs" t="Include" />
+                  <e p="Strings.cs" t="Include" />
+                  <e p="Util.cs" t="Include" />
+                </e>
+                <e p="Profiler" t="Include">
+                  <e p="ProfilerCameraListener.cs" t="Include" />
+                  <e p="ProfilerLateUpdateListener.cs" t="Include" />
+                  <e p="ProfilerServiceImpl.cs" t="Include" />
+                  <e p="SRPProfilerService.cs" t="Include" />
+                </e>
+                <e p="Services" t="Include">
+                  <e p="IBugReportService.cs" t="Include" />
+                  <e p="IConsoleService.cs" t="Include" />
+                  <e p="IDebugCameraService.cs" t="Include" />
+                  <e p="IDebugPanelService.cs" t="Include" />
+                  <e p="IDebugService.cs" t="Include" />
+                  <e p="IDebugTriggerService.cs" t="Include" />
+                  <e p="IDockConsoleService.cs" t="Include" />
+                  <e p="Implementation" t="Include">
+                    <e p="BugReportApiService.cs" t="Include" />
+                    <e p="BugReportPopoverService.cs" t="Include" />
+                    <e p="DebugCameraServiceImpl.cs" t="Include" />
+                    <e p="DebugPanelServiceImpl.cs" t="Include" />
+                    <e p="DebugTriggerImpl.cs" t="Include" />
+                    <e p="DockConsoleServiceImpl.cs" t="Include" />
+                    <e p="KeyboardShortcutListenerService.cs" t="Include" />
+                    <e p="OptionsServiceImpl.cs" t="Include" />
+                    <e p="PinEntryServiceImpl.cs" t="Include" />
+                    <e p="PinnedUIServiceImpl.cs" t="Include" />
+                    <e p="SRDebugService.cs" t="Include" />
+                    <e p="StandardConsoleService.cs" t="Include" />
+                    <e p="SystemInformationService.cs" t="Include" />
+                  </e>
+                  <e p="IOptionsService.cs" t="Include" />
+                  <e p="IPinEntryService.cs" t="Include" />
+                  <e p="IPinnedOptionsService.cs" t="Include" />
+                  <e p="IProfilerService.cs" t="Include" />
+                  <e p="ISystemInformationService.cs" t="Include" />
+                  <e p="ServiceSelectors.cs" t="Include" />
+                </e>
+                <e p="Settings.cs" t="Include" />
+                <e p="SRDebug.cs" t="Include" />
+                <e p="SRDebuggerInit.cs" t="Include" />
+                <e p="SROptions.Attributes.cs" t="Include" />
+                <e p="SROptions.cs" t="Include" />
+                <e p="SROptions.Test.cs" t="Include" />
+                <e p="UI" t="Include">
+                  <e p="Controls" t="Include">
+                    <e p="ConsoleEntryView.cs" t="Include" />
+                    <e p="ConsoleLogControl.cs" t="Include" />
+                    <e p="Data" t="Include">
+                      <e p="ActionControl.cs" t="Include" />
+                      <e p="BoolControl.cs" t="Include" />
+                      <e p="DataBoundControl.cs" t="Include" />
+                      <e p="EnumControl.cs" t="Include" />
+                      <e p="NumberControl.cs" t="Include" />
+                      <e p="OptionsControlBase.cs" t="Include" />
+                      <e p="ReadOnlyControl.cs" t="Include" />
+                      <e p="StringControl.cs" t="Include" />
+                    </e>
+                    <e p="InfoBlock.cs" t="Include" />
+                    <e p="MultiTapButton.cs" t="Include" />
+                    <e p="PinEntryControl.cs" t="Include" />
+                    <e p="Profiler" t="Include">
+                      <e p="ProfilerFPSLabel.cs" t="Include" />
+                      <e p="ProfilerMemoryBlock.cs" t="Include" />
+                      <e p="ProfilerMonoBlock.cs" t="Include" />
+                    </e>
+                    <e p="ProfilerEnableControl.cs" t="Include" />
+                    <e p="ProfilerGraphAxisLabel.cs" t="Include" />
+                    <e p="ProfilerGraphControl.cs" t="Include" />
+                    <e p="SRTabButton.cs" t="Include" />
+                  </e>
+                  <e p="DebuggerTabController.cs" t="Include" />
+                  <e p="DebugPanelRoot.cs" t="Include" />
+                  <e p="MobileMenuController.cs" t="Include" />
+                  <e p="Other" t="Include">
+                    <e p="BugReportPopoverRoot.cs" t="Include" />
+                    <e p="BugReportSheetController.cs" t="Include" />
+                    <e p="CategoryGroup.cs" t="Include" />
+                    <e p="ConfigureCanvasFromSettings.cs" t="Include" />
+                    <e p="ConsoleTabQuickViewControl.cs" t="Include" />
+                    <e p="DebugPanelBackgroundBehaviour.cs" t="Include" />
+                    <e p="DockConsoleController.cs" t="Include" />
+                    <e p="DockConsoleRoot.cs" t="Include" />
+                    <e p="HandleManager.cs" t="Include" />
+                    <e p="IEnableTab.cs" t="Include" />
+                    <e p="LoadingSpinnerBehaviour.cs" t="Include" />
+                    <e p="PinnedUIRoot.cs" t="Include" />
+                    <e p="ScrollRectPatch.cs" t="Include" />
+                    <e p="ScrollSettingsBehaviour.cs" t="Include" />
+                    <e p="SetLayerFromSettings.cs" t="Include" />
+                    <e p="SRTab.cs" t="Include" />
+                    <e p="SRTabController.cs" t="Include" />
+                    <e p="TriggerRoot.cs" t="Include" />
+                    <e p="VersionTextBehaviour.cs" t="Include" />
+                  </e>
+                  <e p="Tabs" t="Include">
+                    <e p="BugReportTabController.cs" t="Include" />
+                    <e p="ConsoleTabController.cs" t="Include" />
+                    <e p="InfoTabController.cs" t="Include" />
+                    <e p="OptionsTabController.cs" t="Include" />
+                    <e p="ProfilerTabController.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Version.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="Fonts" t="Include">
+                  <e p="FONT LICENSE.txt" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="SRF" t="Include">
+              <e p="External" t="Include">
+                <e p="Jetbrains.Annotations.cs" t="Include" />
+                <e p="MiniJSON.cs" t="Include" />
+              </e>
+              <e p="Internal" t="Include">
+                <e p="ComponentMenuPaths.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Collections" t="Include">
+                  <e p="SRList.cs" t="Include" />
+                </e>
+                <e p="Components" t="Include">
+                  <e p="SRAutoSingleton.cs" t="Include" />
+                  <e p="SRMonoBehaviour.cs" t="Include" />
+                  <e p="SRMonoBehaviourEx.cs" t="Include" />
+                  <e p="SRSingleton.cs" t="Include" />
+                </e>
+                <e p="Coroutines.cs" t="Include" />
+                <e p="Extensions" t="Include">
+                  <e p="FloatExtensions.cs" t="Include" />
+                  <e p="GameObjectExtensions.cs" t="Include" />
+                  <e p="IListExtensions.cs" t="Include" />
+                  <e p="NetFxExtensions.cs" t="Include" />
+                  <e p="StringExtensions.cs" t="Include" />
+                  <e p="TransformExtensions.cs" t="Include" />
+                </e>
+                <e p="Helpers" t="Include">
+                  <e p="AssetUtil.cs" t="Include" />
+                  <e p="Hierarchy.cs" t="Include" />
+                  <e p="MethodReference.cs" t="Include" />
+                  <e p="PropertyReference.cs" t="Include" />
+                  <e p="SRDebugUtil.cs" t="Include" />
+                  <e p="SRFileUtil.cs" t="Include" />
+                  <e p="SRInstantiate.cs" t="Include" />
+                  <e p="SRMath.cs" t="Include" />
+                  <e p="SRMath.Tweening.cs" t="Include" />
+                  <e p="SRMath.Tweening.Functions.cs" t="Include" />
+                  <e p="SRReflection.cs" t="Include" />
+                </e>
+                <e p="Service" t="Include">
+                  <e p="Attributes.cs" t="Include" />
+                  <e p="IAsyncService.cs" t="Include" />
+                  <e p="SRDependencyServiceBase.cs" t="Include" />
+                  <e p="SRSceneServiceBase.cs" t="Include" />
+                  <e p="SRServiceBase.cs" t="Include" />
+                  <e p="SRServiceManager.cs" t="Include" />
+                </e>
+                <e p="UI" t="Include">
+                  <e p="ContentFitText.cs" t="Include" />
+                  <e p="CopyLayoutElement.cs" t="Include" />
+                  <e p="CopyPreferredSize.cs" t="Include" />
+                  <e p="CopySizeIntoLayoutElement.cs" t="Include" />
+                  <e p="DragHandle.cs" t="Include" />
+                  <e p="Editor" t="Include">
+                    <e p="CopyLayoutElementEditor.cs" t="Include" />
+                    <e p="CopyPreferredSizeEditor.cs" t="Include" />
+                    <e p="LongPressButtonEditor.cs" t="Include" />
+                    <e p="SRNumberButtonEditor.cs" t="Include" />
+                    <e p="StyleComponentEditor.cs" t="Include" />
+                    <e p="StyleSheetEditor.cs" t="Include" />
+                  </e>
+                  <e p="FlashGraphic.cs" t="Include" />
+                  <e p="InheritColour.cs" t="Include" />
+                  <e p="Layout" t="Include">
+                    <e p="FlowLayoutGroup.cs" t="Include" />
+                    <e p="VirtualVerticalLayoutGroup.cs" t="Include" />
+                  </e>
+                  <e p="LongPressButton.cs" t="Include" />
+                  <e p="ResponsiveBase.cs" t="Include" />
+                  <e p="ResponsiveEnable.cs" t="Include" />
+                  <e p="ResponsiveResize.cs" t="Include" />
+                  <e p="ScrollToBottomBehaviour.cs" t="Include" />
+                  <e p="SRNumberButton.cs" t="Include" />
+                  <e p="SRNumberSpinner.cs" t="Include" />
+                  <e p="SRRetinaScaler.cs" t="Include" />
+                  <e p="SRSpinner.cs" t="Include" />
+                  <e p="SRText.cs" t="Include" />
+                  <e p="StyleComponent.cs" t="Include" />
+                  <e p="StyleRoot.cs" t="Include" />
+                  <e p="StyleSheet.cs" t="Include" />
+                  <e p="Unselectable.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
         </e>
         <e p="06_Excel" t="Include">
           <e p="sample-output" t="Include">
@@ -194,13 +418,16 @@
             <e p="DropEngine.cs" t="Include" />
           </e>
           <e p="Editor" t="Include">
+            <e p="ItemBaseCreate.cs" t="Include" />
+            <e p="ItemBaseExcel.cs" t="Include" />
             <e p="ItemPresetCreate.cs" t="Include" />
             <e p="ItemPresetListCreate.cs" t="Include" />
             <e p="MissionCreate.cs" t="Include" />
+            <e p="MissionListCreate.cs" t="Include" />
             <e p="RunExcelConverter.cs" t="Include" />
             <e p="UnitClassListCreate.cs" t="Include" />
             <e p="UnitCreate.cs" t="Include" />
-            <e p="UnitEquipment.cs" t="Include" />
+            <e p="UnitEquipmentExcel.cs" t="Include" />
             <e p="UnitMasterExcel.cs" t="Include" />
             <e p="UnitMasterExcelImport.cs" t="Include" />
             <e p="UnitSetCreate.cs" t="Include" />
@@ -214,6 +441,8 @@
             <e p="StartUp.cs" t="Include" />
           </e>
           <e p="GUIController" t="Include">
+            <e p="PopupWindowSingleton.cs" t="Include" />
+            <e p="ResetGameProgress.cs" t="Include" />
             <e p="Segue" t="Include">
               <e p="BackPreviousView.cs" t="Include" />
               <e p="DragAndClose.cs" t="Include" />
@@ -226,6 +455,12 @@
             <e p="TransparentMessageController.cs" t="Include" />
           </e>
           <e p="Home" t="Include">
+            <e p="EquipListView" t="Include">
+              <e p="EquipListChangeItemHeightDemoScript.cs" t="Include" />
+              <e p="EquipListContents.cs" t="Include" />
+              <e p="EquipListDataSourceMgr.cs" t="Include" />
+              <e p="EquipListItem.cs" t="Include" />
+            </e>
             <e p="EquipView" t="Include">
               <e p="CharacterHeaderSizeChanger.cs" t="Include" />
               <e p="CharacterStatusDisplay.cs" t="Include" />
@@ -238,12 +473,6 @@
               <e p="InventoryTreeViewWithStickyHeadScript.cs" t="Include" />
               <e p="ItemDetailViewController.cs" t="Include" />
               <e p="SwitchLayer.cs" t="Include" />
-            </e>
-            <e p="HomeListView" t="Include">
-              <e p="HomeChangeItemHeightDemoScript.cs" t="Include" />
-              <e p="HomeContents.cs" t="Include" />
-              <e p="HomeDataSourceMgr.cs" t="Include" />
-              <e p="HomeListItem.cs" t="Include" />
             </e>
           </e>
           <e p="Master" t="Include">
@@ -264,12 +493,14 @@
               <e p="ItemBaseMaster.cs" t="Include" />
               <e p="ItemDataBase.cs" t="Include" />
               <e p="ItemForSave.cs" t="Include" />
+              <e p="ItemMasterList.cs" t="Include" />
               <e p="ItemPreset.cs" t="Include" />
               <e p="ItemPresetList.cs" t="Include" />
               <e p="MagnificationMasterClass.cs" t="Include" />
             </e>
             <e p="Mission" t="Include">
               <e p="MissionMaster.cs" t="Include" />
+              <e p="MissionMasterList.cs" t="Include" />
               <e p="UnitSet.cs" t="Include" />
               <e p="UnitWave.cs" t="Include" />
             </e>

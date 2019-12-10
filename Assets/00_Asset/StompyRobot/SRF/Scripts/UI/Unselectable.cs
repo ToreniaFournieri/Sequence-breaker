@@ -1,9 +1,10 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     /// <summary>
     /// Do not allow an object to become select (automatically unfocus when receiving selection callback)
     /// </summary>

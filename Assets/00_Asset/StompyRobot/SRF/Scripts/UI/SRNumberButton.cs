@@ -1,9 +1,9 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [AddComponentMenu(ComponentMenuPaths.NumberButton)]
     public class SRNumberButton : UnityEngine.UI.Button, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {

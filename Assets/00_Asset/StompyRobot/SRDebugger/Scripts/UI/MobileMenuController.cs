@@ -1,10 +1,12 @@
-﻿namespace SRDebugger.UI
-{
-    using Other;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI
+{
     public class MobileMenuController : SRMonoBehaviourEx
     {
         private UnityEngine.UI.Button _closeButton;

@@ -1,17 +1,16 @@
-﻿namespace SRDebugger.Editor
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-    using SRDebugger.Internal;
-    using SRDebugger.Internal.Editor;
-    using SRF;
-    using UnityEditor;
-    using UnityEditorInternal;
-    using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEditor;
+using UnityEditorInternal;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
+{
     public class SRDebuggerSettingsWindow : EditorWindow
     {
         private enum ProfilerAlignment

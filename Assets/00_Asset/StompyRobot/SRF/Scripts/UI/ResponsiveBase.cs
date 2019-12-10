@@ -1,7 +1,8 @@
-﻿namespace SRF.UI
-{
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [ExecuteInEditMode]
     [RequireComponent(typeof (RectTransform))]
     public abstract class ResponsiveBase : SRMonoBehaviour

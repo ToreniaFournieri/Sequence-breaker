@@ -1,12 +1,12 @@
-﻿namespace SRF.UI
-{
-    using System;
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     [AddComponentMenu(ComponentMenuPaths.SRSpinner)]
     public class SRSpinner : Selectable, IDragHandler, IBeginDragHandler
     {

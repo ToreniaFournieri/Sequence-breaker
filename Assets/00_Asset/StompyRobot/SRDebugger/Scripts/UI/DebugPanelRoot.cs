@@ -1,11 +1,10 @@
-﻿namespace SRDebugger.UI
-{
-    using Scripts;
-    using Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI
+{
     public class DebugPanelRoot : SRMonoBehaviourEx
     {
         [RequiredField] public Canvas Canvas;

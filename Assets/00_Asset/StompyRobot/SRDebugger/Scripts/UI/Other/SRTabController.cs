@@ -1,12 +1,14 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using System;
-    using System.Collections.Generic;
-    using Controls;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Collections;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class SRTabController : SRMonoBehaviourEx
     {
         private readonly SRList<SRTab> _tabs = new SRList<SRTab>();

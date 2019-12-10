@@ -1,18 +1,19 @@
 ﻿
+using System;
+using System.Collections;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.UI.Layout;
+using UnityEngine;
+using UnityEngine.UI;
+
 #pragma warning disable 169
 #pragma warning disable 649
 
-namespace SRDebugger.UI.Controls
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
 {
-    using System;
-    using System.Collections;
-    using Internal;
-    using Services;
-    using SRF;
-    using SRF.UI.Layout;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     public class ConsoleLogControl : SRMonoBehaviourEx
     {
         [RequiredField] [SerializeField] private VirtualVerticalLayoutGroup _consoleScrollLayoutGroup;

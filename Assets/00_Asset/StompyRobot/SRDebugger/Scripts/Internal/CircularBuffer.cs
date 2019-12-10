@@ -9,12 +9,12 @@
  * https://github.com/joaoportela/CircullarBuffer-CSharp
 */
 
-namespace SRDebugger
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
+ using System;
+ using System.Collections;
+ using System.Collections.Generic;
 
+ namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
+{
     public interface IReadOnlyList<T> : IEnumerable<T>
     {
         int Count { get; }

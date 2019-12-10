@@ -1,16 +1,16 @@
 ﻿
+using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
+
 #if NETFX_CORE
 using System.Threading.Tasks;
 #endif
 
-namespace SRDebugger.Services.Implementation
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
 {
-    using System;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
-
     [Service(typeof (IBugReportService))]
     public class BugReportApiService : SRServiceBase<IBugReportService>, IBugReportService
     {

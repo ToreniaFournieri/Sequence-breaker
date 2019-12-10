@@ -1,9 +1,9 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IDebugCameraService))]
     public class DebugCameraServiceImpl : IDebugCameraService
     {

@@ -1,12 +1,12 @@
-﻿namespace SRDebugger.Internal
-{
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Reflection;
-    using SRF.Helpers;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
+{
     public static class SRDebuggerUtil
     {
         public static bool IsMobilePlatform
@@ -133,7 +133,7 @@
 #endif
 
                     options.Add(new OptionDefinition(name, category, sortPriority,
-                        new SRF.Helpers.PropertyReference(obj, propertyInfo)));
+                        new PropertyReference(obj, propertyInfo)));
                 }
                 else if (memberInfo is MethodInfo)
                 {
@@ -151,7 +151,7 @@
                     }
 
                     options.Add(new OptionDefinition(name, category, sortPriority,
-                        new SRF.Helpers.MethodReference(obj, methodInfo)));
+                        new MethodReference(obj, methodInfo)));
                 }
             }
 

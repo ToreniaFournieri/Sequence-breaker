@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using SRF;
-    using SRF.UI.Layout;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.UI.Layout;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class PinnedUIRoot : SRMonoBehaviourEx
     {
         [RequiredField] public Canvas Canvas;

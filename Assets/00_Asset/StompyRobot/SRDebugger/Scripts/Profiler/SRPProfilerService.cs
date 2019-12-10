@@ -1,13 +1,15 @@
-﻿#if UNITY_2018_1_OR_NEWER
+﻿using System.Collections;
+using System.Diagnostics;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
-namespace SRDebugger.Profiler
+#if UNITY_2018_1_OR_NEWER
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler
 {
-    using System.Collections;
-    using System.Diagnostics;
-    using SRDebugger.Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
 #if UNITY_2019_3_OR_NEWER
     using UnityEngine.Rendering;
 #else

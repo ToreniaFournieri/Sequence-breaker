@@ -1,11 +1,9 @@
-﻿using System;
-using SRDebugger.Internal;
-using SRDebugger.Internal.Editor;
-using SRF;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
 using UnityEditor;
 using UnityEngine;
 
-namespace SRDebugger.Editor
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
     [InitializeOnLoad]
     public class WelcomeWindow : EditorWindow

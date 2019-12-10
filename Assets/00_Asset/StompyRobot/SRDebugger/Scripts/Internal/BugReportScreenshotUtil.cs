@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.Internal
-{
-    using System.Collections;
-    using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
+{
     public class BugReportScreenshotUtil
     {
         public static byte[] ScreenshotData;

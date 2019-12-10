@@ -1,9 +1,9 @@
-﻿namespace SRDebugger
-{
-    using System;
-    using Services;
-    using SRF;
+﻿using System;
+using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public sealed class InfoEntry
     {
         public string Title { get; set; }
@@ -61,11 +61,6 @@
             };
         }
     }
-}
-
-namespace SRDebugger.Services
-{
-    using System.Collections.Generic;
 
     public interface ISystemInformationService
     {

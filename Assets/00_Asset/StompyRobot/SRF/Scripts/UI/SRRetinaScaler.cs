@@ -1,9 +1,10 @@
-﻿namespace SRF.UI
-{
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     /// <summary>
     /// Detects when a screen dpi exceeds what the developer considers
     /// a "retina" level display, and scales the canvas accordingly.

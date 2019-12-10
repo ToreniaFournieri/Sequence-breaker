@@ -1,11 +1,12 @@
-﻿namespace SRDebugger.Scripts
-{
-    using System;
-    using System.Linq;
-    using SRF;
-    using UI.Other;
-    using UnityEngine;
+﻿using System;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI
+{
     public class DebuggerTabController : SRMonoBehaviourEx
     {
         private SRTab _aboutTabInstance;

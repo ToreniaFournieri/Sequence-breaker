@@ -1,7 +1,7 @@
-﻿namespace SRF.Helpers
-{
-    using System.Reflection;
+﻿using System.Reflection;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Helpers
+{
     public class MethodReference
     {
         private MethodInfo _method;

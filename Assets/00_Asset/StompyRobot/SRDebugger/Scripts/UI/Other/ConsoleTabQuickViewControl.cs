@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using Services;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class ConsoleTabQuickViewControl : SRMonoBehaviourEx
     {
         private const int Max = 1000;

@@ -1,50 +1,53 @@
 ﻿using System;
 
-public partial class SROptions
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    [AttributeUsage(AttributeTargets.Property)]
-    public sealed class NumberRangeAttribute : Attribute
+    public partial class SROptions
     {
-        public readonly double Max;
-        public readonly double Min;
-
-        public NumberRangeAttribute(double min, double max)
+        [AttributeUsage(AttributeTargets.Property)]
+        public sealed class NumberRangeAttribute : Attribute
         {
-            Min = min;
-            Max = max;
+            public readonly double Max;
+            public readonly double Min;
+
+            public NumberRangeAttribute(double min, double max)
+            {
+                Min = min;
+                Max = max;
+            }
         }
-    }
 
-    [AttributeUsage(AttributeTargets.Property)]
-    public sealed class IncrementAttribute : Attribute
-    {
-        public readonly double Increment;
-
-        public IncrementAttribute(double increment)
+        [AttributeUsage(AttributeTargets.Property)]
+        public sealed class IncrementAttribute : Attribute
         {
-            Increment = increment;
+            public readonly double Increment;
+
+            public IncrementAttribute(double increment)
+            {
+                Increment = increment;
+            }
         }
-    }
 
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method)]
-    public sealed class SortAttribute : Attribute
-    {
-        public readonly int SortPriority;
-
-        public SortAttribute(int priority)
+        [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method)]
+        public sealed class SortAttribute : Attribute
         {
-            SortPriority = priority;
+            public readonly int SortPriority;
+
+            public SortAttribute(int priority)
+            {
+                SortPriority = priority;
+            }
         }
-    }
 
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method)]
-    public sealed class DisplayNameAttribute : Attribute
-    {
-        public readonly string Name;
-
-        public DisplayNameAttribute(string name)
+        [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method)]
+        public sealed class DisplayNameAttribute : Attribute
         {
-            Name = name;
+            public readonly string Name;
+
+            public DisplayNameAttribute(string name)
+            {
+                Name = name;
+            }
         }
     }
 }

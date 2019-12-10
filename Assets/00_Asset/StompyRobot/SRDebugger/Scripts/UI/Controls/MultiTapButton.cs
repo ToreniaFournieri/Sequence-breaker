@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using UnityEngine;
-    using UnityEngine.EventSystems;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
+{
     public class MultiTapButton : UnityEngine.UI.Button
     {
         private float _lastTap;

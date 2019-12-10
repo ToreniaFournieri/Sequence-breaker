@@ -1,12 +1,12 @@
-﻿#if UNITY_EDITOR
+﻿using System;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
 
-namespace SRDebugger.Internal.Editor
+#if UNITY_EDITOR
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
 {
-    using System;
-    using System.IO;
-    using UnityEditor;
-    using UnityEngine;
-
     public static class SRDebugEditorUtil
     {
         // Path to this file from the root path

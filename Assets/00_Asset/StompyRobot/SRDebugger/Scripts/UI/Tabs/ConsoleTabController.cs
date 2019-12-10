@@ -1,15 +1,15 @@
 ﻿//#define SR_CONSOLE_DEBUG
 
-namespace SRDebugger.UI.Tabs
-{
-    using System;
-    using Controls;
-    using Internal;
-    using Services;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Tabs
+{
     public class ConsoleTabController : SRMonoBehaviourEx
     {
         private const int MaxLength = 2600;

@@ -1,10 +1,9 @@
-﻿using System;
-using _00_Asset._01_SuperScrollView.Scripts.ListView;
+﻿using _00_Asset._01_SuperScrollView.Scripts.ListView;
 using SequenceBreaker.Home.EquipView;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SequenceBreaker.Home.HomeListView
+namespace SequenceBreaker.Home.EquipListView
 {
     public class EquipListItem : MonoBehaviour
     {

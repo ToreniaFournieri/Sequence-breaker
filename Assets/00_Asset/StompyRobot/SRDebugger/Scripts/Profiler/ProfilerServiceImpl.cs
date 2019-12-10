@@ -1,11 +1,12 @@
-﻿namespace SRDebugger.Profiler
-{
-    using System.Diagnostics;
-    using Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using System.Diagnostics;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler
+{
     public class ProfilerServiceImpl : SRServiceBase<IProfilerService>, IProfilerService
     {
         public float AverageFrameTime { get; private set; }

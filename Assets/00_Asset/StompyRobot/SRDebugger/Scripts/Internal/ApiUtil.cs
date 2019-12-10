@@ -1,10 +1,10 @@
-﻿namespace SRDebugger.Internal
-{
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Net;
-    using SRF;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using _00_Asset.StompyRobot.SRF.External;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
+{
     public static class SRDebugApiUtil
     {
         public static string ParseErrorException(WebException ex)

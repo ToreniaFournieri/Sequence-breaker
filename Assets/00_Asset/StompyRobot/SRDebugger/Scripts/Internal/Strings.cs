@@ -1,4 +1,4 @@
-﻿namespace SRDebugger.Internal
+﻿namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Internal
 {
     public class SRDebugStrings
     {

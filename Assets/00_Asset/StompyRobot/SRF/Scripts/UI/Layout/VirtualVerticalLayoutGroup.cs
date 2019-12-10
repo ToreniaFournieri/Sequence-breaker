@@ -1,14 +1,17 @@
 ﻿//#define PROFILE
 
-namespace SRF.UI.Layout
-{
-    using System;
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.Events;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+using System;
+using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Collections;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI.Layout
+{
     public interface IVirtualView
     {
         void SetDataContext(object data);

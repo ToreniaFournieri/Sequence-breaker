@@ -1,11 +1,11 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using System.Collections.Generic;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (KeyboardShortcutListenerService))]
     public class KeyboardShortcutListenerService : SRServiceBase<KeyboardShortcutListenerService>
     {

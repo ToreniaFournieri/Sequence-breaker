@@ -1,10 +1,10 @@
-﻿namespace SRF.UI
-{
-    using System;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI
+{
     public class DragHandle : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         private CanvasScaler _canvasScaler;

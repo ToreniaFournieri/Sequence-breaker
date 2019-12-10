@@ -1,11 +1,12 @@
-﻿namespace SRF
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Collections
+{
     /// <summary>
     /// IList implementation which does not release the buffer when clearing/removing elements. Based on the NGUI BetterList
     /// </summary>

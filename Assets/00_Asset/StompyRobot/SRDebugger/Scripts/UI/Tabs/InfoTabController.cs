@@ -1,13 +1,14 @@
-﻿namespace SRDebugger.UI.Tabs
-{
-    using System.Collections.Generic;
-    using System.Text;
-    using Controls;
-    using Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Text;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Tabs
+{
     public class InfoTabController : SRMonoBehaviourEx
     {
         public const char Tick = '\u2713';

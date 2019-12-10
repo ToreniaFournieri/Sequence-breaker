@@ -1,9 +1,9 @@
-﻿namespace SRDebugger.Profiler
-{
-    using System;
-    using System.Diagnostics;
-    using UnityEngine;
+﻿using System;
+using System.Diagnostics;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler
+{
     [RequireComponent(typeof (Camera))]
     public class ProfilerCameraListener : MonoBehaviour
     {

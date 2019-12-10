@@ -1,12 +1,12 @@
-﻿namespace SRDebugger.Services.Implementation
-{
-    using System;
-    using Internal;
-    using SRF;
-    using SRF.Service;
-    using UI;
-    using UnityEngine;
+﻿using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
+{
     [Service(typeof (IDebugPanelService))]
     public class DebugPanelServiceImpl : ScriptableObject, IDebugPanelService
     {

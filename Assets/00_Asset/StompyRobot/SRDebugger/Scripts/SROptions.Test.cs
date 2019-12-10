@@ -1,18 +1,10 @@
 ﻿//#define ENABLE_TEST_SROPTIONS
 
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using SRDebugger;
-using SRDebugger.Services;
-using SRF;
-using SRF.Service;
-using Debug = UnityEngine.Debug;
-using Random = UnityEngine.Random;
-
-public partial class SROptions
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    // Uncomment the #define at the top of file to enable test options
+    public partial class SROptions
+    {
+        // Uncomment the #define at the top of file to enable test options
 
 #if ENABLE_TEST_SROPTIONS
 
@@ -364,4 +356,5 @@ public partial class SROptions
     }
 
 #endif
+    }
 }

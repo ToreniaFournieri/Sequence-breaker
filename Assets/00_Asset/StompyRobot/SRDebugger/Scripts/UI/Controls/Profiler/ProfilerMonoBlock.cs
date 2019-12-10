@@ -1,9 +1,11 @@
-﻿namespace SRDebugger.UI.Controls
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Profiler
 {
-    using System;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
 #if UNITY_5_5_OR_NEWER
     using UnityEngine.Profiling;
 #endif

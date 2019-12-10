@@ -1,16 +1,20 @@
 ﻿// Disable unreachable code warning caused by DEBUG
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using _00_Asset.StompyRobot.SRF.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Collections;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+
 #pragma warning disable 0162
 
-namespace SRF.Service
+namespace _00_Asset.StompyRobot.SRF.Scripts.Service
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-    using Components;
-    using Helpers;
-    using Internal;
-    using UnityEngine;
     using Object = UnityEngine.Object;
 
     [AddComponentMenu(ComponentMenuPaths.SRServiceManager)]

@@ -1,8 +1,9 @@
-﻿namespace SRF
-{
-    using System.Diagnostics;
-    using UnityEngine;
+﻿using System.Diagnostics;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Components
+{
     /// <summary>
     /// Base MonoBehaviour which provides useful common functionality
     /// </summary>

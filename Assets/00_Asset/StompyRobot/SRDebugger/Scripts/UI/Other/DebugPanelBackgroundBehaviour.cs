@@ -1,9 +1,9 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using SRF;
-    using SRF.UI;
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     [RequireComponent(typeof (StyleComponent))]
     public class DebugPanelBackgroundBehaviour : SRMonoBehaviour
     {

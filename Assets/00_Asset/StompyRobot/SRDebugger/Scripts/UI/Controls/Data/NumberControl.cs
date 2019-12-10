@@ -1,12 +1,13 @@
-﻿namespace SRDebugger.UI.Controls.Data
-{
-    using System;
-    using System.Collections.Generic;
-    using SRF;
-    using SRF.UI;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.UI;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
+{
     public class NumberControl : DataBoundControl
     {
         private static readonly Type[] IntegerTypes =

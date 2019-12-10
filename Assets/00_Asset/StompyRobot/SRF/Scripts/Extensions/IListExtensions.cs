@@ -1,8 +1,8 @@
-﻿namespace SRF
-{
-    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Extensions
+{
     public static class SRFIListExtensions
     {
         public static T Random<T>(this IList<T> list)

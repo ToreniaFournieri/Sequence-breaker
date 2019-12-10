@@ -1,23 +1,26 @@
-﻿public delegate void SROptionsPropertyChanged(object sender, string propertyName);
-
-public partial class SROptions
+﻿namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    private static readonly SROptions _current = new SROptions();
+    public delegate void SROptionsPropertyChanged(object sender, string propertyName);
 
-    public static SROptions Current
+    public partial class SROptions
     {
-        get { return _current; }
-    }
+        private static readonly SROptions _current = new SROptions();
 
-    public event SROptionsPropertyChanged PropertyChanged;
-#if UNITY_EDITOR
-    [JetBrains.Annotations.NotifyPropertyChangedInvocator]
-#endif
-    public void OnPropertyChanged(string propertyName)
-    {
-        if (PropertyChanged != null)
+        public static SROptions Current
         {
-            PropertyChanged(this, propertyName);
+            get { return _current; }
+        }
+
+        public event SROptionsPropertyChanged PropertyChanged;
+#if UNITY_EDITOR
+        [JetBrains.Annotations.NotifyPropertyChangedInvocator]
+#endif
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, propertyName);
+            }
         }
     }
 }

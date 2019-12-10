@@ -1,19 +1,20 @@
-﻿namespace SRDebugger.UI.Controls.Data
-{
-    using System;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
+{
     public class ActionControl : OptionsControlBase
     {
-        private SRF.Helpers.MethodReference _method;
+        private MethodReference _method;
 
         [RequiredField] public UnityEngine.UI.Button Button;
 
         [RequiredField] public Text Title;
 
-        public SRF.Helpers.MethodReference Method
+        public MethodReference Method
         {
             get { return _method; }
         }
@@ -43,7 +44,7 @@
             }
         }
 
-        public void SetMethod(string methodName, SRF.Helpers.MethodReference method)
+        public void SetMethod(string methodName, MethodReference method)
         {
             _method = method;
             Title.text = methodName;

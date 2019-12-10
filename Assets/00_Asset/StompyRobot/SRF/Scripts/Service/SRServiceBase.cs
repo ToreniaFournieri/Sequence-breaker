@@ -1,4 +1,6 @@
-﻿namespace SRF.Service
+﻿using _00_Asset.StompyRobot.SRF.Scripts.Components;
+
+namespace _00_Asset.StompyRobot.SRF.Scripts.Service
 {
     public abstract class SRServiceBase<T> : SRMonoBehaviourEx where T : class
     {

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SRDebugger.Internal.Editor;
-using SRF;
-using UnityEngine;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
 using UnityEditor;
+using UnityEngine;
+
 #pragma warning disable 162
 
-namespace SRDebugger.Editor
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
     [InitializeOnLoad]
     static class Migrations

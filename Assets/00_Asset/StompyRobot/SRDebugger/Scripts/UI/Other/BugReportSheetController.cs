@@ -1,21 +1,22 @@
 ﻿
+using System;
+using System.Collections;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 #if NETFX_CORE
 using UnityEngine.Windows;
 #endif
 
-namespace SRDebugger.UI.Other
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
 {
-    using System;
-    using System.Collections;
-    using System.Linq;
-    using Internal;
-    using Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
-
     public class BugReportSheetController : SRMonoBehaviourEx
     {
         [RequiredField] public GameObject ButtonContainer;

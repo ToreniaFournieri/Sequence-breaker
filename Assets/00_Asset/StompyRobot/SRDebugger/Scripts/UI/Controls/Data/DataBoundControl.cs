@@ -1,16 +1,17 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using System;
-    using UnityEngine;
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
+{
     public abstract class DataBoundControl : OptionsControlBase
     {
         private bool _hasStarted;
         private bool _isReadOnly;
         private object _prevValue;
-        private SRF.Helpers.PropertyReference _prop;
+        private PropertyReference _prop;
 
-        public SRF.Helpers.PropertyReference Property
+        public PropertyReference Property
         {
             get { return _prop; }
         }
@@ -24,7 +25,7 @@
 
         #region Data Binding
 
-        public void Bind(string propertyName, SRF.Helpers.PropertyReference prop)
+        public void Bind(string propertyName, PropertyReference prop)
         {
             PropertyName = propertyName;
             _prop = prop;

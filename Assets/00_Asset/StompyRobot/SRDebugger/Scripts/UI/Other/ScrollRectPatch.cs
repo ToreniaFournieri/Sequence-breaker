@@ -1,8 +1,8 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     [RequireComponent(typeof (ScrollRect))]
     [ExecuteInEditMode]
     public class ScrollRectPatch : MonoBehaviour

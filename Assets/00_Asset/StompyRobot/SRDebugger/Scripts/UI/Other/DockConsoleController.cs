@@ -1,13 +1,13 @@
-﻿namespace SRDebugger.UI.Other
-{
-    using Controls;
-    using Internal;
-    using Services;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Other
+{
     public class DockConsoleController : SRMonoBehaviourEx, IPointerEnterHandler, IPointerExitHandler
     {
         public const float NonFocusOpacity = 0.65f;

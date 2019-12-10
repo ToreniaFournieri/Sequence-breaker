@@ -1,12 +1,14 @@
 ﻿
-namespace SRDebugger.Services
+using System;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Profiler;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
 {
-    using System;
-    using Profiler;
-    using SRF.Service;
 #if UNITY_2018_1_OR_NEWER
     using UnityEngine.Rendering;
-    using UnityEngine.Experimental.Rendering;
+
 #endif
 
     public static class ProfilerServiceSelector

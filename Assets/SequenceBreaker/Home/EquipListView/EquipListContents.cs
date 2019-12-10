@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
 
-namespace SequenceBreaker.Home.HomeListView
+namespace SequenceBreaker.Home.EquipListView
 {
 
     [Serializable]

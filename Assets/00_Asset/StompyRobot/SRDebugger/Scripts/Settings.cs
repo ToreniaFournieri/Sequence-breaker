@@ -1,14 +1,15 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEngine;
 
-namespace SRDebugger
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.IO;
-    using System.Linq;
-    using SRF;
-    using UnityEngine;
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -643,7 +644,7 @@ namespace SRDebugger
         {
             try
             {
-                return Internal.Editor.SRDebugEditorUtil.GetRootPath() + ResourcesPath;
+                return SRDebugEditorUtil.GetRootPath() + ResourcesPath;
             }
             catch
             {

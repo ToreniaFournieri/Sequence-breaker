@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine;
 
-namespace SRDebugger
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
 {
     public delegate void VisibilityChangedDelegate(bool isVisible);
 
     public delegate void ActionCompleteCallback(bool success);
 
     public delegate void PinnedUiCanvasCreated(RectTransform canvasTransform);
-}
-
-namespace SRDebugger.Services
-{
-    using UnityEngine;
 
     public interface IDebugService
     {

@@ -1,10 +1,10 @@
-﻿namespace SRF.UI.Layout
-{
-    using System.Collections.Generic;
-    using Internal;
-    using UnityEngine;
-    using UnityEngine.UI;
+﻿using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRF.Internal;
+using UnityEngine;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.UI.Layout
+{
     /// <summary>
     /// Layout Group controller that arranges children in rows, fitting as many on a line until total width exceeds parent
     /// bounds

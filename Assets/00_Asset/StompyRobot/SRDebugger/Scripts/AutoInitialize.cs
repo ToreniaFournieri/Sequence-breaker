@@ -1,11 +1,9 @@
-﻿using SRDebugger.Services;
-using SRDebugger.Services.Implementation;
-using SRF.Service;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
 
-namespace SRDebugger
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    using UnityEngine;
-
     public static class AutoInitialize
     {
         /// <summary>

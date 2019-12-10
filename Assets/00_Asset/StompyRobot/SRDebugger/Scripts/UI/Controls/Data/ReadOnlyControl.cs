@@ -1,9 +1,9 @@
-﻿namespace SRDebugger.UI.Controls.Data
-{
-    using System;
-    using SRF;
-    using UnityEngine.UI;
+﻿using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
+{
     public class ReadOnlyControl : DataBoundControl
     {
         [RequiredField]

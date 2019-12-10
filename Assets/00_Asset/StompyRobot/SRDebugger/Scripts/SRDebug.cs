@@ -1,22 +1,24 @@
-﻿using SRDebugger.Services;
-using SRDebugger.Services.Implementation;
-using SRF.Service;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
 
-public static class SRDebug
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    public const string Version = SRDebugger.VersionInfo.Version;
-
-    public static IDebugService Instance
+    public static class SRDebug
     {
-        get { return SRServiceManager.GetService<IDebugService>(); }
-    }
+        public const string Version = VersionInfo.Version;
 
-    public static void Init()
-    {
-        // Initialize console if it hasn't already initialized.
-        SRServiceManager.GetService<IConsoleService>();
+        public static IDebugService Instance
+        {
+            get { return SRServiceManager.GetService<IDebugService>(); }
+        }
 
-        // Load the debug service
-        SRServiceManager.GetService<IDebugService>();
+        public static void Init()
+        {
+            // Initialize console if it hasn't already initialized.
+            SRServiceManager.GetService<IConsoleService>();
+
+            // Load the debug service
+            SRServiceManager.GetService<IDebugService>();
+        }
     }
 }

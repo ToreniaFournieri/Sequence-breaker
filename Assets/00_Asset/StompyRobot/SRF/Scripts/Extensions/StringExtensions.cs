@@ -1,4 +1,4 @@
-namespace SRF
+namespace _00_Asset.StompyRobot.SRF.Scripts.Extensions
 {
     public static class SRFStringExtensions
     {

@@ -1,10 +1,10 @@
-﻿namespace SRF
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Helpers
+{
     public class Hierarchy
     {
         private static readonly char[] Seperator = {'/'};

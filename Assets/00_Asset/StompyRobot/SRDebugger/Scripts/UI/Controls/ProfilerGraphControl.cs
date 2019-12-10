@@ -1,18 +1,18 @@
 ﻿//#define LOGGING
 
+using System.Collections.Generic;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Services;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using _00_Asset.StompyRobot.SRF.Scripts.Service;
+using UnityEngine;
+using UnityEngine.UI;
+
 #if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
 #define LEGACY_UI
 #endif
 
-namespace SRDebugger.UI.Controls
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
 {
-    using System.Collections.Generic;
-    using Services;
-    using SRF;
-    using SRF.Service;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     [ExecuteInEditMode]
     [RequireComponent(typeof (RectTransform))]
     [RequireComponent(typeof (CanvasRenderer))]

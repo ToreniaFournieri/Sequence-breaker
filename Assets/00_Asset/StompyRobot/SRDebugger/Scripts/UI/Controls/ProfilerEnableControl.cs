@@ -1,11 +1,12 @@
-﻿namespace SRDebugger.UI.Controls
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls
 {
-    using Internal;
-    using SRF;
-    using UnityEngine;
-    using UnityEngine.UI;
 #if UNITY_5_5_OR_NEWER
-    using UnityEngine.Profiling;
+
 #endif
 
     public class ProfilerEnableControl : SRMonoBehaviourEx
@@ -19,7 +20,7 @@
         {
             base.Start();
 
-            if (!Profiler.supported)
+            if (!UnityEngine.Profiling.Profiler.supported)
             {
                 Text.text = SRDebugStrings.Current.Profiler_NotSupported;
                 EnableButton.gameObject.SetActive(false);
@@ -40,7 +41,7 @@
 
         protected void UpdateLabels()
         {
-            if (!Profiler.enabled)
+            if (!UnityEngine.Profiling.Profiler.enabled)
             {
                 Text.text = SRDebugStrings.Current.Profiler_EnableProfilerInfo;
                 ButtonText.text = "Enable";
@@ -51,14 +52,14 @@
                 ButtonText.text = "Disable";
             }
 
-            _previousState = Profiler.enabled;
+            _previousState = UnityEngine.Profiling.Profiler.enabled;
         }
 
         protected override void Update()
         {
             base.Update();
 
-            if (Profiler.enabled != _previousState)
+            if (UnityEngine.Profiling.Profiler.enabled != _previousState)
             {
                 UpdateLabels();
             }
@@ -67,7 +68,7 @@
         public void ToggleProfiler()
         {
             Debug.Log("Toggle Profiler");
-            Profiler.enabled = !Profiler.enabled;
+            UnityEngine.Profiling.Profiler.enabled = !UnityEngine.Profiling.Profiler.enabled;
         }
     }
 }

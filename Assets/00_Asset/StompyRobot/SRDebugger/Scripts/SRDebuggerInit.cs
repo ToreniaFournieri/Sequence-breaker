@@ -1,10 +1,9 @@
 ﻿using System;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine;
 
-namespace SRDebugger
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts
 {
-    using SRF;
-    using UnityEngine;
-
     /// <summary>
     /// Add this component somewhere in your scene to automatically load SRDebugger when the scene is loaded.
     /// By default, SRDebugger will defer loading any UI except the corner-trigger until the user requests it.

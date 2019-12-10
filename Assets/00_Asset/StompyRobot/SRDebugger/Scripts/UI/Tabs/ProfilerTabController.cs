@@ -1,10 +1,10 @@
 ﻿//#define SR_CONSOLE_DEBUG
 
-namespace SRDebugger.UI.Tabs
-{
-    using SRF;
-    using UnityEngine.UI;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Tabs
+{
     public class ProfilerTabController : SRMonoBehaviourEx
     {
         private bool _isDirty;

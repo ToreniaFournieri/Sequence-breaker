@@ -1,7 +1,8 @@
-﻿namespace SRDebugger.Services
-{
-    using UnityEngine;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services
+{
     public delegate void ConsoleUpdatedEventHandler(IConsoleService console);
 
     public interface IConsoleService

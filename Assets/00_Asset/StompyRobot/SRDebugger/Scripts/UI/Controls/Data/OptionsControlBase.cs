@@ -1,9 +1,9 @@
-﻿namespace SRDebugger.UI.Controls
-{
-    using Internal;
-    using SRF;
-    using UnityEngine.UI;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRF.Scripts.Components;
+using UnityEngine.UI;
 
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data
+{
     public abstract class OptionsControlBase : SRMonoBehaviourEx
     {
         private bool _selectionModeEnabled;

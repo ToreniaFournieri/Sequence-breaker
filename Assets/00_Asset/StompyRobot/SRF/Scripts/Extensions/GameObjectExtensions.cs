@@ -1,7 +1,7 @@
-﻿namespace SRF
-{
-    using UnityEngine;
+﻿using UnityEngine;
 
+namespace _00_Asset.StompyRobot.SRF.Scripts.Extensions
+{
     public static class SRFGameObjectExtensions
     {
         public static T GetIComponent<T>(this GameObject t) where T : class

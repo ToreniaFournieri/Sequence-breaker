@@ -1,16 +1,16 @@
-﻿#if UNITY_5 || UNITY_5_3_OR_NEWER
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
+using _00_Asset.StompyRobot.SRDebugger.Scripts.UI.Controls.Data;
+using _00_Asset.StompyRobot.SRF.Scripts.Extensions;
+using UnityEditor;
+using UnityEngine;
 
-namespace SRDebugger.Editor
+#if UNITY_5 || UNITY_5_3_OR_NEWER
+
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Internal;
-    using SRF;
-    using UI.Controls.Data;
-    using UnityEngine;
-    using UnityEditor;
-
     public class SROptionsWindow : EditorWindow
     {
         [MenuItem(SRDebugPaths.SROptionsMenuItemPath)]

@@ -1,8 +1,8 @@
-﻿using SRDebugger.Internal.Editor;
+﻿using _00_Asset.StompyRobot.SRDebugger.Scripts.Internal;
 using UnityEditor;
 using UnityEngine;
 
-namespace SRDebugger.Editor
+namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Editor
 {
     public class ApiSignupTermsWindow : EditorWindow
     {
