@@ -8533,50 +8533,6 @@ MonoBehaviour:
   prefixItemBaseMasterList: []
   suffixItemBaseMasterList: []
   itemPresetList: {fileID: 11400000, guid: 9c05df970d3874ee99391c96e01c96e7, type: 2}
---- !u!1 &1009119396
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1009119397}
-  - component: {fileID: 1009119398}
-  m_Layer: 0
-  m_Name: EquipListSourceMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1009119397
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009119396}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1102.4211, y: -623.75604, z: 0}
-  m_LocalScale: {x: 1.8844593, y: 1.8844593, z: 1.8844593}
-  m_Children: []
-  m_Father: {fileID: 1794051293}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1009119398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009119396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0968b193897d47ed93a488afe438708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipListContents: {fileID: 1269381834}
 --- !u!224 &1037496501 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
@@ -10229,7 +10185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1b4a0aadc4f214dd1bacaeb9cc086023, type: 2}
   allyUnitSet: {fileID: 11400000, guid: 92a167c18cb6542c59f7fa9232e1ea25, type: 2}
-  equipListDataSourceMgr: {fileID: 1009119398}
+  equipListDataSourceMgr: {fileID: 1794051298}
   unitClassList: {fileID: 11400000, guid: 64b7babe0c2d84771b26a45c0b1fbfa7, type: 2}
   a1: {fileID: 449333225}
   a2: {fileID: 1160069815}
@@ -10951,50 +10907,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269232430}
   m_CullTransparentMesh: 0
---- !u!1 &1269381832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1269381833}
-  - component: {fileID: 1269381834}
-  m_Layer: 5
-  m_Name: EquipListContent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1269381833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269381832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1794051293}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1269381834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269381832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a928e96743d14c19b123a36621ef9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipListContentList: []
 --- !u!1 &1281995499
 GameObject:
   m_ObjectHideFlags: 0
@@ -12582,7 +12494,7 @@ MonoBehaviour:
   playTab: {fileID: 1160069815}
   homeTab: {fileID: 449333225}
   currentTab: 
-  equipListContents: {fileID: 1269381834}
+  equipListContents: {fileID: 1794051297}
   characterStatusDisplay: {fileID: 1252398280}
   segueController: {fileID: 278071414}
 --- !u!4 &1443377876
@@ -15747,6 +15659,9 @@ GameObject:
   - component: {fileID: 1794051295}
   - component: {fileID: 1794051294}
   - component: {fileID: 1794051296}
+  - component: {fileID: 1794051299}
+  - component: {fileID: 1794051298}
+  - component: {fileID: 1794051297}
   m_Layer: 5
   m_Name: 01_EquipListView
   m_TagString: Untagged
@@ -15767,9 +15682,6 @@ RectTransform:
   m_Children:
   - {fileID: 1774823098}
   - {fileID: 1736414464}
-  - {fileID: 2129817247}
-  - {fileID: 1009119397}
-  - {fileID: 1269381833}
   m_Father: {fileID: 449333226}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15880,6 +15792,45 @@ MonoBehaviour:
   outAnimEndPosition: {x: 0, y: 0, z: 0}
   startOffScreen: 0
   AnimateInOnStart: 0
+--- !u!114 &1794051297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794051292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a928e96743d14c19b123a36621ef9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipListContentList: []
+--- !u!114 &1794051298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794051292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0968b193897d47ed93a488afe438708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipListContents: {fileID: 1794051297}
+--- !u!114 &1794051299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794051292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87660453e9d2040f6af3badad1bd9730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mLoopListView: {fileID: 1292812415}
 --- !u!1 &1824695151
 GameObject:
   m_ObjectHideFlags: 0
@@ -18192,50 +18143,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2129817246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2129817247}
-  - component: {fileID: 2129817248}
-  m_Layer: 0
-  m_Name: EquipListMain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2129817247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129817246}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1102.4211, y: -623.75604, z: 0}
-  m_LocalScale: {x: 1.8844593, y: 1.8844593, z: 1.8844593}
-  m_Children: []
-  m_Father: {fileID: 1794051293}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2129817248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129817246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87660453e9d2040f6af3badad1bd9730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mLoopListView: {fileID: 1292812415}
 --- !u!1 &2133656634
 GameObject:
   m_ObjectHideFlags: 0
