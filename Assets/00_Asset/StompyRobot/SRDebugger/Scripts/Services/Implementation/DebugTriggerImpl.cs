@@ -5,9 +5,9 @@ using _00_Asset.StompyRobot.SRF.Scripts.Helpers;
 using _00_Asset.StompyRobot.SRF.Scripts.Service;
 using UnityEngine;
 
-#if !(UNITY_4_6 || UNITY_4_7  || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3)
-#define USE_NEW_SCENE_MANAGEMENT
-#endif
+//#if !(UNITY_4_6 || UNITY_4_7  || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 || UNITY_5_3)
+//#define USE_NEW_SCENE_MANAGEMENT
+//#endif
 
 namespace _00_Asset.StompyRobot.SRDebugger.Scripts.Services.Implementation
 {
