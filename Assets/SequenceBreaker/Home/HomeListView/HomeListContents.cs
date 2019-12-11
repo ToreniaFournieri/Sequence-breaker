@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SequenceBreaker.Home.HomeListView
 {
@@ -11,8 +12,14 @@ namespace SequenceBreaker.Home.HomeListView
     {
         [SerializeField] public string contentText;
         public string description;
-        public List<UnitClass> unitClassList;
-        public bool isInfinityInventoryMode;
+
+        public GameObject jumpToGameObject;
+
+        public UnityAction unityAction;
+
+
+        //public List<UnitClass> unitClassList;
+        //public bool isInfinityInventoryMode;
 
         //for SuperScroll use
         public int mId;

@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 30970275}
   - component: {fileID: 30970278}
   - component: {fileID: 30970277}
-  - component: {fileID: 30970276}
+  - component: {fileID: 30970279}
   m_Layer: 5
   m_Name: ItemPrefab1
   m_TagString: Untagged
@@ -300,27 +300,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -131}
   m_SizeDelta: {x: -0.4000244, y: 284}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &30970276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30970274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9edc251078e564498b75e89a9b714b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mContentText: {fileID: 1053378009}
-  mDescriptionText: {fileID: 1795427550}
-  mExpandContentRoot: {fileID: 621304123}
-  mClickTip: {fileID: 0}
-  mExpandBtn: {fileID: 1558685607}
-  mGoListDetail: {fileID: 1868039746}
-  jumpToGameObject: {fileID: 649992056}
-  characterStatusDisplay: {fileID: 1252398280}
-  inventoryTreeViewDataSourceMgr: {fileID: 1973180634}
 --- !u!114 &30970277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +336,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30970274}
   m_CullTransparentMesh: 0
+--- !u!114 &30970279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30970274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eec9536ab90a4e69b8da67976f844a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mContentText: {fileID: 1053378009}
+  mDescriptionText: {fileID: 1795427550}
+  mExpandContentRoot: {fileID: 621304123}
+  mClickTip: {fileID: 0}
+  mExpandBtn: {fileID: 1558685607}
+  mGoListDetail: {fileID: 1868039746}
+  jumpToGameObject: {fileID: 1794051292}
 --- !u!1 &42849285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e3cea2326fe4dd5a4d6520b3c1a478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipListContentList: []
+  equipListContentList:
+  - contentText: 'Equipment '
+    description: 'Ally equipment and Enemy equipment (Debug mode: enemy also editable)'
+    unitClassList:
+    - {fileID: 11400000, guid: a28e86162a32c4b59a75e9697cb10331, type: 2}
+    isInfinityInventoryMode: 0
+    mId: 0
+    mChecked: 0
+    mIsExpand: 0
 --- !u!114 &325544108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12935,7 +12941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19, y: -94.99999}
+  m_AnchoredPosition: {x: 19, y: -95}
   m_SizeDelta: {x: 28.1, y: -941}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!114 &1420324701
@@ -16861,7 +16867,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   outAnimDuration: 0.5
   outAnimEndPosition: {x: 0, y: 0, z: 0}
-  startOffScreen: 0
+  startOffScreen: 1
   AnimateInOnStart: 0
 --- !u!114 &1794051297
 MonoBehaviour:
@@ -17492,7 +17498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 649992060}
+      - m_Target: {fileID: 1794051296}
         m_MethodName: StartAnimIn
         m_Mode: 1
         m_Arguments:
@@ -17507,7 +17513,7 @@ MonoBehaviour:
         m_MethodName: StackHomeView
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 649992056}
+          m_ObjectArgument: {fileID: 1794051292}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -19754,7 +19760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 5}
+  m_AnchoredPosition: {x: -50.000122, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736

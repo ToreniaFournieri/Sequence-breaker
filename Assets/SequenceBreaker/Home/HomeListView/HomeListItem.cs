@@ -21,10 +21,10 @@ namespace SequenceBreaker.Home.HomeListView
         // to jump list
         public GameObject jumpToGameObject;
 
-        public CharacterStatusDisplay characterStatusDisplay;
+        //public CharacterStatusDisplay characterStatusDisplay;
 
         //inventory switch debug mode true means infinity inventory.
-        public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
+        //public InventoryTreeViewDataSourceMgr inventoryTreeViewDataSourceMgr;
 
         int _mItemDataIndex = -1;
         bool _mIsExpand;
@@ -82,10 +82,10 @@ namespace SequenceBreaker.Home.HomeListView
             //Debug.Log("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count );
             //Console.WriteLine("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count);
 
-            inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
-            inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
-            characterStatusDisplay.unitList = data.unitClassList;
-            characterStatusDisplay.SetCharacterStatus(0);
+            //inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
+            //inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
+            //characterStatusDisplay.unitList = data.unitClassList;
+            //characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
 

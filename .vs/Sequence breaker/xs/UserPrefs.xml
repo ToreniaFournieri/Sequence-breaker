@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/GUIController/ResetGameProgress.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="206" Column="1" />
-      <File FileName="Assets/00_Asset/StompyRobot/SRDebugger/Scripts/Services/Implementation/DebugTriggerImpl.cs" Line="35" Column="14" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListChangeItemHeightDemoScript.cs" Line="106" Column="44" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListDataSourceMgr.cs" Line="161" Column="48" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListContents.cs" Line="27" Column="43" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="105" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListChangeItemHeightDemoScript.cs" Line="60" Column="43" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListDataSourceMgr.cs" Line="27" Column="46" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListContents.cs" Line="18" Column="42" />
+      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="76" Column="81" />
+      <File FileName="Assets/SequenceBreaker/GUIController/PopupWindowSingleton.cs" Line="11" Column="48" />
+      <File FileName="Assets/SequenceBreaker/GUIController/ResetGameProgress.cs" Line="11" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
