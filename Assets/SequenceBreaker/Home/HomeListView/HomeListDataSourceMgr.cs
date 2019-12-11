@@ -168,9 +168,9 @@ namespace SequenceBreaker.Home.HomeListView
             _mItemDataList.Clear();
             if (_isHomeContentsNotNull)
             {
-                for (int i = 0; i < homeListContents.equipListContentList.Count; ++i)
+                for (int i = 0; i < homeListContents.homeListContentList.Count; ++i)
                 {
-                    _mItemDataList.Add(homeListContents.equipListContentList[i]);
+                    _mItemDataList.Add(homeListContents.homeListContentList[i]);
                 }
 
             }

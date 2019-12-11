@@ -18,8 +18,6 @@ namespace SequenceBreaker.Home.HomeListView
         public UnityAction unityAction;
 
 
-        //public List<UnitClass> unitClassList;
-        //public bool isInfinityInventoryMode;
 
         //for SuperScroll use
         public int mId;
@@ -31,7 +29,7 @@ namespace SequenceBreaker.Home.HomeListView
     public class HomeListContents : MonoBehaviour
     {
 
-        [SerializeField] public List<HomeListContentData> equipListContentList;
+        [SerializeField] public List<HomeListContentData> homeListContentList;
 
     }
 
