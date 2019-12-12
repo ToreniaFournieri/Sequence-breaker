@@ -27,6 +27,8 @@ namespace SequenceBreaker.GUIController.Segue
 
         public static SegueController instance = null;
 
+
+
         void Awake()
         {
             Debug.Log("SegueController.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
@@ -61,12 +63,28 @@ namespace SequenceBreaker.GUIController.Segue
 
         public void StackHomeView(GameObject homeView)
         {
-            homeViewList.Add(homeView);
+            if (homeViewList[homeViewList.Count - 1] == homeView)
+            {
+                // double tapped, so do nothing
+            } else
+            {
+                homeViewList.Add(homeView);
+            }
+
         }
 
         public void StackTimeLineView(GameObject timelineView)
         {
-            timelineViewList.Add(timelineView);
+            if (timelineViewList[timelineViewList.Count -1 ] == timelineView)
+            {
+                // double tapped, so do nothing
+            }
+            else
+            {
+                timelineViewList.Add(timelineView);
+            }
+
+
         }
 
         public void InitHomeView()

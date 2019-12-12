@@ -103,6 +103,7 @@ namespace SequenceBreaker.Home.HomeListView
 
         void SegueAndAnimation()
         {
+
             jumpToGameObject.GetComponent<PanelAnimator>().StartAnimIn();
             SegueController.instance.StackHomeView(jumpToGameObject);
         }
