@@ -11743,7 +11743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2553768, y: 0.5743713}
   m_AnchorMax: {x: 0.7436605, y: 0.648}
-  m_AnchoredPosition: {x: 0.5270004, y: -0.5}
+  m_AnchoredPosition: {x: 0.52685547, y: -0.5}
   m_SizeDelta: {x: -3.199997, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304129508
@@ -14364,7 +14364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.097, y: 0.40839922}
   m_AnchorMax: {x: 0.8995398, y: 0.53139925}
-  m_AnchoredPosition: {x: 2.298172, y: -0.5}
+  m_AnchoredPosition: {x: 2.2983398, y: -0.5}
   m_SizeDelta: {x: 16.899994, y: 2.4000244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561096740
@@ -17872,29 +17872,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1868039747}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1794051296}
-        m_MethodName: StartAnimIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 278071414}
-        m_MethodName: StackHomeView
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1794051292}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1868039747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20135,7 +20113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50.00006, y: 5}
+  m_AnchoredPosition: {x: -50, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736

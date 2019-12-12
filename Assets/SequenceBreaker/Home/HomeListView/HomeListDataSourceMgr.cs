@@ -140,10 +140,11 @@ namespace SequenceBreaker.Home.HomeListView
 
         }
 
-        public void SetDataTotalCount(int count)
-        {
-            DoRefreshDataSource();
-        }
+
+        //public void SetDataTotalCount(int count)
+        //{
+        //    DoRefreshDataSource();
+        //}
 
         public void ExchangeData(int index1, int index2)
         {
@@ -163,7 +164,7 @@ namespace SequenceBreaker.Home.HomeListView
             _mItemDataList.Insert(index, data);
         }
 
-        void DoRefreshDataSource()
+        public void DoRefreshDataSource()
         {
             _mItemDataList.Clear();
             if (_isHomeContentsNotNull)

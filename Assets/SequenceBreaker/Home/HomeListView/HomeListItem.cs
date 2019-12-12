@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _00_Asset._01_SuperScrollView.Scripts.ListView;
+using _00_Asset._08_Easy_Panel_Transitions.Scripts;
+using SequenceBreaker.GUIController.Segue;
 using SequenceBreaker.Home.EquipView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +32,14 @@ namespace SequenceBreaker.Home.HomeListView
         bool _mIsExpand;
         public void Init()
         {
+            mExpandBtn.onClick.RemoveAllListeners();
+            mGoListDetail.onClick.RemoveAllListeners();
+
             mExpandBtn.onClick.AddListener(OnExpandBtnClicked);
             mGoListDetail.onClick.AddListener(OnGoListBtnClicked);
+
+            mGoListDetail.onClick.AddListener(SegueAndAnimation);
+
         }
 
         public void OnExpandChanged()
@@ -79,6 +87,8 @@ namespace SequenceBreaker.Home.HomeListView
 
                 return;
             }
+
+
             //Debug.Log("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count );
             //Console.WriteLine("On Go list button clicked unitClassList.Count is: " + data.unitClassList.Count);
 
@@ -91,11 +101,20 @@ namespace SequenceBreaker.Home.HomeListView
 
         }
 
+        void SegueAndAnimation()
+        {
+            jumpToGameObject.GetComponent<PanelAnimator>().StartAnimIn();
+            SegueController.instance.StackHomeView(jumpToGameObject);
+        }
+
         public void SetItemData(HomeListContentData itemData, int itemIndex)
         {
             _mItemDataIndex = itemIndex;
             mContentText.text = itemData.contentText;
             mDescriptionText.text = itemData.description;
+
+            jumpToGameObject = itemData.jumpToGameObject;
+            Init();
 
             _mIsExpand = itemData.mIsExpand;
             OnExpandChanged();

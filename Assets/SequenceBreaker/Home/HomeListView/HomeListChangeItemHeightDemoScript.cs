@@ -50,12 +50,14 @@ namespace SequenceBreaker.Home.HomeListView
             {
                 return null;
             }
+            HomeListDataSourceMgr.instance.DoRefreshDataSource();
 
             HomeListContentData itemData = HomeListDataSourceMgr.instance.GetItemDataByIndex(index);
             if (itemData == null)
             {
                 return null;
             }
+
             LoopListViewItem2 item = listView.NewListViewItem("ItemPrefab1");
             HomeListItem itemScript = item.GetComponent<HomeListItem>();
             if (item.IsInitHandlerCalled == false)
