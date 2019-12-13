@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.Mission
@@ -17,6 +18,6 @@ namespace SequenceBreaker.Master.Mission
         //public int missionLevelInitial;
 
         //Item
-        public List<UnitClass.UnitClass> unitWave;
+        public List<UnitClass> unitWave;
     }
 }

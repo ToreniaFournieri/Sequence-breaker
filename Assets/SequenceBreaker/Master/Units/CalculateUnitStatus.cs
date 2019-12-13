@@ -5,10 +5,9 @@ using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Skills;
-using SequenceBreaker.Play.Battle;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     public sealed class CalculateUnitStatus : MonoBehaviour
     {

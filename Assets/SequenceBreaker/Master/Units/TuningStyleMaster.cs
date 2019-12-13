@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Skills;
-using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
 
-
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     [CreateAssetMenu(fileName = "TuningStyleMaster", menuName = "Environment/TuningStyleMaster", order = 3)]
     public class TuningStyleMaster : ScriptableObject

@@ -3,7 +3,7 @@ using SequenceBreaker.GUIController;
 using SequenceBreaker.Home.EquipView;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Mission;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using SequenceBreaker.Play.Prepare;
 using SequenceBreaker.Timeline;
 using SequenceBreaker.Timeline.LogListView;

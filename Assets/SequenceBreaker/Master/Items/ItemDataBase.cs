@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.Items
@@ -68,7 +68,7 @@ namespace SequenceBreaker.Master.Items
 
         // save flag
 
-        public UnitClass.UnitClass LoadUnitInfo(UnitClass.UnitClass loadCharacterUnit)
+        public UnitClass LoadUnitInfo(UnitClass loadCharacterUnit)
         {
             BinaryFormatter bf = new BinaryFormatter();
 
@@ -130,7 +130,7 @@ namespace SequenceBreaker.Master.Items
         }
 
 
-        public void SaveUnitInfo(UnitClass.UnitClass saveCharacterUnit)
+        public void SaveUnitInfo(UnitClass saveCharacterUnit)
         {
             BinaryFormatter bf = new BinaryFormatter();
 

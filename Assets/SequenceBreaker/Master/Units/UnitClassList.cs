@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     [CreateAssetMenu(fileName = "UnitClassList-", menuName = "Unit/UnitClassList", order = 24)]
     public class UnitClassList : ScriptableObject

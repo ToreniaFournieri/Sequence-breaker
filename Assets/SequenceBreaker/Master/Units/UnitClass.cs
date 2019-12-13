@@ -4,7 +4,7 @@ using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     
     [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
@@ -84,6 +84,7 @@ namespace SequenceBreaker.Master.UnitClass
             return totalAmount;
         }
 
+
         public void CalculateLevel ()
         {
             int internalLevel = 1;
@@ -106,6 +107,17 @@ namespace SequenceBreaker.Master.UnitClass
             }
 
             level = internalLevel;
+
+            //itemCapacity
+            itemCapacity = 0;
+            foreach (int i in CalculateItemCapacity.instance.itemCapacityAddinglevelList)
+            {
+                if(level >= i)
+                {
+                    itemCapacity++;
+                }
+            }
+
         }
 
         public int ExperienceFromBeaten()

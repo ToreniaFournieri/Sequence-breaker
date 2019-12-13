@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

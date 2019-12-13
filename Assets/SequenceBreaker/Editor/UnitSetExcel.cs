@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SequenceBreaker.Master.Mission;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 
 namespace SequenceBreaker.Editor

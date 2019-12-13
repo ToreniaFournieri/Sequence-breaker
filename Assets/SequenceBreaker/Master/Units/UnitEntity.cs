@@ -1,7 +1,7 @@
 ﻿using SequenceBreaker.Environment;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     [System.Serializable]
     public class UnitEntity

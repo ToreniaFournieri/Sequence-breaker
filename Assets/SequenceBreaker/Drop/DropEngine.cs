@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 
 namespace SequenceBreaker.Drop
 {

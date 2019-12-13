@@ -474,6 +474,12 @@
               <e p="ItemDetailViewController.cs" t="Include" />
               <e p="SwitchLayer.cs" t="Include" />
             </e>
+            <e p="HomeListView" t="Include">
+              <e p="HomeListChangeItemHeightDemoScript.cs" t="Include" />
+              <e p="HomeListContents.cs" t="Include" />
+              <e p="HomeListDataSourceMgr.cs" t="Include" />
+              <e p="HomeListItem.cs" t="Include" />
+            </e>
           </e>
           <e p="Master" t="Include">
             <e p="BattleUnit" t="Include">
@@ -513,7 +519,8 @@
               <e p="TriggerBaseClass.cs" t="Include" />
               <e p="TriggerTargetClass.cs" t="Include" />
             </e>
-            <e p="UnitClass" t="Include">
+            <e p="Units" t="Include">
+              <e p="CalculateItemCapacity.cs" t="Include" />
               <e p="CalculateUnitStatus.cs" t="Include" />
               <e p="CalculateUnitStatusMaster.cs" t="Include" />
               <e p="CoreFrame.cs" t="Include" />

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 
 namespace SequenceBreaker.Home.EquipListView

@@ -1,4 +1,4 @@
-﻿using SequenceBreaker.Master.UnitClass;
+﻿using SequenceBreaker.Master.Units;
 using UnityEditor;
 using UnityEngine;
 

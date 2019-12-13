@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     [CreateAssetMenu(fileName = "Pilot-", menuName = "Unit/Pilot", order = 3)]
     public sealed class Pilot : ScriptableObject

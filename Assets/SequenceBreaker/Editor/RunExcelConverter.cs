@@ -5,7 +5,7 @@ using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Skills;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using UnityEditor;
 using UnityEngine;
 

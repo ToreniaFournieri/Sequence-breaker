@@ -4,7 +4,7 @@ using SequenceBreaker.Drop;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Mission;
-using SequenceBreaker.Master.UnitClass;
+using SequenceBreaker.Master.Units;
 using SequenceBreaker.Play.Prepare;
 using SequenceBreaker.Timeline.BattleLogView;
 using UnityEngine;

@@ -567,8 +567,8 @@ MonoBehaviour:
   detailFlag: {fileID: 1787373577}
   itemContent: {fileID: 57300775}
   isCharacterInventory: 0
-  characterTreeViewDataSourceMgr: {fileID: 0}
-  inventoryTreeViewDataSourceMgr: {fileID: 0}
+  characterTreeViewDataSourceMgr: {fileID: 1469652865}
+  inventoryTreeViewDataSourceMgr: {fileID: 1973180634}
   item: {fileID: 0}
   itemDetailView: {fileID: 2073615706}
 --- !u!114 &57300773
@@ -2314,7 +2314,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2651,6 +2651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 296629313}
   - component: {fileID: 296629314}
+  - component: {fileID: 296629315}
   m_Layer: 0
   m_Name: CalculateUnitStatus
   m_TagString: Untagged
@@ -2689,6 +2690,19 @@ MonoBehaviour:
   detailAbilityString: 
   master: {fileID: 11400000, guid: 6917696c05dc249cf962fda6479ea57c, type: 2}
   summedSkillList: []
+--- !u!114 &296629315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296629312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806ec0e99da784f8e998a00032578145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCapacityAddinglevelList: 010000000300000006000000090000000c0000001000000014000000190000001e000000240000002a000000310000003a000000430000004d0000005900000066000000760000008600000096000000a6000000b7000000c8000000e8000000ff00000021010000
 --- !u!1 &305792980
 GameObject:
   m_ObjectHideFlags: 0
@@ -9636,7 +9650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20, y: -19.999939}
+  m_AnchoredPosition: {x: 20, y: -19.999878}
   m_SizeDelta: {x: -40, y: -19.999939}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1065485687
@@ -20113,7 +20127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 5}
+  m_AnchoredPosition: {x: -49.99994, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736

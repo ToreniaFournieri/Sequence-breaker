@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using SequenceBreaker.Master.Skills;
-using UnityEngine;
-using Debug = UnityEngine.Debug;
-
-namespace SequenceBreaker.Master.UnitClass
+﻿namespace SequenceBreaker.Master.Units
 {
     //public sealed class TuningStyleClass : MonoBehaviour
     //{

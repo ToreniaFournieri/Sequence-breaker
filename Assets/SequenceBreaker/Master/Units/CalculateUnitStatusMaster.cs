@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using SequenceBreaker.Environment;
-using SequenceBreaker.Master.BattleUnit;
-using SequenceBreaker.Master.Items;
-using SequenceBreaker.Master.Skills;
-using SequenceBreaker.Play.Battle;
+﻿using SequenceBreaker.Play.Battle;
 using UnityEngine;
 
-namespace SequenceBreaker.Master.UnitClass
+namespace SequenceBreaker.Master.Units
 {
     [CreateAssetMenu(fileName = "CalculateUnitStatusMaster", menuName = "Environment/CalculateUnitStatusMaster", order = 3)]
     public class CalculateUnitStatusMaster : ScriptableObject

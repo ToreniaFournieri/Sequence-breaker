@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using SequenceBreaker.Master.UnitClass;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.Mission
