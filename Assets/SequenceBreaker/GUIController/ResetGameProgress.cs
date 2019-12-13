@@ -18,7 +18,7 @@ namespace SequenceBreaker.GUIController
         public void Reset()
         {
             PopupWindowSingleton.instance.SetPopUpwindow("Reset Game Progress?"
-                        , "This action cannot undo. Delete all of your progress?", unityAction);
+                        , "Delete all of your progress? This action cannot be undone.", unityAction);
     
         }
 

@@ -2474,7 +2474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabController: {fileID: 1443377875}
   homeViewList:
-  - {fileID: 1794051292}
+  - {fileID: 325544099}
   playViewList:
   - {fileID: 698195617}
   timelineViewList:
@@ -14398,7 +14398,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "This action cannot undo. \nDelete all of your progress?"
+  m_Text: "Delete all of your progress?\nThis action cannot be undone. \n"
 --- !u!222 &1561096741
 CanvasRenderer:
   m_ObjectHideFlags: 0

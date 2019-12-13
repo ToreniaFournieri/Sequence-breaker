@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Singleton/CalculateItemCapacity.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListChangeItemHeightDemoScript.cs" Line="59" Column="14" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListContents.cs" Line="29" Column="26" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListDataSourceMgr.cs" Line="174" Column="35" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="40" Column="1" />
-      <File FileName="Assets/SequenceBreaker/GUIController/Segue/SegueController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/CalculateUnitStatus.cs" Line="17" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="132" Column="72" />
+      <File FileName="Assets/SequenceBreaker/Master/UnitClass/UnitClass.cs" Line="48" Column="21" />
+      <File FileName="Assets/SequenceBreaker/Master/Singleton/CalculateItemCapacity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
