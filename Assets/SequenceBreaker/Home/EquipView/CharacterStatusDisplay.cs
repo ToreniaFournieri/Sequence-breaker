@@ -57,7 +57,14 @@ namespace SequenceBreaker.Home.EquipView
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
 
                 unitList[this.selectedUnitNo].UpdateItemCapacity();
-                itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
+
+                int _currentItemCount = unitList[this.selectedUnitNo].GetItemAmount();
+                if (unitList[this.selectedUnitNo].GetItemAmount() > unitList[this.selectedUnitNo].itemCapacity)
+                {
+                    _currentItemCount = unitList[this.selectedUnitNo].itemCapacity;
+                }
+
+                itemAmountText.text = _currentItemCount + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
 
                 //for data save

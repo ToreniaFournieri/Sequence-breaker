@@ -137,13 +137,22 @@ namespace SequenceBreaker.Home.EquipView
 
 
                 if (itemList != null)
+                {
+                    int _itemCapacityCount = 0;
                     foreach (Item item in itemList)
                     {
+                        if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
+                        {
+                            continue;
+                        }
+                        _itemCapacityCount++;
+
                         if (item != null)
                         {
                             tData.AddChild(item);
                         }
                     }
+                }
             }
 
 
