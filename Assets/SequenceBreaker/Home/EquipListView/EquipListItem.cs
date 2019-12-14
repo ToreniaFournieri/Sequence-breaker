@@ -1,5 +1,6 @@
 ﻿using _00_Asset._01_SuperScrollView.Scripts.ListView;
 using SequenceBreaker.Home.EquipView;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -83,6 +84,12 @@ namespace SequenceBreaker.Home.EquipListView
             inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
             inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
             characterStatusDisplay.unitList = data.unitClassList;
+
+            foreach (UnitClass unit in data.unitClassList)
+            {
+                unit.level = data.level;
+            }
+
             characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();

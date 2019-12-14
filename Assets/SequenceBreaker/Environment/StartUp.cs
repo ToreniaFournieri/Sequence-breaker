@@ -96,6 +96,7 @@ namespace SequenceBreaker.Environment
                     enemyHomeContentData = new EquipListContentData();
                     enemyHomeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
                     enemyHomeContentData.description = "[Enemy info]";
+                    enemyHomeContentData.level = mission.levelInitial;
                     enemyHomeContentData.isInfinityInventoryMode = true;
                     enemyHomeContentData.unitClassList = new List<UnitClass>();
 
