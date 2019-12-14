@@ -46,6 +46,7 @@ namespace SequenceBreaker.Master.Units
             experience += experienceAdd;
 
             CalculateLevel();
+            UpdateItemCapacity();
 
             return _levelUpAmount;
 
@@ -84,6 +85,18 @@ namespace SequenceBreaker.Master.Units
             return totalAmount;
         }
 
+        public void UpdateItemCapacity()
+        {
+            //itemCapacity
+            itemCapacity = 0;
+            foreach (int i in CalculateItemCapacity.instance.itemCapacityAddinglevelList)
+            {
+                if (level >= i)
+                {
+                    itemCapacity++;
+                }
+            }
+        }
 
         public void CalculateLevel ()
         {
@@ -108,15 +121,7 @@ namespace SequenceBreaker.Master.Units
 
             level = internalLevel;
 
-            //itemCapacity
-            itemCapacity = 0;
-            foreach (int i in CalculateItemCapacity.instance.itemCapacityAddinglevelList)
-            {
-                if(level >= i)
-                {
-                    itemCapacity++;
-                }
-            }
+
 
         }
 
