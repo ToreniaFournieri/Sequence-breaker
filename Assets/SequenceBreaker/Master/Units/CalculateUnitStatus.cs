@@ -132,6 +132,32 @@ namespace SequenceBreaker.Master.Units
 
             unit = unitClass;
 
+
+
+            List<Item> veiledItemList = new List<Item>();
+
+            if (unit.itemList != null)
+            {
+                int _itemCapacityCount = 0;
+
+                unit.UpdateItemCapacity();
+
+                foreach (Item item in unit.itemList)
+                {
+                    if (_itemCapacityCount >= unit.itemCapacity)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        veiledItemList.Add(item);
+                        _itemCapacityCount++;
+                    }
+
+                }
+            }
+
+
             //Debug.Log("unit name in CalculateUnitStatus :" + unit.TrueName());
 
             //(1) Ability
@@ -213,14 +239,24 @@ namespace SequenceBreaker.Master.Units
             _summedItemsAddAbility = ScriptableObject.CreateInstance<AbilityClass>();
             _summedItemsAddAbility.Set(0, 0, 0, 0, 0, 0, 0);
 
-            if (unit.itemList != null)
+            //if (unit.itemList != null)
+            //{
+            //    foreach (Item item in unit.itemList)
+            //    {
+            //        if (item != null)
+            //        {
+            //            _summedItemsAddAbility.AddUp(item.TotaledAbility());
+            //        }
+            //    }
+            //}
+
+
+
+            foreach (Item item in veiledItemList)
             {
-                foreach (Item item in unit.itemList)
+                if (item != null)
                 {
-                    if (item != null)
-                    {
-                        _summedItemsAddAbility.AddUp(item.TotaledAbility());
-                    }
+                    _summedItemsAddAbility.AddUp(item.TotaledAbility());
                 }
             }
 
@@ -236,10 +272,11 @@ namespace SequenceBreaker.Master.Units
             //(4)Offense/Defense/UnitSkill Magnification
 
             List<MagnificationMasterClass> itemMagnificationMasterList = new List<MagnificationMasterClass>();
-            if (unit.itemList != null)
-            {
-                foreach (Item item in unit.itemList)
+            //if (unit.itemList != null)
+            //{
+                foreach (Item item in veiledItemList)
                 {
+
                     if (item != null)
                     {
                         //item has prefix, base and suffix. each one has magnification master class list. collect them all
@@ -270,7 +307,7 @@ namespace SequenceBreaker.Master.Units
                             }
                         }
                     }
-                }
+                //}
             }
 
             // Deduplication
@@ -722,16 +759,19 @@ namespace SequenceBreaker.Master.Units
 
             _combatItems = ScriptableObject.CreateInstance<CombatClass>();
 
-            if (unit.itemList != null)
-            {
-                foreach (Item item in unit.itemList)
+
+
+
+            //if (unit.itemList != null)
+            //{
+                foreach (Item item in veiledItemList)
                 {
                     if (item != null)
                     {
                         _combatItems.Add(item.TotaledCombat());
                     }
                 }
-            }
+            //}
 
             // some code here. omitted
 
@@ -799,10 +839,18 @@ namespace SequenceBreaker.Master.Units
                 summedSkillList.Add(skill);
             }
 
-            if (unit.itemList != null)
-            {
-                foreach (var item in unit.itemList)
+            //if (unit.itemList != null)
+            //{
+
+                foreach (var item in veiledItemList)
                 {
+                    //if (_itemCapacityCount >= unit.itemCapacity)
+                    //{
+                    //    continue;
+                    //}
+                    //_itemCapacityCount++;
+
+
                     if (item != null)
                     {
                         if (item.prefixItem != null)
@@ -830,7 +878,7 @@ namespace SequenceBreaker.Master.Units
                         }
                     }
 
-                }
+                //}
             }
 
 

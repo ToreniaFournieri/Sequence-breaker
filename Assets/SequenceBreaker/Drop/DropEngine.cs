@@ -4,7 +4,7 @@ using SequenceBreaker.Master.Units;
 
 namespace SequenceBreaker.Drop
 {
-    public sealed class DropEngine 
+    public sealed class DropEngine
     {
         // This value is temporary.
         private double _itemDropRatio = 0.100;
@@ -22,8 +22,19 @@ namespace SequenceBreaker.Drop
             //1.Correct all item of enemy units
             foreach (UnitClass unit in enemyUnitList)
             {
+
+                unit.UpdateItemCapacity();
+
+                int _itemCapacityCount = 0;
+
                 foreach (Item item in unit.itemList)
                 {
+                    if (_itemCapacityCount >= unit.itemCapacity)
+                    {
+                        continue;
+                    }
+                    _itemCapacityCount++;
+
                     //2.[UNIMPLEMENTED] Remove undroppable item if it is.                
 
                     //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.

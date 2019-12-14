@@ -119,6 +119,7 @@ namespace SequenceBreaker.GUIController.Segue
                     }
                     characterStatusDisplay.RefreshCharacterStatusAndItemList();
 
+
                     homeTab.SetActive(true);
                     playTab.SetActive(false);
                     timelineTab.SetActive(false);

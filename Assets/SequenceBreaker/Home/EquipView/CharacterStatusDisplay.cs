@@ -29,7 +29,7 @@ namespace SequenceBreaker.Home.EquipView
         //for data save
         public int itemCapacity;
         public int selectedUnitNo;
-    
+
 
         public void Init()
         {
@@ -53,19 +53,12 @@ namespace SequenceBreaker.Home.EquipView
                 // updating
                 this.selectedUnitNo = selectedUnitNumber;
 
-                //Debug.Log(" unit:" + this.selectedUnitNo + " " + unitList.Count);
-                //Debug.Log(" unit:" + unitList[this.selectedUnitNo].TrueName() );
 
                 characterNameText.text = unitList[this.selectedUnitNo].TrueName();
-                                    itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
-                //Debug.Log("id: " + unitList[this.selectedUnitNo].TrueName() + " ");
+                unitList[this.selectedUnitNo].UpdateItemCapacity();
+                itemAmountText.text = unitList[this.selectedUnitNo].GetItemAmount() + "/" + unitList[this.selectedUnitNo].itemCapacity;
 
-
-                calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
-                    abilityText.text = calculateUnitStatus.detailAbilityString;
-                //calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
-                //abilityText.text = calculateUnitStatus.detailAbilityString;
 
                 //for data save
                 itemCapacity = unitList[this.selectedUnitNo].itemCapacity;
@@ -84,6 +77,10 @@ namespace SequenceBreaker.Home.EquipView
 
                 }
 
+                calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
+                abilityText.text = calculateUnitStatus.detailAbilityString;
+
+
                 // not load experience point this.
 
                 characterTreeViewDataSourceMgr.Show();
@@ -93,7 +90,7 @@ namespace SequenceBreaker.Home.EquipView
 
         }
 
-     
+
 
         public bool AddAndSaveItem(Item addItem)
         {
@@ -104,7 +101,7 @@ namespace SequenceBreaker.Home.EquipView
             }
             if (unitList[selectedUnitNo].itemList.Count == 0)
             {
-                
+
                 Item item = addItem.Copy();
                 item.amount = 1;
 
@@ -171,7 +168,7 @@ namespace SequenceBreaker.Home.EquipView
         public List<Item> GetItemList()
         {
             return unitList[selectedUnitNo].itemList;
-            
+
         }
 
 
