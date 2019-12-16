@@ -2057,11 +2057,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewport: {fileID: 1403468577}
-  runBattleList:
-  - {fileID: 208688199}
-  - {fileID: 465871542}
-  - {fileID: 1742020151}
-  - {fileID: 1753655651}
+  runBattleList: []
+  levelRange: 150
   missionController: {fileID: 738102034}
   itemPrefab: {fileID: 1806972371535095303, guid: a4175f04e6ae34321a35e82f14ee53a3,
     type: 3}
@@ -13111,7 +13108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19, y: -95}
+  m_AnchoredPosition: {x: 18.999939, y: -95}
   m_SizeDelta: {x: 28.1, y: -941}
   m_Pivot: {x: 0, y: 0.99999994}
 --- !u!114 &1420324701
@@ -14071,7 +14068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.199707, y: 38.214966}
+  m_AnchoredPosition: {x: -18.199646, y: 38.214966}
   m_SizeDelta: {x: -205.5, y: -308.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548117424

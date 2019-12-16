@@ -1445,24 +1445,24 @@ MonoBehaviour:
     equipment1: 1015
     equipment2: 1060
     equipment3: 1088
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
-    equipment21: 0
+    equipment4: 1164
+    equipment5: 1150
+    equipment6: 1061
+    equipment7: 1212
+    equipment8: 1089
+    equipment9: 1165
+    equipment10: 1151
+    equipment11: 1062
+    equipment12: 1108
+    equipment13: 1190
+    equipment14: 1166
+    equipment15: 1152
+    equipment16: 1063
+    equipment17: 1109
+    equipment18: 1191
+    equipment19: 1167
+    equipment20: 1153
+    equipment21: 1164
     equipment22: 0
     equipment23: 0
     equipment24: 0
@@ -1472,24 +1472,24 @@ MonoBehaviour:
     equipment1: 1164
     equipment2: 1015
     equipment3: 1060
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
-    equipment21: 0
+    equipment4: 1016
+    equipment5: 1001
+    equipment6: 1089
+    equipment7: 1206
+    equipment8: 1165
+    equipment9: 1061
+    equipment10: 1017
+    equipment11: 1002
+    equipment12: 1090
+    equipment13: 1166
+    equipment14: 1062
+    equipment15: 1018
+    equipment16: 1003
+    equipment17: 1091
+    equipment18: 1167
+    equipment19: 1063
+    equipment20: 1019
+    equipment21: 1004
     equipment22: 0
     equipment23: 0
     equipment24: 0
@@ -1499,24 +1499,24 @@ MonoBehaviour:
     equipment1: 1164
     equipment2: 1165
     equipment3: 1094
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
-    equipment21: 0
+    equipment4: 1122
+    equipment5: 1046
+    equipment6: 1166
+    equipment7: 1210
+    equipment8: 1095
+    equipment9: 1123
+    equipment10: 1047
+    equipment11: 1167
+    equipment12: 1096
+    equipment13: 1124
+    equipment14: 1090
+    equipment15: 1048
+    equipment16: 1168
+    equipment17: 1097
+    equipment18: 1125
+    equipment19: 1091
+    equipment20: 1049
+    equipment21: 1169
     equipment22: 0
     equipment23: 0
     equipment24: 0
@@ -1529,7 +1529,7 @@ MonoBehaviour:
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1211
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -1580,24 +1580,24 @@ MonoBehaviour:
     equipment1: 1255
     equipment2: 1256
     equipment3: 1015
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
-    equipment21: 0
+    equipment4: 1074
+    equipment5: 1108
+    equipment6: 1060
+    equipment7: 1257
+    equipment8: 1016
+    equipment9: 1074
+    equipment10: 1109
+    equipment11: 1061
+    equipment12: 1258
+    equipment13: 1017
+    equipment14: 1075
+    equipment15: 1110
+    equipment16: 1062
+    equipment17: 1259
+    equipment18: 1075
+    equipment19: 1111
+    equipment20: 1063
+    equipment21: 1260
     equipment22: 0
     equipment23: 0
     equipment24: 0
@@ -1637,7 +1637,7 @@ MonoBehaviour:
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1210
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -1661,24 +1661,24 @@ MonoBehaviour:
     equipment1: 1015
     equipment2: 1136
     equipment3: 1001
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
-    equipment21: 0
+    equipment4: 1032
+    equipment5: 1046
+    equipment6: 1016
+    equipment7: 1208
+    equipment8: 1137
+    equipment9: 1002
+    equipment10: 1033
+    equipment11: 1047
+    equipment12: 1017
+    equipment13: 1138
+    equipment14: 1003
+    equipment15: 1033
+    equipment16: 1048
+    equipment17: 1018
+    equipment18: 1139
+    equipment19: 1004
+    equipment20: 1034
+    equipment21: 1048
     equipment22: 0
     equipment23: 0
     equipment24: 0
@@ -2495,9 +2495,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20040
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1032
+    equipment2: 1108
+    equipment3: 1150
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -2522,26 +2522,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20041
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1015
+    equipment2: 1060
+    equipment3: 1088
+    equipment4: 1164
+    equipment5: 1150
+    equipment6: 1061
+    equipment7: 1212
+    equipment8: 1089
+    equipment9: 1165
+    equipment10: 1151
+    equipment11: 1062
+    equipment12: 1108
+    equipment13: 1190
+    equipment14: 1166
+    equipment15: 1152
+    equipment16: 1063
+    equipment17: 1109
+    equipment18: 1191
+    equipment19: 1167
+    equipment20: 1153
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -2549,26 +2549,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20042
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1164
+    equipment2: 1015
+    equipment3: 1060
+    equipment4: 1016
+    equipment5: 1001
+    equipment6: 1089
+    equipment7: 1206
+    equipment8: 1165
+    equipment9: 1061
+    equipment10: 1017
+    equipment11: 1002
+    equipment12: 1090
+    equipment13: 1166
+    equipment14: 1062
+    equipment15: 1018
+    equipment16: 1003
+    equipment17: 1091
+    equipment18: 1167
+    equipment19: 1063
+    equipment20: 1019
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -2576,26 +2576,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20043
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1164
+    equipment2: 1165
+    equipment3: 1094
+    equipment4: 1122
+    equipment5: 1046
+    equipment6: 1166
+    equipment7: 1210
+    equipment8: 1095
+    equipment9: 1123
+    equipment10: 1047
+    equipment11: 1167
+    equipment12: 1096
+    equipment13: 1124
+    equipment14: 1090
+    equipment15: 1048
+    equipment16: 1168
+    equipment17: 1097
+    equipment18: 1125
+    equipment19: 1091
+    equipment20: 1049
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -2603,13 +2603,13 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20044
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1074
+    equipment2: 1060
+    equipment3: 1046
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1211
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -2630,9 +2630,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20045
-    equipment1: 1206
-    equipment2: 1207
-    equipment3: 0
+    equipment1: 1178
+    equipment2: 1179
+    equipment3: 1001
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -2657,26 +2657,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20046
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1255
+    equipment2: 1256
+    equipment3: 1015
+    equipment4: 1074
+    equipment5: 1108
+    equipment6: 1060
+    equipment7: 1257
+    equipment8: 1016
+    equipment9: 1074
+    equipment10: 1109
+    equipment11: 1061
+    equipment12: 1258
+    equipment13: 1017
+    equipment14: 1075
+    equipment15: 1110
+    equipment16: 1062
+    equipment17: 1259
+    equipment18: 1075
+    equipment19: 1111
+    equipment20: 1063
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -2684,9 +2684,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20047
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1001
+    equipment2: 1094
+    equipment3: 1108
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -2711,13 +2711,13 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20048
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1122
+    equipment2: 1192
+    equipment3: 1210
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1210
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -2738,26 +2738,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20049
-    equipment1: 1208
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1015
+    equipment2: 1136
+    equipment3: 1001
+    equipment4: 1032
+    equipment5: 1046
+    equipment6: 1016
+    equipment7: 1208
+    equipment8: 1137
+    equipment9: 1002
+    equipment10: 1033
+    equipment11: 1047
+    equipment12: 1017
+    equipment13: 1138
+    equipment14: 1003
+    equipment15: 1033
+    equipment16: 1048
+    equipment17: 1018
+    equipment18: 1139
+    equipment19: 1004
+    equipment20: 1034
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -3575,9 +3575,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20080
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1032
+    equipment2: 1108
+    equipment3: 1150
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -3602,26 +3602,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20081
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1015
+    equipment2: 1060
+    equipment3: 1088
+    equipment4: 1164
+    equipment5: 1150
+    equipment6: 1061
+    equipment7: 1212
+    equipment8: 1089
+    equipment9: 1165
+    equipment10: 1151
+    equipment11: 1062
+    equipment12: 1108
+    equipment13: 1190
+    equipment14: 1166
+    equipment15: 1152
+    equipment16: 1063
+    equipment17: 1109
+    equipment18: 1191
+    equipment19: 1167
+    equipment20: 1153
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -3629,26 +3629,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20082
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1164
+    equipment2: 1015
+    equipment3: 1060
+    equipment4: 1016
+    equipment5: 1001
+    equipment6: 1089
+    equipment7: 1206
+    equipment8: 1165
+    equipment9: 1061
+    equipment10: 1017
+    equipment11: 1002
+    equipment12: 1090
+    equipment13: 1166
+    equipment14: 1062
+    equipment15: 1018
+    equipment16: 1003
+    equipment17: 1091
+    equipment18: 1167
+    equipment19: 1063
+    equipment20: 1019
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -3656,26 +3656,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20083
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1164
+    equipment2: 1165
+    equipment3: 1094
+    equipment4: 1122
+    equipment5: 1046
+    equipment6: 1166
+    equipment7: 1210
+    equipment8: 1095
+    equipment9: 1123
+    equipment10: 1047
+    equipment11: 1167
+    equipment12: 1096
+    equipment13: 1124
+    equipment14: 1090
+    equipment15: 1048
+    equipment16: 1168
+    equipment17: 1097
+    equipment18: 1125
+    equipment19: 1091
+    equipment20: 1049
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -3683,13 +3683,13 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20084
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1074
+    equipment2: 1060
+    equipment3: 1046
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1211
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -3710,9 +3710,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20085
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1178
+    equipment2: 1179
+    equipment3: 1001
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -3737,26 +3737,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20086
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1255
+    equipment2: 1256
+    equipment3: 1015
+    equipment4: 1074
+    equipment5: 1108
+    equipment6: 1060
+    equipment7: 1257
+    equipment8: 1016
+    equipment9: 1074
+    equipment10: 1109
+    equipment11: 1061
+    equipment12: 1258
+    equipment13: 1017
+    equipment14: 1075
+    equipment15: 1110
+    equipment16: 1062
+    equipment17: 1259
+    equipment18: 1075
+    equipment19: 1111
+    equipment20: 1063
     equipment21: 0
     equipment22: 0
     equipment23: 0
@@ -3764,9 +3764,9 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20087
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1001
+    equipment2: 1094
+    equipment3: 1108
     equipment4: 0
     equipment5: 0
     equipment6: 0
@@ -3791,13 +3791,13 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20088
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
+    equipment1: 1122
+    equipment2: 1192
+    equipment3: 1210
     equipment4: 0
     equipment5: 0
     equipment6: 0
-    equipment7: 0
+    equipment7: 1210
     equipment8: 0
     equipment9: 0
     equipment10: 0
@@ -3818,26 +3818,26 @@ MonoBehaviour:
     equipment25: 0
     equipment26: 0
   - uniqueId: 20089
-    equipment1: 0
-    equipment2: 0
-    equipment3: 0
-    equipment4: 0
-    equipment5: 0
-    equipment6: 0
-    equipment7: 0
-    equipment8: 0
-    equipment9: 0
-    equipment10: 0
-    equipment11: 0
-    equipment12: 0
-    equipment13: 0
-    equipment14: 0
-    equipment15: 0
-    equipment16: 0
-    equipment17: 0
-    equipment18: 0
-    equipment19: 0
-    equipment20: 0
+    equipment1: 1015
+    equipment2: 1136
+    equipment3: 1001
+    equipment4: 1032
+    equipment5: 1046
+    equipment6: 1016
+    equipment7: 1208
+    equipment8: 1137
+    equipment9: 1002
+    equipment10: 1033
+    equipment11: 1047
+    equipment12: 1017
+    equipment13: 1138
+    equipment14: 1003
+    equipment15: 1033
+    equipment16: 1048
+    equipment17: 1018
+    equipment18: 1139
+    equipment19: 1004
+    equipment20: 1034
     equipment21: 0
     equipment22: 0
     equipment23: 0

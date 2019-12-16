@@ -15,10 +15,14 @@ MonoBehaviour:
   characterUniqueId: 20045
   itemIdList:
   - prefixId: 0
-    baseId: 1206
+    baseId: 1178
     suffixId: 0
     enhancedValue: 1
   - prefixId: 0
-    baseId: 1207
+    baseId: 1179
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1001
     suffixId: 0
     enhancedValue: 1

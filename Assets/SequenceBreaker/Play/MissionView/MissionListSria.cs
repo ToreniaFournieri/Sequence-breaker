@@ -14,6 +14,8 @@ namespace SequenceBreaker.Play.MissionView
         //for battle calculation
         public List<RunBattle> runBattleList;
 
+        public int levelRange;
+
         // Mission Controller (ally unit list and battle engine)
         public MissionController missionController;
 
@@ -79,7 +81,7 @@ namespace SequenceBreaker.Play.MissionView
             instance.MissionController = missionController;
 
             instance.LevelOfMissionSlider.minValue = runBattleList[itemIndex].mission.levelInitial;
-            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].mission.levelInitial + 30;
+            instance.LevelOfMissionSlider.maxValue = runBattleList[itemIndex].mission.levelInitial + levelRange;
             instance.LevelOfMissionSlider.value = runBattleList[itemIndex].mission.levelInitial;
 
 

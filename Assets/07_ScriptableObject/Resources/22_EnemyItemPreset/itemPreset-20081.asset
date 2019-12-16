@@ -13,4 +13,84 @@ MonoBehaviour:
   m_Name: itemPreset-20081
   m_EditorClassIdentifier: 
   characterUniqueId: 20081
-  itemIdList: []
+  itemIdList:
+  - prefixId: 0
+    baseId: 1015
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1060
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1088
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1164
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1150
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1061
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1212
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1089
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1165
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1151
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1062
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1108
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1190
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1166
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1152
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1063
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1109
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1191
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1167
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1153
+    suffixId: 0
+    enhancedValue: 1

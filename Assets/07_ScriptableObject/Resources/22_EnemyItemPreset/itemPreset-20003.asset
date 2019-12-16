@@ -26,3 +26,75 @@ MonoBehaviour:
     baseId: 1094
     suffixId: 0
     enhancedValue: 1
+  - prefixId: 0
+    baseId: 1122
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1046
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1166
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1210
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1095
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1123
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1047
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1167
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1096
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1124
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1090
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1048
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1168
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1097
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1125
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1091
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1049
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1169
+    suffixId: 0
+    enhancedValue: 1

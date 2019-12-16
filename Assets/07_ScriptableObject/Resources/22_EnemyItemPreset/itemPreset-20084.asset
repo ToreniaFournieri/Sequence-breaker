@@ -13,4 +13,20 @@ MonoBehaviour:
   m_Name: itemPreset-20084
   m_EditorClassIdentifier: 
   characterUniqueId: 20084
-  itemIdList: []
+  itemIdList:
+  - prefixId: 0
+    baseId: 1074
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1060
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1046
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1211
+    suffixId: 0
+    enhancedValue: 1

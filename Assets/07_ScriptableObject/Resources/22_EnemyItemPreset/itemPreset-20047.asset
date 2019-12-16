@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: itemPreset-20047
   m_EditorClassIdentifier: 
   characterUniqueId: 20047
-  itemIdList: []
+  itemIdList:
+  - prefixId: 0
+    baseId: 1001
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1094
+    suffixId: 0
+    enhancedValue: 1
+  - prefixId: 0
+    baseId: 1108
+    suffixId: 0
+    enhancedValue: 1
