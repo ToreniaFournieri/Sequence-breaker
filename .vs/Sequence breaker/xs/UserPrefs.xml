@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/MissionController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItem.cs" Line="91" Column="1" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListChangeItemHeightDemoScript.cs" Line="59" Column="14" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="32" Column="63" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionListSria.cs" Line="15" Column="46" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionUpdateText.cs" Line="18" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="71" Column="29" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItem.cs" Line="84" Column="98" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="8" Column="40" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="94" Column="60" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="69" Column="21" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionListSria.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionUpdateText.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="28" Column="56" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
