@@ -1,19 +1,25 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/UnitSetExcel.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItem.cs" Line="84" Column="98" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="8" Column="40" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="94" Column="60" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="69" Column="21" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionListSria.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionUpdateText.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="28" Column="56" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItem.cs" Line="90" Column="51" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="21" Column="9" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="110" Column="51" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs" Line="17" Column="48" />
+      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="28" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="118" Column="57" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="177" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListChangeItemHeightDemoScript.cs" Line="79" Column="33" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="117" Column="66" />
+      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="141" Column="47" />
+      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="583" Column="50" />
+      <File FileName="Assets/SequenceBreaker/Editor/UnitSetExcel.cs" Line="53" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b576969f-f46b-4247-9cf7-5ac1ac4e279c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c65491b3-7573-4064-ba55-77dc2b3188c0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

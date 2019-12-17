@@ -55,7 +55,8 @@ namespace SequenceBreaker.Environment
                 allyEquipListContentData.contentText = "Ally Equipment";
                 allyEquipListContentData.description = "Equip items for playable characters. ";
                 allyEquipListContentData.isInfinityInventoryMode = false;
-                allyEquipListContentData.unitClassList = new List<UnitClass>();
+
+                //allyEquipListContentData.unitClassList = new List<UnitClass>();
                 foreach (UnitWave wave in allyUnitSet.unitSetList)
                 {
                     foreach (UnitClass unit in wave.unitWave)
@@ -63,8 +64,11 @@ namespace SequenceBreaker.Environment
                         unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                         unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
                         unit.CalculateLevel();
-                        allyEquipListContentData.unitClassList.Add(unit);
+                        //allyEquipListContentData.unitClassList.Add(unit);
                     }
+
+                    allyEquipListContentData.unitWave = wave;
+
                 }
 
                 equipListDataSourceMgr.equipListContents.equipListContentList.Add(allyEquipListContentData);
@@ -91,16 +95,19 @@ namespace SequenceBreaker.Environment
             {
                 int waveInt = 1;
 
-                foreach (var unitSet in mission.unitSet.unitSetList)
+                foreach (UnitWave unitWave in mission.unitSet.unitSetList)
                 {
                     enemyHomeContentData = new EquipListContentData();
                     enemyHomeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
                     enemyHomeContentData.description = "[Enemy info]";
-                    enemyHomeContentData.level = mission.levelInitial;
+                    //enemyHomeContentData.level = mission.levelInitial;
                     enemyHomeContentData.isInfinityInventoryMode = true;
-                    enemyHomeContentData.unitClassList = new List<UnitClass>();
+                    //enemyHomeContentData.unitClassList = new List<UnitClass>();
 
-                    foreach (var unit in unitSet.unitWave)
+                    unitWave.level = mission.levelInitial;
+
+
+                    foreach (var unit in unitWave.unitWave)
                     {
                         //List<ItemIdSet> itemIdSetList = ItemDataBase.Get.itemPresetList.ItemFromId(unit.uniqueId);
 
@@ -109,6 +116,9 @@ namespace SequenceBreaker.Environment
                             List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;
                         }
+
+
+                        //unit.level = mission.levelInitial;
 
                         //foreach (var set in itemIdSetList)
                         //{
@@ -119,8 +129,10 @@ namespace SequenceBreaker.Environment
                         //    }
                         //}
 
-                        enemyHomeContentData.unitClassList.Add(unit);
+                        //enemyHomeContentData.unitClassList.Add(unit);
                     }
+                    enemyHomeContentData.unitWave = unitWave;
+
 
                     waveInt++;
 

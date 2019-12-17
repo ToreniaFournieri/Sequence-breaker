@@ -77,7 +77,7 @@ namespace SequenceBreaker.GUIController.Segue
                     //                     unit load
                     foreach (var equipListContentData in equipListContents.equipListContentList)
                     {
-                        foreach (var unit in equipListContentData.unitClassList)
+                        foreach (var unit in equipListContentData.unitWave.unitWave)
                         {
                             //Bug:This way to load info is not collect.
                             //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
@@ -112,10 +112,10 @@ namespace SequenceBreaker.GUIController.Segue
                     homeImage.color = Color.white;
 
                     //only ally should calculate level
-                    if (characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].affiliation ==
+                    if (characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].affiliation ==
                         Affiliation.Ally)
                     {
-                        characterStatusDisplay.unitList[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                        characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].CalculateLevel();
                     }
                     characterStatusDisplay.RefreshCharacterStatusAndItemList();
 

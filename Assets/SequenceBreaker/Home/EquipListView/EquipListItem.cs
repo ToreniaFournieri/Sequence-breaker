@@ -83,12 +83,16 @@ namespace SequenceBreaker.Home.EquipListView
 
             inventoryTreeViewDataSourceMgr.isInfinityInventoryMode = data.isInfinityInventoryMode;
             inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
-            characterStatusDisplay.unitList = data.unitClassList;
 
-            foreach (UnitClass unit in data.unitClassList)
-            {
-                unit.level = data.level;
-            }
+
+            //characterStatusDisplay.unitList = data.unitClassList;
+
+            characterStatusDisplay.unitWave = data.unitWave;
+
+            //foreach (UnitClass unit in data.unitClassList)
+            //{
+            //    unit.level = data.level;
+            //}
 
             characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);

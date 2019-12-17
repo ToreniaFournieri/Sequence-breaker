@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
 
@@ -11,9 +12,11 @@ namespace SequenceBreaker.Home.EquipListView
     {
         [SerializeField] public string contentText;
         public string description;
-        public List<UnitClass> unitClassList;
 
-        public int level;
+        public UnitWave unitWave;
+        //public List<UnitClass> unitClassList;
+
+        //public int level;
         public bool isInfinityInventoryMode;
 
         //for SuperScroll use

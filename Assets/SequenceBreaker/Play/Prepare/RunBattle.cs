@@ -135,6 +135,8 @@ namespace SequenceBreaker.Play.Prepare
                             unit.level = enemyLevel;
                         }
 
+                unitWave.level = enemyLevel;
+
                     _enemyBattleUnits = new List<BattleUnit>();
                     (_enemyBattleUnits, _enemySkillsList) = SetUpBattleUnitFromUnit(unitWave.unitWave);
 

@@ -19,5 +19,9 @@ namespace SequenceBreaker.Master.Mission
 
         //Item
         public List<UnitClass> unitWave;
+
+        //level depend on the wave
+        public int level;
+
     }
 }

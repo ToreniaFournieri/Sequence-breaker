@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
+using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,7 +12,10 @@ namespace SequenceBreaker.Home.EquipView
     {
 
         public ItemDataBase itemDataBase;
-        [FormerlySerializedAs("UnitListScriptable")] public List<UnitClass> unitList;
+
+
+        public UnitWave unitWave;
+        //[FormerlySerializedAs("UnitListScriptable")] public List<UnitClass> unitList;
 
         public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
         public CharacterTreeViewWithStickyHeadScript characterTreeViewWithStickyHeadScript;
@@ -47,44 +51,44 @@ namespace SequenceBreaker.Home.EquipView
         public void SetCharacterStatus(int selectedUnitNumber)
         {
 
-            if (unitList != null && selectedUnitNumber < unitList.Count)
+            if (unitWave.unitWave != null && selectedUnitNumber < unitWave.unitWave.Count)
             {
 
                 // updating
                 this.selectedUnitNo = selectedUnitNumber;
 
 
-                characterNameText.text = unitList[this.selectedUnitNo].TrueName();
+                characterNameText.text = unitWave.unitWave[this.selectedUnitNo].TrueName();
 
-                unitList[this.selectedUnitNo].UpdateItemCapacity();
+                unitWave.unitWave[this.selectedUnitNo].UpdateItemCapacity();
 
-                int _currentItemCount = unitList[this.selectedUnitNo].GetItemAmount();
-                if (unitList[this.selectedUnitNo].GetItemAmount() > unitList[this.selectedUnitNo].itemCapacity)
+                int _currentItemCount = unitWave.unitWave[this.selectedUnitNo].GetItemAmount();
+                if (unitWave.unitWave[this.selectedUnitNo].GetItemAmount() > unitWave.unitWave[this.selectedUnitNo].itemCapacity)
                 {
-                    _currentItemCount = unitList[this.selectedUnitNo].itemCapacity;
+                    _currentItemCount = unitWave.unitWave[this.selectedUnitNo].itemCapacity;
                 }
 
-                itemAmountText.text = _currentItemCount + "/" + unitList[this.selectedUnitNo].itemCapacity;
+                itemAmountText.text = _currentItemCount + "/" + unitWave.unitWave[this.selectedUnitNo].itemCapacity;
 
 
                 //for data save
-                itemCapacity = unitList[this.selectedUnitNo].itemCapacity;
+                itemCapacity = unitWave.unitWave[this.selectedUnitNo].itemCapacity;
 
                 // load from saved data
                 //Bug:This way to load info is not collect
 
-                if (unitList[this.selectedUnitNo].affiliation == Environment.Affiliation.Enemy)
+                if (unitWave.unitWave[this.selectedUnitNo].affiliation == Environment.Affiliation.Enemy)
                 {
                     // do not load
                 }
                 else
                 {
-                    UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitList[this.selectedUnitNo]);
-                    unitList[this.selectedUnitNo].itemList = loadUnit.itemList;
+                    UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitWave.unitWave[this.selectedUnitNo]);
+                    unitWave.unitWave[this.selectedUnitNo].itemList = loadUnit.itemList;
 
                 }
 
-                calculateUnitStatus.Init(unitList[this.selectedUnitNo]);
+                calculateUnitStatus.Init(unitWave.unitWave[this.selectedUnitNo]);
                 abilityText.text = calculateUnitStatus.detailAbilityString;
 
 
@@ -101,34 +105,34 @@ namespace SequenceBreaker.Home.EquipView
 
         public bool AddAndSaveItem(Item addItem)
         {
-            if (unitList[selectedUnitNo].GetItemAmount() >= unitList[selectedUnitNo].itemCapacity)
+            if (unitWave.unitWave[selectedUnitNo].GetItemAmount() >= unitWave.unitWave[selectedUnitNo].itemCapacity)
             {
                 // failed. over.
                 return true;
             }
-            if (unitList[selectedUnitNo].itemList.Count == 0)
+            if (unitWave.unitWave[selectedUnitNo].itemList.Count == 0)
             {
 
                 Item item = addItem.Copy();
                 item.amount = 1;
 
-                unitList[selectedUnitNo].itemList.Add(item);
+                unitWave.unitWave[selectedUnitNo].itemList.Add(item);
             }
             else
             {
                 bool onceHasBeenAdded = false;
-                for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
+                for (int i = unitWave.unitWave[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
                 {
-                    if (unitList[selectedUnitNo].itemList[i].GetId() == addItem.GetId())
+                    if (unitWave.unitWave[selectedUnitNo].itemList[i].GetId() == addItem.GetId())
                     {
                         onceHasBeenAdded = true;
-                        if (unitList[selectedUnitNo].itemList[i].amount >= 99)
+                        if (unitWave.unitWave[selectedUnitNo].itemList[i].amount >= 99)
                         {
                             //nothing to do.
                         }
                         else
                         {
-                            unitList[selectedUnitNo].itemList[i].amount += 1;
+                            unitWave.unitWave[selectedUnitNo].itemList[i].amount += 1;
                         }
 
                     }
@@ -137,12 +141,12 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     Item item = addItem.Copy();
                     item.amount = 1;
-                    unitList[selectedUnitNo].itemList.Add(item);
+                    unitWave.unitWave[selectedUnitNo].itemList.Add(item);
                 }
 
             }
 
-            itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
+            itemDataBase.SaveUnitInfo(unitWave.unitWave[selectedUnitNo]);
 
             return false;
 
@@ -150,22 +154,22 @@ namespace SequenceBreaker.Home.EquipView
 
         public void RemoveAndSaveItem(Item removedItem)
         {
-            for (int i = unitList[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
+            for (int i = unitWave.unitWave[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
             {
-                if (unitList[selectedUnitNo].itemList[i].GetId() == removedItem.GetId())
+                if (unitWave.unitWave[selectedUnitNo].itemList[i].GetId() == removedItem.GetId())
                 {
-                    if (unitList[selectedUnitNo].itemList[i].amount > 1)
+                    if (unitWave.unitWave[selectedUnitNo].itemList[i].amount > 1)
                     {
-                        unitList[selectedUnitNo].itemList[i].amount -= 1;
+                        unitWave.unitWave[selectedUnitNo].itemList[i].amount -= 1;
                     }
                     else
                     {
-                        unitList[selectedUnitNo].itemList.RemoveAt(i);
+                        unitWave.unitWave[selectedUnitNo].itemList.RemoveAt(i);
                     }
                 }
             }
 
-            itemDataBase.SaveUnitInfo(unitList[selectedUnitNo]);
+            itemDataBase.SaveUnitInfo(unitWave.unitWave[selectedUnitNo]);
 
 
         }
@@ -174,7 +178,7 @@ namespace SequenceBreaker.Home.EquipView
         // for external use
         public List<Item> GetItemList()
         {
-            return unitList[selectedUnitNo].itemList;
+            return unitWave.unitWave[selectedUnitNo].itemList;
 
         }
 
