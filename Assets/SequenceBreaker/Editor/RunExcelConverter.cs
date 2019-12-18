@@ -295,7 +295,7 @@ namespace SequenceBreaker.Editor
 
                 if (unitPath != null)
                 {
-                    EditorPrefs.SetString(_unitClassPathId, unitPath);
+                    EditorPrefs.SetString(_itemPresetPathId, unitPath);
                 }
             }
 
@@ -521,7 +521,6 @@ namespace SequenceBreaker.Editor
                 {
                     //new mission start. so creat it.
                     currentMissionId = unitMasterExcel.missionId;
-
 
                     // UnitSet Create
                     string _unitSetPath = targetPathWithoutName + "/UnitSet/UnitSet-" + currentMissionId;

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Missile M3KIN7
   itemDescription: 
   icon: {fileID: 0}
-  combatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  combatBaseValue: {fileID: 11400000, guid: 4581a517ce8b8446ca8a9fda89e93668, type: 2}
   level: 6
   skillsMasterList: []
   addAbilityList: []

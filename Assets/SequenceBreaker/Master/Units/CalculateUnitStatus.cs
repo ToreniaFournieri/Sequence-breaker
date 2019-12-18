@@ -274,39 +274,39 @@ namespace SequenceBreaker.Master.Units
             List<MagnificationMasterClass> itemMagnificationMasterList = new List<MagnificationMasterClass>();
             //if (unit.itemList != null)
             //{
-                foreach (Item item in veiledItemList)
+            foreach (Item item in veiledItemList)
+            {
+
+                if (item != null)
                 {
-
-                    if (item != null)
+                    //item has prefix, base and suffix. each one has magnification master class list. collect them all
+                    if (item.prefixItem != null)
                     {
-                        //item has prefix, base and suffix. each one has magnification master class list. collect them all
-                        if (item.prefixItem != null)
+                        foreach (MagnificationMasterClass magnificationMaster in item.prefixItem
+                            .magnificationMasterList)
                         {
-                            foreach (MagnificationMasterClass magnificationMaster in item.prefixItem
-                                .magnificationMasterList)
-                            {
-                                itemMagnificationMasterList.Add(magnificationMaster);
-                            }
-                        }
-
-                        if (item.baseItem != null)
-                        {
-                            foreach (MagnificationMasterClass magnificationMaster in item.baseItem
-                                .magnificationMasterList)
-                            {
-                                itemMagnificationMasterList.Add(magnificationMaster);
-                            }
-                        }
-
-                        if (item.suffixItem != null)
-                        {
-                            foreach (MagnificationMasterClass magnificationMaster in item.suffixItem
-                                .magnificationMasterList)
-                            {
-                                itemMagnificationMasterList.Add(magnificationMaster);
-                            }
+                            itemMagnificationMasterList.Add(magnificationMaster);
                         }
                     }
+
+                    if (item.baseItem != null)
+                    {
+                        foreach (MagnificationMasterClass magnificationMaster in item.baseItem
+                            .magnificationMasterList)
+                        {
+                            itemMagnificationMasterList.Add(magnificationMaster);
+                        }
+                    }
+
+                    if (item.suffixItem != null)
+                    {
+                        foreach (MagnificationMasterClass magnificationMaster in item.suffixItem
+                            .magnificationMasterList)
+                        {
+                            itemMagnificationMasterList.Add(magnificationMaster);
+                        }
+                    }
+                }
                 //}
             }
 
@@ -720,7 +720,8 @@ namespace SequenceBreaker.Master.Units
             _combatRaw.maxRange = 6;
 
             // Sample set kinetic Attack ratio
-            _combatRaw.kineticAttackRatio = 1.0;
+
+
 
             // (2-4)Core Skill consideration, coreFrame skill and Pilot skill ->CombatBaseSkillConsidered
             // Formula:
@@ -764,13 +765,13 @@ namespace SequenceBreaker.Master.Units
 
             //if (unit.itemList != null)
             //{
-                foreach (Item item in veiledItemList)
+            foreach (Item item in veiledItemList)
+            {
+                if (item != null)
                 {
-                    if (item != null)
-                    {
-                        _combatItems.Add(item.TotaledCombat());
-                    }
+                    _combatItems.Add(item.TotaledCombat());
                 }
+            }
             //}
 
             // some code here. omitted
@@ -782,7 +783,7 @@ namespace SequenceBreaker.Master.Units
             _combat = ScriptableObject.CreateInstance<CombatClass>();
             _combat.Add(_combatRaw);
             if (_combatItems != null) { _combat.Add(_combatItems); }
-
+            _combat.AdjustElementAttackRatio();
 
             //(3) Feature
             // (3-1) Set environment values
@@ -842,41 +843,41 @@ namespace SequenceBreaker.Master.Units
             //if (unit.itemList != null)
             //{
 
-                foreach (var item in veiledItemList)
+            foreach (var item in veiledItemList)
+            {
+                //if (_itemCapacityCount >= unit.itemCapacity)
+                //{
+                //    continue;
+                //}
+                //_itemCapacityCount++;
+
+
+                if (item != null)
                 {
-                    //if (_itemCapacityCount >= unit.itemCapacity)
-                    //{
-                    //    continue;
-                    //}
-                    //_itemCapacityCount++;
-
-
-                    if (item != null)
+                    if (item.prefixItem != null)
                     {
-                        if (item.prefixItem != null)
+                        foreach (var skill in item.prefixItem.skillsMasterList)
                         {
-                            foreach (var skill in item.prefixItem.skillsMasterList)
-                            {
-                                summedSkillList.Add(skill);
-                            }
-                        }
-
-                        if (item.baseItem != null)
-                        {
-                            foreach (var skill in item.baseItem.skillsMasterList)
-                            {
-                                summedSkillList.Add(skill);
-                            }
-                        }
-
-                        if (item.suffixItem != null)
-                        {
-                            foreach (var skill in item.suffixItem.skillsMasterList)
-                            {
-                                summedSkillList.Add(skill);
-                            }
+                            summedSkillList.Add(skill);
                         }
                     }
+
+                    if (item.baseItem != null)
+                    {
+                        foreach (var skill in item.baseItem.skillsMasterList)
+                        {
+                            summedSkillList.Add(skill);
+                        }
+                    }
+
+                    if (item.suffixItem != null)
+                    {
+                        foreach (var skill in item.suffixItem.skillsMasterList)
+                        {
+                            summedSkillList.Add(skill);
+                        }
+                    }
+                }
 
                 //}
             }
@@ -892,6 +893,12 @@ namespace SequenceBreaker.Master.Units
                 + battleUnit.combat.mobility + " Mobility \n"
                 + battleUnit.combat.defense + " Defense\n"
                 + battleUnit.combat.numberOfAttacks + " Number of Attacks\n"
+
+                + "Kinetic " + Math.Round(battleUnit.combat.kineticAttackRatio,2) + " : "
+                + "Chemical " + Math.Round(battleUnit.combat.chemicalAttackRatio,2) + " : "
+
+                + "Thermal " + Math.Round(battleUnit.combat.thermalAttackRatio,2) + " \n"
+
                 + "(P:" + battleUnit.ability.power + " G:" + battleUnit.ability.generation
                 + " S:" + battleUnit.ability.stability + " R:" + battleUnit.ability.responsiveness
                 + " P:" + battleUnit.ability.precision + " I:" + battleUnit.ability.intelligence

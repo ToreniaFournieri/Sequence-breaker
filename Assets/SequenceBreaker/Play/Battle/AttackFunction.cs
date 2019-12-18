@@ -337,7 +337,7 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords = "critical "; }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords = "critical " ; }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
@@ -347,10 +347,35 @@ namespace SequenceBreaker.Play.Battle
                 string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1) { sNumberOfAttacks = "s"; }
                 string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
                 var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.skill.skillName.ToString(); }
-                var majorityElement = " [mixed]";
-                if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic]"; }
-                if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical]"; }
-                if (order.Actor.combat.thermalAttackRatio > 0.5) { majorityElement = " [Thermal]"; }
+                //if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic "+ order.Actor.combat.kineticAttackRatio + "]"; }
+                //if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical " + order.Actor.combat.chemicalAttackRatio + "]"; }
+                //if (order.Actor.combat.thermalAttackRatio > 0.5) { majorityElement = " [Thermal "+ order.Actor.combat.thermalAttackRatio + "]"; }
+                string majorityElement = null;
+                if (order.Actor.combat.kineticAttackRatio > 0.1)
+                {
+                    majorityElement +=
+                                    " [Kinetic x" + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
+                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                }
+                if (order.Actor.combat.chemicalAttackRatio > 0.1)
+                {
+                    majorityElement +=
+                                    " [Chemical x" + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
+                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                }
+                if (order.Actor.combat.thermalAttackRatio > 0.1)
+                {
+                    majorityElement +=
+                                    " [Thermal x" + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
+                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                }
+
+                if (majorityElement == null)
+                {
+                    majorityElement = " [None x " + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
+
+                }
+
 
                 string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 

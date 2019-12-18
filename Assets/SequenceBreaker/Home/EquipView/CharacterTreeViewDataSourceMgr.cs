@@ -130,10 +130,7 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
             var itemList = characterStatusDisplay.GetItemList();
-            //if (itemList != null && itemList.Count != 0 && itemList[0] != null)
-            //{
-            //    itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
-            //}
+
 
             _mItemDataList.Clear();
             for (int i = 0; i < _mTreeViewItemCount; ++i)

@@ -60,6 +60,18 @@ namespace SequenceBreaker.Master.BattleUnit
             return this;
         }
 
+        public void AdjustElementAttackRatio()
+        {
+            double _kinetic = kineticAttackRatio;
+            double _chemical = chemicalAttackRatio;
+            double _thermal = thermalAttackRatio;
+
+            kineticAttackRatio = _kinetic / (_kinetic + _chemical + _thermal);
+            chemicalAttackRatio = _chemical / (_kinetic + _chemical + _thermal);
+            thermalAttackRatio = _thermal / (_kinetic + _chemical + _thermal);
+
+        }
+
         public CombatClass Pow(int specifies)
         {
             const double raised = 1.2; // need to be think later. this value is temp.
@@ -69,9 +81,9 @@ namespace SequenceBreaker.Master.BattleUnit
             hitPointCurrent = (int)(hitPointCurrent * Math.Pow(raised, specifies));
             hitPointMax = (int)(hitPointMax * Math.Pow(raised, specifies));
             attack = (int)(attack * Math.Pow(raised, specifies));
-            kineticAttackRatio = (int)(kineticAttackRatio * Math.Pow(raised, specifies));
-            chemicalAttackRatio = (int)(chemicalAttackRatio * Math.Pow(raised, specifies));
-            thermalAttackRatio = (int)(thermalAttackRatio * Math.Pow(raised, specifies));
+            //kineticAttackRatio = (kineticAttackRatio * Math.Pow(raised, specifies));
+            //chemicalAttackRatio = (chemicalAttackRatio * Math.Pow(raised, specifies));
+            //thermalAttackRatio = (thermalAttackRatio * Math.Pow(raised, specifies));
             criticalHit = (int)(criticalHit * Math.Pow(raised, specifies));
             numberOfAttacks = (int)(numberOfAttacks * Math.Pow(raised, specifies));
 

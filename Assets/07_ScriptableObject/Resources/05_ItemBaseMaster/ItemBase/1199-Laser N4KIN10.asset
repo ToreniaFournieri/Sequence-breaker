@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Laser N4KIN10
   itemDescription: 
   icon: {fileID: 0}
-  combatBaseValue: {fileID: 11400000, guid: f64e0bce039034c6a88cf112e7268f16, type: 2}
+  combatBaseValue: {fileID: 11400000, guid: 4c06e3222f54b41c89a56660388b1bb2, type: 2}
   level: 8
   skillsMasterList: []
   addAbilityList: []

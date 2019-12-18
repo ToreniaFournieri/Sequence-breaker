@@ -67,6 +67,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 844907db2f82946298e47cf92f1c200b, type: 2}
   - {fileID: 11400000, guid: 1cdecce2cf3f841bf9325dccfbe3ff1f, type: 2}
   - {fileID: 11400000, guid: 5322041f800614049866c9471f74fd49, type: 2}
+  - {fileID: 11400000, guid: 4581a517ce8b8446ca8a9fda89e93668, type: 2}
+  - {fileID: 11400000, guid: 4c06e3222f54b41c89a56660388b1bb2, type: 2}
   magnificationList:
   - {fileID: 11400000, guid: be39a7bc3d8bc4f4889d8fd929086ad6, type: 2}
   - {fileID: 11400000, guid: ad2f002051ba243f99d514a8287b3d92, type: 2}
