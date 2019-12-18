@@ -19,6 +19,13 @@ namespace SequenceBreaker.Home.EquipView
         {
             _mChildItemDataList.Add(data);
         }
+
+        public void SortItemList()
+        {
+            _mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+
+        }
+
         public Item GetChild(int index)
         {
             if (index < 0 || index >= _mChildItemDataList.Count)
@@ -96,7 +103,7 @@ namespace SequenceBreaker.Home.EquipView
                 allyInventoryItemList.AddItemAndSave(item);
             }
         }
-        
+
 
         public InventoryTreeViewItemData GetItemDataByIndex(int index)
         {
@@ -168,38 +175,45 @@ namespace SequenceBreaker.Home.EquipView
         public void DoRefreshDataSource()
         {
             _mItemDataList.Clear();
-            
+
             for (int i = 0; i < _mTreeViewItemCount; ++i)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData
                 {
-                    MName = "Main Item Category: " + i, MIcon = "1"
+                    MName = "Main Item Category: " + i,
+                    MIcon = "1"
                 };
                 _mItemDataList.Add(tData);
-                
+
 
                 if (isInfinityInventoryMode)
                 {
                     infinityInventoryItemList.Init();
-                    infinityInventoryItemList.inventory.itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId) )   ;
+                    //infinityInventoryItemList.inventory.itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
 
                     foreach (Item item in infinityInventoryItemList.inventory.itemList)
                     {
                         tData.AddChild(item);
                     }
+
+                    tData.SortItemList();
+
                 }
                 else
                 {
                     allyInventoryItemList.Init();
-                    
+
                     if (allyInventoryItemList.inventory.itemList != null)
                     {
-                        allyInventoryItemList.inventory.itemList.Sort((x, y) =>
-                            (x.baseItem.itemId - y.baseItem.itemId));
+                        //allyInventoryItemList.inventory.itemList.Sort((x, y) =>
+                        //    (x.baseItem.itemId - y.baseItem.itemId));
                         foreach (Item item in allyInventoryItemList.inventory.itemList)
                         {
                             tData.AddChild(item);
                         }
+
+                        tData.SortItemList();
+
                     }
                 }
 

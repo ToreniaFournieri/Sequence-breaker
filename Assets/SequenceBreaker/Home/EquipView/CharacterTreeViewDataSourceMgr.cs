@@ -17,6 +17,12 @@ namespace SequenceBreaker.Home.EquipView
         {
             _mChildItemDataList.Add(data);
         }
+        public void SortItemList()
+        {
+            _mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+
+        }
+
         public Item GetChild(int index)
         {
             if (index < 0 || index >= _mChildItemDataList.Count)
@@ -124,10 +130,10 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
             var itemList = characterStatusDisplay.GetItemList();
-            if (itemList != null && itemList.Count != 0 && itemList[0] != null)
-            {
-                itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
-            }
+            //if (itemList != null && itemList.Count != 0 && itemList[0] != null)
+            //{
+            //    itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+            //}
 
             _mItemDataList.Clear();
             for (int i = 0; i < _mTreeViewItemCount; ++i)
@@ -151,6 +157,8 @@ namespace SequenceBreaker.Home.EquipView
                         {
                             tData.AddChild(item);
                         }
+
+                        tData.SortItemList();
                     }
                 }
             }

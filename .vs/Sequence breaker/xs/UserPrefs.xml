@@ -1,20 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/UnitSetExcel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItem.cs" Line="90" Column="51" IsPinned="True" />
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="21" Column="9" />
-      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="110" Column="51" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListContents.cs" Line="17" Column="48" />
-      <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="28" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/MissionController.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/GUIController/Segue/TabController.cs" Line="118" Column="57" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="177" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListChangeItemHeightDemoScript.cs" Line="79" Column="33" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="117" Column="66" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="141" Column="47" />
-      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="583" Column="50" />
-      <File FileName="Assets/SequenceBreaker/Editor/UnitSetExcel.cs" Line="53" Column="41" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="143" Column="40" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="116" Column="93" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="193" Column="27" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="18" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="186" Column="41" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="136" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
