@@ -11,7 +11,7 @@ namespace SequenceBreaker.Master.Units
     public sealed class UnitClass : ScriptableObject
     {
         public int uniqueId;
-        public new string name;
+        public string shortName;
         public Affiliation affiliation;
         public UnitType unitType;
         public int itemCapacity;
@@ -29,7 +29,7 @@ namespace SequenceBreaker.Master.Units
         public void Copy(UnitClass unit)
         {
             uniqueId = unit.uniqueId;
-            name = unit.name;
+            shortName = unit.shortName;
             affiliation = unit.affiliation;
             unitType = unit.unitType;
             itemCapacity = unit.itemCapacity;
@@ -60,7 +60,7 @@ namespace SequenceBreaker.Master.Units
             
 
                 return "[" + tuningStyleFirstLetter + "]"
-                       + name 
+                       + shortName 
                        +"[" + unitType + "]"
                        + " (Lv:" + level + ")";
             

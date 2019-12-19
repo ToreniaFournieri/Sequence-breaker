@@ -11,7 +11,8 @@ namespace SequenceBreaker.Master.BattleUnit
     public sealed class BattleUnit : ScriptableObject
     {
         [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
-        [FormerlySerializedAs("Name")] [SerializeField] public new string name;
+        [SerializeField] public string longName;
+        [SerializeField] public string shortName;
         [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
         [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
         [FormerlySerializedAs("Buff")] [SerializeField] public BuffClass buff;
@@ -42,10 +43,10 @@ namespace SequenceBreaker.Master.BattleUnit
         }
 
 
-        public BattleUnit(int uniqueId, string name, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
+        public BattleUnit(int uniqueId, string longName, string shortName, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
             OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
         {
-            this.uniqueId = uniqueId; this.name = name; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
+            this.uniqueId = uniqueId; this.longName = longName; this.shortName = shortName ; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
             this.feature = feature; this.offenseMagnification = offenseMagnification; this.defenseMagnification = defenseMagnification; this.skillMagnification = skillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -53,11 +54,11 @@ namespace SequenceBreaker.Master.BattleUnit
             Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
         }
 
-        public void Set(int iUniqueId, string iName, Affiliation iAffiliation, UnitType iUnitType, AbilityClass iAbility, CombatClass iCombat, FeatureClass iFeature,
+        public void Set(int iUniqueId, string ilongName, string iShortName, Affiliation iAffiliation, UnitType iUnitType, AbilityClass iAbility, CombatClass iCombat, FeatureClass iFeature,
             OffenseMagnificationClass iOffenseMagnification, DefenseMagnificationClass iDefenseMagnification, UnitSkillMagnificationClass iSkillMagnification)
         {
-            
-            uniqueId = iUniqueId; name = iName; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
+
+            uniqueId = iUniqueId; longName = ilongName; shortName = iShortName ; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
             feature = iFeature; offenseMagnification = iOffenseMagnification; defenseMagnification = iDefenseMagnification; skillMagnification = iSkillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -98,7 +99,9 @@ namespace SequenceBreaker.Master.BattleUnit
             }
             public void AddBarrier(int addBarrierCount) { BarrierRemaining += addBarrierCount; }
             // take 1 barrier. true=barrier has, false= no barrier anymore
-            public bool RemoveBarrier() { if (BarrierRemaining > 0) { BarrierRemaining--; return true; }
+            public bool RemoveBarrier()
+            {
+                if (BarrierRemaining > 0) { BarrierRemaining--; return true; }
 
                 BarrierRemaining = 0; return false;
             }

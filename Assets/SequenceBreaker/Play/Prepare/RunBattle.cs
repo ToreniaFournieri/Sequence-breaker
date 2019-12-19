@@ -195,7 +195,7 @@ namespace SequenceBreaker.Play.Prepare
                 var isDead = true;
                 if (battle.LogList[i].Order != null)
                 {
-                    unitNameText = battle.LogList[i].Order.Actor.name;
+                    unitNameText = battle.LogList[i].Order.Actor.longName;
                     unitHealthText = "[" + battle.LogList[i].Order.Actor.combat.shieldCurrent +
                                      "(" + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.shieldCurrent * 100 / battle.LogList[i].Order.Actor.combat.shieldMax) + "%)+"
                                      + battle.LogList[i].Order.Actor.combat.hitPointCurrent + "("
@@ -207,7 +207,7 @@ namespace SequenceBreaker.Play.Prepare
                         var preposition = " to ";
                         if (battle.LogList[i].Order.ActionType == ActionType.ReAttack) { preposition = " of "; }
 
-                        reactText = battle.LogList[i].Order.ActionType + preposition + battle.LogList[i].Order.IndividualTarget.name;
+                        reactText = battle.LogList[i].Order.ActionType + preposition + battle.LogList[i].Order.IndividualTarget.longName;
                     }
 
                     shieldRatio = battle.LogList[i].Order.Actor.combat.shieldCurrent / (float)battle.LogList[i].Order.Actor.combat.shieldMax;

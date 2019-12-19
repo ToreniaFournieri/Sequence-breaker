@@ -134,7 +134,7 @@ namespace SequenceBreaker.Play.MissionView
                             {
 
                                 missionController.transparentMessageController
-                                    .AddTextAndActive("[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")");
+                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")");
                                 //missionController
                                 //        .transparentMessageController
                                 //        .transparentText.text

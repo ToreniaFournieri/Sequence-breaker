@@ -87,7 +87,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     else { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false); }
                     
 
-                    unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text = "<b>" + unit.name + "</b> [" + unit.combat.shieldCurrent
+                    unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text = "<b>" + unit.longName + "</b> [" + unit.combat.shieldCurrent
                                                                              + "+" + unit.combat.hitPointCurrent + "] " + deteriorationText;
                     unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
                     unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;

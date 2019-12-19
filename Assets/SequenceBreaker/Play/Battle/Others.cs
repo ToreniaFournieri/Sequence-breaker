@@ -52,7 +52,7 @@ namespace SequenceBreaker.Play.Battle
                     string defenseText = null;
                     if (affiliationCharacters[i].buff.DefenseMagnification > 1.01) { defenseText = "[Defense: x" + affiliationCharacters[i].buff.DefenseMagnification + "]"; }
 
-                    text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].name
+                    text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].longName
                             + " (" + affiliationCharacters[i].combat.shieldCurrent.WithComma() + "+"
                             + affiliationCharacters[i].combat.hitPointCurrent.WithComma() + ")" +
                             " (" + new string(' ', shieldPercentSpace) + Math.Round((affiliationCharacters[i].combat.shieldCurrent / (double)affiliationCharacters[i].combat.shieldMax * 100), 0) + "%+"
@@ -131,7 +131,7 @@ namespace SequenceBreaker.Play.Battle
 
                 // check overflow of shield current.
                 if (character.combat.shieldCurrent > character.combat.shieldMax) { character.combat.shieldCurrent = character.combat.shieldMax; }
-                Log += new string(' ', 4) + character.name + " (Sh" + new string(' ', shieldPercentSpace)
+                Log += new string(' ', 4) + character.longName + " (Sh" + new string(' ', shieldPercentSpace)
                        + Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma()
                        + "% HP" + new string(' ', hPPercentSpace)
                        + Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma()
@@ -208,7 +208,7 @@ namespace SequenceBreaker.Play.Battle
 
                 foreach (var effect in SkillEffectProposed) { if (effect.UsageCount > 0) { validEffects.Add(effect); } }
 
-                if (validEffects.Count == 0) { Console.WriteLine(" no valid skill exist" + Actor.name + " " + ActionType + " " + environmentInfo.Info()); }
+                if (validEffects.Count == 0) { Console.WriteLine(" no valid skill exist" + Actor.longName + " " + ActionType + " " + environmentInfo.Info()); }
                 else if (validEffects.Count >= 1)// in case more than 2 skills proposed.
                 {
                     List<BattleUnit> healTargets;
@@ -326,13 +326,13 @@ namespace SequenceBreaker.Play.Battle
                     if ((characters[i].combat.shieldMax - characters[i].combat.shieldCurrent) <= shieldHealAmount)
                     { // can heal max
                         characters[i].combat.shieldCurrent = characters[i].combat.shieldMax;
-                        Log += characters[i].name + " heals all shield." +
+                        Log += characters[i].longName + " heals all shield." +
                                " Shield:" + characters[i].combat.shieldCurrent + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
                     }
                     else
                     {
                         characters[i].combat.shieldCurrent += shieldHealAmount;
-                        Log += characters[i].name + " heals " + shieldHealAmount +
+                        Log += characters[i].longName + " heals " + shieldHealAmount +
                                " Shield:" + characters[i].combat.shieldCurrent + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
                     }
                 }

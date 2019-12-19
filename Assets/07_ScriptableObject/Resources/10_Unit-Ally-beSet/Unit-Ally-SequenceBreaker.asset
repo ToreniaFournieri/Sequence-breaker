@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Unit-Ally-SequenceBreaker
   m_EditorClassIdentifier: 
   uniqueId: 100003
-  name: SequenceBreaker
+  shortName: SequenceBreaker
   affiliation: 0
   unitType: 3
-  itemCapacity: 16
+  itemCapacity: 5
   itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 097f8798c8a1f4a0f825b7546c3a4752, type: 2}
   pilot: {fileID: 11400000, guid: 6a2088ff11b3d45e496daaae0db3ea0d, type: 2}
-  level: 2
-  experience: 15
-  toNextLevel: 27
-  skillsMaster:
-  - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
-  - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
+  level: 12
+  experience: 1284
+  toNextLevel: 218

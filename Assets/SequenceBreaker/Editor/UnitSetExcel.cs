@@ -66,7 +66,7 @@ namespace SequenceBreaker.Editor
             {
                 foreach (var unit in unitClassList.unitList)
                 {
-                    if (unit.name == unitString)
+                    if (unit.shortName == unitString)
                     {
                         //Debug.Log("unit exist :" + unitString);
                         return unit;

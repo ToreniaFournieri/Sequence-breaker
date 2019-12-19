@@ -351,19 +351,19 @@ namespace SequenceBreaker.Play.Battle
                 //if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical " + order.Actor.combat.chemicalAttackRatio + "]"; }
                 //if (order.Actor.combat.thermalAttackRatio > 0.5) { majorityElement = " [Thermal "+ order.Actor.combat.thermalAttackRatio + "]"; }
                 string majorityElement = null;
-                if (order.Actor.combat.kineticAttackRatio > 0.1)
+                if (order.Actor.combat.kineticAttackRatio > 0.001)
                 {
                     majorityElement +=
                                     " [Kinetic x" + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
-                if (order.Actor.combat.chemicalAttackRatio > 0.1)
+                if (order.Actor.combat.chemicalAttackRatio > 0.001)
                 {
                     majorityElement +=
                                     " [Chemical x" + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
-                if (order.Actor.combat.thermalAttackRatio > 0.1)
+                if (order.Actor.combat.thermalAttackRatio > 0.001)
                 {
                     majorityElement +=
                                     " [Thermal x" + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
@@ -380,8 +380,8 @@ namespace SequenceBreaker.Play.Battle
                 string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
-                                + order.Actor.combat.numberOfAttacks + "time" + sNumberOfAttacks +
-                                " total hit" + sNumberOfSuccessAttacks + ":" + numberOfSuccessAttacks + majorityElement + speedText;
+                                + numberOfSuccessAttacks + "/ " +order.Actor.combat.numberOfAttacks 
+                                + " Hit" + sNumberOfAttacks + majorityElement + speedText;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
@@ -407,7 +407,7 @@ namespace SequenceBreaker.Play.Battle
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
 
-                        log += opponents[fTargetColumn].name + " takes " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage ("
+                        log += opponents[fTargetColumn].longName + " takes " + new string(' ', damageSpace) + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage ("
                                + new string(' ', damageRateSpace) + sign + damageRatio + "%)" + crushed + " Hit" + s + ":"
                                + totalIndividualHits[opponents[fTargetColumn].uniqueId] + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
@@ -425,7 +425,7 @@ namespace SequenceBreaker.Play.Battle
                 if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + "All attacks missed...  \n"; }
 
                 //Absorb log
-                if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.name + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
+                if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.longName + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
 
                 var orderCondition = order.OrderCondition;
                 BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, log: log, whichAffiliationAct: order.Actor.affiliation);

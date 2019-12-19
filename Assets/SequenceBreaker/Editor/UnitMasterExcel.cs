@@ -19,7 +19,7 @@ namespace SequenceBreaker.Editor
 		public UnitClass GetUnitClass()
 		{
 			UnitClass unit = ScriptableObject.CreateInstance<UnitClass>();
-			unit.name = unitName;
+			unit.shortName = unitName;
 			unit.uniqueId = uniqueId;
 			unit.affiliation = affiliation;
 			unit.unitType = unitType;

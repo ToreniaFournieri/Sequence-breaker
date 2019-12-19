@@ -10,7 +10,7 @@ namespace SequenceBreaker.Editor
         [MenuItem("Assets/Create/UnitClass")]
         public static UnitClass Create(string path, UnitClass unit)
         {
-            string pathWithName = path + "/" + unit.uniqueId + "-" + unit.name + ".asset";
+            string pathWithName = path + "/" + unit.uniqueId + "-" + unit.shortName + ".asset";
 
             UnitClass asset = AssetDatabase.LoadAssetAtPath(pathWithName, typeof(UnitClass)) as UnitClass;
             if (asset == null)
