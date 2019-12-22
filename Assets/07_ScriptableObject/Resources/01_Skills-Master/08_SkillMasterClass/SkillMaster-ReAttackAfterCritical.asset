@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-ReAttackAfterCritical
   m_EditorClassIdentifier: 
-  skillName: 6
+  skillName: ReAttack after critical
+  skillId: 0
+  isNormalAttack: 0
   actionType: 6
   callSkillLogicName: 0
   isHeal: 0
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 6c0f87b4113a2481b82b294c22f6a4b9, type: 2}
   triggerTarget: {fileID: 11400000, guid: 0bec9b4fe261d4e7581acb3b295543ff, type: 2}
   buffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
-  callingBuffName: 0
+  callingBuffName: {fileID: 0}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

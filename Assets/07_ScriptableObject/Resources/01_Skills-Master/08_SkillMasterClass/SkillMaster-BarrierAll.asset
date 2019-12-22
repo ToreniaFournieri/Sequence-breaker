@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-BarrierAll
   m_EditorClassIdentifier: 
-  skillName: 8
+  skillName: Barrier all
+  skillId: 0
+  isNormalAttack: 0
   actionType: 9
   callSkillLogicName: 0
   isHeal: 0
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 54784d6314fa8449ab4f7b8d7ee185f3, type: 2}
   triggerTarget: {fileID: 11400000, guid: a72b6c208ccf544a982d7d2c7f0b926b, type: 2}
   buffTarget: {fileID: 11400000, guid: 490b6e2e4701942b48bb23bd38459ad3, type: 2}
-  callingBuffName: 10
+  callingBuffName: {fileID: 11400000, guid: 640f57ab3a2b44d498151a6417aeed14, type: 2}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

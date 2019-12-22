@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-FutureSightShot
   m_EditorClassIdentifier: 
-  skillName: 5
+  skillName: Future Sight shoot
+  skillId: 0
+  isNormalAttack: 0
   actionType: 3
   callSkillLogicName: 0
   isHeal: 0
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 34d52f460c2f5419baa2fe873fb22678, type: 2}
   triggerTarget: {fileID: 11400000, guid: a72b6c208ccf544a982d7d2c7f0b926b, type: 2}
   buffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
-  callingBuffName: 0
+  callingBuffName: {fileID: 0}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

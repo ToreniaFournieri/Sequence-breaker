@@ -22,8 +22,15 @@ namespace SequenceBreaker.Home.EquipView
 
         public void SortItemList()
         {
-            _mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+            try
+            {
+                _mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+            }
+            catch
+            {
+                Debug.LogError("Failed Sort item list: " + MName + " target list count:" + _mChildItemDataList.Count);
 
+            }
         }
 
         public Item GetChild(int index)

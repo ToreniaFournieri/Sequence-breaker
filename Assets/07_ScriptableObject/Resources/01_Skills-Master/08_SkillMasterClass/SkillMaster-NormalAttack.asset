@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-NormalAttack
   m_EditorClassIdentifier: 
-  skillName: 1
+  skillName: Attack
+  skillId: 0
+  isNormalAttack: 0
   actionType: 0
   callSkillLogicName: 0
   isHeal: 0
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 8a3958ed261e246c2a3e9f5a721cedf1, type: 2}
   triggerTarget: {fileID: 11400000, guid: b58a1ec6450224a6aac4997962f90bbc, type: 2}
   buffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
-  callingBuffName: 0
+  callingBuffName: {fileID: 0}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

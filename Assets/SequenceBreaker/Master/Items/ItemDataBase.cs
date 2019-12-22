@@ -210,6 +210,11 @@ namespace SequenceBreaker.Master.Items
 
         }
 
+        public Item GetItemFromItemIdSet(ItemIdSet itemIdSet)
+        {
+            return GetItemFromId(itemIdSet.prefixId, itemIdSet.baseId, itemIdSet.suffixId, itemIdSet.enhancedValue);
+        }
+
 
 
 

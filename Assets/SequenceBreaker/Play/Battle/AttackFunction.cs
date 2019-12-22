@@ -289,7 +289,13 @@ namespace SequenceBreaker.Play.Battle
 
                 // Hate Management
                 double criticalHateAdd = 0; if (criticalReduction > 0) { criticalHateAdd = 30; }
-                double skillHateAdd = 0; if (order.SkillEffectChosen != null) { if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack) { skillHateAdd = 50; } }
+                double skillHateAdd = 0; if (order.SkillEffectChosen != null)
+                {
+                    if (!order.SkillEffectChosen.skill.isNormalAttack)
+                    {
+                        skillHateAdd = 50;
+                    }
+                }
                 double crushedHateAdd = 0;
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 { if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushedHateAdd += 100; } }
@@ -306,7 +312,7 @@ namespace SequenceBreaker.Play.Battle
                             characters[toTargetUniqueId].Statistics.CriticalTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.CriticalBeenHitCount++;
                         }
-                        if (order.SkillEffectChosen != null && order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
+                        if (order.SkillEffectChosen != null && !order.SkillEffectChosen.skill.isNormalAttack)
                         {
                             characters[toTargetUniqueId].Statistics.SkillTotalBeTakenDamage += totalDealtDamages[toTargetUniqueId];
                             characters[toTargetUniqueId].Statistics.SkillBeenHitCount++;
@@ -329,7 +335,7 @@ namespace SequenceBreaker.Play.Battle
 
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
+                    if (!order.SkillEffectChosen.skill.isNormalAttack)
                     {
                         order.Actor.Statistics.SkillActivatedCount++;
                         order.Actor.Statistics.SkillHitCount += numberOfSuccessAttacks;
@@ -341,7 +347,7 @@ namespace SequenceBreaker.Play.Battle
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
-                    if (order.SkillEffectChosen.skill.skillName != SkillName.NormalAttack)
+                    if (!order.SkillEffectChosen.skill.isNormalAttack)
                     { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
                 }
                 string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1) { sNumberOfAttacks = "s"; }
@@ -391,9 +397,9 @@ namespace SequenceBreaker.Play.Battle
                     if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
                     {
                         leftShieldAndHP = "[" + opponents[fTargetColumn].combat.shieldCurrent + "("
-                            + Math.Round((double)opponents[fTargetColumn].combat.shieldCurrent/ (double)opponents[fTargetColumn].combat.shieldMax * 100,0) + "%)+"
-                            + opponents[fTargetColumn].combat.hitPointCurrent +"("
-                            + Math.Round((double)opponents[fTargetColumn].combat.hitPointCurrent / (double)opponents[fTargetColumn].combat.hitPointMax *100, 0) + "%)]";
+                            + Math.Round((double)opponents[fTargetColumn].combat.shieldCurrent / (double)opponents[fTargetColumn].combat.shieldMax * 100, 0) + "%)+"
+                            + opponents[fTargetColumn].combat.hitPointCurrent + "("
+                            + Math.Round((double)opponents[fTargetColumn].combat.hitPointCurrent / (double)opponents[fTargetColumn].combat.hitPointMax * 100, 0) + "%)]";
                     }
 
 

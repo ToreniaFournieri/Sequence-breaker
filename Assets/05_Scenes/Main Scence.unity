@@ -10752,6 +10752,8 @@ MonoBehaviour:
   allyUnitSet: {fileID: 11400000, guid: 92a167c18cb6542c59f7fa9232e1ea25, type: 2}
   equipListDataSourceMgr: {fileID: 1794051298}
   unitClassList: {fileID: 11400000, guid: 64b7babe0c2d84771b26a45c0b1fbfa7, type: 2}
+  initialInventoryItemPreset: {fileID: 11400000, guid: 57e1e410bb20446dbba702871308c583,
+    type: 2}
   a1: {fileID: 449333225}
   a2: {fileID: 1160069815}
   a3: {fileID: 1870001500}
@@ -11862,6 +11864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4273435d869640d0ab468b373d8ddc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startUp: {fileID: 1184356223}
 --- !u!1 &1306242410
 GameObject:
   m_ObjectHideFlags: 0

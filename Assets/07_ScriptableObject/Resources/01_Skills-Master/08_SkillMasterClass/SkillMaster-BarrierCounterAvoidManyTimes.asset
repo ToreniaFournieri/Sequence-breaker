@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-BarrierCounterAvoidManyTimes
   m_EditorClassIdentifier: 
-  skillName: 2
+  skillName: Counter Barrier
+  skillId: 0
+  isNormalAttack: 0
   actionType: 4
   callSkillLogicName: 0
   isHeal: 0
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 54784d6314fa8449ab4f7b8d7ee185f3, type: 2}
   triggerTarget: {fileID: 11400000, guid: 9e44a1f71d6394bde9b70ccdbc94309c, type: 2}
   buffTarget: {fileID: 11400000, guid: 3bc7145a230ed4cf0b2f666300b5e999, type: 2}
-  callingBuffName: 9
+  callingBuffName: {fileID: 11400000, guid: b009f4f98d73b4351ace72f8fd374199, type: 2}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

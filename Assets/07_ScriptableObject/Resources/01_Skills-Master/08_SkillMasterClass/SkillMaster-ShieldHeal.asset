@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-ShieldHeal
   m_EditorClassIdentifier: 
-  skillName: 11
+  skillName: Shield heal
+  skillId: 0
+  isNormalAttack: 0
   actionType: 3
   callSkillLogicName: 1
   isHeal: 1
@@ -23,5 +25,5 @@ MonoBehaviour:
   magnification: {fileID: 11400000, guid: 8654e92b85f8f436a9ae08262617f11d, type: 2}
   triggerTarget: {fileID: 11400000, guid: 9c3c4615157e74d78a1c845d02648b5a, type: 2}
   buffTarget: {fileID: 11400000, guid: 246e7486e2481488a8a5c3be74052165, type: 2}
-  callingBuffName: 0
+  callingBuffName: {fileID: 0}
   debuffTarget: {fileID: 11400000, guid: 5e54d30b9dc6b4007bbcef3e84eda25a, type: 2}

@@ -26,6 +26,9 @@ namespace SequenceBreaker.Environment
         //new Unit list
         public UnitClassList unitClassList;
 
+        //default inventory list
+        public ItemPreset initialInventoryItemPreset;
+
         //wake up all main tab
         public GameObject a1;
         public GameObject a2;
@@ -38,11 +41,7 @@ namespace SequenceBreaker.Environment
         // Start is called before the first frame update
         void Start()
         {
-            //inventory
-            //inventory = itemDataBase.LoadUnitInfo(inventory);
-            inventory = ItemDataBase.instance.LoadUnitInfo(inventory);
-
-
+            InitializeInventory();
             transparentMessageController.transparentMessage.SetActive(true);
 
 
@@ -77,16 +76,6 @@ namespace SequenceBreaker.Environment
             }
 
 
-            //List<UnitClass> unitList = homeDataSourceMgr.homeContents.homeContentList[0].unitClassList;
-            //foreach (var unit in unitList)
-            //{
-            //    //unit.experience = itemDataBase.LoadUnitInfo(unit).experience;
-            //    unit.experience = ItemDataBase.Get.LoadUnitInfo(unit).experience;
-
-            //    unit.CalculateLevel();
-            //}
-
-
             // import additional enemy unit to home contents
             EquipListContentData enemyHomeContentData;
 
@@ -117,19 +106,6 @@ namespace SequenceBreaker.Environment
                             unit.itemList = itemList;
                         }
 
-
-                        //unit.level = mission.levelInitial;
-
-                        //foreach (var set in itemIdSetList)
-                        //{
-                        //    Item item = ItemDataBase.Get.GetItemFromId(set.prefixId, set.baseId, set.suffixId, set.enhancedValue);
-                        //    if (item != null)
-                        //    {
-                        //        unit.itemList.Add(item);
-                        //    }
-                        //}
-
-                        //enemyHomeContentData.unitClassList.Add(unit);
                     }
                     enemyHomeContentData.unitWave = unitWave;
 
@@ -163,7 +139,23 @@ namespace SequenceBreaker.Environment
 
 #endif
 
+        }
 
+        public void InitializeInventory()
+        {
+            inventory = ItemDataBase.instance.LoadUnitInfo(inventory);
+
+            if (inventory.itemList.Count == 0)
+            {
+
+                foreach (ItemIdSet itemIdSet in initialInventoryItemPreset.itemIdList)
+                {
+                    inventory.itemList.Add(ItemDataBase.instance.GetItemFromItemIdSet(itemIdSet));
+                }
+                ItemDataBase.instance.SaveUnitInfo(inventory);
+
+
+            }
 
         }
 

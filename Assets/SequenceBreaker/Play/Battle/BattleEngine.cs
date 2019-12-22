@@ -369,7 +369,7 @@ namespace SequenceBreaker.Play.Battle
                                         var deleteOneActionOrderRaw = deleteOneActionOrderIfHave.FindLast(obj => obj.Actor == order.Actor && obj.ActionType == ActionType.Move);
                                         OrderClass deleteOneActionOrder = null;
                                         foreach (var effect in deleteOneActionOrderRaw.SkillEffectProposed)
-                                        { if (effect.skill.skillName == SkillName.NormalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
+                                        { if (effect.skill.isNormalAttack) { deleteOneActionOrder = deleteOneActionOrderRaw; } }
                                         deleteOneActionOrderIfHave.Remove(deleteOneActionOrder);
                                         deleteOneActionOrderIfHave.Reverse();
                                         if (deleteOneActionOrder != null) //clear stack and input again
@@ -694,7 +694,7 @@ namespace SequenceBreaker.Play.Battle
                 if (effect.skill.actionType != ActionType.Move && effect.skill.triggerTarget.afterAllMoved == false) // check normal Attack left, except move skill. (move skill is itself so check this logic make no sense )
                 {
                     var checkOrders = orders.ToList();
-                    if (checkOrders.FindLast(obj => obj.Actor == effect.character && obj.SkillEffectChosen.skill.skillName == SkillName.NormalAttack) == null)
+                    if (checkOrders.FindLast(obj => obj.Actor == effect.character && obj.SkillEffectChosen.skill.isNormalAttack) == null)
                     { effect.IsntTriggeredBecause.AfterAllMoved = true; continue; }// no normalAttack left, which means no action.   
                 }
 
@@ -851,7 +851,7 @@ namespace SequenceBreaker.Play.Battle
             switch (order.SkillEffectChosen.skill.buffTarget.targetType)
             {
                 case TargetType.Self: //Buff self
-                    addingBuff = buffMasters.FindLast(obj => obj.skillName == order.SkillEffectChosen.skill.callingBuffName);
+                    addingBuff = buffMasters.FindLast(obj => obj.skillId == order.SkillEffectChosen.skill.callingBuffName.skillId);
                     //                    addingEffect.Add(new EffectClass(order.Actor, addingBuff, ActionType.None,
                     //                        1.0, 0.0, false, addingBuff.usageCount,
                     //                        turn, (turn + addingBuff.veiledTurn)));
@@ -894,7 +894,7 @@ namespace SequenceBreaker.Play.Battle
                     log += "\n";
                     break;
                 case TargetType.Multi: //Buff attacker's side all
-                    addingBuff = buffMasters.FindLast(obj => obj.skillName == order.SkillEffectChosen.skill.callingBuffName);
+                    addingBuff = buffMasters.FindLast(obj => obj.skillId == order.SkillEffectChosen.skill.callingBuffName.skillId);
                     var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
                     firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName
                                 + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) ";

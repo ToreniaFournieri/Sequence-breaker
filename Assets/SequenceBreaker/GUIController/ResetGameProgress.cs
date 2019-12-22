@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SequenceBreaker.Environment;
 using SequenceBreaker.Master.Items;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,7 @@ namespace SequenceBreaker.GUIController
 {
     public class ResetGameProgress : MonoBehaviour
     {
+        public StartUp startUp;
         private UnityAction unityAction;
 
         private void Start()
@@ -28,6 +30,8 @@ namespace SequenceBreaker.GUIController
 
             Debug.Log("Reset has been pressed!");
             ItemDataBase.instance.DeleteAllSavedFiles(true);
+            startUp.InitializeInventory();
+
         }
 
 
