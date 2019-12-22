@@ -837,6 +837,7 @@ namespace SequenceBreaker.Master.Units
             summedSkillList.Clear();
             foreach (var skill in tuningSkills)
             {
+                
                 summedSkillList.Add(skill);
             }
 
@@ -845,18 +846,12 @@ namespace SequenceBreaker.Master.Units
 
             foreach (var item in veiledItemList)
             {
-                //if (_itemCapacityCount >= unit.itemCapacity)
-                //{
-                //    continue;
-                //}
-                //_itemCapacityCount++;
-
 
                 if (item != null)
                 {
                     if (item.prefixItem != null)
                     {
-                        foreach (var skill in item.prefixItem.skillsMasterList)
+                        foreach (SkillsMasterClass skill in item.prefixItem.skillsMasterList)
                         {
                             summedSkillList.Add(skill);
                         }
@@ -864,7 +859,7 @@ namespace SequenceBreaker.Master.Units
 
                     if (item.baseItem != null)
                     {
-                        foreach (var skill in item.baseItem.skillsMasterList)
+                        foreach (SkillsMasterClass skill in item.baseItem.skillsMasterList)
                         {
                             summedSkillList.Add(skill);
                         }
@@ -872,14 +867,16 @@ namespace SequenceBreaker.Master.Units
 
                     if (item.suffixItem != null)
                     {
-                        foreach (var skill in item.suffixItem.skillsMasterList)
+                        foreach (SkillsMasterClass skill in item.suffixItem.skillsMasterList)
                         {
                             summedSkillList.Add(skill);
                         }
                     }
                 }
 
-                //}
+
+
+
             }
 
 

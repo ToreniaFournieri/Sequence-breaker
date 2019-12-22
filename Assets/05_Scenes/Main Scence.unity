@@ -9060,6 +9060,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae74451fa35484cc3b7540aba169f08b, type: 2}
   - {fileID: 11400000, guid: 30866744d86c34c79be5e05cdc2f9a54, type: 2}
   - {fileID: 11400000, guid: 85d21d5d5a8104808ac33d858239a73b, type: 2}
+  - {fileID: 11400000, guid: 3bbab7ebfc25046a18510c58c0d6336b, type: 2}
+  - {fileID: 11400000, guid: ef2924b0ff16f44c388ebcba6fe6d424, type: 2}
+  - {fileID: 11400000, guid: a57c0dbf57a9c4636a4503072bea7e05, type: 2}
+  - {fileID: 11400000, guid: 42d2bc81de60948d0a59c0c6e40b40cd, type: 2}
+  - {fileID: 11400000, guid: 2fe587a88bc6a4772971dd15f57ab604, type: 2}
+  - {fileID: 11400000, guid: 126459dfb557240acbca4eefeb571816, type: 2}
   prefixItemBaseMasterList: []
   suffixItemBaseMasterList: []
   itemPresetList: {fileID: 11400000, guid: 9c05df970d3874ee99391c96e01c96e7, type: 2}

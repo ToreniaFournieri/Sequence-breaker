@@ -228,6 +228,12 @@ namespace SequenceBreaker.Play.Prepare
                     characters = battle.LogList[i].characters;
                 }
 
+                string speedString = null;
+                if (battle.LogList[i].OrderCondition.Speed != 0)
+                {
+                    speedString = " Speed:" + battle.LogList[i].OrderCondition.Speed;
+                }
+
 
 
                 _data.Add(new Data
@@ -236,7 +242,9 @@ namespace SequenceBreaker.Play.Prepare
                     Turn = battle.LogList[i].OrderCondition.Turn,
                     CellSize = 1300, // this is dummy, need to calculate later
                     ReactText = reactText,
-                    UnitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText,
+
+
+                    UnitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
                     MainText = battle.LogList[i].Log,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,

@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/UnitClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Skills/SkillsMasterClass.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="21" Column="9" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="381" Column="69" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="55" Column="99" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="410" Column="65" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="829" Column="63" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/CombatClass.cs" Line="71" Column="31" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="61" Column="80" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="63" Column="35" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="251" Column="112" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="457" Column="141" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="420" Column="74" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="862" Column="71" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="19" Column="44" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs" Line="25" Column="42" />
+      <File FileName="Assets/SequenceBreaker/Master/Skills/SkillsMasterClass.cs" Line="8" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

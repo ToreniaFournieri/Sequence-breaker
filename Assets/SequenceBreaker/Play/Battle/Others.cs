@@ -453,15 +453,15 @@ namespace SequenceBreaker.Play.Battle
 
     public sealed class OrderConditionClass
     {
-        public OrderConditionClass(int wave, int turn, int phase, int orderNumber, int nest, int nestOrderNumber)
-        { Wave = wave; Turn = turn; Phase = phase; OrderNumber = orderNumber; Nest = nest; NestOrderNumber = nestOrderNumber; }
+        public OrderConditionClass(int wave, int turn, int phase, int orderNumber, int nest, int nestOrderNumber, int speed)
+        { Wave = wave; Turn = turn; Phase = phase; OrderNumber = orderNumber; Nest = nest; NestOrderNumber = nestOrderNumber; Speed = speed; }
         public int Wave { get; }
         public int Turn { get; }
         private int Phase { get; }
         public int OrderNumber { get; set; }
         public int Nest { get; }
         public int NestOrderNumber { get; }
-
+        public int Speed { get; }
         public override string ToString()
         { return "Wave:" + Wave + " Turn:" + Turn + " Phase:" + Phase + " OrderNumber:" + OrderNumber + " Nest:" + Nest + " NestOrderNumber:" + NestOrderNumber; }
 
