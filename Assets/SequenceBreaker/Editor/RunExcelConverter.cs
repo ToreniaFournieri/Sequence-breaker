@@ -19,6 +19,7 @@ namespace SequenceBreaker.Editor
 
         public string itemBasePath;
         public string itemMasterPath;
+        public string itemBaseMasterListPath;
         public string unitClassListPath;
         public string unitPath;
         public string itemPresetPath;
@@ -30,6 +31,7 @@ namespace SequenceBreaker.Editor
         private static string _excelPathId = "ExcelPath";
 
         private static string _itembasePathId = "itemBasePath";
+        private static string _itembaseListPathId = "itemBaseListPath";
         //        private static string _targetPathId = "ObjectPath";
         private static string _itemMasterPathId = "itemMasterPath";
         private static string _unitClassListPathId = "unitClassListPath";
@@ -38,6 +40,7 @@ namespace SequenceBreaker.Editor
 
         // Magnification Master
         public ItemMasterList itemMasterList;
+        public ItemBaseMasterList itemBaseMasterList;
 
         // Unit Set
         public UnitSetExcelImport unitSetExcelImport;
@@ -82,6 +85,12 @@ namespace SequenceBreaker.Editor
                 itemMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(ItemMasterList)) as ItemMasterList;
             }
 
+            if (EditorPrefs.HasKey(_itembaseListPathId))
+            {
+                string objectPath = EditorPrefs.GetString(_itembaseListPathId);
+                itemBaseMasterListPath = objectPath;
+            }
+            
 
 
             //2. Select [Export] Unit Class List asset
@@ -186,7 +195,17 @@ namespace SequenceBreaker.Editor
 
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("7. Select [Import] Unit Set Excel asset", GUILayout.ExpandWidth(false)))
+            if (GUILayout.Button("7. Select [Export] Item Base Master list", GUILayout.ExpandWidth(false)))
+            {
+                OpenItemBaseMasterList();
+            }
+            GUILayout.Label(itemBaseMasterListPath ?? " Unselected");
+
+            GUILayout.EndHorizontal();
+
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("8. Select [Import] Unit Set Excel asset", GUILayout.ExpandWidth(false)))
             {
                 OpenUnitSetMasterExcel();
             }
@@ -194,15 +213,14 @@ namespace SequenceBreaker.Editor
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("8. Select [Export] Unit Set path", GUILayout.ExpandWidth(false)))
+            if (GUILayout.Button("9. Select [Export] Unit Set path", GUILayout.ExpandWidth(false)))
             {
                 OpenTargetList();
             }
             GUILayout.Label(targetPathWithoutName ?? " Unselected");
             GUILayout.EndHorizontal();
 
-            GUILayout.BeginHorizontal();
-            GUILayout.EndHorizontal();
+
 
 
             if (GUILayout.Button("10.[PRESS] Convert Excel to ScriptableObject", GUILayout.ExpandWidth(false)))
@@ -244,6 +262,22 @@ namespace SequenceBreaker.Editor
                 if (unitPath != null)
                 {
                     EditorPrefs.SetString(_itembasePathId, itemBasePath);
+                }
+            }
+
+        }
+
+        void OpenItemBaseMasterList()
+        {
+            string absPath = EditorUtility.OpenFilePanel("Select Item base master Master List", "", "");
+            if (absPath.StartsWith(Application.dataPath))
+            {
+                string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+                itemBaseMasterListPath = relPath;
+                itemBaseMasterList = AssetDatabase.LoadAssetAtPath(relPath, typeof(ItemBaseMasterList)) as ItemBaseMasterList;
+                if (itemBaseMasterList)
+                {
+                    EditorPrefs.SetString(_itembaseListPathId, relPath);
                 }
             }
 
@@ -373,10 +407,16 @@ namespace SequenceBreaker.Editor
 
                 if (itemBaseMaster)
                 {
+                    itemBaseMasterList.itemBaseMasterList.Add(itemBaseMaster);
+
                     EditorUtility.SetDirty(itemBaseMaster);
                 }
             }
 
+            if (itemBaseMasterList)
+            {
+                EditorUtility.SetDirty(itemBaseMasterList);
+            }
 
         }
 

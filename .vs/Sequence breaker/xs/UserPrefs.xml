@@ -1,21 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/GUIController/ResetGameProgress.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListDataSourceMgr.cs" Line="21" Column="9" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="897" Column="130" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="457" Column="141" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="350" Column="71" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="862" Column="71" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="19" Column="44" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs" Line="25" Column="42" />
-      <File FileName="Assets/SequenceBreaker/Master/Skills/SkillsMasterClass.cs" Line="27" Column="103" />
-      <File FileName="Assets/SequenceBreaker/Environment/Enumeration.cs" Line="16" Column="17" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="25" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="22" Column="16" />
-      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="56" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="215" Column="117" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="16" Column="30" />
-      <File FileName="Assets/SequenceBreaker/GUIController/ResetGameProgress.cs" Line="30" Column="61" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemPreset.cs" Line="16" Column="30" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="189" Column="66" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs" Line="10" Column="55" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMasterList.cs" Line="5" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
