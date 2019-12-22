@@ -8,11 +8,17 @@ namespace SequenceBreaker.Master.Items
 {
     public sealed class ItemDataBase : MonoBehaviour
     {
+        public ItemBaseMasterList prefixBaseList;
+        public ItemBaseMasterList itemBaseList;
+        public ItemBaseMasterList suffixBaseList;
 
 
-        public List<ItemBaseMaster> itemBaseMasterList;
-        public List<ItemBaseMaster> prefixItemBaseMasterList;
-        public List<ItemBaseMaster> suffixItemBaseMasterList;
+
+        ////these will be obsolate 2019/12/22 start
+        //public List<ItemBaseMaster> itemBaseMasterList;
+        //public List<ItemBaseMaster> prefixItemBaseMasterList;
+        //public List<ItemBaseMaster> suffixItemBaseMasterList;
+        ////these will be obsolate 2019/12/22 end
 
 
         public ItemPresetList itemPresetList;
@@ -94,9 +100,14 @@ namespace SequenceBreaker.Master.Items
                 foreach (ItemForSave itemForSave in itemForSaveList)
                 {
                     Item item = ScriptableObject.CreateInstance<Item>();
-                    item.baseItem = itemBaseMasterList.Find(obj => obj.itemId == itemForSave.bI);
-                    item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
-                    item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);
+                    item.baseItem = itemBaseList.itemBaseMasterList.Find(obj => obj.itemId == itemForSave.bI);
+                    item.prefixItem = prefixBaseList.itemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
+                    item.suffixItem = suffixBaseList.itemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);
+
+
+                    //item.baseItem = itemBaseMasterList.Find(obj => obj.itemId == itemForSave.bI);
+                    //item.prefixItem = prefixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.pI);
+                    //item.suffixItem = suffixItemBaseMasterList.Find(obj => obj.itemId == itemForSave.sI);
                     item.enhancedValue = itemForSave.eV;
                     item.amount = itemForSave.am;
 
@@ -225,9 +236,9 @@ namespace SequenceBreaker.Master.Items
             //Item item = new Item();
             Item item = ScriptableObject.CreateInstance<Item>();
 
-            if (prefixItemBaseMasterList != null && prefixItemBaseMasterList.Count > 0)
+            if (prefixBaseList != null && prefixBaseList.itemBaseMasterList.Count > 0)
             {
-                foreach (var prefix in prefixItemBaseMasterList)
+                foreach (var prefix in prefixBaseList.itemBaseMasterList)
                 {
                     if (prefixId == prefix.itemId)
                     {
@@ -235,11 +246,11 @@ namespace SequenceBreaker.Master.Items
                     }
                 }
             }
-            if (itemBaseMasterList != null && itemBaseMasterList.Count > 0)
+            if (itemBaseList != null && itemBaseList.itemBaseMasterList.Count > 0)
             {
 
 
-                foreach (var itemBase in itemBaseMasterList)
+                foreach (var itemBase in itemBaseList.itemBaseMasterList)
                 {
                     if (baseId == itemBase.itemId)
                     {
@@ -248,9 +259,9 @@ namespace SequenceBreaker.Master.Items
                 }
             }
 
-            if (suffixItemBaseMasterList != null && suffixItemBaseMasterList.Count > 0)
+            if (suffixBaseList != null && suffixBaseList.itemBaseMasterList.Count > 0)
             {
-                foreach (var suffix in suffixItemBaseMasterList)
+                foreach (var suffix in suffixBaseList.itemBaseMasterList)
                 {
                     if (suffixId == suffix.itemId)
                     {

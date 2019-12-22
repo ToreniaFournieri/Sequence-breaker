@@ -104,7 +104,7 @@ namespace SequenceBreaker.Home.EquipView
                 inventory.itemList.Clear();
 
                 Item item;
-                foreach (ItemBaseMaster itemBaseMaster in ItemDataBase.instance.itemBaseMasterList)
+                foreach (ItemBaseMaster itemBaseMaster in ItemDataBase.instance.itemBaseList.itemBaseMasterList)
                 {
                     item = ScriptableObject.CreateInstance<Item>();
                     item.prefixItem = null;

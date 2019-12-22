@@ -354,6 +354,7 @@ namespace SequenceBreaker.Editor
         void ConvertItemFromExcel()
         {
 
+            itemBaseMasterList.itemBaseMasterList.Clear();
 
             foreach (ItemBaseExcel itemMaster in unitMasterExcelImport.itemBase)
             {
