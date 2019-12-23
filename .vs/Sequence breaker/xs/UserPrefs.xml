@@ -1,8 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Drop/DropEngine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="108" Column="65" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="17" Column="27" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="168" Column="104" />
+      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="69" Column="67" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="183" Column="62" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs" Line="95" Column="39" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="772" Column="62" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

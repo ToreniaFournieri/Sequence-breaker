@@ -39,7 +39,7 @@ namespace SequenceBreaker.Master.Items
 
 
         //Calculated
-        public CombatClass TotaledCombat()
+        public CombatClass TotaledCombat(bool isConsiderAmount)
         {
             CombatClass combat = ScriptableObject.CreateInstance<CombatClass>();
 
@@ -52,14 +52,22 @@ namespace SequenceBreaker.Master.Items
             CombatClass suffixCombat = ScriptableObject.CreateInstance<CombatClass>();
             if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
 
-            for (int i = 0; i < amount; i++)
+            if (isConsiderAmount)
+            {
+                for (int i = 0; i < amount; i++)
+                {
+                    combat.Add(itemBaseCombat);
+                    combat.Add(prefixCombat);
+                    combat.Add(suffixCombat);
+                }
+            } else
             {
                 combat.Add(itemBaseCombat);
                 combat.Add(prefixCombat);
                 combat.Add(suffixCombat);
             }
 
-            combat.Pow(enhancedValue);
+            combat.Pow(1 + enhancedValue);
 
             return combat;
         }
@@ -122,7 +130,7 @@ namespace SequenceBreaker.Master.Items
         public string TotaledCombatDescription()
         {
             string description = null;
-            CombatClass totaledCombat = TotaledCombat();
+            CombatClass totaledCombat = TotaledCombat(false);
 
             if (totaledCombat.shieldMax != 0) { description += "Shield +" + totaledCombat.shieldMax + "\n"; }
             if (totaledCombat.hitPointMax != 0) { description += "HP +" + totaledCombat.hitPointMax + "\n"; }
@@ -155,7 +163,7 @@ namespace SequenceBreaker.Master.Items
 
 
             string coefficient = null;
-            if (enhancedValue > 1)
+            if (enhancedValue >= 1)
             {
                 coefficient = "+" + enhancedValue +" ";
             }
@@ -169,15 +177,32 @@ namespace SequenceBreaker.Master.Items
             string suffix = null;
             if (suffixItem != null) { suffix = "of " + suffixItem.itemName; }
 
-            return amountString + coefficient + prefix + itemBase + suffix;
+            return coefficient + prefix + itemBase + suffix + amountString;
         }
 
         private string GetItemOneLineDescription()
         {
             string description = null;
-            if (baseItem != null) { description += baseItem.OneLineDescription(); }
-            if (prefixItem != null) { description += prefixItem.OneLineDescription(); }
-            if (suffixItem != null) { description += suffixItem.OneLineDescription(); }
+            //if (baseItem != null) { description += baseItem.OneLineDescription(); }
+            //if (prefixItem != null) { description += prefixItem.OneLineDescription(); }
+            //if (suffixItem != null) { description += suffixItem.OneLineDescription(); }
+            CombatClass totaledCombat = TotaledCombat(false);
+
+            if (totaledCombat.shieldMax != 0) { description += "Shield +" + totaledCombat.shieldMax + " "; }
+            if (totaledCombat.hitPointMax != 0) { description += "HP +" + totaledCombat.hitPointMax + " "; }
+            if (totaledCombat.attack != 0) { description += "Attack +" + totaledCombat.attack + " "; }
+            if (totaledCombat.accuracy != 0) { description += "Accuracy +" + totaledCombat.accuracy + " "; }
+            if (totaledCombat.mobility != 0) { description += "Mobility +" + totaledCombat.mobility + " "; }
+            if (totaledCombat.defense != 0) { description += "Defense +" + totaledCombat.defense + " "; }
+            if (totaledCombat.numberOfAttacks != 0)
+            {
+                description += "Number of Attacks +" + totaledCombat.numberOfAttacks + " ";
+            }
+
+
+            if (baseItem != null) { description += baseItem.SkillAndAbilityDescription(); }
+            if (prefixItem != null) { description += prefixItem.SkillAndAbilityDescription(); }
+            if (suffixItem != null) { description += suffixItem.SkillAndAbilityDescription(); }
 
 
             return description;

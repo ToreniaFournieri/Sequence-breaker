@@ -9,6 +9,7 @@ namespace SequenceBreaker.Drop
     {
         // This value is temporary.
         private double _itemDropRatio = 0.100;
+        private double _enhancedRatio = 0.100;
 
         private float _enhancedSigma = 2.0f;
         private float _enhancedMu = 0.0f;
@@ -44,34 +45,35 @@ namespace SequenceBreaker.Drop
                     if (_itemDropRatio >= random.NextDouble())
                     {
                         //4. judge the enhanced value.
-                        _enhancedMu = unit.level / 30.0f - 2;
 
-                        float _totalValue = 0.0f;
-
-                        List<float> stepValue = new List<float>();
-
-                        for (int i = _enhancedMaxValue; i >=0; i--)
+                        if (_enhancedRatio >= random.NextDouble())
                         {
-                            float value = (1 / (Mathf.Pow((2.0f * Mathf.PI), 1.0f / 2.0f) * _enhancedSigma)
-                                * Mathf.Exp(-Mathf.Pow((i - _enhancedMu), 2.0f) / 2.0f / Mathf.Pow(_enhancedSigma, 2.0f)));
-
-                            _totalValue += value;
-                            stepValue.Add(_totalValue);
-                        }
-
-                        double randomValue = random.NextDouble();
-                        int enhancedValue = _enhancedMaxValue;
-                        foreach (float value in stepValue)
-                        {
-                            if ((value / _totalValue) >= randomValue)
+                            _enhancedMu = unit.level / 30.0f;
+                            float _totalValue = 0.0f;
+                            List<float> stepValue = new List<float>();
+                            for (int i = _enhancedMaxValue; i >= 0; i--)
                             {
-                                item.enhancedValue = enhancedValue;
-                                continue;
+                                float value = (1 / (Mathf.Pow((2.0f * Mathf.PI), 1.0f / 2.0f) * _enhancedSigma)
+                                    * Mathf.Exp(-Mathf.Pow((i - _enhancedMu), 2.0f) / 2.0f / Mathf.Pow(_enhancedSigma, 2.0f)));
+
+                                _totalValue += value;
+                                stepValue.Add(_totalValue);
                             }
-                            enhancedValue--;
 
+                            double randomValue = random.NextDouble();
+                            int enhancedValue = _enhancedMaxValue;
+                            foreach (float value in stepValue)
+                            {
+                                if ((value / _totalValue) >= randomValue)
+                                {
+                                    Debug.Log("random:" + random +" enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
+                                    item.enhancedValue = enhancedValue;
+                                    continue;
+                                }
+                                enhancedValue--;
+
+                            }
                         }
-
 
 
                         _dropItemList.Add(item);

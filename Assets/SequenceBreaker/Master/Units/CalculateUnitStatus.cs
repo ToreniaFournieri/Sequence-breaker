@@ -769,7 +769,7 @@ namespace SequenceBreaker.Master.Units
             {
                 if (item != null)
                 {
-                    _combatItems.Add(item.TotaledCombat());
+                    _combatItems.Add(item.TotaledCombat(true));
                 }
             }
             //}

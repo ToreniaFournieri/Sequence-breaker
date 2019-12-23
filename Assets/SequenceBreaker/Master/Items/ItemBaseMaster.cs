@@ -52,45 +52,68 @@ namespace SequenceBreaker.Master.Items
 		
 
 
-		public string OneLineDescription()
-		{
-			//1. CombatBase Value
+		//public string OneLineDescription()
+		//{
+		//	//1. CombatBase Value
 
-			string description = null;
-			if (combatBaseValue != null)
-			{
-				if (combatBaseValue.shieldMax != 0) { description += "Shield +" + CalculatedCombatValue().shieldMax + " "; }
-				if (combatBaseValue.hitPointMax != 0) { description += "HP +" + CalculatedCombatValue().hitPointMax + " "; }
-				if (combatBaseValue.attack != 0) { description += "Attack +" + CalculatedCombatValue().attack + " "; }
-				if (combatBaseValue.accuracy != 0) { description += "Accuracy +" + CalculatedCombatValue().accuracy + " "; }
-				if (combatBaseValue.mobility != 0) { description += "Mobility +" + CalculatedCombatValue().mobility + " "; }
-				if (combatBaseValue.defense != 0) { description += "Defense +" + CalculatedCombatValue().defense + " "; }
+		//	string description = null;
+		//	if (combatBaseValue != null)
+		//	{
+		//		if (combatBaseValue.shieldMax != 0) { description += "Shield +" + CalculatedCombatValue().shieldMax + " "; }
+		//		if (combatBaseValue.hitPointMax != 0) { description += "HP +" + CalculatedCombatValue().hitPointMax + " "; }
+		//		if (combatBaseValue.attack != 0) { description += "Attack +" + CalculatedCombatValue().attack + " "; }
+		//		if (combatBaseValue.accuracy != 0) { description += "Accuracy +" + CalculatedCombatValue().accuracy + " "; }
+		//		if (combatBaseValue.mobility != 0) { description += "Mobility +" + CalculatedCombatValue().mobility + " "; }
+		//		if (combatBaseValue.defense != 0) { description += "Defense +" + CalculatedCombatValue().defense + " "; }
 
-				if (combatBaseValue.numberOfAttacks != 0)
-				{
-					description += "Number of Attacks +" + CalculatedCombatValue().numberOfAttacks + " ";
-				}
-			}
-			//2. Skill content
-			foreach (SkillsMasterClass skill in skillsMasterList)
-			{
-				description += "[Skill: " + ((Object) skill).name + "] ";
-			}
+		//		if (combatBaseValue.numberOfAttacks != 0)
+		//		{
+		//			description += "Number of Attacks +" + CalculatedCombatValue().numberOfAttacks + " ";
+		//		}
+		//	}
+		//	//2. Skill content
+		//	foreach (SkillsMasterClass skill in skillsMasterList)
+		//	{
+		//		description += "[Skill: " + ((Object) skill).name + "] ";
+		//	}
 
-			//3. Ability
-			foreach (AddAbilityClass addAbility in addAbilityList)
-			{
-				description += addAbility.ability + " +" + addAbility.valueOfAbility + " ";
-			}
+		//	//3. Ability
+		//	foreach (AddAbilityClass addAbility in addAbilityList)
+		//	{
+		//		description += addAbility.ability + " +" + addAbility.valueOfAbility + " ";
+		//	}
 
-			//4. offense or defense magnification
-			description += MagnificationText(isShortText: true) + " ";
+		//	//4. offense or defense magnification
+		//	description += MagnificationText(isShortText: true) + " ";
 
-			return description;
+		//	return description;
 
-		}
+		//}
 
-		public string DetailDescription()
+        public string SkillAndAbilityDescription()
+        {
+            string description = null;
+
+            //2. Skill content
+            foreach (SkillsMasterClass skill in skillsMasterList)
+            {
+                description += "[Skill: " + ((Object)skill).name + "] ";
+            }
+
+            //3. Ability
+            foreach (AddAbilityClass addAbility in addAbilityList)
+            {
+                description += addAbility.ability + " +" + addAbility.valueOfAbility + " ";
+            }
+
+            //4. offense or defense magnification
+            description += MagnificationText(isShortText: true) + " ";
+
+            return description;
+        }
+
+
+        public string DetailDescription()
 		{
 			string description = null;
 
