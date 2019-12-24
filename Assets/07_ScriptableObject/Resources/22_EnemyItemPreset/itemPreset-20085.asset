@@ -17,12 +17,12 @@ MonoBehaviour:
   - prefixId: 0
     baseId: 1178
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3
   - prefixId: 0
     baseId: 1179
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3
   - prefixId: 0
     baseId: 1001
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3

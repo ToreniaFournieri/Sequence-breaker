@@ -10,7 +10,7 @@ namespace SequenceBreaker.Drop
     {
         // This value is temporary.
         private double _itemDropRatio = 0.100;
-        private double _enhancedRatio = 0.100;
+        //private double _enhancedRatio = 0.100;
 
         private float _enhancedSigma = 2.0f;
         //private float _enhancedMu = 0.0f;
@@ -34,6 +34,7 @@ namespace SequenceBreaker.Drop
 
                 foreach (Item item in unit.itemList)
                 {
+
                     if (_itemCapacityCount >= unit.itemCapacity)
                     {
                         continue;
@@ -49,14 +50,16 @@ namespace SequenceBreaker.Drop
                     float randomItemDrop = UnityEngine.Random.Range(0, 1.0f);
                     if (_itemDropRatio >= randomItemDrop)
                     {
+
+                        Item _itemDrop = ScriptableObject.CreateInstance<Item>();
                         //4. judge the enhanced value.
-                                             
-                        if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
-                        {
-                            //_enhancedMu = unit.level / 30.0f;
-                            float _totalValue = 0.0f;
+
+                        //if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
+                        //{
+                        //_enhancedMu = unit.level / 30.0f;
+                        float _totalValue = 0.0f;
                             List<float> stepValue = new List<float>();
-                            for (int i = _enhancedMaxValue; i > -3; i--)
+                            for (int i = _enhancedMaxValue; i >= -3; i--)
                             {
                                 float value = (1 / (Mathf.Pow((2.0f * Mathf.PI), 1.0f / 2.0f) * _enhancedSigma)
                                     * Mathf.Exp(-Mathf.Pow((i - _enhancedMu), 2.0f) / 2.0f / Mathf.Pow(_enhancedSigma, 2.0f)));
@@ -72,17 +75,20 @@ namespace SequenceBreaker.Drop
                             {
                                 if ((value / _totalValue) >= randomValue)
                                 {
-                                    Debug.Log("randomItemDrop:" + randomItemDrop + " enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
-                                    item.enhancedValue = enhancedValue;
+                                Debug.Log("randomItemDrop:" + randomItemDrop + " randomValue:" + randomValue + " enhancedValue: " + enhancedValue + " value: " + value + " total:" + _totalValue);
+                                //Debug.Log("randomItemDrop:" + randomItemDrop + " enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
+                                _itemDrop = item.Copy();
+
+                                _itemDrop.enhancedValue = enhancedValue;
                                     continue;
                                 }
                                 enhancedValue--;
 
                             }
-                        }
+                        //}
 
 
-                        _dropItemList.Add(item);
+                        _dropItemList.Add(_itemDrop);
                     }
                 }
             }

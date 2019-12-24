@@ -17,11 +17,11 @@ MonoBehaviour:
   - prefixId: 0
     baseId: 1015
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 1
   - prefixId: 0
     baseId: 1136
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 1
   - prefixId: 0
     baseId: 1001
     suffixId: 0

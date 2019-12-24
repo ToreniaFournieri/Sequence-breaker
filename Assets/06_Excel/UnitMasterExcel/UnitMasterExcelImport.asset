@@ -1441,8 +1441,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1494,8 +1494,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 10
+    enhanced1: 1
     enhanced2: 1
     enhanced3: 0
     enhanced4: 0
@@ -1600,8 +1600,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1653,8 +1653,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1706,8 +1706,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1759,8 +1759,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1812,8 +1812,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1865,8 +1865,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -1918,8 +1918,8 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
+    enhanced1: 1
+    enhanced2: 1
     enhanced3: 0
     enhanced4: 0
     enhanced5: 0
@@ -3561,10 +3561,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3614,10 +3614,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3667,10 +3667,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3720,10 +3720,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3773,10 +3773,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3826,10 +3826,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3879,10 +3879,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3932,10 +3932,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -3985,10 +3985,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -4038,10 +4038,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 2
+    enhanced2: 2
+    enhanced3: 2
+    enhanced4: 2
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5681,10 +5681,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5734,10 +5734,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5787,10 +5787,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5840,10 +5840,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5893,10 +5893,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5946,10 +5946,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -5999,10 +5999,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -6052,10 +6052,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -6105,10 +6105,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0
@@ -6158,10 +6158,10 @@ MonoBehaviour:
     equipment24: 0
     equipment25: 0
     equipment26: 0
-    enhanced1: 0
-    enhanced2: 0
-    enhanced3: 0
-    enhanced4: 0
+    enhanced1: 3
+    enhanced2: 3
+    enhanced3: 3
+    enhanced4: 3
     enhanced5: 0
     enhanced6: 0
     enhanced7: 0

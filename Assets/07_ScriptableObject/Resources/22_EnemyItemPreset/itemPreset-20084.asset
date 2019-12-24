@@ -17,15 +17,15 @@ MonoBehaviour:
   - prefixId: 0
     baseId: 1074
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3
   - prefixId: 0
     baseId: 1060
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3
   - prefixId: 0
     baseId: 1046
     suffixId: 0
-    enhancedValue: 0
+    enhancedValue: 3
   - prefixId: 0
     baseId: 1211
     suffixId: 0
