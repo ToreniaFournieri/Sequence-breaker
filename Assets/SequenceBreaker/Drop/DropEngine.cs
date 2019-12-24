@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace SequenceBreaker.Drop
         private List<UnitClass> _enemyUnitList;
         private List<Item> _dropItemList;
 
-        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList, System.Random random)
+        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList)
         {
             _dropItemList = new List<Item>();
 
@@ -42,11 +43,12 @@ namespace SequenceBreaker.Drop
                     //2.[UNIMPLEMENTED] Remove undroppable item if it is.                
 
                     //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
-                    if (_itemDropRatio >= random.NextDouble())
+                    float randomItemDrop = UnityEngine.Random.Range(0, 1.0f);
+                    if (_itemDropRatio >= randomItemDrop)
                     {
                         //4. judge the enhanced value.
-
-                        if (_enhancedRatio >= random.NextDouble())
+                                             
+                        if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
                         {
                             _enhancedMu = unit.level / 30.0f;
                             float _totalValue = 0.0f;
@@ -60,13 +62,14 @@ namespace SequenceBreaker.Drop
                                 stepValue.Add(_totalValue);
                             }
 
-                            double randomValue = random.NextDouble();
+
+                            double randomValue = UnityEngine.Random.Range(0, 1.0f);
                             int enhancedValue = _enhancedMaxValue;
                             foreach (float value in stepValue)
                             {
                                 if ((value / _totalValue) >= randomValue)
                                 {
-                                    Debug.Log("random:" + random +" enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
+                                    Debug.Log("randomItemDrop:" + randomItemDrop + " enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
                                     item.enhancedValue = enhancedValue;
                                     continue;
                                 }
