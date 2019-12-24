@@ -13,8 +13,8 @@ namespace SequenceBreaker.Drop
         private double _enhancedRatio = 0.100;
 
         private float _enhancedSigma = 2.0f;
-        private float _enhancedMu = 0.0f;
-        private int _enhancedMaxValue = 30;
+        //private float _enhancedMu = 0.0f;
+        //private int _enhancedMaxValue = 0;
 
         // Internal information
         private List<UnitClass> _enemyUnitList;
@@ -40,7 +40,10 @@ namespace SequenceBreaker.Drop
                     }
                     _itemCapacityCount++;
 
-                    //2.[UNIMPLEMENTED] Remove undroppable item if it is.                
+                    //2.[UNIMPLEMENTED] Remove undroppable item if it is.
+
+                    int _enhancedMaxValue = item.enhancedValue;
+                    float _enhancedMu = item.enhancedValue;
 
                     //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
                     float randomItemDrop = UnityEngine.Random.Range(0, 1.0f);
@@ -51,10 +54,9 @@ namespace SequenceBreaker.Drop
                         if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
                         {
                             //_enhancedMu = unit.level / 30.0f;
-                            _enhancedMu = item.enhancedValue;
                             float _totalValue = 0.0f;
                             List<float> stepValue = new List<float>();
-                            for (int i = _enhancedMaxValue; i >= 0; i--)
+                            for (int i = _enhancedMaxValue; i > -3; i--)
                             {
                                 float value = (1 / (Mathf.Pow((2.0f * Mathf.PI), 1.0f / 2.0f) * _enhancedSigma)
                                     * Mathf.Exp(-Mathf.Pow((i - _enhancedMu), 2.0f) / 2.0f / Mathf.Pow(_enhancedSigma, 2.0f)));

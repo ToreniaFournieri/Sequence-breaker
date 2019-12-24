@@ -64,8 +64,8 @@ namespace SequenceBreaker.Master.Items
             }
 
 
-            //Unexpected value;
-            Debug.LogError("unexpected Item.CompareTo: " + this.ItemDescription + " and " + item.ItemDescription);
+            //all same value,
+            //Debug.LogError("unexpected Item.CompareTo: " + this.ItemName + " and " + item.ItemName);
 
             return 0;
 
@@ -81,13 +81,13 @@ namespace SequenceBreaker.Master.Items
             CombatClass combat = ScriptableObject.CreateInstance<CombatClass>();
 
             CombatClass itemBaseCombat = ScriptableObject.CreateInstance<CombatClass>();
-            if (baseItem != null) { itemBaseCombat = baseItem.CalculatedCombatValue().Copy(); }
+            if (baseItem != null) { itemBaseCombat = baseItem.CalculatedCombatValue(0).Copy(); }
 
             CombatClass prefixCombat = ScriptableObject.CreateInstance<CombatClass>();
-            if (prefixItem != null) { prefixCombat = prefixItem.CalculatedCombatValue().Copy(); }
+            if (prefixItem != null) { prefixCombat = prefixItem.CalculatedCombatValue(0).Copy(); }
 
             CombatClass suffixCombat = ScriptableObject.CreateInstance<CombatClass>();
-            if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue().Copy(); }
+            if (suffixItem != null) { suffixCombat = suffixItem.CalculatedCombatValue(0).Copy(); }
 
             if (isConsiderAmount)
             {
@@ -105,7 +105,7 @@ namespace SequenceBreaker.Master.Items
                 combat.Add(suffixCombat);
             }
 
-            combat.Pow(1 + enhancedValue);
+            combat.Pow(enhancedValue);
 
             return combat;
         }
@@ -204,6 +204,10 @@ namespace SequenceBreaker.Master.Items
             if (enhancedValue >= 1)
             {
                 coefficient = "+" + enhancedValue + " ";
+            } else if (enhancedValue <= -1)
+            {
+                coefficient = enhancedValue + " ";
+
             }
 
             string prefix = null;
@@ -256,9 +260,9 @@ namespace SequenceBreaker.Master.Items
 
             //description detail
             string description = null;
-            if (baseItem != null) { description += "<b>Item: </b>" + baseItem.DetailDescription() + "\n"; }
-            if (prefixItem != null) { description += "<b>Prefix: </b> " + prefixItem.DetailDescription() + "\n"; }
-            if (suffixItem != null) { description += "<b>Suffix: </b> " + suffixItem.DetailDescription() + "\n"; }
+            if (baseItem != null) { description += "<b>Item: </b>" + baseItem.DetailDescription(enhancedValue) + "\n"; }
+            if (prefixItem != null) { description += "<b>Prefix: </b> " + prefixItem.DetailDescription(enhancedValue) + "\n"; }
+            if (suffixItem != null) { description += "<b>Suffix: </b> " + suffixItem.DetailDescription(enhancedValue) + "\n"; }
 
 
             var detailDescription = boldName + "\n" + totaledCombat + "\n" + description;

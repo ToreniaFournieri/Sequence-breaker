@@ -33,13 +33,15 @@ namespace SequenceBreaker.Master.Items
 
 
 		// be calculated by coefficient
-		public CombatClass CalculatedCombatValue()
+		public CombatClass CalculatedCombatValue(int enhancedValue)
 		{
 			CombatClass calculated = CreateInstance<CombatClass>();
 			if (combatBaseValue != null)
 			{
 				calculated = combatBaseValue.Copy();
 				calculated.Pow(level);
+
+                calculated.Pow(enhancedValue);
 
 			}
 			return calculated;
@@ -113,7 +115,7 @@ namespace SequenceBreaker.Master.Items
         }
 
 
-        public string DetailDescription()
+        public string DetailDescription(int enhancedValue)
 		{
 			string description = null;
 
@@ -122,16 +124,16 @@ namespace SequenceBreaker.Master.Items
 			//1. CombatBase Value
 			if (combatBaseValue != null)
 			{
-				if (combatBaseValue.shieldMax != 0) { description += "(Shield +" + CalculatedCombatValue().shieldMax + ")\n"; }
-				if (combatBaseValue.hitPointMax != 0) { description += "(HP +" + CalculatedCombatValue().hitPointMax + ")\n"; }
-				if (combatBaseValue.attack != 0) { description += "(Attack +" + CalculatedCombatValue().attack + ")\n"; }
-				if (combatBaseValue.accuracy != 0) { description += "(Accuracy +" + CalculatedCombatValue().accuracy + ")\n"; }
-				if (combatBaseValue.mobility != 0) { description += "(Mobility +" + CalculatedCombatValue().mobility + ")\n"; }
-				if (combatBaseValue.defense != 0) { description += "(Defense +" + CalculatedCombatValue().defense + ")\n"; }
+				if (combatBaseValue.shieldMax != 0) { description += "(Shield +" + CalculatedCombatValue(enhancedValue).shieldMax + ")\n"; }
+				if (combatBaseValue.hitPointMax != 0) { description += "(HP +" + CalculatedCombatValue(enhancedValue).hitPointMax + ")\n"; }
+				if (combatBaseValue.attack != 0) { description += "(Attack +" + CalculatedCombatValue(enhancedValue).attack + ")\n"; }
+				if (combatBaseValue.accuracy != 0) { description += "(Accuracy +" + CalculatedCombatValue(enhancedValue).accuracy + ")\n"; }
+				if (combatBaseValue.mobility != 0) { description += "(Mobility +" + CalculatedCombatValue(enhancedValue).mobility + ")\n"; }
+				if (combatBaseValue.defense != 0) { description += "(Defense +" + CalculatedCombatValue(enhancedValue).defense + ")\n"; }
 
 				if (combatBaseValue.numberOfAttacks != 0)
 				{
-					description += "(Number of Attacks" + CalculatedCombatValue().numberOfAttacks + ")\n";
+					description += "(Number of Attacks" + CalculatedCombatValue(enhancedValue).numberOfAttacks + ")\n";
 				}
 			}
 
