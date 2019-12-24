@@ -14,13 +14,6 @@ namespace SequenceBreaker.Master.Items
 
 
 
-        ////these will be obsolate 2019/12/22 start
-        //public List<ItemBaseMaster> itemBaseMasterList;
-        //public List<ItemBaseMaster> prefixItemBaseMasterList;
-        //public List<ItemBaseMaster> suffixItemBaseMasterList;
-        ////these will be obsolate 2019/12/22 end
-
-
         public ItemPresetList itemPresetList;
 
         public static ItemDataBase instance;

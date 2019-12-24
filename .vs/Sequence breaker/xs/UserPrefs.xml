@@ -1,11 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/RunExcelConverter.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="168" Column="104" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="69" Column="67" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="183" Column="62" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="109" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="51" Column="79" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="165" Column="39" />
       <File FileName="Assets/SequenceBreaker/Master/Items/ItemBaseMaster.cs" Line="95" Column="39" />
       <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="772" Column="62" />
+      <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="105" Column="86" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="203" Column="29" />
+      <File FileName="Assets/SequenceBreaker/Editor/UnitEquipmentExcel.cs" Line="36" Column="29" />
+      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

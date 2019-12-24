@@ -17,16 +17,16 @@ MonoBehaviour:
   - prefixId: 0
     baseId: 1074
     suffixId: 0
-    enhancedValue: 1
+    enhancedValue: 0
   - prefixId: 0
     baseId: 1060
     suffixId: 0
-    enhancedValue: 1
+    enhancedValue: 0
   - prefixId: 0
     baseId: 1046
     suffixId: 0
-    enhancedValue: 1
+    enhancedValue: 0
   - prefixId: 0
     baseId: 1211
     suffixId: 0
-    enhancedValue: 1
+    enhancedValue: 0

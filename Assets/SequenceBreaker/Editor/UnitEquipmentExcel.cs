@@ -33,6 +33,35 @@ namespace SequenceBreaker.Editor
         public int equipment25;
         public int equipment26;
 
+        public int enhanced1;
+        public int enhanced2;
+        public int enhanced3;
+        public int enhanced4;
+        public int enhanced5;
+        public int enhanced6;
+        public int enhanced7;
+        public int enhanced8;
+        public int enhanced9;
+        public int enhanced10;
+        public int enhanced11;
+        public int enhanced12;
+        public int enhanced13;
+        public int enhanced14;
+        public int enhanced15;
+        public int enhanced16;
+        public int enhanced17;
+        public int enhanced18;
+        public int enhanced19;
+        public int enhanced20;
+        public int enhanced21;
+        public int enhanced22;
+        public int enhanced23;
+        public int enhanced24;
+        public int enhanced25;
+        public int enhanced26;
+
+
+
 
     }
 }
