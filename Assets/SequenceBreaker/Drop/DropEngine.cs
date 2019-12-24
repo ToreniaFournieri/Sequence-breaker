@@ -50,7 +50,8 @@ namespace SequenceBreaker.Drop
                                              
                         if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
                         {
-                            _enhancedMu = unit.level / 30.0f;
+                            //_enhancedMu = unit.level / 30.0f;
+                            _enhancedMu = item.enhancedValue;
                             float _totalValue = 0.0f;
                             List<float> stepValue = new List<float>();
                             for (int i = _enhancedMaxValue; i >= 0; i--)

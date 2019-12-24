@@ -24,19 +24,6 @@ namespace SequenceBreaker.Home.EquipListView
         public static EquipListDataSourceMgr instance = null;
 
 
-        //public static HomeDataSourceMgr Get
-        //{
-        //    get
-        //    {
-        //        if (_instance == null)
-        //        {
-        //            _instance = FindObjectOfType<HomeDataSourceMgr>();
-        //            //_instance = FindObjectOfType<HomeDataSourceMgr>();
-        //        }
-        //        return _instance;
-        //    }
-
-        //}
 
         private void Start()
         {

@@ -24,7 +24,11 @@ namespace SequenceBreaker.Home.EquipView
         {
             try
             {
-                _mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+                //_mChildItemDataList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
+
+                _mChildItemDataList.Sort((x, y) => y.CompareTo(x));
+
+
             }
             catch
             {

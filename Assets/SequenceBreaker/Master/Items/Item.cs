@@ -25,8 +25,8 @@ namespace SequenceBreaker.Master.Items
         [SerializeField] public ItemBaseMaster suffixItem;
 
         // Item enhanced
-        [SerializeField]  public int enhancedValue;
-        
+        [SerializeField] public int enhancedValue;
+
         // Item amount
         [SerializeField] public int amount;
 
@@ -36,6 +36,43 @@ namespace SequenceBreaker.Master.Items
             Item other = (Item)MemberwiseClone();
             return other;
         }
+
+        public int CompareTo(Item item)
+        {
+            //1.item base id sort
+            if (this.baseItem.itemId - item.baseItem.itemId != 0)
+            {
+                return this.baseItem.itemId - item.baseItem.itemId;
+            }
+
+            //2.same base Item id, prefix id sort
+            if (this.prefixItem && item.prefixItem &&this.prefixItem.itemId - item.prefixItem.itemId != 0)
+            {
+                return this.prefixItem.itemId - item.prefixItem.itemId;
+            }
+
+            //3.same base and prefix id, suffix id sort
+            if (this.suffixItem && item.suffixItem && this.suffixItem.itemId - item.suffixItem.itemId != 0)
+            {
+                return this.suffixItem.itemId - item.suffixItem.itemId;
+            }
+
+            //4.all same id, enhanced value sort
+            if (this.enhancedValue - item.enhancedValue != 0)
+            {
+                return this.enhancedValue - item.enhancedValue;
+            }
+
+
+            //Unexpected value;
+            Debug.LogError("unexpected Item.CompareTo: " + this.ItemDescription + " and " + item.ItemDescription);
+
+            return 0;
+
+        }
+
+
+
 
 
         //Calculated
@@ -60,7 +97,8 @@ namespace SequenceBreaker.Master.Items
                     combat.Add(prefixCombat);
                     combat.Add(suffixCombat);
                 }
-            } else
+            }
+            else
             {
                 combat.Add(itemBaseCombat);
                 combat.Add(prefixCombat);
@@ -147,13 +185,13 @@ namespace SequenceBreaker.Master.Items
         public string GetId()
         {
             string prefixId = null;
-            if (prefixItem != null) { prefixId = ""+prefixItem.itemId; }
+            if (prefixItem != null) { prefixId = "" + prefixItem.itemId; }
             string baseId = null;
-            if (baseItem != null) { baseId = ""+baseItem.itemId; }
-            string suffixId= null;
-            if (suffixItem != null) { suffixId = ""+suffixItem.itemId; }
-            
-            
+            if (baseItem != null) { baseId = "" + baseItem.itemId; }
+            string suffixId = null;
+            if (suffixItem != null) { suffixId = "" + suffixItem.itemId; }
+
+
             return "" + enhancedValue + prefixId + baseId + suffixId;
         }
 
@@ -165,7 +203,7 @@ namespace SequenceBreaker.Master.Items
             string coefficient = null;
             if (enhancedValue >= 1)
             {
-                coefficient = "+" + enhancedValue +" ";
+                coefficient = "+" + enhancedValue + " ";
             }
 
             string prefix = null;
