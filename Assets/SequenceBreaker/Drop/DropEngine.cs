@@ -68,8 +68,8 @@ namespace SequenceBreaker.Drop
                             {
                                 if ((value / _totalValue) >= randomValue)
                                 {
-                                Debug.Log("randomItemDrop:" + randomItemDrop + " randomValue:" + randomValue + " enhancedValue: "
-                                    + enhancedValue + " value: " + value + " total:" + _totalValue);
+                                //Debug.Log("randomItemDrop:" + randomItemDrop + " randomValue:" + randomValue + " enhancedValue: "
+                                //    + enhancedValue + " value: " + value + " total:" + _totalValue);
                                 _itemDrop = item.Copy();
 
                                 _itemDrop.enhancedValue = enhancedValue;
