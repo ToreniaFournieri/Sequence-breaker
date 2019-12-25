@@ -10,14 +10,10 @@ namespace SequenceBreaker.Drop
     {
         // This value is temporary.
         private double _itemDropRatio = 0.100;
-        //private double _enhancedRatio = 0.100;
-
         private float _enhancedSigma = 2.0f;
-        //private float _enhancedMu = 0.0f;
-        //private int _enhancedMaxValue = 0;
 
         // Internal information
-        private List<UnitClass> _enemyUnitList;
+        //private List<UnitClass> _enemyUnitList;
         private List<Item> _dropItemList;
 
         public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList)
@@ -44,7 +40,7 @@ namespace SequenceBreaker.Drop
                     //2.[UNIMPLEMENTED] Remove undroppable item if it is.
 
                     int _enhancedMaxValue = item.enhancedValue;
-                    float _enhancedMu = item.enhancedValue;
+                    float _enhancedMu = item.enhancedValue - 3.0f + (float)unit.level / 40.0f ;
 
                     //3.Drop judgement using seed. NextDouble range is between 0.0 to 1.0.
                     float randomItemDrop = UnityEngine.Random.Range(0, 1.0f);
@@ -54,9 +50,6 @@ namespace SequenceBreaker.Drop
                         Item _itemDrop = ScriptableObject.CreateInstance<Item>();
                         //4. judge the enhanced value.
 
-                        //if (_enhancedRatio >= UnityEngine.Random.Range(0, 1.0f))
-                        //{
-                        //_enhancedMu = unit.level / 30.0f;
                         float _totalValue = 0.0f;
                             List<float> stepValue = new List<float>();
                             for (int i = _enhancedMaxValue; i >= -3; i--)
@@ -75,8 +68,8 @@ namespace SequenceBreaker.Drop
                             {
                                 if ((value / _totalValue) >= randomValue)
                                 {
-                                Debug.Log("randomItemDrop:" + randomItemDrop + " randomValue:" + randomValue + " enhancedValue: " + enhancedValue + " value: " + value + " total:" + _totalValue);
-                                //Debug.Log("randomItemDrop:" + randomItemDrop + " enhancedValue:" + enhancedValue + " random: " + randomValue + " value: " + value + " total:" + _totalValue);
+                                Debug.Log("randomItemDrop:" + randomItemDrop + " randomValue:" + randomValue + " enhancedValue: "
+                                    + enhancedValue + " value: " + value + " total:" + _totalValue);
                                 _itemDrop = item.Copy();
 
                                 _itemDrop.enhancedValue = enhancedValue;
@@ -85,7 +78,6 @@ namespace SequenceBreaker.Drop
                                 enhancedValue--;
 
                             }
-                        //}
 
 
                         _dropItemList.Add(_itemDrop);
