@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b319b7225a52841e395113602bf1351d, type: 3}
   m_Name: 00-PrefixBaseMasterList
   m_EditorClassIdentifier: 
-  itemBaseMasterList: []
+  itemBaseMasterList:
+  - {fileID: 11400000, guid: e2e5df8ee008b4f4f9b8d71ce2012f07, type: 2}

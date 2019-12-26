@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
-  m_Name: prefix-Throwing
+  m_Name: prefix-Super
   m_EditorClassIdentifier: 
-  itemName: Throwing
+  itemId: 1000
+  itemName: Super
   itemDescription: 
   icon: {fileID: 0}
-  CombatBaseValue: {fileID: 11400000, guid: ab36f5354525a4d139d9a5761b70f4d1, type: 2}
-  Level: 1
-  SkillsMasterList: []
-  AddAbilityList: []
-  MagnificationMasterList: []
+  combatBaseValue: {fileID: 0}
+  level: 0
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList:
+  - {fileID: 11400000, guid: 14119899cf761484fb355deaef779bca, type: 2}
+  - {fileID: 11400000, guid: 467a24e79061e4ac29278607eb898289, type: 2}
+  - {fileID: 11400000, guid: 2619dfc940e074d58a47842009a8bb8c, type: 2}

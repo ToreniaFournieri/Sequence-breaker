@@ -11,7 +11,9 @@ namespace SequenceBreaker.GUIController
         public SimpleObjectPool transparentObjectPool;
         public List<(string message, long timestamp)> transparentStringDateList;
 
-        private long deleteTime = 50000000; // 5seconds
+        private long deleteTime = 80000000; // 5seconds
+
+
 
         private float timeLeft;
 
@@ -22,8 +24,7 @@ namespace SequenceBreaker.GUIController
 
         public void CloseMessage()
         {
-            transparentStringDateList.Clear();
-            //transparentText.text = null;
+            refreshMessage(true);
             transparentMessage.SetActive(false);
 
         }
@@ -36,49 +37,46 @@ namespace SequenceBreaker.GUIController
                 timeLeft = 1.0f;
 
 
-                refreshMessage();
+                refreshMessage(false);
 
             }
 
         }
 
-        private void refreshMessage()
+        private void refreshMessage(bool ignoreTimeDelta)
         {
             long currentTime = System.DateTime.Now.ToBinary();
 
-            Debug.Log("1 seconds came :" + transparentStringDateList.Count);
 
-            bool isDeleteHappen = false;
             for (int i = transparentStringDateList.Count - 1 ; i >= 0 ; i--)
             {
-                Debug.Log((currentTime - transparentStringDateList[i].timestamp) + " second? " +currentTime + " vs" + transparentStringDateList[i].timestamp);
+                if (ignoreTimeDelta)
+                {
+                    transparentStringDateList.Remove(transparentStringDateList[i]);
+                    ReturnGameObject(transparentMessage.transform.GetChild(i).gameObject);
+                    continue;
+                }
+
 
                 if ( currentTime - transparentStringDateList[i].timestamp >= deleteTime)
                 {
-                    Debug.Log("5 seconds came :" + transparentStringDateList[i].message);
-
                     transparentStringDateList.Remove(transparentStringDateList[i]);
-
-                    isDeleteHappen = true;
+                    ReturnGameObject(transparentMessage.transform.GetChild(i).gameObject);
                 }
             }
 
-            if (isDeleteHappen)
-            {
-              GameObject[] gameObjects = transparentMessage.transform.GetComponentsInChildren<GameObject>();
-                foreach (GameObject gameobject in gameObjects)
-                {
-                    gameobject.GetComponent<Text>().text = null;
-
-                    Debug.Log("will destroy :" + gameobject.name);
-                    Destroy(gameObject);
-                }
-
-            }
 
         }
 
-        public void AddTextAndActive(string message)
+        private void ReturnGameObject(GameObject returnObject)
+        {
+            if (returnObject)
+            {
+                transparentObjectPool.ReturnObject(returnObject);
+            }
+        }
+
+        public void AddTextAndActive(string message, bool letBoldRed)
         {
             if (transparentMessage.activeInHierarchy == false)
             {
@@ -93,7 +91,26 @@ namespace SequenceBreaker.GUIController
             //textObject.GetComponent<RectTransform>().SetParent(transparentMessage.GetComponent<RectTransform>());
             textObject.transform.SetParent(transparentMessage.GetComponent<RectTransform>());
 
-            //textObject.transform.
+            textObject.GetComponentInChildren<Text>().text = message;
+
+            if (letBoldRed)
+            {
+                textObject.GetComponentInChildren<Text>().color = Color.red;
+
+                Color backgroundColor = new Color(1f,1f,1f,0.7f);
+                textObject.GetComponent<Image>().color = backgroundColor;
+
+            } else
+            {
+                textObject.GetComponentInChildren<Text>().color = Color.yellow;
+
+                Color backgroundColor = new Color(0f, 0f, 0f, 0.7f);
+                textObject.GetComponent<Image>().color = backgroundColor;
+
+            }
+
+            Vector3 vector = new Vector3(1, 1, 1);
+            textObject.transform.localScale = vector;
             transparentMessage.SetActive(true);
 
 

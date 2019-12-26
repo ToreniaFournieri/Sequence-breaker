@@ -109,6 +109,13 @@ namespace SequenceBreaker.Play.MissionView
 
                         foreach (Item item in itemListLocal)
                         {
+
+                            //[TEMP for demo] Prefix add 0.1 possibility
+                            if (0.001f >= UnityEngine.Random.Range(0, 1.0f))
+                            {
+                                item.prefixItem = ItemDataBase.instance.prefixBaseList.itemBaseMasterList[0];
+                            }
+
                             itemList.Add(item);
                         }
 
@@ -134,7 +141,7 @@ namespace SequenceBreaker.Play.MissionView
                             {
 
                                 missionController.transparentMessageController
-                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")");
+                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")", false);
                                 //missionController
                                 //        .transparentMessageController
                                 //        .transparentText.text
@@ -147,9 +154,12 @@ namespace SequenceBreaker.Play.MissionView
 
                 }
 
-                missionController.transparentMessageController
-                            .AddTextAndActive("Mission: " + missionName + missionLevel
-                           + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ");
+                if (wave + 1 == battleCopyList.Count)
+                {
+                    missionController.transparentMessageController
+                                .AddTextAndActive("Mission: " + missionName + missionLevel
+                               + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ", false);
+                }
 
                 //missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
                 //                                                                           + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
@@ -165,7 +175,11 @@ namespace SequenceBreaker.Play.MissionView
 
             foreach (Item item in itemList)
             {
-                missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName);
+                bool isBoldRed = false;
+                if (item.suffixItem) { isBoldRed = true; }
+                if (item.prefixItem) { isBoldRed = true; }
+
+                missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName, isBoldRed);
 
                 //missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
             }
