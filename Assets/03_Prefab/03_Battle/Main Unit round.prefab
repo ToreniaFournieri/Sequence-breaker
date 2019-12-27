@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4052808247401839905}
   - component: {fileID: 6279451619409647668}
   - component: {fileID: 8373599582782383292}
-  - component: {fileID: 5802095758067560342}
+  - component: {fileID: 399386186642834863}
   m_Layer: 5
   m_Name: Icon(mask)
   m_TagString: Untagged
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5802095758067560342
+--- !u!114 &399386186642834863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
