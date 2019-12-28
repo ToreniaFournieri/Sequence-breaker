@@ -239,18 +239,6 @@ namespace SequenceBreaker.Master.Units
             _summedItemsAddAbility = ScriptableObject.CreateInstance<AbilityClass>();
             _summedItemsAddAbility.Set(0, 0, 0, 0, 0, 0, 0);
 
-            //if (unit.itemList != null)
-            //{
-            //    foreach (Item item in unit.itemList)
-            //    {
-            //        if (item != null)
-            //        {
-            //            _summedItemsAddAbility.AddUp(item.TotaledAbility());
-            //        }
-            //    }
-            //}
-
-
 
             foreach (Item item in veiledItemList)
             {
@@ -272,8 +260,7 @@ namespace SequenceBreaker.Master.Units
             //(4)Offense/Defense/UnitSkill Magnification
 
             List<MagnificationMasterClass> itemMagnificationMasterList = new List<MagnificationMasterClass>();
-            //if (unit.itemList != null)
-            //{
+
             foreach (Item item in veiledItemList)
             {
 
@@ -307,7 +294,6 @@ namespace SequenceBreaker.Master.Units
                         }
                     }
                 }
-                //}
             }
 
             // Deduplication
@@ -498,18 +484,6 @@ namespace SequenceBreaker.Master.Units
             // after 11, should only affect status, so use OffenseOrDefense.none
             // 11:Shield, 12:HitPoint, 13: NumberOfAttacks, 14: MinRange, 15: MaxRange, 16:Accuracy, 17:Mobility, 18:Attack, 19:Defence
 
-            //            _offenseMagnification = new OffenseMagnificationClass(
-            //                summedOffenseList[10].totalValue,
-            //                summedOffenseList[1].totalValue,
-            //                summedOffenseList[2].totalValue,
-            //                summedOffenseList[3].totalValue,
-            //                summedOffenseList[4].totalValue,
-            //                summedOffenseList[5].totalValue,
-            //                summedOffenseList[6].totalValue,
-            //                summedOffenseList[7].totalValue,
-            //                summedOffenseList[8].totalValue,
-            //                summedOffenseList[9].totalValue);
-
             _offenseMagnification = ScriptableObject.CreateInstance<OffenseMagnificationClass>();
             _offenseMagnification.Set(summedOffenseList[10].totalValue,
                 summedOffenseList[1].totalValue,
@@ -521,27 +495,6 @@ namespace SequenceBreaker.Master.Units
                 summedOffenseList[7].totalValue,
                 summedOffenseList[8].totalValue,
                 summedOffenseList[9].totalValue);
-
-            //            _defenseMagnification = new DefenseMagnificationClass(
-            //                summedDefenseList[1].totalValue,
-            //                summedDefenseList[2].totalValue,
-            //                summedDefenseList[3].totalValue,
-            //                summedDefenseList[4].totalValue,
-            //                summedDefenseList[5].totalValue,
-            //                summedDefenseList[6].totalValue,
-            //                summedDefenseList[7].totalValue,
-            //                summedDefenseList[8].totalValue,
-            //                summedDefenseList[9].totalValue,
-            //                summedNoneList[11].totalValue,
-            //                summedNoneList[12].totalValue,
-            //                summedNoneList[13].totalValue,
-            //                summedNoneList[14].totalValue,
-            //                summedNoneList[15].totalValue,
-            //                summedNoneList[16].totalValue,
-            //                summedNoneList[17].totalValue,
-            //                summedNoneList[18].totalValue,
-            //                summedNoneList[19].totalValue
-            //            );
 
             _defenseMagnification = ScriptableObject.CreateInstance<DefenseMagnificationClass>();
             _defenseMagnification.Set(summedDefenseList[1].totalValue,
@@ -563,16 +516,11 @@ namespace SequenceBreaker.Master.Units
                 summedNoneList[18].totalValue,
                 summedNoneList[19].totalValue);
 
-            //            _offenseEffectPowerActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
-
             _offenseEffectPowerActionSkill = ScriptableObject.CreateInstance<ActionSkillClass>();
             _offenseEffectPowerActionSkill.Set(1, 1, 1, 1, 1, 1, 1, 1);
 
-            //            _triggerPossibilityActionSkill = new ActionSkillClass(1, 1, 1, 1, 1, 1, 1, 1);
             _triggerPossibilityActionSkill = ScriptableObject.CreateInstance<ActionSkillClass>();
             _triggerPossibilityActionSkill.Set(1, 1, 1, 1, 1, 1, 1, 1);
-
-            //            _unitSkillMagnification = new UnitSkillMagnificationClass(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
 
             _unitSkillMagnification = ScriptableObject.CreateInstance<UnitSkillMagnificationClass>();
             _unitSkillMagnification.Set(_offenseEffectPowerActionSkill, _triggerPossibilityActionSkill);
@@ -581,11 +529,6 @@ namespace SequenceBreaker.Master.Units
             //(2) Combat
             // (2-1) Set environment values
 
-
-            // each ability's coefficient
-            {
-
-            }
 
             // (2-3) First Combat calculation -> CombatRaw
             // Formula:
@@ -814,16 +757,10 @@ namespace SequenceBreaker.Master.Units
             }
 
 
-            //            _feature = new FeatureClass(_absorbShieldRatio, _isDamageControlAssist,
-            //                _hateInitial, _hateMagnificationPerTurn);
-
             _feature = ScriptableObject.CreateInstance<FeatureClass>();
             _feature.Set(_absorbShieldRatio, _isDamageControlAssist,
                 _hateInitial, _hateMagnificationPerTurn);
 
-            //            battleUnit = new BattleUnit.BattleUnit(1, unitClass.TrueName(), Affiliation.None, unitClass.unitType, _ability,
-            //                _combat, _feature, _offenseMagnification,
-            //                _defenseMagnification, _unitSkillMagnification);
 
             battleUnit = ScriptableObject.CreateInstance<BattleUnit.BattleUnit>();
             battleUnit.Set(1, unitClass.TrueName(), unitClass.shortName, Affiliation.None, unitClass.unitType, _ability,
@@ -841,8 +778,6 @@ namespace SequenceBreaker.Master.Units
                 summedSkillList.Add(skill);
             }
 
-            //if (unit.itemList != null)
-            //{
 
             foreach (var item in veiledItemList)
             {
@@ -965,18 +900,12 @@ namespace SequenceBreaker.Master.Units
             }
 
 
-
-            //Console.WriteLine("unit name in CalculateUnitStatus :" + unit.TrueName());
-            //Debug.Log("unit name in CalculateUnitStatus :" + unit.TrueName());
-
-
         }
 
         private (int magnificationTargetID, int _percent, double _ratio, List<int> _percentList) MagnificationTypeModule(MagnificationMasterClass magnificationClass)
         {
             int magnificationTargetId = (int)magnificationClass.magnificationTarget;
             int percentSummed = 0;
-            //double _fixedRatioSummed = 1.0;
             double ratioSummed = 1.0;
             List<int> percentList = new List<int>();
             switch (magnificationClass.magnificationType)

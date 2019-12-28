@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/GUIController/TransparentMessageController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="109" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="72" Column="103" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="114" Column="37" />
+      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="63" Column="1" />
       <File FileName="Assets/SequenceBreaker/Master/Items/Item.cs" Line="11" Column="26" />
       <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="785" Column="65" />
-      <File FileName="Assets/SequenceBreaker/GUIController/TransparentMessageController.cs" Line="54" Column="1" />
+      <File FileName="Assets/SequenceBreaker/GUIController/TransparentMessageController.cs" Line="57" Column="30" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="26" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
