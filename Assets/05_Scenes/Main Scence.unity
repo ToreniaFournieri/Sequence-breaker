@@ -7897,6 +7897,7 @@ GameObject:
   - component: {fileID: 878292506}
   - component: {fileID: 878292508}
   - component: {fileID: 878292507}
+  - component: {fileID: 878292509}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7963,6 +7964,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878292505}
   m_CullTransparentMesh: 0
+--- !u!114 &878292509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878292505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Game Reset
 --- !u!1 &887362551
 GameObject:
   m_ObjectHideFlags: 0
@@ -14045,6 +14059,7 @@ GameObject:
   - component: {fileID: 1510672550}
   - component: {fileID: 1510672552}
   - component: {fileID: 1510672551}
+  - component: {fileID: 1510672553}
   m_Layer: 5
   m_Name: ResetText
   m_TagString: Untagged
@@ -14111,6 +14126,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510672549}
   m_CullTransparentMesh: 0
+--- !u!114 &1510672553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510672549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Game Reset
 --- !u!1 &1512217744
 GameObject:
   m_ObjectHideFlags: 0
@@ -14616,6 +14644,7 @@ GameObject:
   - component: {fileID: 1561096739}
   - component: {fileID: 1561096741}
   - component: {fileID: 1561096740}
+  - component: {fileID: 1561096742}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -14682,6 +14711,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561096738}
   m_CullTransparentMesh: 0
+--- !u!114 &1561096742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561096738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Delete all of your progress? This action cannot be undone.
 --- !u!1 &1575773230
 GameObject:
   m_ObjectHideFlags: 0
@@ -19654,22 +19696,6 @@ MonoBehaviour:
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
     mTerms:
-    - Term: Game
-      TermType: 0
-      Description: 
-      Languages:
-      - Game
-      - "\u30B2\u30FC\u30E0"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Reset
-      TermType: 0
-      Description: 
-      Languages:
-      - Rerset
-      - "\u30EA\u30BB\u30C3\u30C8"
-      Flags: 0000
-      Languages_Touch: []
     - Term: Delete all of your progress? This action cannot be undone.
       TermType: 0
       Description: 
@@ -19678,6 +19704,14 @@ MonoBehaviour:
 
         This action cannot be undone. '
       - "\u30B2\u30FC\u30E0\u9032\u884C\u3092\u3059\u3079\u3066\u524A\u9664\u3057\u307E\u3059\u304B\u3002\n\u3082\u3068\u306B\u623B\u3059\u3053\u3068\u306F\u51FA\u6765\u307E\u305B\u3093\u3002"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Game Reset
+      TermType: 0
+      Description: 
+      Languages:
+      - Game Reset
+      - "\u30EA\u30BB\u30C3\u30C8"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -19702,7 +19736,7 @@ MonoBehaviour:
     GoogleUpdateSynchronization: 1
     GoogleUpdateDelay: 0
     Assets: []
-    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalFileName: /Users/celvena/Desktop/Localization.txt
     Spreadsheet_LocalCSVSeparator: ','
     Spreadsheet_LocalCSVEncoding: utf-8
     Spreadsheet_SpecializationAsRows: 1
