@@ -26,38 +26,38 @@ namespace I2.Loc
             // Example of setting the term in code to get its translation
             LocalizedString locString = "Term2";
             string translation = locString;   // returns the translation of Term2 to the current language
-            Debug.Log(translation);  
+            Debug.Log(translation);
 
 
 
-            // Assigning a LocalizedString to another LocalizedString, copies the reference to its term
-            LocalizedString locString1 = _MyLocalizedString;
-            Debug.Log(locString1);
-
-
-
-
-            // LocalizedString have settings to customize the result
-
-            LocalizedString customString = "Term3";
-            Debug.Log(customString);
-
-            LocalizedString customNoRTL = "Term3";
-            customNoRTL.mRTL_IgnoreArabicFix = true;
-            Debug.Log(customNoRTL);
-
-
-            LocalizedString customString1 = "Term3";
-            customString1.mRTL_ConvertNumbers = true;
-            customString1.mRTL_MaxLineLength = 20;
-            Debug.Log(customString1);
+            //    // Assigning a LocalizedString to another LocalizedString, copies the reference to its term
+            //    LocalizedString locString1 = _MyLocalizedString;
+            //    Debug.Log(locString1);
 
 
 
 
-            // Copying a LocalizedString also copies its settings
-            LocalizedString customStringCopy = customString1;
-            Debug.Log(customStringCopy);
+            //    // LocalizedString have settings to customize the result
+
+            //    LocalizedString customString = "Term3";
+            //    Debug.Log(customString);
+
+            //    LocalizedString customNoRTL = "Term3";
+            //    customNoRTL.mRTL_IgnoreArabicFix = true;
+            //    Debug.Log(customNoRTL);
+
+
+            //    LocalizedString customString1 = "Term3";
+            //    customString1.mRTL_ConvertNumbers = true;
+            //    customString1.mRTL_MaxLineLength = 20;
+            //    Debug.Log(customString1);
+
+
+
+
+            //    // Copying a LocalizedString also copies its settings
+            //    LocalizedString customStringCopy = customString1;
+            //    Debug.Log(customStringCopy);
         }
     }
 }
