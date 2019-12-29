@@ -13,6 +13,22 @@ public class SelectLanguage : MonoBehaviour
     private void Start()
     {
         _dropdown = gameObject.GetComponent<Dropdown>();
+
+        int value = 0;
+        foreach (var optionData in _dropdown.options)
+        {
+
+            if(optionData.text.Contains(LocalizationManager.CurrentLanguage))
+            {
+                _dropdown.value = value;
+            }
+
+            Debug.Log(LocalizationManager.CurrentLanguage + " / " + optionData.text);
+
+
+            value++;
+
+        }
     }
 
     //void OnClick()
@@ -21,8 +37,6 @@ public class SelectLanguage : MonoBehaviour
 
     public void Selected()
     {
-        Debug.Log(_dropdown.options[_dropdown.value].text);
-
         if (LocalizationManager.HasLanguage(_dropdown.options[_dropdown.value].text))
         {
             LocalizationManager.CurrentLanguage = _dropdown.options[_dropdown.value].text;
