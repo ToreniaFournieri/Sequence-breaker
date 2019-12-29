@@ -16290,7 +16290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.975006, y: -2.5}
+  m_AnchoredPosition: {x: -34.975098, y: -2.5}
   m_SizeDelta: {x: -90.05, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677610656
@@ -20150,7 +20150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.60254467, y: 0.46341}
   m_AnchorMax: {x: 0.95500004, y: 0.52749485}
-  m_AnchoredPosition: {x: 0.8999939, y: 2.4999924}
+  m_AnchoredPosition: {x: 0.89990234, y: 2.4999924}
   m_SizeDelta: {x: -1, y: 9.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029872662
@@ -20525,6 +20525,14 @@ MonoBehaviour:
       - "\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
+    - Term: Battle-X Hit
+      TermType: 0
+      Description: 
+      Languages:
+      - Hit
+      - "\u56DE\u547D\u4E2D"
+      Flags: 0000
+      Languages_Touch: []
     - Term: crushed!
       TermType: 0
       Description: 
@@ -20533,12 +20541,60 @@ MonoBehaviour:
       - "\u6483\u7834!"
       Flags: 0000
       Languages_Touch: []
-    - Term: X Hit
+    - Term: Kinetic
       TermType: 0
       Description: 
       Languages:
-      - Hit
-      - "\u56DE\u547D\u4E2D"
+      - Kinetic
+      - "\u7269\u7406"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Chemical
+      TermType: 0
+      Description: 
+      Languages:
+      - Chemical
+      - "\u5316\u5B66"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Thermal
+      TermType: 0
+      Description: 
+      Languages:
+      - Thermal
+      - "\u71B1\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Element-None
+      TermType: 0
+      Description: 
+      Languages:
+      - None
+      - "\u7121\u5C5E\u6027"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Plural-s
+      TermType: 0
+      Description: 
+      Languages:
+      - s
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: critical
+      TermType: 0
+      Description: 
+      Languages:
+      - Critical
+      - "\u30AF\u30EA\u30C6\u30A3\u30AB\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Normal Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - Normal Attack
+      - "\u901A\u5E38\u653B\u6483"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

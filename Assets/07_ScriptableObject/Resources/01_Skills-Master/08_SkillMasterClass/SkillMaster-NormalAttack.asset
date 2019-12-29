@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912ed263da4eb409e92f906ddae9da13, type: 3}
   m_Name: SkillMaster-NormalAttack
   m_EditorClassIdentifier: 
-  skillName: Attack
+  skillName: Normal Attack
   skillId: 0
-  isNormalAttack: 0
+  isNormalAttack: 1
   actionType: 0
   callSkillLogicName: 0
   isHeal: 0
