@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 102020103}
   - component: {fileID: 102020105}
   - component: {fileID: 102020104}
+  - component: {fileID: 102020106}
   m_Layer: 5
   m_Name: Text Headline
   m_TagString: Untagged
@@ -1001,6 +1002,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102020102}
   m_CullTransparentMesh: 0
+--- !u!114 &102020106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102020102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Battle Log
 --- !u!1 &104907096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,6 +3138,7 @@ GameObject:
   - component: {fileID: 320090250}
   - component: {fileID: 320090252}
   - component: {fileID: 320090251}
+  - component: {fileID: 320090253}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3190,6 +3205,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320090249}
   m_CullTransparentMesh: 0
+--- !u!114 &320090253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320090249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Log List
 --- !u!1 &325491725
 GameObject:
   m_ObjectHideFlags: 0
@@ -9888,7 +9916,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10886,7 +10914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1160069816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11476,6 +11504,7 @@ GameObject:
   - component: {fileID: 1231770189}
   - component: {fileID: 1231770191}
   - component: {fileID: 1231770190}
+  - component: {fileID: 1231770192}
   m_Layer: 5
   m_Name: Text Headline
   m_TagString: Untagged
@@ -11527,7 +11556,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 70
     m_MaxSize: 85
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -11542,6 +11571,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231770188}
   m_CullTransparentMesh: 0
+--- !u!114 &1231770192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231770188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Missions
 --- !u!1 &1241718993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13706,7 +13748,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13780,7 +13822,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13908,7 +13950,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00061035156}
-  m_SizeDelta: {x: 0, y: 40}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5000001, y: 1.0000005}
 --- !u!114 &1447162701
 MonoBehaviour:
@@ -20525,14 +20567,6 @@ MonoBehaviour:
       - "\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
-    - Term: Battle-X Hit
-      TermType: 0
-      Description: 
-      Languages:
-      - Hit
-      - "\u56DE\u547D\u4E2D"
-      Flags: 0000
-      Languages_Touch: []
     - Term: crushed!
       TermType: 0
       Description: 
@@ -20595,6 +20629,70 @@ MonoBehaviour:
       Languages:
       - Normal Attack
       - "\u901A\u5E38\u653B\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Log List
+      TermType: 0
+      Description: 
+      Languages:
+      - Log List
+      - "\u5C65\u6B74\u4E00\u89A7"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Missions
+      TermType: 0
+      Description: 
+      Languages:
+      - Missions
+      - "\u4EFB\u52D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Battle Log
+      TermType: 0
+      Description: 
+      Languages:
+      - Battle Log
+      - "\u6226\u95D8\u5C65\u6B74"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: left
+      TermType: 0
+      Description: 
+      Languages:
+      - left
+      - "\u6B8B\u5F3E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Barrier Broken
+      TermType: 0
+      Description: 
+      Languages:
+      - Barrier Broken
+      - "\u969C\u58C1\u5168\u640D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Barriered
+      TermType: 0
+      Description: 
+      Languages:
+      - Barriered
+      - "\u969C\u58C1\u6B8B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hit-Active
+      TermType: 0
+      Description: 
+      Languages:
+      - Hit
+      - "\u56DE\u547D\u4E2D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hit-Passive
+      TermType: 0
+      Description: 
+      Languages:
+      - Hit
+      - "\u56DE\u88AB\u5F3E"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

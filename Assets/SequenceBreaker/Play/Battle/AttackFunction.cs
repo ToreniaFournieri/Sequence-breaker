@@ -368,25 +368,29 @@ namespace SequenceBreaker.Play.Battle
                 if (order.Actor.combat.kineticAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Kinetic") + " x" + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
+                                    " [" + LocalizationManager.GetTranslation("Kinetic") + " x"
+                                    + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.chemicalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Chemical") + "x" + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
+                                    " [" + LocalizationManager.GetTranslation("Chemical") + "x"
+                                    + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.thermalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Thermal") + "x" + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
+                                    " [" + LocalizationManager.GetTranslation("Thermal") + "x"
+                                    + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
 
                 if (majorityElement == null)
                 {
-                    majorityElement = " [" + LocalizationManager.GetTranslation("Element-None") + " x" + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
+                    majorityElement = " [" + LocalizationManager.GetTranslation("Element-None") + " x"
+                        + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
 
                 }
 
