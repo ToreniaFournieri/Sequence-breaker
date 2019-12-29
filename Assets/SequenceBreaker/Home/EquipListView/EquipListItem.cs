@@ -1,4 +1,5 @@
 ﻿using _00_Asset._01_SuperScrollView.Scripts.ListView;
+using I2.Loc;
 using SequenceBreaker.Home.EquipView;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
@@ -103,7 +104,7 @@ namespace SequenceBreaker.Home.EquipListView
         public void SetItemData(EquipListContentData itemData, int itemIndex)
         {
             _mItemDataIndex = itemIndex;
-            mContentText.text = itemData.contentText;
+            mContentText.text = LocalizationManager.GetTranslation(itemData.contentText);
             mDescriptionText.text = itemData.description;
             
             _mIsExpand = itemData.mIsExpand;

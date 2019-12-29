@@ -1,17 +1,16 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Language.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/I2/Localization/Scripts/Utils/LocalizationParamsManager.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="114" Column="37" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="63" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="843" Column="72" />
-      <File FileName="Assets/SequenceBreaker/Translate/TranslateTest.cs" Line="26" Column="10" />
-      <File FileName="Assets/00_Asset/I2/Localization/Examples/Common/Scripts/Example_ChangeLanguage.cs" Line="25" Column="39" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager.cs" Line="10" Column="52" />
-      <File FileName="Assets/00_Asset/I2/Localization/Examples/Common/Scripts/Example_LocalizedString.cs" Line="21" Column="71" />
-      <File FileName="Assets/00_Asset/I2/Localization/Examples/Common/Scripts/RealTimeTranslation.cs" Line="1" Column="1" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Utils/SetLanguage.cs" Line="13" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Translate/SelectLanguage.cs" Line="26" Column="41" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Language.cs" Line="210" Column="50" />
+      <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" Line="28" Column="62" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Translation.cs" Line="26" Column="30" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Localize.cs" Line="13" Column="26" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Utils/LocalizationParamsManager.cs" Line="7" Column="22" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="430" Column="75" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Inspectors/LocalizationParamsManagerInspector.cs" Line="23" Column="1" />
+      <File FileName="Assets/00_Asset/I2/Localization/Examples/Common/Scripts/CallbackNotification.cs" Line="16" Column="4" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Parameters.cs" Line="14" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

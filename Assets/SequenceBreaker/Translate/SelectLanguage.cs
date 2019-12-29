@@ -22,10 +22,6 @@ public class SelectLanguage : MonoBehaviour
             {
                 _dropdown.value = value;
             }
-
-            Debug.Log(LocalizationManager.CurrentLanguage + " / " + optionData.text);
-
-
             value++;
 
         }

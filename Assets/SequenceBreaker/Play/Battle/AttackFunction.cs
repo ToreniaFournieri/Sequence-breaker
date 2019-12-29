@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using I2.Loc;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using UnityEngine;
@@ -350,7 +351,10 @@ namespace SequenceBreaker.Play.Battle
                     if (!order.SkillEffectChosen.skill.isNormalAttack)
                     { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% left:" + order.SkillEffectChosen.UsageCount + ")"; }
                 }
-                string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1) { sNumberOfAttacks = "s"; }
+                string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)
+                {
+                    sNumberOfAttacks = LocalizationManager.GetTranslation("Plural-s");
+                }
                 //string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
                 var skillName = "unknown skill"; if (order.SkillEffectChosen != null) { skillName = order.SkillEffectChosen.skill.skillName.ToString(); }
                 //if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic "+ order.Actor.combat.kineticAttackRatio + "]"; }
@@ -360,39 +364,41 @@ namespace SequenceBreaker.Play.Battle
                 if (order.Actor.combat.kineticAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [Kinetic x" + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
+                                    " [" + LocalizationManager.GetTranslation("Kinetic") + " x" + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.chemicalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [Chemical x" + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
+                                    " [" + LocalizationManager.GetTranslation("Chemical") + "x" + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.thermalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [Thermal x" + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
+                                    " [" + LocalizationManager.GetTranslation("Thermal") + "x" + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
 
                 if (majorityElement == null)
                 {
-                    majorityElement = " [None x " + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
+                    majorityElement = " [" + LocalizationManager.GetTranslation("Element-None") + " x" + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
 
                 }
 
 
                 //string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
+                string hitString = LocalizationManager.GetTranslation("Battle-X Hit");
+
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
                                 + numberOfSuccessAttacks + "/ " + order.Actor.combat.numberOfAttacks
-                                + " Hit" + sNumberOfAttacks + majorityElement;
+                                + " " + hitString + sNumberOfAttacks + majorityElement;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
                     string crushed = null;
-                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " <b>crushed!</b>"; }
+                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = LocalizationManager.GetTranslation("crushed!"); }
                     string leftShieldAndHP = null;
                     if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
                     {
@@ -425,9 +431,16 @@ namespace SequenceBreaker.Play.Battle
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
 
-                        log += opponents[fTargetColumn].shortName + " takes " + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage "
-                               //+"(" + new string(' ', damageRateSpace) + sign + damageRatio + "%)"
-                               + crushed + " Hit" + s + ":"
+                        string takesString = LocalizationManager.GetTranslation("Battle-takes");
+
+                        string damageString = LocalizationManager.GetTranslation("Battle-damage");
+
+                        log += opponents[fTargetColumn].shortName + takesString + " " + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()
+                            + damageString + " "
+
+                        //log += opponents[fTargetColumn].shortName + " takes " + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage "
+                        //+"(" + new string(' ', damageRateSpace) + sign + damageRatio + "%)"
+                        + crushed + " Hit" + s + ":"
                                + totalIndividualHits[opponents[fTargetColumn].uniqueId] + " " + leftShieldAndHP + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
