@@ -25,7 +25,6 @@ public class TranslateText : MonoBehaviour
         if (_previousLanguage != LocalizationManager.CurrentLanguage)
         {
 
-
             _targetText.text = LocalizationManager.GetTranslation(targetString);
 
             _previousLanguage = LocalizationManager.CurrentLanguage;

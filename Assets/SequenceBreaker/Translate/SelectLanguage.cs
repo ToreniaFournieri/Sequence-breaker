@@ -1,18 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectLanguage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Dropdown _dropdown;
+
+
+    private void Start()
     {
-        
+        _dropdown = gameObject.GetComponent<Dropdown>();
     }
 
-    // Update is called once per frame
-    void Update()
+    //void OnClick()
+    //{
+    //}
+
+    public void Selected()
     {
-        
+        Debug.Log(_dropdown.options[_dropdown.value].text);
+
+        if (LocalizationManager.HasLanguage(_dropdown.options[_dropdown.value].text))
+        {
+            LocalizationManager.CurrentLanguage = _dropdown.options[_dropdown.value].text;
+        }
     }
+
 }
