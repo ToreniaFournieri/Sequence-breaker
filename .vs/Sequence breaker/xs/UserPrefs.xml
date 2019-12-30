@@ -1,4 +1,5 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="249" Column="48" IsPinned="True" />
@@ -17,6 +18,22 @@
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Terms.cs" Line="11" Column="23" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Tools.cs" Line="6" Column="23" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Languages.cs" Line="12" Column="23" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Timeline/BattleLogView/ShowTargetUnit.cs">
+    <Files>
+      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="199" Column="74" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="114" Column="37" />
+      <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" Line="28" Column="62" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="373" Column="63" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="47" Column="31" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/Data.cs" Line="13" Column="28" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/EnhancedScrollCellView.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="14" Column="43" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="766" Column="49" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="63" Column="58" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/ShowTargetUnit.cs" Line="90" Column="102" />
+>>>>>>> parent of cb7c369c4... Word translate
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
