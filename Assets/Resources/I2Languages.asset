@@ -24,6 +24,13 @@ MonoBehaviour:
       - 
       Flags: 00
       Languages_Touch: []
+    - Term: Arial
+      TermType: 1
+      Description: 
+      Languages:
+      - 
+      Flags: 00
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

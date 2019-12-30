@@ -20735,14 +20735,6 @@ MonoBehaviour:
       - "\u58C1"
       Flags: 0000
       Languages_Touch: []
-    - Term: critical
-      TermType: 0
-      Description: 
-      Languages:
-      - Critical
-      - "\u30AF\u30EA\u30C6\u30A3\u30AB\u30EB"
-      Flags: 0000
-      Languages_Touch: []
     - Term: crushed!
       TermType: 0
       Description: 
@@ -20896,8 +20888,24 @@ MonoBehaviour:
       - "{[X]}\u56DE\u547D\u4E2D"
       Flags: 0000
       Languages_Touch: []
+    - Term: Critical
+      TermType: 0
+      Description: 
+      Languages:
+      - Critical
+      - "\u30AF\u30EA\u30C6\u30A3\u30AB\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: FONT
+      TermType: 1
+      Description: 
+      Languages:
+      - ARIAL
+      - mplus-1c-regular
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
-    OnMissingTranslation: 1
+    OnMissingTranslation: 2
     mTerm_AppName: 
     mLanguages:
     - Name: English
@@ -20917,7 +20925,8 @@ MonoBehaviour:
     GoogleInEditorCheckFrequency: 2
     GoogleUpdateSynchronization: 1
     GoogleUpdateDelay: 0
-    Assets: []
+    Assets:
+    - {fileID: 12800000, guid: 6f88c6c77498b422c8eb14bd595ff5a2, type: 3}
     Spreadsheet_LocalFileName: /Users/celvena/Desktop/Localization.txt
     Spreadsheet_LocalCSVSeparator: ','
     Spreadsheet_LocalCSVEncoding: utf-8
@@ -21653,7 +21662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 5}
+  m_AnchoredPosition: {x: -49.99994, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736

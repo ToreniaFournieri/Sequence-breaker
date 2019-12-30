@@ -1,4 +1,5 @@
 ﻿using _00_Asset._05_EnhancedScroller_v2.Plugins;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -63,6 +64,16 @@ namespace SequenceBreaker.Timeline.BattleLogView
             {
                 //Need to false in case recycle object.
             }
+
+
+            //Font set
+            reactText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+            unitInfo.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+            firstLine.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+            mainText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+            barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+
+
 
             unitInfo.text = data.UnitInfo;
             firstLine.text = data.FirstLine;

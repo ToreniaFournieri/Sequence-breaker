@@ -26,11 +26,11 @@ namespace SequenceBreaker.Translate
             if (_previousLanguage != LocalizationManager.CurrentLanguage)
             {
 
-                //Debug.Log(Word.Get(targetString));
-
                 _targetText.text = Word.Get(targetString);
 
-                //_targetText.text = LocalizationManager.GetTranslation(targetString);
+                
+                Debug.Log("font " + LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT").name);
+                _targetText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
                 _previousLanguage = LocalizationManager.CurrentLanguage;
             }

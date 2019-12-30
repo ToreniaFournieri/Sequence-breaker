@@ -153,7 +153,7 @@ namespace SequenceBreaker.Play.Battle
                                 break;
                             }
                         default:
-                            Debug.Log("unexpected. basic attack function, targetType is not single nor multi. info:" + environmentInfo.Info() + " " + order.OrderCondition);
+                            Debug.LogError("unexpected. basic attack function, targetType is not single nor multi. info:" + environmentInfo.Info() + " " + order.OrderCondition);
                             break;
                     }
 
@@ -345,7 +345,7 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords = Word.Get("Critical"); }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords = " " + Word.Get("Critical"); }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
@@ -402,8 +402,8 @@ namespace SequenceBreaker.Play.Battle
 
                 //string hitString = Word.Get("Hit-Active");
 
-                var firstLine = criticalWords + skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) +"] " + skillTriggerPossibility + " "                               
-                                + " " + Word.Get("X hits-Active", numberOfSuccessAttacks.ToString())  + majorityElement;
+                var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) +"] " + skillTriggerPossibility + " "                               
+                                + " " + Word.Get("X hits-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
