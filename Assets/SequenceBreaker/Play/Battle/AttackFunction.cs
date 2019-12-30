@@ -349,8 +349,10 @@ namespace SequenceBreaker.Play.Battle
                 if (order.SkillEffectChosen != null)
                 {
                     if (!order.SkillEffectChosen.skill.isNormalAttack)
-                    { skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% "
-                            + LocalizationManager.GetTranslation("left") + ":" + order.SkillEffectChosen.UsageCount + ")"; }
+                    {
+                        skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% "
+                              + LocalizationManager.GetTranslation("left") + ":" + order.SkillEffectChosen.UsageCount + ")";
+                    }
                 }
                 string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)
                 {
@@ -406,15 +408,16 @@ namespace SequenceBreaker.Play.Battle
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
                     string crushed = null;
-                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = LocalizationManager.GetTranslation("crushed!"); }
-                    string leftShieldAndHP = null;
-                    if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
-                    {
-                        leftShieldAndHP = "[" + opponents[fTargetColumn].combat.shieldCurrent + "("
-                            + Math.Round((double)opponents[fTargetColumn].combat.shieldCurrent / (double)opponents[fTargetColumn].combat.shieldMax * 100, 0) + "%)+"
-                            + opponents[fTargetColumn].combat.hitPointCurrent + "("
-                            + Math.Round((double)opponents[fTargetColumn].combat.hitPointCurrent / (double)opponents[fTargetColumn].combat.hitPointMax * 100, 0) + "%)]";
-                    }
+                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " " + LocalizationManager.GetTranslation("crushed!"); }
+                    //string leftShieldAndHP = null;
+                    //if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
+                    //{
+                    //    leftShieldAndHP = " [" + opponents[fTargetColumn].combat.shieldCurrent + "("
+                    //        + Math.Round((double)opponents[fTargetColumn].combat.shieldCurrent / (double)opponents[fTargetColumn].combat.shieldMax * 100, 0) + "%)+"
+                    //        + opponents[fTargetColumn].combat.hitPointCurrent + "("
+                    //        + Math.Round((double)opponents[fTargetColumn].combat.hitPointCurrent / (double)opponents[fTargetColumn].combat.hitPointMax * 100, 0) + "%)]";
+                    //}
+
 
 
                     if (totalIndividualHits[opponents[fTargetColumn].uniqueId] >= 1)
@@ -424,33 +427,28 @@ namespace SequenceBreaker.Play.Battle
 
                         string barrierWords = null;
                         if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [" + LocalizationManager.GetTranslation("Barrier Broken") + "]"; }
-                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " ["+ LocalizationManager.GetTranslation("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
-
+                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [" + LocalizationManager.GetTranslation("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
 
                         var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].uniqueId]
                                                       / ((double)opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
+                        var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
+                        if (damageRateSpace < 0) { damageRateSpace = 0; }
+                        string damageRatioString = "(" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
                         string s = null;
 
                         if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = LocalizationManager.GetTranslation("Plural-s"); }
-                        //var damageSpace = (6 - totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma().Length);
-                        //if (damageSpace < 0) { damageSpace = 0; }
-                        var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
-                        if (damageRateSpace < 0) { damageRateSpace = 0; }
+
 
                         string takesString = LocalizationManager.GetTranslation("Battle-takes");
 
                         string damageString = LocalizationManager.GetTranslation("Battle-damage");
 
-                        log += opponents[fTargetColumn].shortName + takesString + " " + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()
-                            + damageString + " "
-
-                        //log += opponents[fTargetColumn].shortName + " takes " + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma() + " damage "
-                        //+"(" + new string(' ', damageRateSpace) + sign + damageRatio + "%)"
-                        + crushed +" " + totalIndividualHits[opponents[fTargetColumn].uniqueId]
-                        + LocalizationManager.GetTranslation("Hit-Passive") + s + ":"
-                               + " " + leftShieldAndHP + barrierWords + optimumRangeWords + " \n";
+                        log += opponents[fTargetColumn].shortName + takesString + " "
+                            + totalIndividualHits[opponents[fTargetColumn].uniqueId] + LocalizationManager.GetTranslation("Hit-Passive") + s + " "
+                            + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()
+                            + damageString + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

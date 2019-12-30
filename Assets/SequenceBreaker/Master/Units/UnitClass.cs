@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using I2.Loc;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
@@ -55,9 +56,9 @@ namespace SequenceBreaker.Master.Units
         public string TrueName()
         {
             // Short Name of tuningStyle
-            string tuningStyleFirstLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
-            
-            
+            string tuningEnglishLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
+
+            string tuningStyleFirstLetter = LocalizationManager.GetTranslation("Tuning-" + tuningEnglishLetter);
 
                 return "[" + tuningStyleFirstLetter + "]"
                        + shortName 

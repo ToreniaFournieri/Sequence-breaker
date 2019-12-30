@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using I2.Loc;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Mission;
@@ -187,7 +188,7 @@ namespace SequenceBreaker.Play.Prepare
             {
                 // _data set
                 string unitNameText = null;
-                string unitHealthText = null;
+                //string unitHealthText = null;
                 string reactText = null;
                 var shieldRatio = 0f;
                 var hPRatio = 0f;
@@ -196,11 +197,11 @@ namespace SequenceBreaker.Play.Prepare
                 if (battle.LogList[i].Order != null)
                 {
                     unitNameText = battle.LogList[i].Order.Actor.longName;
-                    unitHealthText = "[" + battle.LogList[i].Order.Actor.combat.shieldCurrent +
-                                     "(" + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.shieldCurrent * 100 / battle.LogList[i].Order.Actor.combat.shieldMax) + "%)+"
-                                     + battle.LogList[i].Order.Actor.combat.hitPointCurrent + "("
-                                     + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.hitPointCurrent * 100 / battle.LogList[i].Order.Actor.combat.hitPointMax)
-                                     + "%)]";
+                    //unitHealthText = "[" + battle.LogList[i].Order.Actor.combat.shieldCurrent +
+                    //                 "(" + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.shieldCurrent * 100 / battle.LogList[i].Order.Actor.combat.shieldMax) + "%)+"
+                    //                 + battle.LogList[i].Order.Actor.combat.hitPointCurrent + "("
+                    //                 + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.hitPointCurrent * 100 / battle.LogList[i].Order.Actor.combat.hitPointMax)
+                    //                 + "%)]";
 
                     if (battle.LogList[i].Order.IndividualTarget != null)
                     {
@@ -231,7 +232,7 @@ namespace SequenceBreaker.Play.Prepare
                 string speedString = null;
                 if (battle.LogList[i].OrderCondition.Speed != 0)
                 {
-                    speedString = " Speed:" + battle.LogList[i].OrderCondition.Speed;
+                    speedString = " " + LocalizationManager.GetTranslation("Speed") + ":" + battle.LogList[i].OrderCondition.Speed;
                 }
 
 
@@ -244,7 +245,7 @@ namespace SequenceBreaker.Play.Prepare
                     ReactText = reactText,
 
 
-                    UnitInfo = "<b>" + unitNameText + "</b>  " + unitHealthText + speedString,
+                    UnitInfo = "<b>" + unitNameText + "</b>  "  + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
                     MainText = battle.LogList[i].Log,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,
