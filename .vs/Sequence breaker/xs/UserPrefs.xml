@@ -13,7 +13,7 @@
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Translation.cs" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Language.cs" />
       <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs" Line="14" Column="23" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs" Line="18" Column="63" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Terms.cs" Line="11" Column="23" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Tools.cs" Line="6" Column="23" />
       <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Languages.cs" Line="12" Column="23" />
