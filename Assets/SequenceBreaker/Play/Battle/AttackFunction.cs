@@ -355,10 +355,10 @@ namespace SequenceBreaker.Play.Battle
                               + Word.Get("left") + ":" + order.SkillEffectChosen.UsageCount + ")";
                     }
                 }
-                string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)
-                {
-                    sNumberOfAttacks = Word.Get("Plural-s");
-                }
+                //string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)
+                //{
+                //    sNumberOfAttacks = Word.Get("Plural-s");
+                //}
                 //string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
                 var skillName = "unknown skill"; if (order.SkillEffectChosen != null)
                 {
@@ -400,26 +400,15 @@ namespace SequenceBreaker.Play.Battle
 
                 //string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
-                string hitString = Word.Get("Hit-Active");
+                //string hitString = Word.Get("Hit-Active");
 
-                var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
-                                + numberOfSuccessAttacks + "/ " + order.Actor.combat.numberOfAttacks
-                                + " " + hitString + sNumberOfAttacks + majorityElement;
+                var firstLine = criticalWords + skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) +"] " + skillTriggerPossibility + " "                               
+                                + " " + Word.Get("X hits-Active", numberOfSuccessAttacks.ToString())  + majorityElement;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
                     string crushed = null;
                     if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " " + Word.Get("crushed!"); }
-                    //string leftShieldAndHP = null;
-                    //if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
-                    //{
-                    //    leftShieldAndHP = " [" + opponents[fTargetColumn].combat.shieldCurrent + "("
-                    //        + Math.Round((double)opponents[fTargetColumn].combat.shieldCurrent / (double)opponents[fTargetColumn].combat.shieldMax * 100, 0) + "%)+"
-                    //        + opponents[fTargetColumn].combat.hitPointCurrent + "("
-                    //        + Math.Round((double)opponents[fTargetColumn].combat.hitPointCurrent / (double)opponents[fTargetColumn].combat.hitPointMax * 100, 0) + "%)]";
-                    //}
-
-
 
                     if (totalIndividualHits[opponents[fTargetColumn].uniqueId] >= 1)
                     {
@@ -441,8 +430,8 @@ namespace SequenceBreaker.Play.Battle
                         string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
 
-                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damage", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()) + " "
-                            + Word.Get("X hit", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + " "
+                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()) + " "
+                            + Word.Get("X hits", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + " "
                             + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
@@ -461,7 +450,7 @@ namespace SequenceBreaker.Play.Battle
                 //Absorb log
                 if (healedByAbsorbShield > 0)
                 {
-                    log += new string(' ', 3) + order.Actor.shortName + Word.Get("absorbs X shield", healedByAbsorbShield.ToString());
+                    log += new string(' ', 3) + order.Actor.shortName + Word.Get("absorbs X shields", healedByAbsorbShield.ToString());
 
 
                 }
