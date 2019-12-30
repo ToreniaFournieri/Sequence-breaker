@@ -2478,7 +2478,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9011,7 +9011,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9916,7 +9916,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20695,6 +20695,94 @@ MonoBehaviour:
       - "\u56DE\u88AB\u5F3E"
       Flags: 0000
       Languages_Touch: []
+    - Term: Speed
+      TermType: 0
+      Description: 
+      Languages:
+      - Speed
+      - "\u901F\u5EA6"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-M
+      TermType: 0
+      Description: 
+      Languages:
+      - M
+      - "\u6551"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-T
+      TermType: 0
+      Description: 
+      Languages:
+      - T
+      - "\u58C1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-D
+      TermType: 0
+      Description: 
+      Languages:
+      - D
+      - "\u99C6"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-F
+      TermType: 0
+      Description: 
+      Languages:
+      - F
+      - "\u95D8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-G
+      TermType: 0
+      Description: 
+      Languages:
+      - G
+      - "\u5C04"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UnitType-Beast
+      TermType: 0
+      Description: 
+      Languages:
+      - Beast
+      - "\u7363"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UnitType-Cyborg
+      TermType: 0
+      Description: 
+      Languages:
+      - Cyborg
+      - "\u7FA9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UnitType-Drone
+      TermType: 0
+      Description: 
+      Languages:
+      - Drone
+      - "\u7FD4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UnitType-Robot
+      TermType: 0
+      Description: 
+      Languages:
+      - Robot
+      - "\u6A5F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UnitType-Titan
+      TermType: 0
+      Description: 
+      Languages:
+      - Titan
+      - "\u5DE8"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -20996,7 +21084,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

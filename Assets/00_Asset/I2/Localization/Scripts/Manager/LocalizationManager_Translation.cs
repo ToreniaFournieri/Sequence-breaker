@@ -23,18 +23,20 @@ namespace I2.Loc
 
         #endregion
 
+
+
         public static string GetTranslation(string Term, bool FixForRTL = true, int maxLineLengthForRTL = 0, bool ignoreRTLnumbers = true, bool applyParameters = false, GameObject localParametersRoot = null, string overrideLanguage = null)
         {
             string Translation = null;
             TryGetTranslation(Term, out Translation, FixForRTL, maxLineLengthForRTL, ignoreRTLnumbers, applyParameters, localParametersRoot, overrideLanguage);
 
-            // Torenia Fournieri modification 2019.12.29 start
-            // force to display Term
-            if (Translation == null)
-            {
-                Translation = Term;
-            }
-            // Torenia Fournieri modification 2019.12.29 end
+            //// Torenia Fournieri modification 2019.12.29 start
+            //// force to display Term
+            //if (Translation == null)
+            //{
+            //    Translation = Term;
+            //}
+            //// Torenia Fournieri modification 2019.12.29 end
 
             return Translation;
         }

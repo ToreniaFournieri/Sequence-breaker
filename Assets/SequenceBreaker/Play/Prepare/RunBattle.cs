@@ -244,8 +244,9 @@ namespace SequenceBreaker.Play.Prepare
                     CellSize = 1300, // this is dummy, need to calculate later
                     ReactText = reactText,
 
+                    //UnitInfo = "<b>" + unitNameText + "</b>  " + speedString,
 
-                    UnitInfo = "<b>" + unitNameText + "</b>  "  + speedString,
+                    UnitInfo = unitNameText + " "  + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
                     MainText = battle.LogList[i].Log,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,
