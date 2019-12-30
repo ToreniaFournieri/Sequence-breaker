@@ -30,7 +30,7 @@ namespace SequenceBreaker.Translate
 
                 _targetText.text = Word.Get(targetString);
 
-            //_targetText.text = LocalizationManager.GetTranslation(targetString);
+                //_targetText.text = LocalizationManager.GetTranslation(targetString);
 
                 _previousLanguage = LocalizationManager.CurrentLanguage;
             }

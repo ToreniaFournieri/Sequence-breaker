@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Mission;
@@ -8,6 +7,7 @@ using SequenceBreaker.Master.Skills;
 using SequenceBreaker.Master.Units;
 using SequenceBreaker.Play.Battle;
 using SequenceBreaker.Timeline.BattleLogView;
+using SequenceBreaker.Translate;
 using UnityEngine;
 
 namespace SequenceBreaker.Play.Prepare
@@ -232,7 +232,7 @@ namespace SequenceBreaker.Play.Prepare
                 string speedString = null;
                 if (battle.LogList[i].OrderCondition.Speed != 0)
                 {
-                    speedString = " " + LocalizationManager.GetTranslation("Speed") + ":" + battle.LogList[i].OrderCondition.Speed;
+                    speedString = " " + Word.Get("Speed") + ":" + battle.LogList[i].OrderCondition.Speed;
                 }
 
 

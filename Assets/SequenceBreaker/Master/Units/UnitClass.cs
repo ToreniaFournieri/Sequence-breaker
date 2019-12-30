@@ -3,6 +3,7 @@ using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Items;
+using SequenceBreaker.Translate;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.Units
@@ -58,7 +59,7 @@ namespace SequenceBreaker.Master.Units
             // Short Name of tuningStyle
             string tuningEnglishLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
 
-            string tuningStyleFirstLetter = LocalizationManager.GetTranslation("Tuning-" + tuningEnglishLetter);
+            string tuningStyleFirstLetter = Word.Get("Tuning-" + tuningEnglishLetter);
 
                 return "[" + tuningStyleFirstLetter + "]"
                        + shortName 

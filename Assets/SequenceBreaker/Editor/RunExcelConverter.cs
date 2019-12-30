@@ -58,7 +58,7 @@ namespace SequenceBreaker.Editor
         private int _calclatedUnitStatusId;
 
 
-        [MenuItem("Window/Unit Master Excel Converter %#e")]
+        [MenuItem("Window/Run Excel Converter %#e")]
         static void Init()
         {
             GetWindow(typeof(RunExcelConverter));
@@ -73,35 +73,37 @@ namespace SequenceBreaker.Editor
                 unitMasterExcelImport = AssetDatabase.LoadAssetAtPath(excelPath, typeof(UnitMasterExcelImport)) as UnitMasterExcelImport;
             }
 
+            // 2. 
             if (EditorPrefs.HasKey(_itembasePathId))
             {
                 string objectPath = EditorPrefs.GetString(_itembasePathId);
                 itemBasePath = objectPath;
+                itemBaseMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(ItemBaseMasterList)) as ItemBaseMasterList;
             }
 
+            // 3. 
             if (EditorPrefs.HasKey(_itemMasterPathId))
             {
                 string objectPath = EditorPrefs.GetString(_itemMasterPathId);
                 itemMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(ItemMasterList)) as ItemMasterList;
             }
 
+
             if (EditorPrefs.HasKey(_itembaseListPathId))
             {
                 string objectPath = EditorPrefs.GetString(_itembaseListPathId);
                 itemBaseMasterListPath = objectPath;
             }
-            
 
 
-            //2. Select [Export] Unit Class List asset
+            // 4. _unitClassListPathId
             if (EditorPrefs.HasKey(_unitClassListPathId))
             {
                 string objectPath = EditorPrefs.GetString(_unitClassListPathId);
                 unitClassList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(UnitClassList)) as UnitClassList;
             }
 
-
-            //3. Select [Export] Unit Class Path
+            // 5. _unitClassPathId
             if (EditorPrefs.HasKey(_unitClassPathId))
             {
                 string objectPath = EditorPrefs.GetString(_unitClassPathId);
@@ -111,7 +113,7 @@ namespace SequenceBreaker.Editor
                 //Debug.Log("unitPath: " + unitPath);
             }
 
-            //4. Select [Export] Item Preset Path
+            //6. _itemPresetPathId
             if (EditorPrefs.HasKey(_itemPresetPathId))
             {
                 string objectPath = EditorPrefs.GetString(_itemPresetPathId);
@@ -135,7 +137,7 @@ namespace SequenceBreaker.Editor
         private void OnGUI()
         {
 
-            GUILayout.Label("Unit Master Excel Converter", EditorStyles.boldLabel);
+            GUILayout.Label("Run Excel Converter", EditorStyles.boldLabel);
 
 
             GUILayout.Space(20);
@@ -143,6 +145,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("1. Select [Import] Item  Master Excel asset", GUILayout.ExpandWidth(false)))
             {
                 OpenUnitMasterExcel();
+                //_excelPathId
             }
             GUILayout.Label(unitMasterExcelImport ? unitMasterExcelImport.name : " Unselected");
             GUILayout.EndHorizontal();
@@ -152,6 +155,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("2. Select [Export] Item Base Path", GUILayout.ExpandWidth(false)))
             {
                 OpenItemBase();
+                //_itembasePathId
             }
             GUILayout.Label(itemBasePath != null ? itemBasePath : " Unselected");
             GUILayout.EndHorizontal();
@@ -160,6 +164,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("3. Select [Import] Item Master list asset", GUILayout.ExpandWidth(false)))
             {
                 OpenItemMasterList();
+                //_itemMasterPathId
             }
             GUILayout.Label(itemMasterList ? itemMasterList.name : " Unselected");
             GUILayout.EndHorizontal();
@@ -170,6 +175,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("4. Select [Export] Unit Class List asset", GUILayout.ExpandWidth(false)))
             {
                 OpenUnitClassList();
+                //_unitClassListPathId
             }
             GUILayout.Label(unitClassList ? unitClassList.name : " Unselected");
             GUILayout.EndHorizontal();
@@ -178,6 +184,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("5. Select [Export] Unit Class Path", GUILayout.ExpandWidth(false)))
             {
                 OpenUnitClass();
+                //_unitClassPathId
             }
             GUILayout.Label(unitPath ?? " Unselected");
             GUILayout.EndHorizontal();
@@ -188,6 +195,7 @@ namespace SequenceBreaker.Editor
             if (GUILayout.Button("6. Select [Export] Item Preset path", GUILayout.ExpandWidth(false)))
             {
                 OpenItemPreset();
+                //_itemPresetPathId
             }
             GUILayout.Label(itemPresetPath ?? " Unselected");
             GUILayout.EndHorizontal();
@@ -329,7 +337,7 @@ namespace SequenceBreaker.Editor
 
                 if (unitPath != null)
                 {
-                    EditorPrefs.SetString(_itemPresetPathId, unitPath);
+                    EditorPrefs.SetString(_unitClassPathId, unitPath);
                 }
             }
 
@@ -343,9 +351,9 @@ namespace SequenceBreaker.Editor
                 string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
                 itemPresetPath = relPath;
 
-                if (unitPath != null)
+                if (itemPresetPath != null)
                 {
-                    EditorPrefs.SetString(_unitClassPathId, unitPath);
+                    EditorPrefs.SetString(_itemPresetPathId, unitPath);
                 }
             }
 
