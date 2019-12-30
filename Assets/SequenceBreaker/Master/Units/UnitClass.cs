@@ -58,12 +58,11 @@ namespace SequenceBreaker.Master.Units
         {
             // Short Name of tuningStyle
             string tuningEnglishLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
-
             string tuningStyleFirstLetter = Word.Get("Tuning-" + tuningEnglishLetter);
 
                 return "[" + tuningStyleFirstLetter + "]"
                        + shortName 
-                       +"[" + unitType + "]"
+                       +"[" + Word.Get(unitType.ToString()) + "]"
                        + " (Lv:" + level + ")";
             
         }

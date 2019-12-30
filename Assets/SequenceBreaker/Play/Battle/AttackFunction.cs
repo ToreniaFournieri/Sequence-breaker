@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using _00_Asset.I2.Localization.Scripts.Manager;
+//using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
+using SequenceBreaker.Translate;
 using UnityEngine;
 
 // FUNCTION SEGMENT
@@ -344,24 +345,24 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords = LocalizationManager.GetTranslation("Critical"); }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords =　Word.Get("Critical"); }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
                     if (!order.SkillEffectChosen.skill.isNormalAttack)
                     {
                         skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% "
-                              + LocalizationManager.GetTranslation("left") + ":" + order.SkillEffectChosen.UsageCount + ")";
+                              + Word.Get("left") + ":" + order.SkillEffectChosen.UsageCount + ")";
                     }
                 }
                 string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)
                 {
-                    sNumberOfAttacks = LocalizationManager.GetTranslation("Plural-s");
+                    sNumberOfAttacks = Word.Get("Plural-s");
                 }
                 //string sNumberOfSuccessAttacks = null; if (numberOfSuccessAttacks != 1) { sNumberOfSuccessAttacks = "s"; }
                 var skillName = "unknown skill"; if (order.SkillEffectChosen != null)
                 {
-                    skillName = LocalizationManager.GetTranslation(order.SkillEffectChosen.skill.skillName);
+                    skillName = Word.Get(order.SkillEffectChosen.skill.skillName);
                 }
                 //if (order.Actor.combat.kineticAttackRatio > 0.5) { majorityElement = " [Kinetic "+ order.Actor.combat.kineticAttackRatio + "]"; }
                 //if (order.Actor.combat.chemicalAttackRatio > 0.5) { majorityElement = " [Chemical " + order.Actor.combat.chemicalAttackRatio + "]"; }
@@ -370,28 +371,28 @@ namespace SequenceBreaker.Play.Battle
                 if (order.Actor.combat.kineticAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Kinetic") + " x"
+                                    " [" + Word.Get("Kinetic") + " x"
                                     + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.chemicalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Chemical") + "x"
+                                    " [" + Word.Get("Chemical") + "x"
                                     + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
                 if (order.Actor.combat.thermalAttackRatio > 0.001)
                 {
                     majorityElement +=
-                                    " [" + LocalizationManager.GetTranslation("Thermal") + "x"
+                                    " [" + Word.Get("Thermal") + "x"
                                     + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
                                     * order.Actor.offenseMagnification.critical, 2) + "]";
                 }
 
                 if (majorityElement == null)
                 {
-                    majorityElement = " [" + LocalizationManager.GetTranslation("Element-None") + " x"
+                    majorityElement = " [" + Word.Get("Element-None") + " x"
                         + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
 
                 }
@@ -399,7 +400,7 @@ namespace SequenceBreaker.Play.Battle
 
                 //string speedText = null; if (order.ActionSpeed > 0) { speedText = " Speed:" + order.ActionSpeed; }
 
-                string hitString = LocalizationManager.GetTranslation("Hit-Active");
+                string hitString = Word.Get("Hit-Active");
 
                 var firstLine = criticalWords + skillName + skillTriggerPossibility + " "
                                 + numberOfSuccessAttacks + "/ " + order.Actor.combat.numberOfAttacks
@@ -408,7 +409,7 @@ namespace SequenceBreaker.Play.Battle
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
                     string crushed = null;
-                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " " + LocalizationManager.GetTranslation("crushed!"); }
+                    if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushed = " " + Word.Get("crushed!"); }
                     //string leftShieldAndHP = null;
                     //if (opponents[fTargetColumn].combat.hitPointCurrent != 0)
                     //{
@@ -426,8 +427,8 @@ namespace SequenceBreaker.Play.Battle
                         if (opponents[fTargetColumn].IsOptimumTarget) { optimumRangeWords = " *"; }
 
                         string barrierWords = null;
-                        if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [" + LocalizationManager.GetTranslation("Barrier Broken") + "]"; }
-                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [" + LocalizationManager.GetTranslation("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
+                        if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [" + Word.Get("Barrier Broken") + "]"; }
+                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [" + Word.Get("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
 
                         var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].uniqueId]
                                                       / ((double)opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
@@ -438,17 +439,14 @@ namespace SequenceBreaker.Play.Battle
 
                         string s = null;
 
-                        if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = LocalizationManager.GetTranslation("Plural-s"); }
+                        if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = Word.Get("Plural-s"); }
 
 
-                        string takesString = LocalizationManager.GetTranslation("Battle-takes");
 
-                        string damageString = LocalizationManager.GetTranslation("Battle-damage");
-
-                        log += opponents[fTargetColumn].shortName + takesString + " "
-                            + totalIndividualHits[opponents[fTargetColumn].uniqueId] + LocalizationManager.GetTranslation("Hit-Passive") + s + " "
+                        log += opponents[fTargetColumn].shortName + Word.Get("Battle-takes") + " "
+                            + totalIndividualHits[opponents[fTargetColumn].uniqueId] + Word.Get("Hit-Passive") + s + " "
                             + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()
-                            + damageString + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
+                            + Word.Get("Battle-damage") + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 
@@ -461,10 +459,17 @@ namespace SequenceBreaker.Play.Battle
                     BattleResult.TotalDealtDamage = totalDealtDamageSum;
                 } //fTargetColumn
 
-                if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + "All attacks missed...  \n"; }
+                if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + Word.Get("All attacks missed") + "\n"; }
 
                 //Absorb log
-                if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.shortName + " absorbs shield by " + healedByAbsorbShield + ". \n"; }
+                if (healedByAbsorbShield > 0)
+                {
+                    log += new string(' ', 3) + order.Actor.shortName + Word.GetWithParam("absorbs X shield", healedByAbsorbShield.ToString());
+                }
+
+
+                //if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.shortName + " " + Word.Get("absorbs") + " "
+                //        + healedByAbsorbShield + " " + Word.Get("shield")+ Word.Get("Period") +  " \n"; }
 
                 var orderCondition = order.OrderCondition;
                 BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, log: log, whichAffiliationAct: order.Actor.affiliation);

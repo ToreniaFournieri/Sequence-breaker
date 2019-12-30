@@ -245,7 +245,7 @@ namespace SequenceBreaker.Play.Prepare
                     ReactText = reactText,
 
 
-                    UnitInfo = "<b>" + unitNameText + "</b>  "  + speedString,
+                    UnitInfo = unitNameText + " "  + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
                     MainText = battle.LogList[i].Log,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,
