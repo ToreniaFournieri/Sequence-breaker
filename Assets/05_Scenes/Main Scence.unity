@@ -20819,7 +20819,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - absorbs {[VALUE]} shield.[i2p_Zero]absorbs no shield.
+      - ' absorbs {[VALUE]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs
+        {[VALUE]} shield.'
       - "\u306F {[VALUE]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F"
       Flags: 0000
       Languages_Touch: []
@@ -20827,8 +20828,48 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - takes {[VALUE]} damages.[i2p_One]takes {[VALUE]} damage.
+      - ' takes {[VALUE]} damages.[i2p_One] takes {[VALUE]} damage.'
       - "\u306F {[VALUE]}\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-J
+      TermType: 0
+      Description: 
+      Languages:
+      - J
+      - "\u59A8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-L
+      TermType: 0
+      Description: 
+      Languages:
+      - L
+      - "\u69CD"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-R
+      TermType: 0
+      Description: 
+      Languages:
+      - R
+      - "\u5075"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-C
+      TermType: 0
+      Description: 
+      Languages:
+      - C
+      - "\u63EE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-S
+      TermType: 0
+      Description: 
+      Languages:
+      - S
+      - "\u72D9"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
