@@ -142,7 +142,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
         static void ParseTerms(bool OnlyCurrentScene, bool ParseScripts, bool OpenTermsTab)
         {
-            Inspectors.LocalizationEditor.mIsParsing = true;
+            mIsParsing = true;
 
             mParsedTerms.Clear();
             mSelectedKeys.Clear();
@@ -179,9 +179,9 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
             }
 
 
-            if (Inspectors.LocalizationEditor.mLanguageSource!=null)
+            if (mLanguageSource!=null)
             {
-                var sourceCategories = Inspectors.LocalizationEditor.mLanguageSource.GetCategories();
+                var sourceCategories = mLanguageSource.GetCategories();
                 mSelectedCategories.RemoveAll(x => !sourceCategories.Contains(x));
             }
 
@@ -197,7 +197,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
                 }
                 mCurrentViewMode = eViewMode.Keys;
 			}
-			Inspectors.LocalizationEditor.mIsParsing = false;
+			mIsParsing = false;
 		}
 		
 		static void FindTermsInCurrentScene()
@@ -210,7 +210,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			for (int i=0, imax=Locals.Length; i<imax; ++i)
 			{
 				Localize localize = Locals[i];
-                if (localize==null || (localize.Source!=null && localize.Source.SourceData!=Inspectors.LocalizationEditor.mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
+                if (localize==null || (localize.Source!=null && localize.Source.SourceData!=mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
 					continue;
 				 
 				string Term, SecondaryTerm;
@@ -290,11 +290,11 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
         static void FindTermsNotUsed()
 		{
             // every Term that is in the DB but not in mParsedTerms
-            if (Inspectors.LocalizationEditor.mLanguageSource == null)
+            if (mLanguageSource == null)
                 return;
 
             //string lastCategory = null;
-			foreach (TermData termData in Inspectors.LocalizationEditor.mLanguageSource.mTerms)
+			foreach (TermData termData in mLanguageSource.mTerms)
                 GetParsedTerm(termData.Term);
 		}
 
@@ -337,7 +337,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			foreach (var localize in Locals) 
 			{
-				if (localize == null || (localize.Source != null && localize.Source.SourceData != Inspectors.LocalizationEditor.mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
+				if (localize == null || (localize.Source != null && localize.Source.SourceData != mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
 					continue;
 
 				if (!string.IsNullOrEmpty (localize.mTerm) && !string.IsNullOrEmpty (localize.SecondaryTerm))
@@ -351,7 +351,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 		public static void ApplyInferredTerm( Localize localize)
 		{
-			if (Inspectors.LocalizationEditor.mLanguageSource==null)
+			if (mLanguageSource==null)
 				return;
 			if (!string.IsNullOrEmpty (localize.mTerm) && !string.IsNullOrEmpty (localize.mTermSecondary))
 				return;
@@ -361,14 +361,14 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			if (string.IsNullOrEmpty (localize.mTerm))
 			{ 
-				var termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (sTerm, true);
+				var termData = mLanguageSource.GetTermData (sTerm, true);
 				if (termData!=null)
 					localize.mTerm = termData.Term;
 			}
 
 			if (string.IsNullOrEmpty (localize.mTermSecondary))
 			{
-				var termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (sSecTerm, true);
+				var termData = mLanguageSource.GetTermData (sSecTerm, true);
 				if (termData!=null)
 					localize.mTermSecondary = termData.Term;
 			}

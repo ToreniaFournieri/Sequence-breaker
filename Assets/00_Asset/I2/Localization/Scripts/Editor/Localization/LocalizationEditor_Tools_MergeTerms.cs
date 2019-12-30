@@ -57,7 +57,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			
 			//--[ Existing Term ]------------------------
 			int Index = 0;
-			List<string> Terms = Inspectors.LocalizationEditor.mLanguageSource.GetTermsList();
+			List<string> Terms = mLanguageSource.GetTermsList();
 
 			for (int i=0, imax=Terms.Count; i<imax; ++i)
 				if (Terms[i].ToLower().Contains(mKeyToExplore.ToLower()))
@@ -91,11 +91,11 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			if (string.IsNullOrEmpty(mKeyToExplore))
 				return;
 
-			Inspectors.LocalizationEditor.mIsParsing = true;
+			mIsParsing = true;
 			string sNewKey = mKeyToExplore;
 
 			//--[ Create new Term ]-----------------------
-			if (Inspectors.LocalizationEditor.mLanguageSource.GetTermData(sNewKey)==null)
+			if (mLanguageSource.GetTermData(sNewKey)==null)
 			{
 				TermData termData = AddLocalTerm(sNewKey);
 
@@ -103,7 +103,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				TermData oldTerm = null;
 				for (int i=0, imax=mSelectedKeys.Count; i<imax; ++i)
 				{
-					oldTerm = Inspectors.LocalizationEditor.mLanguageSource.GetTermData(mSelectedKeys[i]);
+					oldTerm = mLanguageSource.GetTermData(mSelectedKeys[i]);
 					if (oldTerm!=null) break;
 				}
 
@@ -138,7 +138,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			//RemoveUnusedCategoriesFromSelected();
 			ScheduleUpdateTermsToShowInList();
 			TermReplacements = null;
-			Inspectors.LocalizationEditor.mIsParsing = false;
+			mIsParsing = false;
 		}
 
 		void RemoveUnusedCategoriesFromSelected()

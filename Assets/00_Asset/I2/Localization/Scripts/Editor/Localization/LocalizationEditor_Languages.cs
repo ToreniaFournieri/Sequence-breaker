@@ -50,8 +50,8 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
             
 
             string firstLanguage = "";
-			if (Inspectors.LocalizationEditor.mLanguageSource.mLanguages.Count > 0)
-				firstLanguage = " (" + Inspectors.LocalizationEditor.mLanguageSource.mLanguages [0].Name + ")";
+			if (mLanguageSource.mLanguages.Count > 0)
+				firstLanguage = " (" + mLanguageSource.mLanguages [0].Name + ")";
 			
 			GUILayout.BeginHorizontal();
 				GUILayout.Label(new GUIContent("Default Language:", "When the game starts this is the language that will be used until the player manually selects a language"), EditorStyles.boldLabel, GUILayout.Width(160));
@@ -81,7 +81,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			int LanguageToMoveUp = -1;
 			int LanguageToMoveDown = -1;
             GUI.backgroundColor = Color.Lerp(GUITools.LightGray, Color.white, 0.5f);
-            Inspectors.LocalizationEditor.mScrollPos_Languages = GUILayout.BeginScrollView( Inspectors.LocalizationEditor.mScrollPos_Languages, LocalizeInspector.GUIStyle_OldTextArea, GUILayout.MinHeight (200), /*GUILayout.MaxHeight(Screen.height),*/ GUILayout.ExpandHeight(false));
+            mScrollPos_Languages = GUILayout.BeginScrollView( mScrollPos_Languages, LocalizeInspector.GUIStyle_OldTextArea, GUILayout.MinHeight (200), /*GUILayout.MaxHeight(Screen.height),*/ GUILayout.ExpandHeight(false));
             GUI.backgroundColor = Color.white;
 
             if (mLanguageCodePopupList == null || mLanguageCodePopupList.Count==0)
@@ -201,7 +201,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			{
 				if (EditorUtility.DisplayDialog ("Confirm delete", "Are you sure you want to delete the selected language", "Yes", "Cancel")) 
 				{
-					Inspectors.LocalizationEditor.mLanguageSource.RemoveLanguage (Inspectors.LocalizationEditor.mLanguageSource.mLanguages [IndexLanguageToDelete].Name);
+					mLanguageSource.RemoveLanguage (mLanguageSource.mLanguages [IndexLanguageToDelete].Name);
 					serializedObject.Update ();
 					ParseTerms (true, false, false);
 				}
@@ -214,7 +214,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 		void SwapLanguages( int iFirst, int iSecond )
 		{
 			serializedObject.ApplyModifiedProperties();
-			LanguageSourceData Source = Inspectors.LocalizationEditor.mLanguageSource;
+			LanguageSourceData Source = mLanguageSource;
 
 			SwapValues( Source.mLanguages, iFirst, iSecond );
 			foreach (TermData termData in Source.mTerms)
@@ -253,16 +253,16 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			GUILayout.BeginHorizontal();
 			
 			GUILayout.BeginHorizontal(EditorStyles.toolbar);
-			Inspectors.LocalizationEditor.mLanguages_NewLanguage = EditorGUILayout.TextField("", Inspectors.LocalizationEditor.mLanguages_NewLanguage, EditorStyles.toolbarTextField, GUILayout.ExpandWidth(true));
+			mLanguages_NewLanguage = EditorGUILayout.TextField("", mLanguages_NewLanguage, EditorStyles.toolbarTextField, GUILayout.ExpandWidth(true));
 			GUILayout.EndHorizontal();
 
-			GUI.enabled = !string.IsNullOrEmpty (Inspectors.LocalizationEditor.mLanguages_NewLanguage);
+			GUI.enabled = !string.IsNullOrEmpty (mLanguages_NewLanguage);
 			if (TestButton(eTest_ActionType.Button_AddLanguageManual,"Add", EditorStyles.toolbarButton, GUILayout.Width(50)))
 			{
 				Prop_Languages.serializedObject.ApplyModifiedProperties();
-				Inspectors.LocalizationEditor.mLanguageSource.AddLanguage( Inspectors.LocalizationEditor.mLanguages_NewLanguage, GoogleLanguages.GetLanguageCode(Inspectors.LocalizationEditor.mLanguages_NewLanguage) );
+				mLanguageSource.AddLanguage( mLanguages_NewLanguage, GoogleLanguages.GetLanguageCode(mLanguages_NewLanguage) );
 				Prop_Languages.serializedObject.Update();
-				Inspectors.LocalizationEditor.mLanguages_NewLanguage = "";
+				mLanguages_NewLanguage = "";
                 GUI.FocusControl(string.Empty);
             }
             GUI.enabled = true;
@@ -276,30 +276,30 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			
 			//-- Language Dropdown -----------------
 			string CodesToExclude = string.Empty;
-			foreach (var LanData in Inspectors.LocalizationEditor.mLanguageSource.mLanguages)
+			foreach (var LanData in mLanguageSource.mLanguages)
 				CodesToExclude = string.Concat(CodesToExclude, "[", LanData.Code, "]");
 
-			List<string> Languages = GoogleLanguages.GetLanguagesForDropdown(Inspectors.LocalizationEditor.mLanguages_NewLanguage, CodesToExclude);
+			List<string> Languages = GoogleLanguages.GetLanguagesForDropdown(mLanguages_NewLanguage, CodesToExclude);
 
 			GUI.changed = false;
 			int index = EditorGUILayout.Popup(0, Languages.ToArray(), EditorStyles.toolbarDropDown);
 
 			if (GUI.changed && index>=0)
 			{
-				Inspectors.LocalizationEditor.mLanguages_NewLanguage = GoogleLanguages.GetFormatedLanguageName( Languages[index] );
+				mLanguages_NewLanguage = GoogleLanguages.GetFormatedLanguageName( Languages[index] );
 			}
 			
 			
 			if (TestButton(eTest_ActionType.Button_AddLanguageFromPopup, "Add", EditorStyles.toolbarButton, GUILayout.Width(50)) && index>=0)
 			{
                 Prop_Languages.serializedObject.ApplyModifiedProperties();
-                Inspectors.LocalizationEditor.mLanguages_NewLanguage = GoogleLanguages.GetFormatedLanguageName(Languages[index]);
+                mLanguages_NewLanguage = GoogleLanguages.GetFormatedLanguageName(Languages[index]);
 
-                if (!string.IsNullOrEmpty(Inspectors.LocalizationEditor.mLanguages_NewLanguage))
-                    Inspectors.LocalizationEditor.mLanguageSource.AddLanguage(Inspectors.LocalizationEditor.mLanguages_NewLanguage, GoogleLanguages.GetLanguageCode(Inspectors.LocalizationEditor.mLanguages_NewLanguage));
+                if (!string.IsNullOrEmpty(mLanguages_NewLanguage))
+                    mLanguageSource.AddLanguage(mLanguages_NewLanguage, GoogleLanguages.GetLanguageCode(mLanguages_NewLanguage));
                 Prop_Languages.serializedObject.Update();
                 
-                Inspectors.LocalizationEditor.mLanguages_NewLanguage = "";
+                mLanguages_NewLanguage = "";
                 GUI.FocusControl(string.Empty);
             }
 
@@ -317,8 +317,8 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				return;
 			}
             ClearErrors();
-			int LanIndex = Inspectors.LocalizationEditor.mLanguageSource.GetLanguageIndex (lanName);
-			string code = Inspectors.LocalizationEditor.mLanguageSource.mLanguages [LanIndex].Code;
+			int LanIndex = mLanguageSource.GetLanguageIndex (lanName);
+			string code = mLanguageSource.mLanguages [LanIndex].Code;
             string googleCode = GoogleLanguages.GetGoogleLanguageCode(code);
             if (string.IsNullOrEmpty(googleCode))
             {
@@ -329,7 +329,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
             mTranslationTerms.Clear ();
 			mTranslationRequests.Clear ();
-			foreach (var termData in Inspectors.LocalizationEditor.mLanguageSource.mTerms) 
+			foreach (var termData in mLanguageSource.mTerms) 
 			{
                 if (termData.TermType != eTermType.Text)
                     continue;
@@ -392,12 +392,12 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			
 			var langCode = requests.Values.First().TargetLanguagesCode [0];
             //langCode = GoogleLanguages.GetGoogleLanguageCode(langCode);
-			int langIndex = Inspectors.LocalizationEditor.mLanguageSource.GetLanguageIndexFromCode (langCode, false);
+			int langIndex = mLanguageSource.GetLanguageIndexFromCode (langCode, false);
             //if (langIndex >= 0)
             {
                 foreach (var term in mTranslationTerms)
                 {
-                    var termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData(term, false);
+                    var termData = mLanguageSource.GetTermData(term, false);
                     if (termData == null)
                         continue;
                     if (termData.TermType != eTermType.Text)
@@ -441,7 +441,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
                 GUILayout.Label("", GUILayout.ExpandWidth(true));
                 var rect = GUILayoutUtility.GetLastRect();
-                TermsPopup_Drawer.ShowGUI( rect, mProp_AppNameTerm, GUITools.EmptyContent, Inspectors.LocalizationEditor.mLanguageSource);
+                TermsPopup_Drawer.ShowGUI( rect, mProp_AppNameTerm, GUITools.EmptyContent, mLanguageSource);
 
                 if (GUILayout.Button("New Term", EditorStyles.miniButton, GUILayout.ExpandWidth(false)))
                 {
@@ -462,7 +462,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
                     {
                         var termData = LocalizationManager.GetTermData(termName);
                         if (termData != null)
-                            OnGUI_Keys_Languages(mProp_AppNameTerm.stringValue, ref termData, null, true, Inspectors.LocalizationEditor.mLanguageSource);
+                            OnGUI_Keys_Languages(mProp_AppNameTerm.stringValue, ref termData, null, true, mLanguageSource);
                     }
                     GUILayout.Space(10);
 

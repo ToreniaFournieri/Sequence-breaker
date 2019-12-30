@@ -138,7 +138,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 		void AssignCategoryToSelectedTerms()
 		{
-			Inspectors.LocalizationEditor.mIsParsing = true;
+			mIsParsing = true;
 			
 			EditorApplication.update -= AssignCategoryToSelectedTerms;
 
@@ -161,14 +161,14 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 					continue;
 
 				TermReplacements[ OldTerm ] = sKey;
-				if (!Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm(sKey))
+				if (!mLanguageSource.ContainsTerm(sKey))
 				{
-					TermData termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData( OldTerm );
+					TermData termData = mLanguageSource.GetTermData( OldTerm );
 					if (termData != null)
 						termData.Term = sKey;
 					else
 						TermReplacements.Remove (OldTerm);
-                    Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+                    mLanguageSource.Editor_SetDirty();
 				}
 			}
 			if (TermReplacements.Count<=0)
@@ -177,7 +177,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			}
 			else
 			{
-				Inspectors.LocalizationEditor.mLanguageSource.UpdateDictionary(true);
+				mLanguageSource.UpdateDictionary(true);
 				ExecuteActionOnSelectedScenes( ReplaceTermsInCurrentScene );
 				ParseTerms(true, false, true);
 
@@ -189,7 +189,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
                 ScheduleUpdateTermsToShowInList();
             }
             TermReplacements = null;
-			Inspectors.LocalizationEditor.mIsParsing = false;
+			mIsParsing = false;
 		}
 
 		public static void ReplaceTermsInCurrentScene()

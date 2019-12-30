@@ -68,7 +68,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 		void DeleteTerm( string Term, bool updateStructures = true )
 		{
-			Inspectors.LocalizationEditor.mLanguageSource.RemoveTerm (Term);
+			mLanguageSource.RemoveTerm (Term);
 			RemoveParsedTerm(Term);
 			mSelectedKeys.Remove(Term);
 
@@ -80,7 +80,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				UpdateParsedCategories();
 				mTermList_MaxWidth = -1;
 				serializedObject.ApplyModifiedProperties();
-				Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+				mLanguageSource.Editor_SetDirty();
 				ScheduleUpdateTermsToShowInList();
 			}
 			EditorApplication.update += RepaintScene;
@@ -109,7 +109,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			mTermList_MaxWidth = -1;			
 			serializedObject.ApplyModifiedProperties();
-			Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+			mLanguageSource.Editor_SetDirty();
 			return data;
 		}
 
@@ -120,7 +120,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			Term = I2Utils.GetValidTermName(Term, true);
 
-			TermData data = Inspectors.LocalizationEditor.mLanguageSource.AddTerm(Term, termType);
+			TermData data = mLanguageSource.AddTerm(Term, termType);
 			GetParsedTerm(Term);
 			string sCategory = LanguageSourceData.GetCategoryFromFullTerm(Term);
 			mParsedCategories.Add(sCategory);
@@ -134,7 +134,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 					mSelectedCategories.Add(sCategory);
 			}
 			ScheduleUpdateTermsToShowInList();
-            Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+            mLanguageSource.Editor_SetDirty();
             return data;
 		}
 
@@ -146,7 +146,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			TermData termdata = null;
 
-            LanguageSourceData source = Inspectors.LocalizationEditor.mLanguageSource;
+            LanguageSourceData source = mLanguageSource;
             if (localizeCmp != null && localizeCmp.Source != null)
                 source = localizeCmp.Source.SourceData;
 
@@ -222,7 +222,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 			if (mKeysDesc_AllowEdit)
 			{
-				string NewDesc = EditorGUILayout.TextArea( termdata.Description, Inspectors.LocalizationEditor.Style_WrapTextField );
+				string NewDesc = EditorGUILayout.TextArea( termdata.Description, Style_WrapTextField );
 				if (NewDesc != termdata.Description)
 				{
 					termdata.Description = NewDesc;
@@ -551,12 +551,12 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
                         {
                             sPath = AssetDatabase.GetAssetPath(NewObj);
 
-                            Inspectors.LocalizationEditor.mCurrentInspector.serializedObject.ApplyModifiedProperties();
-                            foreach (var cmp in Inspectors.LocalizationEditor.mCurrentInspector.serializedObject.targetObjects)
+                            mCurrentInspector.serializedObject.ApplyModifiedProperties();
+                            foreach (var cmp in mCurrentInspector.serializedObject.targetObjects)
                             {
                                 AddObjectPath(ref sPath, cmp as Localize, NewObj);
                             }
-                            Inspectors.LocalizationEditor.mCurrentInspector.serializedObject.ApplyModifiedProperties();
+                            mCurrentInspector.serializedObject.ApplyModifiedProperties();
 
                             if (HasObjectInReferences(NewObj, localizeCmp))
                                 sPath = NewObj.name;
@@ -673,7 +673,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				GUILayout.BeginHorizontal ();
 					if (showTag)
 						GUILayout.Label (pluralType, EditorStyles.miniLabel, GUILayout.Width(35));
-					newTrans = EditorGUILayout.TextArea (pluralTranslation, Inspectors.LocalizationEditor.Style_WrapTextField);
+					newTrans = EditorGUILayout.TextArea (pluralTranslation, Style_WrapTextField);
 
 					if (allowDelete  && GUILayout.Button("X", EditorStyles.toolbarButton, GUILayout.Width(15)))
 					{
@@ -718,7 +718,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			if (localizeCmp!=null && localizeCmp.TranslatedObjects.Contains(obj))
 				return true;
 
-			if (Inspectors.LocalizationEditor.mLanguageSource!=null && Inspectors.LocalizationEditor.mLanguageSource.Assets.Contains(obj))
+			if (mLanguageSource!=null && mLanguageSource.Assets.Contains(obj))
 				return true;
 
 			return false;
@@ -740,10 +740,10 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				EditorUtility.SetDirty(localizeCmp);
 			}
 			else
-			if (Inspectors.LocalizationEditor.mLanguageSource!=null)
+			if (mLanguageSource!=null)
 			{
-				Inspectors.LocalizationEditor.mLanguageSource.AddAsset(NewObj);
-                Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+				mLanguageSource.AddAsset(NewObj);
+                mLanguageSource.Editor_SetDirty();
 			}
 		}
 
@@ -776,12 +776,12 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			
             for (int i = 0, imax = termdata.Languages.Length; i < imax; ++i)
             {
-                if (Inspectors.LocalizationEditor.mLanguageSource.mLanguages[i].IsEnabled() && !string.IsNullOrEmpty(termdata.Languages[i]))
+                if (mLanguageSource.mLanguages[i].IsEnabled() && !string.IsNullOrEmpty(termdata.Languages[i]))
                 {
                     sourceText = forceSpecialization==null ? termdata.Languages[i] : termdata.GetTranslation(i, forceSpecialization, editMode:true);
-                    if (Inspectors.LocalizationEditor.mLanguageSource.mLanguages[i].Code != TargetLanguageCode)
+                    if (mLanguageSource.mLanguages[i].Code != TargetLanguageCode)
                     {
-                        sourceLanguageCode = Inspectors.LocalizationEditor.mLanguageSource.mLanguages[i].Code;
+                        sourceLanguageCode = mLanguageSource.mLanguages[i].Code;
                         return;
                     }
                 }

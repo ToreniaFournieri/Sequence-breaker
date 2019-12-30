@@ -561,7 +561,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			mSelectedKeys.Clear ();
 			mSelectedCategories.Clear();
 			ScheduleUpdateTermsToShowInList();
-			Inspectors.LocalizationEditor.mLanguageSource.GetCategories(false, mSelectedCategories);
+		    mLanguageSource.GetCategories(false, mSelectedCategories);
 
 			EditorUtility.SetDirty (target);
 			AssetDatabase.SaveAssets();

@@ -171,8 +171,8 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			if (InitialScene != Editor_GetCurrentScene())
 				Editor_OpenScene( InitialScene );
 			
-			if (Inspectors.LocalizationEditor.mLanguageSource!=null)
-				Selection.activeObject = Inspectors.LocalizationEditor.mLanguageSource.ownerObject;
+			if (mLanguageSource!=null)
+				Selection.activeObject = mLanguageSource.ownerObject;
 		}
 		#endregion
 	}

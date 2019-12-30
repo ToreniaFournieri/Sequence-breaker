@@ -240,7 +240,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				//File = EditorUtility.OpenFilePanel("Select CSV,  XLS or XLSX File", File, "csv;*.xls;*.xlsx");
 				if (!string.IsNullOrEmpty(File))
 				{
-					Inspectors.LocalizationEditor.mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
 					switch (CurrentExtension)
 					{
 						case eLocalSpreadsheeet.CSV		: Import_CSV(File, UpdateMode); break;
@@ -303,7 +303,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 					File = EditorUtility.SaveFilePanel("Select a CSV or TXT file", sPath, File, "csv;*.txt");
 				if (!string.IsNullOrEmpty(File))
 				{
-					Inspectors.LocalizationEditor.mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
 
 					char Separator = mProp_Spreadsheet_LocalCSVSeparator.stringValue.Length>0 ? mProp_Spreadsheet_LocalCSVSeparator.stringValue[0] : ',';
 					var encoding = System.Text.Encoding.GetEncoding ((string) mProp_Spreadsheet_LocalCSVEncoding.stringValue);

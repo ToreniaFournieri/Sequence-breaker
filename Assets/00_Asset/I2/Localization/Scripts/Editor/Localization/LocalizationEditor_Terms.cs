@@ -195,8 +195,8 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 
 				GUILayout.BeginHorizontal();
 					GUILayout.FlexibleSpace ();
-					bool newBool = GUILayout.Toggle(Inspectors.LocalizationEditor.mLanguageSource.CaseInsensitiveTerms, "Case Insensitive Terms");
-					if (newBool != Inspectors.LocalizationEditor.mLanguageSource.CaseInsensitiveTerms)
+					bool newBool = GUILayout.Toggle(mLanguageSource.CaseInsensitiveTerms, "Case Insensitive Terms");
+					if (newBool != mLanguageSource.CaseInsensitiveTerms)
 					{
 						mProp_CaseInsensitiveTerms.boolValue = newBool;
 					}
@@ -278,7 +278,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			}
 			GUI.color = Color.white;
 
-			TermData termData = ShowTerm_termData!=null ? ShowTerm_termData : Inspectors.LocalizationEditor.mLanguageSource.GetTermData (FullKey);
+			TermData termData = ShowTerm_termData!=null ? ShowTerm_termData : mLanguageSource.GetTermData (FullKey);
 			bool bKeyIsMissing = (termData == null);
 			float MinX = 50;
 			if (bKeyIsMissing) 
@@ -308,7 +308,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			else 
 			{
 				GUIStyle LabelStyle = EditorStyles.label;
-				if (!bKeyIsMissing && !TermHasAllTranslations (Inspectors.LocalizationEditor.mLanguageSource, termData)) 
+				if (!bKeyIsMissing && !TermHasAllTranslations (mLanguageSource, termData)) 
 				{
 					LabelStyle = new GUIStyle (EditorStyles.label);
 					LabelStyle.fontStyle = FontStyle.Italic;
@@ -396,7 +396,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 					GUILayout.EndHorizontal();
 
 					LanguageSourceData.ValidateFullTerm( ref mTermsList_NewTerm );
-					if (string.IsNullOrEmpty(mTermsList_NewTerm) || Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm(mTermsList_NewTerm) || mTermsList_NewTerm=="-")
+					if (string.IsNullOrEmpty(mTermsList_NewTerm) || mLanguageSource.ContainsTerm(mTermsList_NewTerm) || mTermsList_NewTerm=="-")
 						GUI.enabled = false;
 	
 					if (TestButton (eTest_ActionType.Button_AddTerm_InTermsList, "Create Key", "toolbarbutton", GUILayout.ExpandWidth(false)))
@@ -559,7 +559,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			{
 				mSelectedKeys.Clear();
 				foreach (var kvp in mParsedTerms)
-					if (!Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm( kvp.Key ) && ShouldShowTerm( kvp.Value.Term, kvp.Value.Category, kvp.Value.Usage ))
+					if (!mLanguageSource.ContainsTerm( kvp.Key ) && ShouldShowTerm( kvp.Value.Term, kvp.Value.Category, kvp.Value.Usage ))
 						mSelectedKeys.Add( kvp.Key );
 			}
 			GUI.enabled = true;
@@ -634,7 +634,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				ShowTerm_termData = parsedTerm.termData;
 			else
 			{
-				ShowTerm_termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (fullTerm);
+				ShowTerm_termData = mLanguageSource.GetTermData (fullTerm);
 				if (parsedTerm!=null)
 					parsedTerm.termData = ShowTerm_termData;
 			}
@@ -744,7 +744,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 				if (!ShouldShowTerm(key)) 
 					continue;
 
-                Inspectors.LocalizationEditor.mLanguageSource.RemoveTerm(key);
+                mLanguageSource.RemoveTerm(key);
                 RemoveParsedTerm(key);
                 mSelectedKeys.Remove(key);
 			}
@@ -752,7 +752,7 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
             mKeyToExplore = string.Empty;
             mTermList_MaxWidth = -1;
             serializedObject.ApplyModifiedProperties();
-            Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
+            mLanguageSource.Editor_SetDirty();
 
             EditorApplication.update += DoParseTermsInCurrentScene;
 			EditorApplication.update += RepaintScene;
