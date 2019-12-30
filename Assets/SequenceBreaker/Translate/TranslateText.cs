@@ -26,9 +26,9 @@ namespace SequenceBreaker.Translate
             if (_previousLanguage != LocalizationManager.CurrentLanguage)
             {
 
-                Debug.Log(Word.Get(targetString));
+                //Debug.Log(Word.Get(targetString));
 
-                _targetText.text = LocalizationManager.GetTranslation(targetString);
+                _targetText.text = Word.Get(targetString);
 
             //_targetText.text = LocalizationManager.GetTranslation(targetString);
 
