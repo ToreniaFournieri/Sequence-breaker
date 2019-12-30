@@ -20819,17 +20819,17 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - ' absorbs {[VALUE]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs
-        {[VALUE]} shield.'
-      - "\u306F {[VALUE]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F"
+      - ' absorbs {[X]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs {[X]}
+        shield.'
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F"
       Flags: 0000
       Languages_Touch: []
     - Term: takes X damage
       TermType: 0
       Description: 
       Languages:
-      - ' takes {[VALUE]} damages.[i2p_One] takes {[VALUE]} damage.'
-      - "\u306F {[VALUE]}\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u305F"
+      - ' takes {[X]} damages,[i2p_One] takes {[X]} damage,'
+      - " \u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
     - Term: Tuning-J
@@ -20870,6 +20870,14 @@ MonoBehaviour:
       Languages:
       - S
       - "\u72D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X hit
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} Hits.[i2p_Zero]no Hits.[i2p_One]{[X]} Hit.'
+      - "{[X]} \u56DE\u88AB\u5F3E"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

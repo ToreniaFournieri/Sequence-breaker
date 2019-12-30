@@ -345,7 +345,7 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords =　Word.Get("Critical"); }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords = Word.Get("Critical"); }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
@@ -428,25 +428,22 @@ namespace SequenceBreaker.Play.Battle
 
                         string barrierWords = null;
                         if (opponents[fTargetColumn].IsBarrierBrokenJustNow) { barrierWords = " [" + Word.Get("Barrier Broken") + "]"; }
-                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0) { barrierWords = " [" + Word.Get("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]"; }
+                        else if (opponents[fTargetColumn].buff.BarrierRemaining > 0)
+                        {
+                            barrierWords = " [" + Word.Get("Barriered") + "(" + opponents[fTargetColumn].buff.BarrierRemaining + ")]";
+                        }
 
                         var damageRatio = Math.Round((totalDealtDamages[opponents[fTargetColumn].uniqueId]
-                                                      / ((double)opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
+                                          / ((double)opponents[fTargetColumn].combat.shieldMax + (double)opponents[fTargetColumn].combat.hitPointMax) * 100), 0);
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
-                        string damageRatioString = "(" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
-
-                        string s = null;
-
-                        if (totalIndividualHits[opponents[fTargetColumn].uniqueId] != 1) { s = Word.Get("Plural-s"); }
+                        string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
 
-
-                        log += opponents[fTargetColumn].shortName + Word.Get("Battle-takes") + " "
-                            + totalIndividualHits[opponents[fTargetColumn].uniqueId] + Word.Get("Hit-Passive") + s + " "
-                            + totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()
-                            + Word.Get("Battle-damage") + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
+                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damage", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()) + " "
+                            + Word.Get("X hit", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + " "
+                            + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 
@@ -464,7 +461,8 @@ namespace SequenceBreaker.Play.Battle
                 //Absorb log
                 if (healedByAbsorbShield > 0)
                 {
-                    log += new string(' ', 3) + order.Actor.shortName + Word.GetWithParam("absorbs X shield", healedByAbsorbShield.ToString());
+                    log += new string(' ', 3) + order.Actor.shortName + Word.Get("absorbs X shield", healedByAbsorbShield.ToString());
+
 
                 }
 
