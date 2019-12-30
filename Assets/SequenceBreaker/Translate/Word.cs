@@ -1,4 +1,5 @@
 ﻿using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEngine;
 
 namespace SequenceBreaker.Translate
 {
@@ -55,5 +56,24 @@ namespace SequenceBreaker.Translate
 
             return words;
         }
+
+
+        public static Font Font()
+        {
+            return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+        }
+
+        public static Font Font(bool isAlphabet)
+        {
+            if (isAlphabet)
+            {
+                return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT-Alphabet");
+            }
+            else
+            {
+                return Font();
+            }
+        }
+
     }
 }

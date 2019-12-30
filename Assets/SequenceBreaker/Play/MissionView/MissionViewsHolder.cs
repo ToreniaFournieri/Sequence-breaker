@@ -1,6 +1,7 @@
 ﻿using _00_Asset._02_ClassicSRIA.Scripts;
 using _00_Asset._02_ClassicSRIA.Scripts.Util;
 using SequenceBreaker.Play.Prepare;
+using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,8 @@ namespace SequenceBreaker.Play.MissionView
     {
         public LayoutElement LayoutElement;
         public Image AverageScoreFillImage;
-        public Text NameText, LocationText;
+        //public Text NameText, LocationText;
+        public TranslateText NameText, LocationText;
         //averageScoreText;
 
         public Slider LevelOfMissionSlider;
@@ -35,8 +37,8 @@ namespace SequenceBreaker.Play.MissionView
 
             var mainPanel = Root.GetChild(0);
             LevelOfMissionText = mainPanel.Find("MissionImage/LevelText").GetComponent<Text>();
-            NameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<Text>();
-            LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<Text>();
+            NameText = mainPanel.Find("NameAndLocationPanel/MissionText").GetComponent<TranslateText>();
+            LocationText = mainPanel.Find("NameAndLocationPanel/LocationText").GetComponent<TranslateText>();
 
             var secondPanel = Root.GetChild(1);
             LevelOfMissionSlider = secondPanel.Find("AvailabilityPanel/Slider").GetComponent<Slider>();
@@ -57,8 +59,13 @@ namespace SequenceBreaker.Play.MissionView
 
         public virtual void UpdateViews(TClientModel dataModel)
         {
-            NameText.text = dataModel.MissionName + "(#" + ItemIndex + ")";
-            LocationText.text = "  " + dataModel.Location;
+
+
+            NameText.targetString = Word.Get(dataModel.MissionName) + "(#" + ItemIndex + ")";
+            LocationText.targetString = "  " + Word.Get(dataModel.Location);
+            //NameText.font = Word.Font();
+            //LocationText.font = Word.Font();
+
             SetBattle();
 
 

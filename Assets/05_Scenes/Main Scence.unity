@@ -8226,7 +8226,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6f88c6c77498b422c8eb14bd595ff5a2, type: 3}
     m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 1
@@ -8238,7 +8238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Setting
+  m_Text: "\u8A2D\u5B9A"
 --- !u!222 &878292508
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20904,8 +20904,24 @@ MonoBehaviour:
       - mplus-1c-regular
       Flags: 0000
       Languages_Touch: []
+    - Term: GO
+      TermType: 0
+      Description: 
+      Languages:
+      - GO
+      - "\u51FA\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: FONT-Alphabet
+      TermType: 1
+      Description: 
+      Languages:
+      - ARIAL
+      - ARIAL
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
-    OnMissingTranslation: 2
+    OnMissingTranslation: 1
     mTerm_AppName: 
     mLanguages:
     - Name: English

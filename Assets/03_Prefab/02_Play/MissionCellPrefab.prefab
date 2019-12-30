@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 1806972370449237407}
   - component: {fileID: 1806972370449237405}
   - component: {fileID: 1806972370449237406}
+  - component: {fileID: 9018376767800382026}
   m_Layer: 0
   m_Name: MissionText
   m_TagString: Untagged
@@ -250,6 +251,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Title of Mission '
+--- !u!114 &9018376767800382026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806972370449237392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Title of Mission
 --- !u!1 &1806972370522065591
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +461,7 @@ GameObject:
   - component: {fileID: 1806972370854930599}
   - component: {fileID: 1806972370854930597}
   - component: {fileID: 1806972370854930598}
+  - component: {fileID: 3783553122568881053}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -513,6 +528,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: GO
+--- !u!114 &3783553122568881053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806972370854930648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: GO
 --- !u!1 &1806972370877930121
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +552,7 @@ GameObject:
   - component: {fileID: 1806972370877930120}
   - component: {fileID: 1806972370877930134}
   - component: {fileID: 1806972370877930135}
+  - component: {fileID: 7054625753483514972}
   m_Layer: 0
   m_Name: LocationText
   m_TagString: Untagged
@@ -590,6 +619,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Destination
+--- !u!114 &7054625753483514972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806972370877930121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab4d32340f274650a04f35af604690c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetString: Destination
 --- !u!1 &1806972371099459814
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,9 +28,15 @@ namespace SequenceBreaker.Translate
 
                 _targetText.text = Word.Get(targetString);
 
-                
-                Debug.Log("font " + LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT").name);
-                _targetText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+
+                // if terms and text is equal, set english font
+                if (_targetText.text == targetString)
+                {
+                    _targetText.font = Word.Font(true);
+                } else
+                {
+                    _targetText.font = Word.Font();
+                }
 
                 _previousLanguage = LocalizationManager.CurrentLanguage;
             }
