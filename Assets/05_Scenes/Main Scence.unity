@@ -20819,8 +20819,16 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - ' absorb {[VALUE]} shield.'
+      - absorbs {[VALUE]} shield.[i2p_Zero]absorbs no shield.
       - "\u306F {[VALUE]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: takes X damage
+      TermType: 0
+      Description: 
+      Languages:
+      - takes {[VALUE]} damages.[i2p_One]takes {[VALUE]} damage.
+      - "\u306F {[VALUE]}\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u305F"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

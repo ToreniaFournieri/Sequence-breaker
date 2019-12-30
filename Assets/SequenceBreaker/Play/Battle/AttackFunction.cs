@@ -465,6 +465,12 @@ namespace SequenceBreaker.Play.Battle
                 if (healedByAbsorbShield > 0)
                 {
                     log += new string(' ', 3) + order.Actor.shortName + Word.GetWithParam("absorbs X shield", healedByAbsorbShield.ToString());
+
+                    //sample
+                    Debug.Log("[1,0,0]takes :  " + Word.GetWithParam("Battle-takes", "2"));
+                    Debug.Log("[1,0,1]takes X damage: " +Word.GetWithParam("takes X damage", "2"));
+                    Debug.Log("[1,1,0]absorbs X shield: " + Word.GetWithParam("absorbs X shield", "2"));
+
                 }
 
 
