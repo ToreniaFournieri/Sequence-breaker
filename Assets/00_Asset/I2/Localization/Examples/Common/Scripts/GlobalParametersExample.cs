@@ -1,4 +1,6 @@
-﻿namespace I2.Loc
+﻿using _00_Asset.I2.Localization.Scripts.Utils;
+
+namespace _00_Asset.I2.Localization.Examples.Common.Scripts
 {
 
     public class GlobalParametersExample : RegisterGlobalParameters

@@ -1,5 +1,5 @@
 ﻿using _00_Asset._01_SuperScrollView.Scripts.ListView;
-using I2.Loc;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Home.EquipView;
 using SequenceBreaker.Master.Units;
 using UnityEngine;

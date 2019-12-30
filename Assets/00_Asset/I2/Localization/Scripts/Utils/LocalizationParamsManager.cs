@@ -1,8 +1,9 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
     public interface ILocalizationParamsManager
     {

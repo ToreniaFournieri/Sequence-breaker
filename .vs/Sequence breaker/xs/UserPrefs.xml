@@ -1,19 +1,22 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Translate/Word.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="249" Column="48" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="114" Column="37" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/EnhancedScrollCellView.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="49" Column="44" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="766" Column="49" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="61" Column="64" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/ShowTargetUnit.cs" Line="90" Column="84" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="335" Column="46" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager.cs" Line="10" Column="40" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Translation.cs" Line="10" Column="33" />
-      <File FileName="Assets/SequenceBreaker/Translate/words.cs" Line="7" Column="2" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Language.cs" Line="10" Column="33" />
-      <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" Line="26" Column="10" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/EnhancedScrollCellView.cs" />
+      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/ShowTargetUnit.cs" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager.cs" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Translation.cs" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Manager/LocalizationManager_Language.cs" />
+      <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Spreadsheet_Google.cs" Line="14" Column="23" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Terms.cs" Line="11" Column="23" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Tools.cs" Line="6" Column="23" />
+      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Languages.cs" Line="12" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

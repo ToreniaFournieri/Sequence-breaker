@@ -1,11 +1,4 @@
-﻿using UnityEditor.Callbacks;
-using System.Collections;
-using System.IO;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
-
-namespace I2.Loc
+﻿namespace _00_Asset.I2.Localization.Scripts.Editor
 {
     public class PostProcessBuild_UnloadLanguages
     {

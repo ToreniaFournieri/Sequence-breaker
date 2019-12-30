@@ -1,5 +1,7 @@
-﻿using UnityEngine;
-namespace I2.Loc
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEngine;
+
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
 	[AddComponentMenu("I2/Localization/SetLanguage Button")]
 	public class SetLanguage : MonoBehaviour 
@@ -7,7 +9,7 @@ namespace I2.Loc
 		public string _Language;
 
 #if UNITY_EDITOR
-		public LanguageSource mSource;
+		public LanguageSource.LanguageSource mSource;
 #endif
 		
 		void OnClick()

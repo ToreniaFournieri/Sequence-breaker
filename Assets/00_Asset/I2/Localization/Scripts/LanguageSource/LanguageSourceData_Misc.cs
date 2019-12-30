@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.LanguageSource
 {
 	public partial class LanguageSourceData
 	{

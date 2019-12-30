@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
 
     public class RegisterGlobalParameters : MonoBehaviour, ILocalizationParamsManager 

@@ -1,11 +1,12 @@
-﻿using UnityEditor;
+﻿using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
     [CustomEditor(typeof(LocalizationParamsManager))]
-	public class LocalizationParamsManagerInspector : Editor
+	public class LocalizationParamsManagerInspector : UnityEditor.Editor
 	{
 		private ReorderableList mList;
         private SerializedProperty mProp_IsGlobalManager;

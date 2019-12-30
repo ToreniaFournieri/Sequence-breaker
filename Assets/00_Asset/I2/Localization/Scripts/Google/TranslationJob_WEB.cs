@@ -1,13 +1,11 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
 using UnityEngine.Networking;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Google
 {
     using TranslationDictionary = Dictionary<string, TranslationQuery>;
 

@@ -1,9 +1,12 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -192,8 +195,8 @@ namespace I2.Loc
 
 				GUILayout.BeginHorizontal();
 					GUILayout.FlexibleSpace ();
-					bool newBool = GUILayout.Toggle(mLanguageSource.CaseInsensitiveTerms, "Case Insensitive Terms");
-					if (newBool != mLanguageSource.CaseInsensitiveTerms)
+					bool newBool = GUILayout.Toggle(Inspectors.LocalizationEditor.mLanguageSource.CaseInsensitiveTerms, "Case Insensitive Terms");
+					if (newBool != Inspectors.LocalizationEditor.mLanguageSource.CaseInsensitiveTerms)
 					{
 						mProp_CaseInsensitiveTerms.boolValue = newBool;
 					}
@@ -275,7 +278,7 @@ namespace I2.Loc
 			}
 			GUI.color = Color.white;
 
-			TermData termData = ShowTerm_termData!=null ? ShowTerm_termData : mLanguageSource.GetTermData (FullKey);
+			TermData termData = ShowTerm_termData!=null ? ShowTerm_termData : Inspectors.LocalizationEditor.mLanguageSource.GetTermData (FullKey);
 			bool bKeyIsMissing = (termData == null);
 			float MinX = 50;
 			if (bKeyIsMissing) 
@@ -305,7 +308,7 @@ namespace I2.Loc
 			else 
 			{
 				GUIStyle LabelStyle = EditorStyles.label;
-				if (!bKeyIsMissing && !TermHasAllTranslations (mLanguageSource, termData)) 
+				if (!bKeyIsMissing && !TermHasAllTranslations (Inspectors.LocalizationEditor.mLanguageSource, termData)) 
 				{
 					LabelStyle = new GUIStyle (EditorStyles.label);
 					LabelStyle.fontStyle = FontStyle.Italic;
@@ -393,7 +396,7 @@ namespace I2.Loc
 					GUILayout.EndHorizontal();
 
 					LanguageSourceData.ValidateFullTerm( ref mTermsList_NewTerm );
-					if (string.IsNullOrEmpty(mTermsList_NewTerm) || mLanguageSource.ContainsTerm(mTermsList_NewTerm) || mTermsList_NewTerm=="-")
+					if (string.IsNullOrEmpty(mTermsList_NewTerm) || Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm(mTermsList_NewTerm) || mTermsList_NewTerm=="-")
 						GUI.enabled = false;
 	
 					if (TestButton (eTest_ActionType.Button_AddTerm_InTermsList, "Create Key", "toolbarbutton", GUILayout.ExpandWidth(false)))
@@ -556,7 +559,7 @@ namespace I2.Loc
 			{
 				mSelectedKeys.Clear();
 				foreach (var kvp in mParsedTerms)
-					if (!mLanguageSource.ContainsTerm( kvp.Key ) && ShouldShowTerm( kvp.Value.Term, kvp.Value.Category, kvp.Value.Usage ))
+					if (!Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm( kvp.Key ) && ShouldShowTerm( kvp.Value.Term, kvp.Value.Category, kvp.Value.Usage ))
 						mSelectedKeys.Add( kvp.Key );
 			}
 			GUI.enabled = true;
@@ -631,7 +634,7 @@ namespace I2.Loc
 				ShowTerm_termData = parsedTerm.termData;
 			else
 			{
-				ShowTerm_termData = mLanguageSource.GetTermData (fullTerm);
+				ShowTerm_termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (fullTerm);
 				if (parsedTerm!=null)
 					parsedTerm.termData = ShowTerm_termData;
 			}
@@ -741,7 +744,7 @@ namespace I2.Loc
 				if (!ShouldShowTerm(key)) 
 					continue;
 
-                mLanguageSource.RemoveTerm(key);
+                Inspectors.LocalizationEditor.mLanguageSource.RemoveTerm(key);
                 RemoveParsedTerm(key);
                 mSelectedKeys.Remove(key);
 			}
@@ -749,7 +752,7 @@ namespace I2.Loc
             mKeyToExplore = string.Empty;
             mTermList_MaxWidth = -1;
             serializedObject.ApplyModifiedProperties();
-            mLanguageSource.Editor_SetDirty();
+            Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
 
             EditorApplication.update += DoParseTermsInCurrentScene;
 			EditorApplication.update += RepaintScene;

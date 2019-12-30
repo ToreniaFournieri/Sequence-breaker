@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
 using UnityEditor;
-using System.Linq;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -126,7 +127,7 @@ namespace I2.Loc
 					var encodings = System.Text.Encoding.GetEncodings ().OrderBy(e=>e.Name).ToArray();
 					var encodingNames = encodings.Select(e=>e.Name).ToArray();
 
-					int idx = System.Array.IndexOf (encodingNames, mProp_Spreadsheet_LocalCSVEncoding.stringValue);
+					int idx = System.Array.IndexOf<string>(encodingNames, mProp_Spreadsheet_LocalCSVEncoding.stringValue);
 					if (idx == -1)
 						idx = System.Array.IndexOf (encodingNames, "utf-8");
 					EditorGUIUtility.labelWidth = 80;
@@ -239,7 +240,7 @@ namespace I2.Loc
 				//File = EditorUtility.OpenFilePanel("Select CSV,  XLS or XLSX File", File, "csv;*.xls;*.xlsx");
 				if (!string.IsNullOrEmpty(File))
 				{
-					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					Inspectors.LocalizationEditor.mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
 					switch (CurrentExtension)
 					{
 						case eLocalSpreadsheeet.CSV		: Import_CSV(File, UpdateMode); break;
@@ -259,7 +260,7 @@ namespace I2.Loc
 		void Import_CSV( string FileName, eSpreadsheetUpdateMode UpdateMode )
 		{
             LanguageSourceData source = GetSourceData();
-            var encoding = System.Text.Encoding.GetEncoding (mProp_Spreadsheet_LocalCSVEncoding.stringValue);
+            var encoding = System.Text.Encoding.GetEncoding ((string) mProp_Spreadsheet_LocalCSVEncoding.stringValue);
 			if (encoding == null)
 				encoding = System.Text.Encoding.UTF8;
 			string CSVstring = LocalizationReader.ReadCSVfile (FileName, encoding);
@@ -302,10 +303,10 @@ namespace I2.Loc
 					File = EditorUtility.SaveFilePanel("Select a CSV or TXT file", sPath, File, "csv;*.txt");
 				if (!string.IsNullOrEmpty(File))
 				{
-					mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
+					Inspectors.LocalizationEditor.mLanguageSource.Spreadsheet_LocalFileName = TryMakingPathRelativeToProject(File);
 
 					char Separator = mProp_Spreadsheet_LocalCSVSeparator.stringValue.Length>0 ? mProp_Spreadsheet_LocalCSVSeparator.stringValue[0] : ',';
-					var encoding = System.Text.Encoding.GetEncoding (mProp_Spreadsheet_LocalCSVEncoding.stringValue);
+					var encoding = System.Text.Encoding.GetEncoding ((string) mProp_Spreadsheet_LocalCSVEncoding.stringValue);
 					if (encoding == null)
 						encoding = System.Text.Encoding.UTF8;
 

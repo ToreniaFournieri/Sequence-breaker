@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
+using _00_Asset.I2.Localization.Scripts.Utils;
 using UnityEngine.Networking;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Google
 {
 	using TranslationDictionary = Dictionary<string, TranslationQuery>;
 
@@ -89,7 +89,7 @@ namespace I2.Loc
             mTranslationJobs.Add(job);
             if (mTranslationJobs.Count==1)
             {
-                I2.Loc.CoroutineManager.Start(WaitForTranslations());
+                CoroutineManager.Start(WaitForTranslations());
             }
         }
 

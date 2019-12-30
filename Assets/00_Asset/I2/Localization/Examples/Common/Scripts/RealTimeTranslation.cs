@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Google;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Examples.Common.Scripts
 {
     public class RealTimeTranslation : MonoBehaviour
     {

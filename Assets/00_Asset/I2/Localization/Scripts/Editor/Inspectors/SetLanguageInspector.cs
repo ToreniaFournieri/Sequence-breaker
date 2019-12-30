@@ -1,10 +1,12 @@
-﻿using UnityEditor;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEditor;
 using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
 	[CustomEditor(typeof(SetLanguage))]
-	public class SetLanguageInspector : Editor
+	public class SetLanguageInspector : UnityEditor.Editor
 	{
 		public SetLanguage setLan;
 		public SerializedProperty mProp_Language;
@@ -18,7 +20,7 @@ namespace I2.Loc
 		public override void OnInspectorGUI()
 		{
 			string[] Languages;
-			LanguageSource sourceObj = setLan.mSource;
+			LanguageSource.LanguageSource sourceObj = setLan.mSource;
 			if (sourceObj == null)
 			{
 				LocalizationManager.UpdateSources();
@@ -47,7 +49,7 @@ namespace I2.Loc
 
 			GUILayout.Space(5);
 			if (setLan.mSource==null) GUI.contentColor = Color.Lerp (Color.gray, Color.yellow, 0.1f);
-			sourceObj = EditorGUILayout.ObjectField("Language Source:", sourceObj, typeof(LanguageSource), true) as LanguageSource;
+			sourceObj = EditorGUILayout.ObjectField("Language Source:", sourceObj, typeof(LanguageSource.LanguageSource), true) as LanguageSource.LanguageSource;
 			GUI.contentColor = Color.white;
 
 			if (GUI.changed)

@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEditor;
-using System.Collections.Generic;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -135,7 +138,7 @@ namespace I2.Loc
 
 		void AssignCategoryToSelectedTerms()
 		{
-			mIsParsing = true;
+			Inspectors.LocalizationEditor.mIsParsing = true;
 			
 			EditorApplication.update -= AssignCategoryToSelectedTerms;
 
@@ -158,14 +161,14 @@ namespace I2.Loc
 					continue;
 
 				TermReplacements[ OldTerm ] = sKey;
-				if (!mLanguageSource.ContainsTerm(sKey))
+				if (!Inspectors.LocalizationEditor.mLanguageSource.ContainsTerm(sKey))
 				{
-					TermData termData = mLanguageSource.GetTermData( OldTerm );
+					TermData termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData( OldTerm );
 					if (termData != null)
 						termData.Term = sKey;
 					else
 						TermReplacements.Remove (OldTerm);
-                    mLanguageSource.Editor_SetDirty();
+                    Inspectors.LocalizationEditor.mLanguageSource.Editor_SetDirty();
 				}
 			}
 			if (TermReplacements.Count<=0)
@@ -174,7 +177,7 @@ namespace I2.Loc
 			}
 			else
 			{
-				mLanguageSource.UpdateDictionary(true);
+				Inspectors.LocalizationEditor.mLanguageSource.UpdateDictionary(true);
 				ExecuteActionOnSelectedScenes( ReplaceTermsInCurrentScene );
 				ParseTerms(true, false, true);
 
@@ -186,7 +189,7 @@ namespace I2.Loc
                 ScheduleUpdateTermsToShowInList();
             }
             TermReplacements = null;
-			mIsParsing = false;
+			Inspectors.LocalizationEditor.mIsParsing = false;
 		}
 
 		public static void ReplaceTermsInCurrentScene()

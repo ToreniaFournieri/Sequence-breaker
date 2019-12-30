@@ -1,8 +1,11 @@
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -54,7 +57,7 @@ namespace I2.Loc
 			
 			//--[ Existing Term ]------------------------
 			int Index = 0;
-			List<string> Terms = mLanguageSource.GetTermsList();
+			List<string> Terms = Inspectors.LocalizationEditor.mLanguageSource.GetTermsList();
 
 			for (int i=0, imax=Terms.Count; i<imax; ++i)
 				if (Terms[i].ToLower().Contains(mKeyToExplore.ToLower()))
@@ -88,11 +91,11 @@ namespace I2.Loc
 			if (string.IsNullOrEmpty(mKeyToExplore))
 				return;
 
-			mIsParsing = true;
+			Inspectors.LocalizationEditor.mIsParsing = true;
 			string sNewKey = mKeyToExplore;
 
 			//--[ Create new Term ]-----------------------
-			if (mLanguageSource.GetTermData(sNewKey)==null)
+			if (Inspectors.LocalizationEditor.mLanguageSource.GetTermData(sNewKey)==null)
 			{
 				TermData termData = AddLocalTerm(sNewKey);
 
@@ -100,7 +103,7 @@ namespace I2.Loc
 				TermData oldTerm = null;
 				for (int i=0, imax=mSelectedKeys.Count; i<imax; ++i)
 				{
-					oldTerm = mLanguageSource.GetTermData(mSelectedKeys[i]);
+					oldTerm = Inspectors.LocalizationEditor.mLanguageSource.GetTermData(mSelectedKeys[i]);
 					if (oldTerm!=null) break;
 				}
 
@@ -135,7 +138,7 @@ namespace I2.Loc
 			//RemoveUnusedCategoriesFromSelected();
 			ScheduleUpdateTermsToShowInList();
 			TermReplacements = null;
-			mIsParsing = false;
+			Inspectors.LocalizationEditor.mIsParsing = false;
 		}
 
 		void RemoveUnusedCategoriesFromSelected()

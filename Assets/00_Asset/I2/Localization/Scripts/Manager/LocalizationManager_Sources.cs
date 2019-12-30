@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
-using System.Globalization;
-using System.Collections;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {
@@ -37,8 +37,8 @@ namespace I2.Loc
 
 		static void RegisterSceneSources()
 		{
-			LanguageSource[] sceneSources = (LanguageSource[])Resources.FindObjectsOfTypeAll( typeof(LanguageSource) );
-            foreach (LanguageSource source in sceneSources)
+			LanguageSource.LanguageSource[] sceneSources = (LanguageSource.LanguageSource[])Resources.FindObjectsOfTypeAll( typeof(LanguageSource.LanguageSource) );
+            foreach (LanguageSource.LanguageSource source in sceneSources)
 				if (!Sources.Contains(source.mSource))
 				{
                     if (source.mSource.owner == null)

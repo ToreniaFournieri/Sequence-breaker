@@ -1,10 +1,14 @@
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
 using UnityEditor;
 using UnityEngine;
-using System.Text;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{

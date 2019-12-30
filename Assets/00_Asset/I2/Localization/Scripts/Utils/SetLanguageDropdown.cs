@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
 	[AddComponentMenu("I2/Localization/SetLanguage Dropdown")]
 	public class SetLanguageDropdown : MonoBehaviour 

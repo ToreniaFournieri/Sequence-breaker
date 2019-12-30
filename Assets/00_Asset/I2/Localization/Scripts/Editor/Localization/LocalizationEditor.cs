@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 using UnityEditor;
-using System.Collections.Generic;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -115,7 +115,7 @@ namespace I2.Loc
             {
 			    serializedObject.ApplyModifiedProperties();
                 foreach (var obj in serializedObject.targetObjects)
-                    (obj as LanguageSource).mSource.UpdateAssetDictionary();
+                    (obj as LanguageSource.LanguageSource).mSource.UpdateAssetDictionary();
             }
         }	
 

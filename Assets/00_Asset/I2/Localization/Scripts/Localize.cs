@@ -1,13 +1,17 @@
 ﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 using System.Collections.Generic;
 using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Google;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Targets;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
+using UnityEngine.Events;
 using Object = UnityEngine.Object;
 
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts
 {
     [AddComponentMenu("I2/Localization/I2 Localize")]
     public partial class Localize : MonoBehaviour

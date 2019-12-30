@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Examples.Common.Scripts
 {
     public class RegisterBundlesManager : MonoBehaviour, IResourceManager_Bundles
 	{

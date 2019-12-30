@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using I2.Loc;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Mission;

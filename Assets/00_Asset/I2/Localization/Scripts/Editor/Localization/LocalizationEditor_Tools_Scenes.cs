@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -170,8 +171,8 @@ namespace I2.Loc
 			if (InitialScene != Editor_GetCurrentScene())
 				Editor_OpenScene( InitialScene );
 			
-			if (mLanguageSource!=null)
-				Selection.activeObject = mLanguageSource.ownerObject;
+			if (Inspectors.LocalizationEditor.mLanguageSource!=null)
+				Selection.activeObject = Inspectors.LocalizationEditor.mLanguageSource.ownerObject;
 		}
 		#endregion
 	}

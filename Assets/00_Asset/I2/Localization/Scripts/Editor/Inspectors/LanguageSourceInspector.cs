@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.LanguageSource;
 using UnityEditor;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
-    [CustomEditor(typeof(LanguageSource))]
-    public partial class LanguageSourceInspector : LocalizationEditor
+    [CustomEditor(typeof(LanguageSource.LanguageSource))]
+    public partial class LanguageSourceInspector : Localization.LocalizationEditor
     {
         void OnEnable()
         {
-            var newSource = target as LanguageSource;
+            var newSource = target as LanguageSource.LanguageSource;
             SerializedProperty propSource = serializedObject.FindProperty("mSource");
 
             Custom_OnEnable(newSource.mSource, propSource);
@@ -16,7 +16,7 @@ namespace I2.Loc
 
         public override LanguageSourceData GetSourceData()
         {
-            return (target as LanguageSource).mSource;
+            return (target as LanguageSource.LanguageSource).mSource;
         }
 
     }

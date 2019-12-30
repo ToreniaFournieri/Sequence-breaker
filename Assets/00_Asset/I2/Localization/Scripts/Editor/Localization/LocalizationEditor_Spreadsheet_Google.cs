@@ -1,10 +1,15 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.Google;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.Networking;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -249,7 +254,7 @@ namespace I2.Loc
 				Spreadsheets = new string[]{mProp_Google_SpreadsheetName.stringValue ?? string.Empty};
 				SpreadsheetsKey = new string[]{mProp_Google_SpreadsheetKey.stringValue ?? string.Empty};
 			}
-			int mSpreadsheetIndex = Array.IndexOf(SpreadsheetsKey, mProp_Google_SpreadsheetKey.stringValue);
+			int mSpreadsheetIndex = Array.IndexOf<string>(SpreadsheetsKey, mProp_Google_SpreadsheetKey.stringValue);
 
 			//--[ Spreadsheets ]------------------
 			GUILayout.BeginHorizontal();
@@ -441,7 +446,7 @@ namespace I2.Loc
 
             try
             {
-                var data = SimpleJSON.JSON.Parse(Result).AsObject;
+                var data = JSON.Parse(Result).AsObject;
 				int version = 0;
 				if (!int.TryParse(data["script_version"], out version))
 					version = 0;
@@ -556,7 +561,7 @@ namespace I2.Loc
 			mSelectedKeys.Clear ();
 			mSelectedCategories.Clear();
 			ScheduleUpdateTermsToShowInList();
-			mLanguageSource.GetCategories(false, mSelectedCategories);
+			Inspectors.LocalizationEditor.mLanguageSource.GetCategories(false, mSelectedCategories);
 
 			EditorUtility.SetDirty (target);
 			AssetDatabase.SaveAssets();
@@ -640,7 +645,7 @@ namespace I2.Loc
 
             try
             {
-				var data = SimpleJSON.JSON.Parse(Result).AsObject;
+				var data = JSON.Parse(Result).AsObject;
 
 				string name = data["name"];
 				string key = data["id"];
@@ -699,8 +704,8 @@ namespace I2.Loc
             try
 			{
 				mGoogleSpreadsheets.Clear();
-				var data = SimpleJSON.JSON.Parse(Result).AsObject;
-				foreach (KeyValuePair<string, SimpleJSON.JSONNode> element in data)
+				var data = JSON.Parse(Result).AsObject;
+				foreach (KeyValuePair<string, JSONNode> element in data)
 					mGoogleSpreadsheets[element.Key] = element.Value;
 			}
 			catch(Exception e)

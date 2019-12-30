@@ -1,10 +1,11 @@
-﻿using UnityEditor;
-using UnityEngine;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor
 {	
 	public class GUITools
 	{
@@ -733,7 +734,7 @@ namespace I2.Loc
         static public void RepaintInspectors()
         {
             EditorApplication.update -= RepaintInspectors;
-            var assemblyEditor = Assembly.GetAssembly(typeof(Editor));
+            var assemblyEditor = Assembly.GetAssembly(typeof(UnityEditor.Editor));
             var typeInspectorWindow = assemblyEditor.GetType("UnityEditor.InspectorWindow");
             typeInspectorWindow.GetMethod("RepaintAllInspectors", BindingFlags.NonPublic | BindingFlags.Static).Invoke(null, null);
         }

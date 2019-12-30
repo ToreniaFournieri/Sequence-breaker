@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
 using UnityEditor;
-using System;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -74,17 +75,17 @@ namespace I2.Loc
 		private bool bSourceInsidePluginsFolder = true;
 		public void OnGUI_Warning_SourceInsidePluginsFolder()
 		{
-			if (!bSourceInsidePluginsFolder || mLanguageSource.UserAgreesToHaveItInsideThePluginsFolder)
+			if (!bSourceInsidePluginsFolder || Inspectors.LocalizationEditor.mLanguageSource.UserAgreesToHaveItInsideThePluginsFolder)
 				return;
 			
-			if (!mLanguageSource.IsGlobalSource())
+			if (!Inspectors.LocalizationEditor.mLanguageSource.IsGlobalSource())
 			{
 				bSourceInsidePluginsFolder = false;
 				return;
 			}
 
 			string pluginPath = UpgradeManager.GetI2LocalizationPath();
-			string assetPath = AssetDatabase.GetAssetPath(target);
+			string assetPath = AssetDatabase.GetAssetPath((Object) target);
 
 			if (!assetPath.StartsWith(pluginPath, StringComparison.OrdinalIgnoreCase))
 			{
@@ -143,10 +144,10 @@ Do you want the plugin to automatically move the LanguageSource to a folder outs
 			EditorApplication.delayCall -= MoveGlobalSource;
 
 			string pluginPath = UpgradeManager.GetI2LocalizationPath();
-			string assetPath = AssetDatabase.GetAssetPath(mLanguageSource.ownerObject);
+			string assetPath = AssetDatabase.GetAssetPath(Inspectors.LocalizationEditor.mLanguageSource.ownerObject);
 
 			string I2Path = pluginPath.Substring(0, pluginPath.Length-"/Localization".Length);
-			string newPath = I2Path + "/Resources/" + (mLanguageSource.ownerObject).name + ".prefab";
+			string newPath = I2Path + "/Resources/" + (Inspectors.LocalizationEditor.mLanguageSource.ownerObject).name + ".prefab";
 
 			string fullresFolder = Application.dataPath + I2Path.Replace("Assets","") + "/Resources";
 			bool folderExists = System.IO.Directory.Exists (fullresFolder);

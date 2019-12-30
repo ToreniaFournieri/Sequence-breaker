@@ -1,42 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using I2.Loc;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectLanguage : MonoBehaviour
+namespace SequenceBreaker.Translate
 {
-
-    private Dropdown _dropdown;
-
-
-    private void Start()
+    public class SelectLanguage : MonoBehaviour
     {
-        _dropdown = gameObject.GetComponent<Dropdown>();
 
-        int value = 0;
-        foreach (var optionData in _dropdown.options)
+        private Dropdown _dropdown;
+
+
+        private void Start()
         {
+            _dropdown = gameObject.GetComponent<Dropdown>();
 
-            if(optionData.text.Contains(LocalizationManager.CurrentLanguage))
+            int value = 0;
+            foreach (var optionData in _dropdown.options)
             {
-                _dropdown.value = value;
+
+                if(optionData.text.Contains(LocalizationManager.CurrentLanguage))
+                {
+                    _dropdown.value = value;
+                }
+                value++;
+
             }
-            value++;
-
         }
-    }
 
-    //void OnClick()
-    //{
-    //}
+        //void OnClick()
+        //{
+        //}
 
-    public void Selected()
-    {
-        if (LocalizationManager.HasLanguage(_dropdown.options[_dropdown.value].text))
+        public void Selected()
         {
-            LocalizationManager.CurrentLanguage = _dropdown.options[_dropdown.value].text;
+            if (LocalizationManager.HasLanguage(_dropdown.options[_dropdown.value].text))
+            {
+                LocalizationManager.CurrentLanguage = _dropdown.options[_dropdown.value].text;
+            }
         }
-    }
 
+    }
 }

@@ -1,9 +1,12 @@
-using UnityEditor;
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{
@@ -24,7 +27,7 @@ namespace I2.Loc
 			// remove missing languages
 			for (int i=mCharSetTool_Languages.Count-1; i>=0; --i)
 			{
-				if (mLanguageSource.GetLanguageIndex(mCharSetTool_Languages[i])<0)
+				if (Inspectors.LocalizationEditor.mLanguageSource.GetLanguageIndex(mCharSetTool_Languages[i])<0)
 					mCharSetTool_Languages.RemoveAt(i);
 			}
 
@@ -33,7 +36,7 @@ namespace I2.Loc
 			if (GUILayout.Button ("All", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false))) 
 			{
 				mCharSetTool_Languages.Clear ();
-				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.Name));
+				mCharSetTool_Languages.AddRange (Inspectors.LocalizationEditor.mLanguageSource.mLanguages.Select(x=>x.Name));
 				computeSet = true;
 			}
 			if (GUILayout.Button ("None", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false))) 
@@ -45,7 +48,7 @@ namespace I2.Loc
 			{
 				var current = mCharSetTool_Languages.ToList ();
 				mCharSetTool_Languages.Clear ();
-				mCharSetTool_Languages.AddRange (mLanguageSource.mLanguages.Select(x=>x.Name).Where(j=>!current.Contains(j)));
+				mCharSetTool_Languages.AddRange (Inspectors.LocalizationEditor.mLanguageSource.mLanguages.Select(x=>x.Name).Where(j=>!current.Contains(j)));
 				computeSet = true;
 			}
 
@@ -55,13 +58,13 @@ namespace I2.Loc
             //--[ Language List ]--------------------------
 
             GUI.backgroundColor = Color.Lerp(GUITools.LightGray, Color.white, 0.5f);
-            mScrollPos_Languages = GUILayout.BeginScrollView( mScrollPos_Languages, LocalizeInspector.GUIStyle_OldTextArea, GUILayout.MinHeight (100), GUILayout.MaxHeight(Screen.height), GUILayout.ExpandHeight(false));
+            Inspectors.LocalizationEditor.mScrollPos_Languages = GUILayout.BeginScrollView( Inspectors.LocalizationEditor.mScrollPos_Languages, LocalizeInspector.GUIStyle_OldTextArea, GUILayout.MinHeight (100), GUILayout.MaxHeight(Screen.height), GUILayout.ExpandHeight(false));
             GUI.backgroundColor = Color.white;
 
-            for (int i=0, imax=mLanguageSource.mLanguages.Count; i<imax; ++i)
+            for (int i=0, imax=Inspectors.LocalizationEditor.mLanguageSource.mLanguages.Count; i<imax; ++i)
 			{
 				GUILayout.BeginHorizontal();
-					var language = mLanguageSource.mLanguages[i].Name;
+					var language = Inspectors.LocalizationEditor.mLanguageSource.mLanguages[i].Name;
 					bool hasLanguage = mCharSetTool_Languages.Contains(language);
 					bool newValue = GUILayout.Toggle (hasLanguage, "", "OL Toggle", GUILayout.ExpandWidth(false));
 					GUILayout.Label(language);
@@ -122,16 +125,16 @@ namespace I2.Loc
 			mCharSet = "";
 			var sb = new HashSet<char> ();
 			var LanIndexes = new List<int> ();
-			for (int i=0; i<mLanguageSource.mLanguages.Count; ++i)
-				if (mCharSetTool_Languages.Contains(mLanguageSource.mLanguages[i].Name))
+			for (int i=0; i<Inspectors.LocalizationEditor.mLanguageSource.mLanguages.Count; ++i)
+				if (mCharSetTool_Languages.Contains(Inspectors.LocalizationEditor.mLanguageSource.mLanguages[i].Name))
 				    LanIndexes.Add(i);
 
-			foreach (var termData in mLanguageSource.mTerms) 
+			foreach (var termData in Inspectors.LocalizationEditor.mLanguageSource.mTerms) 
 			{
 				for (int i=0; i<LanIndexes.Count; ++i)
 				{
 					int iLanguage = LanIndexes[i];
-					bool isRTL = LocalizationManager.IsRTL( mLanguageSource.mLanguages[iLanguage].Code );
+					bool isRTL = LocalizationManager.IsRTL( Inspectors.LocalizationEditor.mLanguageSource.mLanguages[iLanguage].Code );
 					AppendToCharSet( sb, termData.Languages[iLanguage], isRTL );
 				}
 			}

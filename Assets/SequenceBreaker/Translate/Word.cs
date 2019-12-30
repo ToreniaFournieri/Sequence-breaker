@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using I2.Loc;
-using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
 
-public static class Word 
+namespace SequenceBreaker.Translate
 {
-
-    public static string Get(string term)
+    public static class Word 
     {
-        string _term = null;
-        _term= LocalizationManager.GetTranslation(term);
 
-        if (_term != null)
+        public static string Get(string term)
         {
-            _term = term;
+            string _term = null;
+            _term= LocalizationManager.GetTranslation(term);
+
+            if (_term != null)
+            {
+                _term = term;
+            }
+
+            return _term;
+
         }
 
-        return _term;
 
     }
-
-
 }

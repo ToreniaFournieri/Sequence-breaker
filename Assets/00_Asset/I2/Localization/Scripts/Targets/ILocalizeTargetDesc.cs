@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Targets
 {
     public abstract class ILocalizeTargetDescriptor
     {

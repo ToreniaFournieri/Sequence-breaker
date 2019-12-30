@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Examples.Common.Scripts
 {
     public class Example_LocalizedString : MonoBehaviour
     {

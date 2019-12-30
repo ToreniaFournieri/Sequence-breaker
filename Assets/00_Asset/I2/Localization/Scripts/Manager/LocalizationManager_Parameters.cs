@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Linq;
-using System.Globalization;
-using System.Collections;
+using _00_Asset.I2.Localization.Scripts.Google;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Manager
 {
     public static partial class LocalizationManager
     {

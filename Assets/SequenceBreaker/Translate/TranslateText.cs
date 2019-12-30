@@ -1,37 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using I2.Loc;
+﻿using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TranslateText : MonoBehaviour
+namespace SequenceBreaker.Translate
 {
-    //public Text targetText;
-
-    public string targetString;
-
-
-    private Text _targetText;
-    private string _previousLanguage;
-
-    private void Start()
+    public class TranslateText : MonoBehaviour
     {
-        _targetText = gameObject.GetComponent<Text>();
-    }
+        //public Text targetText;
 
-    private void Update()
-    {
+        public string targetString;
 
-        if (_previousLanguage != LocalizationManager.CurrentLanguage)
+
+        private Text _targetText;
+        private string _previousLanguage;
+
+        private void Start()
+        {
+            _targetText = gameObject.GetComponent<Text>();
+        }
+
+        private void Update()
         {
 
-            Debug.Log(Word.Get(targetString));
+            if (_previousLanguage != LocalizationManager.CurrentLanguage)
+            {
 
-            _targetText.text = LocalizationManager.GetTranslation(targetString);
+                Debug.Log(Word.Get(targetString));
 
-            _previousLanguage = LocalizationManager.CurrentLanguage;
+                _targetText.text = LocalizationManager.GetTranslation(targetString);
+
+                _previousLanguage = LocalizationManager.CurrentLanguage;
+            }
         }
+
+
     }
-
-
 }

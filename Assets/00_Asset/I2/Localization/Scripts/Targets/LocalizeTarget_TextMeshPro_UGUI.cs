@@ -1,8 +1,10 @@
 ﻿using System;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using _00_Asset.I2.Localization.Scripts.Utils;
 using UnityEngine;
 
 #if TextMeshPro
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Targets
 {
     #if UNITY_EDITOR
     [UnityEditor.InitializeOnLoad] 

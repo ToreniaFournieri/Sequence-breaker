@@ -2,17 +2,20 @@
 //#define NGUI
 //#define DFGUI
 
-using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Linq;
+using System.Reflection;
+using _00_Asset.I2.Localization.Scripts.Editor.Localization;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
 	[CustomEditor(typeof(Localize))]
 	[CanEditMultipleObjects]
-	public partial class LocalizeInspector : Editor
+	public partial class LocalizeInspector : UnityEditor.Editor
 	{
 		#region Variables
 
@@ -68,7 +71,7 @@ namespace I2.Loc
 			//mGUI_ShowReferences = (mLocalize.TranslatedObjects!=null && mLocalize.TranslatedObjects.Length>0);
 			//mGUI_ShowCallback = (mLocalize.LocalizeCallBack.Target!=null);
 			//mGUI_ShowTems = true;
-			LocalizationEditor.mKeysDesc_AllowEdit = false;
+			Localization.LocalizationEditor.mKeysDesc_AllowEdit = false;
 			GUI_SelectedTerm = 0;
 			mNewKeyName = mLocalize.Term;
 
@@ -82,7 +85,7 @@ namespace I2.Loc
 			}
 
 			//UpgradeManager.EnablePlugins();
-			LocalizationEditor.ApplyInferredTerm (mLocalize);
+			Localization.LocalizationEditor.ApplyInferredTerm (mLocalize);
             RemoveUnusedReferences(mLocalize);
 		}
 
@@ -189,9 +192,9 @@ namespace I2.Loc
 			serializedObject.ApplyModifiedProperties();
             if (Event.current.type == EventType.Repaint)
             {
-                LocalizationEditor.mTestAction = LocalizationEditor.eTest_ActionType.None;
-                LocalizationEditor.mTestActionArg = null;
-                LocalizationEditor.mTestActionArg2 = null;
+                Localization.LocalizationEditor.mTestAction = Localization.LocalizationEditor.eTest_ActionType.None;
+                Localization.LocalizationEditor.mTestActionArg = null;
+                Localization.LocalizationEditor.mTestActionArg2 = null;
             }
         }
 
@@ -207,10 +210,10 @@ namespace I2.Loc
 
                 bool canTest = Event.current.type == EventType.Repaint;
 
-                var testAddObj = (canTest && LocalizationEditor.mTestAction == LocalizationEditor.eTest_ActionType.Button_Assets_Add) ? (Object)LocalizationEditor.mTestActionArg : null;
-                var testReplaceIndx = (canTest && LocalizationEditor.mTestAction == LocalizationEditor.eTest_ActionType.Button_Assets_Replace) ? (int)LocalizationEditor.mTestActionArg : -1;
-                var testReplaceObj = (canTest && LocalizationEditor.mTestAction == LocalizationEditor.eTest_ActionType.Button_Assets_Replace) ? (Object)LocalizationEditor.mTestActionArg2 : null;
-                var testDeleteIndx = (canTest && LocalizationEditor.mTestAction == LocalizationEditor.eTest_ActionType.Button_Assets_Delete) ? (int)LocalizationEditor.mTestActionArg : -1;
+                var testAddObj = (canTest && Localization.LocalizationEditor.mTestAction == Localization.LocalizationEditor.eTest_ActionType.Button_Assets_Add) ? (Object)Localization.LocalizationEditor.mTestActionArg : null;
+                var testReplaceIndx = (canTest && Localization.LocalizationEditor.mTestAction == Localization.LocalizationEditor.eTest_ActionType.Button_Assets_Replace) ? (int)Localization.LocalizationEditor.mTestActionArg : -1;
+                var testReplaceObj = (canTest && Localization.LocalizationEditor.mTestAction == Localization.LocalizationEditor.eTest_ActionType.Button_Assets_Replace) ? (Object)Localization.LocalizationEditor.mTestActionArg2 : null;
+                var testDeleteIndx = (canTest && Localization.LocalizationEditor.mTestAction == Localization.LocalizationEditor.eTest_ActionType.Button_Assets_Delete) ? (int)Localization.LocalizationEditor.mTestActionArg : -1;
 
                 bool changed = GUITools.DrawObjectsArray( mProp_TranslatedObjects, false, false, true, testAddObj, testReplaceObj, testReplaceIndx, testDeleteIndx);
                 if (changed)
@@ -389,7 +392,7 @@ namespace I2.Loc
 			if (OnOpen) mNewKeyName = Key;
 			if ( OnGUI_SelectKey( ref Key, string.IsNullOrEmpty(mLocalize.mTerm)))
 				mProp_mTerm.stringValue = Key;
-			return LocalizationEditor.OnGUI_Keys_Languages( Key, mLocalize, true );
+			return Localization.LocalizationEditor.OnGUI_Keys_Languages( Key, mLocalize, true );
 		}
 
         TermData OnGUI_SecondaryTerm( bool OnOpen )
@@ -405,7 +408,7 @@ namespace I2.Loc
 			if (OnOpen) mNewKeyName = Key;
 			if ( OnGUI_SelectKey( ref Key, string.IsNullOrEmpty(mLocalize.mTermSecondary)))
 				mProp_mTermSecondary.stringValue = Key;
-			return LocalizationEditor.OnGUI_Keys_Languages( Key, mLocalize, false );
+			return Localization.LocalizationEditor.OnGUI_Keys_Languages( Key, mLocalize, false );
 		}
 
 		bool OnGUI_SelectKey( ref string Term, bool Inherited )  // Inherited==true means that the mTerm is empty and we are using the Label.text instead
@@ -532,13 +535,13 @@ namespace I2.Loc
 					mTermsArray=null;     // this recreates that terms array
 					mAllowEditKeyName = false;
 					bChanged = true;
-					LocalizationEditor.TermReplacements = new Dictionary<string, string>(System.StringComparer.Ordinal);
-					LocalizationEditor.TermReplacements[ termData.Term ] = mNewKeyName;
+					Localization.LocalizationEditor.TermReplacements = new Dictionary<string, string>(System.StringComparer.Ordinal);
+					Localization.LocalizationEditor.TermReplacements[ termData.Term ] = mNewKeyName;
 					termData.Term = mNewKeyName;
 					source.UpdateDictionary(true);
-					LocalizationEditor.ReplaceTermsInCurrentScene();
+					Localization.LocalizationEditor.ReplaceTermsInCurrentScene();
 					GUIUtility.keyboardControl = 0;
-					EditorApplication.update += LocalizationEditor.DoParseTermsInCurrentScene;
+					EditorApplication.update += Localization.LocalizationEditor.DoParseTermsInCurrentScene;
 				}
 				GUI.enabled = true;
 				GUILayout.EndHorizontal();
@@ -599,7 +602,7 @@ namespace I2.Loc
 			{
 				ParsedTerm parsedTerm;
 				int nUses = -1;
-				if (LocalizationEditor.mParsedTerms.TryGetValue (mTermsArray [i], out parsedTerm))
+				if (Localization.LocalizationEditor.mParsedTerms.TryGetValue (mTermsArray [i], out parsedTerm))
 					nUses = parsedTerm.Usage;
 
 				string FoundText = mTermsArray [i];
@@ -713,7 +716,7 @@ namespace I2.Loc
 					string sTerm, sSecondary;
 					mLocalize.GetFinalTerms( out sTerm, out sSecondary );
 					if (GUI_SelectedTerm==1) sTerm = sSecondary;
-					LocalizationEditor.mKeyToExplore = sTerm;
+					Localization.LocalizationEditor.mKeyToExplore = sTerm;
                 }
 
 				GUILayout.Space (2);
@@ -731,7 +734,7 @@ namespace I2.Loc
                         ILanguageSource NewSource = obj as ILanguageSource;
                         if (NewSource == null && (obj as GameObject != null))
                         {
-                            NewSource = (obj as GameObject).GetComponent<LanguageSource>();
+                            NewSource = (obj as GameObject).GetComponent<LanguageSource.LanguageSource>();
                         }
 
                         mLocalize.Source = NewSource;

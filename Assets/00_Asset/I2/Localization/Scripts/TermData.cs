@@ -1,10 +1,10 @@
 using System;
-using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
-using Object = UnityEngine.Object;
+using _00_Asset.I2.Localization.Scripts.Configurables;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts
 {
 	public enum eTermType 
 	{ 

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
-	public abstract partial class LocalizationEditor : Editor
+	public abstract partial class LocalizationEditor : UnityEditor.Editor
 	{
 		#region Variables
 		
@@ -15,8 +17,8 @@ namespace I2.Loc
 
 		public static LanguageSourceData mLanguageSource;
         public static Object mLanguageSourceObject;
-        public static LocalizationEditor mLanguageSourceEditor;
-        public static Editor mCurrentInspector;
+        public static Localization.LocalizationEditor mLanguageSourceEditor;
+        public static UnityEditor.Editor mCurrentInspector;
 
         static bool mIsParsing = false;  // This is true when the editor is opening several scenes to avoid reparsing objects
 
@@ -88,21 +90,21 @@ namespace I2.Loc
             if (!mIsParsing)
 			{
 				if (string.IsNullOrEmpty(mLanguageSource.Google_SpreadsheetKey))
-					mSpreadsheetMode = eSpreadsheetMode.Local;
+					mSpreadsheetMode = Localization.LocalizationEditor.eSpreadsheetMode.Local;
 				else
-					mSpreadsheetMode = eSpreadsheetMode.Google;
+					mSpreadsheetMode = Localization.LocalizationEditor.eSpreadsheetMode.Google;
 
-				mCurrentViewMode = (mLanguageSource.mLanguages.Count>0 ? eViewMode.Keys : eViewMode.Languages);
+				Localization.LocalizationEditor.mCurrentViewMode = (mLanguageSource.mLanguages.Count>0 ? Localization.LocalizationEditor.eViewMode.Keys : Localization.LocalizationEditor.eViewMode.Languages);
 
 				UpdateSelectedKeys();
 
-                if (ForceParse || mParsedTerms.Count < mLanguageSource.mTerms.Count)
+                if (ForceParse || Localization.LocalizationEditor.mParsedTerms.Count < mLanguageSource.mTerms.Count)
                 {
-                    mSelectedCategories.Clear();
-                    ParseTerms(true, false, true);
+                    Localization.LocalizationEditor.mSelectedCategories.Clear();
+                    Localization.LocalizationEditor.ParseTerms(true, false, true);
                 }
 			}
-            ScheduleUpdateTermsToShowInList();
+            Localization.LocalizationEditor.ScheduleUpdateTermsToShowInList();
 			LoadSelectedCategories();
             //UpgradeManager.EnablePlugins();
         }
@@ -120,9 +122,9 @@ namespace I2.Loc
 		{
 			// Remove all keys that are not in this source
 			string trans;
-			for (int i=mSelectedKeys.Count-1; i>=0; --i)
-				if (!mLanguageSource.TryGetTranslation(mSelectedKeys[i], out trans))
-					mSelectedKeys.RemoveAt(i);
+			for (int i=Localization.LocalizationEditor.mSelectedKeys.Count-1; i>=0; --i)
+				if (!mLanguageSource.TryGetTranslation(Localization.LocalizationEditor.mSelectedKeys[i], out trans))
+					Localization.LocalizationEditor.mSelectedKeys.RemoveAt(i);
 
 			// Remove all Categories that are not in this source
 			/*var mCateg = mLanguageSource.GetCategories();
@@ -132,8 +134,8 @@ namespace I2.Loc
 			if (mSelectedCategories.Count==0)
 				mSelectedCategories = mCateg;*/
 
-			if (mSelectedScenes.Count==0)
-				mSelectedScenes.Add (Editor_GetCurrentScene());
+			if (Localization.LocalizationEditor.mSelectedScenes.Count==0)
+				Localization.LocalizationEditor.mSelectedScenes.Add (Localization.LocalizationEditor.Editor_GetCurrentScene());
         }
 
         public override void OnInspectorGUI()
@@ -188,9 +190,9 @@ namespace I2.Loc
 			serializedObject.ApplyModifiedProperties();
             if (Event.current.type == EventType.Repaint)
             {
-                mTestAction = eTest_ActionType.None;
-                mTestActionArg = null;
-                mTestActionArg2 = null;
+                Localization.LocalizationEditor.mTestAction = Localization.LocalizationEditor.eTest_ActionType.None;
+                Localization.LocalizationEditor.mTestActionArg = null;
+                Localization.LocalizationEditor.mTestActionArg2 = null;
             }
         }
 

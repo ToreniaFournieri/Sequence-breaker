@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using UnityEngine;
 using UnityEngine.Networking;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
     public static class I2Utils
     {

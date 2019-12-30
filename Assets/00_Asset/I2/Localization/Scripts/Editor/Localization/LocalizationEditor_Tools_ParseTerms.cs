@@ -1,12 +1,15 @@
-﻿using UnityEditor;
-using UnityEngine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Utils;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public class ParsedTerm
 	{
@@ -139,7 +142,7 @@ namespace I2.Loc
 
         static void ParseTerms(bool OnlyCurrentScene, bool ParseScripts, bool OpenTermsTab)
         {
-            mIsParsing = true;
+            Inspectors.LocalizationEditor.mIsParsing = true;
 
             mParsedTerms.Clear();
             mSelectedKeys.Clear();
@@ -176,9 +179,9 @@ namespace I2.Loc
             }
 
 
-            if (mLanguageSource!=null)
+            if (Inspectors.LocalizationEditor.mLanguageSource!=null)
             {
-                var sourceCategories = mLanguageSource.GetCategories();
+                var sourceCategories = Inspectors.LocalizationEditor.mLanguageSource.GetCategories();
                 mSelectedCategories.RemoveAll(x => !sourceCategories.Contains(x));
             }
 
@@ -194,7 +197,7 @@ namespace I2.Loc
                 }
                 mCurrentViewMode = eViewMode.Keys;
 			}
-			mIsParsing = false;
+			Inspectors.LocalizationEditor.mIsParsing = false;
 		}
 		
 		static void FindTermsInCurrentScene()
@@ -207,7 +210,7 @@ namespace I2.Loc
 			for (int i=0, imax=Locals.Length; i<imax; ++i)
 			{
 				Localize localize = Locals[i];
-                if (localize==null || (localize.Source!=null && localize.Source.SourceData!=mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
+                if (localize==null || (localize.Source!=null && localize.Source.SourceData!=Inspectors.LocalizationEditor.mLanguageSource) || localize.gameObject==null || !GUITools.ObjectExistInScene(localize.gameObject))
 					continue;
 				 
 				string Term, SecondaryTerm;
@@ -287,11 +290,11 @@ namespace I2.Loc
         static void FindTermsNotUsed()
 		{
             // every Term that is in the DB but not in mParsedTerms
-            if (mLanguageSource == null)
+            if (Inspectors.LocalizationEditor.mLanguageSource == null)
                 return;
 
             //string lastCategory = null;
-			foreach (TermData termData in mLanguageSource.mTerms)
+			foreach (TermData termData in Inspectors.LocalizationEditor.mLanguageSource.mTerms)
                 GetParsedTerm(termData.Term);
 		}
 
@@ -334,7 +337,7 @@ namespace I2.Loc
 
 			foreach (var localize in Locals) 
 			{
-				if (localize == null || (localize.Source != null && localize.Source.SourceData != mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
+				if (localize == null || (localize.Source != null && localize.Source.SourceData != Inspectors.LocalizationEditor.mLanguageSource) || localize.gameObject == null || !GUITools.ObjectExistInScene (localize.gameObject))
 					continue;
 
 				if (!string.IsNullOrEmpty (localize.mTerm) && !string.IsNullOrEmpty (localize.SecondaryTerm))
@@ -348,7 +351,7 @@ namespace I2.Loc
 
 		public static void ApplyInferredTerm( Localize localize)
 		{
-			if (mLanguageSource==null)
+			if (Inspectors.LocalizationEditor.mLanguageSource==null)
 				return;
 			if (!string.IsNullOrEmpty (localize.mTerm) && !string.IsNullOrEmpty (localize.mTermSecondary))
 				return;
@@ -358,14 +361,14 @@ namespace I2.Loc
 
 			if (string.IsNullOrEmpty (localize.mTerm))
 			{ 
-				var termData = mLanguageSource.GetTermData (sTerm, true);
+				var termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (sTerm, true);
 				if (termData!=null)
 					localize.mTerm = termData.Term;
 			}
 
 			if (string.IsNullOrEmpty (localize.mTermSecondary))
 			{
-				var termData = mLanguageSource.GetTermData (sSecTerm, true);
+				var termData = Inspectors.LocalizationEditor.mLanguageSource.GetTermData (sSecTerm, true);
 				if (termData!=null)
 					localize.mTermSecondary = termData.Term;
 			}

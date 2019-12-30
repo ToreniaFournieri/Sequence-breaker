@@ -1,8 +1,9 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 {
 	public partial class LocalizationEditor
 	{

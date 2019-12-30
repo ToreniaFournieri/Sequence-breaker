@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using _00_Asset.I2.Localization.Scripts.Utils;
 using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
 	[CustomEditor(typeof(ResourceManager))]
-	public class ResourceManagerInspector : Editor 
+	public class ResourceManagerInspector : UnityEditor.Editor 
 	{
 		SerializedProperty mAssets;
 

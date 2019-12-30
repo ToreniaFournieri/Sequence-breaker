@@ -1,14 +1,15 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-using System.Collections.Generic;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor.Inspectors
 {
 	#if !UNITY_5_0 && !UNITY_5_1
 
 	[CustomEditor(typeof(LocalizeDropdown))]
-	public class LocalizeDropdownInspector : Editor
+	public class LocalizeDropdownInspector : UnityEditor.Editor
 	{
 		private ReorderableList mList;
 

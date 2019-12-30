@@ -1,9 +1,12 @@
-using UnityEngine;
-using UnityEditor;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Editor.Inspectors;
+using _00_Asset.I2.Localization.Scripts.LanguageSource;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
+using UnityEngine;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor
 {
 	[InitializeOnLoad]
 	public class UpgradeManager
@@ -191,7 +194,7 @@ namespace I2.Loc
                 {
                     // I2Languages was a prefab before 2018.3, it should be converted to an ScriptableObject
                     sourcePath = AssetDatabase.GetAssetPath(GlobalSource);
-                    LanguageSource langSourceObj = (GlobalSource as GameObject).GetComponent<LanguageSource>();
+                    LanguageSource.LanguageSource langSourceObj = (GlobalSource as GameObject).GetComponent<LanguageSource.LanguageSource>();
                     sourceData = langSourceObj.mSource;
                 }
                 else

@@ -1,10 +1,7 @@
-using System;
-using UnityEngine;
 using System.Linq;
-using System.Collections.Generic;
 using Object = UnityEngine.Object;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.LanguageSource
 {
 	public partial class LanguageSourceData
 	{

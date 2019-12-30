@@ -1,14 +1,14 @@
-﻿#if UNITY_IOS || UNITY_IPHONE
-using UnityEditor.Callbacks;
-using System.Collections;
-using UnityEditor.iOS_I2Loc.Xcode;
+﻿
 using System.IO;
-using UnityEditor;
-using UnityEngine;
 using System.Linq;
+using _00_Asset.I2.Localization.Scripts.Manager;
+using UnityEditor;
+using UnityEditor.iOS_I2Loc.Xcode;
+using UnityEngine;
+#if UNITY_IOS || UNITY_IPHONE
+using UnityEditor.Callbacks;
 
-
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Editor
 {
     public class PostProcessBuild_IOS
     {

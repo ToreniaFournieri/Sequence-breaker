@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace I2.Loc
+﻿namespace _00_Asset.I2.Localization.Scripts.Utils
 {
     // Simple String Obfucator 
     // (not particularly safe, but will stop most players from hacking your strings and its FAST)

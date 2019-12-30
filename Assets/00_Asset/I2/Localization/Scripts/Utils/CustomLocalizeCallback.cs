@@ -1,9 +1,8 @@
+using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-using System.Collections.Generic;
 
-namespace I2.Loc
+namespace _00_Asset.I2.Localization.Scripts.Utils
 {
     [AddComponentMenu("I2/Localization/I2 Localize Callback")]
 	public class CustomLocalizeCallback : MonoBehaviour
