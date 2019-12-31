@@ -4,6 +4,7 @@ using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Play.Prepare;
+using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -40,6 +41,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public GameObject jumpIndexPrefab;
 
         public RectTransform canvasToGetWidth;
+
+
 
         // this is temp.
         public Sprite allyImage;
@@ -124,31 +127,75 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
 
+                //float hight = 0f;
+
                 if (t1.MainText != null)
                 {
 
                     string[] lines = t1.MainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    count = lines.Length;
+                    count = lines.Length + 1;
 
-                    foreach (var t in lines)
-                    {
-                        TextGenerator textGen = new TextGenerator();
+                    // GIVE UP!!! 2019.12.31
 
-                        cellViewPrefab.GetComponentInChildren<Text>().font = LocalizationManager.GetTranslatedObject<Font>("FONT");
-                        cellViewPrefab.GetComponentInChildren<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
+                    //foreach (var t in lines)
+                    //{
+                    //    TextGenerator textGen = new TextGenerator();
 
 
-                        TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
-                            (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
-                        float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
+                    //    cellViewPrefab.GetComponentsInChildren<Text>()[3].font = Word.Font();
+                    //    cellViewPrefab.GetComponentsInChildren<Text>()[3].lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
 
-                        int numberOfNewLine = (int)Math.Ceiling(widthOfLine / (widthOfCanvas - 250));
-                        if (numberOfNewLine >= 1) { count += numberOfNewLine; }
-                    }
+
+                    //    //cellViewPrefab.GetComponentsInChildren<Text>()[3].horizontalOverflow = HorizontalWrapMode.Overflow;
+                    //    //cellViewPrefab.GetComponentsInChildren<Text>()[3].text = t;
+
+                    //    TextGenerationSettings generationSettings = cellViewPrefab.GetComponentsInChildren<Text>()[3].GetGenerationSettings
+                    //        (cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.size);
+
+                    //    //generationSettings.horizontalOverflow = HorizontalWrapMode.Overflow;
+                    //    float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
+
+
+
+                    //    //hight += textGen.GetPreferredHeight(t, generationSettings) + cellViewPrefab.GetComponentsInChildren<Text>()[3].lineSpacing;
+                    //    //Debug.Log(widthOfLine +" /widthOfCanvas"+ widthOfCanvas+ " Text:" + t + " ");
+
+                    //    //Debug.Log(textGen.GetPreferredHeight(t, generationSettings) + " Text:" + t + " ");
+
+
+                    //    int totalLength = 0;
+
+                    //    Font font = cellViewPrefab.GetComponentsInChildren<Text>()[3].font;  //text is my UI text
+                    //    //Font font = LocalizationManager.GetTranslatedObject<Font>("FONT");  //text is my UI text
+                    //    CharacterInfo characterInfo = new CharacterInfo();
+
+                    //    //char[] arr = t.ToCharArray();
+
+                    //    //foreach (char c in arr)
+                    //    //{
+                    //    //    font.RequestCharactersInTexture(c.ToString());
+                    //    //    font.GetCharacterInfo(c, out characterInfo);
+                    //    //    //font.GetCharacterInfo(c, out characterInfo, cellViewPrefab.GetComponentsInChildren<Text>()[3].fontSize);
+                    //    //    totalLength += characterInfo.advance;
+                    //    //}
+                    //    //Debug.Log(totalLength + " contents: " + t);
+
+                    //    //Debug.Log(cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.width + " content:" + t);
+
+                    //    int numberOfNewLine = (int)Math.Ceiling(widthOfLine / (widthOfCanvas - 250));
+                    //    if (numberOfNewLine >= 1) { count += numberOfNewLine; }
+                    //}
+
+                    //cellViewPrefab.GetComponentsInChildren<Text>()[3].text = t1.MainText;
+                    //Debug.Log(cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.height + " content: " + t1.MainText);
+
+
                 }
 
+                //int cellSize = (int)(hight * 1.6) + 235;
                 ////int cellSize = (count + 1) * 48 + 190;  40 is better
-                int cellSize = (count + 1) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 220;
+                Debug.Log((count) + " text: " + t1.MainText);
+                int cellSize = (count) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 235;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 

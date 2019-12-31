@@ -430,9 +430,10 @@ namespace SequenceBreaker.Play.Battle
                         string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
 
-                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma()) + " "
-                            + Word.Get("X hits", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + " "
-                            + damageRatioString + crushed + barrierWords + optimumRangeWords + " \n";
+                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                            + damageRatioString + " "
+                            + Word.Get("X hits", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
+                            + "   " + "["+ opponents[fTargetColumn].GetShieldHp() +"]" + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

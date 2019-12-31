@@ -537,28 +537,28 @@ namespace SequenceBreaker.Play.Battle
                 var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.EnemyWin)
                     .GroupBy(x => x.EnemyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
 
-                logPerWavesSets[battleWavesSet - 1] += "Ally info: MVP(times)\n";
-                foreach (var group in statisticsQueryAlly) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
-                logPerWavesSets[battleWavesSet - 1] += "\n";
-                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.AllyWin).Any())
-                {
-                    //                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
-                    //logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodAlly.AllyContentText + " " + bestFirstBloodAlly.BattleLogAlly.OrderCondition + "\n";
-                }
-                logPerWavesSets[battleWavesSet - 1] += "Enemy info: MVP(times) \n";
-                foreach (var group in statisticsQueryEnemy) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
-                logPerWavesSets[battleWavesSet - 1] += "\n";
-                if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).Any())
-                {
-                    var bestFirstBloodEnemy = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).OrderByDescending(obj => obj.EnemyTotalDealtDamage).First();
-                    logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodEnemy.EnemyContentText + " " + bestFirstBloodEnemy.BattleLogEnemy.OrderCondition + "\n";
-                }
+                //logPerWavesSets[battleWavesSet - 1] += "Ally info: MVP(times)\n";
+                //foreach (var group in statisticsQueryAlly) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
+                //logPerWavesSets[battleWavesSet - 1] += "\n";
+                //if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.AllyWin).Any())
+                //{
+                //    //                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
+                //    //logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodAlly.AllyContentText + " " + bestFirstBloodAlly.BattleLogAlly.OrderCondition + "\n";
+                //}
+                //logPerWavesSets[battleWavesSet - 1] += "Enemy info: MVP(times) \n";
+                //foreach (var group in statisticsQueryEnemy) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
+                //logPerWavesSets[battleWavesSet - 1] += "\n";
+                //if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).Any())
+                //{
+                //    var bestFirstBloodEnemy = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).OrderByDescending(obj => obj.EnemyTotalDealtDamage).First();
+                //    logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodEnemy.EnemyContentText + " " + bestFirstBloodEnemy.BattleLogEnemy.OrderCondition + "\n";
+                //}
                 //Characters permanent Statistics Collection
-                foreach (var character in _characters) { character.PermanentStatistics.Avarage(battleWaves); } // Average Calculation
-                logPerWavesSets[battleWavesSet - 1] += "Average (critical):\n";
-                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
-                logPerWavesSets[battleWavesSet - 1] += "Average Skill:\n";
-                foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.name + " " + character.PermanentStatistics.Skill() + "\n"; }
+                //foreach (var character in _characters) { character.PermanentStatistics.Avarage(battleWaves); } // Average Calculation
+                //logPerWavesSets[battleWavesSet - 1] += "Average (critical):\n";
+                //foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
+                //logPerWavesSets[battleWavesSet - 1] += "Average Skill:\n";
+                //foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.name + " " + character.PermanentStatistics.Skill() + "\n"; }
             } // Battle waves set
 
             //Battle is over.
@@ -587,16 +587,18 @@ namespace SequenceBreaker.Play.Battle
 
             finalLog += "Battle is over. " + WhichWin + "\n";
             text = new FuncBattleConditionsText(totalTurn, _characters);
-            finalLog += text.Text();
+            //finalLog += text.Text();
 
-            for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }
+            //for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }
             //finalLog += " Ally attack magnification per waves set: x" + (1 + allyAttackMagnificationPerWavesSet) + "\n";
             //finalLog += " Ally defense magnification per waves set: x" + (1 + allyDefenseMagnificationPerWavesSet) + "\n";
-            for (var i = 0; i < battleWavesSets; i++) { finalLog += subLogPerWavesSets[i]; }
+            //for (var i = 0; i < battleWavesSets; i++) { finalLog += subLogPerWavesSets[i]; }
 
             var finishDateTime = DateTime.Now;
             var processedTimeSpan = finishDateTime - startDateTime;
-            finalLog += "finished:" + finishDateTime + " processed time:" + processedTimeSpan + " seed:" + seed + "\n";
+            finalLog += "finished:" + finishDateTime + "\n"
+                +" processed time:" + processedTimeSpan + "\n"
+                +" seed:" + seed + "\n";
 
             //Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
@@ -888,15 +890,15 @@ namespace SequenceBreaker.Play.Battle
                     }
 
                     firstLine = order.SkillEffectChosen.skill.skillName + "! " + triggerPossibilityText + accumulationText;
-                    log += order.Actor.name + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns.";
-                    if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                    log += order.Actor.shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." ;
+                    if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += "\n" + new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                     if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
                     log += "\n";
                     break;
                 case TargetType.Multi: //Buff attacker's side all
                     addingBuff = buffMasters.FindLast(obj => obj.skillId == order.SkillEffectChosen.skill.callingBuffName.skillId);
                     var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
-                    firstLine = new string(' ', 0) + order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName
+                    firstLine = order.SkillEffectChosen.skill.skillName
                                 + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) ";
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
@@ -915,7 +917,7 @@ namespace SequenceBreaker.Play.Battle
                         addingEffect[i].BuffToCharacter(turn);
                         buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
-                        log += new string(' ', 3) + buffTargetCharacters[i].name + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns.";
+                        log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
                         { log += new string(' ', 4) + "[Defense: " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)

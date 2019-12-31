@@ -66,7 +66,10 @@ namespace SequenceBreaker.Master.BattleUnit
             Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
         }
 
-
+        public string GetShieldHp()
+        {
+            return "Sh: " + combat.shieldCurrent + "/" + combat.shieldMax + " HP: " + combat.hitPointCurrent + "/" + combat.hitPointMax;
+         }
 
         public class BuffClass
         {
