@@ -2478,7 +2478,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9011,7 +9011,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20901,7 +20901,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - ARIAL
-      - mplus-1c-regular
+      - NotoSansJP-Regular
       Flags: 0000
       Languages_Touch: []
     - Term: GO
@@ -20918,6 +20918,22 @@ MonoBehaviour:
       Languages:
       - ARIAL
       - ARIAL
+      Flags: 0000
+      Languages_Touch: []
+    - Term: FONT-LineSpace
+      TermType: 0
+      Description: 
+      Languages:
+      - 1.0
+      - 0.75
+      Flags: 0000
+      Languages_Touch: []
+    - Term: FONT-BattleLogHightSize
+      TermType: 0
+      Description: 
+      Languages:
+      - 40
+      - 40
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -20943,6 +20959,7 @@ MonoBehaviour:
     GoogleUpdateDelay: 0
     Assets:
     - {fileID: 12800000, guid: 6f88c6c77498b422c8eb14bd595ff5a2, type: 3}
+    - {fileID: 12800000, guid: cece894e914fe4163b030de98a9faaec, type: 3}
     Spreadsheet_LocalFileName: /Users/celvena/Desktop/Localization.txt
     Spreadsheet_LocalCSVSeparator: ','
     Spreadsheet_LocalCSVEncoding: utf-8
@@ -21222,7 +21239,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

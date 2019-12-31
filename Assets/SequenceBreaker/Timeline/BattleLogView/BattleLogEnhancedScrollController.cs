@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _00_Asset._05_EnhancedScroller_v2.Plugins;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Play.Prepare;
 using UnityEngine;
@@ -131,6 +132,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     foreach (var t in lines)
                     {
                         TextGenerator textGen = new TextGenerator();
+
+                        cellViewPrefab.GetComponentInChildren<Text>().font = LocalizationManager.GetTranslatedObject<Font>("FONT");
+                        cellViewPrefab.GetComponentInChildren<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
+
+
                         TextGenerationSettings generationSettings = cellViewPrefab.GetComponentInChildren<Text>().GetGenerationSettings
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                         float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
@@ -139,7 +145,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
-                int cellSize = (count + 1) * 48 + 190;
+                //int cellSize = (count + 1) * 48 + 190;  40 is better
+                int cellSize = (count + 1) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 220;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 

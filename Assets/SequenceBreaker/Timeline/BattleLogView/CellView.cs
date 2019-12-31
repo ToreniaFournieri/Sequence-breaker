@@ -73,7 +73,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             mainText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
-
+            mainText.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
 
             unitInfo.text = data.UnitInfo;
             firstLine.text = data.FirstLine;
