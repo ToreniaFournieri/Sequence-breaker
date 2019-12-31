@@ -4,6 +4,7 @@ using System.Linq;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Skills;
+using SequenceBreaker.Translate;
 
 namespace SequenceBreaker.Play.Battle
 {
@@ -20,7 +21,7 @@ namespace SequenceBreaker.Play.Battle
 
         public string FirstLine()
         {
-            return "Turn " + CurrentTurn + "\n";
+            return Word.Get("Turn") + " " + CurrentTurn + "\n";
         }
 
         public string Text()
@@ -37,8 +38,8 @@ namespace SequenceBreaker.Play.Battle
             for (var j = 0; j < 2; j++)
             {
                 List<BattleUnit> affiliationCharacters;
-                if (j == 0) { text += "Ally: \n"; affiliationCharacters = allys; } //Display allys info
-                else { text += "Enemy: \n"; affiliationCharacters = enemy; } //Display enemy info
+                if (j == 0) { text += Word.Get("Ally") + ": \n"; affiliationCharacters = allys; } //Display allys info
+                else { text += Word.Get("Enemy") + ": \n"; affiliationCharacters = enemy; } //Display enemy info
 
                 for (var i = 0; i < affiliationCharacters.Count; i++)
                 {
@@ -46,11 +47,11 @@ namespace SequenceBreaker.Play.Battle
                     var hPPercentSpace = (3 - Math.Round((affiliationCharacters[i].combat.hitPointCurrent / (double)affiliationCharacters[i].combat.hitPointMax * 100), 0).WithComma().Length);
 
                     string barrierText = null;
-                    if (affiliationCharacters[i].buff.BarrierRemaining > 0) { barrierText = "[Barrier:" + affiliationCharacters[i].buff.BarrierRemaining + "] "; }
+                    if (affiliationCharacters[i].buff.BarrierRemaining > 0) { barrierText = "[" + Word.Get("Barrier") +":" + affiliationCharacters[i].buff.BarrierRemaining + "] "; }
                     string deteriorationText = null;
-                    if ((int)(affiliationCharacters[i].Deterioration * 100) >= 1) { deteriorationText = "(Deterioration:" + (int)(affiliationCharacters[i].Deterioration * 100) + "%) "; }
+                    if ((int)(affiliationCharacters[i].Deterioration * 100) >= 1) { deteriorationText = "(" + Word.Get("Deterioration") + ":" + (int)(affiliationCharacters[i].Deterioration * 100) + "%) "; }
                     string defenseText = null;
-                    if (affiliationCharacters[i].buff.DefenseMagnification > 1.01) { defenseText = "[Defense: x" + affiliationCharacters[i].buff.DefenseMagnification + "]"; }
+                    if (affiliationCharacters[i].buff.DefenseMagnification > 1.01) { defenseText = "["+ Word.Get("Defense") + ": x" + affiliationCharacters[i].buff.DefenseMagnification + "]"; }
 
                     text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].longName
                             + " (" + affiliationCharacters[i].combat.shieldCurrent.WithComma() + "+"

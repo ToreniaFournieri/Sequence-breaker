@@ -2478,7 +2478,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9011,7 +9011,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20960,14 +20960,6 @@ MonoBehaviour:
       - "\u4EFB\u52D9"
       Flags: 0000
       Languages_Touch: []
-    - Term: wave
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} waves[i2p_Zero]no waves[i2p_One]{[X]} wave'
-      - "{[X]}\u6226\u76EE"
-      Flags: 0000
-      Languages_Touch: []
     - Term: AllyWin
       TermType: 0
       Description: 
@@ -20990,6 +20982,102 @@ MonoBehaviour:
       Languages:
       - Defeated
       - "\u5168\u6EC5"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Xth wave
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} wave'
+      - "{[X]}\u6226\u76EE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL
+      TermType: 0
+      Description: 
+      Languages:
+      - true
+      - false
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-1st
+      TermType: 0
+      Description: 
+      Languages:
+      - st
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-2nd
+      TermType: 0
+      Description: 
+      Languages:
+      - nd
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-3rd
+      TermType: 0
+      Description: 
+      Languages:
+      - rd
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-Xth
+      TermType: 0
+      Description: 
+      Languages:
+      - th
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Turn
+      TermType: 0
+      Description: 
+      Languages:
+      - Turn
+      - "\u30BF\u30FC\u30F3"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Ally
+      TermType: 0
+      Description: 
+      Languages:
+      - Ally
+      - "\u5473\u65B9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Enemy
+      TermType: 0
+      Description: 
+      Languages:
+      - Enemy
+      - "\u6575"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Barrier
+      TermType: 0
+      Description: 
+      Languages:
+      - Barrier
+      - "\u969C\u58C1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Deterioration
+      TermType: 0
+      Description: 
+      Languages:
+      - Deterioration
+      - "\u52A3\u5316"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Defense
+      TermType: 0
+      Description: 
+      Languages:
+      - Defense
+      - "\u9632\u5FA1"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -21295,7 +21383,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
