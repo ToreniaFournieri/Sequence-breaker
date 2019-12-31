@@ -9916,7 +9916,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20743,14 +20743,6 @@ MonoBehaviour:
       - "\u6483\u7834!"
       Flags: 0000
       Languages_Touch: []
-    - Term: left
-      TermType: 0
-      Description: 
-      Languages:
-      - left
-      - "\u6B8B\u5F3E"
-      Flags: 0000
-      Languages_Touch: []
     - Term: Tuning-F
       TermType: 0
       Description: 
@@ -20853,7 +20845,7 @@ MonoBehaviour:
       Languages:
       - ' absorbs {[X]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs {[X]}
         shield.'
-      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F"
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u51FA\u6765\u306A\u304B\u3063\u305F"
       Flags: 0000
       Languages_Touch: []
     - Term: X hits-Active
@@ -21078,6 +21070,46 @@ MonoBehaviour:
       Languages:
       - Defense
       - "\u9632\u5FA1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Rescue
+      TermType: 0
+      Description: 
+      Languages:
+      - Rescue
+      - "\u6551\u51FA"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Left
+      TermType: 0
+      Description: 
+      Languages:
+      - Left
+      - "\u6B8B\u5F3E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: heals X shields
+      TermType: 0
+      Description: 
+      Languages:
+      - ' heals {[X]} shields.[i2p_Zero] heals no shields.[i2p_One] heals {[X]} shield.'
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Shield
+      TermType: 0
+      Description: 
+      Languages:
+      - Shield
+      - "\u30B7\u30FC\u30EB\u30C9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: heals all shields.
+      TermType: 0
+      Description: 
+      Languages:
+      - heals all shields.
+      - "\u306E\u30B7\u30FC\u30EB\u30C9\u306F\u5168\u56DE\u5FA9\u3057\u305F"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

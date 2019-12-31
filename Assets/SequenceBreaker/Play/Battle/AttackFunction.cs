@@ -352,7 +352,7 @@ namespace SequenceBreaker.Play.Battle
                     if (!order.SkillEffectChosen.skill.isNormalAttack)
                     {
                         skillTriggerPossibility = " (" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000.0) / 10.0 + "% "
-                              + Word.Get("left") + ":" + order.SkillEffectChosen.UsageCount + ")";
+                              + Word.Get("Left") + ":" + order.SkillEffectChosen.UsageCount + ")";
                     }
                 }
                 //string sNumberOfAttacks = null; if (order.Actor.combat.numberOfAttacks != 1)

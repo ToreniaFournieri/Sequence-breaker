@@ -11,7 +11,12 @@ namespace SequenceBreaker.Translate
         public static string Get(string term)
         {
             string words = LocalizationManager.GetTranslation(term);
-            if (words == null) { words = term; }
+            if (words == null)
+            {
+                Debug.LogError("Failed to translate term: " + term);
+                words = term;
+            }
+
             return words;
         }
 
@@ -121,7 +126,7 @@ namespace SequenceBreaker.Translate
         }
 
 
-        
+
 
     }
 

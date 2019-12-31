@@ -5,6 +5,7 @@ using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Master.Skills;
 using SequenceBreaker.Translate;
+using UnityEngine;
 
 namespace SequenceBreaker.Play.Battle
 {
@@ -80,8 +81,8 @@ namespace SequenceBreaker.Play.Battle
         public SkillLogicShieldHealClass(OrderClass order, List<BattleUnit> characters, bool isMulti, EnvironmentInfoClass environmentInfo)
         {
             string rescueString = null;
-            if (order.IsRescue) { rescueString = "[Rescue] "; }
-            FirstLine = rescueString + order.SkillEffectChosen.skill.skillName + " (Left:" + order.SkillEffectChosen.UsageCount + ")";
+            if (order.IsRescue) { rescueString = "[" + Word.Get("Rescue") + "] "; }
+            FirstLine = rescueString + order.SkillEffectChosen.skill.skillName + " (" + Word.Get("Left") + ":" + order.SkillEffectChosen.UsageCount + ")";
             var healBase = order.Actor.ability.generation * order.SkillEffectChosen.skill.magnification.heal * 10.0;
 
             // heal only same affiliation
@@ -136,7 +137,7 @@ namespace SequenceBreaker.Play.Battle
                        + Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma()
                        + "% HP" + new string(' ', hPPercentSpace)
                        + Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma()
-                       + "%)" + " heals " + (int)healValue + " damage" + "\n";
+                       + "%)" + Word.Get("heals X shields", ((int)healValue).ToString()) + "\n";
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 
@@ -172,7 +173,7 @@ namespace SequenceBreaker.Play.Battle
                     EnemyTotalDealtDamage = totalDealtDamage; EnemyContentText = contentText;
                     break;
                 case Affiliation.None:
-                    Console.WriteLine("Affiliation.none is not expected in StatisticsReporterFirstBloodClass.");
+                    Debug.LogError("Affiliation.none is not expected in StatisticsReporterFirstBloodClass. characterName:" + characterName);
                     break;
             }
 
@@ -197,7 +198,7 @@ namespace SequenceBreaker.Play.Battle
             // By default, first list of SkillEffectProposed is selected if has.
             // You need override others if you want to change it.
             if (skillEffectProposed.Count >= 1) { SkillEffectChosen = skillEffectProposed[0]; }
-            else { Console.WriteLine(" skill Effect proposed is null!!"); }
+            else { Debug.LogError(" skill Effect proposed is null!!"); }
         }
 
         // Skill decision, decide best skill in this timing. healAll or healSingle or just do nothing, which move skill should use .
@@ -209,7 +210,7 @@ namespace SequenceBreaker.Play.Battle
 
                 foreach (var effect in SkillEffectProposed) { if (effect.UsageCount > 0) { validEffects.Add(effect); } }
 
-                if (validEffects.Count == 0) { Console.WriteLine(" no valid skill exist" + Actor.longName + " " + ActionType + " " + environmentInfo.Info()); }
+                if (validEffects.Count == 0) { Debug.LogError(" no valid skill exist" + Actor.longName + " " + ActionType + " " + environmentInfo.Info()); }
                 else if (validEffects.Count >= 1)// in case more than 2 skills proposed.
                 {
                     List<BattleUnit> healTargets;
@@ -327,14 +328,14 @@ namespace SequenceBreaker.Play.Battle
                     if ((characters[i].combat.shieldMax - characters[i].combat.shieldCurrent) <= shieldHealAmount)
                     { // can heal max
                         characters[i].combat.shieldCurrent = characters[i].combat.shieldMax;
-                        Log += characters[i].longName + " heals all shield." +
-                               " Shield:" + characters[i].combat.shieldCurrent + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
+                        Log += characters[i].longName + Word.Get("heals all shields.")
+                              + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
                     }
                     else
                     {
                         characters[i].combat.shieldCurrent += shieldHealAmount;
-                        Log += characters[i].longName + " heals " + shieldHealAmount +
-                               " Shield:" + characters[i].combat.shieldCurrent + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
+                        Log += characters[i].longName + Word.Get("heals X shields", shieldHealAmount.ToString()) 
+                             + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
                     }
                 }
             }
@@ -488,13 +489,13 @@ namespace SequenceBreaker.Play.Battle
 
     public sealed class EnvironmentInfoClass
     {
-        public EnvironmentInfoClass(int wave, int turn, int phase, int randomSeed, Random r)
+        public EnvironmentInfoClass(int wave, int turn, int phase, int randomSeed, System.Random r)
         { Wave = wave; Turn = turn; Phase = phase; _randomSeed = randomSeed; R = r; }
         public readonly int Wave;
         public int Turn;
         public int Phase;
         private readonly int _randomSeed;
-        public readonly Random R;
+        public readonly System.Random R;
 
         public string Info() { return "Wave:" + Wave + " Turn:" + Turn + " Phase:" + Phase + " RandomSeed:" + _randomSeed; }
 
