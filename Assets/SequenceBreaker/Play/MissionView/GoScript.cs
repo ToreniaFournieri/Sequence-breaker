@@ -61,7 +61,11 @@ namespace SequenceBreaker.Play.MissionView
 
                 battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
-                battleCopyList[wave].GetComponent<RunBattle>().currentMissionName = battleCopyList[wave].GetComponent<RunBattle>().mission.missionName + " [wave:" + (wave + 1) + "]";
+                battleCopyList[wave].GetComponent<RunBattle>().currentMissionName =
+
+                    "[" +Word.Get(battleCopyList[wave].GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] "
+                    + battleCopyList[wave].GetComponent<RunBattle>().mission.missionName
+                    + " (" + Word.Get("Xth wave", (wave + 1).ToString(), true) + ")";
                 battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
 
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
@@ -145,7 +149,7 @@ namespace SequenceBreaker.Play.MissionView
                 {
                     missionController.transparentMessageController
                                 .AddTextAndActive( Word.Get("Mission") + ": " + missionName + missionLevel
-                               + " " + Word.Get("wave", (wave + 1).ToString()) + " ["
+                               + " " + Word.Get("Xth wave", (wave + 1).ToString(), true) + " ["
                                + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] ", false);
                 }
 

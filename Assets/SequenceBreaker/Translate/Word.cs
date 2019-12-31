@@ -5,6 +5,8 @@ namespace SequenceBreaker.Translate
 {
     public static class Word
     {
+
+
         //Translation without parameter
         public static string Get(string term)
         {
@@ -24,7 +26,14 @@ namespace SequenceBreaker.Translate
             int i2p_ZeroLength = words.IndexOf("[i2p_Zero]", System.StringComparison.Ordinal);
             int i2p_OneLength = words.IndexOf("[i2p_One]", System.StringComparison.Ordinal);
 
-            if (valueX == "0")
+            // remove ordinal numeral.
+            string removedOrdinalX = valueX;
+            if (valueX.Contains(Get("ORDINAL-1st"))) { removedOrdinalX = valueX.Replace(Get("ORDINAL-1st"), null); }
+            if (valueX.Contains(Get("ORDINAL-2nd"))) { removedOrdinalX = valueX.Replace(Get("ORDINAL-2nd"), null); }
+            if (valueX.Contains(Get("ORDINAL-3rd"))) { removedOrdinalX = valueX.Replace(Get("ORDINAL-3rd"), null); }
+            if (valueX.Contains(Get("ORDINAL-Xth"))) { removedOrdinalX = valueX.Replace(Get("ORDINAL-Xth"), null); }
+
+            if (removedOrdinalX == "0")
             {
                 if (i2p_ZeroLength == -1)
                 {
@@ -33,7 +42,7 @@ namespace SequenceBreaker.Translate
                 }
                 else { words = words.Substring(i2p_ZeroLength + 9); }
             }
-            else if (valueX == "1")
+            else if (removedOrdinalX == "1")
             {
                 if (i2p_OneLength == -1)
                 {
@@ -75,5 +84,46 @@ namespace SequenceBreaker.Translate
             }
         }
 
+        public static string Get(string term, string ordinalNumeral, bool isOrdinals)
+        {
+            string valueX = ordinalNumeral;
+            if (isOrdinals)
+            {
+                if (bool.Parse(Get("ORDINAL")))
+                {
+
+                    int ordinalInt = 0;
+                    try
+                    {
+                        ordinalInt = int.Parse(ordinalNumeral);
+                    }
+                    catch
+                    {
+                        Debug.LogError("Word.Get invailed ordinal Numeral value. term: " + term + " ordinal Numeral: " + ordinalNumeral);
+                        return Get(term, ordinalNumeral);
+                    }
+
+                    if ((ordinalInt % 100) == 11 || (ordinalInt % 100) == 12 || (ordinalInt % 100) == 13)
+                    {
+                        valueX = ordinalNumeral + "th";
+                    }
+                    else
+                        switch (ordinalInt % 10)
+                        {
+                            case 1: valueX = ordinalNumeral + Get("ORDINAL-1st"); break;
+                            case 2: valueX = ordinalNumeral + Get("ORDINAL-2nd"); break;
+                            case 3: valueX = ordinalNumeral + Get("ORDINAL-3rd"); break;
+                            default: valueX = ordinalNumeral + Get("ORDINAL-4th"); break;
+                        }
+                }
+            }
+            return Get(term, valueX);
+        }
+
+
+        
+
     }
+
+
 }
