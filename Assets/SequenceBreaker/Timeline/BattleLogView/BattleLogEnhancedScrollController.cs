@@ -123,6 +123,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
+
                 if (t1.MainText != null)
                 {
 
@@ -141,11 +142,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
                             (cellViewPrefab.GetComponentInChildren<Text>().rectTransform.rect.size);
                         float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
 
-                        int numberOfNewLine = (int)(widthOfLine / (widthOfCanvas - 250));
+                        int numberOfNewLine = (int)Math.Ceiling(widthOfLine / (widthOfCanvas - 250));
                         if (numberOfNewLine >= 1) { count += numberOfNewLine; }
                     }
                 }
-                //int cellSize = (count + 1) * 48 + 190;  40 is better
+
+                ////int cellSize = (count + 1) * 48 + 190;  40 is better
                 int cellSize = (count + 1) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 220;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
