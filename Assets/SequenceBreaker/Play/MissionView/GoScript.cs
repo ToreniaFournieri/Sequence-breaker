@@ -7,6 +7,7 @@ using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Units;
 using SequenceBreaker.Play.Prepare;
 using SequenceBreaker.Timeline.BattleLogView;
+using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,6 @@ namespace SequenceBreaker.Play.MissionView
     public sealed class GoScript : MonoBehaviour
     {
         public Slider levelOfMissionSlider;
-        //public GameObject battle;
         public RunBattle runBattle;
 
         // for mission controller
@@ -33,14 +33,6 @@ namespace SequenceBreaker.Play.MissionView
                     }
                 }
 
-
-                //foreach (var unitSet in runBattle.enemyUnitSetList)
-                //{
-                //    foreach (var unit in unitSet.enemyUnitList)
-                //    {
-                //        unit.level = (int) levelOfMissionSlider.value;
-                //    }
-                //}
             }
 
 
@@ -99,10 +91,7 @@ namespace SequenceBreaker.Play.MissionView
             {
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
                 {
-                    //int seed = (int)DateTime.Now.Ticks;
-                    //System.Random random = new System.Random(seed);
-                    // when you find something wrong, use seed value to Reproduction the situation
-                    //foreach (EnemyUnitSet enemyUnitSet in battleCopy.GetComponent<RunBattle>().enemyUnitSetList)
+
                     foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
                     {
                         List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave);
@@ -141,11 +130,9 @@ namespace SequenceBreaker.Play.MissionView
                             {
 
                                 missionController.transparentMessageController
-                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")", false);
-                                //missionController
-                                //        .transparentMessageController
-                                //        .transparentText.text
-                                //    += "\n " + "[P1]" + allyUnit.name + " +" + levelUpAmount + " Level up! (level:" + allyUnit.level + ")";
+                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " " + Word.Get("Level up")
+                                    + "! (" + Word.Get("level") + ":" + allyUnit.level + ")", false);
+
 
                             }
                         }
@@ -157,12 +144,11 @@ namespace SequenceBreaker.Play.MissionView
                 if (wave + 1 == battleCopyList.Count)
                 {
                     missionController.transparentMessageController
-                                .AddTextAndActive("Mission: " + missionName + missionLevel
-                               + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ", false);
+                                .AddTextAndActive( Word.Get("Mission") + ": " + missionName + missionLevel
+                               + " " + Word.Get("wave", (wave + 1).ToString()) + " ["
+                               + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] ", false);
                 }
 
-                //missionController.transparentMessageController.transparentText.text += "\n " + "Mission: " + missionName + missionLevel
-                //                                                                           + " wave:" + (wave + 1) + " [" + battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave] + "] ";
                 wave += 1;
             }
 

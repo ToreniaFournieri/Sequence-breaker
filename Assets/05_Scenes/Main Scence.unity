@@ -20936,6 +20936,62 @@ MonoBehaviour:
       - 40
       Flags: 0000
       Languages_Touch: []
+    - Term: Level up
+      TermType: 0
+      Description: 
+      Languages:
+      - Level Up
+      - "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: level
+      TermType: 0
+      Description: 
+      Languages:
+      - level
+      - "\u30EC\u30D9\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mission
+      TermType: 0
+      Description: 
+      Languages:
+      - Mission
+      - "\u4EFB\u52D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: wave
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} waves[i2p_Zero]no waves[i2p_One]{[X]} wave'
+      - "{[X]}\u6226\u76EE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AllyWin
+      TermType: 0
+      Description: 
+      Languages:
+      - Win
+      - "\u52DD\u5229"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Draw
+      TermType: 0
+      Description: 
+      Languages:
+      - Draw
+      - "\u5F15\u5206\u3051"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EnemyWin
+      TermType: 0
+      Description: 
+      Languages:
+      - Defeated
+      - "\u5168\u6EC5"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -21695,7 +21751,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -49.99994, y: 5}
+  m_AnchoredPosition: {x: -50, y: 5}
   m_SizeDelta: {x: -138.3, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2121397736
