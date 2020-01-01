@@ -82,15 +82,15 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 			UnityEngine.UI.Text[] uiTexts = (UnityEngine.UI.Text[])Resources.FindObjectsOfTypeAll(typeof(UnityEngine.UI.Text));
 			if (uiTexts!=null && uiTexts.Length>0)
 				labels.AddRange(uiTexts);
-#if TextMeshPro
-			TMPro.TextMeshPro[] tmpText = (TMPro.TextMeshPro[])Resources.FindObjectsOfTypeAll(typeof(TMPro.TextMeshPro));
-			if (tmpText!=null && tmpText.Length>0)
-				labels.AddRange(tmpText);
+//#if TextMeshPro
+//			TMPro.TextMeshPro[] tmpText = (TMPro.TextMeshPro[])Resources.FindObjectsOfTypeAll(typeof(TMPro.TextMeshPro));
+//			if (tmpText!=null && tmpText.Length>0)
+//				labels.AddRange(tmpText);
 
-			TMPro.TextMeshProUGUI[] uiTextsUGUI = (TMPro.TextMeshProUGUI[])Resources.FindObjectsOfTypeAll(typeof(TMPro.TextMeshProUGUI));
-			if (uiTextsUGUI!=null && uiTextsUGUI.Length>0)
-				labels.AddRange(uiTextsUGUI);
-#endif
+//			TMPro.TextMeshProUGUI[] uiTextsUGUI = (TMPro.TextMeshProUGUI[])Resources.FindObjectsOfTypeAll(typeof(TMPro.TextMeshProUGUI));
+//			if (uiTextsUGUI!=null && uiTextsUGUI.Length>0)
+//				labels.AddRange(uiTextsUGUI);
+//#endif
 #if TK2D
 			tk2dTextMesh[] tk2dTM = (tk2dTextMesh[])Resources.FindObjectsOfTypeAll(typeof(tk2dTextMesh));
 			if (tk2dTM!=null && tk2dTM.Length>0)

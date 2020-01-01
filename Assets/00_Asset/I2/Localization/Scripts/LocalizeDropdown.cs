@@ -46,9 +46,9 @@ namespace _00_Asset.I2.Localization.Scripts
             var _Dropdown = GetComponent<Dropdown>();
             if (_Dropdown == null && I2Utils.IsPlaying())
             {
-                #if TextMeshPro
-                    FillValuesTMPro();
-                #endif
+                //#if TextMeshPro
+                //    FillValuesTMPro();
+                //#endif
                 return;
             }
 
@@ -63,9 +63,9 @@ namespace _00_Asset.I2.Localization.Scripts
 			var _Dropdown = GetComponent<Dropdown>();
             if (_Dropdown == null)
             {
-                #if TextMeshPro
-                    UpdateLocalizationTMPro();
-                #endif
+                //#if TextMeshPro
+                //    UpdateLocalizationTMPro();
+                //#endif
                 return;
             }
 			
@@ -78,34 +78,34 @@ namespace _00_Asset.I2.Localization.Scripts
             _Dropdown.RefreshShownValue();
 		}
 
-        #if TextMeshPro
-        public void UpdateLocalizationTMPro()
-        {
-            var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
-            if (_Dropdown == null)
-                return;
+        //#if TextMeshPro
+        //public void UpdateLocalizationTMPro()
+        //{
+        //    var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
+        //    if (_Dropdown == null)
+        //        return;
 
-            _Dropdown.options.Clear();
-            foreach (var term in _Terms)
-            {
-                var translation = LocalizationManager.GetTranslation(term);
-                _Dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(translation));
-            }
-            _Dropdown.RefreshShownValue();
-        }
+        //    _Dropdown.options.Clear();
+        //    foreach (var term in _Terms)
+        //    {
+        //        var translation = LocalizationManager.GetTranslation(term);
+        //        _Dropdown.options.Add(new TMPro.TMP_Dropdown.OptionData(translation));
+        //    }
+        //    _Dropdown.RefreshShownValue();
+        //}
 
-        void FillValuesTMPro()
-        {
-            var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
-            if (_Dropdown == null)
-                return;
+        //void FillValuesTMPro()
+        //{
+        //    var _Dropdown = GetComponent<TMPro.TMP_Dropdown>();
+        //    if (_Dropdown == null)
+        //        return;
 
-            foreach (var term in _Dropdown.options)
-            {
-                _Terms.Add(term.text);
-            }
-        }
-#endif
+        //    foreach (var term in _Dropdown.options)
+        //    {
+        //        _Terms.Add(term.text);
+        //    }
+        //}
+//#endif
 
     }
 #endif

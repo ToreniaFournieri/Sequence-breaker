@@ -509,9 +509,9 @@ namespace _00_Asset.I2.Localization.Scripts.Editor.Localization
 						case eTermType.TK2dCollection	: ObjType = typeof(tk2dSpriteCollection); break;
 #endif
 
-#if TextMeshPro
-                        case eTermType.TextMeshPFont	: ObjType = typeof(TMPro.TMP_FontAsset); break;
-#endif
+//#if TextMeshPro
+//                        case eTermType.TextMeshPFont	: ObjType = typeof(TMPro.TMP_FontAsset); break;
+//#endif
 
 #if SVG
 						case eTermType.SVGAsset	: ObjType = typeof(SVGImporter.SVGAsset); break;
