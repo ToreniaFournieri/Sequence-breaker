@@ -296,11 +296,11 @@ namespace SequenceBreaker.Play.Battle
                                                 foreach (var character in _characters)
                                                 {
 
-                                                    log += ShieldHealFunction.Get(character);
+                                                    log += PhaseEndFunction.Get(character);
                                                     //var shieldHeal = new ShieldHealFunction(character);
                                                     //log += shieldHeal.Log;
-                                                    var calculateHate = new CalculationHateMagnificationPerTurnFunction(character);
-                                                    log += calculateHate.Log;
+                                                    //var calculateHate = new CalculationHateMagnificationPerTurnFunction(character);
+                                                    //log += calculateHate.Log;
                                                 }
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
@@ -429,7 +429,7 @@ namespace SequenceBreaker.Play.Battle
                                         }
                                     }
 
-                                    var orderStatus = new OrderStatusClass(); orderStatus.Initialize();
+                                    //var orderStatus = new OrderStatusClass(); orderStatus.Initialize();
 
                                     var nestNumber = 0;
                                     //[[ SKILLS CHECK ]] Damage Control Assist trigger. Note: ActionType independent so ActionType.any!
@@ -473,7 +473,7 @@ namespace SequenceBreaker.Play.Battle
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
                                     //Push rescue
-                                    if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
+                                    //if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
 

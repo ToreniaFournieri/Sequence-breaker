@@ -30,6 +30,9 @@ namespace SequenceBreaker.Master.BattleUnit
         public StatisticsCollectionClass Statistics { get; set; }
         public StatisticsCollectionClass PermanentStatistics { get; set; }
 
+        // One time Values
+        public double effectiveDefense;
+
         [FormerlySerializedAs("Ability")] [HideInInspector] public AbilityClass ability;
         [FormerlySerializedAs("InitialAbility")] [SerializeField] public AbilityClass initialAbility;
         public enum Conditions { Current, Max }

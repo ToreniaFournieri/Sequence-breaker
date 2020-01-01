@@ -96,14 +96,17 @@ namespace SequenceBreaker.Play.Battle
 
                 // check overflow of shield current.
                 if (character.combat.shieldCurrent > character.combat.shieldMax) { character.combat.shieldCurrent = character.combat.shieldMax; }
-                Log += new string(' ', 4) + character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
-                    + character.GetShieldHp() + "\n";
+                Log +=  character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
+                    + new string(' ', 4) + "["+ character.GetShieldHp() + "]\n";
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 
             // hate control
             var hateAdd = 30; if (isMulti) { hateAdd = 50; }
             order.Actor.feature.hateCurrent += hateAdd;
+
+            Log += order.Actor.shortName + " (+" + hateAdd + " " + Word.Get("hate") + ")\n";
+
         }
         public string FirstLine { get; }
         public string Log { get; }
@@ -265,18 +268,18 @@ namespace SequenceBreaker.Play.Battle
         public readonly bool IsRescue;
     }
 
-    public sealed class OrderStatusClass
-    {
-        public OrderStatusClass() { Initialize(); }
-        public void Initialize()
-        {
-            DamageControlAssistCount = 0;
-        }
+    //public sealed class OrderStatusClass
+    //{
+    //    public OrderStatusClass() { Initialize(); }
+    //    public void Initialize()
+    //    {
+    //        DamageControlAssistCount = 0;
+    //    }
 
-        public int DamageControlAssistCount { get; set; }
-    }
+    //    public int DamageControlAssistCount { get; set; }
+    //}
 
-    public static class ShieldHealFunction
+    public static class PhaseEndFunction
     {
         public static string Get(BattleUnit character)
         {
@@ -291,7 +294,7 @@ namespace SequenceBreaker.Play.Battle
                     character.combat.shieldCurrent = character.combat.shieldMax;
                     Log += character.longName 
                         +  Word.Get("heals all shields.") + " (" + shieldHealAmount + ")\n"
-                        + new string(' ', 3) + " [" + character.GetShieldHp() + "]\n";
+                        + new string(' ', 3) + " [" + character.GetShieldHp() + "]";
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
                 else
@@ -299,10 +302,16 @@ namespace SequenceBreaker.Play.Battle
                     character.combat.shieldCurrent += shieldHealAmount;
                     Log += character.longName 
                         + Word.Get("heals X shields.", shieldHealAmount.ToString()) + "\n"
-                        + new string(' ', 3) + "[" + character.GetShieldHp() + "]\n";
+                        + new string(' ', 3) + "[" + character.GetShieldHp() + "]";
 
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
+
+                double beforeHate = character.feature.hateCurrent;
+                character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
+                Log += new string(' ', 1) + (int)(character.feature.hateCurrent) +" " +Word.Get("hate")
+                    +  "("　+ (int)(character.feature.hateCurrent - beforeHate) +  ")\n";
+
             }
 
             return Log;
@@ -333,15 +342,14 @@ namespace SequenceBreaker.Play.Battle
         //public string Log { get; }
     }
 
-    public sealed class CalculationHateMagnificationPerTurnFunction
-    {
-        public CalculationHateMagnificationPerTurnFunction(BattleUnit character)
-        {
-            character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
-            Log = "";
-        }
-        public string Log { get; }
-    }
+    //public sealed class CalculationHateMagnificationPerTurnFunction
+    //{
+    //    public CalculationHateMagnificationPerTurnFunction(BattleUnit character)
+    //    {
+    //        Log = "";
+    //    }
+    //    public string Log { get; }
+    //}
 
 
 

@@ -97,6 +97,9 @@ namespace SequenceBreaker.Play.Battle
                     if (t.IsAvoidMoreThanOnce) { t.IsAvoidMoreThanOnce = false; }
                 }
 
+                double effectiveAttack = (double)order.Actor.combat.attack * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100.0;
+
+
                 // Individual attack routine
                 var survivedOpponents = opponents.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
@@ -187,9 +190,15 @@ namespace SequenceBreaker.Play.Battle
                             } //critical
 
                             //Physical Attack damage calculation
-                            var attackDamage = (double)order.Actor.combat.attack * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100
-                                               - toTarget.combat.defense * (1.00 - toTarget.Deterioration)
-                                                                         * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100;
+                            double effectiveDefense = (double)toTarget.combat.defense * (1.00 - toTarget.Deterioration)
+                                * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
+                            if (effectiveDefense < 0) { effectiveDefense = 0.0; }
+
+                            toTarget.effectiveDefense = effectiveDefense;
+                            //double attackDamage = (double)order.Actor.combat.attack * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100
+                            //                   - toTarget.combat.defense * (1.00 - toTarget.Deterioration)
+                            //                                             * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100;
+                            double attackDamage = effectiveAttack - effectiveDefense;
                             if (attackDamage < 0) { attackDamage = 1; }
 
                             //vs Magnification offense
@@ -234,6 +243,8 @@ namespace SequenceBreaker.Play.Battle
                                 order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic * toTarget.defenseMagnification.kinetic * skillMagnificationKinetic
                                 + order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical * toTarget.defenseMagnification.chemical * skillMagnificationChemical
                                 + order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal * toTarget.defenseMagnification.thermal * skillMagnificationThermal;
+
+                          　if(Math.Abs(damageTypeMagnification) < 0.1) { damageTypeMagnification = 1.0; }
 
                             var optimumRangeBonus = 1.0; if (toTarget.IsOptimumTarget) { optimumRangeBonus = order.Actor.offenseMagnification.optimumRangeBonus; } //Consider optimum range bonus.
                             var barrierReduction = 1.0; if (toTarget.buff.RemoveBarrier()) // Barrier check, true: barrier has, false no barrier.
@@ -290,6 +301,7 @@ namespace SequenceBreaker.Play.Battle
 
 
                 // Hate Management
+                double totalhateAdd;
                 double criticalHateAdd = 0; if (criticalReduction > 0) { criticalHateAdd = 30; }
                 double skillHateAdd = 0; if (order.SkillEffectChosen != null)
                 {
@@ -301,7 +313,8 @@ namespace SequenceBreaker.Play.Battle
                 double crushedHateAdd = 0;
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 { if (opponents[fTargetColumn].combat.hitPointCurrent == 0) { crushedHateAdd += 100; } }
-                order.Actor.feature.hateCurrent = (numberOfHitTotal / 3.0) + criticalHateAdd + skillHateAdd + crushedHateAdd;
+                totalhateAdd = (numberOfHitTotal / 3.0) + criticalHateAdd + skillHateAdd + crushedHateAdd;
+                order.Actor.feature.hateCurrent += totalhateAdd;
 
                 //Statistics Collection
                 for (var toTargetUniqueId = 0; toTargetUniqueId < totalDealtDamages.Length; toTargetUniqueId++)
@@ -345,7 +358,7 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords = " " + Word.Get("Critical") +"!"; }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords = " " + Word.Get("Critical") + "!"; }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {
@@ -402,8 +415,9 @@ namespace SequenceBreaker.Play.Battle
 
                 //string hitString = Word.Get("Hit-Active");
 
-                var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) + "] " + skillTriggerPossibility;
-                                //+ " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
+                var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) + "] " + skillTriggerPossibility
+                    + " (" + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) + ")";
+                //+ " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
                 log += criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement + "\n";
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
@@ -434,7 +448,8 @@ namespace SequenceBreaker.Play.Battle
                         log += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + damageRatioString + " "
                             + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
-                            + "   " + "["+ opponents[fTargetColumn].GetShieldHp() +"]" + crushed + barrierWords + optimumRangeWords + " \n";
+                            + "   " + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
+                            + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 
@@ -449,13 +464,39 @@ namespace SequenceBreaker.Play.Battle
 
                 if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + Word.Get("All attacks missed") + "\n"; }
 
-                //Absorb log
-                if (healedByAbsorbShield > 0)
+
+                //Absobes
+                bool isAbsorbed = false;
+                if (healedByAbsorbShield > 0) { isAbsorbed = true; }
+
+                //Hate
+                bool isHated = false;
+                if (totalhateAdd > 0) { isHated = true; }
+
+                if (isAbsorbed || isHated)
                 {
-                    log += new string(' ', 3) + order.Actor.shortName + Word.Get("absorbs X shields", healedByAbsorbShield.ToString());
+                    log += new string(' ', 3) + order.Actor.shortName;
 
-
+                    if (isAbsorbed)
+                    {
+                        log +=  Word.Get("absorbs X shields", healedByAbsorbShield.ToString()) ;
+                    }
+                    if (isHated)
+                    {
+                        log +=  " (+" + (int)totalhateAdd + " " + Word.Get("hate") + ")";
+                    }
                 }
+                //    //Absorb log
+                //    if (healedByAbsorbShield > 0)
+                //    {
+                //        log += new string(' ', 3) + order.Actor.shortName + Word.Get("absorbs X shields", healedByAbsorbShield.ToString()) + "\n";
+                //    }
+
+                ////Hate display
+                //if (totalhateAdd > 1.0)
+                //{
+                //    log += new string(' ', 3) + "(+" + (int)totalhateAdd + " " + Word.Get("hate") + ")";
+                //}
 
 
                 //if (healedByAbsorbShield > 0) { log += new string(' ', 3) + order.Actor.shortName + " " + Word.Get("absorbs") + " "

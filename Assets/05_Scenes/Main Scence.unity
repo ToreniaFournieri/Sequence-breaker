@@ -20917,6 +20917,30 @@ MonoBehaviour:
       - "\u6B21: {[A]}[i2p_Zero]\u6B8B\u6570\u306A\u3057"
       Flags: 0000
       Languages_Touch: []
+    - Term: hate
+      TermType: 0
+      Description: 
+      Languages:
+      - hate
+      - "\u30D8\u30A4\u30C8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: 'Effective Attack: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Atk: {[X]}'
+      - "\u653B: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: 'Effective Defense: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Def: {[X]}'
+      - "\u9632: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
