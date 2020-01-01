@@ -5079,6 +5079,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6415038675463146610, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.900024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72a221d838d6421cb7cc865329eea79, type: 3}
 --- !u!1 &502734692
@@ -20633,7 +20638,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - 40
-      - 34
+      - 36
       Flags: 0000
       Languages_Touch: []
     - Term: FONT-LineSpace
@@ -21003,7 +21008,7 @@ MonoBehaviour:
       Languages:
       - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
         {[A]} (valid for {[X]} turn).
-      - "\u306F{[A]}([{X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
+      - "\u306F{[A]}({[X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
       Flags: 0000
       Languages_Touch: []
     - Term: heals X shields.

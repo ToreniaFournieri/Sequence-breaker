@@ -129,73 +129,24 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 //float hight = 0f;
 
+                int additionalHight = 0;
+
                 if (t1.MainText != null)
                 {
-
                     string[] lines = t1.MainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     count = lines.Length + 1;
+                    additionalHight = 235  +20;
 
-                    // GIVE UP!!! 2019.12.31
-
-                    //foreach (var t in lines)
-                    //{
-                    //    TextGenerator textGen = new TextGenerator();
-
-
-                    //    cellViewPrefab.GetComponentsInChildren<Text>()[3].font = Word.Font();
-                    //    cellViewPrefab.GetComponentsInChildren<Text>()[3].lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
-
-
-                    //    //cellViewPrefab.GetComponentsInChildren<Text>()[3].horizontalOverflow = HorizontalWrapMode.Overflow;
-                    //    //cellViewPrefab.GetComponentsInChildren<Text>()[3].text = t;
-
-                    //    TextGenerationSettings generationSettings = cellViewPrefab.GetComponentsInChildren<Text>()[3].GetGenerationSettings
-                    //        (cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.size);
-
-                    //    //generationSettings.horizontalOverflow = HorizontalWrapMode.Overflow;
-                    //    float widthOfLine = textGen.GetPreferredWidth(t, generationSettings);
-
-
-
-                    //    //hight += textGen.GetPreferredHeight(t, generationSettings) + cellViewPrefab.GetComponentsInChildren<Text>()[3].lineSpacing;
-                    //    //Debug.Log(widthOfLine +" /widthOfCanvas"+ widthOfCanvas+ " Text:" + t + " ");
-
-                    //    //Debug.Log(textGen.GetPreferredHeight(t, generationSettings) + " Text:" + t + " ");
-
-
-                    //    int totalLength = 0;
-
-                    //    Font font = cellViewPrefab.GetComponentsInChildren<Text>()[3].font;  //text is my UI text
-                    //    //Font font = LocalizationManager.GetTranslatedObject<Font>("FONT");  //text is my UI text
-                    //    CharacterInfo characterInfo = new CharacterInfo();
-
-                    //    //char[] arr = t.ToCharArray();
-
-                    //    //foreach (char c in arr)
-                    //    //{
-                    //    //    font.RequestCharactersInTexture(c.ToString());
-                    //    //    font.GetCharacterInfo(c, out characterInfo);
-                    //    //    //font.GetCharacterInfo(c, out characterInfo, cellViewPrefab.GetComponentsInChildren<Text>()[3].fontSize);
-                    //    //    totalLength += characterInfo.advance;
-                    //    //}
-                    //    //Debug.Log(totalLength + " contents: " + t);
-
-                    //    //Debug.Log(cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.width + " content:" + t);
-
-                    //    int numberOfNewLine = (int)Math.Ceiling(widthOfLine / (widthOfCanvas - 250));
-                    //    if (numberOfNewLine >= 1) { count += numberOfNewLine; }
-                    //}
-
-                    //cellViewPrefab.GetComponentsInChildren<Text>()[3].text = t1.MainText;
-                    //Debug.Log(cellViewPrefab.GetComponentsInChildren<Text>()[3].rectTransform.rect.height + " content: " + t1.MainText);
-
+                } else if (t1.BigText != null)
+                {
+                    string[] lines = t1.BigText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    count = lines.Length + 1;
+                    additionalHight = 135;
 
                 }
 
-                //int cellSize = (int)(hight * 1.6) + 235;
-                ////int cellSize = (count + 1) * 48 + 190;  40 is better
                 //Debug.Log((count) + " text: " + t1.MainText);
-                int cellSize = (count) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 235;
+                int cellSize = (count) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + additionalHight;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 

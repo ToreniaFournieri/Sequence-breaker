@@ -317,42 +317,69 @@ namespace SequenceBreaker.Play.Battle
         public int DamageControlAssistCount { get; set; }
     }
 
-    public sealed class ShieldHealFunction
+    public static class ShieldHealFunction
     {
-        public ShieldHealFunction(List<BattleUnit> characters)
+        public static string Get(BattleUnit character)
         {
-            for (var i = 0; i <= characters.Count - 1; i++)
+            string Log = null;
+
+            if (character.combat.hitPointCurrent > 0)
             {
-                if (characters[i].combat.hitPointCurrent > 0)
-                { // Only when character is not crushed.
-                    var shieldHealAmount = (int)(characters[i].combat.shieldMax * (double)characters[i].ability.generation / 100.0);
-                    if ((characters[i].combat.shieldMax - characters[i].combat.shieldCurrent) <= shieldHealAmount)
-                    { // can heal max
-                        characters[i].combat.shieldCurrent = characters[i].combat.shieldMax;
-                        Log += characters[i].longName + Word.Get("heals all shields.")
-                              + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
-                    }
-                    else
-                    {
-                        characters[i].combat.shieldCurrent += shieldHealAmount;
-                        Log += characters[i].longName + Word.Get("heals X shields.", shieldHealAmount.ToString()) 
-                             + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
-                    }
+                // Only when character is not crushed.
+                var shieldHealAmount = (int)(character.combat.shieldMax * (double)character.ability.generation / 100.0);
+                if ((character.combat.shieldMax - character.combat.shieldCurrent) <= shieldHealAmount)
+                {
+                    character.combat.shieldCurrent = character.combat.shieldMax;
+                    Log += character.longName 
+                        +  Word.Get("heals all shields.") + " (" + shieldHealAmount + ")\n"
+                        + new string(' ', 3) + " [" + character.GetShieldHp() + "]\n";
+                    //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
+                }
+                else
+                {
+                    character.combat.shieldCurrent += shieldHealAmount;
+                    Log += character.longName 
+                        + Word.Get("heals X shields.", shieldHealAmount.ToString()) + "\n"
+                        + new string(' ', 3) + "[" + character.GetShieldHp() + "]\n";
+
+                    //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
             }
+
+            return Log;
+
         }
-        public string Log { get; }
+
+
+        //public ShieldHealFunction(BattleUnit character)
+        //{
+        //        if (character.combat.hitPointCurrent > 0)
+        //        { // Only when character is not crushed.
+        //            var shieldHealAmount = (int)(character.combat.shieldMax * (double)character.ability.generation / 100.0);
+        //            if ((character.combat.shieldMax - character.combat.shieldCurrent) <= shieldHealAmount)
+        //            { // can heal max
+        //                character.combat.shieldCurrent = character.combat.shieldMax;
+        //                Log += character.longName + Word.Get("heals all shields.")
+        //                      + " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
+        //            }
+        //            else
+        //            {
+        //                character.combat.shieldCurrent += shieldHealAmount;
+        //                Log += character.longName + Word.Get("heals X shields.", shieldHealAmount.ToString()) 
+        //                     + " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
+        //            }
+        //        }
+
+        //}
+        //public string Log { get; }
     }
 
     public sealed class CalculationHateMagnificationPerTurnFunction
     {
-        public CalculationHateMagnificationPerTurnFunction(List<BattleUnit> characters)
+        public CalculationHateMagnificationPerTurnFunction(BattleUnit character)
         {
-            foreach (var character in characters)
-            {
-                character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
-                Log = "";
-            }
+            character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
+            Log = "";
         }
         public string Log { get; }
     }

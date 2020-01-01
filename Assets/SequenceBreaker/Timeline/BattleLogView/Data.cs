@@ -13,6 +13,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public string UnitInfo;
         public string FirstLine;
         public string MainText;
+        public string BigText; // no ReactText, UnitInfo, FirstLine. only this BigText.
 
         /// <summary>
         /// We will store the cell size in the model so that the cell view can update it

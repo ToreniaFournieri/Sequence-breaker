@@ -291,10 +291,16 @@ namespace SequenceBreaker.Play.Battle
                                                 //Initialize 
 
                                                 //Heal Shield by generation %
-                                                var shieldHeal = new ShieldHealFunction(_characters);
-                                                log += shieldHeal.Log;
-                                                var calculateHate = new CalculationHateMagnificationPerTurnFunction(_characters);
-                                                log += calculateHate.Log;
+
+                                                foreach (var character in _characters)
+                                                {
+
+                                                    log += ShieldHealFunction.Get(character);
+                                                    //var shieldHeal = new ShieldHealFunction(character);
+                                                    //log += shieldHeal.Log;
+                                                    var calculateHate = new CalculationHateMagnificationPerTurnFunction(character);
+                                                    log += calculateHate.Log;
+                                                }
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0, 0);
@@ -886,7 +892,7 @@ namespace SequenceBreaker.Play.Battle
                             case ReferenceStatistics.SkillHitCount: count = order.Actor.Statistics.SkillHitCount; break;
                         }
                         string nextText = " "
-                                + Word.Get("Next: A (X)", order.SkillEffectChosen.UsageCount.ToString(), order.SkillEffectChosen.NextAccumulationCount.ToString());
+                                + Word.Get("Next: Aat (X)", order.SkillEffectChosen.UsageCount.ToString(), order.SkillEffectChosen.NextAccumulationCount.ToString());
                         accumulationText = "(" + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
 
@@ -928,7 +934,7 @@ namespace SequenceBreaker.Play.Battle
                         //log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
                         log += new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
-                        { log += new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                        { log += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)
                         { log += " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n"; }
                     }

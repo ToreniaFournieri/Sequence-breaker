@@ -14,6 +14,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public Text unitInfo;
         public Text firstLine;
         public Text mainText;
+        public Text bigText;
         public Image backgroundImage;
         public Image nestedLinePrevious;
         public Image nestedLine;
@@ -71,13 +72,16 @@ namespace SequenceBreaker.Timeline.BattleLogView
             unitInfo.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             firstLine.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             mainText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+            bigText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
             mainText.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
+            bigText.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
 
             unitInfo.text = data.UnitInfo;
             firstLine.text = data.FirstLine;
             mainText.text = data.MainText;
+            bigText.text = data.BigText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(36, 20, 20, 255); // dark red
             Color darkGreen = new Color32(20, 36, 20, 255); // dark green
