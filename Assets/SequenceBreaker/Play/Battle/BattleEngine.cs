@@ -99,7 +99,7 @@ namespace SequenceBreaker.Play.Battle
             //const double allyAttackMagnificationPerWavesSet = 0.0;
             //const double allyDefenseMagnificationPerWavesSet = 0.0;
 
-            FuncBattleConditionsText text;
+            //FuncBattleConditionsText text;
             int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
             //seed = 1086664070; // Reproduction.
             var r = new Random(seed);
@@ -193,7 +193,7 @@ namespace SequenceBreaker.Play.Battle
                                             {
                                                 environmentInfo.Phase = 0;
                                                 //log += "------------------------------------\n";
-                                                text = new FuncBattleConditionsText(turn, _characters);
+                                                //text = new FuncBattleConditionsText(turn, _characters);
                                                 //firstLine = text.FirstLine();
                                                 //log += text.Text();
                                                 log += null;
@@ -204,7 +204,8 @@ namespace SequenceBreaker.Play.Battle
                                                     Affiliation.None)
                                                 {
                                                     isHeaderInfo = true,
-                                                    headerInfoText = text.FirstLine()
+                                                    //headerInfoText = text.FirstLine()
+                                                    headerInfoText = Word.Get("Turn") + " " + turn + "\n"
                                                 };
                                                 var copiedBattleUnit = (from BattleUnit character in _characters
                                                                         select character.Copy()).ToList();
@@ -571,13 +572,13 @@ namespace SequenceBreaker.Play.Battle
             //Battle is over.
 
             // last turn battle log 
-            text = new FuncBattleConditionsText(totalTurn + 1, _characters);
+            //text = new FuncBattleConditionsText(totalTurn + 1, _characters);
 
             var orderConditionFinal = new OrderConditionClass(currentBattleWaves, totalTurn + 1, 0, 0, 0, 0, 0);
             var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.None)
             {
                 isHeaderInfo = true,
-                headerInfoText = text.FirstLine()
+                headerInfoText = Word.Get("Turn") + " " + totalTurn + 1 + "\n"
             };
             var copiedBattleUnitLast = (from BattleUnit character in _characters
                                         select character.Copy()).ToList();
@@ -593,7 +594,7 @@ namespace SequenceBreaker.Play.Battle
             var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
 
             finalLog += "Battle is over. " + WhichWin + "\n";
-            text = new FuncBattleConditionsText(totalTurn, _characters);
+            //text = new FuncBattleConditionsText(totalTurn, _characters);
             //finalLog += text.Text();
 
             //for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }

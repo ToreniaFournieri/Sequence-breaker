@@ -12,65 +12,27 @@ namespace SequenceBreaker.Play.Battle
     public static class ObjectExtensions { public static string WithComma(this object self) { return $"{self:#,##0}"; } } //With comma override Object
 
 
-    //Function, display battle condition text
-    public sealed class FuncBattleConditionsText
-    {
-        public FuncBattleConditionsText(int currentTurn, List<BattleUnit> characters)
-        {
-            CurrentTurn = currentTurn; Characters = characters;
-        }
+    ////Function, display battle condition text
+    //public static class FuncBattleConditionsText
+    //{
+    //    public static string Get(int currentTurn, List<BattleUnit> characters)
+    //    {
+    //        return Word.Get("Turn") + " " + currentTurn + "\n";
+    //    }
 
-        public string FirstLine()
-        {
-            return Word.Get("Turn") + " " + CurrentTurn + "\n";
-        }
+    //    //public FuncBattleConditionsText(int currentTurn, List<BattleUnit> characters)
+    //    //{
+    //    //    CurrentTurn = currentTurn; Characters = characters;
+    //    //}
 
-        //public string Text()
-        //{
-        //    string text = null;
+    //    //public string FirstLine()
+    //    //{
+    //    //    return Word.Get("Turn") + " " + CurrentTurn + "\n";
+    //    //}
 
-        //    // get each affiliation unit list.
-        //    var allys = Characters.FindAll(x => x.affiliation == Affiliation.Ally);
-        //    allys.Sort((x, y) => x.uniqueId - y.uniqueId);
-        //    var enemy = Characters.FindAll(x => x.affiliation == Affiliation.Enemy);
-        //    enemy.Sort((x, y) => x.uniqueId - y.uniqueId);
-
-        //    //Display allys info
-        //    for (var j = 0; j < 2; j++)
-        //    {
-        //        List<BattleUnit> affiliationCharacters;
-        //        if (j == 0) { text += Word.Get("Ally") + ": \n"; affiliationCharacters = allys; } //Display allys info
-        //        else { text += Word.Get("Enemy") + ": \n"; affiliationCharacters = enemy; } //Display enemy info
-
-        //        for (var i = 0; i < affiliationCharacters.Count; i++)
-        //        {
-        //            //var shieldPercentSpace = (3 - Math.Round((affiliationCharacters[i].combat.shieldCurrent / (double)affiliationCharacters[i].combat.shieldMax * 100), 0).WithComma().Length);
-        //            //var hPPercentSpace = (3 - Math.Round((affiliationCharacters[i].combat.hitPointCurrent / (double)affiliationCharacters[i].combat.hitPointMax * 100), 0).WithComma().Length);
-
-        //            string barrierText = null;
-        //            if (affiliationCharacters[i].buff.BarrierRemaining > 0) { barrierText = "[" + Word.Get("Barrier") +":" + affiliationCharacters[i].buff.BarrierRemaining + "] "; }
-        //            string deteriorationText = null;
-        //            if ((int)(affiliationCharacters[i].Deterioration * 100) >= 1) { deteriorationText = "(" + Word.Get("Deterioration") + ":" + (int)(affiliationCharacters[i].Deterioration * 100) + "%) "; }
-        //            string defenseText = null;
-        //            if (affiliationCharacters[i].buff.DefenseMagnification > 1.01) { defenseText = "["+ Word.Get("Defense") + ": x" + affiliationCharacters[i].buff.DefenseMagnification + "]"; }
-
-        //            text += new string(' ', 1) + "#" + i + " " + affiliationCharacters[i].longName + "\n"
-        //                    + "   " + affiliationCharacters[i].GetShieldHp()
-        //                    //+ " (" + affiliationCharacters[i].combat.shieldCurrent.WithComma() + "+"
-        //                    //+ affiliationCharacters[i].combat.hitPointCurrent.WithComma() + ")" +
-        //                    //" (" + new string(' ', shieldPercentSpace) + Math.Round((affiliationCharacters[i].combat.shieldCurrent / (double)affiliationCharacters[i].combat.shieldMax * 100), 0) + "%+"
-        //                    //+ new string(' ', hPPercentSpace) + Math.Round((affiliationCharacters[i].combat.hitPointCurrent / (double)affiliationCharacters[i].combat.hitPointMax * 100), 0) + "%) "
-        //                    + barrierText + deteriorationText + defenseText
-        //                    + "\n";
-
-        //        }
-        //    }
-
-        //    return text;
-        //}
-        private int CurrentTurn { get; }
-        private List<BattleUnit> Characters { get; }
-    }
+    //    //private int CurrentTurn { get; }
+    //    //private List<BattleUnit> Characters { get; }
+    //}
 
 
 
