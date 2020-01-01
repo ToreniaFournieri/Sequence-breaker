@@ -1,15 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Terms_Description.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" Line="40" Column="1" />
       <File FileName="Assets/SequenceBreaker/Translate/Word.cs" Line="121" Column="64" />
       <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="901" Column="27" />
       <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="433" Column="79" />
       <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="338" Column="83" />
-      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="122" Column="80" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/LocalizeDropdown.cs" Line="68" Column="25" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Tools_NoLocalized.cs" Line="93" Column="9" />
-      <File FileName="Assets/00_Asset/I2/Localization/Scripts/Editor/Localization/LocalizationEditor_Terms_Description.cs" Line="514" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

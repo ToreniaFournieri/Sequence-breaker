@@ -598,8 +598,8 @@ namespace SequenceBreaker.Play.Battle
             var finishDateTime = DateTime.Now;
             var processedTimeSpan = finishDateTime - startDateTime;
             finalLog += "finished:" + finishDateTime + "\n"
-                +" processed time:" + processedTimeSpan + "\n"
-                +" seed:" + seed + "\n";
+                + " processed time:" + processedTimeSpan + "\n"
+                + " seed:" + seed + "\n";
 
             //Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
@@ -885,31 +885,35 @@ namespace SequenceBreaker.Play.Battle
                             case ReferenceStatistics.SkillBeenHitCount: count = order.Actor.Statistics.SkillBeenHitCount; break;
                             case ReferenceStatistics.SkillHitCount: count = order.Actor.Statistics.SkillHitCount; break;
                         }
-                        string nextText;
-                        if (order.SkillEffectChosen.UsageCount > 0) { nextText = " next: " + order.SkillEffectChosen.NextAccumulationCount; } else { nextText = " no usage count left."; }
+                        string nextText = " "
+                                + Word.Get("Next: A (X)", order.SkillEffectChosen.UsageCount.ToString(), order.SkillEffectChosen.NextAccumulationCount.ToString());
                         accumulationText = "(" + order.SkillEffectChosen.skill.triggerBase.accumulationReference + ": " + count + nextText + ")";
                     }
 
                     firstLine = order.SkillEffectChosen.skill.skillName + "! " + triggerPossibilityText + accumulationText;
 
                     //log += order.Actor.shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." ;
-                    log += order.Actor.shortName +Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName) ;
+                    log += order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
 
-                    if (addingBuff.buffTarget.defenseMagnification > 1.0) { log += "\n" + new string(' ', 4) + "[Defense: " + order.Actor.buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
-                    if (addingEffect[0].skill.buffTarget.barrierRemaining > 0) { log += "[Barrier:" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] "; }
+                    if (addingBuff.buffTarget.defenseMagnification > 1.0)
+                    {
+                        log += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + order.Actor.buff.DefenseMagnification
+                            + " (x" + addingBuff.buffTarget.defenseMagnification + ")] ";
+                    }
+                    if (addingEffect[0].skill.buffTarget.barrierRemaining > 0)
+                    {
+                        log += "[" + Word.Get("Barrier") + ":" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] ";
+                    }
                     log += "\n";
                     break;
                 case TargetType.Multi: //Buff attacker's side all
                     addingBuff = buffMasters.FindLast(obj => obj.skillId == order.SkillEffectChosen.skill.callingBuffName.skillId);
                     var buffTargetCharacters = characters.FindAll(character1 => character1.affiliation == order.Actor.affiliation && character1.combat.hitPointCurrent > 0);
                     firstLine = order.SkillEffectChosen.skill.skillName
-                                + "! (Trigger Possibility:" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) ";
+                                + "! (" + Word.Get("Trigger Possibility") + ":" + (int)(order.SkillEffectChosen.triggeredPossibility * 1000) / 10.0 + "%) ";
 
                     for (var i = 0; i < buffTargetCharacters.Count; i++)
                     {
-                        //                        addingEffect.Add(new EffectClass(buffTargetCharacters[i], addingBuff, ActionType.None,
-                        //                            1.0, 0.0, false, addingBuff.usageCount,
-                        //                            turn, (turn + addingBuff.veiledTurn)));
                         EffectClass effectClass2 = ScriptableObject.CreateInstance<EffectClass>();
                         effectClass2.Set(buffTargetCharacters[i], addingBuff, ActionType.None,
                             1.0, 0.0, false, addingBuff.usageCount,
@@ -921,11 +925,12 @@ namespace SequenceBreaker.Play.Battle
                         addingEffect[i].BuffToCharacter(turn);
                         buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
-                        log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
+                        //log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
+                        log += new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
-                        { log += new string(' ', 4) + "[Defense: " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                        { log += new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)
-                        { log += " [Barrier: " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n"; }
+                        { log += " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n"; }
                     }
                     //log += "\n";
                     break;
