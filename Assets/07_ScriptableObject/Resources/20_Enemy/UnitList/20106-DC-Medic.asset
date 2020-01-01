@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20106-DC-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20106
-  name: DC-Medic
+  shortName: DC-Medic
   affiliation: 1
   unitType: 2
   itemCapacity: 13

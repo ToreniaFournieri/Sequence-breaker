@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20182-TC-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20182
-  name: TC-Fighter
+  shortName: TC-Fighter
   affiliation: 1
   unitType: 4
   itemCapacity: 15

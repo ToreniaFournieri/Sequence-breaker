@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20102-DC-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20102
-  name: DC-Fighter
+  shortName: DC-Fighter
   affiliation: 1
   unitType: 2
   itemCapacity: 13

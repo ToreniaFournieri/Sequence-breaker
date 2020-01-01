@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20099-DB-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20099
-  name: DB-Tank
+  shortName: DB-Tank
   affiliation: 1
   unitType: 2
   itemCapacity: 9

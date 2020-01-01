@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20065-CC-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20065
-  name: CC-Lancer
+  shortName: CC-Lancer
   affiliation: 1
   unitType: 1
   itemCapacity: 12

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20038-BD-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20038
-  name: BD-Sniper
+  shortName: BD-Sniper
   affiliation: 1
   unitType: 0
   itemCapacity: 15

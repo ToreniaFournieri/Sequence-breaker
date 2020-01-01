@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20152-RD-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20152
-  name: RD-Fighter
+  shortName: RD-Fighter
   affiliation: 1
   unitType: 3
   itemCapacity: 18

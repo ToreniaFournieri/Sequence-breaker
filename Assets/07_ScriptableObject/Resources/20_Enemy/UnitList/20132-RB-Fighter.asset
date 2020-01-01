@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20132-RB-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20132
-  name: RB-Fighter
+  shortName: RB-Fighter
   affiliation: 1
   unitType: 3
   itemCapacity: 10

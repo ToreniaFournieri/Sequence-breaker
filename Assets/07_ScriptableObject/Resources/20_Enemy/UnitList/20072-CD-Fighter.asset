@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20072-CD-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20072
-  name: CD-Fighter
+  shortName: CD-Fighter
   affiliation: 1
   unitType: 1
   itemCapacity: 16

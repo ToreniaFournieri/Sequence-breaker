@@ -225,13 +225,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -69.3544}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1008670847}
   m_Father: {fileID: 709966977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000006876886, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &18717904
@@ -248,8 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataList: []
   scroller: {fileID: 978793930}
-  cellViewPrefab: {fileID: 7490457186660506657, guid: e72a221d838d6421cb7cc865329eea79,
-    type: 3}
+  cellViewPrefab: {fileID: 1008670850}
   parentJumpIndex: {fileID: 1333312224}
   jumpIndexPrefab: {fileID: 5769422159230819302, guid: 076204334dbac4e03be4e56d68ee2b82,
     type: 3}
@@ -4962,6 +4962,125 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488442980}
   m_CullTransparentMesh: 0
+--- !u!1001 &495448007
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 18717903}
+    m_Modifications:
+    - target: {fileID: 5027028554409083364, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_Name
+      value: BattleLogView
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e72a221d838d6421cb7cc865329eea79, type: 3}
 --- !u!1 &502734692
 GameObject:
   m_ObjectHideFlags: 0
@@ -9024,7 +9143,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9497,6 +9616,24 @@ MonoBehaviour:
   itemBaseList: {fileID: 11400000, guid: 065c50d13b7f44688834929f2650a56d, type: 2}
   suffixBaseList: {fileID: 11400000, guid: e0248f093c03e4790bb1fdd7cdef9dd7, type: 2}
   itemPresetList: {fileID: 11400000, guid: 9c05df970d3874ee99391c96e01c96e7, type: 2}
+--- !u!224 &1008670847 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1557157403263755423, guid: e72a221d838d6421cb7cc865329eea79,
+    type: 3}
+  m_PrefabInstance: {fileID: 495448007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1008670850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7490457186660506657, guid: e72a221d838d6421cb7cc865329eea79,
+    type: 3}
+  m_PrefabInstance: {fileID: 495448007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad8ed365b28d46ff9c54f0d46d4e254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1039313767
 GameObject:
   m_ObjectHideFlags: 0
@@ -18077,7 +18214,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20619,14 +20756,6 @@ MonoBehaviour:
       - "\u72D9"
       Flags: 0000
       Languages_Touch: []
-    - Term: takes X damages
-      TermType: 0
-      Description: 
-      Languages:
-      - ' takes {[X]} damages,[i2p_One] takes {[X]} damage,'
-      - " \u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
-      Flags: 0000
-      Languages_Touch: []
     - Term: absorbs X shields
       TermType: 0
       Description: 
@@ -20634,22 +20763,6 @@ MonoBehaviour:
       - ' absorbs {[X]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs {[X]}
         shield.'
       - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u51FA\u6765\u306A\u304B\u3063\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: X hits-Active
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
-      - "{[X]}\u56DE\u547D\u4E2D"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: X hits
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} hits.[i2p_Zero]no Hits.[i2p_One]{[X]} Hit.'
-      - "{[X]}\u56DE\u88AB\u5F3E"
       Flags: 0000
       Languages_Touch: []
     - Term: X shots
@@ -20713,7 +20826,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - 40
-      - 40
+      - 34
       Flags: 0000
       Languages_Touch: []
     - Term: Level up
@@ -20876,14 +20989,6 @@ MonoBehaviour:
       - "\u6B8B\u5F3E"
       Flags: 0000
       Languages_Touch: []
-    - Term: heals X shields
-      TermType: 0
-      Description: 
-      Languages:
-      - ' heals {[X]} shields.[i2p_Zero] heals no shields.[i2p_One] heals {[X]} shield.'
-      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
-      Flags: 0000
-      Languages_Touch: []
     - Term: Shield
       TermType: 0
       Description: 
@@ -20898,6 +21003,39 @@ MonoBehaviour:
       Languages:
       - heals all shields.
       - "\u306E\u30B7\u30FC\u30EB\u30C9\u306F\u5168\u56DE\u5FA9\u3057\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: heals X shields.
+      TermType: 0
+      Description: 
+      Languages:
+      - ' heals {[X]} shields.[i2p_Zero] heals no shields.[i2p_One] heals {[X]} shield.'
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: takes X damages,
+      TermType: 0
+      Description: 
+      Languages:
+      - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
+        {[A]} (valid for {[X]} turn).
+      - "\u306F{[A]}([{X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X hits.
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} hits.[i2p_Zero]no Hits.[i2p_One]{[X]} Hit.'
+      - "{[X]}\u56DE\u88AB\u5F3E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X hits.-Active
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
+      - "{[X]}\u56DE\u547D\u4E2D"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -21203,7 +21341,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

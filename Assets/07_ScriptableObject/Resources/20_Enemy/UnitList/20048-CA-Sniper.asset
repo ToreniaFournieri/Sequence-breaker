@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20048-CA-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20048
-  name: CA-Sniper
+  shortName: CA-Sniper
   affiliation: 1
   unitType: 1
   itemCapacity: 4

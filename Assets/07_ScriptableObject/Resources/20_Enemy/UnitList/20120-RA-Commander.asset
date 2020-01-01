@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20120-RA-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20120
-  name: RA-Commander
+  shortName: RA-Commander
   affiliation: 1
   unitType: 3
   itemCapacity: 6

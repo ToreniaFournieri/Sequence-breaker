@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20033-BD-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20033
-  name: BD-Gunner
+  shortName: BD-Gunner
   affiliation: 1
   unitType: 0
   itemCapacity: 15

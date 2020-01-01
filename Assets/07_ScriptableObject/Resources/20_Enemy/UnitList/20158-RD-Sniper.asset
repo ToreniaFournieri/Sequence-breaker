@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20158-RD-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20158
-  name: RD-Sniper
+  shortName: RD-Sniper
   affiliation: 1
   unitType: 3
   itemCapacity: 18

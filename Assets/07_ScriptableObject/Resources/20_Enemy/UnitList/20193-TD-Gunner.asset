@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20193-TD-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20193
-  name: TD-Gunner
+  shortName: TD-Gunner
   affiliation: 1
   unitType: 4
   itemCapacity: 19

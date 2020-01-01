@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20191-TD-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20191
-  name: TD-Destroyer
+  shortName: TD-Destroyer
   affiliation: 1
   unitType: 4
   itemCapacity: 19

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20027-BC-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20027
-  name: BC-Reconnoiter
+  shortName: BC-Reconnoiter
   affiliation: 1
   unitType: 0
   itemCapacity: 11

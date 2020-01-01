@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20119-DD-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20119
-  name: DD-Tank
+  shortName: DD-Tank
   affiliation: 1
   unitType: 2
   itemCapacity: 17

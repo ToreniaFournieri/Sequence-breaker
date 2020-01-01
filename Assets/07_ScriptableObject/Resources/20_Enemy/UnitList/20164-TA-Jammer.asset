@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20164-TA-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20164
-  name: TA-Jammer
+  shortName: TA-Jammer
   affiliation: 1
   unitType: 4
   itemCapacity: 7

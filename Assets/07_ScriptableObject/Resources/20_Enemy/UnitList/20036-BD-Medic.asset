@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20036-BD-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20036
-  name: BD-Medic
+  shortName: BD-Medic
   affiliation: 1
   unitType: 0
   itemCapacity: 15

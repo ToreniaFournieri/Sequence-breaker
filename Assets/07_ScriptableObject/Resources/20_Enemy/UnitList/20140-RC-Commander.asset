@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20140-RC-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20140
-  name: RC-Commander
+  shortName: RC-Commander
   affiliation: 1
   unitType: 3
   itemCapacity: 14

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20192-TD-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20192
-  name: TD-Fighter
+  shortName: TD-Fighter
   affiliation: 1
   unitType: 4
   itemCapacity: 19

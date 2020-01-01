@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20022-BC-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20022
-  name: BC-Fighter
+  shortName: BC-Fighter
   affiliation: 1
   unitType: 0
   itemCapacity: 11

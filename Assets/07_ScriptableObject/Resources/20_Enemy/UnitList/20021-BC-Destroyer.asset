@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20021-BC-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20021
-  name: BC-Destroyer
+  shortName: BC-Destroyer
   affiliation: 1
   unitType: 0
   itemCapacity: 11

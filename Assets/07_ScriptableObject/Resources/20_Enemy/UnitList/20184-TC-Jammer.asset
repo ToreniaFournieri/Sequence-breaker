@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20184-TC-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20184
-  name: TC-Jammer
+  shortName: TC-Jammer
   affiliation: 1
   unitType: 4
   itemCapacity: 15

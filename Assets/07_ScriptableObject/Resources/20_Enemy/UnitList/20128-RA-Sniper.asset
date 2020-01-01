@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20128-RA-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20128
-  name: RA-Sniper
+  shortName: RA-Sniper
   affiliation: 1
   unitType: 3
   itemCapacity: 6

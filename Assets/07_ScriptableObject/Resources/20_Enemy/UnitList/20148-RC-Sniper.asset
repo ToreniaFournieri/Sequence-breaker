@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20148-RC-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20148
-  name: RC-Sniper
+  shortName: RC-Sniper
   affiliation: 1
   unitType: 3
   itemCapacity: 14

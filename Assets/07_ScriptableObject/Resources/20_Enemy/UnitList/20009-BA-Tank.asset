@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20009-BA-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20009
-  name: BA-Tank
+  shortName: BA-Tank
   affiliation: 1
   unitType: 0
   itemCapacity: 3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20169-TA-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20169
-  name: TA-Tank
+  shortName: TA-Tank
   affiliation: 1
   unitType: 4
   itemCapacity: 7

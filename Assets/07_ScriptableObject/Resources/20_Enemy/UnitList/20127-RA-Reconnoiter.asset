@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20127-RA-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20127
-  name: RA-Reconnoiter
+  shortName: RA-Reconnoiter
   affiliation: 1
   unitType: 3
   itemCapacity: 6

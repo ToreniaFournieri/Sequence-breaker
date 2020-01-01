@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20153-RD-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20153
-  name: RD-Gunner
+  shortName: RD-Gunner
   affiliation: 1
   unitType: 3
   itemCapacity: 18

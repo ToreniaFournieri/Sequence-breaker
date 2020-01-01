@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20095-DB-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20095
-  name: DB-Lancer
+  shortName: DB-Lancer
   affiliation: 1
   unitType: 2
   itemCapacity: 9

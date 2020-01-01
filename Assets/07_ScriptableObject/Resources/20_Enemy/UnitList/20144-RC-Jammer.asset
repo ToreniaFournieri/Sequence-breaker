@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20144-RC-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20144
-  name: RC-Jammer
+  shortName: RC-Jammer
   affiliation: 1
   unitType: 3
   itemCapacity: 14

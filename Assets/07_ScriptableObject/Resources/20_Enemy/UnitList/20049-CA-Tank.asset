@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20049-CA-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20049
-  name: CA-Tank
+  shortName: CA-Tank
   affiliation: 1
   unitType: 1
   itemCapacity: 4

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20029-BC-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20029
-  name: BC-Tank
+  shortName: BC-Tank
   affiliation: 1
   unitType: 0
   itemCapacity: 11

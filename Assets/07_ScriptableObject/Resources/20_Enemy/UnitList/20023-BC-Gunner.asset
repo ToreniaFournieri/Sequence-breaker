@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20023-BC-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20023
-  name: BC-Gunner
+  shortName: BC-Gunner
   affiliation: 1
   unitType: 0
   itemCapacity: 11

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20094-DB-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20094
-  name: DB-Jammer
+  shortName: DB-Jammer
   affiliation: 1
   unitType: 2
   itemCapacity: 9

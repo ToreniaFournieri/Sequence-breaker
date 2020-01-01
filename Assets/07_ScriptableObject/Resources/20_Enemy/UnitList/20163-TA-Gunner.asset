@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20163-TA-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20163
-  name: TA-Gunner
+  shortName: TA-Gunner
   affiliation: 1
   unitType: 4
   itemCapacity: 7

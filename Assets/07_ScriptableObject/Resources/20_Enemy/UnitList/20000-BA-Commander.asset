@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20000-BA-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20000
-  name: BA-Commander
+  shortName: BA-Commander
   affiliation: 1
   unitType: 0
   itemCapacity: 3

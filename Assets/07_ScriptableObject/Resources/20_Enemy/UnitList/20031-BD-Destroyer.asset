@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20031-BD-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20031
-  name: BD-Destroyer
+  shortName: BD-Destroyer
   affiliation: 1
   unitType: 0
   itemCapacity: 15

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20149-RC-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20149
-  name: RC-Tank
+  shortName: RC-Tank
   affiliation: 1
   unitType: 3
   itemCapacity: 14

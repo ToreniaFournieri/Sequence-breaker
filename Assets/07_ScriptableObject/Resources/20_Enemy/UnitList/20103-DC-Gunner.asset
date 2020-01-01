@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20103-DC-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20103
-  name: DC-Gunner
+  shortName: DC-Gunner
   affiliation: 1
   unitType: 2
   itemCapacity: 13

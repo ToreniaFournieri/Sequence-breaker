@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20067-CC-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20067
-  name: CC-Reconnoiter
+  shortName: CC-Reconnoiter
   affiliation: 1
   unitType: 1
   itemCapacity: 12

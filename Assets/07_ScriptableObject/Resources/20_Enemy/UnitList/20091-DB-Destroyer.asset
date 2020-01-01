@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20091-DB-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20091
-  name: DB-Destroyer
+  shortName: DB-Destroyer
   affiliation: 1
   unitType: 2
   itemCapacity: 9

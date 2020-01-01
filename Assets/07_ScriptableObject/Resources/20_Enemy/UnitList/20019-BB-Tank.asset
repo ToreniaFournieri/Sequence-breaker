@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20019-BB-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20019
-  name: BB-Tank
+  shortName: BB-Tank
   affiliation: 1
   unitType: 0
   itemCapacity: 7

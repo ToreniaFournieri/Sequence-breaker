@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20074-CD-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20074
-  name: CD-Jammer
+  shortName: CD-Jammer
   affiliation: 1
   unitType: 1
   itemCapacity: 16

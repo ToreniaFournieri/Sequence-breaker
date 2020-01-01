@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20046-CA-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20046
-  name: CA-Medic
+  shortName: CA-Medic
   affiliation: 1
   unitType: 1
   itemCapacity: 4

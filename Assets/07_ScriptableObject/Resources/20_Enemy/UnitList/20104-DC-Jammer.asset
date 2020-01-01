@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20104-DC-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20104
-  name: DC-Jammer
+  shortName: DC-Jammer
   affiliation: 1
   unitType: 2
   itemCapacity: 13

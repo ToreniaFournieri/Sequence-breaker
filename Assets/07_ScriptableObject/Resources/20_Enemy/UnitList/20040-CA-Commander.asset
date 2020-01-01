@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20040-CA-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20040
-  name: CA-Commander
+  shortName: CA-Commander
   affiliation: 1
   unitType: 1
   itemCapacity: 4

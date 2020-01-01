@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20030-BD-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20030
-  name: BD-Commander
+  shortName: BD-Commander
   affiliation: 1
   unitType: 0
   itemCapacity: 15

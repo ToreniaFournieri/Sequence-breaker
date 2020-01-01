@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20173-TB-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20173
-  name: TB-Gunner
+  shortName: TB-Gunner
   affiliation: 1
   unitType: 4
   itemCapacity: 11

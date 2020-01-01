@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20125-RA-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20125
-  name: RA-Lancer
+  shortName: RA-Lancer
   affiliation: 1
   unitType: 3
   itemCapacity: 6

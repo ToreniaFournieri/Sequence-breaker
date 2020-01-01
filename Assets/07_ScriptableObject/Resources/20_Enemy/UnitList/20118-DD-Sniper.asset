@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20118-DD-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20118
-  name: DD-Sniper
+  shortName: DD-Sniper
   affiliation: 1
   unitType: 2
   itemCapacity: 17

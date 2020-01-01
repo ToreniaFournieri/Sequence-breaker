@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20098-DB-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20098
-  name: DB-Sniper
+  shortName: DB-Sniper
   affiliation: 1
   unitType: 2
   itemCapacity: 9

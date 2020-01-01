@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20150-RD-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20150
-  name: RD-Commander
+  shortName: RD-Commander
   affiliation: 1
   unitType: 3
   itemCapacity: 18

@@ -89,11 +89,6 @@ namespace SequenceBreaker.Editor
             }
 
 
-            if (EditorPrefs.HasKey(_itembaseListPathId))
-            {
-                string objectPath = EditorPrefs.GetString(_itembaseListPathId);
-                itemBaseMasterListPath = objectPath;
-            }
 
 
             // 4. _unitClassListPathId
@@ -118,6 +113,15 @@ namespace SequenceBreaker.Editor
             {
                 string objectPath = EditorPrefs.GetString(_itemPresetPathId);
                 itemPresetPath = objectPath;
+
+            }
+
+            // 7.
+            if (EditorPrefs.HasKey(_itembaseListPathId))
+            {
+                string objectPath = EditorPrefs.GetString(_itembaseListPathId);
+                itemBaseMasterListPath = objectPath;
+                itemBaseMasterList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(ItemBaseMasterList)) as ItemBaseMasterList;
 
             }
 
@@ -353,7 +357,7 @@ namespace SequenceBreaker.Editor
 
                 if (itemPresetPath != null)
                 {
-                    EditorPrefs.SetString(_itemPresetPathId, unitPath);
+                    EditorPrefs.SetString(_itemPresetPathId, itemPresetPath);
                 }
             }
 
@@ -510,6 +514,8 @@ namespace SequenceBreaker.Editor
                         if (unitEquip.equipment26 != 0) { itemPreset.itemIdList.Add(itemIdSet.Add(0, unitEquip.equipment26, 0, unitEquip.enhanced26)); }
                     }
                 }
+
+                EditorUtility.SetDirty(_unit);
                 EditorUtility.SetDirty(itemPreset);
                 itemPresetList.itemPresetList.Add(itemPreset);
 

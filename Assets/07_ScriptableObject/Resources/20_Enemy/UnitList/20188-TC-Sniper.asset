@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20188-TC-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20188
-  name: TC-Sniper
+  shortName: TC-Sniper
   affiliation: 1
   unitType: 4
   itemCapacity: 15

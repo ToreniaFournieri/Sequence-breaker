@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20006-BA-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20006
-  name: BA-Medic
+  shortName: BA-Medic
   affiliation: 1
   unitType: 0
   itemCapacity: 3

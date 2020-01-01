@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20092-DB-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20092
-  name: DB-Fighter
+  shortName: DB-Fighter
   affiliation: 1
   unitType: 2
   itemCapacity: 9

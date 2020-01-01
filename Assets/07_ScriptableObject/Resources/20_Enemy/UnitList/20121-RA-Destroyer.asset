@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20121-RA-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20121
-  name: RA-Destroyer
+  shortName: RA-Destroyer
   affiliation: 1
   unitType: 3
   itemCapacity: 6

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20097-DB-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20097
-  name: DB-Reconnoiter
+  shortName: DB-Reconnoiter
   affiliation: 1
   unitType: 2
   itemCapacity: 9

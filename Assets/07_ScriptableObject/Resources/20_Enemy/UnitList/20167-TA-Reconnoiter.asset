@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20167-TA-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20167
-  name: TA-Reconnoiter
+  shortName: TA-Reconnoiter
   affiliation: 1
   unitType: 4
   itemCapacity: 7

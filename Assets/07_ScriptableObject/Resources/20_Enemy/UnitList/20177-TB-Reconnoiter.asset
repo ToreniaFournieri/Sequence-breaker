@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20177-TB-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20177
-  name: TB-Reconnoiter
+  shortName: TB-Reconnoiter
   affiliation: 1
   unitType: 4
   itemCapacity: 11

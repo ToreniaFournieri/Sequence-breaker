@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20180-TC-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20180
-  name: TC-Commander
+  shortName: TC-Commander
   affiliation: 1
   unitType: 4
   itemCapacity: 15

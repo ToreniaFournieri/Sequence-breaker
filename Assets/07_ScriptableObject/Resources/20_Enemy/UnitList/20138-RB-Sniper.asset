@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20138-RB-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20138
-  name: RB-Sniper
+  shortName: RB-Sniper
   affiliation: 1
   unitType: 3
   itemCapacity: 10

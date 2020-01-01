@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20129-RA-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20129
-  name: RA-Tank
+  shortName: RA-Tank
   affiliation: 1
   unitType: 3
   itemCapacity: 6

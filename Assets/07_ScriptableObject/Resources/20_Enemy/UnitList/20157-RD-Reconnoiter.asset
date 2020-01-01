@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20157-RD-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20157
-  name: RD-Reconnoiter
+  shortName: RD-Reconnoiter
   affiliation: 1
   unitType: 3
   itemCapacity: 18

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20051-CB-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20051
-  name: CB-Destroyer
+  shortName: CB-Destroyer
   affiliation: 1
   unitType: 1
   itemCapacity: 8

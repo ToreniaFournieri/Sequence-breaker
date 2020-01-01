@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20077-CD-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20077
-  name: CD-Reconnoiter
+  shortName: CD-Reconnoiter
   affiliation: 1
   unitType: 1
   itemCapacity: 16

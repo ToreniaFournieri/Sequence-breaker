@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20066-CC-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20066
-  name: CC-Medic
+  shortName: CC-Medic
   affiliation: 1
   unitType: 1
   itemCapacity: 12

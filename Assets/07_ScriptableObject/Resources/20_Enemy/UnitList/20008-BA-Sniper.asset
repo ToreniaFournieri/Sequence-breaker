@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20008-BA-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20008
-  name: BA-Sniper
+  shortName: BA-Sniper
   affiliation: 1
   unitType: 0
   itemCapacity: 3

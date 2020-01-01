@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20195-TD-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20195
-  name: TD-Lancer
+  shortName: TD-Lancer
   affiliation: 1
   unitType: 4
   itemCapacity: 19

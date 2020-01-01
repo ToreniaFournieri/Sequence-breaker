@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20126-RA-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20126
-  name: RA-Medic
+  shortName: RA-Medic
   affiliation: 1
   unitType: 3
   itemCapacity: 6

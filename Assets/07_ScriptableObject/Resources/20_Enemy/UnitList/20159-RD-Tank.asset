@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20159-RD-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20159
-  name: RD-Tank
+  shortName: RD-Tank
   affiliation: 1
   unitType: 3
   itemCapacity: 18

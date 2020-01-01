@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20166-TA-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20166
-  name: TA-Medic
+  shortName: TA-Medic
   affiliation: 1
   unitType: 4
   itemCapacity: 7

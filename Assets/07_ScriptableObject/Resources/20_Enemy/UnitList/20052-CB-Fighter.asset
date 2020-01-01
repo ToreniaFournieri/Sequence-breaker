@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20052-CB-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20052
-  name: CB-Fighter
+  shortName: CB-Fighter
   affiliation: 1
   unitType: 1
   itemCapacity: 8

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20108-DC-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20108
-  name: DC-Sniper
+  shortName: DC-Sniper
   affiliation: 1
   unitType: 2
   itemCapacity: 13

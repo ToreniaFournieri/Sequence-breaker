@@ -1,4 +1,5 @@
-﻿using _00_Asset.I2.Localization.Scripts.Manager;
+﻿
+using _00_Asset.I2.Localization.Scripts.Manager;
 using UnityEngine;
 
 namespace SequenceBreaker.Translate
@@ -7,7 +8,9 @@ namespace SequenceBreaker.Translate
     {
 
 
-        //Translation without parameter
+        /// <summary>
+        /// Translation without parameter. <b>LanguageSource</b> controll data and language.
+        /// </summary>
         public static string Get(string term)
         {
             string words = LocalizationManager.GetTranslation(term);
@@ -20,9 +23,11 @@ namespace SequenceBreaker.Translate
             return words;
         }
 
-        //Translation with parameter
-        // ex) "LocalizationManager.GetTranslation(term)" will return value like:"plural {[X]} damages.[i2p_Zero] No damage.[i2p_One] 1 damage."
-        // So I need to trim to get an appropriate term.
+        /// <summary>
+        /// Translation with parameter.
+        /// ex) "LocalizationManager.GetTranslation(term)" will return value like:"plural {[X]} damages.[i2p_Zero] No damage.[i2p_One] 1 damage."
+        /// So this constructor trims to get an appropriate term.
+        /// </summary>
         public static string Get(string term, string valueX)
         {
             string words = LocalizationManager.GetTranslation(term);
@@ -72,23 +77,9 @@ namespace SequenceBreaker.Translate
         }
 
 
-        public static Font Font()
-        {
-            return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
-        }
-
-        public static Font Font(bool isAlphabet)
-        {
-            if (isAlphabet)
-            {
-                return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT-Alphabet");
-            }
-            else
-            {
-                return Font();
-            }
-        }
-
+        /// <summary>
+        /// Translation with ordinal numeral parameter. Set isOrdinals true.
+        /// </summary>
         public static string Get(string term, string ordinalNumeral, bool isOrdinals)
         {
             string valueX = ordinalNumeral;
@@ -125,7 +116,37 @@ namespace SequenceBreaker.Translate
             return Get(term, valueX);
         }
 
+        /// <summary>
+        /// Translation with two parameters. valueX:{[X]} is number, objectY:{[A]} is object.
+        /// ex)valueX = 2, [Subject name] gets {[A]} (valid for {[X]} turns). 
+        /// </summary>
+        public static string Get(string term, string valueX, string objectA, string objectB = null, string objectC = null )
+        {
 
+            string words = Get(term, valueX);
+            if (words.Contains("{[A]}")) { words = words.Replace("{[A]}", objectA); }
+            if (words.Contains("{[B]}")) { words = words.Replace("{[B]}", objectB); }
+            if (words.Contains("{[C]}")) { words = words.Replace("{[C]}", objectC); }
+
+            return words;
+        }
+
+        public static Font Font()
+        {
+            return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+        }
+
+        public static Font Font(bool isAlphabet)
+        {
+            if (isAlphabet)
+            {
+                return LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT-Alphabet");
+            }
+            else
+            {
+                return Font();
+            }
+        }
 
 
     }

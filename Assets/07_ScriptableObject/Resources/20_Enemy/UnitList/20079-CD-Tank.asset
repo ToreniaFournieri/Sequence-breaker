@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20079-CD-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20079
-  name: CD-Tank
+  shortName: CD-Tank
   affiliation: 1
   unitType: 1
   itemCapacity: 16

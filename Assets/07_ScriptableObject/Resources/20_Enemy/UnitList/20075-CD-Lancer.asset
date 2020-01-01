@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20075-CD-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20075
-  name: CD-Lancer
+  shortName: CD-Lancer
   affiliation: 1
   unitType: 1
   itemCapacity: 16

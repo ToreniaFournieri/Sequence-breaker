@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20064-CC-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20064
-  name: CC-Jammer
+  shortName: CC-Jammer
   affiliation: 1
   unitType: 1
   itemCapacity: 12

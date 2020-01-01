@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20151-RD-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20151
-  name: RD-Destroyer
+  shortName: RD-Destroyer
   affiliation: 1
   unitType: 3
   itemCapacity: 18

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20134-RB-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20134
-  name: RB-Jammer
+  shortName: RB-Jammer
   affiliation: 1
   unitType: 3
   itemCapacity: 10

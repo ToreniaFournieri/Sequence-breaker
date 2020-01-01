@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20141-RC-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20141
-  name: RC-Destroyer
+  shortName: RC-Destroyer
   affiliation: 1
   unitType: 3
   itemCapacity: 14

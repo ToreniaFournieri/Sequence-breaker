@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20162-TA-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20162
-  name: TA-Fighter
+  shortName: TA-Fighter
   affiliation: 1
   unitType: 4
   itemCapacity: 7

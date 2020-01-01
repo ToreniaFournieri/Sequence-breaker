@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20045-CA-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20045
-  name: CA-Lancer
+  shortName: CA-Lancer
   affiliation: 1
   unitType: 1
   itemCapacity: 4

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20109-DC-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20109
-  name: DC-Tank
+  shortName: DC-Tank
   affiliation: 1
   unitType: 2
   itemCapacity: 13

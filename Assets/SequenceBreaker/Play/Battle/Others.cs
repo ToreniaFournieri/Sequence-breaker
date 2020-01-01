@@ -138,7 +138,7 @@ namespace SequenceBreaker.Play.Battle
                        + Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma()
                        + "% HP" + new string(' ', hPPercentSpace)
                        + Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma()
-                       + "%)" + Word.Get("heals X shields", ((int)healValue).ToString()) + "\n";
+                       + "%)" + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n";
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 
@@ -335,7 +335,7 @@ namespace SequenceBreaker.Play.Battle
                     else
                     {
                         characters[i].combat.shieldCurrent += shieldHealAmount;
-                        Log += characters[i].longName + Word.Get("heals X shields", shieldHealAmount.ToString()) 
+                        Log += characters[i].longName + Word.Get("heals X shields.", shieldHealAmount.ToString()) 
                              + " (" + (int)(characters[i].combat.shieldCurrent / (double)characters[i].combat.shieldMax * 100) + "%) \n";
                     }
                 }

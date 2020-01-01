@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20199-TD-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20199
-  name: TD-Tank
+  shortName: TD-Tank
   affiliation: 1
   unitType: 4
   itemCapacity: 19

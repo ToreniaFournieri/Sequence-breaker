@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20156-RD-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20156
-  name: RD-Medic
+  shortName: RD-Medic
   affiliation: 1
   unitType: 3
   itemCapacity: 18

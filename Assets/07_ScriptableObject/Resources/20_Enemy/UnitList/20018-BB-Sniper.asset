@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20018-BB-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20018
-  name: BB-Sniper
+  shortName: BB-Sniper
   affiliation: 1
   unitType: 0
   itemCapacity: 7

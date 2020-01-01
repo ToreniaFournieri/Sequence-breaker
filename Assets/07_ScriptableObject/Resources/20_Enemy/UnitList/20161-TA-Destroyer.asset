@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20161-TA-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20161
-  name: TA-Destroyer
+  shortName: TA-Destroyer
   affiliation: 1
   unitType: 4
   itemCapacity: 7

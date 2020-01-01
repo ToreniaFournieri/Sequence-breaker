@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20087-DA-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20087
-  name: DA-Reconnoiter
+  shortName: DA-Reconnoiter
   affiliation: 1
   unitType: 2
   itemCapacity: 5

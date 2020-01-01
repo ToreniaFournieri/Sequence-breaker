@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20155-RD-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20155
-  name: RD-Lancer
+  shortName: RD-Lancer
   affiliation: 1
   unitType: 3
   itemCapacity: 18

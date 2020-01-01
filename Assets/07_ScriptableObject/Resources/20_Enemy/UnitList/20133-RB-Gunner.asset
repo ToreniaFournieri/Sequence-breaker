@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20133-RB-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20133
-  name: RB-Gunner
+  shortName: RB-Gunner
   affiliation: 1
   unitType: 3
   itemCapacity: 10

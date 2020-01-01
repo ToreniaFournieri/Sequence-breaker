@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20122-RA-Fighter
   m_EditorClassIdentifier: 
   uniqueId: 20122
-  name: RA-Fighter
+  shortName: RA-Fighter
   affiliation: 1
   unitType: 3
   itemCapacity: 6

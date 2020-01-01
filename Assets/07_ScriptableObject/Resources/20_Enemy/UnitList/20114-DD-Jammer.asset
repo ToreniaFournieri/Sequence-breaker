@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20114-DD-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20114
-  name: DD-Jammer
+  shortName: DD-Jammer
   affiliation: 1
   unitType: 2
   itemCapacity: 17

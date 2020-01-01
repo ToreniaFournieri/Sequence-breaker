@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20035-BD-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20035
-  name: BD-Lancer
+  shortName: BD-Lancer
   affiliation: 1
   unitType: 0
   itemCapacity: 15

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20028-BC-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20028
-  name: BC-Sniper
+  shortName: BC-Sniper
   affiliation: 1
   unitType: 0
   itemCapacity: 11

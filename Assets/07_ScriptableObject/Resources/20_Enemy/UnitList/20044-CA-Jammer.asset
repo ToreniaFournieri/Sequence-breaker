@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20044-CA-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20044
-  name: CA-Jammer
+  shortName: CA-Jammer
   affiliation: 1
   unitType: 1
   itemCapacity: 4

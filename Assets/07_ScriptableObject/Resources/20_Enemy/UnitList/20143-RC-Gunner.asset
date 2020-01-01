@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20143-RC-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20143
-  name: RC-Gunner
+  shortName: RC-Gunner
   affiliation: 1
   unitType: 3
   itemCapacity: 14

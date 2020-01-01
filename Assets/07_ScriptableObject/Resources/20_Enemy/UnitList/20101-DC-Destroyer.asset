@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20101-DC-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20101
-  name: DC-Destroyer
+  shortName: DC-Destroyer
   affiliation: 1
   unitType: 2
   itemCapacity: 13

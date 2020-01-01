@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20194-TD-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20194
-  name: TD-Jammer
+  shortName: TD-Jammer
   affiliation: 1
   unitType: 4
   itemCapacity: 19

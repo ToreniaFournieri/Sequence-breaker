@@ -403,7 +403,7 @@ namespace SequenceBreaker.Play.Battle
                 //string hitString = Word.Get("Hit-Active");
 
                 var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) +"] " + skillTriggerPossibility + " "                               
-                                + " " + Word.Get("X hits-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
+                                + " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
@@ -430,9 +430,9 @@ namespace SequenceBreaker.Play.Battle
                         string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
 
-                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + damageRatioString + " "
-                            + Word.Get("X hits", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
+                            + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
                             + "   " + "["+ opponents[fTargetColumn].GetShieldHp() +"]" + crushed + barrierWords + optimumRangeWords + " \n";
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }

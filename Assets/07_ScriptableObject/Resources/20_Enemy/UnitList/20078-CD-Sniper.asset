@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20078-CD-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20078
-  name: CD-Sniper
+  shortName: CD-Sniper
   affiliation: 1
   unitType: 1
   itemCapacity: 16

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20198-TD-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20198
-  name: TD-Sniper
+  shortName: TD-Sniper
   affiliation: 1
   unitType: 4
   itemCapacity: 19

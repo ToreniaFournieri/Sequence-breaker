@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20010-BB-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20010
-  name: BB-Commander
+  shortName: BB-Commander
   affiliation: 1
   unitType: 0
   itemCapacity: 7

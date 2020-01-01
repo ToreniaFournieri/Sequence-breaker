@@ -38,6 +38,7 @@ namespace SequenceBreaker.Translate
                     _targetText.font = Word.Font();
                 }
 
+
                 _previousLanguage = LocalizationManager.CurrentLanguage;
             }
         }

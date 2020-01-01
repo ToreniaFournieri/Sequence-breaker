@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20175-TB-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20175
-  name: TB-Lancer
+  shortName: TB-Lancer
   affiliation: 1
   unitType: 4
   itemCapacity: 11

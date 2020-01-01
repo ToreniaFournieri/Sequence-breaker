@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20059-CB-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20059
-  name: CB-Tank
+  shortName: CB-Tank
   affiliation: 1
   unitType: 1
   itemCapacity: 8

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20054-CB-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20054
-  name: CB-Jammer
+  shortName: CB-Jammer
   affiliation: 1
   unitType: 1
   itemCapacity: 8

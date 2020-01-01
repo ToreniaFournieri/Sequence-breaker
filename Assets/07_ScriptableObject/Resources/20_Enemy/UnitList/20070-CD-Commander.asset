@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20070-CD-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20070
-  name: CD-Commander
+  shortName: CD-Commander
   affiliation: 1
   unitType: 1
   itemCapacity: 16

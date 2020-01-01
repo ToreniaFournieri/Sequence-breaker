@@ -194,7 +194,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 //int cellSize = (int)(hight * 1.6) + 235;
                 ////int cellSize = (count + 1) * 48 + 190;  40 is better
-                Debug.Log((count) + " text: " + t1.MainText);
+                //Debug.Log((count) + " text: " + t1.MainText);
                 int cellSize = (count) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + 235;
                 const int cellMinSize = 220;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }

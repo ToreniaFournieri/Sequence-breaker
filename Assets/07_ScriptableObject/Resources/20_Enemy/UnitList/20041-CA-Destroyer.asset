@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20041-CA-Destroyer
   m_EditorClassIdentifier: 
   uniqueId: 20041
-  name: CA-Destroyer
+  shortName: CA-Destroyer
   affiliation: 1
   unitType: 1
   itemCapacity: 4

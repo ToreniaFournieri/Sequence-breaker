@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20100-DC-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20100
-  name: DC-Commander
+  shortName: DC-Commander
   affiliation: 1
   unitType: 2
   itemCapacity: 13

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20115-DD-Lancer
   m_EditorClassIdentifier: 
   uniqueId: 20115
-  name: DD-Lancer
+  shortName: DD-Lancer
   affiliation: 1
   unitType: 2
   itemCapacity: 17

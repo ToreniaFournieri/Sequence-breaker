@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20107-DC-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20107
-  name: DC-Reconnoiter
+  shortName: DC-Reconnoiter
   affiliation: 1
   unitType: 2
   itemCapacity: 13

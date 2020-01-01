@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20093-DB-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20093
-  name: DB-Gunner
+  shortName: DB-Gunner
   affiliation: 1
   unitType: 2
   itemCapacity: 9

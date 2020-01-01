@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20116-DD-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20116
-  name: DD-Medic
+  shortName: DD-Medic
   affiliation: 1
   unitType: 2
   itemCapacity: 17

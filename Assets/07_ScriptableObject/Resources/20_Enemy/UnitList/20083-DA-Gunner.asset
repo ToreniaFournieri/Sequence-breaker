@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20083-DA-Gunner
   m_EditorClassIdentifier: 
   uniqueId: 20083
-  name: DA-Gunner
+  shortName: DA-Gunner
   affiliation: 1
   unitType: 2
   itemCapacity: 5

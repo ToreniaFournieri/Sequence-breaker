@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20047-CA-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20047
-  name: CA-Reconnoiter
+  shortName: CA-Reconnoiter
   affiliation: 1
   unitType: 1
   itemCapacity: 4

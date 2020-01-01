@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20187-TC-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20187
-  name: TC-Reconnoiter
+  shortName: TC-Reconnoiter
   affiliation: 1
   unitType: 4
   itemCapacity: 15

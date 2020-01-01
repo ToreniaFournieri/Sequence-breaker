@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20096-DB-Medic
   m_EditorClassIdentifier: 
   uniqueId: 20096
-  name: DB-Medic
+  shortName: DB-Medic
   affiliation: 1
   unitType: 2
   itemCapacity: 9

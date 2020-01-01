@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20190-TD-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20190
-  name: TD-Commander
+  shortName: TD-Commander
   affiliation: 1
   unitType: 4
   itemCapacity: 19

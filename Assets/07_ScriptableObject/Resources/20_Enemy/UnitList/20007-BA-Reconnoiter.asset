@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20007-BA-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20007
-  name: BA-Reconnoiter
+  shortName: BA-Reconnoiter
   affiliation: 1
   unitType: 0
   itemCapacity: 3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20050-CB-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20050
-  name: CB-Commander
+  shortName: CB-Commander
   affiliation: 1
   unitType: 1
   itemCapacity: 8

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20154-RD-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20154
-  name: RD-Jammer
+  shortName: RD-Jammer
   affiliation: 1
   unitType: 3
   itemCapacity: 18

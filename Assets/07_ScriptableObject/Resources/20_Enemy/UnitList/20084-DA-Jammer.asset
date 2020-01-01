@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20084-DA-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20084
-  name: DA-Jammer
+  shortName: DA-Jammer
   affiliation: 1
   unitType: 2
   itemCapacity: 5

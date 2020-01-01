@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20068-CC-Sniper
   m_EditorClassIdentifier: 
   uniqueId: 20068
-  name: CC-Sniper
+  shortName: CC-Sniper
   affiliation: 1
   unitType: 1
   itemCapacity: 12

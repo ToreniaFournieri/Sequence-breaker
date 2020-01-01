@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20090-DB-Commander
   m_EditorClassIdentifier: 
   uniqueId: 20090
-  name: DB-Commander
+  shortName: DB-Commander
   affiliation: 1
   unitType: 2
   itemCapacity: 9

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20004-BA-Jammer
   m_EditorClassIdentifier: 
   uniqueId: 20004
-  name: BA-Jammer
+  shortName: BA-Jammer
   affiliation: 1
   unitType: 0
   itemCapacity: 3

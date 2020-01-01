@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20179-TB-Tank
   m_EditorClassIdentifier: 
   uniqueId: 20179
-  name: TB-Tank
+  shortName: TB-Tank
   affiliation: 1
   unitType: 4
   itemCapacity: 11

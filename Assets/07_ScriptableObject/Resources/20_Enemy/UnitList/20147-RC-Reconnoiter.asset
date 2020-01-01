@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 20147-RC-Reconnoiter
   m_EditorClassIdentifier: 
   uniqueId: 20147
-  name: RC-Reconnoiter
+  shortName: RC-Reconnoiter
   affiliation: 1
   unitType: 3
   itemCapacity: 14
