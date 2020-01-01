@@ -21013,15 +21013,6 @@ MonoBehaviour:
       - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
       Flags: 0000
       Languages_Touch: []
-    - Term: takes X damages,
-      TermType: 0
-      Description: 
-      Languages:
-      - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
-        {[A]} (valid for {[X]} turn).
-      - "\u306F{[A]}([{X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
-      Flags: 0000
-      Languages_Touch: []
     - Term: X hits.
       TermType: 0
       Description: 
@@ -21036,6 +21027,23 @@ MonoBehaviour:
       Languages:
       - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
       - "{[X]}\u56DE\u547D\u4E2D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: gets A (valid for X turns).
+      TermType: 0
+      Description: 
+      Languages:
+      - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
+        {[A]} (valid for {[X]} turn).
+      - "\u306F{[A]}([{X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: takes X damages,
+      TermType: 0
+      Description: 
+      Languages:
+      - takes {[X]} damages,[i2p_Zero]takes no damages,[i2p_One]takes {[X]} damage,
+      - "\u306B{[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
