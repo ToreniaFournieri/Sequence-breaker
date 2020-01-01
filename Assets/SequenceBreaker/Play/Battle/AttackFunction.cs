@@ -345,7 +345,7 @@ namespace SequenceBreaker.Play.Battle
                     }
                 }
 
-                string criticalWords = null; if (criticalReduction > 0) { criticalWords = " " + Word.Get("Critical"); }//critical word.
+                string criticalWords = null; if (criticalReduction > 0) { criticalWords = " " + Word.Get("Critical") +"!"; }//critical word.
                 string skillTriggerPossibility = null; //if moveSkill, show possibility
                 if (order.SkillEffectChosen != null)
                 {

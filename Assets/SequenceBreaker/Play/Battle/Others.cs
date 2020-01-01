@@ -134,11 +134,8 @@ namespace SequenceBreaker.Play.Battle
 
                 // check overflow of shield current.
                 if (character.combat.shieldCurrent > character.combat.shieldMax) { character.combat.shieldCurrent = character.combat.shieldMax; }
-                Log += new string(' ', 4) + character.longName + " (Sh" + new string(' ', shieldPercentSpace)
-                       + Math.Round((character.combat.shieldCurrent / (double)character.combat.shieldMax * 100), 0).WithComma()
-                       + "% HP" + new string(' ', hPPercentSpace)
-                       + Math.Round((character.combat.hitPointCurrent / (double)character.combat.hitPointMax * 100), 0).WithComma()
-                       + "%)" + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n";
+                Log += new string(' ', 4) + character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
+                    + character.GetShieldHp() + "\n";
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 

@@ -150,13 +150,15 @@ namespace SequenceBreaker.Timeline.BattleLogView
             // This will save processing on subsequent passes.
             if (calculateLayout)
             {
-                // force update the canvas so that it can calculate the size needed for the text immediately
-                Canvas.ForceUpdateCanvases();
+                //// force update the canvas so that it can calculate the size needed for the text immediately
+                //Canvas.ForceUpdateCanvases();
 
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
                 data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
                 //battleLogLists.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
+
+            this.textRectTransform.ForceUpdateRectTransforms();
         }
     }
 }
