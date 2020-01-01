@@ -20799,7 +20799,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - '{[X]} hits.[i2p_Zero]no Hits.[i2p_One]{[X]} Hit.'
+      - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
       - "{[X]}\u56DE\u88AB\u5F3E"
       Flags: 0000
       Languages_Touch: []
