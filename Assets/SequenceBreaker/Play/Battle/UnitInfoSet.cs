@@ -15,6 +15,7 @@ namespace SequenceBreaker.Play.Battle
         public Image hPBar;
         [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
         public GameObject barrierObject;
+
         public Text barrierRemains;
         public Text infoText;
 
@@ -258,7 +259,17 @@ namespace SequenceBreaker.Play.Battle
             shieldBar.fillAmount = _followingShield / _maxShield;
             previousHpBar.fillAmount = _previousHP / _maxHP;
             hPBar.fillAmount = _followingHP / _maxHP;
-            barrierRemains.text = _followingBarrier.ToString();
+
+            if (_followingBarrier >= 1)
+            {
+                barrierRemains.text = _followingBarrier.ToString();
+                barrierObject.SetActive(true);
+
+            }
+            else
+            {
+                barrierObject.SetActive(false);
+            }
             infoText.text = Word.Get("Effective Defense: X", ((int)_effectiveDefense).ToString() + " " + _otherText);
 
 
