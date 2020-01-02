@@ -23731,7 +23731,6 @@ MonoBehaviour:
   unitInfo: {fileID: 286771708}
   firstLine: {fileID: 1216973265}
   multiMainTextTransform: {fileID: 1282537429}
-  mainGameObjectList: []
   bigText: {fileID: 527244092}
   backgroundImage: {fileID: 2094781889}
   nestedLinePrevious: {fileID: 1491216191}

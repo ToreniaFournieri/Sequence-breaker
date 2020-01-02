@@ -140,6 +140,8 @@ namespace SequenceBreaker.Play.Battle
                         battleUnit.buff.BarrierRemaining = 0; //Barrier initialize
                         battleUnit.feature.InitializeFeature(); //Feature initialize
                         battleUnit.Statistics.Initialize(); // Initialise
+                        battleUnit.previousTurnShield = battleUnit.combat.shieldCurrent;
+                        battleUnit.previousTurnHp = battleUnit.combat.hitPointCurrent;
                     }
                     //effects will be set by outside of this battle engine, so effect initialize is needed.
                     foreach (var effect in _effects)
@@ -174,6 +176,9 @@ namespace SequenceBreaker.Play.Battle
                                 //------------------------Action order routine------------------------
                                 //Only alive character should be action.
                                 var aliveCharacters = _characters.FindAll(character1 => character1.combat.hitPointCurrent > 0);
+
+
+
 
                                 //Action order decision for each turn
                                 var orders = new Stack<OrderClass>();
@@ -241,8 +246,18 @@ namespace SequenceBreaker.Play.Battle
                                                 //                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
                                                 //battleLogList.Add(battleLog);
 
+
+                                                // save HP and shield infomation
+                                                foreach (var character in _characters)
+                                                {
+                                                    character.previousTurnShield = character.combat.shieldCurrent;
+                                                    character.previousTurnHp = character.combat.hitPointCurrent;
+
+                                                }
+
                                                 for (var i = 0; i <= aliveCharacters.Count - 1; i++)
                                                 {
+
                                                     var effectList = _effects.FindAll(obj =>
                                                         obj.character == aliveCharacters[i] && obj.skill.actionType ==
                                                                                             ActionType.Move

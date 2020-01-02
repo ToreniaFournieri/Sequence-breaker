@@ -302,7 +302,6 @@ namespace SequenceBreaker.Play.Battle
                     character.combat.shieldCurrent = character.combat.shieldMax;
                     LogList.Add(character.longName
                         + Word.Get("heals all shields.") + " (" + shieldHealAmount + ")");
-                    LogList.Add(new string(' ', 3) + " [" + character.GetShieldHp() + "]");
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
                 else
@@ -310,10 +309,11 @@ namespace SequenceBreaker.Play.Battle
                     character.combat.shieldCurrent += shieldHealAmount;
                     LogList.Add(character.longName
                         + Word.Get("heals X shields.", shieldHealAmount.ToString()));
-                    LogList.Add(new string(' ', 3) + "[" + character.GetShieldHp() + "]");
+                    //LogList.Add(new string(' ', 3) + "[" + character.GetShieldHp() + "]");
 
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
+                //LogList.Add(character.GetShieldHPXML());
 
                 double beforeHate = character.feature.hateCurrent;
                 character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;

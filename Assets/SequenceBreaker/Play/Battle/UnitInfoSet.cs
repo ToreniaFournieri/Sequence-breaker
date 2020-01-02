@@ -293,7 +293,7 @@ namespace SequenceBreaker.Play.Battle
 
             previousShieldBar.fillAmount = _previousShield / _maxShield;
             previousHpBar.fillAmount = _previousHP / _maxHP;
-            hPBar.fillAmount = _followingHP / _maxHP;
+            //hPBar.fillAmount = _followingHP / _maxHP;
 
             if (_followingBarrier >= 1)
             {

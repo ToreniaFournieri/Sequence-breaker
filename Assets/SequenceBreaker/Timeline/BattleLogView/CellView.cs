@@ -22,7 +22,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         /// updated by the content size fitter
         /// </summary>
         public Transform multiMainTextTransform;
-        public List<GameObject> mainGameObjectList;
+        //public List<GameObject> mainGameObjectList;
         public Text bigText;
         public Image backgroundImage;
         public Image nestedLinePrevious;

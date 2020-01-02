@@ -36,6 +36,11 @@ namespace SequenceBreaker.Master.BattleUnit
         public int previousShield;
         public int previousBarrier;
 
+        // One Turn keep
+        public int previousTurnHp;
+        public int previousTurnShield;
+
+
         [FormerlySerializedAs("Ability")] [HideInInspector] public AbilityClass ability;
         [FormerlySerializedAs("InitialAbility")] [SerializeField] public AbilityClass initialAbility;
         public enum Conditions { Current, Max }

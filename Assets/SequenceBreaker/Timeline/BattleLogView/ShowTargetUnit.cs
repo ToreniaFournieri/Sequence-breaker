@@ -60,6 +60,10 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         vsIcon.GetComponent<UnitInfoSet>().unitInfoText.text = " vs ";
                         vsIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = 0f;
                         vsIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = 0f;
+                        vsIcon.GetComponent<UnitInfoSet>().previousShieldBar.fillAmount = 0f;
+                        vsIcon.GetComponent<UnitInfoSet>().previousHpBar.fillAmount = 0f;
+                        vsIcon.GetComponent<UnitInfoSet>().healedShieldBar.fillAmount = 0f;
+                        vsIcon.GetComponent<UnitInfoSet>().healedHpBar.fillAmount = 0f;
 
                         vsIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false);
 
@@ -68,7 +72,10 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         isSwitchedAffiliation = true;
                     }
 
+                    float previousTurnShieldRatio = (unit.previousTurnShield / (float)unit.combat.shieldMax);
                     float shieldRatio = (unit.combat.shieldCurrent / (float)unit.combat.shieldMax);
+
+                    float previousTurnHPRatio = (unit.previousTurnHp / (float)unit.combat.hitPointMax);
                     float hPRatio = (unit.combat.hitPointCurrent / (float)unit.combat.hitPointMax);
 
                     string deteriorationText = null;
@@ -89,8 +96,54 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                     unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text =  unit.longName + " [" + unit.combat.shieldCurrent
                                                                              + "+" + unit.combat.hitPointCurrent + "] " + deteriorationText;
-                    unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
-                    unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
+
+                    unitIcon.GetComponent<UnitInfoSet>().previousShieldBar.fillAmount = previousTurnShieldRatio;
+                    unitIcon.GetComponent<UnitInfoSet>().previousHpBar.fillAmount = previousTurnHPRatio;
+
+
+                    unitIcon.GetComponent<UnitInfoSet>().healedShieldBar.gameObject.SetActive(false);
+                    unitIcon.GetComponent<UnitInfoSet>().healedHpBar.gameObject.SetActive(false);
+
+
+                    if (previousTurnShieldRatio >= shieldRatio)
+                    {
+                        // damaged
+                        unitIcon.GetComponent<UnitInfoSet>().shieldBar.gameObject.SetActive(true);
+                        unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
+
+                    }
+                    else
+                    {
+                        // healed
+                        unitIcon.GetComponent<UnitInfoSet>().shieldBar.gameObject.SetActive(false);
+                        unitIcon.GetComponent<UnitInfoSet>().previousShieldBar.gameObject.SetActive(false);
+
+                        unitIcon.GetComponent<UnitInfoSet>().healedShieldBar.gameObject.SetActive(true);
+                        unitIcon.GetComponent<UnitInfoSet>().healedShieldBar.fillAmount = shieldRatio;
+                        unitIcon.GetComponent<UnitInfoSet>().shieldBar.gameObject.SetActive(true);
+
+                        unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = previousTurnShieldRatio;
+
+
+                    }
+
+                    if (previousTurnHPRatio >= hPRatio)
+                    {
+                        // damaged
+                        unitIcon.GetComponent<UnitInfoSet>().hPBar.gameObject.SetActive(true);
+                        unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
+
+                    }
+                    else
+                    {
+                        // healed
+                        unitIcon.GetComponent<UnitInfoSet>().hPBar.gameObject.SetActive(false);
+                        unitIcon.GetComponent<UnitInfoSet>().healedHpBar.gameObject.SetActive(true);
+                        unitIcon.GetComponent<UnitInfoSet>().healedHpBar.fillAmount = hPRatio;
+
+                    }
+
+
 
 
                     unitIcon.transform.parent = transform;
