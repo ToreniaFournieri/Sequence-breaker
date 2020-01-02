@@ -12,7 +12,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public string ReactText;
         public string UnitInfo;
         public string FirstLine;
-        public string MainText;
+        public List<string> MainTextList;
         public string BigText; // no ReactText, UnitInfo, FirstLine. only this BigText.
 
         /// <summary>

@@ -12,11 +12,11 @@ namespace SequenceBreaker.Play.Battle
     public sealed class BattleLogClass
     {
         public BattleLogClass() { } // for null call
-        public BattleLogClass(OrderConditionClass orderCondition, OrderClass order, string firstLine, string log, Affiliation whichAffiliationAct)
+        public BattleLogClass(OrderConditionClass orderCondition, OrderClass order, string firstLine, List<string> loglist, Affiliation whichAffiliationAct)
         {
             OrderCondition = orderCondition;
             if (order != null) { Order = order.Copy(); }
-            FirstLine = firstLine; Log = log; WhichAffiliationAct = whichAffiliationAct;
+            FirstLine = firstLine; LogList = loglist; WhichAffiliationAct = whichAffiliationAct;
 
             isHeaderInfo = false;
             headerInfoText = null;
@@ -25,7 +25,7 @@ namespace SequenceBreaker.Play.Battle
         public OrderConditionClass OrderCondition { get; }
         public OrderClass Order { get; }
         public string FirstLine { get; }
-        public string Log { get; }
+        public List<string> LogList ;
         public Affiliation WhichAffiliationAct { get; }
         [FormerlySerializedAs("Characters")] public List<BattleUnit> characters;
 

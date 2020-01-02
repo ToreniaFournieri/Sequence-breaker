@@ -1,4 +1,5 @@
-﻿using _00_Asset._05_EnhancedScroller_v2.Plugins;
+﻿using System.Collections.Generic;
+using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public GameObject separateLine;
         public Text unitInfo;
         public Text firstLine;
-        public Text mainText;
+        //public Text mainText;
+        public List<GameObject> mainGameObjectList;
         public Text bigText;
         public Image backgroundImage;
         public Image nestedLinePrevious;
@@ -71,16 +73,25 @@ namespace SequenceBreaker.Timeline.BattleLogView
             reactText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             unitInfo.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             firstLine.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
-            mainText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+
+            foreach (GameObject mainObject in mainGameObjectList)
+            {
+                foreach (var mainString in data.MainTextList)
+                {
+                    //if (data.MainTextList)
+                    //    mainTextList.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+                    //mainTextList.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
+                    //mainTextList.text = data.MainTextList;
+                }
+
+            }
             bigText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
-            mainText.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
             bigText.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
 
             unitInfo.text = data.UnitInfo;
             firstLine.text = data.FirstLine;
-            mainText.text = data.MainText;
             bigText.text = data.BigText;
             //someTextText.text = battleLogLists.Log;
             Color darkRed = new Color32(36, 20, 20, 255); // dark red

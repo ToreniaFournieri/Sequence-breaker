@@ -182,7 +182,7 @@ namespace SequenceBreaker.Play.Battle
                                 {
 
                                     string firstLine = null;
-                                    string log = null;
+                                    List<string> logList = new List<string>();
                                     BattleLogClass battleLog;
                                     OrderConditionClass orderCondition;
 
@@ -196,11 +196,11 @@ namespace SequenceBreaker.Play.Battle
                                                 //text = new FuncBattleConditionsText(turn, _characters);
                                                 //firstLine = text.FirstLine();
                                                 //log += text.Text();
-                                                log += null;
+                                                //logList += null;
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0, 0);
-                                                battleLog = new BattleLogClass(orderCondition, null, firstLine, log,
+                                                battleLog = new BattleLogClass(orderCondition, null, firstLine, logList,
                                                     Affiliation.None)
                                                 {
                                                     isHeaderInfo = true,
@@ -288,15 +288,21 @@ namespace SequenceBreaker.Play.Battle
                                         case 3:
                                             {
                                                 environmentInfo.Phase = 3;
-                                                log += new string(' ', 1) + "[At ending phase] \n";
+                                                //logList += new string(' ', 1) + "[At ending phase] \n";
+                                                logList.Add(new string(' ', 1) + "[At ending phase] ");
                                                 //Initialize 
 
                                                 //Heal Shield by generation %
 
                                                 foreach (var character in _characters)
                                                 {
+                                                    List<string> phaseEndLogList = PhaseEndFunction.Get(character);
+                                                    foreach (string log in phaseEndLogList)
+                                                    {
+                                                        logList.Add(log);
+                                                    }
 
-                                                    log += PhaseEndFunction.Get(character);
+
                                                     //var shieldHeal = new ShieldHealFunction(character);
                                                     //log += shieldHeal.Log;
                                                     //var calculateHate = new CalculationHateMagnificationPerTurnFunction(character);
@@ -305,7 +311,7 @@ namespace SequenceBreaker.Play.Battle
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0, 0);
-                                                battleLog = new BattleLogClass(orderCondition, null, null, log,
+                                                battleLog = new BattleLogClass(orderCondition, null, null, logList,
                                                     Affiliation.None);
                                                 battleLogList.Add(battleLog);
                                                 break;
@@ -951,26 +957,26 @@ namespace SequenceBreaker.Play.Battle
             return (firstLine, log);
         }
 
-        private static (string firstline, string log) SkillLogicDispatcher(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
+        private static (string firstline, List<string> logList) SkillLogicDispatcher(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
         {
             string firstLine = null;
-            string log = null;
+            List<string> logList = null;
             if (order.SkillEffectChosen.skill.callSkillLogicName == CallSkillLogicName.None) { return (null, null); } // check call skill 
             SkillLogicShieldHealClass healMulti;
             switch (order.SkillEffectChosen.skill.callSkillLogicName)
             {
                 case CallSkillLogicName.ShieldHealMulti:
                     healMulti = new SkillLogicShieldHealClass(order, characters, true, environmentInfo);
-                    log += healMulti.Log;
+                    logList = healMulti.LogList;
                     firstLine = healMulti.FirstLine;
                     break;
                 case CallSkillLogicName.ShieldHealSingle:
                     healMulti = new SkillLogicShieldHealClass(order, characters, false, environmentInfo);
-                    log += healMulti.Log;
+                    logList = healMulti.LogList;
                     firstLine = healMulti.FirstLine;
                     break;
             }
-            return (firstLine, log);
+            return (firstLine, logList);
         }
 
         private static (BattleLogClass, BattleResultClass) SkillMoveFunction(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)

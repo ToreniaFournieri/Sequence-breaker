@@ -43,6 +43,7 @@ namespace SequenceBreaker.Play.Battle
         // heal shield all actor's affiliation characters.
         public SkillLogicShieldHealClass(OrderClass order, List<BattleUnit> characters, bool isMulti, EnvironmentInfoClass environmentInfo)
         {
+            LogList = new List<string>();
             string rescueString = null;
             if (order.IsRescue) { rescueString = "[" + Word.Get("Rescue") + "] "; }
             FirstLine = rescueString + order.SkillEffectChosen.skill.skillName + " (" + Word.Get("Left") + ":" + order.SkillEffectChosen.UsageCount + ")";
@@ -96,8 +97,10 @@ namespace SequenceBreaker.Play.Battle
 
                 // check overflow of shield current.
                 if (character.combat.shieldCurrent > character.combat.shieldMax) { character.combat.shieldCurrent = character.combat.shieldMax; }
-                Log +=  character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
-                    + new string(' ', 4) + "["+ character.GetShieldHp() + "]\n";
+                //LogList += character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
+                //    + new string(' ', 4) + "[" + character.GetShieldHp() + "]\n";
+                LogList.Add(character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()));
+                LogList.Add( new string(' ', 4) + "[" + character.GetShieldHp() + "]" );
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 
@@ -105,11 +108,11 @@ namespace SequenceBreaker.Play.Battle
             var hateAdd = 30; if (isMulti) { hateAdd = 50; }
             order.Actor.feature.hateCurrent += hateAdd;
 
-            Log += order.Actor.shortName + " (+" + hateAdd + " " + Word.Get("hate") + ")\n";
+            LogList.Add( order.Actor.shortName + " (+" + hateAdd + " " + Word.Get("hate") + ")");
 
         }
         public string FirstLine { get; }
-        public string Log { get; }
+        public List<string> LogList { get; }
     }
 
 
@@ -281,9 +284,9 @@ namespace SequenceBreaker.Play.Battle
 
     public static class PhaseEndFunction
     {
-        public static string Get(BattleUnit character)
+        public static List<string> Get(BattleUnit character)
         {
-            string Log = null;
+            List<string> LogList = null;
 
             if (character.combat.hitPointCurrent > 0)
             {
@@ -292,29 +295,29 @@ namespace SequenceBreaker.Play.Battle
                 if ((character.combat.shieldMax - character.combat.shieldCurrent) <= shieldHealAmount)
                 {
                     character.combat.shieldCurrent = character.combat.shieldMax;
-                    Log += character.longName 
-                        +  Word.Get("heals all shields.") + " (" + shieldHealAmount + ")\n"
-                        + new string(' ', 3) + " [" + character.GetShieldHp() + "]";
+                    LogList.Add(character.longName
+                        + Word.Get("heals all shields.") + " (" + shieldHealAmount + ")");
+                    LogList.Add(new string(' ', 3) + " [" + character.GetShieldHp() + "]");
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
                 else
                 {
                     character.combat.shieldCurrent += shieldHealAmount;
-                    Log += character.longName 
-                        + Word.Get("heals X shields.", shieldHealAmount.ToString()) + "\n"
-                        + new string(' ', 3) + "[" + character.GetShieldHp() + "]";
+                    LogList.Add(character.longName
+                        + Word.Get("heals X shields.", shieldHealAmount.ToString()));
+                    LogList.Add(new string(' ', 3) + "[" + character.GetShieldHp() + "]");
 
                     //+ " (" + (int)(character.combat.shieldCurrent / (double)character.combat.shieldMax * 100) + "%) \n";
                 }
 
                 double beforeHate = character.feature.hateCurrent;
                 character.feature.hateCurrent *= character.feature.hateMagnificationPerTurn;
-                Log += new string(' ', 1) + (int)(character.feature.hateCurrent) +" " +Word.Get("hate")
-                    +  "("　+ (int)(character.feature.hateCurrent - beforeHate) +  ")\n";
+                LogList.Add( new string(' ', 1) + (int)(character.feature.hateCurrent) + " " + Word.Get("hate")
+                    + "(" + (int)(character.feature.hateCurrent - beforeHate) + ")" );
 
             }
 
-            return Log;
+            return LogList;
 
         }
 

@@ -49,7 +49,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public Sprite enemyImage;
 
         public SimpleObjectPool unitIconObjectPool;
-
+        public SimpleObjectPool hPShieldBarObjectPool;
 
         // Searching
         public GameObject searchBar;
@@ -131,11 +131,16 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 int additionalHight = 0;
 
-                if (t1.MainText != null)
+                if (t1.MainTextList != null)
                 {
-                    string[] lines = t1.MainText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    count = lines.Length + 1;
+                    foreach (string text in t1.MainTextList)
+                    {
+                        string[] lines = text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        count += lines.Length;
+                    }
+                    count++;
                     additionalHight = 235  +20;
+
 
                 } else if (t1.BigText != null)
                 {
@@ -209,7 +214,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             {
 
                 // mainText if found, set is Matched true
-                bool isMatched = (data.MainText != null && data.MainText.Contains(searchText.text)) || data.FirstLine != null && data.FirstLine.Contains(searchText.text);
+                bool isMatched = (data.MainTextList != null && data.MainTextList.Contains(searchText.text)) || data.FirstLine != null && data.FirstLine.Contains(searchText.text);
 
                 // firstLine if found set is Matched true
 

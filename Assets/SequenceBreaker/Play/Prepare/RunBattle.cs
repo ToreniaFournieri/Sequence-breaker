@@ -235,16 +235,18 @@ namespace SequenceBreaker.Play.Prepare
                     speedString = " " + Word.Get("Speed") + ":" + battle.LogList[i].OrderCondition.Speed;
                 }
 
-                string _mainText = null;
+                List<string> _mainText = null;
                 string _bigText = null;
                 if (battle.LogList[i].FirstLine != null)
                 {
-                    _mainText = battle.LogList[i].Log;
+                    _mainText = battle.LogList[i].LogList;
                 }
                 else
                 {
-                    _bigText = battle.LogList[i].Log;
+                    _bigText = battle.LogList[i].LogList[0];
                 }
+
+
 
 
                 _data.Add(new Data
@@ -257,7 +259,7 @@ namespace SequenceBreaker.Play.Prepare
 
                     UnitInfo = unitNameText + " " + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
-                    MainText = _mainText,
+                    MainTextList = _mainText,
                     BigText = _bigText,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,
                     NestLevel = battle.LogList[i].OrderCondition.Nest,

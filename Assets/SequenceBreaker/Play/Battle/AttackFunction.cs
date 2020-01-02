@@ -15,7 +15,7 @@ namespace SequenceBreaker.Play.Battle
     {
         public AttackFunction(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)
         {
-            string log = null;
+            List<string> logList = new List<string>();
             BattleResult = new BattleResultClass();
             // Target control
             var toTargetAffiliation = order.Actor.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
@@ -244,7 +244,7 @@ namespace SequenceBreaker.Play.Battle
                                 + order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical * toTarget.defenseMagnification.chemical * skillMagnificationChemical
                                 + order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal * toTarget.defenseMagnification.thermal * skillMagnificationThermal;
 
-                          　if(Math.Abs(damageTypeMagnification) < 0.1) { damageTypeMagnification = 1.0; }
+                            if (Math.Abs(damageTypeMagnification) < 0.1) { damageTypeMagnification = 1.0; }
 
                             var optimumRangeBonus = 1.0; if (toTarget.IsOptimumTarget) { optimumRangeBonus = order.Actor.offenseMagnification.optimumRangeBonus; } //Consider optimum range bonus.
                             var barrierReduction = 1.0; if (toTarget.buff.RemoveBarrier()) // Barrier check, true: barrier has, false no barrier.
@@ -418,7 +418,7 @@ namespace SequenceBreaker.Play.Battle
                 var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) + "] " + skillTriggerPossibility
                     + " (" + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) + ")";
                 //+ " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
-                log += criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement + "\n";
+                logList.Add(criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement);
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
@@ -444,12 +444,18 @@ namespace SequenceBreaker.Play.Battle
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
                         string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
+                        //logList += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                        //    + damageRatioString + " "
+                        //    + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
+                        //    + "   " + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
+                        //    + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
 
-                        log += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                        logList.Add(opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + damageRatioString + " "
-                            + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
-                            + "   " + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
-                            + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
+                            + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()));
+                        logList.Add(new string(' ', 3) + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
+                            + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString())
+                            + crushed + barrierWords + optimumRangeWords);
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 
@@ -462,7 +468,9 @@ namespace SequenceBreaker.Play.Battle
                     BattleResult.TotalDealtDamage = totalDealtDamageSum;
                 } //fTargetColumn
 
-                if (numberOfSuccessAttacks == 0) { log += new string(' ', 4) + Word.Get("All attacks missed") + "\n"; }
+                //if (numberOfSuccessAttacks == 0) { logList += new string(' ', 4) + Word.Get("All attacks missed") + "\n"; }
+
+                if (numberOfSuccessAttacks == 0) { logList.Add(new string(' ', 4) + Word.Get("All attacks missed")); }
 
 
                 //Absobes
@@ -475,16 +483,19 @@ namespace SequenceBreaker.Play.Battle
 
                 if (isAbsorbed || isHated)
                 {
-                    log += new string(' ', 3) + order.Actor.shortName;
+                    string log = new string(' ', 3) + order.Actor.shortName;
 
                     if (isAbsorbed)
                     {
-                        log +=  Word.Get("absorbs X shields", healedByAbsorbShield.ToString()) ;
+                        log += Word.Get("absorbs X shields", healedByAbsorbShield.ToString());
                     }
                     if (isHated)
                     {
-                        log +=  " (+" + (int)totalhateAdd + " " + Word.Get("hate") + ")";
+                        log += " (+" + (int)totalhateAdd + " " + Word.Get("hate") + ")";
                     }
+
+                    logList.Add(log);
+
                 }
                 //    //Absorb log
                 //    if (healedByAbsorbShield > 0)
@@ -503,7 +514,7 @@ namespace SequenceBreaker.Play.Battle
                 //        + healedByAbsorbShield + " " + Word.Get("shield")+ Word.Get("Period") +  " \n"; }
 
                 var orderCondition = order.OrderCondition;
-                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, log: log, whichAffiliationAct: order.Actor.affiliation);
+                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, loglist: logList, whichAffiliationAct: order.Actor.affiliation);
             }
         }
 
