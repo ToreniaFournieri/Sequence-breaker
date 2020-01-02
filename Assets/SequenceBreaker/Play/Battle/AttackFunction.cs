@@ -109,7 +109,7 @@ namespace SequenceBreaker.Play.Battle
                 {
                     opponent.previousShield = opponent.combat.shieldCurrent;
                     opponent.previousHp = opponent.combat.hitPointCurrent;
-                    opponent.effectiveDefense =(double)opponent.combat.defense * (1.00 - opponent.Deterioration)
+                    opponent.effectiveDefense = (double)opponent.combat.defense * (1.00 - opponent.Deterioration)
                         * environmentInfo.R.Next(40 + opponent.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
 
                 }
@@ -250,12 +250,17 @@ namespace SequenceBreaker.Play.Battle
                             }
 
                             //Damage type Magnification 
-                            var damageTypeMagnification =
+                            double damageTypeMagnification =
                                 order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic * toTarget.defenseMagnification.kinetic * skillMagnificationKinetic
                                 + order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical * toTarget.defenseMagnification.chemical * skillMagnificationChemical
                                 + order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal * toTarget.defenseMagnification.thermal * skillMagnificationThermal;
 
-                            if (Math.Abs(damageTypeMagnification) < 0.1) { damageTypeMagnification = 1.0; }
+                            // if no damage type attack, value is NaN
+                            if (Double.IsNaN(damageTypeMagnification))
+                            {
+                                damageTypeMagnification = 1.0;
+                            }
+
 
                             var optimumRangeBonus = 1.0; if (toTarget.IsOptimumTarget) { optimumRangeBonus = order.Actor.offenseMagnification.optimumRangeBonus; } //Consider optimum range bonus.
                             var barrierReduction = 1.0; if (toTarget.buff.RemoveBarrier()) // Barrier check, true: barrier has, false no barrier.
@@ -470,7 +475,7 @@ namespace SequenceBreaker.Play.Battle
                         //+ crushed + barrierWords + optimumRangeWords);
 
                         // dhisplay HP and Shield infomation
-                        logList.Add(opponents[fTargetColumn].GetShieldHPXML() +"<otherText>"+ crushed + optimumRangeWords + "</otherText>");
+                        logList.Add(opponents[fTargetColumn].GetShieldHPXML() + "<otherText>" + crushed + optimumRangeWords + "</otherText>");
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

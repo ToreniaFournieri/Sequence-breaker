@@ -9,8 +9,10 @@ namespace SequenceBreaker.Play.Battle
     {
         //public GameObject iconMask;
         //public Image unitIcon;
+        public Image healedShieldBar;
         public Image previousShieldBar;
         public Image shieldBar;
+        public Image healedHpBar;
         public Image previousHpBar;
         public Image hPBar;
         [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
@@ -52,7 +54,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _previousShield ");
                 }
 
-                Debug.Log(" previousShield:" + _previousShield);
+                //Debug.Log(" previousShield:" + _previousShield);
             }
             else
             {
@@ -73,7 +75,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _followingShield ");
                 }
 
-                Debug.Log(" followingShield:" + _followingShield);
+                //Debug.Log(" followingShield:" + _followingShield);
             }
             else
             {
@@ -94,7 +96,7 @@ namespace SequenceBreaker.Play.Battle
                 {
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _maxShield ");
                 }
-                Debug.Log(" maxShield:" + _maxShield);
+                //Debug.Log(" maxShield:" + _maxShield);
             }
             else
             {
@@ -116,7 +118,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _previousHP ");
                 }
 
-                Debug.Log(" previousHP:" + _previousHP);
+                //Debug.Log(" previousHP:" + _previousHP);
             }
             else
             {
@@ -138,7 +140,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _followingHP ");
                 }
 
-                Debug.Log(" followingHP:" + _followingHP);
+                //Debug.Log(" followingHP:" + _followingHP);
             }
             else
             {
@@ -159,7 +161,7 @@ namespace SequenceBreaker.Play.Battle
                 {
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _maxHP ");
                 }
-                Debug.Log(" maxHP:" + _maxHP);
+                //Debug.Log(" maxHP:" + _maxHP);
             }
             else
             {
@@ -181,7 +183,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _previousBarrier ");
                 }
 
-                Debug.Log(" previousBarrier:" + _previousBarrier);
+                //Debug.Log(" previousBarrier:" + _previousBarrier);
             }
             else
             {
@@ -203,7 +205,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _followingBarrier ");
                 }
 
-                Debug.Log(" followingBarrier:" + _followingBarrier);
+                //Debug.Log(" followingBarrier:" + _followingBarrier);
             }
             else
             {
@@ -225,7 +227,7 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _effectiveDefense ");
                 }
 
-                Debug.Log(" effectiveDefense:" + _effectiveDefense);
+                //Debug.Log(" effectiveDefense:" + _effectiveDefense);
             }
             else
             {
@@ -247,16 +249,35 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _otherText ");
                 }
 
-                Debug.Log(" otherText:" + _otherText);
+                //Debug.Log(" otherText:" + _otherText);
             }
             else
             {
-                Debug.LogError("failed to get otherText");
+                Debug.LogError("failed to get <otherText>");
+            }
+
+
+            healedShieldBar.gameObject.SetActive(false);
+            healedHpBar.gameObject.SetActive(false);
+
+            if (_previousShield >= _followingShield)
+            {
+                //get damaged
+                shieldBar.gameObject.SetActive(true);
+                shieldBar.fillAmount = _followingShield / _maxShield;
+
+            }
+            else
+            {
+                //get healed
+                healedShieldBar.gameObject.SetActive(true);
+                shieldBar.gameObject.SetActive(false);
+                healedShieldBar.fillAmount = _followingShield / _maxShield;
+
             }
 
 
             previousShieldBar.fillAmount = _previousShield / _maxShield;
-            shieldBar.fillAmount = _followingShield / _maxShield;
             previousHpBar.fillAmount = _previousHP / _maxHP;
             hPBar.fillAmount = _followingHP / _maxHP;
 

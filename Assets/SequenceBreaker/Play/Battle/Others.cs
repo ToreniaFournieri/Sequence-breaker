@@ -84,6 +84,10 @@ namespace SequenceBreaker.Play.Battle
             }
             foreach (var character in healingCharacters)
             {
+                character.previousShield = character.combat.shieldCurrent;
+                character.previousHp = character.combat.hitPointCurrent;
+                character.effectiveDefense = character.combat.defense;
+
                 var healValue = healBase * character.ability.generation * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100;
                 character.combat.shieldCurrent += (int)healValue;
                 if (order.IsRescue && character.combat.hitPointCurrent == 0) //Rescued, then heal armor only 1%
@@ -100,6 +104,7 @@ namespace SequenceBreaker.Play.Battle
                 //LogList += character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
                 //    + new string(' ', 4) + "[" + character.GetShieldHp() + "]\n";
                 LogList.Add(character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()));
+                LogList.Add(character.GetShieldHPXML() + "<otherText>" + rescueString + "</otherText>");
                 LogList.Add( new string(' ', 4) + "[" + character.GetShieldHp() + "]" );
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
