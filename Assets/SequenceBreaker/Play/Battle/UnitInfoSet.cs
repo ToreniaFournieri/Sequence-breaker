@@ -8,7 +8,9 @@ namespace SequenceBreaker.Play.Battle
     {
         //public GameObject iconMask;
         //public Image unitIcon;
+        public Image previousHpBar;
         public Image hPBar;
+        public Image previousShieldBar;
         public Image shieldBar;
         [FormerlySerializedAs("UnitInfoText")] public Text unitInfoText;
         public GameObject barrierObject;

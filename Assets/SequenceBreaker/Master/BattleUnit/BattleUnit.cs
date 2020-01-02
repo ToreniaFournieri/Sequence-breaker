@@ -32,6 +32,8 @@ namespace SequenceBreaker.Master.BattleUnit
 
         // One time Values
         public double effectiveDefense;
+        public int previousHp;
+        public int previousShield;
 
         [FormerlySerializedAs("Ability")] [HideInInspector] public AbilityClass ability;
         [FormerlySerializedAs("InitialAbility")] [SerializeField] public AbilityClass initialAbility;

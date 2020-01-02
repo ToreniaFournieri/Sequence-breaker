@@ -103,6 +103,17 @@ namespace SequenceBreaker.Play.Battle
                 // Individual attack routine
                 var survivedOpponents = opponents.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
+                double effectiveDefense = 0.0;
+                // get previousShield and HP
+                foreach (var opponent in survivedOpponents)
+                {
+                    opponent.previousShield = opponent.combat.shieldCurrent;
+                    opponent.previousHp = opponent.combat.hitPointCurrent;
+                    effectiveDefense = (double)opponent.combat.defense * (1.00 - opponent.Deterioration)
+                        * environmentInfo.R.Next(40 + opponent.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
+
+                }
+
                 for (var numberOfAttacks = 1; numberOfAttacks <= (int)(order.Actor.combat.numberOfAttacks * skillMagnificationNumberOfAttacks); numberOfAttacks++)
                 {
                     //Target individual opponent per each number of attack.
@@ -190,8 +201,8 @@ namespace SequenceBreaker.Play.Battle
                             } //critical
 
                             //Physical Attack damage calculation
-                            double effectiveDefense = (double)toTarget.combat.defense * (1.00 - toTarget.Deterioration)
-                                * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
+                            //double effectiveDefense = (double)toTarget.combat.defense * (1.00 - toTarget.Deterioration)
+                            //    * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
                             if (effectiveDefense < 0) { effectiveDefense = 0.0; }
 
                             toTarget.effectiveDefense = effectiveDefense;
