@@ -16,7 +16,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public Text unitInfo;
         public Text firstLine;
         //public Text mainText        ;
-        public Transform MultiMainTextTransform;
+
+        /// <summary>
+        /// A reference to the rect transform (this is Transform) which will be
+        /// updated by the content size fitter
+        /// </summary>
+        public Transform multiMainTextTransform;
         public List<GameObject> mainGameObjectList;
         public Text bigText;
         public Image backgroundImage;
@@ -40,11 +45,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public SimpleObjectPool mainTextObjectPool;
         public SimpleObjectPool hPShieldBarObjectPool;
 
-        /// <summary>
-        /// A reference to the rect transform which will be
-        /// updated by the content size fitter
-        /// </summary>
-        public RectTransform textRectTransform;
+        ///// <summary>
+        ///// A reference to the rect transform which will be
+        ///// updated by the content size fitter
+        ///// </summary>
+        //public RectTransform textRectTransform;
 
         /// <summary>
         /// The space around the text label so that we
@@ -81,7 +86,10 @@ namespace SequenceBreaker.Timeline.BattleLogView
             //foreach (GameObject mainObject in mainGameObjectList)
             //{ }
 
-            foreach (Transform children in MultiMainTextTransform)
+
+            int childrenCount = 0;
+
+            foreach (Transform children in multiMainTextTransform)
             {
                 if (children.GetComponent<UnitInfoSet>() != null)
                 {
@@ -89,11 +97,22 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 }
                 else
                 {
+                    //children.GetComponent<Text>().text = null;
                     mainTextObjectPool.ReturnObject(children.gameObject);
                 }
+                childrenCount++;
+            }
+
+            int childrenRemindCount = 0;
+
+            foreach (Transform children in multiMainTextTransform)
+            {
+                childrenRemindCount++;
+                Destroy(children.gameObject);
             }
 
 
+            Debug.Log("main children: " + childrenCount +" / " + childrenRemindCount + " this should be 0.");
             //GameObject[] _gameObjects = MultiMainTextTransform.gameObject.GetComponentsInChildren<GameObject>();
             //foreach (GameObject _gameObject in _gameObjects)
             //{
@@ -108,18 +127,29 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
             if (data.MainTextList != null)
             {
+
                 foreach (var mainString in data.MainTextList)
                 {
+                    //Debug.Log(mainString);
+
                     GameObject _gameObject = mainTextObjectPool.GetObject();
-                    _gameObject.transform.SetParent(MultiMainTextTransform);
                     _gameObject.GetComponent<Text>().text = mainString;
 
-                    //if (data.MainTextList)
+                    _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+
+
+                    // linespace not works well becareful!
+                    //_gameObject.GetComponent<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
                     //    mainTextList.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
                     //mainTextList.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
                     //mainTextList.text = data.MainTextList;
+                    _gameObject.transform.SetParent(multiMainTextTransform);
+
                 }
             }
+            //multiMainTextTransform.GetComponent<RectTransform>().transform.localScale = new Vector3(1, 1, 0);
+            //multiMainTextTransform.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+
 
             bigText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
@@ -201,12 +231,17 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 //// force update the canvas so that it can calculate the size needed for the text immediately
                 //Canvas.ForceUpdateCanvases();
 
+
+                
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
-                data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                //data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
+                data.CellSize = multiMainTextTransform.GetComponent<RectTransform>().rect.height + textBuffer.top + textBuffer.bottom;
                 //battleLogLists.cellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
             }
 
-            this.textRectTransform.ForceUpdateRectTransforms();
+            //this.textRectTransform.ForceUpdateRectTransforms();
+
+            this.multiMainTextTransform.GetComponent<RectTransform>().ForceUpdateRectTransforms();
         }
     }
 }

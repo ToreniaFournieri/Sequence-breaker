@@ -245,7 +245,12 @@ namespace SequenceBreaker.Play.Prepare
                 {
                     if (battle.LogList[i].LogList != null && (battle.LogList[i].LogList.Count >= 1))
                     {
-                        _bigText = battle.LogList[i].LogList[0];
+                        foreach (string words in battle.LogList[i].LogList)
+                        {
+                            _bigText += words + "\n";
+                        }
+
+                        //_bigText = battle.LogList[i].LogList[0];
                     }
                 }
 

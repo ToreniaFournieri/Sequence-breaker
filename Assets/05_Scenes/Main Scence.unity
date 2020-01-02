@@ -23290,7 +23290,7 @@ MonoBehaviour:
   separateLine: {fileID: 1954268435}
   unitInfo: {fileID: 286771708}
   firstLine: {fileID: 1216973265}
-  MultiMainTextTransform: {fileID: 1282537429}
+  multiMainTextTransform: {fileID: 1282537429}
   mainGameObjectList: []
   bigText: {fileID: 527244092}
   backgroundImage: {fileID: 2094781889}
@@ -23309,7 +23309,6 @@ MonoBehaviour:
   unitIconObjectPool: {fileID: 0}
   mainTextObjectPool: {fileID: 0}
   hPShieldBarObjectPool: {fileID: 0}
-  textRectTransform: {fileID: 990501490}
   textBuffer:
     m_Left: 0
     m_Right: 0
