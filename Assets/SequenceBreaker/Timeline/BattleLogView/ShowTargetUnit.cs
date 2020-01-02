@@ -110,6 +110,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         // damaged
                         unitIcon.GetComponent<UnitInfoSet>().shieldBar.gameObject.SetActive(true);
                         unitIcon.GetComponent<UnitInfoSet>().shieldBar.fillAmount = shieldRatio;
+                        unitIcon.GetComponent<UnitInfoSet>().previousShieldBar.gameObject.SetActive(true);
 
                     }
                     else
@@ -132,6 +133,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         // damaged
                         unitIcon.GetComponent<UnitInfoSet>().hPBar.gameObject.SetActive(true);
                         unitIcon.GetComponent<UnitInfoSet>().hPBar.fillAmount = hPRatio;
+                        unitIcon.GetComponent<UnitInfoSet>().previousHpBar.gameObject.SetActive(true);
 
                     }
                     else
@@ -140,6 +142,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         unitIcon.GetComponent<UnitInfoSet>().hPBar.gameObject.SetActive(false);
                         unitIcon.GetComponent<UnitInfoSet>().healedHpBar.gameObject.SetActive(true);
                         unitIcon.GetComponent<UnitInfoSet>().healedHpBar.fillAmount = hPRatio;
+                        unitIcon.GetComponent<UnitInfoSet>().previousHpBar.gameObject.SetActive(false);
+
 
                     }
 
