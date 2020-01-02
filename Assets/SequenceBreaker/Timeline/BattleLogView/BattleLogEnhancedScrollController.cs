@@ -141,7 +141,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         count += lines.Length;
                     }
                     count++;
-                    additionalHight = 235  +20;
+                    additionalHight = 235 ;
 
 
                 } else if (t1.BigText != null)

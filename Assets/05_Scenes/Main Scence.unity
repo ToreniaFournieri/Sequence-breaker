@@ -10637,7 +10637,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.75
   m_Text: Main Text
 --- !u!222 &990501494
 CanvasRenderer:
@@ -22286,7 +22286,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - 40
-      - 36
+      - 49
       Flags: 0000
       Languages_Touch: []
     - Term: FONT-LineSpace

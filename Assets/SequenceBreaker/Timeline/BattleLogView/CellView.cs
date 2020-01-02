@@ -89,30 +89,58 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
             int childrenCount = 0;
 
-            foreach (Transform children in multiMainTextTransform)
+            List<GameObject> children = new List<GameObject>();
+
+            // Somehow, this works.
+            foreach (Transform child in multiMainTextTransform)
             {
-                if (children.GetComponent<UnitInfoSet>() != null)
-                {
-                    hPShieldBarObjectPool.ReturnObject(children.gameObject);
-                }
-                else
-                {
-                    //children.GetComponent<Text>().text = null;
-                    mainTextObjectPool.ReturnObject(children.gameObject);
-                }
+
                 childrenCount++;
+                children.Add(child.gameObject);
+
             }
+
+            foreach (GameObject child in children)
+            {
+
+                if (child.name.Contains("UnitHorizontalInfo"))
+                {
+                    hPShieldBarObjectPool.ReturnObject(child);
+                }
+
+                if (child.name.Contains("Main Text"))
+                {
+                    mainTextObjectPool.ReturnObject(child);
+
+                }
+                ////child.transform.localScale = new Vector3(1, 1, 1);
+                //unitIconObjectPool.ReturnObject(child);
+            }
+
+            //hPShieldBarObjectPool.ReturnObject(children.gameObject);
+
+
+            //if (children.GetComponent<UnitInfoSet>() != null)
+            //{
+            //   
+            //}
+            //else
+            //{
+            //    //children.GetComponent<Text>().text = null;
+            //    mainTextObjectPool.ReturnObject(children.gameObject);
+            //}
+
 
             int childrenRemindCount = 0;
 
-            foreach (Transform children in multiMainTextTransform)
+            foreach (Transform child in multiMainTextTransform)
             {
                 childrenRemindCount++;
-                Destroy(children.gameObject);
+                //Destroy(children.gameObject);
             }
 
 
-            Debug.Log("main children: " + childrenCount +" / " + childrenRemindCount + " this should be 0.");
+            Debug.Log("main children: " + childrenCount + " / " + childrenRemindCount + " this should be 0.");
             //GameObject[] _gameObjects = MultiMainTextTransform.gameObject.GetComponentsInChildren<GameObject>();
             //foreach (GameObject _gameObject in _gameObjects)
             //{
@@ -232,7 +260,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 //Canvas.ForceUpdateCanvases();
 
 
-                
+
                 // set the data's cell size and add in some padding so the the text isn't up against the border of the cell
                 //data.CellSize = textRectTransform.rect.height + textBuffer.top + textBuffer.bottom;
                 data.CellSize = multiMainTextTransform.GetComponent<RectTransform>().rect.height + textBuffer.top + textBuffer.bottom;
@@ -240,8 +268,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
             }
 
             //this.textRectTransform.ForceUpdateRectTransforms();
-
-            this.multiMainTextTransform.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+            this.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+            //this.multiMainTextTransform.GetComponent<RectTransform>().ForceUpdateRectTransforms();
         }
     }
 }

@@ -370,12 +370,12 @@ namespace SequenceBreaker.Play.Battle
                                     var (battleLogClass, battleResult) = SkillMoveFunction(order, _characters, environmentInfo);
                                     if (battleLogClass != null) { logList = battleLogClass.LogList; firstLine = battleLogClass.FirstLine; }
 
-                                    if (logList != null)
+                                    //if (logList != null)
+                                    if (logList != null && firstLine != null)
                                     {
                                         battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                     }
-
 
                                     if (order.IsRescue) //only when rescue
                                     {
@@ -599,7 +599,7 @@ namespace SequenceBreaker.Play.Battle
 
             var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
 
-            finalLogLtst.Add( "Battle is over. " + WhichWin );
+            finalLogLtst.Add("Battle is over. " + WhichWin);
             //text = new FuncBattleConditionsText(totalTurn, _characters);
             //finalLog += text.Text();
 
@@ -612,7 +612,7 @@ namespace SequenceBreaker.Play.Battle
             var processedTimeSpan = finishDateTime - startDateTime;
             finalLogLtst.Add("finished:" + finishDateTime);
             finalLogLtst.Add(" processed time:" + processedTimeSpan);
-            finalLogLtst.Add( " seed:" + seed );
+            finalLogLtst.Add(" seed:" + seed);
 
             //Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
@@ -955,7 +955,7 @@ namespace SequenceBreaker.Play.Battle
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)
                         {
                             //logList += " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n";
-                            logList.Add( " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+"
+                            logList.Add(" [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+"
                                 + addingEffect[i].skill.buffTarget.barrierRemaining + ")] ");
                         }
                     }
