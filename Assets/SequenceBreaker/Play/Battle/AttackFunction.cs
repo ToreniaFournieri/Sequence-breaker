@@ -103,13 +103,13 @@ namespace SequenceBreaker.Play.Battle
                 // Individual attack routine
                 var survivedOpponents = opponents.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
-                double effectiveDefense = 0.0;
+                //double effectiveDefense = 0.0;
                 // get previousShield and HP
                 foreach (var opponent in survivedOpponents)
                 {
                     opponent.previousShield = opponent.combat.shieldCurrent;
                     opponent.previousHp = opponent.combat.hitPointCurrent;
-                    effectiveDefense = (double)opponent.combat.defense * (1.00 - opponent.Deterioration)
+                    opponent.effectiveDefense =(double)opponent.combat.defense * (1.00 - opponent.Deterioration)
                         * environmentInfo.R.Next(40 + opponent.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
 
                 }
@@ -203,13 +203,13 @@ namespace SequenceBreaker.Play.Battle
                             //Physical Attack damage calculation
                             //double effectiveDefense = (double)toTarget.combat.defense * (1.00 - toTarget.Deterioration)
                             //    * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
-                            if (effectiveDefense < 0) { effectiveDefense = 0.0; }
+                            if (toTarget.effectiveDefense < 0) { toTarget.effectiveDefense = 0.0; }
 
-                            toTarget.effectiveDefense = effectiveDefense;
+                            //toTarget.effectiveDefense = effectiveDefense;
                             //double attackDamage = (double)order.Actor.combat.attack * environmentInfo.R.Next(40 + order.Actor.ability.luck, 100) / 100
                             //                   - toTarget.combat.defense * (1.00 - toTarget.Deterioration)
                             //                                             * environmentInfo.R.Next(40 + toTarget.ability.luck - criticalReduction, 100 - criticalReduction) / 100;
-                            double attackDamage = effectiveAttack - effectiveDefense;
+                            double attackDamage = effectiveAttack - toTarget.effectiveDefense;
                             if (attackDamage < 0) { attackDamage = 1; }
 
                             //vs Magnification offense
@@ -464,9 +464,13 @@ namespace SequenceBreaker.Play.Battle
                         logList.Add(opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + damageRatioString + " "
                             + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()));
-                        logList.Add(new string(' ', 3) + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
-                            + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString())
-                            + crushed + barrierWords + optimumRangeWords);
+
+
+                        //                        +Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString())
+                        //+ crushed + barrierWords + optimumRangeWords);
+
+                        // dhisplay HP and Shield infomation
+                        logList.Add(opponents[fTargetColumn].GetShieldHPXML() +"<otherText>"+ crushed + optimumRangeWords + "</otherText>");
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

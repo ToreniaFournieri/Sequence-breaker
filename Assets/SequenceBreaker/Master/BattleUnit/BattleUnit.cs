@@ -34,6 +34,7 @@ namespace SequenceBreaker.Master.BattleUnit
         public double effectiveDefense;
         public int previousHp;
         public int previousShield;
+        public int previousBarrier;
 
         [FormerlySerializedAs("Ability")] [HideInInspector] public AbilityClass ability;
         [FormerlySerializedAs("InitialAbility")] [SerializeField] public AbilityClass initialAbility;
@@ -51,7 +52,7 @@ namespace SequenceBreaker.Master.BattleUnit
         public BattleUnit(int uniqueId, string longName, string shortName, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
             OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
         {
-            this.uniqueId = uniqueId; this.longName = longName; this.shortName = shortName ; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
+            this.uniqueId = uniqueId; this.longName = longName; this.shortName = shortName; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
             this.feature = feature; this.offenseMagnification = offenseMagnification; this.defenseMagnification = defenseMagnification; this.skillMagnification = skillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -63,7 +64,7 @@ namespace SequenceBreaker.Master.BattleUnit
             OffenseMagnificationClass iOffenseMagnification, DefenseMagnificationClass iDefenseMagnification, UnitSkillMagnificationClass iSkillMagnification)
         {
 
-            uniqueId = iUniqueId; longName = ilongName; shortName = iShortName ; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
+            uniqueId = iUniqueId; longName = ilongName; shortName = iShortName; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
             feature = iFeature; offenseMagnification = iOffenseMagnification; defenseMagnification = iDefenseMagnification; skillMagnification = iSkillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -71,10 +72,27 @@ namespace SequenceBreaker.Master.BattleUnit
             Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
         }
 
+        public string GetShieldHPXML()
+        {
+            return  "<SB_HPandShield>"
+                            + "<previousShield>" + previousShield + "</previousShield>"
+                            + "<followingShield>" + combat.shieldCurrent + "</followingShield>"
+                            + "<maxShield>" + combat.shieldMax + "</maxShield>"
+                            + "<previousHP>" + previousHp + "</previousHP>"
+                            + "<followingHP>" + combat.hitPointCurrent + "</followingHP>"
+                            + "<maxHP>" + combat.hitPointMax + "</maxHP>"
+                            + "<previousBarrier>" + previousBarrier + "</previousBarrier>"
+                            + "<followingBarrier>" + buff.BarrierRemaining + "</followingBarrier>"
+                            + "<effectiveDefense>" + effectiveDefense + "</effectiveDefense>"
+                            + "</SB_HPandShield>"
+                            ;
+
+        }
+
         public string GetShieldHp()
         {
             return "Sh: " + combat.shieldCurrent + "/" + combat.shieldMax + " HP: " + combat.hitPointCurrent + "/" + combat.hitPointMax;
-         }
+        }
 
         public class BuffClass
         {

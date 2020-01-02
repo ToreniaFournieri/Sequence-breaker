@@ -131,16 +131,16 @@ namespace SequenceBreaker.Timeline.BattleLogView
             //}
 
 
-            int childrenRemindCount = 0;
+            //int childrenRemindCount = 0;
 
-            foreach (Transform child in multiMainTextTransform)
-            {
-                childrenRemindCount++;
-                //Destroy(children.gameObject);
-            }
+            //foreach (Transform child in multiMainTextTransform)
+            //{
+            //    childrenRemindCount++;
+            //    //Destroy(children.gameObject);
+            //}
 
 
-            Debug.Log("main children: " + childrenCount + " / " + childrenRemindCount + " this should be 0.");
+            //Debug.Log("main children: " + childrenCount + " / " + childrenRemindCount + " this should be 0.");
             //GameObject[] _gameObjects = MultiMainTextTransform.gameObject.GetComponentsInChildren<GameObject>();
             //foreach (GameObject _gameObject in _gameObjects)
             //{
@@ -156,22 +156,33 @@ namespace SequenceBreaker.Timeline.BattleLogView
             if (data.MainTextList != null)
             {
 
-                foreach (var mainString in data.MainTextList)
+                foreach (string mainString in data.MainTextList)
                 {
-                    //Debug.Log(mainString);
 
-                    GameObject _gameObject = mainTextObjectPool.GetObject();
-                    _gameObject.GetComponent<Text>().text = mainString;
+                    if (mainString.Contains("<SB_HPandShield>"))
+                    {
+                        // show hp and shield bar
+                        GameObject _gameObject = hPShieldBarObjectPool.GetObject();
+                        UnitInfoSet _unitInfoSet = _gameObject.GetComponent<UnitInfoSet>();
 
-                    _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+                        _unitInfoSet.SetValueFromXML(mainString);
+                        _gameObject.transform.SetParent(multiMainTextTransform);
 
+                    }
+                    else
+                    {
+                        // just normal text.
 
-                    // linespace not works well becareful!
-                    //_gameObject.GetComponent<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
-                    //    mainTextList.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
-                    //mainTextList.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
-                    //mainTextList.text = data.MainTextList;
-                    _gameObject.transform.SetParent(multiMainTextTransform);
+                        GameObject _gameObject = mainTextObjectPool.GetObject();
+                        _gameObject.GetComponent<Text>().text = mainString;
+
+                        _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+                        // linespace not works well becareful!
+                        //_gameObject.GetComponent<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
+
+                        _gameObject.transform.SetParent(multiMainTextTransform);
+
+                    }
 
                 }
             }
