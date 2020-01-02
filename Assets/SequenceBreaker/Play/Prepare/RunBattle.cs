@@ -243,7 +243,10 @@ namespace SequenceBreaker.Play.Prepare
                 }
                 else
                 {
-                    _bigText = battle.LogList[i].LogList[0];
+                    if (battle.LogList[i].LogList != null && (battle.LogList[i].LogList.Count >= 1))
+                    {
+                        _bigText = battle.LogList[i].LogList[0];
+                    }
                 }
 
 

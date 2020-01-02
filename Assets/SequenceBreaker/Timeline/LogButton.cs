@@ -18,7 +18,7 @@ namespace SequenceBreaker.Timeline
         {
             _battleLog = currentLog;
             orderCondition.text = _battleLog.OrderCondition.ToString();
-            log.text = _battleLog.Log;
+            log.text = _battleLog.LogList[0];
 
             transform.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 

@@ -286,7 +286,7 @@ namespace SequenceBreaker.Play.Battle
     {
         public static List<string> Get(BattleUnit character)
         {
-            List<string> LogList = null;
+            List<string> LogList = new List<string>();
 
             if (character.combat.hitPointCurrent > 0)
             {

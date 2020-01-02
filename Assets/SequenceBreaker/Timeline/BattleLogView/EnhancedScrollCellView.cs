@@ -22,7 +22,9 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
         public void SetData(Data data, bool calculateLayout)
         {
-            cellText.text = data.MainTextList;
+
+            
+            //cellText.text = data.MainTextList;
 
 
             // Only calculate the layout on the first pass.

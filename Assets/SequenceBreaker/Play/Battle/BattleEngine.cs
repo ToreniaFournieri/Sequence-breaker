@@ -106,7 +106,7 @@ namespace SequenceBreaker.Play.Battle
 
             // System initialize : Do not change them.
             var battleLogList = new List<BattleLogClass>();
-            string finalLog = null;
+            List<string> finalLogLtst = new List<string>();
             var logPerWavesSets = new string[battleWavesSets];
             var subLogPerWavesSets = new string[battleWavesSets];
             var totalTurn = 0; // Static info of total turn
@@ -324,7 +324,7 @@ namespace SequenceBreaker.Play.Battle
                                 while (orders.Any()) // loop until order is null.
                                 {
                                     string firstLine;
-                                    string log;
+                                    List<string> logList;
                                     var order = orders.Pop();
                                     BattleLogClass battleLog;
                                     if (order.Actor == null) { continue; } // attacker alive check, if crushed, continue.
@@ -350,29 +350,29 @@ namespace SequenceBreaker.Play.Battle
 
 
                                     var willSkip = false;
-                                    (firstLine, log) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include rescue.
+                                    (firstLine, logList) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include rescue.
                                     if (firstLine != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                         willSkip = true;
                                     }
                                     if (willSkip != true)
                                     {
-                                        (firstLine, log) = BuffDebuffFunction(order, _characters, _effects, _buffMasters, turn); //Buff, debuff action
+                                        (firstLine, logList) = BuffDebuffFunction(order, _characters, _effects, _buffMasters, turn); //Buff, debuff action
                                         if (firstLine != null)
                                         {
-                                            battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
+                                            battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                             battleLogList.Add(battleLog);
                                         }
                                     }
 
                                     var (battleLogClass, battleResult) = SkillMoveFunction(order, _characters, environmentInfo);
-                                    if (battleLogClass != null) { log = battleLogClass.Log; firstLine = battleLogClass.FirstLine; }
+                                    if (battleLogClass != null) { logList = battleLogClass.LogList; firstLine = battleLogClass.FirstLine; }
 
-                                    if (log != null)
+                                    if (logList != null)
                                     {
-                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, log, order.Actor.affiliation);
+                                        battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                     }
 
@@ -599,7 +599,7 @@ namespace SequenceBreaker.Play.Battle
 
             var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
 
-            finalLog += "Battle is over. " + WhichWin + "\n";
+            finalLogLtst.Add( "Battle is over. " + WhichWin );
             //text = new FuncBattleConditionsText(totalTurn, _characters);
             //finalLog += text.Text();
 
@@ -610,13 +610,13 @@ namespace SequenceBreaker.Play.Battle
 
             var finishDateTime = DateTime.Now;
             var processedTimeSpan = finishDateTime - startDateTime;
-            finalLog += "finished:" + finishDateTime + "\n"
-                + " processed time:" + processedTimeSpan + "\n"
-                + " seed:" + seed + "\n";
+            finalLogLtst.Add("finished:" + finishDateTime);
+            finalLogLtst.Add(" processed time:" + processedTimeSpan);
+            finalLogLtst.Add( " seed:" + seed );
 
             //Console.WriteLine(finalLog);
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
-            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLog, Affiliation.None);
+            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLogLtst, Affiliation.None);
             battleLogDisplayList.Add(finalLogList);
             LogList = battleLogDisplayList;
 
@@ -856,12 +856,12 @@ namespace SequenceBreaker.Play.Battle
         }
 
         // Buff logic
-        private static (string firstLine, string log) BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterClass> buffMasters, int turn)
+        private static (string firstLine, List<string> logList) BuffDebuffFunction(OrderClass order, List<BattleUnit> characters, List<EffectClass> effects, List<SkillsMasterClass> buffMasters, int turn)
         {
             SkillsMasterClass addingBuff;
             var addingEffect = new List<EffectClass>();
             string firstLine = null;
-            string log = null;
+            List<string> logList = new List<string>();
             if (order.SkillEffectChosen == null) { return (null, null); } // no effect exist, so no buff/ debuff happened
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
             switch (order.SkillEffectChosen.skill.buffTarget.targetType)
@@ -906,18 +906,22 @@ namespace SequenceBreaker.Play.Battle
                     firstLine = order.SkillEffectChosen.skill.skillName + "! " + triggerPossibilityText + accumulationText;
 
                     //log += order.Actor.shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." ;
-                    log += order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
+                    //logList += order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
+                    logList.Add(order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName));
 
                     if (addingBuff.buffTarget.defenseMagnification > 1.0)
                     {
-                        log += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + order.Actor.buff.DefenseMagnification
-                            + " (x" + addingBuff.buffTarget.defenseMagnification + ")] ";
+                        //logList += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + order.Actor.buff.DefenseMagnification
+                        //    + " (x" + addingBuff.buffTarget.defenseMagnification + ")] ";
+                        logList.Add(new string(' ', 4) + "[" + Word.Get("Defense") + ": " + order.Actor.buff.DefenseMagnification
+                            + " (x" + addingBuff.buffTarget.defenseMagnification + ")] ");
                     }
                     if (addingEffect[0].skill.buffTarget.barrierRemaining > 0)
                     {
-                        log += "[" + Word.Get("Barrier") + ":" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] ";
+                        //logList += "[" + Word.Get("Barrier") + ":" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] ";
+                        logList.Add("[" + Word.Get("Barrier") + ":" + order.Actor.buff.BarrierRemaining + " (+" + addingEffect[0].skill.buffTarget.barrierRemaining + ")] ");
                     }
-                    log += "\n";
+                    //logList += "\n";
                     break;
                 case TargetType.Multi: //Buff attacker's side all
                     addingBuff = buffMasters.FindLast(obj => obj.skillId == order.SkillEffectChosen.skill.callingBuffName.skillId);
@@ -939,11 +943,21 @@ namespace SequenceBreaker.Play.Battle
                         buffTargetCharacters[i].buff.AddBarrier(addingEffect[i].skill.buffTarget.barrierRemaining);
 
                         //log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
-                        log += new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
+                        //logList += new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
+                        logList.Add(new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString()
+                            , addingBuff.skillName));
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
-                        { log += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                        //{ logList += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
+                        {
+                            logList.Add(new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification
+                                + " (x" + addingBuff.buffTarget.defenseMagnification + ")] ");
+                        }
                         if (addingEffect[i].skill.buffTarget.barrierRemaining > 0)
-                        { log += " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n"; }
+                        {
+                            //logList += " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+" + addingEffect[i].skill.buffTarget.barrierRemaining + ")] \n";
+                            logList.Add( " [" + Word.Get("Barrier") + ": " + buffTargetCharacters[i].buff.BarrierRemaining + " (+"
+                                + addingEffect[i].skill.buffTarget.barrierRemaining + ")] ");
+                        }
                     }
                     //log += "\n";
                     break;
@@ -954,7 +968,7 @@ namespace SequenceBreaker.Play.Battle
             {
                 //Debuff exist
             }
-            return (firstLine, log);
+            return (firstLine, logList);
         }
 
         private static (string firstline, List<string> logList) SkillLogicDispatcher(OrderClass order, List<BattleUnit> characters, EnvironmentInfoClass environmentInfo)

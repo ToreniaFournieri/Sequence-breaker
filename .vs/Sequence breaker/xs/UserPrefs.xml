@@ -1,19 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/BattleLogList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Translate/TranslateText.cs" Line="40" Column="1" />
       <File FileName="Assets/SequenceBreaker/Translate/Word.cs" Line="121" Column="64" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="16" Column="35" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="195" Column="79" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/Others.cs" Line="284" Column="38" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="131" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/FeatureClass.cs" Line="16" Column="91" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="34" Column="39" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="84" Column="61" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/Data.cs" Line="15" Column="42" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/EnhancedScrollCellView.cs" Line="24" Column="10" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="242" Column="47" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleLogList.cs" Line="12" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="139" Column="47" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="81" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/EnhancedScrollCellView.cs" Line="27" Column="49" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleLogList.cs" Line="19" Column="53" />
+      <File FileName="Assets/SequenceBreaker/Timeline/LogButton.cs" Line="21" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

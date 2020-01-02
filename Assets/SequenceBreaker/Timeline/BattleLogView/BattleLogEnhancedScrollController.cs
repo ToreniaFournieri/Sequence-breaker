@@ -49,6 +49,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public Sprite enemyImage;
 
         public SimpleObjectPool unitIconObjectPool;
+
+        public SimpleObjectPool mainTextObjectPool;
         public SimpleObjectPool hPShieldBarObjectPool;
 
         // Searching
@@ -322,6 +324,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
             if (cellView != null)
             {
                 cellView.unitIconObjectPool = unitIconObjectPool;
+                cellView.mainTextObjectPool = mainTextObjectPool;
+                cellView.hPShieldBarObjectPool = hPShieldBarObjectPool;
 
                 // tell the cell view to calculate its layout on the first pass,
                 // otherwise just use the size set in the data.

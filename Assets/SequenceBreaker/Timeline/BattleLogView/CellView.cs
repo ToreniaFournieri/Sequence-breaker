@@ -2,6 +2,7 @@
 using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
+using SequenceBreaker.Play.Battle;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -14,7 +15,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public GameObject separateLine;
         public Text unitInfo;
         public Text firstLine;
-        //public Text mainText;
+        //public Text mainText        ;
+        public Transform MultiMainTextTransform;
         public List<GameObject> mainGameObjectList;
         public Text bigText;
         public Image backgroundImage;
@@ -35,6 +37,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public ShowTargetUnit showTargetUnit;
         public SimpleObjectPool unitIconObjectPool;
 
+        public SimpleObjectPool mainTextObjectPool;
+        public SimpleObjectPool hPShieldBarObjectPool;
 
         /// <summary>
         /// A reference to the rect transform which will be
@@ -74,17 +78,49 @@ namespace SequenceBreaker.Timeline.BattleLogView
             unitInfo.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             firstLine.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
-            foreach (GameObject mainObject in mainGameObjectList)
+            //foreach (GameObject mainObject in mainGameObjectList)
+            //{ }
+
+            foreach (Transform children in MultiMainTextTransform)
+            {
+                if (children.GetComponent<UnitInfoSet>() != null)
+                {
+                    hPShieldBarObjectPool.ReturnObject(children.gameObject);
+                }
+                else
+                {
+                    mainTextObjectPool.ReturnObject(children.gameObject);
+                }
+            }
+
+
+            //GameObject[] _gameObjects = MultiMainTextTransform.gameObject.GetComponentsInChildren<GameObject>();
+            //foreach (GameObject _gameObject in _gameObjects)
+            //{
+            //    if (_gameObject.GetComponent<UnitInfoSet>() != null)
+            //    {
+            //        hPShieldBarObjectPool.ReturnObject(_gameObject);
+            //    } else
+            //    {
+            //        mainTextObjectPool.ReturnObject(_gameObject);
+            //    }
+            //}
+
+            if (data.MainTextList != null)
             {
                 foreach (var mainString in data.MainTextList)
                 {
+                    GameObject _gameObject = mainTextObjectPool.GetObject();
+                    _gameObject.transform.SetParent(MultiMainTextTransform);
+                    _gameObject.GetComponent<Text>().text = mainString;
+
                     //if (data.MainTextList)
                     //    mainTextList.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
                     //mainTextList.lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
                     //mainTextList.text = data.MainTextList;
                 }
-
             }
+
             bigText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
@@ -104,7 +140,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
             if (data.IsDead)
             {
                 mainUnit.SetActive(false);
-            } else
+            }
+            else
             {
                 mainUnit.SetActive(true);
             }
