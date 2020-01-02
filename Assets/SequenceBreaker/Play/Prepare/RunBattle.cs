@@ -190,7 +190,9 @@ namespace SequenceBreaker.Play.Prepare
                 string unitNameText = null;
                 //string unitHealthText = null;
                 string reactText = null;
+                float previousShieldRatio = 0f;
                 var shieldRatio = 0f;
+                float previousHpRatio = 0f;
                 var hPRatio = 0f;
                 var barrierRemains = 0;
                 var isDead = true;
@@ -211,7 +213,11 @@ namespace SequenceBreaker.Play.Prepare
                         reactText = battle.LogList[i].Order.ActionType + preposition + battle.LogList[i].Order.IndividualTarget.longName;
                     }
 
+                    previousShieldRatio = battle.LogList[i].Order.Actor.previousShield / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
+
                     shieldRatio = battle.LogList[i].Order.Actor.combat.shieldCurrent / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
+
+                    previousHpRatio = battle.LogList[i].Order.Actor.previousHp / (float)battle.LogList[i].Order.Actor.combat.hitPointMax;
                     hPRatio = battle.LogList[i].Order.Actor.combat.hitPointCurrent / (float)battle.LogList[i].Order.Actor.combat.hitPointMax;
 
                     barrierRemains = battle.LogList[i].Order.Actor.buff.BarrierRemaining;
@@ -273,7 +279,9 @@ namespace SequenceBreaker.Play.Prepare
                     NestLevel = battle.LogList[i].OrderCondition.Nest,
                     IsDead = isDead,
                     BarrierRemains = barrierRemains,
+                    PreviousShieldRatio = previousShieldRatio,
                     ShieldRatio = shieldRatio,
+                    PreviousHpRatio = previousHpRatio,
                     HpRatio = hPRatio,
                     IsHeaderInfo = battle.LogList[i].isHeaderInfo,
                     HeaderText = battle.LogList[i].headerInfoText,

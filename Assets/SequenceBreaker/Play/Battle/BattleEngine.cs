@@ -332,6 +332,16 @@ namespace SequenceBreaker.Play.Battle
 
                                     //[[ SKILLS CHECK ]] Interrupt skills trigger.
 
+
+
+                                    // [[Clear previous infomation of characters]]
+                                    foreach (BattleUnit character in _characters)
+                                    {
+                                        character.previousBarrier = 0;
+                                        character.previousShield = character.combat.shieldCurrent;
+                                        character.previousHp = character.combat.hitPointCurrent;
+                                    }
+
                                     //------------------------Individual attacker's move phase------------------------
 
                                     //------------------------Attacker's action decision phase------------------------

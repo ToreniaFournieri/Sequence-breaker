@@ -105,6 +105,8 @@ namespace SequenceBreaker.Play.Battle
 
                 //double effectiveDefense = 0.0;
                 // get previousShield and HP
+                order.Actor.previousShield = order.Actor.combat.shieldCurrent;
+                order.Actor.previousHp = order.Actor.combat.hitPointCurrent;
                 foreach (var opponent in survivedOpponents)
                 {
                     opponent.previousShield = opponent.combat.shieldCurrent;

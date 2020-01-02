@@ -23,8 +23,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
         public bool IsDead;
         public int BarrierRemains;
+        public float PreviousShieldRatio;
         public float ShieldRatio;
+        public float PreviousHpRatio;
         public float HpRatio;
+
 
         public string HeaderText;
         public bool IsHeaderInfo;

@@ -275,7 +275,21 @@ namespace SequenceBreaker.Play.Battle
                 healedShieldBar.fillAmount = _followingShield / _maxShield;
 
             }
+            if (_previousHP >= _followingHP)
+            {
+                //get damaged
+                hPBar.gameObject.SetActive(true);
+                hPBar.fillAmount = _followingShield / _maxShield;
 
+            }
+            else
+            {
+                //get healed
+                healedHpBar.gameObject.SetActive(true);
+                hPBar.gameObject.SetActive(false);
+                healedHpBar.fillAmount = _followingShield / _maxShield;
+
+            }
 
             previousShieldBar.fillAmount = _previousShield / _maxShield;
             previousHpBar.fillAmount = _previousHP / _maxHP;

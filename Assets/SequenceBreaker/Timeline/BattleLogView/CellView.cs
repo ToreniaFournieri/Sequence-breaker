@@ -32,8 +32,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public GameObject mainUnit;
         public GameObject iconMask;
         public Image unitIcon;
-        public Image hPBar;
-        public Image shieldBar;
+
+        public Image previousShieldBar;
+        public Image healedShieldBar;
+        public Image previousHPBar;
+        public Image healedHpBar;
         public GameObject barrierObject;
         public Text barrierRemains;
 
@@ -225,8 +228,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 iconMask.SetActive(false);
             }
 
-            hPBar.fillAmount = data.HpRatio;
-            shieldBar.fillAmount = data.ShieldRatio;
+            // Actor Hp display
+
+            previousShieldBar.fillAmount = data.PreviousShieldRatio;
+            previousHPBar.fillAmount = data.PreviousHpRatio;
+            healedHpBar.fillAmount = data.HpRatio;
+            healedShieldBar.fillAmount = data.ShieldRatio;
 
             //Set barrier remains 
             if (data.BarrierRemains > 0)
