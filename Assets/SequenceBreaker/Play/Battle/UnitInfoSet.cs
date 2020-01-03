@@ -1,4 +1,5 @@
-﻿using SequenceBreaker.Translate;
+﻿using System;
+using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -38,6 +39,7 @@ namespace SequenceBreaker.Play.Battle
             int _previousBarrier = 0;
             int _followingBarrier = 0;
             float _effectiveDefense = 0;
+            int _defense = 0;
             string _otherText = null;
 
             if (shieldHPXML.Contains("<SB_HPandShield>") && shieldHPXML.Contains("</SB_HPandShield>"))
@@ -236,6 +238,25 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("failed to get effectiveDefense");
                 }
 
+                if (shieldHPXML.Contains("<defense>") && shieldHPXML.Contains("</defense>"))
+                {
+                    int _startIndex = shieldHPXML.IndexOf("<defense>", System.StringComparison.Ordinal) + "<defense>".Length;
+                    int _endIndex = shieldHPXML.IndexOf("</defense>", System.StringComparison.Ordinal);
+
+                    try
+                    {
+                        _defense = int.Parse(shieldHPXML.Substring(_startIndex, _endIndex - _startIndex));
+                    }
+                    catch
+                    {
+                        Debug.LogError("Faild to get value: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _defense ");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("failed to get defense");
+                }
+
 
                 if (shieldHPXML.Contains("<otherText>") && shieldHPXML.Contains("</otherText>"))
                 {
@@ -307,7 +328,10 @@ namespace SequenceBreaker.Play.Battle
                 {
                     barrierObject.SetActive(false);
                 }
-                infoText.text = Word.Get("Effective Defense: X", ((int)_effectiveDefense).ToString() + " " + _otherText);
+
+                var defenseRatio = Math.Round((double)_effectiveDefense / (double)_defense * 100, 0) ;
+
+                infoText.text = Word.Get("Effective Defense: X", ((int)_effectiveDefense).ToString() + " ("+ (int)defenseRatio + "%)" + " " + _otherText);
 
             } else
             {

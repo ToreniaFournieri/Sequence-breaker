@@ -434,7 +434,7 @@ namespace SequenceBreaker.Play.Battle
                 //string hitString = Word.Get("Hit-Active");
 
                 var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) + "] " + skillTriggerPossibility
-                    + " (" + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) + ")";
+                    + " " + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) +" (" + (int)(effectiveAttack / order.Actor.combat.attack * 100) + "%)";
                 //+ " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
                 logList.Add(criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement);
 

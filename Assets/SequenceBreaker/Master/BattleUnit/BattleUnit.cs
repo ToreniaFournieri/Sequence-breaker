@@ -89,6 +89,7 @@ namespace SequenceBreaker.Master.BattleUnit
                             + "<previousBarrier>" + previousBarrier + "</previousBarrier>"
                             + "<followingBarrier>" + buff.BarrierRemaining + "</followingBarrier>"
                             + "<effectiveDefense>" + effectiveDefense + "</effectiveDefense>"
+                            + "<defense>" + combat.defense + "</defense>"
                             + "</SB_HPandShield>"
                             ;
 

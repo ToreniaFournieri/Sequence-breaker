@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
 using SequenceBreaker.Play.Battle;
@@ -92,9 +93,9 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     if (unit.buff.BarrierRemaining > 0)
                     { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(true); }
                     else { unitIcon.GetComponent<UnitInfoSet>().barrierObject.SetActive(false); }
-                    
 
-                    unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text =  unit.longName + " [" + unit.combat.shieldCurrent
+
+                    unitIcon.GetComponent<UnitInfoSet>().unitInfoText.text = unit.longName + " [" + unit.combat.shieldCurrent
                                                                              + "+" + unit.combat.hitPointCurrent + "] " + deteriorationText;
 
                     unitIcon.GetComponent<UnitInfoSet>().previousShieldBar.fillAmount = previousTurnShieldRatio;
@@ -157,8 +158,25 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 }
 
                 this.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+                Spend1F();
                 gameObject.SetActive(true);
 
+            }
+
+
+        }
+
+        // need more knowlege 2020.1.4
+        //private async Task Wait()
+        //{
+        //        await Task.Delay(1);
+        //}
+
+        private void Spend1F()
+        {
+            for (int i = 0; i <= 1; i++)
+            {
+                //nothing
             }
         }
 
