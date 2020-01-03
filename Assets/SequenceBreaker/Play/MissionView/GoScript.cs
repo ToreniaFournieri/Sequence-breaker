@@ -59,7 +59,7 @@ namespace SequenceBreaker.Play.MissionView
             int MaxWave = runBattle1.dataList.Max(x => x.Wave);
             Debug.Log("Max wave is " + MaxWave);
 
-            for(int i = 0; i <= MaxWave; i++)
+            for (int i = 0; i <= MaxWave; i++)
             {
                 battleCopyList.Add(new GameObject());
                 battleCopyList[i].transform.parent = runBattle.transform;
@@ -129,7 +129,7 @@ namespace SequenceBreaker.Play.MissionView
             {
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
                 {
-
+                    List<(UnitClass unit, int exp, string levelupString)> gainExpList = new List<(UnitClass unit, int exp, string levelupString)>();
                     foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
                     {
                         List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave);
@@ -160,23 +160,49 @@ namespace SequenceBreaker.Play.MissionView
                         foreach (UnitClass allyUnit in missionController.allyUnitList)
                         {
                             var levelUpAmount = allyUnit.GainExperience(experience);
+                            string levelUptext = null;
                             if (levelUpAmount > 0)
                             {
-
+                                levelUptext = " +" + levelUpAmount + " " + Word.Get("Level up")
+                                    + "! (" + Word.Get("level") + ":" + allyUnit.level + ")";
                                 missionController.transparentMessageController
-                                    .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " " + Word.Get("Level up")
-                                    + "! (" + Word.Get("level") + ":" + allyUnit.level + ")", false);
+                                    .AddTextAndActive("[P1]" + allyUnit.shortName + levelUptext, false);
                             }
+
+                            gainExpList.Add(( allyUnit, experience, levelUptext));
                         }
                     }
+
+                    
+                    Data _data = new Data();
+                    _data.Wave = battleCopy.GetComponent<RunBattle>().waveForSaved;
+                    //_data.Wave = battleCopy.GetComponent<RunBattle>().waveForSaved;
+                    _data.BigText = "Gain Experience \n";
+                    foreach (var info in gainExpList)
+                    {
+                        _data.BigText += info.unit.shortName + " gets " + info.exp + " experience. \n";
+                        if (info.levelupString != null)
+                        {
+                            _data.BigText += new string(' ', 3) + "And" + info.levelupString + "\n";
+                        }
+                        _data.BigText += new string(' ', 3) + " To the next level("+ (info.unit.level +1)  +") , need " + info.unit.toNextLevel + " experience. \n";
+
+                    }
+
+                    _data.Index = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Index) + 1;
+                    _data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) - 1; //last Turn is dummy
+                    _data.IsDead = true;
+                    _data.Affiliation = Affiliation.None;
+                    battleCopy.GetComponent<RunBattle>().dataList.Add(_data);
+
                 }
 
                 int lastWave = battleCopy.GetComponent<RunBattle>().waveForSaved;
                 //Debug.Log(" battleCopyList.Count: " + battleCopyList.Count + " last wave:" + lastWave);
-                if (lastWave +1 == battleCopyList.Count)
+                if (lastWave + 1 == battleCopyList.Count)
                 {
                     missionController.transparentMessageController
-                                .AddTextAndActive( Word.Get("Mission") + ": " + missionName + missionLevel
+                                .AddTextAndActive(Word.Get("Mission") + ": " + missionName + missionLevel
                                + " " + Word.Get("Xth wave", (lastWave + 1).ToString(), true) + " ["
                                + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[lastWave].ToString()) + "] ", false);
                 }

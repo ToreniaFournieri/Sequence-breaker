@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
+using UnityEngine;
 
 namespace SequenceBreaker.Timeline.BattleLogView
 {
 //    [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
-    public sealed class Data 
+    public sealed class Data : ScriptableObject
     {
         public string FirstLine;
         public int Wave;
@@ -16,11 +17,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public List<string> MainTextList;
         public string BigText; // no ReactText, UnitInfo, FirstLine. only this BigText.
 
-        /// <summary>
-        /// We will store the cell size in the model so that the cell view can update it
-        /// </summary>
-        public float CellSize;
-        public int NestLevel;
+
 
         public bool IsDead;
         public int BarrierRemains;
@@ -36,6 +33,13 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
 
         public Affiliation Affiliation;
+
+
+        /// <summary>
+        /// We will store the cell size in the model so that the cell view can update it
+        /// </summary>
+        public float CellSize;
+        public int NestLevel;
     }
 
 }
