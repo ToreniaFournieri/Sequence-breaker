@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Translate/Word.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="53" Column="57" />
       <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="201" Column="59" />
       <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="82" Column="38" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="600" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="211" Column="34" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="34" Column="48" />
+      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="163" Column="35" />
       <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="1" Column="1" />
       <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="19" Column="42" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="101" Column="92" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="166" Column="43" />
+      <File FileName="Assets/SequenceBreaker/Translate/Word.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -109,7 +109,7 @@ namespace SequenceBreaker.Translate
                             case 1: valueX = ordinalNumeral + Get("ORDINAL-1st"); break;
                             case 2: valueX = ordinalNumeral + Get("ORDINAL-2nd"); break;
                             case 3: valueX = ordinalNumeral + Get("ORDINAL-3rd"); break;
-                            default: valueX = ordinalNumeral + Get("ORDINAL-4th"); break;
+                            default: valueX = ordinalNumeral + Get("ORDINAL-Xth"); break;
                         }
                 }
             }
