@@ -205,7 +205,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     } else
                     {
                         //others basic long text
-                        Debug.Log(" string: " + mainString);
+                        //Debug.Log(" string: " + mainString);
                         GameObject _gameObject = longTextObjectPool.GetObject();
                         _gameObject.GetComponent<Text>().text = mainString;
                         _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
