@@ -1,21 +1,20 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/GUIController/Segue/SegueController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/GoScript.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="53" Column="57" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="201" Column="59" />
-      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="86" Column="76" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="34" Column="48" />
-      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="111" Column="34" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="36" Column="34" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" />
+      <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="79" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" />
+      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" />
+      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" />
       <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="163" Column="40" />
-      <File FileName="Assets/SequenceBreaker/Translate/Word.cs" Line="112" Column="79" />
-      <File FileName="Assets/SequenceBreaker/GUIController/Segue/SegueController.cs" Line="34" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Translate/Word.cs" />
+      <File FileName="Assets/SequenceBreaker/GUIController/Segue/SegueController.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c65491b3-7573-4064-ba55-77dc2b3188c0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="612a1e1f-9e94-4716-9c23-02036cd3b498" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
