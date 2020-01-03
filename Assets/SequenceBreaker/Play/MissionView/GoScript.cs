@@ -171,8 +171,9 @@ namespace SequenceBreaker.Play.MissionView
                     }
                 }
 
-                int lastWave = battleCopy.GetComponent<RunBattle>().wavebyCopyed;
-                if (lastWave + 1 == battleCopyList.Count)
+                int lastWave = battleCopy.GetComponent<RunBattle>().waveForSaved;
+                //Debug.Log(" battleCopyList.Count: " + battleCopyList.Count + " last wave:" + lastWave);
+                if (lastWave +1 == battleCopyList.Count)
                 {
                     missionController.transparentMessageController
                                 .AddTextAndActive( Word.Get("Mission") + ": " + missionName + missionLevel

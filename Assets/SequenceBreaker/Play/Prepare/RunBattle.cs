@@ -33,7 +33,7 @@ namespace SequenceBreaker.Play.Prepare
 
         // to get current Ally Battle unit
         public List<BattleUnit> currentAllyUnitList;
-        public int wavebyCopyed;
+        public int waveForSaved;
 
 
         //for SuperScroll use
@@ -60,6 +60,7 @@ namespace SequenceBreaker.Play.Prepare
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
             deepCopyRunBattle.mission = mission;
+            deepCopyRunBattle.waveForSaved = waveForSaved;
 
             return deepCopyRunBattle;
 
@@ -77,9 +78,8 @@ namespace SequenceBreaker.Play.Prepare
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
             deepCopyRunBattle.mission = mission;
+            deepCopyRunBattle.waveForSaved = wave;
 
-
-            wavebyCopyed = wave;
 
             return deepCopyRunBattle;
 
@@ -96,7 +96,7 @@ namespace SequenceBreaker.Play.Prepare
             dataList = runbattle.dataList;
             whichWinEachWaves = runbattle.whichWinEachWaves;
             mission = runbattle.mission;
-
+            waveForSaved = runbattle.waveForSaved;
 
         }
 
@@ -177,7 +177,7 @@ namespace SequenceBreaker.Play.Prepare
                 wave += 1;
             }
 
-
+            waveForSaved = wave;
 
 
         }

@@ -2172,7 +2172,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
-  wavebyCopyed: 0
+  waveForSaved: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -5261,7 +5261,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
-  wavebyCopyed: 0
+  waveForSaved: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -19120,7 +19120,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
-  wavebyCopyed: 0
+  waveForSaved: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -19301,7 +19301,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
-  wavebyCopyed: 0
+  waveForSaved: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
