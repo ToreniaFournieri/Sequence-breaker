@@ -17,8 +17,6 @@ namespace SequenceBreaker.Play.Battle
         public WhichWin WhichWin = WhichWin.None; // get only last one
         // output data for sequence battle.
         public List<BattleUnit> AllyBattleUnitsList;
-        //private static double _allyAttackMagnification = 1.0;
-        //private static double _allyDefenseMagnification = 1.0;
 
         private int _count;
         private readonly List<BattleUnit> _characters = new List<BattleUnit>();
@@ -30,14 +28,22 @@ namespace SequenceBreaker.Play.Battle
         //Effect (permanent skill) make logic, the effect has two meanings, one is permanent skill, the other is temporary skill (may call buff).
         private readonly List<EffectClass> _effects = new List<EffectClass>();
 
-        //Set up a battle environment.
+        ///<summary>
+        ///Set up a battle environment.
+        ///</summary>
         public void SetUpEnvironment(SkillsMasterClass normalAttackSkillMaster, List<SkillsMasterClass> buffMasters)
         {
             _normalAttackSkillMaster = normalAttackSkillMaster;
             _buffMasters = buffMasters;
         }
 
-        //Set up Ally's BattleUnit and EffectClass.
+        /// <summary>
+        /// Set up Ally's BattleUnit and EffectClass.
+        /// </summary>
+        /// <param name="allyBattleUnits"> ally battle units, who enter the battle.</param>
+        /// <param name="allyEffectClasses"> Effect class of ally battle units</param>
+        /// <param name="isFirstWave"> isFirstWave = true, heal all units. Otherwise,they keep shield and HP.</param>
+        //
         public void SetAllyBattleUnits(List<BattleUnit> allyBattleUnits, List<EffectClass> allyEffectClasses, bool isFirstWave)
         {
 
@@ -106,9 +112,9 @@ namespace SequenceBreaker.Play.Battle
 
             // System initialize : Do not change them.
             var battleLogList = new List<BattleLogClass>();
-            List<string> finalLogLtst = new List<string>();
-            var logPerWavesSets = new string[battleWavesSets];
-            var subLogPerWavesSets = new string[battleWavesSets];
+            List<string> finalLogList = new List<string>();
+            //var logPerWavesSets = new string[battleWavesSets];
+            //var subLogPerWavesSets = new string[battleWavesSets];
             var totalTurn = 0; // Static info of total turn
             var currentBattleWaves = 1;
 
@@ -120,9 +126,6 @@ namespace SequenceBreaker.Play.Battle
                 //set up set info
                 var statisticsReporterFirstBlood = new List<StatisticsReporterFirstBloodClass>();
                 var statisticsReporterWhichWins = new WhichWin[battleWaves];
-
-                //if (battleWavesSet > 1) //  magnification per wave set
-                //{ _allyAttackMagnification *= (1 + allyAttackMagnificationPerWavesSet); _allyDefenseMagnification *= (1 + allyDefenseMagnificationPerWavesSet); }
 
                 var allyWinCount = 0; var enemyWinCount = 0; var drawCount = 0;
 
@@ -192,16 +195,17 @@ namespace SequenceBreaker.Play.Battle
                                     OrderConditionClass orderCondition;
 
                                     // ReSharper disable once SwitchStatementMissingSomeCases
+                                    ///<summary>
+                                    /// actionPhase 0: Show Turns, ally and enemy infomation.
+                                    /// actionPhase 1: At biginning Skill phase.
+                                    /// actionPhase 2: Main phase.
+                                    /// actionPhase 3: At End phase.
+                                    ///</summary>
                                     switch (actionPhase)
                                     {
                                         case 0:
                                             {
                                                 environmentInfo.Phase = 0;
-                                                //log += "------------------------------------\n";
-                                                //text = new FuncBattleConditionsText(turn, _characters);
-                                                //firstLine = text.FirstLine();
-                                                //log += text.Text();
-                                                //logList += null;
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                     environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0, 0);
@@ -209,7 +213,6 @@ namespace SequenceBreaker.Play.Battle
                                                     Affiliation.None)
                                                 {
                                                     isHeaderInfo = true,
-                                                    //headerInfoText = text.FirstLine()
                                                     headerInfoText = Word.Get("Turn") + " " + turn + "\n"
                                                 };
                                                 var copiedBattleUnit = (from BattleUnit character in _characters
@@ -239,13 +242,6 @@ namespace SequenceBreaker.Play.Battle
                                         case 2:
                                             {
                                                 environmentInfo.Phase = 2;
-                                                //                                            firstLine = "[Main action phase] \n";
-                                                //                                            orderCondition = new OrderConditionClass(environmentInfo.Wave,
-                                                //                                                environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0);
-                                                //                                            battleLog = new BattleLogClass(orderCondition, null, firstLine, null,
-                                                //                                                Affiliation.None) {headerInfoText = "[Main action phase] \n"};
-                                                //battleLogList.Add(battleLog);
-
 
                                                 // save HP and shield infomation
                                                 foreach (var character in _characters)
@@ -270,10 +266,6 @@ namespace SequenceBreaker.Play.Battle
                                                     orderCondition = new OrderConditionClass(environmentInfo.Wave,
                                                         environmentInfo.Turn, environmentInfo.Phase, 0, 0, 0, speed);
 
-                                                    // Add normal attack skills
-                                                    //                                                var normalAttackEffect = new EffectClass(aliveCharacters[i],
-                                                    //                                                    _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
-                                                    //                                                    1.0, false, 1000, 1, 20);
                                                     var normalAttackEffect = ScriptableObject.CreateInstance<EffectClass>();
                                                     normalAttackEffect.Set(aliveCharacters[i],
                                                         _normalAttackSkillMaster, ActionType.NormalAttack, 1.0,
@@ -303,7 +295,6 @@ namespace SequenceBreaker.Play.Battle
                                         case 3:
                                             {
                                                 environmentInfo.Phase = 3;
-                                                //logList += new string(' ', 1) + "[At ending phase] \n";
                                                 logList.Add(new string(' ', 1) + "[At ending phase] ");
                                                 //Initialize 
 
@@ -317,11 +308,6 @@ namespace SequenceBreaker.Play.Battle
                                                         logList.Add(log);
                                                     }
 
-
-                                                    //var shieldHeal = new ShieldHealFunction(character);
-                                                    //log += shieldHeal.Log;
-                                                    //var calculateHate = new CalculationHateMagnificationPerTurnFunction(character);
-                                                    //log += calculateHate.Log;
                                                 }
 
                                                 orderCondition = new OrderConditionClass(environmentInfo.Wave,
@@ -333,11 +319,16 @@ namespace SequenceBreaker.Play.Battle
                                             }
                                     }
                                 }
-                                //------------------------Action phase------------------------
-                                //Action for each character by action order.
 
-                                while (orders.Any()) // loop until order is null.
+                                ///<summary>
+                                /// ------------------------Action phase------------------------
+                                /// Action for each character by action order.
+                                /// Loop until order is null.
+                                ///</summary>
+                                while (orders.Any())
                                 {
+                                    //[1]. ------------------------Start up------------------------
+                                    //[1-1]. Difinition.
                                     string firstLine;
                                     List<string> logList;
                                     var order = orders.Pop();
@@ -345,11 +336,9 @@ namespace SequenceBreaker.Play.Battle
                                     if (order.Actor == null) { continue; } // attacker alive check, if crushed, continue.
                                     if (order.Actor.combat.hitPointCurrent <= 0) { continue; }
 
-                                    //[[ SKILLS CHECK ]] Interrupt skills trigger.
+                                    //[1-2]. [SKILLS CHECK] Interrupt skills trigger.
 
-
-
-                                    // [[Clear previous infomation of characters]]
+                                    //[1-3]. Clear previous infomation of characters.
                                     foreach (BattleUnit character in _characters)
                                     {
                                         character.previousBarrier = 0;
@@ -357,24 +346,24 @@ namespace SequenceBreaker.Play.Battle
                                         character.previousHp = character.combat.hitPointCurrent;
                                     }
 
-                                    //------------------------Individual attacker's move phase------------------------
+                                    //[2]. ------------------------Individual attacker's move phase------------------------
 
-                                    //------------------------Attacker's action decision phase------------------------
-                                    // BasicAttackFunction basicAttack;
+                                    //[3]. ------------------------Attacker's action decision phase------------------------
 
-                                    //[[ SKILLS CHECK ]] Move skills trigger.
+                                    //[3-1]. [ SKILLS CHECK ] Move skills trigger.
                                     order.SkillDecision(_characters, environmentInfo);
 
-                                    //effect spend.
+                                    //[3-2]. Effect spend.
                                     if (order.SkillEffectChosen != null)
                                     {
                                         order.SkillEffectChosen.UsageCount -= 1;
                                         order.SkillEffectChosen.SpentCount += 1;
-                                        order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.skill.triggerBase.accumulationBaseRate * order.SkillEffectChosen.skill.triggerBase.accumulationWeight);
+                                        order.SkillEffectChosen.NextAccumulationCount += (int)(order.SkillEffectChosen.skill.triggerBase.accumulationBaseRate
+                                            * order.SkillEffectChosen.skill.triggerBase.accumulationWeight);
                                     }
 
-
-                                    var willSkip = false;
+                                    //[3-3]. Cast Skill, Mainly heal logic.
+                                    bool willSkip = false;
                                     (firstLine, logList) = SkillLogicDispatcher(order, _characters, environmentInfo); // SkillLogic action include rescue.
                                     if (firstLine != null)
                                     {
@@ -392,16 +381,17 @@ namespace SequenceBreaker.Play.Battle
                                         }
                                     }
 
+                                    //[3-4]. Cast skill, mainly action skill, strong attack.
                                     var (battleLogClass, battleResult) = SkillMoveFunction(order, _characters, environmentInfo);
                                     if (battleLogClass != null) { logList = battleLogClass.LogList; firstLine = battleLogClass.FirstLine; }
-
-                                    //if (logList != null)
                                     if (logList != null && firstLine != null)
                                     {
                                         battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                     }
 
+
+                                    //[3-5]. Rescue action.
                                     if (order.IsRescue) //only when rescue
                                     {
                                         var deleteOneActionOrderIfHave = orders.ToList();
@@ -414,6 +404,8 @@ namespace SequenceBreaker.Play.Battle
                                         if (deleteOneActionOrder != null) //clear stack and input again
                                         { orders.Clear(); foreach (var data in deleteOneActionOrderIfHave) { orders.Push(data); } }
                                     }
+
+                                    //[4]. ------------------------Statistis : First blood ------------------------
                                     //Only when first kill happened, insert statistics reporter for first blood per side.
                                     if (order.Actor.affiliation == Affiliation.Ally && allyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When ally first blood 
                                     {
@@ -422,11 +414,10 @@ namespace SequenceBreaker.Play.Battle
                                         var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
                                         setStatisticsReporterFirstBlood.Set(Affiliation.Ally, order.Actor.name, battleResult.TotalDealtDamage, t);
-                                        if (battleLogClass != null)
-                                        {
-                                        }
+                                        //if (battleLogClass != null)
+                                        //{
+                                        //}
                                         allyFirstBlood = true;
-
                                     }
                                     else if (order.Actor.affiliation == Affiliation.Enemy && enemyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When enemy first blood 
                                     {
@@ -439,6 +430,9 @@ namespace SequenceBreaker.Play.Battle
                                         enemyFirstBlood = true;
                                     }
 
+
+                                    //[5]. ------------------------Battle end check.------------------------
+                                    //  "battleResult.BattleEnd = true" means battle is ended.
                                     if (battleEnd == false)
                                     {
                                         battleEnd = battleResult.BattleEnd;
@@ -460,50 +454,52 @@ namespace SequenceBreaker.Play.Battle
                                         }
                                     }
 
-                                    //var orderStatus = new OrderStatusClass(); orderStatus.Initialize();
+                                    //[6]. ------------------------ReAction Skill - check.------------------------
 
                                     var nestNumber = 0;
-                                    //[[ SKILLS CHECK ]] Damage Control Assist trigger. Note: ActionType independent so ActionType.any!
+
+
+                                    //[6-1]. [SKILLS CHECK] Rescue trigger. Note: ActionType independent so ActionType.any!
                                     var damageControlAssistStack = SkillTriggerPossibilityCheck(null, _effects, _characters,
                                         order, orders, ActionType.Any, true, true,
                                         battleResult, order.Actor, nestNumber, environmentInfo);
 
-                                    //[[ SKILLS CHECK ]] ReAttack skills trigger.
+                                    //[6-2]. [SKILLS CHECK] ReAttack skills trigger.
                                     var reAttackStack = SkillTriggerPossibilityCheck(null, _effects, _characters,
                                         order, orders, ActionType.ReAttack, false, false,
                                         battleResult, order.Actor, nestNumber, environmentInfo);
 
-                                    //[[ SKILLS CHECK ]] Chain skills trigger.
+                                    //[6-3]. [SKILLS CHECK] Chain skills trigger.
                                     var chainStack = SkillTriggerPossibilityCheck(null, _effects, _characters,
                                         order, orders, ActionType.Chain, false, false,
                                         battleResult, order.Actor, nestNumber, environmentInfo);
 
-                                    //[[ SKILLS CHECK ]] Counter skills trigger.
+                                    //[6-4]. [SKILLS CHECK] Counter skills trigger.
                                     var counterStack = SkillTriggerPossibilityCheck(null, _effects, _characters,
                                         order, orders, ActionType.Counter, false, false,
                                         battleResult, order.Actor, nestNumber, environmentInfo);
 
-
+                                    //[7]. ------------------------ReAction Skill - push to orders.------------------------
                                     //Push order in reverse. counter -> chain -> reAttack -> rescue
-                                    //Push Counter
-                                    if (counterStack != null)
-                                    {
-                                    }
+                                    //[7-1]. Push Counter
+                                    //if (counterStack != null)
+                                    //{
+                                    //}
                                     while (counterStack != null && counterStack.Count > 0) { orders.Push(counterStack.Pop()); nestNumber++; }
 
-                                    //Push Chain
-                                    if (chainStack != null)
-                                    {
-                                    }
+                                    //[7-2]. Push Chain
+                                    //if (chainStack != null)
+                                    //{
+                                    //}
                                     while (chainStack != null && chainStack.Count > 0) { orders.Push(chainStack.Pop()); nestNumber++; }
 
-                                    //Push ReAttack
+                                    //[7-3]. Push ReAttack
                                     if (reAttackStack != null)
                                     {
                                     }
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
-                                    //Push rescue
+                                    //[7-4]. Push rescue
                                     //if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
@@ -520,13 +516,14 @@ namespace SequenceBreaker.Play.Battle
                                 }  // Until all Characters act.
 
                             } // action Phase.
-                            //------------------------Footer phase------------------------
+                            //[10]. ------------------------Footer phase------------------------
+                            //[10-1]. Clear crushed flag. crushed flag is for rescure skill.
                             foreach (var character in _characters.Where(character => character.IsCrushedJustNow))
                             {
                                 character.IsCrushedJustNow = false;
                             }
 
-                            //Check wipe out and should continue the battle
+                            //[10-2]. Check wipe out and should continue the battle
                             if (battleEnd == false)
                             {
                                 var wipeOutCheck = new WipeOutCheck(_characters);
@@ -539,77 +536,53 @@ namespace SequenceBreaker.Play.Battle
 
                         } //turn
 
-                        //------------------------Statistics phase------------------------
-
-                        //time over NEED statistics reporter and FIX BUG "no count"!
-                        //Check wipe out and should continue the battle
+                        //[11]. ------------------------Time Over------------------------
+                        //[11-1]. Check wipe out and should continue the battle
                         if (battleEnd == false)
                         {
                             drawCount++; battleEnd = true;
                             WhichWin = WhichWin.Draw;
 
-                            const string log = "Time over. \n";
+                            string log = Word.Get("Time over.");
                             var orderCondition = new OrderConditionClass(environmentInfo.Wave, environmentInfo.Turn, 4, 0, 0, 0, 0);
                             var battleLog = new BattleLogClass(orderCondition, null, log, null, Affiliation.None);
                             battleLogList.Add(battleLog);
                         }
+                        //[11-2]. time over Statistics.
+
 
                     } //battleEnd 
 
-                    foreach (var t in _characters)
+
+                    //[12]. ------------------------Statistics to characters------------------------
+                    foreach (BattleUnit character in _characters)
                     {
-                        t.SetPermanentStatistics(t.Statistics);
+                        character.SetPermanentStatistics(character.Statistics);
                     }
                 } //Battle waves
 
-                //subLogPerWavesSets[battleWavesSet - 1] += "[Set:" + battleWavesSet + "] Battle count:" + (allyWinCount + enemyWinCount + drawCount) + " Win:" + (allyWinCount) + " lost:" + (enemyWinCount)
-                //                                          + " Win Ratio:" + (int)(allyWinCount / (double)(allyWinCount + enemyWinCount + drawCount) * 100)
-                //                                          + "% Ally:[Attack x" + Math.Round(_allyAttackMagnification, 2) + "] [Defense x" + Math.Round(_allyDefenseMagnification, 2) + "] \n";
-                //statistics reporter open
-                for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
-                {
-                    var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
-                    setStatisticsReporterFirstBlood.WhichWin = statisticsReporterWhichWins[battleWave - 1];
-                }
-                var statisticsQueryAlly = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.AllyWin)
-                    .GroupBy(x => x.AllyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
-                var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.EnemyWin)
-                    .GroupBy(x => x.EnemyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
 
-                //logPerWavesSets[battleWavesSet - 1] += "Ally info: MVP(times)\n";
-                //foreach (var group in statisticsQueryAlly) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
-                //logPerWavesSets[battleWavesSet - 1] += "\n";
-                //if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.AllyWin).Any())
+                ////statistics reporter open
+                //for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
                 //{
-                //    //                    var bestFirstBloodAlly = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.allyWin).OrderByDescending(obj => obj.AllyTotalDealtDamage).First();
-                //    //logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodAlly.AllyContentText + " " + bestFirstBloodAlly.BattleLogAlly.OrderCondition + "\n";
+                //    var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
+                //    setStatisticsReporterFirstBlood.WhichWin = statisticsReporterWhichWins[battleWave - 1];
                 //}
-                //logPerWavesSets[battleWavesSet - 1] += "Enemy info: MVP(times) \n";
-                //foreach (var group in statisticsQueryEnemy) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 2) + group.Subj + " (" + group.Count + ")."; }
-                //logPerWavesSets[battleWavesSet - 1] += "\n";
-                //if (statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).Any())
-                //{
-                //    var bestFirstBloodEnemy = statisticsReporterFirstBlood.FindAll(obj => obj.WhichWin == WhichWin.EnemyWin).OrderByDescending(obj => obj.EnemyTotalDealtDamage).First();
-                //    logPerWavesSets[battleWavesSet - 1] += "[Best shot]" + bestFirstBloodEnemy.EnemyContentText + " " + bestFirstBloodEnemy.BattleLogEnemy.OrderCondition + "\n";
-                //}
-                //Characters permanent Statistics Collection
-                //foreach (var character in _characters) { character.PermanentStatistics.Avarage(battleWaves); } // Average Calculation
-                //logPerWavesSets[battleWavesSet - 1] += "Average (critical):\n";
-                //foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += new string(' ', 1) + character.name + " " + character.PermanentStatistics.AllCriticalRatio() + "\n"; }
-                //logPerWavesSets[battleWavesSet - 1] += "Average Skill:\n";
-                //foreach (var character in _characters) { logPerWavesSets[battleWavesSet - 1] += character.name + " " + character.PermanentStatistics.Skill() + "\n"; }
+                //var statisticsQueryAlly = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.AllyWin)
+                //    .GroupBy(x => x.AllyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
+                //var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.EnemyWin)
+                //    .GroupBy(x => x.EnemyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
             } // Battle waves set
 
             //Battle is over.
 
-            // last turn battle log 
-            //text = new FuncBattleConditionsText(totalTurn + 1, _characters);
-
+            //[13]. ------------------------Battle is Over. clean up------------------------
+            //[13-1]. 
             var orderConditionFinal = new OrderConditionClass(currentBattleWaves, totalTurn + 1, 0, 0, 0, 0, 0);
             var battleLogFinal = new BattleLogClass(orderConditionFinal, null, null, null, Affiliation.None)
             {
                 isHeaderInfo = true,
-                headerInfoText = Word.Get("Turn") + " " + totalTurn + 1 + "\n"
+                headerInfoText = Word.Get("Turn") + " " + (totalTurn + 1) + "\n"
             };
             var copiedBattleUnitLast = (from BattleUnit character in _characters
                                         select character.Copy()).ToList();
@@ -617,32 +590,26 @@ namespace SequenceBreaker.Play.Battle
             battleLogList.Add(battleLogFinal);
 
 
-            //Set ally units for next battle
+            //[13-2]. Set ally units for next battle
             AllyBattleUnitsList = battleLogFinal.characters.FindAll(unit => unit.affiliation == Affiliation.Ally);
 
 
+            //[13-3]. This is the last cell for debug.
+            finalLogList.Add("Battle is over. " + Word.Get(WhichWin.ToString()));
 
-            var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
 
-            finalLogLtst.Add("Battle is over. " + WhichWin);
-            //text = new FuncBattleConditionsText(totalTurn, _characters);
-            //finalLog += text.Text();
 
-            //for (var i = 0; i < battleWavesSets; i++) { finalLog += logPerWavesSets[i]; }
-            //finalLog += " Ally attack magnification per waves set: x" + (1 + allyAttackMagnificationPerWavesSet) + "\n";
-            //finalLog += " Ally defense magnification per waves set: x" + (1 + allyDefenseMagnificationPerWavesSet) + "\n";
-            //for (var i = 0; i < battleWavesSets; i++) { finalLog += subLogPerWavesSets[i]; }
 
             var finishDateTime = DateTime.Now;
             var processedTimeSpan = finishDateTime - startDateTime;
-            finalLogLtst.Add("finished:" + finishDateTime);
-            finalLogLtst.Add(" processed time:" + processedTimeSpan);
-            finalLogLtst.Add(" seed:" + seed);
+            finalLogList.Add("finished:" + finishDateTime);
+            finalLogList.Add(" processed time:" + processedTimeSpan);
+            finalLogList.Add(" seed:" + seed);
 
-            //Console.WriteLine(finalLog);
+            var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
             var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
-            var finalLogList = new BattleLogClass(finalOrderCondition, null, null, finalLogLtst, Affiliation.None);
-            battleLogDisplayList.Add(finalLogList);
+            var finalLogListToSet = new BattleLogClass(finalOrderCondition, null, null, finalLogList, Affiliation.None);
+            battleLogDisplayList.Add(finalLogListToSet);
             LogList = battleLogDisplayList;
 
         }

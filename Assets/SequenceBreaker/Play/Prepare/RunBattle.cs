@@ -199,11 +199,6 @@ namespace SequenceBreaker.Play.Prepare
                 if (battle.LogList[i].Order != null)
                 {
                     unitNameText = battle.LogList[i].Order.Actor.longName;
-                    //unitHealthText = "[" + battle.LogList[i].Order.Actor.combat.shieldCurrent +
-                    //                 "(" + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.shieldCurrent * 100 / battle.LogList[i].Order.Actor.combat.shieldMax) + "%)+"
-                    //                 + battle.LogList[i].Order.Actor.combat.hitPointCurrent + "("
-                    //                 + Mathf.Ceil((float)battle.LogList[i].Order.Actor.combat.hitPointCurrent * 100 / battle.LogList[i].Order.Actor.combat.hitPointMax)
-                    //                 + "%)]";
 
                     if (battle.LogList[i].Order.IndividualTarget != null)
                     {
@@ -214,9 +209,7 @@ namespace SequenceBreaker.Play.Prepare
                     }
 
                     previousShieldRatio = battle.LogList[i].Order.Actor.previousShield / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
-
                     shieldRatio = battle.LogList[i].Order.Actor.combat.shieldCurrent / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
-
                     previousHpRatio = battle.LogList[i].Order.Actor.previousHp / (float)battle.LogList[i].Order.Actor.combat.hitPointMax;
                     hPRatio = battle.LogList[i].Order.Actor.combat.hitPointCurrent / (float)battle.LogList[i].Order.Actor.combat.hitPointMax;
 
