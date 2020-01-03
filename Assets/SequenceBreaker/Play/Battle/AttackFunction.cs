@@ -460,7 +460,7 @@ namespace SequenceBreaker.Play.Battle
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
-                        string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
+                        //string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
                         //logList += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                         //    + damageRatioString + " "
@@ -469,7 +469,7 @@ namespace SequenceBreaker.Play.Battle
                         //    + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
 
                         logList.Add(opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
-                            + damageRatioString + " "
+                            + " "
                             + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()));
 
 
