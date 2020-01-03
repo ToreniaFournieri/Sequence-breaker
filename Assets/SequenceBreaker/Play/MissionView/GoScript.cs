@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SequenceBreaker.Drop;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.Items;
@@ -53,33 +54,63 @@ namespace SequenceBreaker.Play.MissionView
             List<GameObject> battleCopyList = new List<GameObject>();
 
 
-            int wave = 0;
-            foreach (List<Data> unused in runBattle1.dataList)
+            //int wave = 0;
+
+            int MaxWave = runBattle1.dataList.Max(x => x.Wave);
+            Debug.Log("Max wave is " + MaxWave);
+
+            for(int i = 0; i <= MaxWave; i++)
             {
                 battleCopyList.Add(new GameObject());
-                battleCopyList[wave].transform.parent = runBattle.transform;
-                battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
-                battleCopyList[wave].gameObject.AddComponent<RunBattle>();
+                battleCopyList[i].transform.parent = runBattle.transform;
+                battleCopyList[i].name = runBattle.name + " log:" + DateTime.Now;
+                battleCopyList[i].gameObject.AddComponent<RunBattle>();
 
-                RunBattle localRunBattle = runBattle1.Copy(wave);
+                RunBattle localRunBattle = runBattle1.Copy(i);
 
-                battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
 
-                battleCopyList[wave].GetComponent<RunBattle>().currentMissionName =
+                battleCopyList[i].GetComponent<RunBattle>().Set(localRunBattle);
 
-                    "[" +Word.Get(battleCopyList[wave].GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] "
-                    + battleCopyList[wave].GetComponent<RunBattle>().mission.missionName
-                    + " (" + Word.Get("Xth wave", (wave + 1).ToString(), true) + ")";
-                battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
+                battleCopyList[i].GetComponent<RunBattle>().currentMissionName =
+
+                    "[" + Word.Get(battleCopyList[i].GetComponent<RunBattle>().whichWinEachWaves[i].ToString()) + "] "
+                    + battleCopyList[i].GetComponent<RunBattle>().mission.missionName
+                    + " (" + Word.Get("Xth wave", (i + 1).ToString(), true) + ")";
+                battleCopyList[i].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
 
                 missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
                 missionController.UpdatePartyStatus();
 
                 // temp 2019/11/10
-                missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
-
-                wave += 1;
+                missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[i].GetComponent<RunBattle>());
             }
+
+            //foreach (Data unused in runBattle1.dataList)
+            //{
+            //    battleCopyList.Add(new GameObject());
+            //    battleCopyList[wave].transform.parent = runBattle.transform;
+            //    battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
+            //    battleCopyList[wave].gameObject.AddComponent<RunBattle>();
+
+            //    RunBattle localRunBattle = runBattle1.Copy(wave);
+
+            //    battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
+
+            //    battleCopyList[wave].GetComponent<RunBattle>().currentMissionName =
+
+            //        "[" +Word.Get(battleCopyList[wave].GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] "
+            //        + battleCopyList[wave].GetComponent<RunBattle>().mission.missionName
+            //        + " (" + Word.Get("Xth wave", (wave + 1).ToString(), true) + ")";
+            //    battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
+
+            //    missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
+            //    missionController.UpdatePartyStatus();
+
+            //    // temp 2019/11/10
+            //    missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
+
+            //    wave += 1;
+            //}
 
             //[1-3]. Get Mission unitName
             string missionName = runBattle1.mission.missionName;
@@ -93,7 +124,7 @@ namespace SequenceBreaker.Play.MissionView
             DropEngine dropEngine = new DropEngine();
 
             //[2-1]. Loop only when battle Win. and see transparent message 
-            wave = 0;
+            //wave = 0;
             foreach (GameObject battleCopy in battleCopyList)
             {
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
@@ -140,15 +171,16 @@ namespace SequenceBreaker.Play.MissionView
                     }
                 }
 
-                if (wave + 1 == battleCopyList.Count)
+                int lastWave = battleCopy.GetComponent<RunBattle>().wavebyCopyed;
+                if (lastWave + 1 == battleCopyList.Count)
                 {
                     missionController.transparentMessageController
                                 .AddTextAndActive( Word.Get("Mission") + ": " + missionName + missionLevel
-                               + " " + Word.Get("Xth wave", (wave + 1).ToString(), true) + " ["
-                               + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] ", false);
+                               + " " + Word.Get("Xth wave", (lastWave + 1).ToString(), true) + " ["
+                               + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[lastWave].ToString()) + "] ", false);
                 }
 
-                wave += 1;
+                //wave += 1;
             }
 
             //[2-3]. Save characters infomation (Experience).

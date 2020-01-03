@@ -7,11 +7,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
 //    [CreateAssetMenu(fileName = "Data-", menuName = "Data/data", order = 5)]
     public sealed class Data 
     {
+        public string FirstLine;
+        public int Wave;
         public int Index;
         public int Turn;
         public string ReactText;
         public string UnitInfo;
-        public string FirstLine;
         public List<string> MainTextList;
         public string BigText; // no ReactText, UnitInfo, FirstLine. only this BigText.
 

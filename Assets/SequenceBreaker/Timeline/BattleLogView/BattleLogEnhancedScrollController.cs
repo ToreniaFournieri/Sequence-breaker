@@ -19,8 +19,9 @@ namespace SequenceBreaker.Timeline.BattleLogView
     /// </summary>
     public sealed class BattleLogEnhancedScrollController : MonoBehaviour, IEnhancedScrollerDelegate
     {
-        [FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
-        private List<Data> _data;
+        //[FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
+        public List<Data> dataList; // Data from outside to show the log. 
+        //private List<Data> _data;
 
 
         /// <summary>
@@ -101,17 +102,18 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public void DrawBattleLog()
         {
             scroller.Delegate = this;
-            _data = new List<Data>();
+            //_data = new List<Data>();
 
             //2019.10.3 always DataList is set 0.
-            _data = runBattle.dataList[0];
+            //_data = runBattle.dataList[0];
 
-            DataList setDatalist = ScriptableObject.CreateInstance<DataList>();
-            setDatalist.data = _data;
+            //DataList setDatalist = ScriptableObject.CreateInstance<DataList>();
+            //setDatalist.data = _data;
 
-            dataList.Add(setDatalist);
+            dataList = runBattle.dataList;
+            //dataList.Add(setDatalist);
 
-            if (_data != null)
+            if (dataList != null)
             {
                 GetCanvasSize();
                 SetJumpIndex();
@@ -122,7 +124,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         private void GetCanvasSize()
         {
             //populate the scroller with some text
-            foreach (var t1 in _data)
+            foreach (var t1 in dataList)
             {
 // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
@@ -170,12 +172,12 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
         private void SetJumpIndex()
         {
-            if (_data != null)
+            if (dataList != null)
             {
 
-                int maxCount = _data.Count;
+                int maxCount = dataList.Count;
                 int maxTurn = 1;
-                if (maxCount > 1) { maxTurn = _data[maxCount - 1].Turn + 1; }
+                if (maxCount > 1) { maxTurn = dataList[maxCount - 1].Turn + 1; }
 
 
                 foreach (Transform child in parentJumpIndex)
@@ -190,7 +192,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     _jumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
 
-                    int index = _data.FindIndex((obj) => obj.Turn == i);
+                    int index = dataList.FindIndex((obj) => obj.Turn == i);
                     _jumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                     GetComponentInParent<EventTrigger>();
@@ -211,7 +213,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             Debug.Log("attempt to search word: " + searchText.text);
             _searchedIndexList = new List<int>();
 //            var filteredData = new List<Data>();
-            foreach (Data data in _data)
+            foreach (Data data in dataList)
             {
 
                 // mainText if found, set is Matched true
@@ -304,7 +306,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public int GetNumberOfCells(EnhancedScroller enhancedScroller)
         {
             //return battleLogLists.Count;
-            return _data.Count;
+            return dataList.Count;
         }
 
         public float GetCellViewSize(EnhancedScroller enhancedScroller, int dataIndex)
@@ -314,7 +316,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             // Second pass (frame countdown 1): this size will be set to the content size fitter in the cell view
             // Third pass (frame countdown 0): this set value will be pulled here from the scroller
             //return battleLogLists[dataIndex].cellSize;
-            return _data[dataIndex].CellSize;
+            return dataList[dataIndex].CellSize;
         }
 
         public EnhancedScrollerCellView GetCellView(EnhancedScroller enhancedScroller, int dataIndex, int cellIndex)
@@ -330,22 +332,22 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 // otherwise just use the size set in the data.
                 //cellView.SetData(battleLogLists[dataIndex], _calculateLayout);
                 Data nextData = null;
-                if (dataIndex < _data.Count - 1)
+                if (dataIndex < dataList.Count - 1)
                 {
-                    nextData = _data[dataIndex + 1];
+                    nextData = dataList[dataIndex + 1];
                 }
 
                 Sprite setSprite = null;
-                if (_data[dataIndex].Affiliation == Affiliation.Ally)
+                if (dataList[dataIndex].Affiliation == Affiliation.Ally)
                 {
                     setSprite = allyImage;
                 }
-                else if (_data[dataIndex].Affiliation == Affiliation.Enemy)
+                else if (dataList[dataIndex].Affiliation == Affiliation.Enemy)
                 {
                     setSprite = enemyImage;
                 }
 
-                cellView.SetData(_data[dataIndex], nextData, _calculateLayout, setSprite);
+                cellView.SetData(dataList[dataIndex], nextData, _calculateLayout, setSprite);
 
                 return cellView;
             }

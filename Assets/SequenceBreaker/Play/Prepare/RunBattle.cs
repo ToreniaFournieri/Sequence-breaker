@@ -27,12 +27,13 @@ namespace SequenceBreaker.Play.Prepare
         public List<WhichWin> whichWinEachWaves;
 
         //Output information
-        public List<List<Data>> dataList;
+        //public List<List<Data>> dataList;
+        public List<Data> dataList;
 
 
         // to get current Ally Battle unit
         public List<BattleUnit> currentAllyUnitList;
-
+        public int wavebyCopyed;
 
 
         //for SuperScroll use
@@ -68,12 +69,17 @@ namespace SequenceBreaker.Play.Prepare
         {
             var deepCopyRunBattle = new RunBattle();
             deepCopyRunBattle.whichWin = whichWinEachWaves[wave];
-            deepCopyRunBattle.dataList = new List<List<Data>>();
-            deepCopyRunBattle.dataList.Add(dataList[wave]);
+            deepCopyRunBattle.dataList = new List<Data>();
+
+            List<Data> _dataOfWave = dataList.FindAll(x => x.Wave == wave);
+            //deepCopyRunBattle.dataList.Add(dataList[wave]);
+            deepCopyRunBattle.dataList = _dataOfWave;
             deepCopyRunBattle.currentAllyUnitList = currentAllyUnitList;
             deepCopyRunBattle.whichWinEachWaves = whichWinEachWaves;
             deepCopyRunBattle.mission = mission;
 
+
+            wavebyCopyed = wave;
 
             return deepCopyRunBattle;
 
@@ -99,7 +105,7 @@ namespace SequenceBreaker.Play.Prepare
             _allyBattleUnits = new List<BattleUnit>();
             _battleList = new List<BattleEngine>();
             whichWinEachWaves = new List<WhichWin>();
-            dataList = new List<List<Data>>();
+            dataList = new List<Data>();
 
             (_allyBattleUnits, _allySkillsList) = SetUpBattleUnitFromUnit(allyUnitList);
 
@@ -159,7 +165,7 @@ namespace SequenceBreaker.Play.Prepare
 
                 currentAllyUnitList = _battleList[wave].AllyBattleUnitsList;
 
-                dataList.Add(new List<Data>());
+                //dataList.Add(new List<Data>());
                 SetBattleLogToData(wave);
 
                 if (currentAllyUnitList.Find(unit => unit.combat.hitPointCurrent > 0) == null)
@@ -256,13 +262,37 @@ namespace SequenceBreaker.Play.Prepare
 
 
 
-                _data.Add(new Data
+                //_data.Add(new Data
+                //{
+                //    Index = i,
+                //    Turn = battle.LogList[i].OrderCondition.Turn,
+                //    CellSize = 1300, // this is dummy, need to calculate later
+                //    ReactText = reactText,
+                //    Wave = wave,
+
+                //    UnitInfo = unitNameText + " " + speedString,
+                //    FirstLine = battle.LogList[i].FirstLine,
+                //    MainTextList = _mainText,
+                //    BigText = _bigText,
+                //    Affiliation = battle.LogList[i].WhichAffiliationAct,
+                //    NestLevel = battle.LogList[i].OrderCondition.Nest,
+                //    IsDead = isDead,
+                //    BarrierRemains = barrierRemains,
+                //    PreviousShieldRatio = previousShieldRatio,
+                //    ShieldRatio = shieldRatio,
+                //    PreviousHpRatio = previousHpRatio,
+                //    HpRatio = hPRatio,
+                //    IsHeaderInfo = battle.LogList[i].isHeaderInfo,
+                //    HeaderText = battle.LogList[i].headerInfoText,
+                //    Characters = characters
+                //});
+                dataList.Add(new Data
                 {
                     Index = i,
                     Turn = battle.LogList[i].OrderCondition.Turn,
                     CellSize = 1300, // this is dummy, need to calculate later
                     ReactText = reactText,
-
+                    Wave = wave,
 
                     UnitInfo = unitNameText + " " + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
@@ -280,9 +310,9 @@ namespace SequenceBreaker.Play.Prepare
                     HeaderText = battle.LogList[i].headerInfoText,
                     Characters = characters
                 });
-
                 // set all of data to data (activate)
-                dataList[wave] = _data;
+                //dataList[wave] = _data;
+                //dataList.Add(_data);
             }
         }
 

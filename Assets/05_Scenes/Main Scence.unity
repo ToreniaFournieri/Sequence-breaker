@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2807ca4373f049cb874a5265f09c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataList: []
   scroller: {fileID: 978793930}
   cellViewPrefab: {fileID: 2094781890}
   parentJumpIndex: {fileID: 1333312224}
@@ -2173,6 +2172,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
+  wavebyCopyed: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -5261,6 +5261,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
+  wavebyCopyed: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -19119,6 +19120,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
+  wavebyCopyed: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
@@ -19299,6 +19301,7 @@ MonoBehaviour:
   whichWin: 0
   whichWinEachWaves: 
   currentAllyUnitList: []
+  wavebyCopyed: 0
   mId: 0
   mChecked: 0
   mIsExpand: 0
