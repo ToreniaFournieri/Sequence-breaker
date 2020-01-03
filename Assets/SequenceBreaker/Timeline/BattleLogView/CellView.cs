@@ -45,8 +45,9 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public ShowTargetUnit showTargetUnit;
         public SimpleObjectPool unitIconObjectPool;
 
-        public SimpleObjectPool mainTextObjectPool;
-        public SimpleObjectPool hPShieldBarObjectPool;
+        public SimpleObjectPool longTextObjectPool;
+        public SimpleObjectPool textOnShieldBarObjectPool;
+        public SimpleObjectPool statusDisplayObjectPool;
 
         ///// <summary>
         ///// A reference to the rect transform which will be
@@ -106,18 +107,22 @@ namespace SequenceBreaker.Timeline.BattleLogView
             foreach (GameObject child in children)
             {
 
-                if (child.name.Contains("UnitHorizontalInfo"))
+                if (child.name.Contains("Long Text"))
                 {
-                    hPShieldBarObjectPool.ReturnObject(child);
+                    longTextObjectPool.ReturnObject(child);
                 }
 
-                if (child.name.Contains("Main Text"))
+                if (child.name.Contains("SB_UnitText"))
                 {
-                    mainTextObjectPool.ReturnObject(child);
+                    textOnShieldBarObjectPool.ReturnObject(child);
 
                 }
-                ////child.transform.localScale = new Vector3(1, 1, 1);
-                //unitIconObjectPool.ReturnObject(child);
+
+                if (child.name.Contains("SB_HPandShield"))
+                {
+                    statusDisplayObjectPool.ReturnObject(child);
+
+                }
             }
 
             //hPShieldBarObjectPool.ReturnObject(children.gameObject);
@@ -165,19 +170,31 @@ namespace SequenceBreaker.Timeline.BattleLogView
                     if (mainString.Contains("<SB_HPandShield>"))
                     {
                         // show hp and shield bar
-                        GameObject _gameObject = hPShieldBarObjectPool.GetObject();
+                        GameObject _gameObject = statusDisplayObjectPool.GetObject();
                         UnitInfoSet _unitInfoSet = _gameObject.GetComponent<UnitInfoSet>();
 
                         _unitInfoSet.SetValueFromXML(mainString);
                         _gameObject.transform.SetParent(multiMainTextTransform);
 
                     }
-                    else
+                    else if (mainString.Contains("<SB_UnitText>") && mainString.Contains("</SB_UnitText>"))
                     {
-                        // just normal text.
+                        GameObject _gameObject = textOnShieldBarObjectPool.GetObject();
 
-                        GameObject _gameObject = mainTextObjectPool.GetObject();
-                        _gameObject.GetComponent<Text>().text = mainString;
+                        int _startIndex = 0;
+                        int _endIndex = 0;
+                        try
+                        {
+                            _startIndex = mainString.IndexOf("<SB_UnitText>", System.StringComparison.Ordinal) + "<SB_UnitText>".Length;
+                            _endIndex = mainString.IndexOf("</SB_UnitText>", System.StringComparison.Ordinal);
+                            _gameObject.GetComponent<Text>().text = (mainString.Substring(_startIndex, _endIndex - _startIndex));
+                        }
+                        catch
+                        {
+                            Debug.LogError("Faild to get value: " + mainString.Substring(_startIndex, _endIndex - _startIndex) + " SB_UnitText ");
+                        }
+
+                        //_gameObject.GetComponent<Text>().text = mainString;
 
                         _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
                         // linespace not works well becareful!
@@ -185,7 +202,18 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                         _gameObject.transform.SetParent(multiMainTextTransform);
 
+                    } else
+                    {
+                        //others basic long text
+                        Debug.Log(" string: " + mainString);
+                        GameObject _gameObject = longTextObjectPool.GetObject();
+                        _gameObject.GetComponent<Text>().text = mainString;
+                        _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+
+                        _gameObject.transform.SetParent(multiMainTextTransform);
+
                     }
+
 
                 }
             }

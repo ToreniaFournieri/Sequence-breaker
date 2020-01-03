@@ -103,7 +103,7 @@ namespace SequenceBreaker.Play.Battle
                 if (character.combat.shieldCurrent > character.combat.shieldMax) { character.combat.shieldCurrent = character.combat.shieldMax; }
                 //LogList += character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "\n"
                 //    + new string(' ', 4) + "[" + character.GetShieldHp() + "]\n";
-                LogList.Add(character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()));
+                LogList.Add("<SB_UnitText>" + character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "</SB_UnitText>");
                 LogList.Add(character.GetShieldHPXML() + "<otherText>" + rescueString + "</otherText>");
                 LogList.Add( new string(' ', 4) + "[" + character.GetShieldHp() + "]" );
             }

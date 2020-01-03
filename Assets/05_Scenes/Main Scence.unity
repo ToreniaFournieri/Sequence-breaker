@@ -256,9 +256,6 @@ MonoBehaviour:
   canvasToGetWidth: {fileID: 1184356220}
   allyImage: {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
   enemyImage: {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
-  unitIconObjectPool: {fileID: 318717642}
-  mainTextObjectPool: {fileID: 818628714}
-  hPShieldBarObjectPool: {fileID: 1066844115}
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}
@@ -3686,7 +3683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898853400}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &318717642
 MonoBehaviour:
@@ -7498,10 +7495,10 @@ RectTransform:
   m_Father: {fileID: 2531591010826301213}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.35750002, y: 0}
+  m_AnchorMin: {x: 0.25217888, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.15499878, y: -0.000032424927}
-  m_SizeDelta: {x: 0.32007, y: 0}
+  m_AnchoredPosition: {x: 0.0025177002, y: -0.000032424927}
+  m_SizeDelta: {x: 0.0050659, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666360145
 MonoBehaviour:
@@ -8912,7 +8909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898853400}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798955253
 MonoBehaviour:
@@ -9245,7 +9242,7 @@ GameObject:
   - component: {fileID: 818628713}
   - component: {fileID: 818628714}
   m_Layer: 0
-  m_Name: BattleLogMainTextObjectPool
+  m_Name: BattleLogTextOnShieldBarObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9263,7 +9260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898853400}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818628714
 MonoBehaviour:
@@ -9941,11 +9938,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1000343708}
+  - {fileID: 818628713}
+  - {fileID: 1066844114}
   - {fileID: 318717641}
   - {fileID: 2091460945}
   - {fileID: 798955252}
-  - {fileID: 1066844114}
-  - {fileID: 818628713}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10954,7 +10952,7 @@ GameObject:
   - component: {fileID: 990501492}
   - component: {fileID: 990501491}
   m_Layer: 5
-  m_Name: Main Text
+  m_Name: Text On Shield Bar<SB_UnitText>
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11044,7 +11042,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0.75
-  m_Text: Main Text
+  m_Text: Text On Shield Bar
 --- !u!222 &990501494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11100,6 +11098,50 @@ MonoBehaviour:
   itemBaseList: {fileID: 11400000, guid: 065c50d13b7f44688834929f2650a56d, type: 2}
   suffixBaseList: {fileID: 11400000, guid: e0248f093c03e4790bb1fdd7cdef9dd7, type: 2}
   itemPresetList: {fileID: 11400000, guid: 9c05df970d3874ee99391c96e01c96e7, type: 2}
+--- !u!1 &1000343707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000343708}
+  - component: {fileID: 1000343709}
+  m_Layer: 0
+  m_Name: BattleLogLongTextObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1000343708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000343707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 898853400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000343709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000343707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ed3243f7b0741caa9b4bf05ae66142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 311650525}
 --- !u!1 &1016899087
 GameObject:
   m_ObjectHideFlags: 0
@@ -11904,7 +11946,7 @@ GameObject:
   - component: {fileID: 1066844114}
   - component: {fileID: 1066844115}
   m_Layer: 0
-  m_Name: BattleLogHPShieldBar
+  m_Name: BattleLogStatusDisplayObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11922,7 +11964,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898853400}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1066844115
 MonoBehaviour:
@@ -14066,8 +14108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 86.299805, y: -62.499992}
-  m_SizeDelta: {x: -292.6, y: -285}
+  m_AnchoredPosition: {x: 86.299805, y: -41.4}
+  m_SizeDelta: {x: -292.6, y: -327.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282537430
 MonoBehaviour:
@@ -23403,7 +23445,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - ' takes {[X]} damages,[i2p_Zero] takes no damages,[i2p_One] takes {[X]} damage,'
-      - "\u306B{[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
+      - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
     - Term: Trigger Possibility
@@ -23896,7 +23938,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898853400}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2091460946
 MonoBehaviour:
@@ -24022,9 +24064,10 @@ MonoBehaviour:
   headerContent: {fileID: 317642951}
   headerInfo: {fileID: 1737636751}
   showTargetUnit: {fileID: 708530701}
-  unitIconObjectPool: {fileID: 0}
-  mainTextObjectPool: {fileID: 0}
-  hPShieldBarObjectPool: {fileID: 0}
+  unitIconObjectPool: {fileID: 318717642}
+  longTextObjectPool: {fileID: 1000343709}
+  textOnShieldBarObjectPool: {fileID: 818628714}
+  statusDisplayObjectPool: {fileID: 1066844115}
   textBuffer:
     m_Left: 0
     m_Right: 0
@@ -24876,10 +24919,10 @@ RectTransform:
   m_Father: {fileID: 2531591010826301213}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.30125, y: 0}
-  m_AnchorMax: {x: 0.35000002, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.00004386902}
-  m_SizeDelta: {x: 11.369995, y: 17.19}
+  m_AnchorMin: {x: 0.19846343, y: 0}
+  m_AnchorMax: {x: 0.24635774, y: 1}
+  m_AnchoredPosition: {x: -1.3999634, y: -0.60003996}
+  m_SizeDelta: {x: 12.369995, y: 17.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2531591010826301186
 RectTransform:
@@ -24902,9 +24945,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.29500002, y: 1}
-  m_AnchoredPosition: {x: 1, y: -0.6}
-  m_SizeDelta: {x: 1.9, y: -13.1}
+  m_AnchorMax: {x: 0.19846343, y: 1}
+  m_AnchoredPosition: {x: -0.39001465, y: -0.6}
+  m_SizeDelta: {x: -0.87999725, y: -13.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2531591010826301193
 RectTransform:
@@ -25001,7 +25044,7 @@ GameObject:
   - component: {fileID: 2531591010826300170}
   - component: {fileID: 2531591010826300161}
   m_Layer: 5
-  m_Name: UnitHorizontalInfo
+  m_Name: StatusDisplay<SB_HPandShield>
   m_TagString: UnitHorizontalInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

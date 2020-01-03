@@ -468,9 +468,9 @@ namespace SequenceBreaker.Play.Battle
                         //    + "   " + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
                         //    + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
 
-                        logList.Add(opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                        logList.Add("<SB_UnitText>" + opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + " "
-                            + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()));
+                            + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "</SB_UnitText>");
 
 
                         //                        +Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString())
