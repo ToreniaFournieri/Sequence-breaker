@@ -156,6 +156,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 }
 
+                this.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
                 gameObject.SetActive(true);
 
             }
