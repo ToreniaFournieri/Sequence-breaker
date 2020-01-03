@@ -40,12 +40,16 @@ namespace SequenceBreaker.Play.MissionView
 
         public void GoBattle()
         {
+
+            //[1]. [Battle Engine] prepare the battle and battle run
+
+            //[1-1]. Battle: Run
             runBattle.Run((int)levelOfMissionSlider.value, missionController.allyUnitList);
 
+
+            //[1-2]. Battle log to GameObject.
             //Not works well
             RunBattle runBattle1 = runBattle;
-
-
             List<GameObject> battleCopyList = new List<GameObject>();
 
 
@@ -74,22 +78,21 @@ namespace SequenceBreaker.Play.MissionView
                 // temp 2019/11/10
                 missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
 
-
                 wave += 1;
-
             }
 
-            //get Mission unitName
+            //[1-3]. Get Mission unitName
             string missionName = runBattle1.mission.missionName;
             string missionLevel = " (lv:" + battleCopyList[0].GetComponent<RunBattle>().currentLevel + ")";
 
-            missionController.logListDataSourceMgr.Refresh();
 
 
-            // Drop list
+
+            //[2]. Get Exparience and Drop Item
             List<Item> itemList = new List<Item>();
             DropEngine dropEngine = new DropEngine();
 
+            //[2-1]. Loop only when battle Win. and see transparent message 
             wave = 0;
             foreach (GameObject battleCopy in battleCopyList)
             {
@@ -112,20 +115,16 @@ namespace SequenceBreaker.Play.MissionView
                             itemList.Add(item);
                         }
 
-                        // Exp gain, not use copy data! lost reference means worthless.
+                        //[2-2]. Caracter gains Exp.
+                        // not use copy data! lost reference means worthless.
                         int experience = 0;
                         foreach (UnitClass enemyUnit in unitWave.unitWave)
                         {
                             experience += enemyUnit.ExperienceFromBeaten();
                         }
 
-
-
                         // Distribution, not use copied data! lost reference means worthless.
                         experience = (int)Math.Ceiling((double)experience / (double)missionController.allyUnitList.Count);
-
-                        //Debug.Log("experience" + experience);
-
 
                         foreach (UnitClass allyUnit in missionController.allyUnitList)
                         {
@@ -136,13 +135,9 @@ namespace SequenceBreaker.Play.MissionView
                                 missionController.transparentMessageController
                                     .AddTextAndActive("[P1]" + allyUnit.shortName + " +" + levelUpAmount + " " + Word.Get("Level up")
                                     + "! (" + Word.Get("level") + ":" + allyUnit.level + ")", false);
-
-
                             }
                         }
-
                     }
-
                 }
 
                 if (wave + 1 == battleCopyList.Count)
@@ -156,13 +151,13 @@ namespace SequenceBreaker.Play.MissionView
                 wave += 1;
             }
 
-            // gain experience
+            //[2-3]. Save characters infomation (Experience).
             foreach (UnitClass allyUnit in missionController.allyUnitList)
             {
                 ItemDataBase.instance.SaveUnitInfo(allyUnit);
-                //missionController.inventoryItemList.itemDataBase.SaveUnitInfo(allyUnit);
             }
 
+            //[2-3]. Display transparent message of item drop.
             foreach (Item item in itemList)
             {
                 bool isBoldRed = false;
@@ -171,20 +166,19 @@ namespace SequenceBreaker.Play.MissionView
 
                 missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName, isBoldRed);
 
-                //missionController.transparentMessageController.transparentText.text += "\n " + "[P1] " + item.ItemName;
-            }
-
-            foreach (var item in itemList)
-            {
+                //[2-4]. Save Item drop infomation.
                 missionController.inventoryItemList.AddItemAndSave(item);
             }
 
 
 
+            //[3]. Reflesh data
+            //[3-1]. Reflesh the log list view
+            missionController.logListDataSourceMgr.Refresh();
+
+
+            //[3-2]. Reflesh inventory view.
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
-
-            //missionController.transparentMessageController.transparentMessage.SetActive(true);
-
 
 
         }
