@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2807ca4373f049cb874a5265f09c71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataList: []
   scroller: {fileID: 978793930}
   cellViewPrefab: {fileID: 2094781890}
   parentJumpIndex: {fileID: 1333312224}
@@ -2171,6 +2172,7 @@ MonoBehaviour:
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
+  dataList: []
   currentAllyUnitList: []
   waveForSaved: 0
   mId: 0
@@ -5260,6 +5262,7 @@ MonoBehaviour:
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
+  dataList: []
   currentAllyUnitList: []
   waveForSaved: 0
   mId: 0
@@ -14109,7 +14112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 87.29999, y: -62.02501}
+  m_AnchoredPosition: {x: 87.299805, y: -62.02501}
   m_SizeDelta: {x: -294.7, y: -284.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282537430
@@ -19119,6 +19122,7 @@ MonoBehaviour:
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
+  dataList: []
   currentAllyUnitList: []
   waveForSaved: 0
   mId: 0
@@ -19300,6 +19304,7 @@ MonoBehaviour:
   currentLevel: 0
   whichWin: 0
   whichWinEachWaves: 
+  dataList: []
   currentAllyUnitList: []
   waveForSaved: 0
   mId: 0
