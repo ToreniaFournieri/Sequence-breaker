@@ -105,7 +105,7 @@ namespace SequenceBreaker.Play.Battle
                 //    + new string(' ', 4) + "[" + character.GetShieldHp() + "]\n";
                 LogList.Add("<SB_UnitText>" + character.longName + Word.Get("heals X shields.", ((int)healValue).ToString()) + "</SB_UnitText>");
                 LogList.Add(character.GetShieldHPXML() + "<otherText>" + rescueString + "</otherText>");
-                LogList.Add( new string(' ', 4) + "[" + character.GetShieldHp() + "]" );
+                //LogList.Add( new string(' ', 4) + "[" + character.GetShieldHp() + "]" );
             }
             foreach (var character in characters) { if (character.IsCrushedJustNow) { character.IsCrushedJustNow = false; } } // reset IsCrushedJustNow flag
 

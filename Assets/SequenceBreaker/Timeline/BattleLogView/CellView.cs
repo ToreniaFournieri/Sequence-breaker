@@ -175,6 +175,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                         _unitInfoSet.SetValueFromXML(mainString);
                         _gameObject.transform.SetParent(multiMainTextTransform);
+                        _gameObject.transform.localScale = new Vector3(1, 1, 1);
+
 
                     }
                     else if (mainString.Contains("<SB_UnitText>") && mainString.Contains("</SB_UnitText>"))
@@ -187,7 +189,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         {
                             _startIndex = mainString.IndexOf("<SB_UnitText>", System.StringComparison.Ordinal) + "<SB_UnitText>".Length;
                             _endIndex = mainString.IndexOf("</SB_UnitText>", System.StringComparison.Ordinal);
-                            _gameObject.GetComponent<Text>().text = (mainString.Substring(_startIndex, _endIndex - _startIndex));
+                            _gameObject.GetComponentInChildren<Text>().text = (mainString.Substring(_startIndex, _endIndex - _startIndex));
                         }
                         catch
                         {
@@ -196,21 +198,25 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                         //_gameObject.GetComponent<Text>().text = mainString;
 
-                        _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
+                        _gameObject.GetComponentInChildren<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
                         // linespace not works well becareful!
                         //_gameObject.GetComponent<Text>().lineSpacing = float.Parse(LocalizationManager.GetTranslation("FONT-LineSpace"));
 
                         _gameObject.transform.SetParent(multiMainTextTransform);
+                        _gameObject.transform.localScale = new Vector3(1, 1, 1);
 
-                    } else
+                    }
+                    else
                     {
                         //others basic long text
                         //Debug.Log(" string: " + mainString);
                         GameObject _gameObject = longTextObjectPool.GetObject();
+
                         _gameObject.GetComponent<Text>().text = mainString;
                         _gameObject.GetComponent<Text>().font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
                         _gameObject.transform.SetParent(multiMainTextTransform);
+                        _gameObject.transform.localScale = new Vector3(1, 1, 1);
 
                     }
 
