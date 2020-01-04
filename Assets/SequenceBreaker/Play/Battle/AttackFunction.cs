@@ -114,6 +114,8 @@ namespace SequenceBreaker.Play.Battle
                     opponent.effectiveDefense = (double)opponent.combat.defense * (1.00 - opponent.Deterioration)
                         * environmentInfo.R.Next(40 + opponent.ability.luck - criticalReduction, 100 - criticalReduction) / 100.0;
 
+
+
                 }
 
                 for (var numberOfAttacks = 1; numberOfAttacks <= (int)(order.Actor.combat.numberOfAttacks * skillMagnificationNumberOfAttacks); numberOfAttacks++)
@@ -269,10 +271,20 @@ namespace SequenceBreaker.Play.Battle
                             { barrierReduction = 1.0 / 3.0; if (toTarget.buff.BarrierRemaining <= 0) { toTarget.IsBarrierBrokenJustNow = true; } }
                             else { if (toTarget.IsBarrierExistJustBefore && toTarget.IsBarrierBrokenJustNow == false) { toTarget.IsBarrierBrokenJustNow = true; } } // if barrier is broken within this action, broken check.
 
-                            var buffDamageMagnification = order.Actor.buff.AttackMagnification / toTarget.buff.DefenseMagnification; // Buff damage reduction
-                            var dealtDamage = (int)((attackDamage) * damageTypeMagnification * vsOffenseMagnification * vsDefenseMagnification
-                                                    * criticalMagnification * optimumRangeBonus * skillOffenseEffectMagnification * skillMagnificationDamage * buffDamageMagnification
-                                                    * (Math.Pow(decayDamage, numberOfSuccessAttacks) / decayDamage) * barrierReduction);
+
+                            double offenseMagnification = vsOffenseMagnification * criticalMagnification * skillOffenseEffectMagnification
+                                                         * skillMagnificationDamage * order.Actor.buff.AttackMagnification;
+                            double defenseMagnification = vsDefenseMagnification * toTarget.buff.DefenseMagnification
+                                                         ;
+                            //var buffDamageMagnification =  / toTarget.buff.DefenseMagnification; // Buff damage reduction
+                            //var dealtDamage = (int)((attackDamage) * damageTypeMagnification * vsOffenseMagnification * vsDefenseMagnification
+                            //                        * criticalMagnification * optimumRangeBonus * skillOffenseEffectMagnification * skillMagnificationDamage * buffDamageMagnification
+                            //                        * (Math.Pow(decayDamage, numberOfSuccessAttacks) / decayDamage) * barrierReduction);
+                            var dealtDamage = (int)((attackDamage) * damageTypeMagnification
+                                                    * offenseMagnification * offenseMagnification
+                                                    * optimumRangeBonus
+                                                    * (Math.Pow(decayDamage, numberOfSuccessAttacks) / decayDamage)
+                                                    * barrierReduction);
                             if (dealtDamage <= 0) { dealtDamage = 1; }
                             totalDealtDamageSum += dealtDamage;
 
@@ -404,28 +416,55 @@ namespace SequenceBreaker.Play.Battle
                     majorityElement +=
                                     " [" + Word.Get("Kinetic") + " x"
                                     + Math.Round(order.Actor.combat.kineticAttackRatio * order.Actor.offenseMagnification.kinetic
-                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                                    //* order.Actor.offenseMagnification.critical
+                                    //* skillOffenseEffectMagnification * skillMagnificationDamage
+                                    , 2) + "]";
                 }
                 if (order.Actor.combat.chemicalAttackRatio > 0.001)
                 {
                     majorityElement +=
                                     " [" + Word.Get("Chemical") + "x"
                                     + Math.Round(order.Actor.combat.chemicalAttackRatio * order.Actor.offenseMagnification.chemical
-                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                                    //* order.Actor.offenseMagnification.critical
+                                    //* skillOffenseEffectMagnification * skillMagnificationDamage
+                                    , 2) + "]";
                 }
                 if (order.Actor.combat.thermalAttackRatio > 0.001)
                 {
                     majorityElement +=
                                     " [" + Word.Get("Thermal") + "x"
                                     + Math.Round(order.Actor.combat.thermalAttackRatio * order.Actor.offenseMagnification.thermal
-                                    * order.Actor.offenseMagnification.critical, 2) + "]";
+                                    //* order.Actor.offenseMagnification.critical
+                                    //* skillOffenseEffectMagnification * skillMagnificationDamage
+                                    , 2) + "]";
                 }
 
                 if (majorityElement == null)
                 {
-                    majorityElement = " [" + Word.Get("Element-None") + " x"
-                        + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
+                    majorityElement = " [" + Word.Get("Element-None") + "]";
 
+                }
+
+                string buffString = null;
+                if (order.Actor.buff.AttackMagnification > 1.0 || order.Actor.buff.AttackMagnification < 1.0)
+                {
+                    buffString = " [" + Word.Get("Buff") + " x"
+                        + Math.Round(order.Actor.buff.AttackMagnification, 2) + "]";
+                }
+
+                string criticalRatioString = null;
+                if (order.Actor.offenseMagnification.critical > 1.0
+                    || order.Actor.offenseMagnification.critical < 1.0)
+                {
+                    criticalRatioString = " [" + Word.Get("Critical") + " x"
+                        + Math.Round(order.Actor.offenseMagnification.critical, 2) + "]";
+                }
+
+                string skillRatioString = null;
+                if (skillOffenseEffectMagnification * skillMagnificationDamage > 1.0 || skillOffenseEffectMagnification * skillMagnificationDamage < 1.0)
+                {
+                    skillRatioString = " [" + Word.Get("Skill") + " x"
+                        + Math.Round(skillOffenseEffectMagnification * skillMagnificationDamage, 2) + "]";
                 }
 
 
@@ -434,9 +473,9 @@ namespace SequenceBreaker.Play.Battle
                 //string hitString = Word.Get("Hit-Active");
 
                 var firstLine = skillName + " [" + Word.Get("X shots", order.Actor.combat.numberOfAttacks.ToString()) + "] " + skillTriggerPossibility
-                    + " " + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) +" (" + (int)(effectiveAttack / order.Actor.combat.attack * 100) + "%)";
-                //+ " " + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + criticalWords + majorityElement;
-                logList.Add(criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement);
+                    + " " + Word.Get("Effective Attack: X", ((int)effectiveAttack).ToString()) + " (" + (int)(effectiveAttack / order.Actor.combat.attack * 100) + "%)";
+                logList.Add(criticalWords + Word.Get("X hits.-Active", numberOfSuccessAttacks.ToString()) + majorityElement
+                    + criticalRatioString + skillRatioString + buffString);
 
                 for (var fTargetColumn = 0; fTargetColumn <= opponents.Count - 1; fTargetColumn++)
                 {
@@ -460,24 +499,38 @@ namespace SequenceBreaker.Play.Battle
                         var sign = " "; if (damageRatio > 0) { sign = "-"; }
                         var damageRateSpace = (4 - sign.Length - damageRatio.ToString(CultureInfo.InvariantCulture).Length);
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
-                        //string damageRatioString = " (" + new string(' ', damageRateSpace) + sign + damageRatio + "%)";
 
-                        //logList += opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
-                        //    + damageRatioString + " "
-                        //    + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "\n"
-                        //    + "   " + " [" + opponents[fTargetColumn].GetShieldHp() + "] "
-                        //    + Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString()) + crushed + barrierWords + optimumRangeWords + " \n";
 
                         logList.Add("<SB_UnitText>" + opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + " "
                             + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "</SB_UnitText>");
 
+                        string vsString = null;
+                        double vsDefenseMagnification;
+                        switch (order.Actor.unitType)
+                        {
+                            case (UnitType.Beast): vsDefenseMagnification = opponents[fTargetColumn].defenseMagnification.vsBeast; break;
+                            case (UnitType.Cyborg): vsDefenseMagnification = opponents[fTargetColumn].defenseMagnification.vsCyborg; break;
+                            case (UnitType.Drone): vsDefenseMagnification = opponents[fTargetColumn].defenseMagnification.vsDrone; break;
+                            case (UnitType.Robot): vsDefenseMagnification = opponents[fTargetColumn].defenseMagnification.vsRobot; break;
+                            case (UnitType.Titan): vsDefenseMagnification = opponents[fTargetColumn].defenseMagnification.vsTitan; break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
 
-                        //                        +Word.Get("Effective Defense: X", ((int)opponents[fTargetColumn].effectiveDefense).ToString())
-                        //+ crushed + barrierWords + optimumRangeWords);
+                        if (vsDefenseMagnification > 1.0 || vsDefenseMagnification < 1.0)
+                        {
+                            vsString = " [vs " + Word.Get(order.Actor.unitType.ToString()) + " x"+ Math.Round(vsDefenseMagnification,2) +"]" ;
+                        }
 
-                        // dhisplay HP and Shield infomation
-                        logList.Add(opponents[fTargetColumn].GetShieldHPXML() + "<otherText>" + crushed + optimumRangeWords + "</otherText>");
+                        string buffDefenseString = null;
+                        if (opponents[fTargetColumn].buff.DefenseMagnification > 1.0 || opponents[fTargetColumn].buff.DefenseMagnification < 1.0)
+                        {
+                            buffDefenseString = " [" + Word.Get("Buff")+ " x" + Math.Round(opponents[fTargetColumn].buff.DefenseMagnification, 2) + "]";
+                        }
+
+
+                        logList.Add(opponents[fTargetColumn].GetShieldHPXML() + "<otherText>" + crushed +vsString + buffDefenseString + optimumRangeWords + "</otherText>");
                         if (opponents[fTargetColumn].IsOptimumTarget) { opponents[fTargetColumn].IsOptimumTarget = false; } //clear IsOptimumTarget to false
                     }
 

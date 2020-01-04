@@ -32,6 +32,8 @@ namespace SequenceBreaker.Master.BattleUnit
 
         // One time Values
         public double effectiveDefense;
+        //public double vsDefenseMagnification;
+
         public int previousHp;
         public int previousShield;
         public int previousBarrier;

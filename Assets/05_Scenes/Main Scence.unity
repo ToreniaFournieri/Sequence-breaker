@@ -2251,37 +2251,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &236666655
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 236666656}
-  m_Layer: 0
-  m_Name: B0_Global
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &236666656
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236666655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2055087777}
-  m_Father: {fileID: 2123972852}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &240124707
 GameObject:
   m_ObjectHideFlags: 0
@@ -22835,7 +22804,7 @@ GameObject:
   - component: {fileID: 2055087777}
   - component: {fileID: 2055087778}
   m_Layer: 0
-  m_Name: LanguageSource
+  m_Name: B0_LanguageSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22848,11 +22817,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055087776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 236666656}
+  m_Father: {fileID: 2123972852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2055087778
@@ -23538,6 +23507,22 @@ MonoBehaviour:
       Languages:
       - Time over.
       - "\u6642\u9593\u5207\u308C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skill
+      TermType: 0
+      Description: 
+      Languages:
+      - Skill
+      - "\u30B9\u30AD\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Buff
+      TermType: 0
+      Description: 
+      Languages:
+      - Buff
+      - "\u30D0\u30D5"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -24546,7 +24531,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 236666656}
+  - {fileID: 2055087777}
   - {fileID: 421160712}
   - {fileID: 607190634}
   - {fileID: 1988823739}
