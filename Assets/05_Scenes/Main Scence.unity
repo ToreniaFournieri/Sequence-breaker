@@ -2682,7 +2682,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8045,7 +8045,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
 --- !u!114 &708530701
@@ -10485,7 +10485,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15866,7 +15866,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397488078}
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20491,7 +20491,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -23525,6 +23525,14 @@ MonoBehaviour:
       - "\u30D0\u30D5"
       Flags: 0000
       Languages_Touch: []
+    - Term: Captured X from A.
+      TermType: 0
+      Description: 
+      Languages:
+      - Captured {[X]} from {[A]}.
+      - "{[A]}\u304B\u3089{[X]}\u3092\u9E75\u7372\u3057\u305F"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -23827,7 +23835,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

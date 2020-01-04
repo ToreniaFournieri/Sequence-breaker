@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TuningStyleMaster
   m_EditorClassIdentifier: 
   commanderSkills:
-  - {fileID: 11400000, guid: b009f4f98d73b4351ace72f8fd374199, type: 2}
+  - {fileID: 11400000, guid: be9a44af6d9734330a4c43d457a76df3, type: 2}
   destroyerSkills:
   - {fileID: 11400000, guid: fb9a2c74b8de64f2c82cff5d956c78f0, type: 2}
   fighterSkills:

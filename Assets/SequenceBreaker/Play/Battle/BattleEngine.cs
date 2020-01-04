@@ -101,10 +101,6 @@ namespace SequenceBreaker.Play.Battle
             const int battleWaves = 1; // one set of battle 
             //const string navigatorName = "Navigator";
 
-            ////BattleWaveSet variables
-            //const double allyAttackMagnificationPerWavesSet = 0.0;
-            //const double allyDefenseMagnificationPerWavesSet = 0.0;
-
             //FuncBattleConditionsText text;
             int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
             //seed = 1086664070; // Reproduction.
@@ -113,8 +109,6 @@ namespace SequenceBreaker.Play.Battle
             // System initialize : Do not change them.
             var battleLogList = new List<BattleLogClass>();
             List<string> finalLogList = new List<string>();
-            //var logPerWavesSets = new string[battleWavesSets];
-            //var subLogPerWavesSets = new string[battleWavesSets];
             var totalTurn = 0; // Static info of total turn
             var currentBattleWaves = 1;
 
@@ -180,15 +174,11 @@ namespace SequenceBreaker.Play.Battle
                                 //Only alive character should be action.
                                 var aliveCharacters = _characters.FindAll(character1 => character1.combat.hitPointCurrent > 0);
 
-
-
-
                                 //Action order decision for each turn
                                 var orders = new Stack<OrderClass>();
                                 var orderForSort = new List<OrderClass>();
 
                                 {
-
                                     string firstLine = null;
                                     List<string> logList = new List<string>();
                                     BattleLogClass battleLog;
@@ -376,6 +366,7 @@ namespace SequenceBreaker.Play.Battle
                                         (firstLine, logList) = BuffDebuffFunction.Get(order, _characters, _effects, _buffMasters, turn); //Buff, debuff action
 
 
+                                        // For debug
                                         if (order.SkillEffectChosen.skill.skillName != "Normal Attack")
                                         {
                                             Debug.Log(turn + " buff action: " + order.Actor.shortName + " skill:" + order.SkillEffectChosen.skill.skillName);
@@ -395,7 +386,6 @@ namespace SequenceBreaker.Play.Battle
                                         battleLog = new BattleLogClass(order.OrderCondition, order, firstLine, logList, order.Actor.affiliation);
                                         battleLogList.Add(battleLog);
                                     }
-
 
                                     //[3-5]. Rescue action.
                                     if (order.IsRescue) //only when rescue
@@ -420,9 +410,6 @@ namespace SequenceBreaker.Play.Battle
                                         var t = order.Actor.name + "'s " + order.SkillEffectChosen.skill.skillName + ". first blood! total dealt damage:" + battleResult.TotalDealtDamage.WithComma() + " " + battleResult.NumberOfCrushed.WithComma() + " crush" + es + ".";
                                         var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
                                         setStatisticsReporterFirstBlood.Set(Affiliation.Ally, order.Actor.name, battleResult.TotalDealtDamage, t);
-                                        //if (battleLogClass != null)
-                                        //{
-                                        //}
                                         allyFirstBlood = true;
                                     }
                                     else if (order.Actor.affiliation == Affiliation.Enemy && enemyFirstBlood == false && battleResult.NumberOfCrushed >= 1) //When enemy first blood 
@@ -488,37 +475,16 @@ namespace SequenceBreaker.Play.Battle
                                     //[7]. ------------------------ReAction Skill - push to orders.------------------------
                                     //Push order in reverse. counter -> chain -> reAttack -> rescue
                                     //[7-1]. Push Counter
-                                    //if (counterStack != null)
-                                    //{
-                                    //}
                                     while (counterStack != null && counterStack.Count > 0) { orders.Push(counterStack.Pop()); nestNumber++; }
-
                                     //[7-2]. Push Chain
-                                    //if (chainStack != null)
-                                    //{
-                                    //}
                                     while (chainStack != null && chainStack.Count > 0) { orders.Push(chainStack.Pop()); nestNumber++; }
 
                                     //[7-3]. Push ReAttack
-                                    if (reAttackStack != null)
-                                    {
-                                    }
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
                                     //[7-4]. Push rescue
-                                    //if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
-
-                                    ////Navigation Logic
-                                    //var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
-                                    //    _characters, _effects, orderStatus);
-
-                                    //var navigationLog = navigatorSpeechAfterMove.Log;
-                                    //if (navigationLog == null) continue;
-                                    ////navigationLog += new string(' ', 2) + "-------------\n";
-                                    //battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
-                                    //battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
                             } // action Phase.
@@ -567,17 +533,6 @@ namespace SequenceBreaker.Play.Battle
                     }
                 } //Battle waves
 
-
-                ////statistics reporter open
-                //for (var battleWave = 1; battleWave <= battleWaves; battleWave++)
-                //{
-                //    var setStatisticsReporterFirstBlood = statisticsReporterFirstBlood.FindLast(obj => obj.BattleWave == battleWave);
-                //    setStatisticsReporterFirstBlood.WhichWin = statisticsReporterWhichWins[battleWave - 1];
-                //}
-                //var statisticsQueryAlly = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.AllyWin)
-                //    .GroupBy(x => x.AllyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
-                //var statisticsQueryEnemy = statisticsReporterFirstBlood.Where(x => x.WhichWin == WhichWin.EnemyWin)
-                //    .GroupBy(x => x.EnemyCharacterName).Select(x => new { Subj = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);
             } // Battle waves set
 
             //Battle is over.
@@ -603,9 +558,6 @@ namespace SequenceBreaker.Play.Battle
             //[13-3]. This is the last cell for debug.
             finalLogList.Add("Battle is over. " + Word.Get(WhichWin.ToString()));
 
-
-
-
             var finishDateTime = DateTime.Now;
             var processedTimeSpan = finishDateTime - startDateTime;
             finalLogList.Add("finished:" + finishDateTime);
@@ -619,14 +571,6 @@ namespace SequenceBreaker.Play.Battle
             LogList = battleLogDisplayList;
 
         }
-
-
-
-    
-
-
-
-
 
     }
 } //End of MainClass

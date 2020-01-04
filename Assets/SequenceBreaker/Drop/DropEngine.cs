@@ -14,11 +14,11 @@ namespace SequenceBreaker.Drop
 
         // Internal information
         //private List<UnitClass> _enemyUnitList;
-        private List<Item> _dropItemList;
+        private List<(string,Item)> _dropItemList;
 
-        public List<Item> GetDroppedItems(List<UnitClass> enemyUnitList)
+        public List<(string whoDrops,Item droppedItem)> GetDroppedItems(List<UnitClass> enemyUnitList)
         {
-            _dropItemList = new List<Item>();
+            _dropItemList = new List<(string, Item)>();
 
             //1.Correct all item of enemy units
             foreach (UnitClass unit in enemyUnitList)
@@ -80,7 +80,7 @@ namespace SequenceBreaker.Drop
                             }
 
 
-                        _dropItemList.Add(_itemDrop);
+                        _dropItemList.Add((unit.shortName,_itemDrop));
                     }
                 }
             }

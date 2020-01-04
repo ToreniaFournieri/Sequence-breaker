@@ -42,6 +42,9 @@ namespace SequenceBreaker.Play.MissionView
         public void GoBattle()
         {
 
+            List<(string, bool)> transparentTextList = new List<(string, bool)>();
+            bool isLostMoreThanOnce = false;
+
             //[1]. [Battle Engine] prepare the battle and battle run
 
             //[1-1]. Battle: Run
@@ -53,8 +56,6 @@ namespace SequenceBreaker.Play.MissionView
             RunBattle runBattle1 = runBattle;
             List<GameObject> battleCopyList = new List<GameObject>();
 
-
-            //int wave = 0;
 
             int MaxWave = runBattle1.dataList.Max(x => x.Wave);
             //Debug.Log("Max wave is " + MaxWave);
@@ -85,120 +86,114 @@ namespace SequenceBreaker.Play.MissionView
                 missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[i].GetComponent<RunBattle>());
             }
 
-            //foreach (Data unused in runBattle1.dataList)
-            //{
-            //    battleCopyList.Add(new GameObject());
-            //    battleCopyList[wave].transform.parent = runBattle.transform;
-            //    battleCopyList[wave].name = runBattle.name + " log:" + DateTime.Now;
-            //    battleCopyList[wave].gameObject.AddComponent<RunBattle>();
-
-            //    RunBattle localRunBattle = runBattle1.Copy(wave);
-
-            //    battleCopyList[wave].GetComponent<RunBattle>().Set(localRunBattle);
-
-            //    battleCopyList[wave].GetComponent<RunBattle>().currentMissionName =
-
-            //        "[" +Word.Get(battleCopyList[wave].GetComponent<RunBattle>().whichWinEachWaves[wave].ToString()) + "] "
-            //        + battleCopyList[wave].GetComponent<RunBattle>().mission.missionName
-            //        + " (" + Word.Get("Xth wave", (wave + 1).ToString(), true) + ")";
-            //    battleCopyList[wave].GetComponent<RunBattle>().currentLevel = runBattle1.currentLevel;
-
-            //    missionController.allyCurrentBattleUnitList = localRunBattle.currentAllyUnitList;
-            //    missionController.UpdatePartyStatus();
-
-            //    // temp 2019/11/10
-            //    missionController.logListDataSourceMgr.runBattleList.Add(battleCopyList[wave].GetComponent<RunBattle>());
-
-            //    wave += 1;
-            //}
-
             //[1-3]. Get Mission unitName
             string missionName = runBattle1.mission.missionName;
             string missionLevel = " (lv:" + battleCopyList[0].GetComponent<RunBattle>().currentLevel + ")";
-
-
 
 
             //[2]. Get Exparience and Drop Item
             List<Item> itemList = new List<Item>();
             DropEngine dropEngine = new DropEngine();
 
-            //[2-1]. Loop only when battle Win. and see transparent message 
-            //wave = 0;
+            //[2-1]. Loop only when battle Win. and show transparent message 
             foreach (GameObject battleCopy in battleCopyList)
             {
                 if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.AllyWin)
                 {
                     List<(UnitClass unit, int exp, string levelupString)> gainExpList = new List<(UnitClass unit, int exp, string levelupString)>();
+
+                    int unitWaveCount = 0;
+
                     foreach (UnitWave unitWave in battleCopy.GetComponent<RunBattle>().mission.unitSet.unitSetList)
                     {
-                        List<Item> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave);
-
-                        foreach (Item item in itemListLocal)
+                        if (unitWaveCount == battleCopy.GetComponent<RunBattle>().waveForSaved)
                         {
+                            //[2-2]. Item Drop
+                            string itemDropString = "Item Drop \n";
 
-                            //[TEMP for demo] Prefix add 0.1 possibility
-                            if (0.001f >= UnityEngine.Random.Range(0, 1.0f))
+                            //[2-2-1]. Get Dropped Item from Drop Engine.
+                            List<(string whoDrops, Item droppedItem)> itemListLocal = dropEngine.GetDroppedItems(enemyUnitList: unitWave.unitWave);
+
+
+                            foreach ((string whoDrops,Item droppedItem) item in itemListLocal)
                             {
-                                item.prefixItem = ItemDataBase.instance.prefixBaseList.itemBaseMasterList[0];
+
+                                //[2-2-2]. [TEMP for demo] Prefix add 0.1 possibility
+                                if (0.001f >= UnityEngine.Random.Range(0, 1.0f))
+                                {
+                                    item.droppedItem.prefixItem = ItemDataBase.instance.prefixBaseList.itemBaseMasterList[0];
+                                }
+
+                                itemList.Add(item.droppedItem) ;
+
+                                bool isBoldRed = false;
+                                if (item.droppedItem.suffixItem) { isBoldRed = true; }
+                                if (item.droppedItem.prefixItem) { isBoldRed = true; }
+
+                                //missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName, isBoldRed);
+                                transparentTextList.Add(("[P1] " + item.droppedItem.ItemName, isBoldRed));
+                                itemDropString += Word.Get("Captured X from A.", item.droppedItem.ItemName, item.whoDrops) + "\n";
+                                //itemDropString += Word.Get("Captured X from A.", item.droppedItem.ItemName, item.whoDrops);
                             }
 
-                            itemList.Add(item);
-                        }
+                            //[2-2-3]. Displays Item drop list in battle log.
 
-                        //[2-2]. Caracter gains Exp.
-                        // not use copy data! lost reference means worthless.
-                        int experience = 0;
-                        foreach (UnitClass enemyUnit in unitWave.unitWave)
-                        {
-                            experience += enemyUnit.ExperienceFromBeaten();
-                        }
+                            SetBattleLog(battleCopy, itemDropString);
 
-                        // Distribution, not use copied data! lost reference means worthless.
-                        experience = (int)Math.Ceiling((double)experience / (double)missionController.allyUnitList.Count);
-
-                        foreach (UnitClass allyUnit in missionController.allyUnitList)
-                        {
-                            var levelUpAmount = allyUnit.GainExperience(experience);
-                            string levelUptext = null;
-                            if (levelUpAmount > 0)
+                            //[2-3]. Caracter gains Exp.
+                            //[2-3-1]. Get Total Experience.  Not use copy data! lost reference means worthless.
+                            int experience = 0;
+                            foreach (UnitClass enemyUnit in unitWave.unitWave)
                             {
-                                levelUptext = " +" + levelUpAmount + " " + Word.Get("Level up")
-                                    + "! (" + Word.Get("level") + ":" + allyUnit.level + ")";
-                                missionController.transparentMessageController
-                                    .AddTextAndActive("[P1]" + allyUnit.shortName + levelUptext, false);
+                                experience += enemyUnit.ExperienceFromBeaten();
                             }
 
-                            gainExpList.Add(( allyUnit, experience, levelUptext));
+                            //[2-3-2]. Distribution, not use copied data! lost reference means worthless.
+                            experience = (int)Math.Ceiling((double)experience / (double)missionController.allyUnitList.Count);
+                            foreach (UnitClass allyUnit in missionController.allyUnitList)
+                            {
+                                var levelUpAmount = allyUnit.GainExperience(experience);
+                                string levelUptext = null;
+                                if (levelUpAmount > 0)
+                                {
+                                    levelUptext = " +" + levelUpAmount + " " + Word.Get("Level up")
+                                        + "! (" + Word.Get("level") + ":" + allyUnit.level + ")";
+                                    //missionController.transparentMessageController
+                                    //    .AddTextAndActive("[P1]" + allyUnit.shortName + levelUptext, false);
+                                    transparentTextList.Add(("[P1]" + allyUnit.shortName + levelUptext, false));
+                                }
+
+                                gainExpList.Add((allyUnit, experience, levelUptext));
+                            }
+
+                            //[2-3-3]. Displays Gains Exp in battle log.
+                            string bigTextString =  "Gain Experience \n";
+                            foreach (var info in gainExpList)
+                            {
+                                bigTextString += info.unit.shortName + " gets " + info.exp + " experience. \n";
+                                if (info.levelupString != null)
+                                {
+                                    bigTextString += new string(' ', 3) + "And" + info.levelupString + "\n";
+                                }
+                                bigTextString += new string(' ', 3) + " To the next level(" + (info.unit.level + 1) + ") , need " + info.unit.toNextLevel + " experience. \n";
+
+                            }
+                            SetBattleLog(battleCopy, bigTextString);
+
+                            Debug.Log("im on unitWave which starts: " + unitWave.unitWave[0].shortName + " in battle copy ");
                         }
+                        unitWaveCount++;
                     }
-
-                    
-                    Data _data = new Data();
-                    _data.Wave = battleCopy.GetComponent<RunBattle>().waveForSaved;
-                    //_data.Wave = battleCopy.GetComponent<RunBattle>().waveForSaved;
-                    _data.BigText = "Gain Experience \n";
-                    foreach (var info in gainExpList)
-                    {
-                        _data.BigText += info.unit.shortName + " gets " + info.exp + " experience. \n";
-                        if (info.levelupString != null)
-                        {
-                            _data.BigText += new string(' ', 3) + "And" + info.levelupString + "\n";
-                        }
-                        _data.BigText += new string(' ', 3) + " To the next level("+ (info.unit.level +1)  +") , need " + info.unit.toNextLevel + " experience. \n";
-
-                    }
-
-                    _data.Index = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Index) + 1;
-                    _data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) - 1; //last Turn is dummy
-                    _data.IsDead = true;
-                    _data.Affiliation = Affiliation.None;
-                    battleCopy.GetComponent<RunBattle>().dataList.Add(_data);
-
+                }
+                else if (battleCopy.GetComponent<RunBattle>().whichWin == WhichWin.EnemyWin)
+                {
+                    isLostMoreThanOnce = true;
                 }
 
+
+
+
                 int lastWave = battleCopy.GetComponent<RunBattle>().waveForSaved;
-                //Debug.Log(" battleCopyList.Count: " + battleCopyList.Count + " last wave:" + lastWave);
                 if (lastWave + 1 == battleCopyList.Count)
                 {
                     missionController.transparentMessageController
@@ -207,39 +202,56 @@ namespace SequenceBreaker.Play.MissionView
                                + Word.Get(battleCopy.GetComponent<RunBattle>().whichWinEachWaves[lastWave].ToString()) + "] ", false);
                 }
 
-                //wave += 1;
             }
 
-            //[2-3]. Save characters infomation (Experience).
+
+            //[3]. Save and commit
+            //[3-1]. Save characters infomation (Experience).
             foreach (UnitClass allyUnit in missionController.allyUnitList)
             {
                 ItemDataBase.instance.SaveUnitInfo(allyUnit);
             }
 
-            //[2-3]. Display transparent message of item drop.
-            foreach (Item item in itemList)
+            //[3-2]. Save Item drop infomation. If no lost battle.
+            if (!isLostMoreThanOnce)
             {
-                bool isBoldRed = false;
-                if (item.suffixItem) { isBoldRed = true; }
-                if (item.prefixItem) { isBoldRed = true; }
-
-                missionController.transparentMessageController.AddTextAndActive("[P1] " + item.ItemName, isBoldRed);
-
-                //[2-4]. Save Item drop infomation.
-                missionController.inventoryItemList.AddItemAndSave(item);
+                foreach (var item in itemList)
+                {
+                    missionController.inventoryItemList.AddItemAndSave(item);
+                }
             }
 
 
 
-            //[3]. Reflesh data
-            //[3-1]. Reflesh the log list view
+            //[4]. Transparent Message displays
+            foreach ((string message, bool letBoldRed) transparentText in transparentTextList)
+            {
+                missionController.transparentMessageController.AddTextAndActive(transparentText.message, transparentText.letBoldRed);
+            }
+
+            //[5]. Reflesh data
+            //[5-1]. Reflesh the log list view
             missionController.logListDataSourceMgr.Refresh();
 
 
-            //[3-2]. Reflesh inventory view.
+            //[5-2]. Reflesh inventory view.
             missionController.inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
 
         }
+
+        private void SetBattleLog(GameObject battleCopy, string bigTextString)
+        {
+            Data _data = new Data();
+            _data.Wave = battleCopy.GetComponent<RunBattle>().waveForSaved;
+            _data.BigText = bigTextString;
+
+            _data.Index = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Index) + 1;
+            _data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) - 1; //last Turn is dummy
+            _data.IsDead = true;
+            _data.Affiliation = Affiliation.None;
+            battleCopy.GetComponent<RunBattle>().dataList.Add(_data);
+        }
+
     }
 }

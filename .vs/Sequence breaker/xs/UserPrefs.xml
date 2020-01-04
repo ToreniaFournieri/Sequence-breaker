@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/SkillMoveFunction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Translate/Word.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="17" Column="71" />
-      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="60" Column="51" />
+      <File FileName="Assets/SequenceBreaker/Drop/DropEngine.cs" Line="19" Column="54" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="135" Column="58" />
       <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="629" Column="77" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/SkillTriggerPossibilityCheck.cs" Line="9" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/SkillLogicDispatcher.cs" Line="4" Column="41" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/SkillMoveFunction.cs" Line="5" Column="32" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="366" Column="82" />
+      <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="19" Column="37" />
+      <File FileName="Assets/SequenceBreaker/Translate/Word.cs" Line="123" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
