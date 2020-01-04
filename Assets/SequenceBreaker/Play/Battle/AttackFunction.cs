@@ -18,7 +18,7 @@ namespace SequenceBreaker.Play.Battle
             List<string> logList = new List<string>();
             BattleResult = new BattleResultClass();
             // Target control
-            var toTargetAffiliation = order.Actor.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
+            Affiliation toTargetAffiliation = order.Actor.affiliation == Affiliation.Ally ? Affiliation.Enemy : Affiliation.Ally;
 
             // Initialize battle environment: Hit, Failed Hit, Damage for each opponent.
             var totalDealtDamageSum = 0;

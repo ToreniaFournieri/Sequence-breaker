@@ -32,7 +32,7 @@ namespace SequenceBreaker.Home.EquipListView
 
         void Awake()
         {
-            Debug.Log("HomeDataSourceMgr.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+            //Debug.Log("HomeDataSourceMgr.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
 
             if (instance == null)
             {

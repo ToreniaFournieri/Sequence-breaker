@@ -176,6 +176,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         {
             for (int i = 0; i <= 1; i++)
             {
+                Debug.Log("waiting");
+                _ = new WaitForSeconds(100);
                 //nothing
             }
         }

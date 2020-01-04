@@ -20,7 +20,7 @@ namespace SequenceBreaker.GUIController
 
         private void Awake()
         {
-            Debug.Log("PopupWindowController.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+            //Debug.Log("PopupWindowController.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
 
             if (instance == null)
             {

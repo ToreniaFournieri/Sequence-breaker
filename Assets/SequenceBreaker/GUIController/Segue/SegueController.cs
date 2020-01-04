@@ -31,7 +31,7 @@ namespace SequenceBreaker.GUIController.Segue
 
         void Awake()
         {
-            Debug.Log("SegueController.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+            //Debug.Log("SegueController.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
 
             if (instance == null)
             {

@@ -13,7 +13,7 @@ namespace SequenceBreaker.Master.Units
         public List<int> itemCapacityAddinglevelList;
         private void Awake()
         {
-            Debug.Log("CalculateItemCapacity.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+            //Debug.Log("CalculateItemCapacity.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
 
             if (instance == null)
             {

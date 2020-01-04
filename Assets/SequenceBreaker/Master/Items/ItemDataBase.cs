@@ -21,7 +21,7 @@ namespace SequenceBreaker.Master.Items
 
         private void Awake()
         {
-            Debug.Log("ItemDataBase.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+            //Debug.Log("ItemDataBase.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
 
             if (instance == null)
             {

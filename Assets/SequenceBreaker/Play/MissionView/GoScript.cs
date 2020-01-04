@@ -57,7 +57,7 @@ namespace SequenceBreaker.Play.MissionView
             //int wave = 0;
 
             int MaxWave = runBattle1.dataList.Max(x => x.Wave);
-            Debug.Log("Max wave is " + MaxWave);
+            //Debug.Log("Max wave is " + MaxWave);
 
             for (int i = 0; i <= MaxWave; i++)
             {
