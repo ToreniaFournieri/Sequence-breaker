@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using SequenceBreaker.Environment;
 using SequenceBreaker.Master.BattleUnit;
@@ -158,29 +159,37 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 }
 
                 this.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
-                Spend1F();
+
                 gameObject.SetActive(true);
 
+
+                //transform.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+                //Debug.Log("hi im here");
+                //gameObject.GetComponentInParent<RectTransform>().ForceUpdateRectTransforms();
+
+                //Vector2 _position = this.gameObject.GetComponent<RectTransform>().position;
+
+                //_position = _position + new Vector2(1, 0);
+                //this.gameObject.GetComponent<RectTransform>().position = _position;
+
             }
 
 
         }
 
-        // need more knowlege 2020.1.4
-        //private async Task Wait()
+        //private void wait1F()
         //{
-        //        await Task.Delay(1);
+        //    // do just wait 1F
+        //    double k = 0;
+        //    for (int i = 0; i <= 100000; i++)
+        //    {
+        //        k += Mathf.Round((i * i ));
+        //    }
+
+
+
         //}
 
-        private void Spend1F()
-        {
-            for (int i = 0; i <= 1; i++)
-            {
-                Debug.Log("waiting");
-                _ = new WaitForSeconds(100);
-                //nothing
-            }
-        }
 
     }
 
