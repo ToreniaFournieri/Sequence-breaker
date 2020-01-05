@@ -109,12 +109,12 @@ namespace SequenceBreaker.Home.EquipView
         {
 
             this.unitClass = unitClass;
-            (string bigText, string upsideDescription, string popupDescription) characterStatusContent = CharacterStatusContent.Get(unitClass);
+            (string bigText, string upsideDescription, string detailString) characterStatusContent = CharacterStatusContent.Get(unitClass);
 
             bigOneLineText.text = characterStatusContent.bigText;
             upsideDescriptionText.text = characterStatusContent.upsideDescription;
-
-            characterPopupDescriptionString = characterStatusContent.popupDescription;
+            detailText.text = characterStatusContent.detailString;
+            //characterPopupDescriptionString = characterStatusContent.popupDescription;
         }
     }
 

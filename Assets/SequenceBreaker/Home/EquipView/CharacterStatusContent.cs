@@ -12,13 +12,16 @@ namespace SequenceBreaker.Home.EquipView
         //public string upsideDescriptionString;
         //public string popupDescriptionString;
 
-        public static (string bigTextString, string upsideDescriptionString, string popupDescriptionString) Get(UnitClass unitClass)
+        public static (string bigTextString, string upsideDescriptionString, string detailString) Get(UnitClass unitClass)
         {
             string bigText = unitClass.TrueName();
-            string upsideDescription = unitClass.unitType + " Item Capacity: " + unitClass.GetItemAmount() + "/"+ unitClass.itemCapacity;
-            string popupDescription = unitClass.shortName + " Popup Description is here.";
+            string upsideDescription = unitClass.unitType + " Item Capacity: " + unitClass.GetItemAmount() + "/" + unitClass.itemCapacity;
 
-            return (bigText, upsideDescription, popupDescription);
+            CalculateUnitStatus.Get.Init(unitClass);
+
+            string detailString = CalculateUnitStatus.Get.detailAbilityString;
+
+            return (bigText, upsideDescription, detailString);
         }
 
 
