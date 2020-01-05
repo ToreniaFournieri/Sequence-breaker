@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 
 namespace SequenceBreaker.Home.EquipView
@@ -10,7 +11,10 @@ namespace SequenceBreaker.Home.EquipView
         public string MIcon;
 
         readonly List<Item> _mChildItemDataList = new List<Item>();
-        
+
+        public UnitClass selectedCharacter;
+
+
         public int ChildCount => _mChildItemDataList.Count;
 
         public void AddChild(Item data)
@@ -42,6 +46,7 @@ namespace SequenceBreaker.Home.EquipView
 
     public sealed class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
+        public UnitClass selectedCharacter;
 
         public CharacterStatusDisplay characterStatusDisplay;
 
@@ -51,7 +56,7 @@ namespace SequenceBreaker.Home.EquipView
         readonly List<CharacterTreeViewItemData> _mItemDataList = new List<CharacterTreeViewItemData>();
 
         static CharacterTreeViewDataSourceMgr _instance;
-        int _mTreeViewItemCount = 1;
+        int _mTreeViewItemCount = 2;
 
         public static CharacterTreeViewDataSourceMgr Get
         {
@@ -136,13 +141,24 @@ namespace SequenceBreaker.Home.EquipView
         // this method is called from CharacterStatus Display . SetCharacterStatus
         private void DoRefreshDataSource()
         {
-            var itemList = characterStatusDisplay.GetItemList();
-
+            List<Item> itemList = characterStatusDisplay.GetItemList();
+            CharacterTreeViewItemData tData;
 
             _mItemDataList.Clear();
-            for (int i = 0; i < _mTreeViewItemCount; ++i)
-            {
-                CharacterTreeViewItemData tData = new CharacterTreeViewItemData {MName = "Character", MIcon = "1"};
+
+
+            // Set Character Status cell. _mTreeViewItemCount = 0;
+            tData = new CharacterTreeViewItemData { MName = "Status", MIcon = "0" };
+            _mItemDataList.Add(tData);
+            tData.selectedCharacter = selectedCharacter;
+            tData.AddChild(itemList[0]);
+
+            //for (int i = 0; i < _mTreeViewItemCount; ++i)
+            //{
+
+            // Set Item cells. _mTreeViewItemCount =1;
+            tData = null;
+            tData = new CharacterTreeViewItemData {MName = "Character", MIcon = "1"};
                 _mItemDataList.Add(tData);
 
 
@@ -165,7 +181,7 @@ namespace SequenceBreaker.Home.EquipView
                         tData.SortItemList();
                     }
                 }
-            }
+            //}
 
 
         }

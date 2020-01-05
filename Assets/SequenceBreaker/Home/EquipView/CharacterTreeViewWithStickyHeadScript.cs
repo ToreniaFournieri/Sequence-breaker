@@ -2,6 +2,7 @@
 using _00_Asset._01_SuperScrollView.Scripts.Common;
 using _00_Asset._01_SuperScrollView.Scripts.ListView;
 using SequenceBreaker.Master.Items;
+using SequenceBreaker.Master.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -129,6 +130,7 @@ namespace SequenceBreaker.Home.EquipView
             }
             int treeItemIndex = countData.MTreeItemIndex;
             CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
+            UnitClass unitClass = CharacterTreeViewDataSourceMgr.Get.selectedCharacter;
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
                 //get a new TreeItem
@@ -162,24 +164,61 @@ namespace SequenceBreaker.Home.EquipView
                     return null;
                 }
                 //get a new TreeChildItem
-                LoopListViewItem2 loopListItem = listView.NewListViewItem("Content");
-                InventoryListItemContent itemScript = loopListItem.GetComponent<InventoryListItemContent>();
 
-                //ListItem13 itemScript = item.GetComponent<ListItem13>();
-                if (loopListItem.IsInitHandlerCalled == false)
+                LoopListViewItem2 loopListItem;
+                InventoryListItemContent itemScript;
+                CharacterStatusCell characterStatus;
+                if (item.ItemName.Contains("T0CR"))
                 {
-                    loopListItem.IsInitHandlerCalled = true;
-                    itemScript.Init();
-                    itemScript.SetClickCallBack(OnItemDetailClicked);
-                    //itemScript.SetClickContentCallBack(OnItemDetailClicked);
+                    loopListItem = listView.NewListViewItem("CharacterStatusCell");
+                    characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
+
+                    //ListItem13 itemScript = item.GetComponent<ListItem13>();
+                    if (loopListItem.IsInitHandlerCalled == false)
+                    {
+                        loopListItem.IsInitHandlerCalled = true;
+                        characterStatus.Init();
+                        //characterStatus.SetClickCallBack(OnItemDetailClicked);
+
+                        //characterStatus.SetClickCallBack(OnCharacterDetailClicked);
+                        //itemScript.SetClickContentCallBack(OnItemDetailClicked);
+
+                    }
+                    //update the TreeChildItem's content
+                    loopListItem.UserIntData1 = treeItemIndex;
+                    loopListItem.UserIntData2 = childIndex;
+                    characterStatus.SetCharacterStatusData(unitClass);
+                    //characterStatus.SetItemData(item, treeItemIndex, childIndex);
+
 
                 }
-                //update the TreeChildItem's content
-                loopListItem.UserIntData1 = treeItemIndex;
-                loopListItem.UserIntData2 = childIndex;
-                itemScript.SetItemData(item, treeItemIndex, childIndex);
+                else
+                {
+                    loopListItem = listView.NewListViewItem("Content");
+                    itemScript = loopListItem.GetComponent<InventoryListItemContent>();
+
+                    //ListItem13 itemScript = item.GetComponent<ListItem13>();
+                    if (loopListItem.IsInitHandlerCalled == false)
+                    {
+                        loopListItem.IsInitHandlerCalled = true;
+                        itemScript.Init();
+                        itemScript.SetClickCallBack(OnItemDetailClicked);
+                        //itemScript.SetClickContentCallBack(OnItemDetailClicked);
+
+                    }
+                    //update the TreeChildItem's content
+                    loopListItem.UserIntData1 = treeItemIndex;
+                    loopListItem.UserIntData2 = childIndex;
+                    itemScript.SetItemData(item, treeItemIndex, childIndex);
+                }
+
                 return loopListItem;
+
             }
+
+        }
+        public void OnCharacterDetailClicked()
+        {
 
         }
 

@@ -86,16 +86,12 @@ namespace SequenceBreaker.Home.EquipListView
             inventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
 
-            //characterStatusDisplay.unitList = data.unitClassList;
 
-            characterStatusDisplay.unitWave = data.unitWave;
-
-            //foreach (UnitClass unit in data.unitClassList)
-            //{
-            //    unit.level = data.level;
-            //}
-
-            characterStatusDisplay.SetCharacterStatus(0);
+            //characterStatusDisplay.unitWave = data.unitWave;
+            //characterStatusDisplay.SetCharacterStatus(0);
+            // DUMMY  only first character display.
+            // this is wrong !!! TEMP
+            characterStatusDisplay.SetCharacterStatus(data.unitWave.unitWave[0]);
             jumpToGameObject.SetActive(true);
             jumpToGameObject.transform.SetAsLastSibling();
 

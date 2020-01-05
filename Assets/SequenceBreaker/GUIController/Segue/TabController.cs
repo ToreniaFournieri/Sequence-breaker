@@ -112,10 +112,16 @@ namespace SequenceBreaker.GUIController.Segue
                     homeImage.color = Color.white;
 
                     //only ally should calculate level
-                    if (characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].affiliation ==
+                    //characterTreeViewDataSourceMgr.selectedCharacter
+                    //if (characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].affiliation ==
+                    //    Affiliation.Ally)
+                    //{
+                    //    characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                    //}
+                    if (characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.affiliation ==
                         Affiliation.Ally)
                     {
-                        characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].CalculateLevel();
+                        characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.CalculateLevel();
                     }
                     characterStatusDisplay.RefreshCharacterStatusAndItemList();
 

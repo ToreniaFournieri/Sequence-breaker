@@ -14,7 +14,12 @@ namespace SequenceBreaker.Home.EquipView
         public ItemDataBase itemDataBase;
 
 
-        public UnitWave unitWave;
+        // Unit is get using
+        // characterTreeViewDataSourceMgr.selectedCharacter
+
+
+
+        //public UnitWave unitWave;
         //[FormerlySerializedAs("UnitListScriptable")] public List<UnitClass> unitList;
 
         public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
@@ -32,7 +37,7 @@ namespace SequenceBreaker.Home.EquipView
 
         //for data save
         public int itemCapacity;
-        public int selectedUnitNo;
+        //public int selectedUnitNo;
 
 
         public void Init()
@@ -44,95 +49,90 @@ namespace SequenceBreaker.Home.EquipView
         // refresh character status display
         public void RefreshCharacterStatusAndItemList()
         {
-            SetCharacterStatus(selectedUnitNo);
+            SetCharacterStatus(characterTreeViewDataSourceMgr.selectedCharacter);
         }
 
 
-        public void SetCharacterStatus(int selectedUnitNumber)
+        public void SetCharacterStatus(UnitClass targetCharacter)
         {
+            characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
 
-            if (unitWave.unitWave != null && selectedUnitNumber < unitWave.unitWave.Count)
+            characterNameText.text = targetCharacter.TrueName();
+            targetCharacter.UpdateItemCapacity();
+
+
+            int _currentItemCount = targetCharacter.GetItemAmount();
+
+
+            if (targetCharacter.GetItemAmount() > targetCharacter.itemCapacity)
             {
+                _currentItemCount = targetCharacter.itemCapacity;
+            }
 
-                // updating
-                this.selectedUnitNo = selectedUnitNumber;
-
-
-                characterNameText.text = unitWave.unitWave[this.selectedUnitNo].TrueName();
-
-                unitWave.unitWave[this.selectedUnitNo].UpdateItemCapacity();
-
-                int _currentItemCount = unitWave.unitWave[this.selectedUnitNo].GetItemAmount();
-                if (unitWave.unitWave[this.selectedUnitNo].GetItemAmount() > unitWave.unitWave[this.selectedUnitNo].itemCapacity)
-                {
-                    _currentItemCount = unitWave.unitWave[this.selectedUnitNo].itemCapacity;
-                }
-
-                itemAmountText.text = _currentItemCount + "/" + unitWave.unitWave[this.selectedUnitNo].itemCapacity;
+            itemAmountText.text = _currentItemCount + "/" + targetCharacter.itemCapacity;
 
 
-                //for data save
-                itemCapacity = unitWave.unitWave[this.selectedUnitNo].itemCapacity;
+            //for data save
+            itemCapacity = targetCharacter.itemCapacity;
 
-                // load from saved data
-                //Bug:This way to load info is not collect
+            // load from saved data
+            //Bug:This way to load info is not collect
 
-                if (unitWave.unitWave[this.selectedUnitNo].affiliation == Environment.Affiliation.Enemy)
-                {
-                    // do not load
-                }
-                else
-                {
-                    UnitClass loadUnit = itemDataBase.LoadUnitInfo(unitWave.unitWave[this.selectedUnitNo]);
-                    unitWave.unitWave[this.selectedUnitNo].itemList = loadUnit.itemList;
-
-                }
-
-                calculateUnitStatus.Init(unitWave.unitWave[this.selectedUnitNo]);
-                abilityText.text = calculateUnitStatus.detailAbilityString;
-
-
-                // not load experience point this.
-
-                characterTreeViewDataSourceMgr.Show();
-                characterTreeViewWithStickyHeadScript.Initialization();
+            if (targetCharacter.affiliation == Environment.Affiliation.Enemy)
+            {
+                // do not load
+            }
+            else
+            {
+                UnitClass loadUnit = itemDataBase.LoadUnitInfo(targetCharacter);
+                targetCharacter.itemList = loadUnit.itemList;
 
             }
 
-        }
+            calculateUnitStatus.Init(targetCharacter);
+            abilityText.text = calculateUnitStatus.detailAbilityString;
 
+
+            // not load experience point this.
+
+            characterTreeViewDataSourceMgr.Show();
+            characterTreeViewWithStickyHeadScript.Initialization();
+
+            //}
+
+        }
 
 
         public bool AddAndSaveItem(Item addItem)
         {
-            if (unitWave.unitWave[selectedUnitNo].GetItemAmount() >= unitWave.unitWave[selectedUnitNo].itemCapacity)
+            if (characterTreeViewDataSourceMgr.selectedCharacter.GetItemAmount() >= characterTreeViewDataSourceMgr.selectedCharacter.itemCapacity)
             {
                 // failed. over.
                 return true;
             }
-            if (unitWave.unitWave[selectedUnitNo].itemList.Count == 0)
+            if (characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count == 0)
             {
 
                 Item item = addItem.Copy();
                 item.amount = 1;
 
-                unitWave.unitWave[selectedUnitNo].itemList.Add(item);
+                characterTreeViewDataSourceMgr.selectedCharacter.itemList.Add(item);
             }
             else
             {
                 bool onceHasBeenAdded = false;
-                for (int i = unitWave.unitWave[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
+                for (int i = characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count - 1; i >= 0; i--)
                 {
-                    if (unitWave.unitWave[selectedUnitNo].itemList[i].GetId() == addItem.GetId())
+                    if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].GetId() == addItem.GetId())
                     {
                         onceHasBeenAdded = true;
-                        if (unitWave.unitWave[selectedUnitNo].itemList[i].amount >= 99)
+                        if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount >= 99)
                         {
                             //nothing to do.
                         }
                         else
                         {
-                            unitWave.unitWave[selectedUnitNo].itemList[i].amount += 1;
+                            characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount += 1;
                         }
 
                     }
@@ -141,12 +141,12 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     Item item = addItem.Copy();
                     item.amount = 1;
-                    unitWave.unitWave[selectedUnitNo].itemList.Add(item);
+                    characterTreeViewDataSourceMgr.selectedCharacter.itemList.Add(item);
                 }
 
             }
 
-            itemDataBase.SaveUnitInfo(unitWave.unitWave[selectedUnitNo]);
+            itemDataBase.SaveUnitInfo(characterTreeViewDataSourceMgr.selectedCharacter);
 
             return false;
 
@@ -154,33 +154,39 @@ namespace SequenceBreaker.Home.EquipView
 
         public void RemoveAndSaveItem(Item removedItem)
         {
-            for (int i = unitWave.unitWave[selectedUnitNo].itemList.Count - 1; i >= 0; i--)
+            for (int i = characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count - 1; i >= 0; i--)
             {
-                if (unitWave.unitWave[selectedUnitNo].itemList[i].GetId() == removedItem.GetId())
+                if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].GetId() == removedItem.GetId())
                 {
-                    if (unitWave.unitWave[selectedUnitNo].itemList[i].amount > 1)
+                    if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount > 1)
                     {
-                        unitWave.unitWave[selectedUnitNo].itemList[i].amount -= 1;
+                        characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount -= 1;
                     }
                     else
                     {
-                        unitWave.unitWave[selectedUnitNo].itemList.RemoveAt(i);
+                        characterTreeViewDataSourceMgr.selectedCharacter.itemList.RemoveAt(i);
                     }
                 }
             }
 
-            itemDataBase.SaveUnitInfo(unitWave.unitWave[selectedUnitNo]);
+            itemDataBase.SaveUnitInfo(characterTreeViewDataSourceMgr.selectedCharacter);
 
 
         }
 
 
         // for external use
+
         public List<Item> GetItemList()
         {
-            return unitWave.unitWave[selectedUnitNo].itemList;
+            return characterTreeViewDataSourceMgr.selectedCharacter.itemList;
 
         }
+        //public List<Item> GetItemList()
+        //{
+        //    return unitWave.unitWave[selectedUnitNo].itemList;
+
+        //}
 
 
     }
