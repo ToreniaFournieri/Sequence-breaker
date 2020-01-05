@@ -19,8 +19,10 @@ namespace SequenceBreaker.Home.EquipView
         // UI objects.
         public Text bigOneLineText;
         public Image characterIcon;
-
         public Text upsideDescriptionText;
+        public Text detailText;
+
+
         public GameObject mContentRootObj;
 
         //Action<CharacterStatusContent> _mClickCharacterDetailHander;

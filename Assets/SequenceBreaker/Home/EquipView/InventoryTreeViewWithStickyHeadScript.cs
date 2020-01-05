@@ -163,6 +163,7 @@ namespace SequenceBreaker.Home.EquipView
                 item.UserIntData1 = treeItemIndex;
                 item.UserIntData2 = 0;
                 itemScript.mText.text = treeViewItemData.MName;
+
                 itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
                 return item;
             }

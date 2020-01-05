@@ -133,6 +133,8 @@ namespace SequenceBreaker.Home.EquipView
             UnitClass unitClass = CharacterTreeViewDataSourceMgr.Get.selectedCharacter;
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
+
+
                 //get a new TreeItem
                 LoopListViewItem2 item = listView.NewListViewItem("SubTitle");
                 InventoryListItemSubTitle itemScript = item.GetComponent<InventoryListItemSubTitle>();
@@ -147,6 +149,7 @@ namespace SequenceBreaker.Home.EquipView
                 item.UserIntData1 = treeItemIndex;
                 item.UserIntData2 = 0;
                 itemScript.mText.text = treeViewItemData.MName;
+                itemScript.rightText.text = treeViewItemData.RightText;
                 itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
                 return item;
             }
@@ -168,27 +171,28 @@ namespace SequenceBreaker.Home.EquipView
                 LoopListViewItem2 loopListItem;
                 InventoryListItemContent itemScript;
                 CharacterStatusCell characterStatus;
-                if (item.ItemName.Contains("T0CR"))
+
+
+                if (item.amount == 0)
                 {
-                    loopListItem = listView.NewListViewItem("CharacterStatusCell");
-                    characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
 
-                    //ListItem13 itemScript = item.GetComponent<ListItem13>();
-                    if (loopListItem.IsInitHandlerCalled == false)
-                    {
-                        loopListItem.IsInitHandlerCalled = true;
-                        characterStatus.Init();
-                        //characterStatus.SetClickCallBack(OnItemDetailClicked);
+                    //Debug.Log("Null is here");
+                    // Only when the beginning.
+                        loopListItem = listView.NewListViewItem("CharacterStatusCell");
+                        characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
 
-                        //characterStatus.SetClickCallBack(OnCharacterDetailClicked);
-                        //itemScript.SetClickContentCallBack(OnItemDetailClicked);
 
-                    }
-                    //update the TreeChildItem's content
-                    loopListItem.UserIntData1 = treeItemIndex;
-                    loopListItem.UserIntData2 = childIndex;
-                    characterStatus.SetCharacterStatusData(unitClass);
-                    //characterStatus.SetItemData(item, treeItemIndex, childIndex);
+                        if (loopListItem.IsInitHandlerCalled == false)
+                        {
+                            loopListItem.IsInitHandlerCalled = true;
+                            characterStatus.Init();
+
+
+                        }
+                        //update the TreeChildItem's content
+                        loopListItem.UserIntData1 = 0;
+                        loopListItem.UserIntData2 = 1;
+                        characterStatus.SetCharacterStatusData(unitClass);
 
 
                 }
@@ -375,10 +379,13 @@ namespace SequenceBreaker.Home.EquipView
             {
                 mStickeyHeadItem.gameObject.SetActive(true);
             }
-            if (mStickeyHeadItem.TreeItemIndex != itemIndex)
+
+            // should always updating because dramatically change the value of text.
+            //if (mStickeyHeadItem.TreeItemIndex != itemIndex)
             {
                 CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.MName;
+                mStickeyHeadItem.rightText.text = treeViewItemData.RightText;
                 mStickeyHeadItem.SetItemData(itemIndex, countData.MIsExpand);
             }
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;

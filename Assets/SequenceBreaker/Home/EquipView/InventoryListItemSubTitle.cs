@@ -7,10 +7,16 @@ namespace SequenceBreaker.Home.EquipView
     public sealed class InventoryListItemSubTitle : MonoBehaviour
     {
         public Text mText;
+        public Text rightText;
         public GameObject mArrow;
         public Button mButton;
         int _mTreeItemIndex = -1;
         Action<int> _mClickHandler;
+
+        private void Start()
+        {
+            //rightText = null;
+        }
 
         public int TreeItemIndex
         {

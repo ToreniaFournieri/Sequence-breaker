@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
+using SequenceBreaker.Translate;
 using UnityEngine;
 
 namespace SequenceBreaker.Home.EquipView
@@ -8,6 +9,7 @@ namespace SequenceBreaker.Home.EquipView
     public sealed class CharacterTreeViewItemData
     {
         public string MName;
+        public string RightText;
         public string MIcon;
 
         readonly List<Item> _mChildItemDataList = new List<Item>();
@@ -16,6 +18,8 @@ namespace SequenceBreaker.Home.EquipView
 
 
         public int ChildCount => _mChildItemDataList.Count;
+
+
 
         public void AddChild(Item data)
         {
@@ -130,7 +134,7 @@ namespace SequenceBreaker.Home.EquipView
 
             //remove from other inventory
             characterStatusDisplay.RemoveAndSaveItem(item);
-            
+
 
             characterStatusDisplay.RefreshCharacterStatusAndItemList();
             otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
@@ -142,45 +146,52 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
             List<Item> itemList = characterStatusDisplay.GetItemList();
+
             CharacterTreeViewItemData tData;
 
             _mItemDataList.Clear();
 
+            Item dummyItem = ScriptableObject.CreateInstance<Item>();
 
             // Set Character Status cell. _mTreeViewItemCount = 0;
-            tData = new CharacterTreeViewItemData { MName = "Status", MIcon = "0" };
+            tData = new CharacterTreeViewItemData
+            {
+                MName = Word.Get("Status") + "  " + selectedCharacter.shortName ,
+                RightText = selectedCharacter.GetItemAmount() + "/" + selectedCharacter.itemCapacity,
+                MIcon = "0"
+            };
             _mItemDataList.Add(tData);
             tData.selectedCharacter = selectedCharacter;
-            tData.AddChild(itemList[0]);
+            tData.AddChild(dummyItem);
 
             //for (int i = 0; i < _mTreeViewItemCount; ++i)
             //{
 
             // Set Item cells. _mTreeViewItemCount =1;
             tData = null;
-            tData = new CharacterTreeViewItemData {MName = "Character", MIcon = "1"};
-                _mItemDataList.Add(tData);
+            tData = new CharacterTreeViewItemData { MName = Word.Get("Equiped Item List"), MIcon = "1" };
+            _mItemDataList.Add(tData);
 
 
-                if (itemList != null)
+            if (itemList != null)
+            {
+                int _itemCapacityCount = 0;
+                foreach (Item item in itemList)
                 {
-                    int _itemCapacityCount = 0;
-                    foreach (Item item in itemList)
+                    if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
                     {
-                        if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
-                        {
-                            continue;
-                        }
-                        _itemCapacityCount++;
-
-                        if (item != null)
-                        {
-                            tData.AddChild(item);
-                        }
-
-                        tData.SortItemList();
+                        continue;
                     }
+                    _itemCapacityCount++;
+
+                    if (item != null)
+                    {
+                        tData.AddChild(item);
+                    }
+
+                    tData.SortItemList();
                 }
+            }
             //}
 
 
