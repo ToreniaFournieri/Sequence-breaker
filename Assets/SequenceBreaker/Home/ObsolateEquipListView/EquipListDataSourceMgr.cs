@@ -1,0 +1,193 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+namespace SequenceBreaker.Home.EquipListView
+{
+    
+
+    public class EquipListDataSourceMgr : MonoBehaviour
+    {
+
+        List<EquipListContentData> _mItemDataList = new List<EquipListContentData>();
+        System.Action _mOnRefreshFinished = null;
+        System.Action _mOnLoadMoreFinished = null;
+        int _mLoadMoreCount = 20;
+        float _mDataLoadLeftTime = 0;
+        float _mDataRefreshLeftTime = 0;
+        bool _mIsWaitingRefreshData = false;
+
+        //Home contents
+        public EquipListContents equipListContents;
+        
+        private bool _isHomeContentsNotNull;
+
+        public static EquipListDataSourceMgr instance = null;
+
+
+
+        private void Start()
+        {
+            
+        }
+
+        void Awake()
+        {
+            //Debug.Log("HomeDataSourceMgr.Awake() GetInstanceID=" + this.GetInstanceID().ToString());
+
+            if (instance == null)
+            {
+                instance = this;  //This is the first Singleton instance. Retain a handle to it.
+            }
+            else
+            {
+                if (instance != this)
+                {
+                    Destroy(this); //This is a duplicate Singleton. Destroy this instance.
+                }
+                else
+                {
+                    //Existing Singleton instance found. All is good. No change.
+                }
+            }
+
+            DontDestroyOnLoad(gameObject);
+
+            Init();
+        }
+
+
+        public void Init()
+        {
+
+
+            _isHomeContentsNotNull = equipListContents != null;
+
+            DoRefreshDataSource();
+        }
+
+        public EquipListContentData GetItemDataByIndex(int index)
+        {
+            if (index < 0 || index >= _mItemDataList.Count)
+            {
+                return null;
+            }
+            return _mItemDataList[index];
+        }
+
+        public EquipListContentData GetItemDataById(int itemId)
+        {
+            int count = _mItemDataList.Count;
+            for (int i = 0; i < count; ++i)
+            {
+                if(_mItemDataList[i].mId == itemId)
+                {
+                    return _mItemDataList[i];
+                }
+            }
+            return null;
+        }
+
+        public int TotalItemCount
+        {
+            get
+            {
+                return _mItemDataList.Count;
+            }
+        }
+
+        public void RequestRefreshDataList(System.Action onReflushFinished)
+        {
+            _mDataRefreshLeftTime = 1;
+            _mOnRefreshFinished = onReflushFinished;
+            _mIsWaitingRefreshData = true;
+        }
+
+        public void RequestLoadMoreDataList(int loadCount,System.Action onLoadMoreFinished)
+        {
+            _mLoadMoreCount = loadCount;
+            _mDataLoadLeftTime = 1;
+            _mOnLoadMoreFinished = onLoadMoreFinished;
+        }
+
+        public void Update()
+        {
+            if (_mIsWaitingRefreshData)
+            {
+                _mDataRefreshLeftTime -= Time.deltaTime;
+                if (_mDataRefreshLeftTime <= 0)
+                {
+                    _mIsWaitingRefreshData = false;
+                    DoRefreshDataSource();
+                    if (_mOnRefreshFinished != null)
+                    {
+                        _mOnRefreshFinished();
+                    }
+                }
+            }
+
+        }
+
+        public void SetDataTotalCount(int count)
+        {
+            DoRefreshDataSource();
+        }
+
+        public void ExchangeData(int index1,int index2)
+        {
+            EquipListContentData tData1 = _mItemDataList[index1];
+            EquipListContentData tData2 = _mItemDataList[index2];
+            _mItemDataList[index1] = tData2;
+            _mItemDataList[index2] = tData1;
+        }
+
+        public void RemoveData(int index)
+        {
+            _mItemDataList.RemoveAt(index);
+        }
+
+        public void InsertData(int index, EquipListContentData data)
+        {
+            _mItemDataList.Insert(index,data);
+        }
+
+        void DoRefreshDataSource()
+        {
+            _mItemDataList.Clear();
+            if (_isHomeContentsNotNull)
+            {
+                for (int i = 0; i < equipListContents.equipListContentList.Count; ++i)
+                {
+                    _mItemDataList.Add(equipListContents.equipListContentList[i]);
+                }
+
+            }
+        }
+
+        public void CheckAllItem()
+        {
+            int count = _mItemDataList.Count;
+            for (int i = 0; i < count; ++i)
+            {
+                _mItemDataList[i].mChecked = true;
+            }
+        }
+
+        public void UnCheckAllItem()
+        {
+            int count = _mItemDataList.Count;
+            for (int i = 0; i < count; ++i)
+            {
+                _mItemDataList[i].mChecked = false;
+            }
+        }
+
+        public bool DeleteAllCheckedItem()
+        {
+            int oldCount = _mItemDataList.Count;
+            _mItemDataList.RemoveAll(it => it.mChecked);
+            return (oldCount != _mItemDataList.Count);
+        }
+
+    }
+
+}
