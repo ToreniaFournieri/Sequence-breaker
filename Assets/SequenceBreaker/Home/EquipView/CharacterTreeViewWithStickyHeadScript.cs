@@ -1,4 +1,5 @@
-﻿using _00_Asset._01_SuperScrollView.Scripts;
+﻿using System.Collections.Generic;
+using _00_Asset._01_SuperScrollView.Scripts;
 using _00_Asset._01_SuperScrollView.Scripts.Common;
 using _00_Asset._01_SuperScrollView.Scripts.ListView;
 using SequenceBreaker.Master.Items;
@@ -69,20 +70,48 @@ namespace SequenceBreaker.Home.EquipView
 
         public void Initialization()
         {
-            _mTreeItemCountMgr.Clear();
+            //List<bool> _expendedList = new List<bool>();
+
+            bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
+            TreeViewItemCountData countData;
+            List<bool> isHeadAllowExpended = new List<bool>();
+            for (int i = 0; i < count; ++i)
+            {
+                countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
+                if (countData != null)
+                {
+                    isHeadAllowExpended.Add(countData.MIsExpand);
+                }
+                else
+                {
+                    Debug.LogError("Unexpected value");
+                }
+                //_expendedList.Add(_mTreeItemCountMgr.IsTreeItemExpand(i));
+            }
+
+            _mTreeItemCountMgr.Clear();
             //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
             for (int i = 0; i < count; ++i)
             {
                 int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
                 _mTreeItemCountMgr.AddTreeItem(childCount, true);
+
+                countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
+                if (countData != null)
+                {
+                    countData.MIsExpand = isHeadAllowExpended[i];
+
+                }
             }
 
             UpdateStickeyHeadPos();
+            _mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
 
 
-            _mTreeItemCountMgr.ToggleItemExpand(0);
+
+            //_mTreeItemCountMgr.ToggleItemExpand(0);
             OnExpandClicked(0);
 
         }
@@ -178,21 +207,21 @@ namespace SequenceBreaker.Home.EquipView
 
                     //Debug.Log("Null is here");
                     // Only when the beginning.
-                        loopListItem = listView.NewListViewItem("CharacterStatusCell");
-                        characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
+                    loopListItem = listView.NewListViewItem("CharacterStatusCell");
+                    characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
 
 
-                        if (loopListItem.IsInitHandlerCalled == false)
-                        {
-                            loopListItem.IsInitHandlerCalled = true;
-                            characterStatus.Init();
+                    if (loopListItem.IsInitHandlerCalled == false)
+                    {
+                        loopListItem.IsInitHandlerCalled = true;
+                        characterStatus.Init();
 
 
-                        }
-                        //update the TreeChildItem's content
-                        loopListItem.UserIntData1 = 0;
-                        loopListItem.UserIntData2 = 1;
-                        characterStatus.SetCharacterStatusData(unitClass);
+                    }
+                    //update the TreeChildItem's content
+                    loopListItem.UserIntData1 = 0;
+                    loopListItem.UserIntData2 = 1;
+                    characterStatus.SetCharacterStatusData(unitClass);
 
 
                 }
