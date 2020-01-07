@@ -145,6 +145,8 @@ namespace SequenceBreaker.Home.EquipView
         // this method is called from CharacterStatus Display . SetCharacterStatus
         private void DoRefreshDataSource()
         {
+            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
             List<Item> itemList = characterStatusDisplay.GetItemList();
 
             CharacterTreeViewItemData tData;

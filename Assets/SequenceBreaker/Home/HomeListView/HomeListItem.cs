@@ -97,7 +97,7 @@ namespace SequenceBreaker.Home.HomeListView
             //characterStatusDisplay.unitList = data.unitClassList;
             //characterStatusDisplay.SetCharacterStatus(0);
             jumpToGameObject.SetActive(true);
-            jumpToGameObject.transform.SetAsLastSibling();
+            //jumpToGameObject.transform.SetAsLastSibling();
 
         }
 

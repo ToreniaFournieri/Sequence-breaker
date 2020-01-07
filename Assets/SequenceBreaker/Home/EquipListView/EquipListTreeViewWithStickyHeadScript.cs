@@ -160,6 +160,7 @@ namespace SequenceBreaker.Home.EquipListView
                 //and TreeChildItem1_2 is the 2'th child of TreeItem1
                 int childIndex = countData.GetChildIndex(index);
 
+
                 UnitClass item = treeViewItemData.GetChild(childIndex);
                 //ItemData itemData = treeViewItemData.GetChild(childIndex);
                 if (item == null)
@@ -175,6 +176,8 @@ namespace SequenceBreaker.Home.EquipListView
                 loopListItem = listView.NewListViewItem("Content");
                 itemScript = loopListItem.GetComponent<EquipListItemContent>();
 
+
+                Debug.Log("unit :" + item.shortName);
                 //ListItem13 itemScript = item.GetComponent<ListItem13>();
                 if (loopListItem.IsInitHandlerCalled == false)
                 {

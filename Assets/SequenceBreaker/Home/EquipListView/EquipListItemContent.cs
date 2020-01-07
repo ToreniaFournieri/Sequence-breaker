@@ -1,4 +1,5 @@
 ﻿using System;
+using SequenceBreaker.GUIController.Segue;
 using SequenceBreaker.Home.EquipView;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
@@ -37,12 +38,14 @@ namespace SequenceBreaker.Home.EquipListView
         //public UnitClass clickedUnitClass;
 
         //Go to next segue
-        public GameObject equipView;
-        public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
+        //public GameObject equipView;
+        //public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
+        public CharacterStatusDisplay characterStatusDisplay;
 
         public void Init()
         {
-
+            detailFlag.onClick.RemoveAllListeners();
+            itemContent.onClick.RemoveAllListeners();
 
             detailFlag.onClick.AddListener(OnButtonClicked);
             itemContent.onClick.AddListener(OnContentClicked);
@@ -94,11 +97,13 @@ namespace SequenceBreaker.Home.EquipListView
 
             Debug.Log("On content clicked unit:" + unitClass.shortName);
 
+            characterStatusDisplay.SetCharacterStatus(unitClass);
             //characterTreeViewDataSourceMgr.selectedCharacter = unitClass;
-            CharacterTreeViewDataSourceMgr.Get.selectedCharacter = unitClass;
-          
-            equipView.SetActive(true);
-            equipView.transform.SetAsLastSibling();
+            //CharacterTreeViewDataSourceMgr.Get.selectedCharacter = unitClass;
+            //CharacterTreeViewDataSourceMgr.Get.Init();
+            //CharacterTreeViewDataSourceMgr.Get.Init();
+            //equipView.SetActive(true);
+            //equipView.transform.SetAsLastSibling();
             //if (item != null)
             //{
 
@@ -111,6 +116,10 @@ namespace SequenceBreaker.Home.EquipListView
             //        inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
             //    }
             //}
+
+
+
+
 
         }
 

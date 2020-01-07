@@ -3301,7 +3301,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5535,8 +5535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 567.5838, y: 0}
-  m_SizeDelta: {x: 1125.1676, y: 0}
+  m_AnchoredPosition: {x: 401.73877, y: 0}
+  m_SizeDelta: {x: 793.47754, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404428627
 MonoBehaviour:
@@ -5880,8 +5880,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 325544100}
-  - {fileID: 649992057}
   - {fileID: 1794051293}
+  - {fileID: 649992057}
   - {fileID: 1620713510}
   m_Father: {fileID: 740450689}
   m_RootOrder: 0
@@ -8249,7 +8249,7 @@ RectTransform:
   - {fileID: 2073615707}
   - {fileID: 1828949169}
   m_Father: {fileID: 449333226}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8743,7 +8743,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 683544763}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649992060}
+        m_MethodName: StartAnimIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 278071414}
+        m_MethodName: StackHomeView
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 649992056}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &683544762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8765,8 +8787,7 @@ MonoBehaviour:
   isCharacterInventory: 1
   equipListTreeViewDataSourceMgr: {fileID: 146014798}
   unitClass: {fileID: 0}
-  equipView: {fileID: 649992056}
-  characterTreeViewDataSourceMgr: {fileID: 1469652865}
+  characterStatusDisplay: {fileID: 1252398280}
 --- !u!114 &683544763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12098,7 +12119,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579258071}
   m_HandleRect: {fileID: 1579258070}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13394,7 +13415,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16078,7 +16099,7 @@ GameObject:
   - component: {fileID: 1292812416}
   - component: {fileID: 1292812415}
   m_Layer: 5
-  m_Name: ScrollView_TopToBottom
+  m_Name: obsolateScrollView_TopToBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20973,7 +20994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.975098, y: -2.4999962}
+  m_AnchoredPosition: {x: -34.975098, y: -2.5}
   m_SizeDelta: {x: -90.05, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677610656
@@ -21567,7 +21588,7 @@ GameObject:
   - component: {fileID: 1736414464}
   - component: {fileID: 1736414465}
   m_Layer: 5
-  m_Name: ScrollViewRoot
+  m_Name: obsolateScrollViewRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22732,7 +22753,7 @@ RectTransform:
   - {fileID: 146014799}
   - {fileID: 275471793}
   m_Father: {fileID: 449333226}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23356,7 +23377,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -25655,8 +25676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 572.49036, y: 0}
-  m_SizeDelta: {x: 1134.9807, y: 0}
+  m_AnchoredPosition: {x: 446.6139, y: 0}
+  m_SizeDelta: {x: 883.2278, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:
@@ -27168,7 +27189,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
