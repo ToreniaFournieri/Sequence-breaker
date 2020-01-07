@@ -180,7 +180,7 @@ namespace SequenceBreaker.Play.MissionView
                             }
                             SetBattleLog(battleCopy, bigTextString);
 
-                            Debug.Log("im on unitWave which starts: " + unitWave.unitWave[0].shortName + " in battle copy ");
+                            //Debug.Log("im on unitWave which starts: " + unitWave.unitWave[0].shortName + " in battle copy ");
                         }
                         unitWaveCount++;
                     }

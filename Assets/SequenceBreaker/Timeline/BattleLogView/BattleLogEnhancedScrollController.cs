@@ -22,7 +22,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         //[FormerlySerializedAs("DataList")] public List<DataList> dataList; // Data from outside to show the log. 
         public List<Data> dataList; // Data from outside to show the log. 
         //private List<Data> _data;
-
+        public int currentActiveTurn;
+        public int previousActiveTurn;
 
         /// <summary>
         /// This member tells the scroller that we need
@@ -33,7 +34,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         private readonly bool _calculateLayout;
 
         private GameObject _jumpIndex;
-
+        //public GameObject currentCellGrandParentGameObject;
 
         public EnhancedScroller scroller;
         public EnhancedScrollerCellView cellViewPrefab;
@@ -62,6 +63,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         private Text _previousSearchedText;
 
 
+        //for jump index
+        private EnhancedScrollerCellView _currentCell = new EnhancedScrollerCellView();
 
         /// <summary>
         /// Battle Information
@@ -71,7 +74,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         // sample implemented 2019.8.6
 
         public RunBattle runBattle;
-        
+
         public BattleLogEnhancedScrollController(bool calculateLayout)
         {
             _calculateLayout = calculateLayout;
@@ -91,6 +94,18 @@ namespace SequenceBreaker.Timeline.BattleLogView
         //{
 
         //}
+
+        private void Update()
+        {
+
+
+            if (currentActiveTurn != previousActiveTurn)
+            {
+                SetJumpIndexHighlight(currentActiveTurn);
+                previousActiveTurn = currentActiveTurn;
+
+            }
+        }
 
         public void InitBattleLog(RunBattle initBattle)
         {
@@ -126,7 +141,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             //populate the scroller with some text
             foreach (var t1 in dataList)
             {
-// Get canvas width
+                // Get canvas width
                 float widthOfCanvas = canvasToGetWidth.rect.width;
                 int count = 1;
 
@@ -142,10 +157,11 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         count += lines.Length;
                     }
                     count++;
-                    additionalHight = 235 ;
+                    additionalHight = 235;
 
 
-                } else if (t1.BigText != null)
+                }
+                else if (t1.BigText != null)
                 {
                     string[] lines = t1.BigText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     count = lines.Length + 1;
@@ -170,6 +186,28 @@ namespace SequenceBreaker.Timeline.BattleLogView
             }
         }
 
+        private void SetJumpIndexHighlight(int index)
+        {
+
+            foreach (Transform child in parentJumpIndex)
+            {
+                if(child.name == index.ToString())
+                {
+                    Debug.Log("Bingo!" + child.name);
+                    child.GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
+
+
+                }
+                else
+                {
+                    child.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
+
+                }
+
+            }
+
+        }
+
         private void SetJumpIndex()
         {
             if (dataList != null)
@@ -191,12 +229,13 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 {
                     _jumpIndex = Instantiate(jumpIndexPrefab, parentJumpIndex);
 
+                    _jumpIndex.name = i.ToString();
 
                     int index = dataList.FindIndex((obj) => obj.Turn == i);
                     _jumpIndex.GetComponentInChildren<Text>().text = i.ToString();
 
                     GetComponentInParent<EventTrigger>();
-                    EventTrigger.Entry entry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
+                    EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
 
                     entry.callback.AddListener((data) => { JumpButton_OnClick(index); });
 
@@ -212,7 +251,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         {
             Debug.Log("attempt to search word: " + searchText.text);
             _searchedIndexList = new List<int>();
-//            var filteredData = new List<Data>();
+            //            var filteredData = new List<Data>();
             foreach (Data data in dataList)
             {
 
@@ -223,7 +262,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 if (isMatched)
                 {
-//                    filteredData.Add(data);
+                    //                    filteredData.Add(data);
                     _searchedIndexList.Add(data.Index);
                 }
                 else
@@ -308,6 +347,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             //return battleLogLists.Count;
             return dataList.Count;
         }
+
 
         public float GetCellViewSize(EnhancedScroller enhancedScroller, int dataIndex)
         {

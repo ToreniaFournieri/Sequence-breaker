@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/GoScript.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemSubTitle.cs" Line="10" Column="33" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="174" Column="47" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="99" Column="60" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryListItemSubTitle.cs" Line="45" Column="32" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="104" Column="40" />
-      <File FileName="Assets/00_Asset/01_SuperScrollView/Scripts/TreeViewItemCountMgr.cs" Line="69" Column="34" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="91" Column="67" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="198" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Timeline/ShowDetailButton.cs" Line="22" Column="47" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="233" Column="64" />
+      <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="183" Column="128" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -23,6 +23,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
         /// </summary>
         public Transform multiMainTextTransform;
         //public List<GameObject> mainGameObjectList;
+
+        public int turn;
         public Text bigText;
         public Image backgroundImage;
         public Image nestedLinePrevious;
@@ -48,6 +50,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public SimpleObjectPool longTextObjectPool;
         public SimpleObjectPool textOnShieldBarObjectPool;
         public SimpleObjectPool statusDisplayObjectPool;
+        public BattleLogEnhancedScrollController battleLogEnhancedScrollController;
 
         ///// <summary>
         ///// A reference to the rect transform which will be
@@ -226,7 +229,8 @@ namespace SequenceBreaker.Timeline.BattleLogView
             //multiMainTextTransform.GetComponent<RectTransform>().transform.localScale = new Vector3(1, 1, 0);
             //multiMainTextTransform.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
-
+            turn = data.Turn;
+            battleLogEnhancedScrollController.currentActiveTurn = data.Turn;
             bigText.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
             barrierRemains.font = LocalizationManager.GetTranslatedObjectByTermName<Font>("FONT");
 
