@@ -247,7 +247,8 @@ namespace SequenceBreaker.Play.MissionView
             _data.BigText = bigTextString;
 
             _data.Index = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Index) + 1;
-            _data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) - 1; //last Turn is dummy
+            _data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) ; //last Turn is dummy
+            //_data.Turn = battleCopy.GetComponent<RunBattle>().dataList.Max(x => x.Turn) - 1; //last Turn is dummy
             _data.IsDead = true;
             _data.Affiliation = Affiliation.None;
             battleCopy.GetComponent<RunBattle>().dataList.Add(_data);

@@ -195,12 +195,14 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 {
                     Debug.Log("Bingo!" + child.name);
                     child.GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
+                    child.GetComponentInChildren<Text>().fontSize = 42;
 
 
                 }
                 else
                 {
                     child.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
+                    child.GetComponentInChildren<Text>().fontSize = 32;
 
                 }
 
@@ -215,7 +217,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 int maxCount = dataList.Count;
                 int maxTurn = 1;
-                if (maxCount > 1) { maxTurn = dataList[maxCount - 1].Turn + 1; }
+                if (maxCount > 1) { maxTurn = dataList[maxCount - 1].Turn; }
 
 
                 foreach (Transform child in parentJumpIndex)

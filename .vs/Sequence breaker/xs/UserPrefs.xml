@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/MissionView/GoScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemSubTitle.cs" Line="10" Column="33" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="174" Column="47" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="198" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="198" Column="72" />
       <File FileName="Assets/SequenceBreaker/Timeline/ShowDetailButton.cs" Line="22" Column="47" />
       <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="233" Column="64" />
       <File FileName="Assets/SequenceBreaker/Play/MissionView/GoScript.cs" Line="183" Column="128" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -565,7 +565,7 @@ namespace SequenceBreaker.Play.Battle
             finalLogList.Add(" seed:" + seed);
 
             var battleLogDisplayList = battleLogList.FindAll(obj => obj.OrderCondition.Wave == battleWaves); // only last battle Log displayed.
-            var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn, 0, 0, 0, 0, 0);
+            var finalOrderCondition = new OrderConditionClass(battleWaves, totalTurn + 1, 0, 0, 0, 0, 0);
             var finalLogListToSet = new BattleLogClass(finalOrderCondition, null, null, finalLogList, Affiliation.None);
             battleLogDisplayList.Add(finalLogListToSet);
             LogList = battleLogDisplayList;
