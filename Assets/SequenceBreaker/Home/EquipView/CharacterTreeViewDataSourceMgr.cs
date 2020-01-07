@@ -155,11 +155,19 @@ namespace SequenceBreaker.Home.EquipView
 
             Item dummyItem = ScriptableObject.CreateInstance<Item>();
 
+            int currentAmount = selectedCharacter.GetItemAmount();
+            if (selectedCharacter.GetItemAmount() > selectedCharacter.itemCapacity)
+            {
+                currentAmount = selectedCharacter.itemCapacity;
+            }
+
             // Set Character Status cell. _mTreeViewItemCount = 0;
             tData = new CharacterTreeViewItemData
             {
                 MName = Word.Get("Status") + "  " + selectedCharacter.shortName ,
-                RightText = selectedCharacter.GetItemAmount() + "/" + selectedCharacter.itemCapacity,
+
+                
+                RightText = currentAmount  + "/" + selectedCharacter.itemCapacity,
                 MIcon = "0"
             };
             _mItemDataList.Add(tData);

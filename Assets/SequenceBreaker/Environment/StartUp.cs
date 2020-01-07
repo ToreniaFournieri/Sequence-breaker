@@ -46,34 +46,34 @@ namespace SequenceBreaker.Environment
 
 
             //Import ally info
-            //EquipListContentData allyEquipListContentData;
+            EquipListContentData allyEquipListContentData;
 
-            //if (allyUnitSet != null && allyUnitSet.unitSetList != null)
-            //{
-            //    allyEquipListContentData = new EquipListContentData();
-            //    allyEquipListContentData.contentText = "Ally Equipment";
-            //    allyEquipListContentData.description = "Equip items for playable characters. ";
-            //    allyEquipListContentData.isInfinityInventoryMode = false;
+            if (allyUnitSet != null && allyUnitSet.unitSetList != null)
+            {
+                allyEquipListContentData = new EquipListContentData();
+                allyEquipListContentData.contentText = "Ally Equipment";
+                allyEquipListContentData.description = "Equip items for playable characters. ";
+                allyEquipListContentData.isInfinityInventoryMode = false;
 
-            //    //allyEquipListContentData.unitClassList = new List<UnitClass>();
-            //    foreach (UnitWave wave in allyUnitSet.unitSetList)
-            //    {
-            //        foreach (UnitClass unit in wave.unitWave)
-            //        {
-            //            unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
-            //            unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
-            //            unit.CalculateLevel();
-            //            //allyEquipListContentData.unitClassList.Add(unit);
-            //        }
+                //allyEquipListContentData.unitClassList = new List<UnitClass>();
+                foreach (UnitWave wave in allyUnitSet.unitSetList)
+                {
+                    foreach (UnitClass unit in wave.unitWave)
+                    {
+                        unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
+                        unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
+                        unit.CalculateLevel();
+                        //allyEquipListContentData.unitClassList.Add(unit);
+                    }
 
-            //        allyEquipListContentData.unitWave = wave;
+                    allyEquipListContentData.unitWave = wave;
 
-            //    }
+                }
 
-            //    equipListDataSourceMgr.equipListContents.equipListContentList.Add(allyEquipListContentData);
-            //    equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, allyEquipListContentData);
+                equipListDataSourceMgr.equipListContents.equipListContentList.Add(allyEquipListContentData);
+                equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, allyEquipListContentData);
 
-            //}
+            }
 
 
             //// import additional enemy unit to home contents

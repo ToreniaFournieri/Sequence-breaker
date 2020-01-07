@@ -7,7 +7,7 @@ namespace SequenceBreaker.Home.EquipListView
     public sealed class EquipListItemSubTitle : MonoBehaviour
     {
         public Text mText;
-        public Text rightText;
+        //public Text rightText;
         public GameObject mArrow;
         public Button mButton;
         int _mTreeItemIndex = -1;

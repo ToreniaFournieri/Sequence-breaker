@@ -370,7 +370,7 @@ namespace SequenceBreaker.Home.EquipListView
             {
                 EquipListTreeViewItemData treeViewItemData = EquipListTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.MName;
-                mStickeyHeadItem.rightText.text = treeViewItemData.RightText;
+                //mStickeyHeadItem.rightText.text = treeViewItemData.RightText;
                 mStickeyHeadItem.SetItemData(itemIndex, countData.MIsExpand);
             }
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;

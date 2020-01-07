@@ -62,7 +62,7 @@ namespace SequenceBreaker.Home.EquipListView
         {
             _mClickItemDetailHandler = clickHandler;
             unitClass = unit;
-            Debug.Log("Set Click call back is called unit:" + unit.shortName);
+            //Debug.Log("Set Click call back is called unit:" + unit.shortName);
             //clickedUnitClass = unit;
         }
 
@@ -130,7 +130,14 @@ namespace SequenceBreaker.Home.EquipListView
         public void SetItemData(UnitClass unitClass, int itemIndex, int childIndex)
         {
             mNameText.text = unitClass.TrueName();
-            mDescriptionText.text = "lv: " + unitClass.level;
+
+            int currentAmount = unitClass.GetItemAmount();
+            if (unitClass.GetItemAmount() > unitClass.itemCapacity)
+            {
+                currentAmount = unitClass.itemCapacity;
+            }
+
+            mDescriptionText.text = "Item:"+ currentAmount + "/" + unitClass.itemCapacity;
 
             this.unitClass = unitClass;
         }
