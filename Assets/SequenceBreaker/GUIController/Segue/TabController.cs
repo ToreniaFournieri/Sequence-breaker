@@ -25,7 +25,7 @@ namespace SequenceBreaker.GUIController.Segue
 
         //For enemy unitClass load
         //public ItemDataBase itemDataBase;
-        public EquipListContents equipListContents;
+        //public EquipListContents equipListContents;
 
         // For Home Character update 
         public CharacterStatusDisplay characterStatusDisplay;
@@ -75,28 +75,28 @@ namespace SequenceBreaker.GUIController.Segue
 
 
                     //                     unit load
-                    foreach (var equipListContentData in equipListContents.equipListContentList)
-                    {
-                        foreach (var unit in equipListContentData.unitWave.unitWave)
-                        {
-                            //Bug:This way to load info is not collect.
-                            //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
-                            if (unit != null && unit.affiliation == Affiliation.Ally)
-                            {
-                                UnitClass loadUnit = ItemDataBase.instance.LoadUnitInfo(unit);
-                                unit.itemList = loadUnit.itemList;
-                                //experience should only load in initial not this timing.
-                                unit.experience = loadUnit.experience;
+                    //foreach (var equipListContentData in equipListContents.equipListContentList)
+                    //{
+                    //    foreach (var unit in equipListContentData.unitWave.unitWave)
+                    //    {
+                    //        //Bug:This way to load info is not collect.
+                    //        //UnitClass loadUnit = itemDataBase.LoadUnitInfo(unit);
+                    //        if (unit != null && unit.affiliation == Affiliation.Ally)
+                    //        {
+                    //            UnitClass loadUnit = ItemDataBase.instance.LoadUnitInfo(unit);
+                    //            unit.itemList = loadUnit.itemList;
+                    //            //experience should only load in initial not this timing.
+                    //            unit.experience = loadUnit.experience;
 
-                            }
-                            else
-                            {
-                                // enemy not load now. 201911.26 temp.
-                            }
+                    //        }
+                    //        else
+                    //        {
+                    //            // enemy not load now. 201911.26 temp.
+                    //        }
 
 
-                        }
-                    }
+                    //    }
+                    //}
 
                     playTab.SetActive(true);
                     homeTab.SetActive(false);

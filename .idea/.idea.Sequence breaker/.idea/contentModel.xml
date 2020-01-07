@@ -621,12 +621,6 @@
               <e p="HomeListDataSourceMgr.cs" t="Include" />
               <e p="HomeListItem.cs" t="Include" />
             </e>
-            <e p="ObsolateEquipListView" t="Include">
-              <e p="EquipListChangeItemHeightDemoScript.cs" t="Include" />
-              <e p="EquipListContents.cs" t="Include" />
-              <e p="EquipListDataSourceMgr.cs" t="Include" />
-              <e p="EquipListItem.cs" t="Include" />
-            </e>
           </e>
           <e p="Master" t="Include">
             <e p="BattleUnit" t="Include">
