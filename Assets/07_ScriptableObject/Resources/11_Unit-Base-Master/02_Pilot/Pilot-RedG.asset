@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
   m_Name: Pilot-RedG
   m_EditorClassIdentifier: 
-  Name: RedG
-  PilotStyle: 0
-  Race: 1
-  Preference: 0
-  PilotLevel: 12
-  AddAbility: {fileID: 11400000, guid: cc25b65c8e9c048c48df1b150148ab62, type: 2}
+  pilotName: Red G
+  pilotStyle: 0
+  race: 1
+  preference: 0
+  pilotLevel: 12
+  addAbility: {fileID: 11400000, guid: cc25b65c8e9c048c48df1b150148ab62, type: 2}

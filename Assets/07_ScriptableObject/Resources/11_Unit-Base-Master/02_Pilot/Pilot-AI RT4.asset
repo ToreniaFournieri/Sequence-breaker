@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
-  m_Name: Pilot-Shehru
+  m_Name: Pilot-AI RT4
   m_EditorClassIdentifier: 
-  Name: Shehru
-  PilotStyle: 2
-  Race: 2
-  Preference: 0
-  PilotLevel: 6
-  AddAbility: {fileID: 11400000, guid: b49664817984f408087f27d41386286b, type: 2}
+  pilotName: AI RT4
+  pilotStyle: 2
+  race: 2
+  preference: 0
+  pilotLevel: 6
+  addAbility: {fileID: 11400000, guid: b49664817984f408087f27d41386286b, type: 2}

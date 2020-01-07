@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85ac08c3f2cdc40a89416570e85e0214, type: 3}
-  m_Name: Pilot-Pome
+  m_Name: Pilot-Serene
   m_EditorClassIdentifier: 
-  Name: Pome
-  PilotStyle: 0
-  Race: 0
-  Preference: 1
-  PilotLevel: 8
-  AddAbility: {fileID: 11400000, guid: 442477db427b748e4955a24e09b1187f, type: 2}
+  pilotName: Serene
+  pilotStyle: 0
+  race: 0
+  preference: 1
+  pilotLevel: 8
+  addAbility: {fileID: 11400000, guid: 442477db427b748e4955a24e09b1187f, type: 2}

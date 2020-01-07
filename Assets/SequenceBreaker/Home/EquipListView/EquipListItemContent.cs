@@ -98,9 +98,11 @@ namespace SequenceBreaker.Home.EquipListView
             Debug.Log("On content clicked unit:" + unitClass.shortName);
 
             characterStatusDisplay.SetCharacterStatus(unitClass);
+
+
+
             //characterTreeViewDataSourceMgr.selectedCharacter = unitClass;
             //CharacterTreeViewDataSourceMgr.Get.selectedCharacter = unitClass;
-            //CharacterTreeViewDataSourceMgr.Get.Init();
             //CharacterTreeViewDataSourceMgr.Get.Init();
             //equipView.SetActive(true);
             //equipView.transform.SetAsLastSibling();

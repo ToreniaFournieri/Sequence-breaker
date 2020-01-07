@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="8" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="42" Column="80" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="150" Column="32" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListTreeViewWithStickyHeadScript.cs" Line="99" Column="43" />
-      <File FileName="Assets/SequenceBreaker/Home/HomeListView/HomeListItem.cs" Line="82" Column="37" />
-      <File FileName="Assets/SequenceBreaker/Home/ObsolateEquipListView/EquipListContents.cs" Line="29" Column="28" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemSubTitle.cs" Line="17" Column="10" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListTreeViewDataSourceMgr.cs" Line="160" Column="44" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListTreeViewWithStickyHeadScript.cs" Line="184" Column="61" />
+      <File FileName="Assets/SequenceBreaker/Home/ObsolateEquipListView/EquipListContents.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="104" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

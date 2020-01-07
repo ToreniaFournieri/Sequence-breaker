@@ -31,7 +31,10 @@ namespace SequenceBreaker.Home.EquipListView
         void Start()
         {
             _mTreeItemCountMgr.Clear();
+
+            EquipListTreeViewDataSourceMgr.Get.Init();
             int count = EquipListTreeViewDataSourceMgr.Get.TreeViewItemCount;
+
             //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
             for (int i = 0; i < count; ++i)
             {
@@ -98,6 +101,7 @@ namespace SequenceBreaker.Home.EquipListView
         //to let you create the item and update its content.
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
+
             if (index < 0)
             {
                 return null;
@@ -177,7 +181,7 @@ namespace SequenceBreaker.Home.EquipListView
                 itemScript = loopListItem.GetComponent<EquipListItemContent>();
 
 
-                Debug.Log("unit :" + item.shortName);
+                //Debug.Log("unit test :" + item.shortName);
                 //ListItem13 itemScript = item.GetComponent<ListItem13>();
                 if (loopListItem.IsInitHandlerCalled == false)
                 {
