@@ -7,7 +7,7 @@ namespace SequenceBreaker.Master.Units
     [CreateAssetMenu(fileName = "Pilot-", menuName = "Unit/Pilot", order = 3)]
     public sealed class Pilot : ScriptableObject
     {
-        [SerializeField] public string pilotName;
+        [FormerlySerializedAs("Name")] [SerializeField] public new string name;
         [FormerlySerializedAs("PilotStyle")] [SerializeField] public PilotStyle pilotStyle;
         [FormerlySerializedAs("Race")] [SerializeField] public Race race;
         [FormerlySerializedAs("Preference")] [SerializeField] public Preference preference;

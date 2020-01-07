@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using SequenceBreaker.Master.Units;
-using SequenceBreaker.Translate;
 using UnityEngine;
 
 namespace SequenceBreaker.Home.EquipView
@@ -15,10 +14,8 @@ namespace SequenceBreaker.Home.EquipView
 
         public static (string bigTextString, string upsideDescriptionString, string detailString) Get(UnitClass unitClass)
         {
-
-
-            string bigText = Word.Get("Pilot") + " " + unitClass.pilot.pilotName + "(lv:" + unitClass.pilot.pilotLevel + ")";
-            string upsideDescription = Word.Get("Unit Type") + ":" + unitClass.unitType + "     Unique Id: " + unitClass.uniqueId;
+            string bigText = unitClass.TrueName();
+            string upsideDescription = unitClass.unitType + " Item Capacity: " + unitClass.GetItemAmount() + "/" + unitClass.itemCapacity;
 
             CalculateUnitStatus.Get.Init(unitClass);
 

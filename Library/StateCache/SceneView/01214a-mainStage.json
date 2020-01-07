@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false},"in2DMode":true,"pivot":{"x":543.9456176757813,"y":685.1422119140625,"z":-83.34700012207031},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":623.5648803710938,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":false,"audioPlay":false,"sceneViewState":{"showFog":false,"showMaterialUpdate":false,"showSkybox":false,"showFlares":false,"showImageEffects":false,"showParticleSystems":false},"in2DMode":true,"pivot":{"x":284.20098876953127,"y":882.7034912109375,"z":-497.9522399902344},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":468.6195373535156,"orthographic":true}
+>>>>>>> parent of b3c0b9897... updating equip list view
