@@ -210,7 +210,6 @@
                   <e p="Inspectors" t="Include">
                     <e p="LanguageSourceAssetInspector.cs" t="Include" />
                     <e p="LanguageSourceInspector.cs" t="Include" />
-                    <e p="LocalizationEditor.cs" t="Include" />
                     <e p="LocalizationParamsManagerInspector.cs" t="Include" />
                     <e p="LocalizeDropdownInspector.cs" t="Include" />
                     <e p="LocalizeInspector.cs" t="Include" />
@@ -220,6 +219,7 @@
                   </e>
                   <e p="Localization" t="Include">
                     <e p="LocalizationEditor.cs" t="Include" />
+                    <e p="LocalizationEditor_inspectors.cs" t="Include" />
                     <e p="LocalizationEditor_Languages.cs" t="Include" />
                     <e p="LocalizationEditor_Spreadsheet_Google.cs" t="Include" />
                     <e p="LocalizationEditor_Spreadsheet_Local.cs" t="Include" />
@@ -293,8 +293,6 @@
                   <e p="LocalizeTarget_NGUI_Texture.cs" t="Include" />
                   <e p="LocalizeTarget_SVGImporter_Image.cs" t="Include" />
                   <e p="LocalizeTarget_SVGImporter_Renderer.cs" t="Include" />
-                  <e p="LocalizeTarget_TextMeshPro_Label.cs" t="Include" />
-                  <e p="LocalizeTarget_TextMeshPro_UGUI.cs" t="Include" />
                   <e p="LocalizeTarget_UnityStandard_AudioSource.cs" t="Include" />
                   <e p="LocalizeTarget_UnityStandard_Child.cs" t="Include" />
                   <e p="LocalizeTarget_UnityStandard_MeshRenderer.cs" t="Include" />
@@ -597,13 +595,15 @@
           </e>
           <e p="Home" t="Include">
             <e p="EquipListView" t="Include">
-              <e p="EquipListChangeItemHeightDemoScript.cs" t="Include" />
-              <e p="EquipListContents.cs" t="Include" />
-              <e p="EquipListDataSourceMgr.cs" t="Include" />
-              <e p="EquipListItem.cs" t="Include" />
+              <e p="EquipListItemContent.cs" t="Include" />
+              <e p="EquipListItemSubTitle.cs" t="Include" />
+              <e p="EquipListTreeViewDataSourceMgr.cs" t="Include" />
+              <e p="EquipListTreeViewWithStickyHeadScript.cs" t="Include" />
             </e>
             <e p="EquipView" t="Include">
               <e p="CharacterHeaderSizeChanger.cs" t="Include" />
+              <e p="CharacterStatusCell.cs" t="Include" />
+              <e p="CharacterStatusContent.cs" t="Include" />
               <e p="CharacterStatusDisplay.cs" t="Include" />
               <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
               <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
@@ -620,6 +620,12 @@
               <e p="HomeListContents.cs" t="Include" />
               <e p="HomeListDataSourceMgr.cs" t="Include" />
               <e p="HomeListItem.cs" t="Include" />
+            </e>
+            <e p="ObsolateEquipListView" t="Include">
+              <e p="EquipListChangeItemHeightDemoScript.cs" t="Include" />
+              <e p="EquipListContents.cs" t="Include" />
+              <e p="EquipListDataSourceMgr.cs" t="Include" />
+              <e p="EquipListItem.cs" t="Include" />
             </e>
           </e>
           <e p="Master" t="Include">
@@ -682,7 +688,11 @@
               <e p="BattleEngine.cs" t="Include" />
               <e p="BattleEnvironment.cs" t="Include" />
               <e p="BattleLogList.cs" t="Include" />
+              <e p="BuffDebuffFunction.cs" t="Include" />
               <e p="Others.cs" t="Include" />
+              <e p="SkillLogicDispatcher.cs" t="Include" />
+              <e p="SkillMoveFunction.cs" t="Include" />
+              <e p="SkillTriggerPossibilityCheck.cs" t="Include" />
               <e p="UnitInfoSet.cs" t="Include" />
             </e>
             <e p="MissionView" t="Include">

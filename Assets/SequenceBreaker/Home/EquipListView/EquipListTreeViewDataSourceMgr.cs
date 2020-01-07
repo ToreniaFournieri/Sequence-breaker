@@ -169,6 +169,7 @@ namespace SequenceBreaker.Home.EquipListView
                 {
                     //Debug.Log("data :" + equipListContentData.contentText);
 
+
                     tData = new EquipListTreeViewItemData { MName = equipListContentData.contentText, MIcon = count.ToString()};
 
                     foreach (UnitClass data in equipListContentData.unitWave.unitWave)
