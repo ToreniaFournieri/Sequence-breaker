@@ -845,7 +845,7 @@ namespace SequenceBreaker.Master.Units
                 + " ("
                 + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
                 + " & {" + summedOffenseList[1].percents + "}) \n"
-                + "[Kinetic: x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
+                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
                 + " ("
                 + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
                 + " & {" + summedOffenseList[2].percents + "}) \n"
