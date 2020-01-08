@@ -193,7 +193,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             {
                 if(child.name == index.ToString())
                 {
-                    Debug.Log("Bingo!" + child.name);
+                    //Debug.Log("Bingo!" + child.name);
                     child.GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
                     child.GetComponentInChildren<Text>().fontSize = 42;
 

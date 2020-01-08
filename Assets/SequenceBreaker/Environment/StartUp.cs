@@ -80,26 +80,20 @@ namespace SequenceBreaker.Environment
             EquipListContentData enemyHomeContentData;
 
             foreach (var mission in missionController.missionList.missionMasterList)
-            //foreach (var mission in missionController.missionMasterList)
             {
                 int waveInt = 1;
+                enemyHomeContentData = new EquipListContentData();
 
+                // Get and set only last wave enemy.
                 foreach (UnitWave unitWave in mission.unitSet.unitSetList)
                 {
-                    enemyHomeContentData = new EquipListContentData();
                     enemyHomeContentData.contentText = mission.missionName + " (wave: " + waveInt + ")";
                     enemyHomeContentData.description = "[Enemy info]";
-                    //enemyHomeContentData.level = mission.levelInitial;
                     enemyHomeContentData.isInfinityInventoryMode = true;
-                    //enemyHomeContentData.unitClassList = new List<UnitClass>();
-
                     unitWave.level = mission.levelInitial;
-
 
                     foreach (var unit in unitWave.unitWave)
                     {
-                        //List<ItemIdSet> itemIdSetList = ItemDataBase.Get.itemPresetList.ItemFromId(unit.uniqueId);
-
                         if (unit.uniqueId != 0 && unit != null)
                         {
                             List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
@@ -112,10 +106,10 @@ namespace SequenceBreaker.Environment
 
                     waveInt++;
 
-                    equipListDataSourceMgr.equipListContents.equipListContentList.Add(enemyHomeContentData);
-                    equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, enemyHomeContentData);
-                }
 
+                }
+                equipListDataSourceMgr.equipListContents.equipListContentList.Add(enemyHomeContentData);
+                equipListDataSourceMgr.InsertData(equipListDataSourceMgr.equipListContents.equipListContentList.Count - 1, enemyHomeContentData);
             }
 
 
