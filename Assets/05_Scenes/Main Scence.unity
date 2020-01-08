@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1478292573}
   m_HandleRect: {fileID: 1478292572}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1257,7 +1257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &108532546
@@ -3107,7 +3107,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16407,7 +16407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0005493164}
+  m_AnchoredPosition: {x: 0, y: 0.00048828125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5000001, y: 1.0000005}
 --- !u!114 &1447162701
@@ -19024,7 +19024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.975098, y: -2.4999962}
+  m_AnchoredPosition: {x: -34.975098, y: -2.5}
   m_SizeDelta: {x: -90.05, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677610656
@@ -21347,7 +21347,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -23495,8 +23495,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 563.4976, y: 0}
-  m_SizeDelta: {x: 1116.9952, y: 0}
+  m_AnchoredPosition: {x: 515.6182, y: 0}
+  m_SizeDelta: {x: 1021.23645, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:
@@ -24107,7 +24107,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Defense
-      - "\u9632\u5FA1"
+      - "\u9632\u5FA1\u529B"
       Flags: 0000
       Languages_Touch: []
     - Term: Delete all of your progress? This action cannot be undone.
@@ -24706,6 +24706,94 @@ MonoBehaviour:
       - "\u642D\u4E57\u8005"
       Flags: 0000
       Languages_Touch: []
+    - Term: 'to the next level: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'to the next level: {[X]}'
+      - "\u6B21\u306E\u30EC\u30D9\u30EB\u307E\u3067\u3042\u3068: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Experience
+      TermType: 0
+      Description: 
+      Languages:
+      - Experience
+      - "\u7D4C\u9A13\u5024"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: HP
+      TermType: 0
+      Description: 
+      Languages:
+      - "HP\t"
+      - HP
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - Attack
+      - "\u653B\u6483\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Accuracy
+      TermType: 0
+      Description: 
+      Languages:
+      - Accuracy
+      - "\u547D\u4E2D\u7CBE\u5EA6"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mobility
+      TermType: 0
+      Description: 
+      Languages:
+      - Mobility
+      - "\u6A5F\u52D5\u6027"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Number of Attacks
+      TermType: 0
+      Description: 
+      Languages:
+      - Number of Attacks
+      - "\u653B\u6483\u56DE\u6570"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Offense
+      TermType: 0
+      Description: 
+      Languages:
+      - Offense
+      - "\u653B\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Optimum Range Bonus
+      TermType: 0
+      Description: 
+      Languages:
+      - Optimum Range Bonus
+      - "\u6709\u52B9\u5C04\u7A0B\u88DC\u6B63"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skills
+      TermType: 0
+      Description: 
+      Languages:
+      - Skills
+      - "\u30B9\u30AD\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: none
+      TermType: 0
+      Description: 
+      Languages:
+      - none
+      - "\u306A\u3057"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -25008,7 +25096,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
