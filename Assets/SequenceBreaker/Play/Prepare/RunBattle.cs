@@ -451,7 +451,7 @@ namespace SequenceBreaker.Play.Prepare
                         triggeredPossibility: triggeredPossibilityValue,
                         isRescueAble: isDamageControlAssitAble,
                         usageCount: skillMaster.usageCount, veiledFromTurn: 1,
-                        veiledToTurn: skillMaster.veiledTurn);
+                        veiledToTurn: skillMaster.vailedTurn);
 
                     skillsList.Add(effectClass);
 

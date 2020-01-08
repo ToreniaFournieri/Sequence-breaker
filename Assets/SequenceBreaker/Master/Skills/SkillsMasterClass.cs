@@ -16,7 +16,7 @@ namespace SequenceBreaker.Master.Skills
         [FormerlySerializedAs("CallSkillLogicName")] [SerializeField] public CallSkillLogicName callSkillLogicName;
         [FormerlySerializedAs("IsHeal")] [SerializeField] public bool isHeal;
         [FormerlySerializedAs("UsageCount")] [SerializeField] public int usageCount;
-        [FormerlySerializedAs("VeiledTurn")] [SerializeField] public int veiledTurn;
+        [FormerlySerializedAs("VeiledTurn")] [SerializeField] public int vailedTurn;
         [FormerlySerializedAs("Ability")] [SerializeField] public Ability ability;
         [FormerlySerializedAs("TriggerBase")] [SerializeField] public TriggerBaseClass triggerBase;
         [FormerlySerializedAs("Magnification")] [SerializeField] public SkillMagnificationClass magnification;

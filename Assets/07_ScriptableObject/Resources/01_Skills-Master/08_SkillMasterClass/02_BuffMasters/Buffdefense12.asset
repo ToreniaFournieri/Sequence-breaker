@@ -19,7 +19,7 @@ MonoBehaviour:
   callSkillLogicName: 0
   isHeal: 0
   usageCount: 0
-  veiledTurn: 5
+  vailedTurn: 2
   ability: 0
   triggerBase: {fileID: 11400000, guid: e28300c0f23a541079e3a5c1f0553172, type: 2}
   magnification: {fileID: 11400000, guid: 54784d6314fa8449ab4f7b8d7ee185f3, type: 2}

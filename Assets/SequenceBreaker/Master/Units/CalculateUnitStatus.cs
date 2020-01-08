@@ -816,9 +816,11 @@ namespace SequenceBreaker.Master.Units
             }
 
 
+
+
             //set detail Ability strings
             detailAbilityString =
-                Word.Get("Experience") + ": " + unit.experience + " (" + Word.Get("to the next level:,", unit.toNextLevel.ToString()) + ") \n"
+                Word.Get("Experience") + ": " + unit.experience + " (" + Word.Get("to the next level: X", unit.toNextLevel.ToString()) + ") \n"
                 + battleUnit.combat.shieldMax + " " + Word.Get("Shield") + "\n"
                 + battleUnit.combat.hitPointMax + " " + Word.Get("HP") + "\n"
                 + battleUnit.combat.attack + " " + Word.Get("Attack") + "\n"
@@ -871,17 +873,17 @@ namespace SequenceBreaker.Master.Units
                 + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
                 + " & {" + summedDefenseList[1].percents + "}) \n"
 
-                + "[" +Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
+                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
                 + " ("
                 + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
                 + " & {" + summedDefenseList[2].percents + "}) \n"
 
-                + "["+ Word.Get("Chemical") + ": x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
+                + "[" + Word.Get("Chemical") + ": x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
                 + " ("
                 + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
                 + " & {" + summedDefenseList[3].percents + "}) \n"
 
-                + "[" + Word.Get("Thermal") +" : x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
+                + "[" + Word.Get("Thermal") + " : x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
                 + " ("
                 + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
                 + " & {" + summedDefenseList[4].percents + "}) \n"
@@ -891,12 +893,20 @@ namespace SequenceBreaker.Master.Units
 
             if (summedSkillList.Count == 0)
             {
-                detailAbilityString += " ("+ Word.Get("none") +")";
+                detailAbilityString += " (" + Word.Get("none") + ")";
             }
+
+
 
             foreach (var skill in summedSkillList)
             {
-                detailAbilityString += skill.skillName + " (usage: " + skill.usageCount + ", veiledTurn: " + skill.veiledTurn + ")\n";
+                string vailedTurnString = ", " + Word.Get("Valid for X turns", skill.vailedTurn.ToString());
+                if (skill.vailedTurn == 0)
+                {
+                    vailedTurnString = null;
+                }
+
+                detailAbilityString += skill.skillName + " (" + Word.Get("usage count") + ": " + skill.usageCount + vailedTurnString + ")\n";
             }
 
 

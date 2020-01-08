@@ -30,7 +30,7 @@ namespace SequenceBreaker.Play.Battle
                     EffectClass effectClass = ScriptableObject.CreateInstance<EffectClass>();
                     effectClass.Set(order.Actor, addingBuff, ActionType.None,
                         1.0, 0.0, false, addingBuff.usageCount,
-                        turn, (turn + addingBuff.veiledTurn));
+                        turn, (turn + addingBuff.vailedTurn));
 
                     addingEffect.Add(effectClass);
                     effects.Add(addingEffect[0]);
@@ -63,7 +63,7 @@ namespace SequenceBreaker.Play.Battle
 
                     //log += order.Actor.shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." ;
                     //logList += order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
-                    logList.Add(order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName));
+                    logList.Add(order.Actor.shortName + Word.Get("gets A (valid for X turns).", addingBuff.vailedTurn.ToString(), addingBuff.skillName));
 
                     if (addingBuff.buffTarget.defenseMagnification > 1.0)
                     {
@@ -90,7 +90,7 @@ namespace SequenceBreaker.Play.Battle
                         EffectClass effectClass2 = ScriptableObject.CreateInstance<EffectClass>();
                         effectClass2.Set(buffTargetCharacters[i], addingBuff, ActionType.None,
                             1.0, 0.0, false, addingBuff.usageCount,
-                            turn, (turn + addingBuff.veiledTurn));
+                            turn, (turn + addingBuff.vailedTurn));
 
                         addingEffect.Add(effectClass2);
                         effects.Add(addingEffect[i]);
@@ -100,7 +100,7 @@ namespace SequenceBreaker.Play.Battle
 
                         //log += new string(' ', 3) + buffTargetCharacters[i].shortName + " gets " + addingBuff.skillName + " which will last " + addingBuff.veiledTurn + " turns." + "\n";
                         //logList += new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString(), addingBuff.skillName);
-                        logList.Add(new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.veiledTurn.ToString()
+                        logList.Add(new string(' ', 3) + buffTargetCharacters[i].shortName + Word.Get("gets A (valid for X turns).", addingBuff.vailedTurn.ToString()
                             , addingBuff.skillName));
                         if (addingBuff.buffTarget.defenseMagnification > 1.0)
                         //{ logList += "\n" + new string(' ', 4) + "[" + Word.Get("Defense") + ": " + buffTargetCharacters[i].buff.DefenseMagnification + " (x" + addingBuff.buffTarget.defenseMagnification + ")] "; }
