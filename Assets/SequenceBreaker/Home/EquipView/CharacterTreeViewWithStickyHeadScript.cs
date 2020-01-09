@@ -198,12 +198,11 @@ namespace SequenceBreaker.Home.EquipView
                 //get a new TreeChildItem
 
                 LoopListViewItem2 loopListItem;
-                InventoryListItemContent itemScript;
-                CharacterStatusCell characterStatus;
 
-
-                if (item.amount == 0)
+                if (item.amount == -1)
                 {
+                    CharacterStatusCell characterStatus;
+
 
                     //Debug.Log("Null is here");
                     // Only when the beginning.
@@ -225,8 +224,25 @@ namespace SequenceBreaker.Home.EquipView
 
 
                 }
+                else if (item.amount == -2)
+                {
+                    DetailCell detailCell;
+
+                    loopListItem = listView.NewListViewItem("DetailCell");
+                    detailCell = loopListItem.GetComponent<DetailCell>();
+
+
+                    loopListItem.UserIntData1 = 0;
+                    loopListItem.UserIntData2 = 2;
+
+                    detailCell.SetdetailInfo(unitClass);
+
+
+                }
                 else
                 {
+                    InventoryListItemContent itemScript;
+
                     loopListItem = listView.NewListViewItem("Content");
                     itemScript = loopListItem.GetComponent<InventoryListItemContent>();
 
