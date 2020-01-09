@@ -410,16 +410,16 @@ namespace SequenceBreaker.Master.Units
 
             foreach ((int magnificationTargetID, int percentValue, double ratioValue, List<int> percentList) calculated in magnificationOffenseList)
             {
+                string percents = null;
                 double total = 1.0 / (1.0 - calculated.percentValue * 0.01) * calculated.ratioValue;
 
-                string percents = null;
                 if (calculated.percentList != null)
                 {
                     calculated.percentList.Sort();
 
                     foreach (int i in calculated.percentList)
                     {
-                        percents += i + " ";
+                        percents += i + "% ";
                     }
 
                 }
@@ -444,7 +444,7 @@ namespace SequenceBreaker.Master.Units
                     calculated.percentList.Sort();
                     foreach (int i in calculated.percentList)
                     {
-                        percents += i + " ";
+                        percents += i + "% ";
                     }
                 }
 
@@ -841,52 +841,53 @@ namespace SequenceBreaker.Master.Units
                 + " \n"
 
                 + "<" + Word.Get("Offense") + "> \n"
-                + "[" + Word.Get("Critical") + ": x" + Math.Round(battleUnit.offenseMagnification.critical * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
-                + " & {" + summedOffenseList[1].percents + "}) \n"
-                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
-                + " & {" + summedOffenseList[2].percents + "}) \n"
+                + "[" + Word.Get("Critical") + ": x" + Math.Round(battleUnit.offenseMagnification.critical * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedOffenseList[1].ratioValue, 3)
+                //+ " & {" + summedOffenseList[1].percents + "}) \n"
+                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.offenseMagnification.kinetic * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedOffenseList[2].ratioValue, 3)
+                //+ " & {" + summedOffenseList[2].percents + "}) \n"
+                //+ kineticDetailString + "\n"
 
-                + "[" + Word.Get("Chemical") + ": x" + Math.Round(battleUnit.offenseMagnification.chemical * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
-                + " & {" + summedOffenseList[3].percents + "}) \n"
+                + "[" + Word.Get("Chemical") + ": x" + Math.Round(battleUnit.offenseMagnification.chemical * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedOffenseList[3].ratioValue, 3)
+                //+ " & {" + summedOffenseList[3].percents + "}) \n"
 
-                + "[" + Word.Get("Thermal") + ": x" + Math.Round(battleUnit.offenseMagnification.thermal * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
-                + " & {" + summedOffenseList[4].percents + "}) \n"
+                + "[" + Word.Get("Thermal") + ": x" + Math.Round(battleUnit.offenseMagnification.thermal * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedOffenseList[4].ratioValue, 3)
+                //+ " & {" + summedOffenseList[4].percents + "}) \n"
 
-                + "[" + Word.Get("Optimum Range Bonus") + ": x" + Math.Round(battleUnit.offenseMagnification.optimumRangeBonus * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
-                + " & {" + summedOffenseList[10].percents + "}) \n"
+                + "[" + Word.Get("Optimum Range Bonus") + ": x" + Math.Round(battleUnit.offenseMagnification.optimumRangeBonus * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedOffenseList[10].ratioValue, 3)
+                //+ " & {" + summedOffenseList[10].percents + "}) \n"
 
                 + " \n"
 
                 + "<" + Word.Get("Defense") + "> \n"
-                + "[" + Word.Get("Critical") + ": x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
-                + " & {" + summedDefenseList[1].percents + "}) \n"
+                + "[" + Word.Get("Critical") + ": x" + Math.Round(battleUnit.defenseMagnification.critical * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedDefenseList[1].ratioValue, 3)
+                //+ " & {" + summedDefenseList[1].percents + "}) \n"
 
-                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
-                + " & {" + summedDefenseList[2].percents + "}) \n"
+                + "[" + Word.Get("Kinetic") + ": x" + Math.Round(battleUnit.defenseMagnification.kinetic * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedDefenseList[2].ratioValue, 3)
+                //+ " & {" + summedDefenseList[2].percents + "}) \n"
 
-                + "[" + Word.Get("Chemical") + ": x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] "
-                + " ("
-                + " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
-                + " & {" + summedDefenseList[3].percents + "}) \n"
+                + "[" + Word.Get("Chemical") + ": x" + Math.Round(battleUnit.defenseMagnification.chemical * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedDefenseList[3].ratioValue, 3)
+                //+ " & {" + summedDefenseList[3].percents + "}) \n"
 
-                + "[" + Word.Get("Thermal") + " : x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "]"
-                + " ("
-                + " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
-                + " & {" + summedDefenseList[4].percents + "}) \n"
+                + "[" + Word.Get("Thermal") + " : x" + Math.Round(battleUnit.defenseMagnification.thermal * 100) / 100 + "] \n"
+                //+ " ("
+                //+ " x" + Math.Round(summedDefenseList[4].ratioValue, 3)
+                //+ " & {" + summedDefenseList[4].percents + "}) \n"
 
                 + " \n"
                 + "[" + Word.Get("Skills") + "] \n";
@@ -909,6 +910,26 @@ namespace SequenceBreaker.Master.Units
                 detailAbilityString += skill.skillName + " (" + Word.Get("usage count") + ": " + skill.usageCount + vailedTurnString + ")\n";
             }
 
+            detailAbilityString += "\n";
+            detailAbilityString += "[Detail]\n";
+
+            // Desplay detail
+            string kineticDetailString = null;
+
+            if (Math.Abs(summedOffenseList[2].ratioValue - 1.0) > 0.001)
+            {
+                kineticDetailString += Word.Get("Offense") + " " + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3);
+            }
+            if (summedOffenseList[2].percents != null)
+            {
+                kineticDetailString += " {" + summedOffenseList[2].percents + "}";
+            }
+            if (kineticDetailString != null)
+            {
+                kineticDetailString += "\n";
+            }
+
+            detailAbilityString += kineticDetailString;
 
         }
 
