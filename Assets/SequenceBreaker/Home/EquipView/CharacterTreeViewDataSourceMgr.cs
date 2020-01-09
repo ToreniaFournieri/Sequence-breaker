@@ -174,9 +174,9 @@ namespace SequenceBreaker.Home.EquipView
             Item headStatusWithIcon = ScriptableObject.CreateInstance<Item>();
             headStatusWithIcon.amount = -1;
             tData.AddChild(headStatusWithIcon);
-            Item detail2 = ScriptableObject.CreateInstance<Item>();
-            detail2.amount = -2;
-            tData.AddChild(detail2);
+            //Item detail2 = ScriptableObject.CreateInstance<Item>();
+            //detail2.amount = -2;
+            //tData.AddChild(detail2);
 
             //for (int i = 0; i < _mTreeViewItemCount; ++i)
             //{

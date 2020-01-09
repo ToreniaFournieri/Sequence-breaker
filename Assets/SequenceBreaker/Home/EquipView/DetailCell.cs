@@ -6,19 +6,20 @@ using UnityEngine.UI;
 
 namespace SequenceBreaker.Home.EquipView
 {
-    public class DetailCell : MonoBehaviour
-    {
+    //public class DetailCell : MonoBehaviour
+    //{
 
-        public Text text;
+    //    public Text text;
 
-        public void SetdetailInfo(UnitClass unitClass)
-        {
+    //    public void SetdetailInfo(UnitClass unitClass)
+    //    {
 
 
-            string detailString = CharacterStatusContent.GetDetail2(unitClass);
-            text.text = detailString;
-        }
-    }
+    //        string detailString = CharacterStatusContent.GetDetail2(unitClass);
+    //        text.text = detailString;
+
+    //    }
+    //}
 
 
 

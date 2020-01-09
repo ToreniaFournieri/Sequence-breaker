@@ -26,7 +26,7 @@ namespace SequenceBreaker.Master.Units
 
         //output Ability Detail Text
         public string detailAbilityString;
-        public string detailString2;
+        //public string detailString2;
         //public BattleEnvironment battleEnvironment;
 
         //output middle data
@@ -908,54 +908,95 @@ namespace SequenceBreaker.Master.Units
             detailAbilityString += "\n";
             detailAbilityString += "[Detail]\n";
 
-            detailString2 = null;
             // Desplay detail
             // Offense
             string oCriticalDetailString = null;
-            if (Math.Abs(summedOffenseList[1].ratioValue - 1.0) > 0.001)
+
+
+            //if (Math.Abs(summedOffenseList[1].ratioValue - 1.0) > 0.001)
+            if ((int)Math.Round(summedOffenseList[1].ratioValue * 100) != 100)
             {
-                oCriticalDetailString += Word.Get("Offense") + "-" + Word.Get("Critical") + " consist of" + " x" + Math.Round(summedOffenseList[1].ratioValue, 3);
+                oCriticalDetailString += Word.Get("Offense") + "-"
+                    + Word.Get("Critical") + " consist of" + " x" + Math.Round(summedOffenseList[1].ratioValue, 3).ToString();
             }
             if (summedOffenseList[1].percents != null) { oCriticalDetailString += " {" + summedOffenseList[1].percents + "}"; }
-            if (oCriticalDetailString != null) { oCriticalDetailString += "\n"; }
-            detailString2 += oCriticalDetailString;
+            if (oCriticalDetailString != null)
+            {
+                detailAbilityString += oCriticalDetailString + "\n";
+            }
+
 
             string oKineticDetailString = null;
-            if (Math.Abs(summedOffenseList[2].ratioValue - 1.0) > 0.001)
+
+
+            //if (Math.Abs(summedOffenseList[2].ratioValue - 1.0) > 0.001)
+            if ((int)Math.Round(summedOffenseList[2].ratioValue * 100) != 100)
             {
-                oKineticDetailString += Word.Get("Offense") + "-" + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3);
+                oKineticDetailString += Word.Get("Offense") + "-"
+                    + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
             }
             if (summedOffenseList[2].percents != null) { oKineticDetailString += " {" + summedOffenseList[2].percents + "}"; }
-            if (oKineticDetailString != null) { oKineticDetailString += "\n"; }
-            detailString2 += oKineticDetailString;
+            if (oKineticDetailString != null)
+            {
+                detailAbilityString += oKineticDetailString + "\n";
+            }
+
 
             string oChemicalDetailString = null;
-            if (Math.Abs(summedOffenseList[3].ratioValue - 1.0) > 0.001)
+
+
+            //if (Math.Abs(summedOffenseList[3].ratioValue - 1.0) > 0.001)
+            if ((int)Math.Round(summedOffenseList[3].ratioValue * 100) != 100)
             {
-                oChemicalDetailString += Word.Get("Offense") + "-" + Word.Get("Chemical") + " consist of" + " x" + Math.Round(summedOffenseList[3].ratioValue, 3);
+                oChemicalDetailString += Word.Get("Offense") + "-" + Word.Get("Chemical")
+                    + " consist of" + " x" + Math.Round(summedOffenseList[3].ratioValue, 3).ToString();
             }
             if (summedOffenseList[3].percents != null) { oChemicalDetailString += " {" + summedOffenseList[3].percents + "}"; }
-            if (oChemicalDetailString != null) { oChemicalDetailString += "\n"; }
-            detailString2 += oChemicalDetailString;
+            if (oChemicalDetailString != null)
+            {
+                detailAbilityString += oChemicalDetailString + "\n";
+            }
 
             string oThermalDetailString = null;
-            if (Math.Abs(summedOffenseList[4].ratioValue - 1.0) > 0.001)
+            //if (Math.Abs(summedOffenseList[4].ratioValue - 1.0) > 0.001)
+            if ((int)Math.Round(summedOffenseList[4].ratioValue * 100) != 100)
             {
-                oThermalDetailString += Word.Get("Offense") + "-" + Word.Get("Thermal") + " consist of" + " x" + Math.Round(summedOffenseList[4].ratioValue, 3);
+                oThermalDetailString += Word.Get("Offense") + "-" + Word.Get("Thermal")
+                    + " consist of" + " x" + Math.Round(summedOffenseList[4].ratioValue, 3).ToString();
             }
             if (summedOffenseList[4].percents != null) { oThermalDetailString += " {" + summedOffenseList[4].percents + "}"; }
-            if (oThermalDetailString != null) { oThermalDetailString += "\n"; }
-            detailString2 += oThermalDetailString;
+            if (oThermalDetailString != null)
+            {
+                detailAbilityString += oThermalDetailString + "\n";
+            }
 
             string oOptimumRangeBonusDetailString = null;
-            if (Math.Abs(summedOffenseList[10].ratioValue - 1.0) > 0.001)
+            //if (Math.Abs(summedOffenseList[10].ratioValue - 1.0) > 0.001)
+            if ((int)Math.Round(summedOffenseList[10].ratioValue * 100) != 100)
             {
-                oOptimumRangeBonusDetailString += Word.Get("Offense") + "-" + Word.Get("Optimum Range Bonus") + " consist of"
-                    + " x" + Math.Round(summedOffenseList[10].ratioValue, 3);
+                oOptimumRangeBonusDetailString += Word.Get("Offense") + "-"
+                    + Word.Get("Optimum Range Bonus") + " consist of"
+                    + " x" + Math.Round(summedOffenseList[10].ratioValue, 3).ToString();
             }
             if (summedOffenseList[10].percents != null) { oOptimumRangeBonusDetailString += " {" + summedOffenseList[10].percents + "}"; }
-            if (oOptimumRangeBonusDetailString != null) { oOptimumRangeBonusDetailString += "\n"; }
-            detailString2 += oOptimumRangeBonusDetailString;
+            if (oOptimumRangeBonusDetailString != null)
+            {
+                detailAbilityString += oOptimumRangeBonusDetailString + "\n";
+            }
+            //detailAbilityString += oOptimumRangeBonusDetailString;
+
+
+            //string fa = null;
+            ////if (summedOffenseList[2].ratioValue > 1.001)
+            //{
+            //    fa += Word.Get("Offense") + "-"
+            //        + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
+            //}
+            //if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
+            //if (fa != null) { fa += "\n"; }
+
+            //for (int i = 0; i < 100; i++)
+            //    detailAbilityString += fa;
 
 
 

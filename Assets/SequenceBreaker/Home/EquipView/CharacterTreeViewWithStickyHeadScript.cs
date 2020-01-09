@@ -110,6 +110,7 @@ namespace SequenceBreaker.Home.EquipView
             _mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
 
 
+            //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
             //_mTreeItemCountMgr.ToggleItemExpand(0);
             OnExpandClicked(0);
@@ -218,27 +219,31 @@ namespace SequenceBreaker.Home.EquipView
 
                     }
                     //update the TreeChildItem's content
-                    loopListItem.UserIntData1 = 0;
-                    loopListItem.UserIntData2 = 1;
+                    //loopListItem.UserIntData1 = 0;
+                    //loopListItem.UserIntData2 = 1;
+                    loopListItem.UserIntData1 = treeItemIndex;
+                    loopListItem.UserIntData2 = childIndex;
                     characterStatus.SetCharacterStatusData(unitClass);
 
-
+                    
                 }
-                else if (item.amount == -2)
-                {
-                    DetailCell detailCell;
+                //else if (item.amount == -2)
+                //{
+                //    DetailCell detailCell;
 
-                    loopListItem = listView.NewListViewItem("DetailCell");
-                    detailCell = loopListItem.GetComponent<DetailCell>();
+                //    loopListItem = listView.NewListViewItem("DetailCell");
+                //    detailCell = loopListItem.GetComponent<DetailCell>();
+
+                //    //loopListItem.UserIntData1 = 0;
+                //    //loopListItem.UserIntData2 = 2;
+
+                //    loopListItem.UserIntData1 = treeItemIndex;
+                //    loopListItem.UserIntData2 = childIndex;
+
+                //    detailCell.SetdetailInfo(unitClass);
 
 
-                    loopListItem.UserIntData1 = 0;
-                    loopListItem.UserIntData2 = 2;
-
-                    detailCell.SetdetailInfo(unitClass);
-
-
-                }
+                //}
                 else
                 {
                     InventoryListItemContent itemScript;

@@ -27,13 +27,13 @@ namespace SequenceBreaker.Home.EquipView
             return (bigText, upsideDescription, detailString);
         }
 
-        public static string GetDetail2(UnitClass unitClass)
-        {
-            CalculateUnitStatus.Get.Init(unitClass);
-            string detailString = CalculateUnitStatus.Get.detailString2;
+        //public static string GetDetail2(UnitClass unitClass)
+        //{
+        //    CalculateUnitStatus.Get.Init(unitClass);
+        //    string detailString = CalculateUnitStatus.Get.detailString2;
 
-            return detailString;
-        }
+        //    return detailString;
+        //}
 
 
     }

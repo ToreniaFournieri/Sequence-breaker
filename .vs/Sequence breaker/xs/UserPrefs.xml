@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterStatusContent.cs">
     <Files>
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/DetailCell.cs" Line="22" Column="8" IsPinned="True" />
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemSubTitle.cs" Line="10" Column="33" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="957" Column="32" />
-      <File FileName="Assets/SequenceBreaker/Master/Skills/SkillsMasterClass.cs" Line="19" Column="80" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BuffDebuffFunction.cs" Line="33" Column="50" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryListItemSubTitle.cs" Line="9" Column="26" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="223" Column="55" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="179" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/DetailCell.cs" Line="20" Column="120" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="107" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusContent.cs" Line="31" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="179" Column="39" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="116" Column="66" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="935" Column="14" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="113" Column="98" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryListItemSubTitle.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusContent.cs" Line="36" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

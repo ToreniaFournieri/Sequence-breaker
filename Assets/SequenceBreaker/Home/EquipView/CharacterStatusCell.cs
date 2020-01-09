@@ -114,7 +114,13 @@ namespace SequenceBreaker.Home.EquipView
             bigOneLineText.text = characterStatusContent.bigText;
             upsideDescriptionText.text = characterStatusContent.upsideDescription;
             detailText.text = characterStatusContent.detailString;
-            //characterPopupDescriptionString = characterStatusContent.popupDescription;
+
+
+            //detailText.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+            //Vector2 test = detailText.gameObject.GetComponent<RectTransform>().sizeDelta;
+            //test.x = test.x + 0.001f;
+            //detailText.gameObject.GetComponent<RectTransform>().sizeDelta = test;
+
         }
     }
 
