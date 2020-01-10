@@ -242,7 +242,6 @@ namespace SequenceBreaker.Home.EquipView
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
 
-
                 }
                 //else if (item.amount == -2)
                 //{

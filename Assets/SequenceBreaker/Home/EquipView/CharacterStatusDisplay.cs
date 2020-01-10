@@ -33,9 +33,9 @@ namespace SequenceBreaker.Home.EquipView
         public CalculateUnitStatus calculateUnitStatus;
 
         //Don't change these following values.
-        public Text characterNameText;
-        public Text itemAmountText;
-        [FormerlySerializedAs("AbilityText")] public Text abilityText;
+        //public Text characterNameText;
+        //public Text itemAmountText;
+        //[FormerlySerializedAs("AbilityText")] public Text abilityText;
 
         //for data save
         public int itemCapacity;
@@ -61,19 +61,19 @@ namespace SequenceBreaker.Home.EquipView
             selectedCharacter = targetCharacter;
             //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
 
-            characterNameText.text = targetCharacter.TrueName();
+            //characterNameText.text = targetCharacter.TrueName();
             targetCharacter.UpdateItemCapacity();
 
 
-            int _currentItemCount = targetCharacter.GetItemAmount();
+            //int _currentItemCount = targetCharacter.GetItemAmount();
 
 
-            if (targetCharacter.GetItemAmount() > targetCharacter.itemCapacity)
-            {
-                _currentItemCount = targetCharacter.itemCapacity;
-            }
+            //if (targetCharacter.GetItemAmount() > targetCharacter.itemCapacity)
+            //{
+            //    _currentItemCount = targetCharacter.itemCapacity;
+            //}
 
-            itemAmountText.text = _currentItemCount + "/" + targetCharacter.itemCapacity;
+            //itemAmountText.text = _currentItemCount + "/" + targetCharacter.itemCapacity;
 
 
             //for data save
