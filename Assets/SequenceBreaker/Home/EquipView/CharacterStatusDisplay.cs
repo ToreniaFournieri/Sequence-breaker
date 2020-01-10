@@ -96,10 +96,12 @@ namespace SequenceBreaker.Home.EquipView
             // not load experience point this.
             //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
             //characterTreeViewWithStickyHeadScript.Initialization();
-            characterTreeViewDataSourceMgr.Show();
 
+            characterTreeViewDataSourceMgr.Show();
             characterTreeViewWithStickyHeadScript.Initialization();
 
+
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
             //}
 
         }

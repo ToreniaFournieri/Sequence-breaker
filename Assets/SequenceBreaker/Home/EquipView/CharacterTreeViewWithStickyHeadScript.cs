@@ -123,6 +123,8 @@ namespace SequenceBreaker.Home.EquipView
             //_mTreeItemCountMgr.ToggleItemExpand(0);
             OnExpandClicked(0);
 
+
+            mLoopListView.RefreshAllShownItem();
         }
 
 
@@ -212,12 +214,10 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     CharacterStatusCell characterStatus;
 
-
                     //Debug.Log("Null is here");
                     // Only when the beginning.
                     loopListItem = listView.NewListViewItem("CharacterStatusCell");
                     characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
-
 
                     if (loopListItem.IsInitHandlerCalled == false)
                     {
@@ -275,6 +275,9 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem.UserIntData2 = childIndex;
                     itemScript.SetItemData(item, treeItemIndex, childIndex);
                 }
+
+                //mLoopListView.OnItemSizeChanged(index);
+
 
                 return loopListItem;
 

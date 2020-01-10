@@ -209,7 +209,6 @@ namespace SequenceBreaker.Home.EquipView
                 }
                 //}
 
-
             }
 
         }
