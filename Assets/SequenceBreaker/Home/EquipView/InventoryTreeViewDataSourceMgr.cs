@@ -154,7 +154,7 @@ namespace SequenceBreaker.Home.EquipView
 
         public void TryTransferItemToOtherInventory(Item item)
         {
-            if (otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.itemCapacity > otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList().Count)
+            if (otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.selectedCharacter.itemCapacity > otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.GetItemList().Count)
             {
 
                 //add item

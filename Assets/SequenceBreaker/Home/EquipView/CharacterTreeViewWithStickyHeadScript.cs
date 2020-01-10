@@ -73,8 +73,6 @@ namespace SequenceBreaker.Home.EquipView
 
         public void Initialization()
         {
-            //List<bool> _expendedList = new List<bool>();
-
             bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
             TreeViewItemCountData countData;
@@ -118,14 +116,17 @@ namespace SequenceBreaker.Home.EquipView
             }
 
             //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
-            _mTreeItemCountMgr.SetItemExpand(0, false);
+            _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
+
+            //_mTreeItemCountMgr.SetItemExpand(0, true);
             UpdateStickeyHeadPos();
 
 
             //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
             //_mTreeItemCountMgr.ToggleItemExpand(0);
-            OnExpandClicked(0);
+
+            //OnExpandClicked(1);
 
 
             //mLoopListView.RefreshAllShownItem();
@@ -142,6 +143,8 @@ namespace SequenceBreaker.Home.EquipView
         //to let you create the item and update its content.
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
+            Debug.Log("OnGetItemByIndex: " + index);
+
             if (index < 0)
             {
                 return null;
@@ -241,22 +244,11 @@ namespace SequenceBreaker.Home.EquipView
                     Debug.Log("Character: "+ characterStatusDisplay.selectedCharacter.shortName);
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
+                    //loopListItem.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+
 
                 }
-                //else if (item.amount == -2)
-                //{
-                //    DetailCell detailCell;
 
-                //    loopListItem = listView.NewListViewItem("DetailCell");
-                //    detailCell = loopListItem.GetComponent<DetailCell>();
-
-                //    //loopListItem.UserIntData1 = 0;
-                //    //loopListItem.UserIntData2 = 2;
-
-                //    loopListItem.UserIntData1 = treeItemIndex;
-                //    loopListItem.UserIntData2 = childIndex;
-
-                //    detailCell.SetdetailInfo(unitClass);
 
 
                 //}
@@ -282,9 +274,7 @@ namespace SequenceBreaker.Home.EquipView
                     itemScript.SetItemData(item, treeItemIndex, childIndex);
                 }
 
-                //mLoopListView.OnItemSizeChanged(index);
-
-
+                //UpdateStickeyHeadPos();
                 return loopListItem;
 
             }
@@ -311,9 +301,9 @@ namespace SequenceBreaker.Home.EquipView
             Debug.Log("on Exppand clicked :" + index);
             //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
 
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
             mLoopListView.RefreshAllShownItem();
-            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
 
             //Initialization();
         }

@@ -38,7 +38,7 @@ namespace SequenceBreaker.Home.EquipView
         //[FormerlySerializedAs("AbilityText")] public Text abilityText;
 
         //for data save
-        public int itemCapacity;
+        //public int itemCapacity;
         //public int selectedUnitNo;
 
 
@@ -55,6 +55,7 @@ namespace SequenceBreaker.Home.EquipView
             SetCharacterStatus(selectedCharacter);
         }
 
+       
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
@@ -62,7 +63,7 @@ namespace SequenceBreaker.Home.EquipView
             //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
 
             //characterNameText.text = targetCharacter.TrueName();
-            targetCharacter.UpdateItemCapacity();
+            //targetCharacter.UpdateItemCapacity();
 
 
             //int _currentItemCount = targetCharacter.GetItemAmount();
@@ -77,21 +78,21 @@ namespace SequenceBreaker.Home.EquipView
 
 
             //for data save
-            itemCapacity = targetCharacter.itemCapacity;
+            //itemCapacity = targetCharacter.itemCapacity;
 
             // load from saved data
             //Bug:This way to load info is not collect
 
-            if (targetCharacter.affiliation == Environment.Affiliation.Enemy)
-            {
-                // do not load
-            }
-            else
-            {
-                UnitClass loadUnit = itemDataBase.LoadUnitInfo(targetCharacter);
-                targetCharacter.itemList = loadUnit.itemList;
+            //if (targetCharacter.affiliation == Environment.Affiliation.Enemy)
+            //{
+            //    // do not load
+            //}
+            //else
+            //{
+            //    UnitClass loadUnit = itemDataBase.LoadUnitInfo(targetCharacter);
+            //    targetCharacter.itemList = loadUnit.itemList;
 
-            }
+            //}
 
             //calculateUnitStatus.Init(targetCharacter);
             //abilityText.text = calculateUnitStatus.detailAbilityString;
@@ -101,13 +102,23 @@ namespace SequenceBreaker.Home.EquipView
             //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
             //characterTreeViewWithStickyHeadScript.Initialization();
 
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
             Debug.Log("SetCharacter: " + targetCharacter);
             characterTreeViewDataSourceMgr.Init();
+
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
             characterTreeViewWithStickyHeadScript.Initialization();
+            Debug.Log("SetCharacter fter sticky init: " + targetCharacter);
 
 
+            characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
             //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
             //}
+
+            //once again
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndexAndPos(0,new Vector2(1,1));
+
 
         }
 

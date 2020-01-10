@@ -54,6 +54,8 @@ namespace SequenceBreaker.Home.EquipView
 
         public CharacterStatusDisplay characterStatusDisplay;
 
+        public ItemDataBase itemDataBase;
+
         // other inventory
         public InventoryTreeViewDataSourceMgr otherInventoryTreeViewDataSourceMgr;
 
@@ -75,10 +77,10 @@ namespace SequenceBreaker.Home.EquipView
 
         }
 
-        //void Awake()
-        //{
-        //    Init();
-        //}
+        void Awake()
+        {
+            Init();
+        }
 
 
         public void Init()
@@ -137,6 +139,11 @@ namespace SequenceBreaker.Home.EquipView
 
 
             characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
+            //DoRefreshDataSource();
+            //characterStatusDisplay.characterTreeViewDataSourceMgr.Init();
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
+
             otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
         }
@@ -151,7 +158,22 @@ namespace SequenceBreaker.Home.EquipView
             //characterStatusDisplay.RefreshCharacterStatusAndItemList();
             //if (selectedCharacter != null)
             //{
-            List<Item> itemList = characterStatusDisplay.GetItemList();
+            //List<Item> itemList = characterStatusDisplay.GetItemList();
+
+            characterStatusDisplay.selectedCharacter.UpdateItemCapacity();
+
+            if (characterStatusDisplay.selectedCharacter.affiliation == Environment.Affiliation.Enemy)
+            {
+                // do not load
+            }
+            else
+            {
+                UnitClass loadUnit = itemDataBase.LoadUnitInfo(characterStatusDisplay.selectedCharacter);
+                characterStatusDisplay.selectedCharacter.itemList = loadUnit.itemList;
+
+            }
+
+            List<Item> itemList = characterStatusDisplay.selectedCharacter.itemList;
 
             CharacterTreeViewItemData tData;
 
@@ -199,7 +221,7 @@ namespace SequenceBreaker.Home.EquipView
                 int _itemCapacityCount = 0;
                 foreach (Item item in itemList)
                 {
-                    if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
+                    if (_itemCapacityCount >= characterStatusDisplay.selectedCharacter.itemCapacity)
                     {
                         continue;
                     }

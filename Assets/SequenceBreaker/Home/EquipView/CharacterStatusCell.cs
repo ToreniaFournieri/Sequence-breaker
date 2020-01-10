@@ -119,7 +119,7 @@ namespace SequenceBreaker.Home.EquipView
             bigOneLineText.text = characterStatusContent.bigText;
             upsideDescriptionText.text = characterStatusContent.upsideDescription;
             detailText.text = characterStatusContent.detailString;
-
+            
 
             //detailText.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
             //Vector2 test = detailText.gameObject.GetComponent<RectTransform>().sizeDelta;
