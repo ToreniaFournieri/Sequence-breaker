@@ -40,11 +40,11 @@ namespace SequenceBreaker.Home.EquipView
         //public int selectedUnitNo;
 
 
-        public void Init()
-        {
-            RefreshCharacterStatusAndItemList();
+        //public void Init()
+        //{
+        //    RefreshCharacterStatusAndItemList();
 
-        }
+        //}
 
         // refresh character status display
         public void RefreshCharacterStatusAndItemList()
@@ -94,8 +94,10 @@ namespace SequenceBreaker.Home.EquipView
 
 
             // not load experience point this.
-
+            //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
+            //characterTreeViewWithStickyHeadScript.Initialization();
             characterTreeViewDataSourceMgr.Show();
+
             characterTreeViewWithStickyHeadScript.Initialization();
 
             //}

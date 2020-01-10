@@ -987,30 +987,30 @@ namespace SequenceBreaker.Master.Units
             //detailAbilityString += oOptimumRangeBonusDetailString;
 
 
-    //        string fa = Word.Get("Offense") + "-"
-    //+ Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
+            string fa = Word.Get("Offense") + "-"
+    + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
 
-    //        Debug.Log("gege");
+            //Debug.Log("gege");
 
-    //        string ga = "a";
-    //        //if (summedOffenseList[2].ratioValue > 1.001)
-    //        if (summedOffenseList[2].ratioValue.Equals(1))
-    //        {
-    //            Debug.Log("Im here");
-    //            ga = null;
-    //            //fa = null;
-    //        }
-    //        if (ga == null)
-    //        {
-    //            //fa = ga;
-    //        }
+            string ga = "a";
+            //if (summedOffenseList[2].ratioValue > 1.001)
+            if (summedOffenseList[2].ratioValue.Equals(1))
+            {
+                ga = null;
+                //fa = null;
+            }
+            if (ga == null)
+            {
+                fa = ga;
+            }
 
-    //        if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
-    //        if (fa != null) { fa += "\n"; }
+            if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
+            if (fa != null) { fa += "\n"; }
 
-    //        for (int i = 0; i < 100; i++)
-    //            detailAbilityString += fa;
+            for (int i = 0; i < 10; i++)
+                detailAbilityString += fa;
 
+            Debug.Log("Im here: " + detailAbilityString);
 
 
         }

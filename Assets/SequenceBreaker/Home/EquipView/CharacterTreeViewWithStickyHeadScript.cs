@@ -85,6 +85,8 @@ namespace SequenceBreaker.Home.EquipView
                 }
                 else
                 {
+                    //isHeadAllowExpended.Add(false);
+
                     Debug.LogError("Unexpected value");
                 }
                 //_expendedList.Add(_mTreeItemCountMgr.IsTreeItemExpand(i));
@@ -99,15 +101,21 @@ namespace SequenceBreaker.Home.EquipView
                 _mTreeItemCountMgr.AddTreeItem(childCount, true);
 
                 countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
-                if (countData != null)
+                if (countData != null )
                 {
-                    countData.MIsExpand = isHeadAllowExpended[i];
-
+                    if (isHeadAllowExpended.Count > i)
+                    {
+                        countData.MIsExpand = isHeadAllowExpended[i];
+                    }
+                    else
+                    {
+                        //countData.MIsExpand = false;
+                    }
                 }
             }
 
-            UpdateStickeyHeadPos();
             _mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
+            UpdateStickeyHeadPos();
 
 
             //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
@@ -160,7 +168,7 @@ namespace SequenceBreaker.Home.EquipView
             }
             int treeItemIndex = countData.MTreeItemIndex;
             CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
-            UnitClass unitClass = CharacterTreeViewDataSourceMgr.Get.selectedCharacter;
+            //UnitClass unitClass = CharacterTreeViewDataSourceMgr.Get.selectedCharacter;
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
 
@@ -223,9 +231,11 @@ namespace SequenceBreaker.Home.EquipView
                     //loopListItem.UserIntData2 = 1;
                     loopListItem.UserIntData1 = treeItemIndex;
                     loopListItem.UserIntData2 = childIndex;
-                    characterStatus.SetCharacterStatusData(unitClass);
-
+                    //characterStatus.SetCharacterStatusData(unitClass);
+                    characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
                     
+
+
                 }
                 //else if (item.amount == -2)
                 //{
@@ -286,6 +296,7 @@ namespace SequenceBreaker.Home.EquipView
             _mTreeItemCountMgr.ToggleItemExpand(index);
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
+            //Initialization();
         }
         void OnJumpBtnClicked()
         {

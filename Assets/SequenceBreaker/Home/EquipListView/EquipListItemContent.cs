@@ -98,9 +98,8 @@ namespace SequenceBreaker.Home.EquipListView
             Debug.Log("On content clicked unit:" + unitClass.shortName);
 
             characterStatusDisplay.SetCharacterStatus(unitClass);
-
-
-
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Start();
             //characterTreeViewDataSourceMgr.selectedCharacter = unitClass;
             //CharacterTreeViewDataSourceMgr.Get.selectedCharacter = unitClass;
             //CharacterTreeViewDataSourceMgr.Get.Init();
