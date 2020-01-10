@@ -74,6 +74,7 @@ namespace SequenceBreaker.Home.EquipListView
             if (_mClickItemDetailHandler != null)
             {
                 Debug.Log("On _mClickItemDetailHandler clicked " );
+                //characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
 
 
                 ////Text detailText = equipView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
@@ -98,28 +99,14 @@ namespace SequenceBreaker.Home.EquipListView
             Debug.Log("On content clicked unit:" + unitClass.shortName);
 
             characterStatusDisplay.SetCharacterStatus(unitClass);
+            //characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter = unitClass;
+
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Start();
             //characterTreeViewDataSourceMgr.selectedCharacter = unitClass;
             //CharacterTreeViewDataSourceMgr.Get.selectedCharacter = unitClass;
             //CharacterTreeViewDataSourceMgr.Get.Init();
-            //equipView.SetActive(true);
-            //equipView.transform.SetAsLastSibling();
-            //if (item != null)
-            //{
-
-            //    if (isCharacterInventory)
-            //    {
-            //        equipListTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-            //    }
-            //    else
-            //    {
-            //        inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-            //    }
-            //}
-
-
 
 
 

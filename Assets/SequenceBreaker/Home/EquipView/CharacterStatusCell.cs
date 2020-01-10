@@ -80,6 +80,8 @@ namespace SequenceBreaker.Home.EquipView
             itemDetailView.SetActive(true);
             itemDetailView.transform.SetAsLastSibling();
 
+            //characterTreeViewDataSourceMgr.characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
+
             //}
 
         }
@@ -89,6 +91,9 @@ namespace SequenceBreaker.Home.EquipView
         {
 
             Debug.Log(" On Content Clicked, CharcterStatus Cell");
+
+            //characterTreeViewDataSourceMgr.characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
             //if (item != null)
             //{
 

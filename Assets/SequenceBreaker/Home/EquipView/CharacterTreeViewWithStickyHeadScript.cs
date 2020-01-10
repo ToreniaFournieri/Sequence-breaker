@@ -27,6 +27,9 @@ namespace SequenceBreaker.Home.EquipView
         float _mStickeyHeadItemHeight = -1;
 
 
+        //for sequence breaker use
+        public CharacterStatusDisplay characterStatusDisplay;
+
 
         // Use this for initialization
         void Start()
@@ -114,7 +117,8 @@ namespace SequenceBreaker.Home.EquipView
                 }
             }
 
-            _mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
+            //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
+            _mTreeItemCountMgr.SetItemExpand(0, false);
             UpdateStickeyHeadPos();
 
 
@@ -296,9 +300,15 @@ namespace SequenceBreaker.Home.EquipView
 
         public void OnExpandClicked(int index)
         {
+
             _mTreeItemCountMgr.ToggleItemExpand(index);
+
+            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
+            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
             //Initialization();
         }
         void OnJumpBtnClicked()

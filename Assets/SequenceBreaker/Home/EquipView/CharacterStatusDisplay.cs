@@ -97,7 +97,7 @@ namespace SequenceBreaker.Home.EquipView
             //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
             //characterTreeViewWithStickyHeadScript.Initialization();
 
-            characterTreeViewDataSourceMgr.Show();
+            characterTreeViewDataSourceMgr.Init();
             characterTreeViewWithStickyHeadScript.Initialization();
 
 

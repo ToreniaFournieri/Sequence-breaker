@@ -75,10 +75,10 @@ namespace SequenceBreaker.Home.EquipView
 
         }
 
-        void Awake()
-        {
-            Init();
-        }
+        //void Awake()
+        //{
+        //    Init();
+        //}
 
 
         public void Init()
@@ -87,11 +87,11 @@ namespace SequenceBreaker.Home.EquipView
 
         }
 
-        public void Show()
-        {
-            DoRefreshDataSource();
+        //public void Show()
+        //{
+        //    DoRefreshDataSource();
 
-        }
+        //}
 
 
         public CharacterTreeViewItemData GetItemDataByIndex(int index)
@@ -145,6 +145,8 @@ namespace SequenceBreaker.Home.EquipView
         // this method is called from CharacterStatus Display . SetCharacterStatus
         private void DoRefreshDataSource()
         {
+
+            Debug.Log("in DoRefresh " );
             //characterStatusDisplay.RefreshCharacterStatusAndItemList();
             if (selectedCharacter != null)
             {

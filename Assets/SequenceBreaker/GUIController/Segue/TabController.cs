@@ -118,19 +118,19 @@ namespace SequenceBreaker.GUIController.Segue
                     //{
                     //    characterStatusDisplay.unitWave.unitWave[characterStatusDisplay.selectedUnitNo].CalculateLevel();
                     //}
-                    if (characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter != null)
-                    {
-                        if (characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.affiliation ==
-                        Affiliation.Ally)
-                        {
+                    //if (characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter != null)
+                    //{
+                    //    if (characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.affiliation ==
+                    //    Affiliation.Ally)
+                    //    {
 
-                            characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.CalculateLevel();
+                    //        characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.CalculateLevel();
 
 
-                        }
-                        characterStatusDisplay.RefreshCharacterStatusAndItemList();
+                    //    }
+                    //    characterStatusDisplay.RefreshCharacterStatusAndItemList();
 
-                    }
+                    //}
 
 
                     homeTab.SetActive(true);
