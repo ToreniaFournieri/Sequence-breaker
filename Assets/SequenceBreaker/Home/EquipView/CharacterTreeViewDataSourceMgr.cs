@@ -14,7 +14,7 @@ namespace SequenceBreaker.Home.EquipView
 
         readonly List<Item> _mChildItemDataList = new List<Item>();
 
-        //public UnitClass selectedCharacter;
+        public UnitClass selectedCharacter;
 
 
         public int ChildCount => _mChildItemDataList.Count;
@@ -50,7 +50,7 @@ namespace SequenceBreaker.Home.EquipView
 
     public sealed class CharacterTreeViewDataSourceMgr : MonoBehaviour
     {
-        public UnitClass selectedCharacter;
+        //public UnitClass selectedCharacter;
 
         public CharacterStatusDisplay characterStatusDisplay;
 
@@ -147,72 +147,75 @@ namespace SequenceBreaker.Home.EquipView
         {
 
             //Debug.Log("in DoRefresh " );
-            Debug.Log("in DoRefresh " + selectedCharacter.shortName);
+            Debug.Log("in DoRefresh ");
             //characterStatusDisplay.RefreshCharacterStatusAndItemList();
-            if (selectedCharacter != null)
+            //if (selectedCharacter != null)
+            //{
+            List<Item> itemList = characterStatusDisplay.GetItemList();
+
+            CharacterTreeViewItemData tData;
+
+            // emDataList[0] is alyways unit status infomation area.
+            //UnitClass _selectedCharacter = _mItemDataList[0].selectedCharacter;
+
+
+            _mItemDataList.Clear();
+
+            int currentAmount = characterStatusDisplay.selectedCharacter.GetItemAmount();
+            if (characterStatusDisplay.selectedCharacter.GetItemAmount() > characterStatusDisplay.selectedCharacter.itemCapacity)
             {
-                List<Item> itemList = characterStatusDisplay.GetItemList();
-
-                CharacterTreeViewItemData tData;
-
-                _mItemDataList.Clear();
-
-
-                int currentAmount = selectedCharacter.GetItemAmount();
-                if (selectedCharacter.GetItemAmount() > selectedCharacter.itemCapacity)
-                {
-                    currentAmount = selectedCharacter.itemCapacity;
-                }
-
-                // Set Character Status cell. _mTreeViewItemCount = 0;
-                tData = new CharacterTreeViewItemData
-                {
-                    MName = Word.Get("Status") + "  " + selectedCharacter.shortName,
-
-
-                    RightText = currentAmount + "/" + selectedCharacter.itemCapacity,
-                    MIcon = "0"
-                };
-                _mItemDataList.Add(tData);
-                //tData.selectedCharacter = selectedCharacter;
-                Item headStatusWithIcon = ScriptableObject.CreateInstance<Item>();
-                headStatusWithIcon.amount = -1;
-                tData.AddChild(headStatusWithIcon);
-                //Item detail2 = ScriptableObject.CreateInstance<Item>();
-                //detail2.amount = -2;
-                //tData.AddChild(detail2);
-
-                //for (int i = 0; i < _mTreeViewItemCount; ++i)
-                //{
-
-                // Set Item cells. _mTreeViewItemCount =1;
-                tData = null;
-                tData = new CharacterTreeViewItemData { MName = Word.Get("Equiped Item List"), MIcon = "1" };
-                _mItemDataList.Add(tData);
-
-
-                if (itemList != null)
-                {
-                    int _itemCapacityCount = 0;
-                    foreach (Item item in itemList)
-                    {
-                        if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
-                        {
-                            continue;
-                        }
-                        _itemCapacityCount++;
-
-                        if (item != null)
-                        {
-                            tData.AddChild(item);
-                        }
-
-                        tData.SortItemList();
-                    }
-                }
-                //}
-
+                currentAmount = characterStatusDisplay.selectedCharacter.itemCapacity;
             }
+
+            // Set Character Status cell. _mTreeViewItemCount = 0;
+            tData = new CharacterTreeViewItemData
+            {
+                MName = Word.Get("Status") + "  " + characterStatusDisplay.selectedCharacter.shortName,
+
+                selectedCharacter = characterStatusDisplay.selectedCharacter,
+                RightText = currentAmount + "/" + characterStatusDisplay.selectedCharacter.itemCapacity,
+                MIcon = "0"
+            };
+            _mItemDataList.Add(tData);
+            //tData.selectedCharacter = selectedCharacter;
+            Item headStatusWithIcon = ScriptableObject.CreateInstance<Item>();
+            headStatusWithIcon.amount = -1;
+            tData.AddChild(headStatusWithIcon);
+            //Item detail2 = ScriptableObject.CreateInstance<Item>();
+            //detail2.amount = -2;
+            //tData.AddChild(detail2);
+
+            //for (int i = 0; i < _mTreeViewItemCount; ++i)
+            //{
+
+            // Set Item cells. _mTreeViewItemCount =1;
+            tData = null;
+            tData = new CharacterTreeViewItemData { MName = Word.Get("Equiped Item List"), MIcon = "1" };
+            _mItemDataList.Add(tData);
+
+
+            if (itemList != null)
+            {
+                int _itemCapacityCount = 0;
+                foreach (Item item in itemList)
+                {
+                    if (_itemCapacityCount >= characterStatusDisplay.itemCapacity)
+                    {
+                        continue;
+                    }
+                    _itemCapacityCount++;
+
+                    if (item != null)
+                    {
+                        tData.AddChild(item);
+                    }
+
+                    tData.SortItemList();
+                }
+            }
+            //}
+
+            //}
 
         }
 

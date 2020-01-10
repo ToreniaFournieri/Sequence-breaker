@@ -238,8 +238,8 @@ namespace SequenceBreaker.Home.EquipView
                     //characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
 
 
-                    Debug.Log("Character: "+ characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.shortName);
-                    characterStatus.SetCharacterStatusData(characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter);
+                    Debug.Log("Character: "+ characterStatusDisplay.selectedCharacter.shortName);
+                    characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
 
 

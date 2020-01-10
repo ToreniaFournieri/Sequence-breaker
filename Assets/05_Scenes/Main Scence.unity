@@ -3220,7 +3220,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13080,7 +13080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345271f8b3c844eb185869a3394154ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitClass: {fileID: 0}
   bigOneLineText: {fileID: 1759601319}
   characterIcon: {fileID: 1046957364}
   upsideDescriptionText: {fileID: 1212403593}
@@ -14656,6 +14655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDataBase: {fileID: 996112117}
+  selectedCharacter: {fileID: 0}
   characterTreeViewDataSourceMgr: {fileID: 1469652865}
   characterTreeViewWithStickyHeadScript: {fileID: 356212688}
   calculateUnitStatus: {fileID: 296629314}
@@ -17140,7 +17140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b065f23218874546b8228be9374e370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter: {fileID: 0}
   characterStatusDisplay: {fileID: 1252398280}
   otherInventoryTreeViewDataSourceMgr: {fileID: 1973180634}
 --- !u!1 &1471982452
@@ -20079,7 +20078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345271f8b3c844eb185869a3394154ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitClass: {fileID: 0}
   bigOneLineText: {fileID: 2135123800}
   characterIcon: {fileID: 1529940975}
   upsideDescriptionText: {fileID: 171973611}
@@ -24254,8 +24252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 535.2831, y: 0}
-  m_SizeDelta: {x: 1060.5662, y: 0}
+  m_AnchoredPosition: {x: 527.11163, y: 0}
+  m_SizeDelta: {x: 1044.2233, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:

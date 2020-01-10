@@ -14,6 +14,8 @@ namespace SequenceBreaker.Home.EquipView
         public ItemDataBase itemDataBase;
 
 
+
+        public UnitClass selectedCharacter;
         // Unit is get using
         // characterTreeViewDataSourceMgr.selectedCharacter
 
@@ -49,13 +51,15 @@ namespace SequenceBreaker.Home.EquipView
         // refresh character status display
         public void RefreshCharacterStatusAndItemList()
         {
-            SetCharacterStatus(characterTreeViewDataSourceMgr.selectedCharacter);
+            //SetCharacterStatus(characterTreeViewDataSourceMgr.selectedCharacter);
+            SetCharacterStatus(selectedCharacter);
         }
 
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
-            characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
+            selectedCharacter = targetCharacter;
+            //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
 
             characterNameText.text = targetCharacter.TrueName();
             targetCharacter.UpdateItemCapacity();
@@ -110,34 +114,34 @@ namespace SequenceBreaker.Home.EquipView
 
         public bool AddAndSaveItem(Item addItem)
         {
-            if (characterTreeViewDataSourceMgr.selectedCharacter.GetItemAmount() >= characterTreeViewDataSourceMgr.selectedCharacter.itemCapacity)
+            if (selectedCharacter.GetItemAmount() >= selectedCharacter.itemCapacity)
             {
                 // failed. over.
                 return true;
             }
-            if (characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count == 0)
+            if (selectedCharacter.itemList.Count == 0)
             {
 
                 Item item = addItem.Copy();
                 item.amount = 1;
 
-                characterTreeViewDataSourceMgr.selectedCharacter.itemList.Add(item);
+                selectedCharacter.itemList.Add(item);
             }
             else
             {
                 bool onceHasBeenAdded = false;
-                for (int i = characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count - 1; i >= 0; i--)
+                for (int i = selectedCharacter.itemList.Count - 1; i >= 0; i--)
                 {
-                    if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].GetId() == addItem.GetId())
+                    if (selectedCharacter.itemList[i].GetId() == addItem.GetId())
                     {
                         onceHasBeenAdded = true;
-                        if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount >= 99)
+                        if (selectedCharacter.itemList[i].amount >= 99)
                         {
                             //nothing to do.
                         }
                         else
                         {
-                            characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount += 1;
+                            selectedCharacter.itemList[i].amount += 1;
                         }
 
                     }
@@ -146,12 +150,12 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     Item item = addItem.Copy();
                     item.amount = 1;
-                    characterTreeViewDataSourceMgr.selectedCharacter.itemList.Add(item);
+                    selectedCharacter.itemList.Add(item);
                 }
 
             }
 
-            itemDataBase.SaveUnitInfo(characterTreeViewDataSourceMgr.selectedCharacter);
+            itemDataBase.SaveUnitInfo(selectedCharacter);
 
             return false;
 
@@ -159,22 +163,22 @@ namespace SequenceBreaker.Home.EquipView
 
         public void RemoveAndSaveItem(Item removedItem)
         {
-            for (int i = characterTreeViewDataSourceMgr.selectedCharacter.itemList.Count - 1; i >= 0; i--)
+            for (int i = selectedCharacter.itemList.Count - 1; i >= 0; i--)
             {
-                if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].GetId() == removedItem.GetId())
+                if (selectedCharacter.itemList[i].GetId() == removedItem.GetId())
                 {
-                    if (characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount > 1)
+                    if (selectedCharacter.itemList[i].amount > 1)
                     {
-                        characterTreeViewDataSourceMgr.selectedCharacter.itemList[i].amount -= 1;
+                       selectedCharacter.itemList[i].amount -= 1;
                     }
                     else
                     {
-                        characterTreeViewDataSourceMgr.selectedCharacter.itemList.RemoveAt(i);
+                        selectedCharacter.itemList.RemoveAt(i);
                     }
                 }
             }
 
-            itemDataBase.SaveUnitInfo(characterTreeViewDataSourceMgr.selectedCharacter);
+            itemDataBase.SaveUnitInfo(selectedCharacter);
 
 
         }
@@ -184,7 +188,7 @@ namespace SequenceBreaker.Home.EquipView
 
         public List<Item> GetItemList()
         {
-            return characterTreeViewDataSourceMgr.selectedCharacter.itemList;
+            return selectedCharacter.itemList;
 
         }
         //public List<Item> GetItemList()
