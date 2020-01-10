@@ -89,8 +89,8 @@ namespace SequenceBreaker.Home.EquipView
 
             }
 
-            calculateUnitStatus.Init(targetCharacter);
-            abilityText.text = calculateUnitStatus.detailAbilityString;
+            //calculateUnitStatus.Init(targetCharacter);
+            //abilityText.text = calculateUnitStatus.detailAbilityString;
 
 
             // not load experience point this.

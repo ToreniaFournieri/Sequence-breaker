@@ -908,13 +908,14 @@ namespace SequenceBreaker.Master.Units
             detailAbilityString += "\n";
             detailAbilityString += "[Detail]\n";
 
+
+            // BUG cant check ratioValue, if do, cell can't calculate correctly, i dont now why.
+
             // Desplay detail
             // Offense
             string oCriticalDetailString = null;
-
-
             //if (Math.Abs(summedOffenseList[1].ratioValue - 1.0) > 0.001)
-            if ((int)Math.Round(summedOffenseList[1].ratioValue * 100) != 100)
+            //if ((int)Math.Round(summedOffenseList[1].ratioValue * 100) != 100)
             {
                 oCriticalDetailString += Word.Get("Offense") + "-"
                     + Word.Get("Critical") + " consist of" + " x" + Math.Round(summedOffenseList[1].ratioValue, 3).ToString();
@@ -930,7 +931,7 @@ namespace SequenceBreaker.Master.Units
 
 
             //if (Math.Abs(summedOffenseList[2].ratioValue - 1.0) > 0.001)
-            if ((int)Math.Round(summedOffenseList[2].ratioValue * 100) != 100)
+            //if ((int)Math.Round(summedOffenseList[2].ratioValue * 100) != 100)
             {
                 oKineticDetailString += Word.Get("Offense") + "-"
                     + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
@@ -946,7 +947,7 @@ namespace SequenceBreaker.Master.Units
 
 
             //if (Math.Abs(summedOffenseList[3].ratioValue - 1.0) > 0.001)
-            if ((int)Math.Round(summedOffenseList[3].ratioValue * 100) != 100)
+            //if ((int)Math.Round(summedOffenseList[3].ratioValue * 100) != 100)
             {
                 oChemicalDetailString += Word.Get("Offense") + "-" + Word.Get("Chemical")
                     + " consist of" + " x" + Math.Round(summedOffenseList[3].ratioValue, 3).ToString();
@@ -959,7 +960,7 @@ namespace SequenceBreaker.Master.Units
 
             string oThermalDetailString = null;
             //if (Math.Abs(summedOffenseList[4].ratioValue - 1.0) > 0.001)
-            if ((int)Math.Round(summedOffenseList[4].ratioValue * 100) != 100)
+            //if ((int)Math.Round(summedOffenseList[4].ratioValue * 100) != 100)
             {
                 oThermalDetailString += Word.Get("Offense") + "-" + Word.Get("Thermal")
                     + " consist of" + " x" + Math.Round(summedOffenseList[4].ratioValue, 3).ToString();
@@ -972,7 +973,7 @@ namespace SequenceBreaker.Master.Units
 
             string oOptimumRangeBonusDetailString = null;
             //if (Math.Abs(summedOffenseList[10].ratioValue - 1.0) > 0.001)
-            if ((int)Math.Round(summedOffenseList[10].ratioValue * 100) != 100)
+            //if ((int)Math.Round(summedOffenseList[10].ratioValue * 100) != 100)
             {
                 oOptimumRangeBonusDetailString += Word.Get("Offense") + "-"
                     + Word.Get("Optimum Range Bonus") + " consist of"
@@ -986,17 +987,29 @@ namespace SequenceBreaker.Master.Units
             //detailAbilityString += oOptimumRangeBonusDetailString;
 
 
-            //string fa = null;
-            ////if (summedOffenseList[2].ratioValue > 1.001)
-            //{
-            //    fa += Word.Get("Offense") + "-"
-            //        + Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
-            //}
-            //if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
-            //if (fa != null) { fa += "\n"; }
+    //        string fa = Word.Get("Offense") + "-"
+    //+ Word.Get("Kinetic") + " consist of" + " x" + Math.Round(summedOffenseList[2].ratioValue, 3).ToString();
 
-            //for (int i = 0; i < 100; i++)
-            //    detailAbilityString += fa;
+    //        Debug.Log("gege");
+
+    //        string ga = "a";
+    //        //if (summedOffenseList[2].ratioValue > 1.001)
+    //        if (summedOffenseList[2].ratioValue.Equals(1))
+    //        {
+    //            Debug.Log("Im here");
+    //            ga = null;
+    //            //fa = null;
+    //        }
+    //        if (ga == null)
+    //        {
+    //            //fa = ga;
+    //        }
+
+    //        if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
+    //        if (fa != null) { fa += "\n"; }
+
+    //        for (int i = 0; i < 100; i++)
+    //            detailAbilityString += fa;
 
 
 
