@@ -60,7 +60,7 @@ namespace SequenceBreaker.Home.EquipView
 
             _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
 
-
+            Debug.Log("Start in CharaTreeStick");
             mStickeyHeadItem.Init();
             mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
@@ -303,6 +303,7 @@ namespace SequenceBreaker.Home.EquipView
 
         public void OnExpandClicked(int index)
         {
+
 
             _mTreeItemCountMgr.ToggleItemExpand(index);
 

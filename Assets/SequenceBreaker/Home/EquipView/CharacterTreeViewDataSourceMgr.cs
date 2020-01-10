@@ -14,7 +14,7 @@ namespace SequenceBreaker.Home.EquipView
 
         readonly List<Item> _mChildItemDataList = new List<Item>();
 
-        public UnitClass selectedCharacter;
+        //public UnitClass selectedCharacter;
 
 
         public int ChildCount => _mChildItemDataList.Count;
@@ -172,7 +172,7 @@ namespace SequenceBreaker.Home.EquipView
             {
                 MName = Word.Get("Status") + "  " + characterStatusDisplay.selectedCharacter.shortName,
 
-                selectedCharacter = characterStatusDisplay.selectedCharacter,
+                //selectedCharacter = characterStatusDisplay.selectedCharacter,
                 RightText = currentAmount + "/" + characterStatusDisplay.selectedCharacter.itemCapacity,
                 MIcon = "0"
             };
