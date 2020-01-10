@@ -14,7 +14,7 @@ namespace SequenceBreaker.Home.EquipView
 
         //character related infomation.
         //public CharacterStatusContent charcterStatusContent;
-        public UnitClass unitClass;
+        //public UnitClass unitClass;
 
         // UI objects.
         public Text bigOneLineText;
@@ -113,7 +113,7 @@ namespace SequenceBreaker.Home.EquipView
         public void SetCharacterStatusData(UnitClass unitClass)
         {
 
-            this.unitClass = unitClass;
+            //this.unitClass = unitClass;
             (string bigText, string upsideDescription, string detailString) characterStatusContent = CharacterStatusContent.Get(unitClass);
 
             bigOneLineText.text = characterStatusContent.bigText;

@@ -14,7 +14,7 @@ namespace SequenceBreaker.Home.EquipView
 
         readonly List<Item> _mChildItemDataList = new List<Item>();
 
-        public UnitClass selectedCharacter;
+        //public UnitClass selectedCharacter;
 
 
         public int ChildCount => _mChildItemDataList.Count;
@@ -146,7 +146,8 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
 
-            Debug.Log("in DoRefresh " );
+            //Debug.Log("in DoRefresh " );
+            Debug.Log("in DoRefresh " + selectedCharacter.shortName);
             //characterStatusDisplay.RefreshCharacterStatusAndItemList();
             if (selectedCharacter != null)
             {
@@ -173,7 +174,7 @@ namespace SequenceBreaker.Home.EquipView
                     MIcon = "0"
                 };
                 _mItemDataList.Add(tData);
-                tData.selectedCharacter = selectedCharacter;
+                //tData.selectedCharacter = selectedCharacter;
                 Item headStatusWithIcon = ScriptableObject.CreateInstance<Item>();
                 headStatusWithIcon.amount = -1;
                 tData.AddChild(headStatusWithIcon);

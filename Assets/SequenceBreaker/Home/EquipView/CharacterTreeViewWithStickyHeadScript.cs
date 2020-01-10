@@ -128,7 +128,7 @@ namespace SequenceBreaker.Home.EquipView
             OnExpandClicked(0);
 
 
-            mLoopListView.RefreshAllShownItem();
+            //mLoopListView.RefreshAllShownItem();
         }
 
 
@@ -235,9 +235,12 @@ namespace SequenceBreaker.Home.EquipView
                     //loopListItem.UserIntData2 = 1;
                     loopListItem.UserIntData1 = treeItemIndex;
                     loopListItem.UserIntData2 = childIndex;
-                    //characterStatus.SetCharacterStatusData(unitClass);
-                    characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
-                    
+                    //characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
+
+
+                    Debug.Log("Character: "+ characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter.shortName);
+                    characterStatus.SetCharacterStatusData(characterStatusDisplay.characterTreeViewDataSourceMgr.selectedCharacter);
+
 
 
                 }
@@ -304,6 +307,9 @@ namespace SequenceBreaker.Home.EquipView
             _mTreeItemCountMgr.ToggleItemExpand(index);
 
             //characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
+            Debug.Log("on Exppand clicked :" + index);
+            //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
 
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
