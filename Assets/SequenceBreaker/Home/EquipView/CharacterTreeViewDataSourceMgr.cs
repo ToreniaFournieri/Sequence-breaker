@@ -81,7 +81,30 @@ namespace SequenceBreaker.Home.EquipView
         {
             Init();
         }
+        ////private float timeleft;
+        //public bool isDirty = false;
+        //private void Update()
+        //{
+        //    //timeleft -= Time.deltaTime;
+        //    //if (timeleft <= 0.0)
+        //    //{
+        //    //    timeleft = 1.0f;
+        //    if (isDirty)
+        //    {
+        //        Debug.Log("its dirty");
+        //        Init();
+        //        //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
+        //        //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
 
+        //        characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.OnItemSizeChanged(0);
+        //        characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
+        //        isDirty = false;
+
+        //    }
+        //    //mLoopListView
+        //    //}
+
+        //}
 
         public void Init()
         {
@@ -141,8 +164,7 @@ namespace SequenceBreaker.Home.EquipView
             characterStatusDisplay.RefreshCharacterStatusAndItemList();
 
             //DoRefreshDataSource();
-            //characterStatusDisplay.characterTreeViewDataSourceMgr.Init();
-            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
+
 
             otherInventoryTreeViewDataSourceMgr.DoRefreshDataSource();
 
@@ -210,7 +232,7 @@ namespace SequenceBreaker.Home.EquipView
                     {
                         tData.AddChild(item);
                     }
-
+                    
                     tData.SortItemList();
                 }
             }

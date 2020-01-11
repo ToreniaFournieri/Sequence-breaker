@@ -102,7 +102,7 @@ namespace SequenceBreaker.Home.EquipListView
 
             characterStatusDisplay.SetCharacterStatus(unitClass);
 
-
+            //characterStatusDisplay.characterTreeViewDataSourceMgr.isDirty = true;
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
 

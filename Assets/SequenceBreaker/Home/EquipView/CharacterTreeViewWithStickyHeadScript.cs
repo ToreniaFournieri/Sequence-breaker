@@ -70,8 +70,25 @@ namespace SequenceBreaker.Home.EquipView
         }
 
 
+        //private float timeleft;
+        //private void Update()
+        //{
+        //    timeleft -= Time.deltaTime;
+        //    if (timeleft <= 0.0)
+        //    {
+        //        timeleft = 1.0f;
+        //        {
+        //            mLoopListView.RefreshAllShownItem();
+
+        //        }
+        //    }
+        //}
+
+
         public void Initialization()
         {
+
+
             bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
             TreeViewItemCountData countData;
@@ -119,6 +136,7 @@ namespace SequenceBreaker.Home.EquipView
 
             //_mTreeItemCountMgr.SetItemExpand(0, true);
             //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+            //mLoopListView.OnItemSizeChanged(0);
 
             //mLoopListView.RefreshAllShownItem();
             mLoopListView.RefreshAllShownItemWithFirstIndex(0);
@@ -128,9 +146,21 @@ namespace SequenceBreaker.Home.EquipView
             //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
-            //_mTreeItemCountMgr.UpdateAllTreeItemDataIndex();
-
-
+            ////_mTreeItemCountMgr.UpdateAllTreeItemDataIndex();
+            //float f = 1000;
+            //mLoopListView.MovePanelToItemIndex(0, f);
+            //mLoopListView.MovePanelToItemIndex(1, f);
+            //mLoopListView.MovePanelToItemIndex(2, f);
+            //mLoopListView.MovePanelToItemIndex(3, f);
+            //mLoopListView.MovePanelToItemIndex(4, f);
+            //mLoopListView.MovePanelToItemIndex(5, f);
+            //mLoopListView.MovePanelToItemIndex(6, f);
+            //mLoopListView.MovePanelToItemIndex(7, f);
+            //mLoopListView.MovePanelToItemIndex(8, f);
+            //mLoopListView.MovePanelToItemIndex(9, f);
+            //mLoopListView.MovePanelToItemIndex(10, f);
+            //mLoopListView.MovePanelToItemIndex(11, f);
+            //mLoopListView.MovePanelToItemIndex(12, f);
             UpdateStickeyHeadPos();
 
             //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
@@ -287,6 +317,10 @@ namespace SequenceBreaker.Home.EquipView
                 }
 
                 //UpdateStickeyHeadPos();
+
+                //mLoopListView.OnItemSizeChanged(0);
+                //mLoopListView.RefreshItemByItemIndex(index);
+
                 return loopListItem;
 
             }

@@ -59,6 +59,7 @@ namespace SequenceBreaker.Home.EquipView
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
+
             //1. set selected character.
             selectedCharacter = targetCharacter;
 
@@ -161,11 +162,7 @@ namespace SequenceBreaker.Home.EquipView
             return selectedCharacter.itemList;
 
         }
-        //public List<Item> GetItemList()
-        //{
-        //    return unitWave.unitWave[selectedUnitNo].itemList;
 
-        //}
 
 
     }
