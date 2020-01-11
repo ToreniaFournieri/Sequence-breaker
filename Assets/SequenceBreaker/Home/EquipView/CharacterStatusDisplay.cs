@@ -55,69 +55,28 @@ namespace SequenceBreaker.Home.EquipView
             SetCharacterStatus(selectedCharacter);
         }
 
-       
+
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
+            //1. set selected character.
             selectedCharacter = targetCharacter;
-            //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
-
-            //characterNameText.text = targetCharacter.TrueName();
-            //targetCharacter.UpdateItemCapacity();
-
-
-            //int _currentItemCount = targetCharacter.GetItemAmount();
-
-
-            //if (targetCharacter.GetItemAmount() > targetCharacter.itemCapacity)
-            //{
-            //    _currentItemCount = targetCharacter.itemCapacity;
-            //}
-
-            //itemAmountText.text = _currentItemCount + "/" + targetCharacter.itemCapacity;
-
-
-            //for data save
-            //itemCapacity = targetCharacter.itemCapacity;
-
-            // load from saved data
-            //Bug:This way to load info is not collect
-
-            //if (targetCharacter.affiliation == Environment.Affiliation.Enemy)
-            //{
-            //    // do not load
-            //}
-            //else
-            //{
-            //    UnitClass loadUnit = itemDataBase.LoadUnitInfo(targetCharacter);
-            //    targetCharacter.itemList = loadUnit.itemList;
-
-            //}
-
-            //calculateUnitStatus.Init(targetCharacter);
-            //abilityText.text = calculateUnitStatus.detailAbilityString;
-
-
-            // not load experience point this.
-            //characterTreeViewDataSourceMgr.selectedCharacter = targetCharacter;
-            //characterTreeViewWithStickyHeadScript.Initialization();
 
             //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
             Debug.Log("SetCharacter: " + targetCharacter);
+
+            //2. Set Character infomation and each item into the  List<CharacterTreeViewItemData> _mItemDataList.
             characterTreeViewDataSourceMgr.Init();
 
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
+
+            //3. Update sticky header infomation.
             characterTreeViewWithStickyHeadScript.Initialization();
-            Debug.Log("SetCharacter fter sticky init: " + targetCharacter);
+            Debug.Log("SetCharacter after sticky init: " + targetCharacter);
+
+            //4. need to update cells.
+            characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
 
-            characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
-            //}
-
-            //once again
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndexAndPos(0,new Vector2(1,1));
 
 
         }
@@ -180,7 +139,7 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     if (selectedCharacter.itemList[i].amount > 1)
                     {
-                       selectedCharacter.itemList[i].amount -= 1;
+                        selectedCharacter.itemList[i].amount -= 1;
                     }
                     else
                     {

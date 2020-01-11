@@ -97,7 +97,26 @@ namespace SequenceBreaker.Home.EquipListView
         {
 
             Debug.Log("On content clicked unit:" + unitClass.shortName);
+
+
+
             characterStatusDisplay.SetCharacterStatus(unitClass);
+
+
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(0);
+
+
+
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(1);
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnExpandClicked(1);
+
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.OnClosedClicked(0);
+
+            //CharacterTreeViewDataSourceMgr.Get.Init();
             //characterStatusDisplay.selectedCharacter = unitClass;
             //characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
 

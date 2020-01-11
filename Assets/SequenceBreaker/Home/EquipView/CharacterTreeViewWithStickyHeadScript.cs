@@ -58,9 +58,8 @@ namespace SequenceBreaker.Home.EquipView
             //mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
             //mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
+            //Debug.Log("Start in CharaTreeStick");
             _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
-
-            Debug.Log("Start in CharaTreeStick");
             mStickeyHeadItem.Init();
             mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
@@ -101,26 +100,38 @@ namespace SequenceBreaker.Home.EquipView
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
                 _mTreeItemCountMgr.AddTreeItem(childCount, true);
 
-                countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
-                if (countData != null )
-                {
-                    if (isHeadAllowExpended.Count > i)
-                    {
-                        countData.MIsExpand = isHeadAllowExpended[i];
-                    }
-                    else
-                    {
-                        //countData.MIsExpand = false;
-                    }
-                }
+                //countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
+                //if (countData != null)
+                //{
+                //    if (isHeadAllowExpended.Count > i)
+                //    {
+                //        //countData.MIsExpand = isHeadAllowExpended[i];
+                //    }
+                //    else
+                //    {
+                //        //countData.MIsExpand = false;
+                //    }
+                //}
             }
 
             //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
             //_mTreeItemCountMgr.SetItemExpand(0, true);
-            UpdateStickeyHeadPos();
+            //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
+            //mLoopListView.RefreshAllShownItem();
+            mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+
+            _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+            mStickeyHeadItem.Init();
+            //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
+            _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
+
+            //_mTreeItemCountMgr.UpdateAllTreeItemDataIndex();
+
+
+            UpdateStickeyHeadPos();
 
             //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
@@ -128,9 +139,11 @@ namespace SequenceBreaker.Home.EquipView
 
             //OnExpandClicked(1);
 
-
+            //mLoopListView.RefreshItemByItemIndex(0);
             //mLoopListView.RefreshAllShownItem();
         }
+
+
 
 
         void OnBackBtnClicked()
@@ -143,7 +156,7 @@ namespace SequenceBreaker.Home.EquipView
         //to let you create the item and update its content.
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
-            Debug.Log("OnGetItemByIndex: " + index);
+            //Debug.Log("OnGetItemByIndex: " + index);
 
             if (index < 0)
             {
@@ -234,14 +247,13 @@ namespace SequenceBreaker.Home.EquipView
 
                     }
                     //update the TreeChildItem's content
-                    //loopListItem.UserIntData1 = 0;
-                    //loopListItem.UserIntData2 = 1;
+
                     loopListItem.UserIntData1 = treeItemIndex;
                     loopListItem.UserIntData2 = childIndex;
                     //characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
 
 
-                    Debug.Log("Character: "+ characterStatusDisplay.selectedCharacter.shortName);
+                    Debug.Log("Character: " + characterStatusDisplay.selectedCharacter.shortName);
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
                     //loopListItem.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
@@ -287,6 +299,16 @@ namespace SequenceBreaker.Home.EquipView
 
         public void OnItemDetailClicked(Item item)
         {
+
+        }
+
+        public void OnClosedClicked(int index)
+        {
+            _mTreeItemCountMgr.SetItemExpand(index, false);
+
+
+            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
+            mLoopListView.RefreshAllShownItem();
 
         }
 

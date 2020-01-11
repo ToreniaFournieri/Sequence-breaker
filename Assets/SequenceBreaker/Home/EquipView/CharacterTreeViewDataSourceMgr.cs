@@ -153,13 +153,7 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
 
-            //Debug.Log("in DoRefresh " );
             Debug.Log("in DoRefresh ");
-            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
-            //if (selectedCharacter != null)
-            //{
-            //List<Item> itemList = characterStatusDisplay.GetItemList();
-
             characterStatusDisplay.selectedCharacter.UpdateItemCapacity();
 
             if (characterStatusDisplay.selectedCharacter.affiliation == Environment.Affiliation.Enemy)
@@ -170,16 +164,11 @@ namespace SequenceBreaker.Home.EquipView
             {
                 UnitClass loadUnit = itemDataBase.LoadUnitInfo(characterStatusDisplay.selectedCharacter);
                 characterStatusDisplay.selectedCharacter.itemList = loadUnit.itemList;
-
             }
 
             List<Item> itemList = characterStatusDisplay.selectedCharacter.itemList;
 
             CharacterTreeViewItemData tData;
-
-            // emDataList[0] is alyways unit status infomation area.
-            //UnitClass _selectedCharacter = _mItemDataList[0].selectedCharacter;
-
 
             _mItemDataList.Clear();
 
@@ -189,28 +178,18 @@ namespace SequenceBreaker.Home.EquipView
                 currentAmount = characterStatusDisplay.selectedCharacter.itemCapacity;
             }
 
-            // Set Character Status cell. _mTreeViewItemCount = 0;
             tData = new CharacterTreeViewItemData
             {
                 MName = Word.Get("Status") + "  " + characterStatusDisplay.selectedCharacter.shortName,
-
-                //selectedCharacter = characterStatusDisplay.selectedCharacter,
                 RightText = currentAmount + "/" + characterStatusDisplay.selectedCharacter.itemCapacity,
                 MIcon = "0"
             };
             _mItemDataList.Add(tData);
-            //tData.selectedCharacter = selectedCharacter;
+
             Item headStatusWithIcon = ScriptableObject.CreateInstance<Item>();
             headStatusWithIcon.amount = -1;
             tData.AddChild(headStatusWithIcon);
-            //Item detail2 = ScriptableObject.CreateInstance<Item>();
-            //detail2.amount = -2;
-            //tData.AddChild(detail2);
 
-            //for (int i = 0; i < _mTreeViewItemCount; ++i)
-            //{
-
-            // Set Item cells. _mTreeViewItemCount =1;
             tData = null;
             tData = new CharacterTreeViewItemData { MName = Word.Get("Equiped Item List"), MIcon = "1" };
             _mItemDataList.Add(tData);
@@ -235,9 +214,6 @@ namespace SequenceBreaker.Home.EquipView
                     tData.SortItemList();
                 }
             }
-            //}
-
-            //}
 
         }
 
