@@ -237,6 +237,8 @@ namespace SequenceBreaker.Home.EquipView
                 }
             }
 
+
+
         }
 
 

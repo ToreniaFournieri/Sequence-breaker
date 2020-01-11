@@ -88,9 +88,13 @@ namespace SequenceBreaker.Home.EquipView
         public void Initialization()
         {
 
+            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount + 1, true);
 
             bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
+
+            Debug.Log(count + "<- count, itemTotalCount: " + mLoopListView.ItemTotalCount);
+
             TreeViewItemCountData countData;
             List<bool> isHeadAllowExpended = new List<bool>();
             for (int i = 0; i < count; ++i)
@@ -117,6 +121,8 @@ namespace SequenceBreaker.Home.EquipView
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
                 _mTreeItemCountMgr.AddTreeItem(childCount, true);
 
+                //_mTreeItemCountMgr.SetItemChildCount
+                Debug.Log(childCount + "<- childCount  mLoopListView.ItemTotalCount: " + mLoopListView.ItemTotalCount);
                 //countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
                 //if (countData != null)
                 //{
@@ -129,19 +135,36 @@ namespace SequenceBreaker.Home.EquipView
                 //        //countData.MIsExpand = false;
                 //    }
                 //}
+
             }
+
 
             //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
-            //_mTreeItemCountMgr.SetItemExpand(0, true);
-            //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
-            //mLoopListView.OnItemSizeChanged(0);
+            Debug.Log(_mTreeItemCountMgr.GetTotalItemAndChildCount() + "mTreeItemCountMgr.GetTotalItemAndChildCount()");
+            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
 
-            //mLoopListView.RefreshAllShownItem();
-            mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+            mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
-            _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+            mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
+            for (int i = 0; i < _mTreeItemCountMgr.GetTotalItemAndChildCount(); i++)
+            {
+                mLoopListView.RefreshItemByItemIndex(i);
+                mLoopListView.OnItemSizeChanged(i);
+                mLoopListView.RefreshItemByItemIndex(i);
+            }
+
+            mLoopListView.RefreshAllShownItem();
+
+                        //_mTreeItemCountMgr.SetItemExpand(0, true);
+                        //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+                        //mLoopListView.OnItemSizeChanged(0);
+
+                        //mLoopListView.RefreshAllShownItemWithFirstIndexAndPos(0, new Vector3(0, 0, 0));
+                        //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+
+                        _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
             mStickeyHeadItem.Init();
             //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
@@ -186,6 +209,9 @@ namespace SequenceBreaker.Home.EquipView
         //to let you create the item and update its content.
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
+
+            Debug.Log(index + "OnGetItemBy Index");
+
             //Debug.Log("OnGetItemByIndex: " + index);
 
             if (index < 0)

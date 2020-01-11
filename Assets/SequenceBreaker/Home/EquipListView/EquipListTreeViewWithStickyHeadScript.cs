@@ -127,6 +127,7 @@ namespace SequenceBreaker.Home.EquipListView
         then we should return TreeItem1 to SuperScrollView
        */
 
+
             TreeViewItemCountData countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
             if (countData == null)
             {

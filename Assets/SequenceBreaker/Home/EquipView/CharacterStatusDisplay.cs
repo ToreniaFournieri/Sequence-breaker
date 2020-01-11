@@ -75,7 +75,8 @@ namespace SequenceBreaker.Home.EquipView
             Debug.Log("SetCharacter after sticky init: " + targetCharacter);
 
             //4. need to update cells.
-            characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+
+            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
 
 
