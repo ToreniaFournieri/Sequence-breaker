@@ -21,7 +21,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
         }
         public ItemData GetChild(int index)
         {
-            if(index < 0 || index >= mChildItemDataList.Count)
+            if (index < 0 || index >= mChildItemDataList.Count)
             {
                 return null;
             }
@@ -71,10 +71,10 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             return mItemDataList[index];
         }
 
-        public ItemData GetItemChildDataByIndex(int itemIndex,int childIndex)
+        public ItemData GetItemChildDataByIndex(int itemIndex, int childIndex)
         {
             TreeViewItemData data = GetItemDataByIndex(itemIndex);
-            if(data == null)
+            if (data == null)
             {
                 return null;
             }
@@ -93,9 +93,9 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
         {
             get
             {
-                int count =  mItemDataList.Count;
+                int count = mItemDataList.Count;
                 int totalCount = 0;
-                for(int i = 0;i<count;++i)
+                for (int i = 0; i < count; ++i)
                 {
                     totalCount = totalCount + mItemDataList[i].ChildCount;
                 }
@@ -114,7 +114,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
                 tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
                 mItemDataList.Add(tData);
                 int childCount = mTreeViewChildItemCount;
-                for (int j = 1;j <= childCount;++j)
+                for (int j = 1; j <= childCount; ++j)
                 {
                     ItemData childItemData = new ItemData();
                     childItemData.mName = "Item" + i + ":Child" + j;
@@ -127,8 +127,34 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             }
         }
 
-      
+        //Torenia modificate
+        public void AddList()
+        {
+            Debug.Log("before mItemDataList.Count" + mItemDataList.Count);
+
+            TreeViewItemData tData = new TreeViewItemData();
+            tData.mName = "Item" + "ADD";
+            tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+            mItemDataList.Add(tData);
+            int childCount = mTreeViewChildItemCount;
+            for (int j = 1; j <= childCount; ++j)
+            {
+                ItemData childItemData = new ItemData();
+                childItemData.mName = "Item" + "ADD" + ":Child" + j;
+                childItemData.mDesc = "Item Desc For " + childItemData.mName;
+                childItemData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
+                childItemData.mStarCount = Random.Range(0, 6);
+                childItemData.mFileSize = Random.Range(20, 999);
+                tData.AddChild(childItemData);
+
+            }
+
+            mTreeViewItemCount++;
+            Debug.Log("item Added " + mItemDataList.Count);
+
+
+
+        }
 
     }
-
 }

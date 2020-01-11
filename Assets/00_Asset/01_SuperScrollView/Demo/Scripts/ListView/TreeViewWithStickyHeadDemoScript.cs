@@ -205,6 +205,16 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             }
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
+
+            //Torenia modificate
+
+            TreeViewDataSourceMgr.Get.AddList();
+            //mLoopListView.SetListItemCount(TreeViewDataSourceMgr.Get.TotalTreeViewItemAndChildCount, true);
+            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
+            Debug.Log(TreeViewDataSourceMgr.Get.TotalTreeViewItemAndChildCount + "item count");
+            //mLoopListView.CurSnapNearestItemIndex;
+            //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+            //Torenia modificate end
         }
 
         void OnCollapseAllBtnClicked()
