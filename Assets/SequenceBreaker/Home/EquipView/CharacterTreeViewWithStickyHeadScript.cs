@@ -143,48 +143,39 @@ namespace SequenceBreaker.Home.EquipView
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
             Debug.Log(_mTreeItemCountMgr.GetTotalItemAndChildCount() + "mTreeItemCountMgr.GetTotalItemAndChildCount()");
-            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
 
+            //int previousPos = mLoopListView.index;
             mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
-            mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
-            for (int i = 0; i < _mTreeItemCountMgr.GetTotalItemAndChildCount(); i++)
-            {
-                mLoopListView.RefreshItemByItemIndex(i);
-                mLoopListView.OnItemSizeChanged(i);
-                mLoopListView.RefreshItemByItemIndex(i);
-            }
+            //_mTreeItemCountMgr;
+            //mLoopListView.MovePanelToItemIndex(previousPos, 0);
+            //mLoopListView.InitListView()
+            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
+            //mLoopListView.ResetListView();
+
+            //for (int i = 0; i < _mTreeItemCountMgr.GetTotalItemAndChildCount(); i++)
+            //{
+            //    mLoopListView.OnItemSizeChanged(i);
+            //}
 
             mLoopListView.RefreshAllShownItem();
 
                         //_mTreeItemCountMgr.SetItemExpand(0, true);
                         //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
-                        //mLoopListView.OnItemSizeChanged(0);
 
                         //mLoopListView.RefreshAllShownItemWithFirstIndexAndPos(0, new Vector3(0, 0, 0));
                         //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
-                        _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+            _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
             mStickeyHeadItem.Init();
             //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
             ////_mTreeItemCountMgr.UpdateAllTreeItemDataIndex();
             //float f = 1000;
-            //mLoopListView.MovePanelToItemIndex(0, f);
-            //mLoopListView.MovePanelToItemIndex(1, f);
-            //mLoopListView.MovePanelToItemIndex(2, f);
-            //mLoopListView.MovePanelToItemIndex(3, f);
-            //mLoopListView.MovePanelToItemIndex(4, f);
-            //mLoopListView.MovePanelToItemIndex(5, f);
-            //mLoopListView.MovePanelToItemIndex(6, f);
-            //mLoopListView.MovePanelToItemIndex(7, f);
-            //mLoopListView.MovePanelToItemIndex(8, f);
-            //mLoopListView.MovePanelToItemIndex(9, f);
-            //mLoopListView.MovePanelToItemIndex(10, f);
-            //mLoopListView.MovePanelToItemIndex(11, f);
-            //mLoopListView.MovePanelToItemIndex(12, f);
             UpdateStickeyHeadPos();
+
+           
 
             //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
@@ -316,10 +307,6 @@ namespace SequenceBreaker.Home.EquipView
 
 
                 }
-
-
-
-                //}
                 else
                 {
                     InventoryListItemContent itemScript;
@@ -346,6 +333,9 @@ namespace SequenceBreaker.Home.EquipView
 
                 //mLoopListView.OnItemSizeChanged(0);
                 //mLoopListView.RefreshItemByItemIndex(index);
+
+                //loopListItem.ParentListView.OnItemSizeChanged(loopListItem.ItemIndex);
+
 
                 return loopListItem;
 

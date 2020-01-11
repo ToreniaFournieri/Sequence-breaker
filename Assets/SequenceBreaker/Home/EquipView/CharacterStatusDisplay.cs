@@ -69,8 +69,8 @@ namespace SequenceBreaker.Home.EquipView
             //2. Set Character infomation and each item into the  List<CharacterTreeViewItemData> _mItemDataList.
             characterTreeViewDataSourceMgr.Init();
 
-
             //3. Update sticky header infomation.
+            //characterTreeViewWithStickyHeadScript.mLoopListView.SetListItemCount(20,false);
             characterTreeViewWithStickyHeadScript.Initialization();
             Debug.Log("SetCharacter after sticky init: " + targetCharacter);
 

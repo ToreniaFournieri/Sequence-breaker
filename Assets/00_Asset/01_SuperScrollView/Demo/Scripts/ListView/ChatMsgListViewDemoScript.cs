@@ -36,7 +36,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
         {
             ChatMsgDataSourceMgr.Get.AppendOneMsg();
             mLoopListView.SetListItemCount(ChatMsgDataSourceMgr.Get.TotalItemCount, false);
-            mLoopListView.MovePanelToItemIndex(ChatMsgDataSourceMgr.Get.TotalItemCount-1, 0);
+            //mLoopListView.MovePanelToItemIndex(ChatMsgDataSourceMgr.Get.TotalItemCount-1, 0);
         }
 
 
