@@ -46,7 +46,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
         void InitData()
         {
             _mDataList = new List<CustomData>();
-            int count = 100;
+            int count = 3;
             for(int i = 0;i<count;++i)
             {
                 CustomData cd = new CustomData();

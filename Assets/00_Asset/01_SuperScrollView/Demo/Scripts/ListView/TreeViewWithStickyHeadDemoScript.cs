@@ -61,6 +61,9 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             UpdateStickeyHeadPos();
         }
 
+
+
+
         void OnBackBtnClicked()
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
@@ -198,7 +201,45 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
 
         void OnExpandAllBtnClicked()
         {
-            int count = _mTreeItemCountMgr.TreeViewItemCount;
+            //Torenia modificate
+
+            TreeViewDataSourceMgr.Get.AddList();
+            {
+                int sCount = TreeViewDataSourceMgr.Get.TreeViewItemCount;
+
+                //tells mTreeItemCountMgr there are how many TreeItems and every TreeItem has how many ChildItems.
+                for (int i = 0; i < sCount; ++i)
+                {
+                    int childCount = TreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
+                    //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
+                    _mTreeItemCountMgr.AddTreeItem(childCount, true);
+                }
+
+                //initialize the InitListView
+                //mTreeItemCountMgr.GetTotalItemAndChildCount() return the total items count in the TreeView, include all TreeItems and all TreeChildItems.
+                mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+
+                //_mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
+                //_mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+                //_mCollapseAllButton = GameObject.Find("ButtonPanel/buttonGroup3/CollapseAllButton").GetComponent<Button>();
+                //_mScrollToInputItem = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldItem").GetComponent<InputField>();
+                //_mScrollToInputChild = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldChild").GetComponent<InputField>();
+                //_mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+                //_mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+                //_mBackButton.onClick.AddListener(OnBackBtnClicked);
+                //_mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
+                //_mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
+
+                _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+                mStickeyHeadItem.Init();
+                mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
+                _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
+                mLoopListView.ScrollRect.onValueChanged.AddListener(OnScrollContentPosChanged);
+                UpdateStickeyHeadPos();
+            }
+            //Torenia modificate end
+
+            int count = _mTreeItemCountMgr.TreeViewItemCount + 1;
             for (int i = 0; i < count; ++i)
             {
                 _mTreeItemCountMgr.SetItemExpand(i, true);
@@ -206,15 +247,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
 
-            //Torenia modificate
 
-            TreeViewDataSourceMgr.Get.AddList();
-            //mLoopListView.SetListItemCount(TreeViewDataSourceMgr.Get.TotalTreeViewItemAndChildCount, true);
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
-            Debug.Log(TreeViewDataSourceMgr.Get.TotalTreeViewItemAndChildCount + "item count");
-            //mLoopListView.CurSnapNearestItemIndex;
-            //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
-            //Torenia modificate end
         }
 
         void OnCollapseAllBtnClicked()
@@ -234,7 +267,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             int count = mLoopListView.ShownItemCount;
             if (count == 0)
             {
-                if(isHeadItemVisible)
+                if (isHeadItemVisible)
                 {
                     mStickeyHeadItem.gameObject.SetActive(false);
                 }
@@ -294,7 +327,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 }
                 return;
             }
-            if(countData.MIsExpand == false || countData.MChildCount == 0)
+            if (countData.MIsExpand == false || countData.MChildCount == 0)
             {
                 if (isHeadItemVisible)
                 {
@@ -306,7 +339,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             {
                 mStickeyHeadItem.gameObject.SetActive(true);
             }
-            if(mStickeyHeadItem.TreeItemIndex != itemIndex)
+            if (mStickeyHeadItem.TreeItemIndex != itemIndex)
             {
                 TreeViewItemData treeViewItemData = TreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.mName;
@@ -315,11 +348,11 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;
             float lastChildPosAbs = -end;
             float lastPadding = targetItem.Padding;
-            if(lastChildPosAbs - lastPadding >= _mStickeyHeadItemHeight)
+            if (lastChildPosAbs - lastPadding >= _mStickeyHeadItemHeight)
             {
                 return;
             }
-            for (int i = targetItemShownIndex+1; i < count; ++i)
+            for (int i = targetItemShownIndex + 1; i < count; ++i)
             {
                 LoopListViewItem2 item = mLoopListView.GetShownItemByIndexWithoutCheck(i);
                 if (item.UserIntData1 != itemIndex)

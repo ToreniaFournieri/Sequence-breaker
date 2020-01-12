@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/05_Scenes/Main Scence.unity
+- path: Assets/00_Asset/01_SuperScrollView/Demo/Scenes/ListView/TreeViewWithStickyHeadDemo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -35,8 +35,8 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
         List<TreeViewItemData> mItemDataList = new List<TreeViewItemData>();
 
         static TreeViewDataSourceMgr instance = null;
-        int mTreeViewItemCount = 20;
-        int mTreeViewChildItemCount = 30;
+        int mTreeViewItemCount = 4;
+        int mTreeViewChildItemCount = 3;
 
         public static TreeViewDataSourceMgr Get
         {
@@ -60,6 +60,9 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
         public void Init()
         {
             DoRefreshDataSource();
+
+            //AddList();
+            //AddList();
         }
 
         public TreeViewItemData GetItemDataByIndex(int index)
@@ -136,6 +139,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             tData.mName = "Item" + "ADD";
             tData.mIcon = ResManager.Get.GetSpriteNameByIndex(Random.Range(0, 24));
             mItemDataList.Add(tData);
+
             int childCount = mTreeViewChildItemCount;
             for (int j = 1; j <= childCount; ++j)
             {
@@ -149,7 +153,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
 
             }
 
-            mTreeViewItemCount++;
+            //mTreeViewItemCount++;
             Debug.Log("item Added " + mItemDataList.Count);
 
 

@@ -1007,7 +1007,7 @@ namespace SequenceBreaker.Master.Units
             if (summedOffenseList[2].percents != null) { fa += " {" + summedOffenseList[2].percents + "}"; }
             if (fa != null) { fa += "\n"; }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
                 detailAbilityString += fa;
 
             Debug.Log("Im here: " + unitClass.shortName + "  " + detailAbilityString);
