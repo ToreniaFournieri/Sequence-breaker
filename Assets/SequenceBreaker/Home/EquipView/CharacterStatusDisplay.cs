@@ -59,7 +59,11 @@ namespace SequenceBreaker.Home.EquipView
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
-
+            bool isChanged = true;
+            if (selectedCharacter == targetCharacter)
+            {
+                isChanged = false;
+            }
             //1. set selected character.
             selectedCharacter = targetCharacter;
 
@@ -71,6 +75,14 @@ namespace SequenceBreaker.Home.EquipView
 
             //3. Update sticky header infomation.
             //characterTreeViewWithStickyHeadScript.mLoopListView.SetListItemCount(20,false);
+
+            if (isChanged)
+            {
+                characterTreeViewWithStickyHeadScript.scrollRectTransform.anchoredPosition
+                    = new Vector2(0, 0);
+            }
+
+            //characterTreeViewWithStickyHeadScript.mLoopListView.GetShownItemByIndexWithoutCheck
             characterTreeViewWithStickyHeadScript.Initialization();
             Debug.Log("SetCharacter after sticky init: " + targetCharacter);
 
