@@ -13,6 +13,10 @@ namespace SequenceBreaker.Home.EquipView
     {
 
         public LoopListView2 mLoopListView;
+
+        //to get rect position.
+        public RectTransform scrollRectTransform;
+
         Button _mScrollToButton;
         Button _mExpandAllButton;
         Button _mCollapseAllButton;
@@ -59,6 +63,9 @@ namespace SequenceBreaker.Home.EquipView
             //mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
             //Debug.Log("Start in CharaTreeStick");
+            ScrollRect scrollRect = mLoopListView.gameObject.GetComponent<ScrollRect>();
+            //float scrollValue = 1 + 
+
             _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
             mStickeyHeadItem.Init();
             mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
@@ -142,10 +149,13 @@ namespace SequenceBreaker.Home.EquipView
             //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
-            Debug.Log(_mTreeItemCountMgr.GetTotalItemAndChildCount() + "mTreeItemCountMgr.GetTotalItemAndChildCount()");
+            float _anchoredPositionY = scrollRectTransform.anchoredPosition.y;
+            float _anchoredPositionX = scrollRectTransform.anchoredPosition.x;
 
-            //int previousPos = mLoopListView.index;
             mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+
+            scrollRectTransform.anchoredPosition = new Vector2(_anchoredPositionX, _anchoredPositionY);
+
 
             //_mTreeItemCountMgr;
             //mLoopListView.MovePanelToItemIndex(previousPos, 0);
@@ -156,34 +166,19 @@ namespace SequenceBreaker.Home.EquipView
             //for (int i = 0; i < _mTreeItemCountMgr.GetTotalItemAndChildCount(); i++)
             //{
             //    mLoopListView.OnItemSizeChanged(i);
-            //}
+            //
+
 
             mLoopListView.RefreshAllShownItem();
 
-                        //_mTreeItemCountMgr.SetItemExpand(0, true);
-                        //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
-
-                        //mLoopListView.RefreshAllShownItemWithFirstIndexAndPos(0, new Vector3(0, 0, 0));
-                        //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
             _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
             mStickeyHeadItem.Init();
             //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
             _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
-            ////_mTreeItemCountMgr.UpdateAllTreeItemDataIndex();
-            //float f = 1000;
             UpdateStickeyHeadPos();
 
-           
-
-            //mLoopListView.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
-
-            //_mTreeItemCountMgr.ToggleItemExpand(0);
-
-            //OnExpandClicked(1);
-
-            //mLoopListView.RefreshItemByItemIndex(0);
             //mLoopListView.RefreshAllShownItem();
         }
 
@@ -201,7 +196,7 @@ namespace SequenceBreaker.Home.EquipView
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
 
-            Debug.Log(index + "OnGetItemBy Index");
+            //Debug.Log(index + "OnGetItemBy Index");
 
             //Debug.Log("OnGetItemByIndex: " + index);
 
@@ -300,7 +295,7 @@ namespace SequenceBreaker.Home.EquipView
                     //characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
 
 
-                    Debug.Log("Character: " + characterStatusDisplay.selectedCharacter.shortName);
+                    //Debug.Log("Character: " + characterStatusDisplay.selectedCharacter.shortName);
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
                     //loopListItem.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();

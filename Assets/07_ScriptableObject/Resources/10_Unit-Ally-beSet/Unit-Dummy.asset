@@ -14,12 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 0
   shortName: DUMMY
-  affiliation: 1
+  affiliation: 0
   unitType: 0
-  itemCapacity: 1
-  itemList: []
+  itemCapacity: 26
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 0c781943c75484121b18fa851c4c668a, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
-  level: 200
-  experience: 0
-  toNextLevel: 0
+  level: 2269
+  experience: 2147483647
+  toNextLevel: 2053729758

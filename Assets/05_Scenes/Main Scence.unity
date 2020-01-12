@@ -4405,6 +4405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mLoopListView: {fileID: 1893966184}
+  scrollRectTransform: {fileID: 289032374}
   mStickeyHeadItem: {fileID: 1471982453}
   characterStatusDisplay: {fileID: 1252398280}
 --- !u!1 &387918685

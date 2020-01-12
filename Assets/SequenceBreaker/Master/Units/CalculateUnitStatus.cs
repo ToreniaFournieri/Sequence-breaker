@@ -1010,7 +1010,7 @@ namespace SequenceBreaker.Master.Units
             for (int i = 0; i < 20; i++)
                 detailAbilityString += fa;
 
-            Debug.Log("Im here: " + unitClass.shortName + "  " + detailAbilityString);
+            //Debug.Log("Im here: " + unitClass.shortName + "  " + detailAbilityString);
 
 
         }
