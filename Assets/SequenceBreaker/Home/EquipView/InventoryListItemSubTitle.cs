@@ -34,6 +34,8 @@ namespace SequenceBreaker.Home.EquipView
 
         void OnButtonClicked()
         {
+            //Debug.Log("Clicked: " + gameObject.name + " " +_mTreeItemIndex);
+
             _mClickHandler?.Invoke(_mTreeItemIndex);
 
         }

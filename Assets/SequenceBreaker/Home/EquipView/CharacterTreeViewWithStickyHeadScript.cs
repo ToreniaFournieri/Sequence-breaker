@@ -172,10 +172,10 @@ namespace SequenceBreaker.Home.EquipView
             mLoopListView.RefreshAllShownItem();
 
 
-            _mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
-            mStickeyHeadItem.Init();
-            //mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
-            _mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
+            //_mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
+            //mStickeyHeadItem.Init();
+            ////mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
+            //_mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
 
             UpdateStickeyHeadPos();
 
@@ -368,7 +368,7 @@ namespace SequenceBreaker.Home.EquipView
             Debug.Log("on Exppand clicked :" + index);
             //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
 
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
+            //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
             mLoopListView.RefreshAllShownItem();
 
 
