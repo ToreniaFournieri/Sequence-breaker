@@ -13,45 +13,18 @@ namespace SequenceBreaker.Home.EquipView
 
         public ItemDataBase itemDataBase;
 
-
-
         public UnitClass selectedCharacter;
-        // Unit is get using
-        // characterTreeViewDataSourceMgr.selectedCharacter
-
-
-
-        //public UnitWave unitWave;
-        //[FormerlySerializedAs("UnitListScriptable")] public List<UnitClass> unitList;
 
         public CharacterTreeViewDataSourceMgr characterTreeViewDataSourceMgr;
         public CharacterTreeViewWithStickyHeadScript characterTreeViewWithStickyHeadScript;
 
 
         // character calculation
-        //public CalculateUnitStatusMaster calculateUnitStatusMaster;
         public CalculateUnitStatus calculateUnitStatus;
 
-        //Don't change these following values.
-        //public Text characterNameText;
-        //public Text itemAmountText;
-        //[FormerlySerializedAs("AbilityText")] public Text abilityText;
 
-        //for data save
-        //public int itemCapacity;
-        //public int selectedUnitNo;
-
-
-        //public void Init()
-        //{
-        //    RefreshCharacterStatusAndItemList();
-
-        //}
-
-        // refresh character status display
         public void RefreshCharacterStatusAndItemList()
         {
-            //SetCharacterStatus(characterTreeViewDataSourceMgr.selectedCharacter);
             SetCharacterStatus(selectedCharacter);
         }
 
@@ -74,7 +47,6 @@ namespace SequenceBreaker.Home.EquipView
             characterTreeViewDataSourceMgr.Init();
 
             //3. Update sticky header infomation.
-            //characterTreeViewWithStickyHeadScript.mLoopListView.SetListItemCount(20,false);
 
             if (isChanged)
             {
@@ -87,8 +59,6 @@ namespace SequenceBreaker.Home.EquipView
             Debug.Log("SetCharacter after sticky init: " + targetCharacter);
 
             //4. need to update cells.
-
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
 
 

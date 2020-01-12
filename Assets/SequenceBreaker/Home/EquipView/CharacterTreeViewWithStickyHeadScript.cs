@@ -62,7 +62,6 @@ namespace SequenceBreaker.Home.EquipView
             //mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
             //mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
-            //Debug.Log("Start in CharaTreeStick");
             ScrollRect scrollRect = mLoopListView.gameObject.GetComponent<ScrollRect>();
             //float scrollValue = 1 + 
 
@@ -77,25 +76,9 @@ namespace SequenceBreaker.Home.EquipView
         }
 
 
-        //private float timeleft;
-        //private void Update()
-        //{
-        //    timeleft -= Time.deltaTime;
-        //    if (timeleft <= 0.0)
-        //    {
-        //        timeleft = 1.0f;
-        //        {
-        //            mLoopListView.RefreshAllShownItem();
-
-        //        }
-        //    }
-        //}
-
 
         public void Initialization()
         {
-
-            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount + 1, true);
 
             bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
@@ -113,11 +96,8 @@ namespace SequenceBreaker.Home.EquipView
                 }
                 else
                 {
-                    //isHeadAllowExpended.Add(false);
-
                     Debug.LogError("Unexpected value");
                 }
-                //_expendedList.Add(_mTreeItemCountMgr.IsTreeItemExpand(i));
             }
 
             _mTreeItemCountMgr.Clear();
@@ -126,27 +106,10 @@ namespace SequenceBreaker.Home.EquipView
             {
                 int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
-                _mTreeItemCountMgr.AddTreeItem(childCount, true);
-
-                //_mTreeItemCountMgr.SetItemChildCount
-                Debug.Log(childCount + "<- childCount  mLoopListView.ItemTotalCount: " + mLoopListView.ItemTotalCount);
-                //countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
-                //if (countData != null)
-                //{
-                //    if (isHeadAllowExpended.Count > i)
-                //    {
-                //        //countData.MIsExpand = isHeadAllowExpended[i];
-                //    }
-                //    else
-                //    {
-                //        //countData.MIsExpand = false;
-                //    }
-                //}
+                _mTreeItemCountMgr.AddTreeItem(childCount, true);               
 
             }
 
-
-            //_mTreeItemCountMgr.SetItemExpand(0, !isStatusExpended);
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
             float _anchoredPositionY = scrollRectTransform.anchoredPosition.y;
@@ -156,30 +119,9 @@ namespace SequenceBreaker.Home.EquipView
 
             scrollRectTransform.anchoredPosition = new Vector2(_anchoredPositionX, _anchoredPositionY);
 
-
-            //_mTreeItemCountMgr;
-            //mLoopListView.MovePanelToItemIndex(previousPos, 0);
-            //mLoopListView.InitListView()
-            //mLoopListView.SetListItemCount(mLoopListView.ItemTotalCount, true);
-            //mLoopListView.ResetListView();
-
-            //for (int i = 0; i < _mTreeItemCountMgr.GetTotalItemAndChildCount(); i++)
-            //{
-            //    mLoopListView.OnItemSizeChanged(i);
-            //
-
-
             mLoopListView.RefreshAllShownItem();
-
-
-            //_mStickeyHeadItemHeight = mStickeyHeadItem.GetComponent<RectTransform>().rect.height;
-            //mStickeyHeadItem.Init();
-            ////mStickeyHeadItem.SetClickCallBack(OnExpandClicked);
-            //_mStickeyHeadItemRf = mStickeyHeadItem.gameObject.GetComponent<RectTransform>();
-
             UpdateStickeyHeadPos();
 
-            //mLoopListView.RefreshAllShownItem();
         }
 
 
@@ -196,9 +138,6 @@ namespace SequenceBreaker.Home.EquipView
         LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
         {
 
-            //Debug.Log(index + "OnGetItemBy Index");
-
-            //Debug.Log("OnGetItemByIndex: " + index);
 
             if (index < 0)
             {
@@ -232,7 +171,6 @@ namespace SequenceBreaker.Home.EquipView
             }
             int treeItemIndex = countData.MTreeItemIndex;
             CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
-            //UnitClass unitClass = CharacterTreeViewDataSourceMgr.Get.selectedCharacter;
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
 
@@ -240,7 +178,6 @@ namespace SequenceBreaker.Home.EquipView
                 //get a new TreeItem
                 LoopListViewItem2 item = listView.NewListViewItem("SubTitle");
                 InventoryListItemSubTitle itemScript = item.GetComponent<InventoryListItemSubTitle>();
-                //ListItem12 itemScript = item.GetComponent<ListItem12>();
                 if (item.IsInitHandlerCalled == false)
                 {
                     item.IsInitHandlerCalled = true;
@@ -263,7 +200,6 @@ namespace SequenceBreaker.Home.EquipView
                 int childIndex = countData.GetChildIndex(index);
 
                 Item item = treeViewItemData.GetChild(childIndex);
-                //ItemData itemData = treeViewItemData.GetChild(childIndex);
                 if (item == null)
                 {
                     return null;
@@ -276,7 +212,6 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     CharacterStatusCell characterStatus;
 
-                    //Debug.Log("Null is here");
                     // Only when the beginning.
                     loopListItem = listView.NewListViewItem("CharacterStatusCell");
                     characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
@@ -292,13 +227,7 @@ namespace SequenceBreaker.Home.EquipView
 
                     loopListItem.UserIntData1 = treeItemIndex;
                     loopListItem.UserIntData2 = childIndex;
-                    //characterStatus.SetCharacterStatusData(treeViewItemData.selectedCharacter);
-
-
-                    //Debug.Log("Character: " + characterStatusDisplay.selectedCharacter.shortName);
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
-
-                    //loopListItem.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
 
 
                 }
@@ -309,13 +238,11 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem = listView.NewListViewItem("Content");
                     itemScript = loopListItem.GetComponent<InventoryListItemContent>();
 
-                    //ListItem13 itemScript = item.GetComponent<ListItem13>();
                     if (loopListItem.IsInitHandlerCalled == false)
                     {
                         loopListItem.IsInitHandlerCalled = true;
                         itemScript.Init();
                         itemScript.SetClickCallBack(OnItemDetailClicked);
-                        //itemScript.SetClickContentCallBack(OnItemDetailClicked);
 
                     }
                     //update the TreeChildItem's content
@@ -323,13 +250,6 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem.UserIntData2 = childIndex;
                     itemScript.SetItemData(item, treeItemIndex, childIndex);
                 }
-
-                //UpdateStickeyHeadPos();
-
-                //mLoopListView.OnItemSizeChanged(0);
-                //mLoopListView.RefreshItemByItemIndex(index);
-
-                //loopListItem.ParentListView.OnItemSizeChanged(loopListItem.ItemIndex);
 
 
                 return loopListItem;
@@ -359,20 +279,9 @@ namespace SequenceBreaker.Home.EquipView
 
         public void OnExpandClicked(int index)
         {
-
-
             _mTreeItemCountMgr.ToggleItemExpand(index);
-
-            //characterStatusDisplay.RefreshCharacterStatusAndItemList();
-
-            Debug.Log("on Exppand clicked :" + index);
-            //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
-
-            //mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
             mLoopListView.RefreshAllShownItem();
 
-
-            //Initialization();
         }
         void OnJumpBtnClicked()
         {

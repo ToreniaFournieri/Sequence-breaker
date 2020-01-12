@@ -1,18 +1,17 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs">
     <Files>
-      <File FileName="Assets/00_Asset/01_SuperScrollView/Scripts/ListView/LoopListView2.cs" Line="2047" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="52" Column="54" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="164" Column="36" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="248" Column="66" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryListItemSubTitle.cs" Line="37" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewWithStickyHeadScript.cs" Line="374" Column="86" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="80" Column="44" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="49" Column="50" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="91" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="180" Column="13" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryListItemSubTitle.cs" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewWithStickyHeadScript.cs" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="612a1e1f-9e94-4716-9c23-02036cd3b498" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="98659ad0-9527-40b5-90a7-ccbf5fb09531" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

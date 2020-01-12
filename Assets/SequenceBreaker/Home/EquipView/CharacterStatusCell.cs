@@ -12,10 +12,6 @@ namespace SequenceBreaker.Home.EquipView
     public class CharacterStatusCell : MonoBehaviour
     {
 
-        //character related infomation.
-        //public CharacterStatusContent charcterStatusContent;
-        //public UnitClass unitClass;
-
         // UI objects.
         public Text bigOneLineText;
         public Image characterIcon;
@@ -62,27 +58,16 @@ namespace SequenceBreaker.Home.EquipView
             _mClickCharacterHander = clickHandler;
         }
 
-        //public void SetClickCallBack(Action<CharacterStatusContent> clickHandler)
-        //{
-        //    _mClickCharacterDetailHander = clickHandler;
-        //}
-
         // item detail button clicked
         void OnButtonClicked()
         {
 
-            //if (_mClickCharacterDetailHander != null)
-            //{
 
             // Popup message set
             Text detailText = itemDetailView.transform.Find("ItemMiddleView/ItemDetailText").GetComponent<Text>();
             detailText.text = characterPopupDescriptionString;
             itemDetailView.SetActive(true);
             itemDetailView.transform.SetAsLastSibling();
-
-            //characterTreeViewDataSourceMgr.characterStatusDisplay.characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
-
-            //}
 
         }
 
@@ -92,39 +77,16 @@ namespace SequenceBreaker.Home.EquipView
 
             Debug.Log(" On Content Clicked, CharcterStatus Cell");
 
-            //characterTreeViewDataSourceMgr.characterStatusDisplay.RefreshCharacterStatusAndItemList();
-
-            //if (item != null)
-            //{
-
-            //    if (isCharacterInventory)
-            //    {
-            //        characterTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-            //    }
-            //    else
-            //    {
-            //        inventoryTreeViewDataSourceMgr.TryTransferItemToOtherInventory(item);
-            //    }
-            //}
-
         }
 
 
         public void SetCharacterStatusData(UnitClass unitClass)
         {
-
-            //this.unitClass = unitClass;
             (string bigText, string upsideDescription, string detailString) characterStatusContent = CharacterStatusContent.Get(unitClass);
 
             bigOneLineText.text = characterStatusContent.bigText;
             upsideDescriptionText.text = characterStatusContent.upsideDescription;
             detailText.text = characterStatusContent.detailString;
-            
-
-            //detailText.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
-            //Vector2 test = detailText.gameObject.GetComponent<RectTransform>().sizeDelta;
-            //test.x = test.x + 0.001f;
-            //detailText.gameObject.GetComponent<RectTransform>().sizeDelta = test;
 
         }
     }
