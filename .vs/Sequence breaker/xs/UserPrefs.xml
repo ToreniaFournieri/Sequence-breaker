@@ -4,11 +4,9 @@
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="44" Column="1" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewWithStickyHeadScript.cs" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="235" Column="74" />
-      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" />
-      <File FileName="Assets/00_Asset/01_SuperScrollView/Scripts/ListView/LoopListView2.cs" />
-      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewWithStickyHeadScript.cs" Line="224" Column="64" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/InventoryTreeViewDataSourceMgr.cs" Line="249" Column="69" />
+      <File FileName="Assets/SequenceBreaker/Master/Items/ItemDataBase.cs" Line="326" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

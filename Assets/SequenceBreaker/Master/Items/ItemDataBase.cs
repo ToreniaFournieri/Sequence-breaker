@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using SequenceBreaker.Master.Units;
+using SequenceBreaker.Translate;
 using UnityEngine;
 
 namespace SequenceBreaker.Master.Items
@@ -323,41 +324,41 @@ namespace SequenceBreaker.Master.Items
             {
 
                 case 0:
-                    return "no";
+                    return Word.Get("ShordWords-No");
                 case 1:
-                    return "WKi";
+                    return Word.Get("ShordWords-WKin");
                 case 2:
-                    return "WCh";
+                    return Word.Get("ShordWords-WChe");
                 case 3:
-                    return "WTh";
+                    return Word.Get("ShordWords-WThe");
                 case 10:
-                    return "Hea";
+                    return Word.Get("ShordWords-Head");
                 case 11:
-                    return "Bod";
+                    return Word.Get("ShordWords-Body");
                 case 12:
-                    return "Str";
+                    return Word.Get("ShordWords-Strc");
                 case 13:
-                    return "Bre";
+                    return Word.Get("ShordWords-Bres");
                 case 14:
-                    return "Arm";
+                    return Word.Get("ShordWords-Arm");
                 case 15:
-                    return "Leg";
+                    return Word.Get("ShordWords-Leg");
                 case 16:
-                    return "Shi";
+                    return Word.Get("ShordWords-Shie");
                 case 20:
-                    return "Mag";
+                    return Word.Get("ShordWords-Mgzn");
                 case 21:
-                    return "CrD";
+                    return Word.Get("ShordWords-DCri");
                 case 30:
-                    return "DKi";
+                    return Word.Get("ShordWords-DKin");
                 case 31:
-                    return "DCh";
+                    return Word.Get("ShordWords-DChe");
                 case 32:
-                    return "DTh";
+                    return Word.Get("ShordWords-DThe");
                 case 40:
-                    return "Rep";
+                    return Word.Get("ShordWords-Repa");
                 case 60:
-                    return "Abl";
+                    return Word.Get("ShordWords-Abli");
                 default:
                     return itemCategory + "?";
             }

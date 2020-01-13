@@ -221,7 +221,7 @@ namespace SequenceBreaker.Home.EquipView
         public void OnJumpIndexHovered(int itemIndex)
         {
 
-            Debug.Log("on jump index hovered :" + itemIndex);
+            //Debug.Log("on jump index hovered :" + itemIndex);
             //int itemIndex = 0;
             int childIndex = 0;
             int finalIndex = 0;

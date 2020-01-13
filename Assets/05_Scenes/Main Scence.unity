@@ -958,7 +958,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1478292573}
   m_HandleRect: {fileID: 1478292572}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2278,7 +2278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -62.350037, y: -32.200012}
+  m_AnchoredPosition: {x: -50, y: -16}
   m_SizeDelta: {x: 70.7, y: -324.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237133999
@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1064193477}
   m_HandleRect: {fileID: 1064193476}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15169,7 +15169,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397488078}
   m_HandleRect: {fileID: 1397488077}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20083,7 +20083,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606867571}
   m_HandleRect: {fileID: 1606867570}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21854,8 +21854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 515.61816, y: 0}
-  m_SizeDelta: {x: 1021.2363, y: 0}
+  m_AnchoredPosition: {x: 608.83044, y: 0}
+  m_SizeDelta: {x: 1207.6609, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:
@@ -23056,6 +23056,150 @@ MonoBehaviour:
       - "{[X]}\u30BF\u30FC\u30F3\u6709\u52B9"
       Flags: 0000
       Languages_Touch: []
+    - Term: ShordWords-No
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u7121"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Body
+      TermType: 0
+      Description: 
+      Languages:
+      - Body
+      - "\u80F4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Head
+      TermType: 0
+      Description: 
+      Languages:
+      - Head
+      - "\u982D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-WChe
+      TermType: 0
+      Description: 
+      Languages:
+      - WChe
+      - "\u653B\u7206"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-WKin
+      TermType: 0
+      Description: 
+      Languages:
+      - WKin
+      - "\u653B\u885D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-WThe
+      TermType: 0
+      Description: 
+      Languages:
+      - WThe
+      - "\u653B\u71B1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Strc
+      TermType: 0
+      Description: 
+      Languages:
+      - Strc
+      - "\u69CB\u9020"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Bres
+      TermType: 0
+      Description: 
+      Languages:
+      - Bres
+      - "\u80F8\u7532"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Arm
+      TermType: 0
+      Description: 
+      Languages:
+      - Arm
+      - "\u8155"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Leg
+      TermType: 0
+      Description: 
+      Languages:
+      - Leg
+      - "\u811A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Shie
+      TermType: 0
+      Description: 
+      Languages:
+      - Shie
+      - "\u76FE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Mgzn
+      TermType: 0
+      Description: 
+      Languages:
+      - Mgzn
+      - "\u5F3E\u5009"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-DCri
+      TermType: 0
+      Description: 
+      Languages:
+      - DCri
+      - "\u9632\u5FC5"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-DKin
+      TermType: 0
+      Description: 
+      Languages:
+      - DKin
+      - "\u9632\u885D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-DChe
+      TermType: 0
+      Description: 
+      Languages:
+      - Dche
+      - "\u9632\u7206"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-DThe
+      TermType: 0
+      Description: 
+      Languages:
+      - DThe
+      - "\u9632\u71B1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Repa
+      TermType: 0
+      Description: 
+      Languages:
+      - Repa
+      - "\u4FEE\u5FA9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ShordWords-Abli
+      TermType: 0
+      Description: 
+      Languages:
+      - Abil
+      - "\u80FD\u529B"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -23358,7 +23502,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1884533996}
   m_HandleRect: {fileID: 1884533995}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
