@@ -3581,7 +3581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 500, y: 0}
   m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311650527
@@ -21854,8 +21854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 608.83044, y: 0}
+  m_SizeDelta: {x: 1207.6609, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:
@@ -22227,6 +22227,14 @@ MonoBehaviour:
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
     mTerms:
+    - Term: Accuracy
+      TermType: 0
+      Description: 
+      Languages:
+      - Accuracy
+      - "\u547D\u4E2D\u7CBE\u5EA6"
+      Flags: 0000
+      Languages_Touch: []
     - Term: All attacks missed
       TermType: 0
       Description: 
@@ -22257,6 +22265,14 @@ MonoBehaviour:
       Languages:
       - Win
       - "\u52DD\u5229"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - Attack
+      - "\u653B\u6483\u529B"
       Flags: 0000
       Languages_Touch: []
     - Term: Barrier
@@ -22315,6 +22331,22 @@ MonoBehaviour:
       - "\u7363"
       Flags: 0000
       Languages_Touch: []
+    - Term: Buff
+      TermType: 0
+      Description: 
+      Languages:
+      - Buff
+      - "\u30D0\u30D5"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Captured X from A.
+      TermType: 0
+      Description: 
+      Languages:
+      - Captured {[X]} from {[A]}.
+      - "{[A]}\u304B\u3089{[X]}\u3092\u9E75\u7372\u3057\u305F"
+      Flags: 0000
+      Languages_Touch: []
     - Term: Change language
       TermType: 0
       Description: 
@@ -22328,7 +22360,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Chemical
-      - "\u7206\u767A"
+      - "\u7206\u6483"
       Flags: 0000
       Languages_Touch: []
     - Term: Critical
@@ -22389,6 +22421,22 @@ MonoBehaviour:
       - "\u7FD4"
       Flags: 0000
       Languages_Touch: []
+    - Term: 'Effective Attack: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Atk: {[X]}'
+      - "\u653B: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: 'Effective Defense: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Def: {[X]}'
+      - "\u9632: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
     - Term: Element-None
       TermType: 0
       Description: 
@@ -22421,6 +22469,22 @@ MonoBehaviour:
       - "\u88C5\u5099"
       Flags: 0000
       Languages_Touch: []
+    - Term: Equiped Item List
+      TermType: 0
+      Description: 
+      Languages:
+      - Equiped Item List
+      - "\u88C5\u5099\u4E00\u89A7"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Experience
+      TermType: 0
+      Description: 
+      Languages:
+      - Experience
+      - "\u7D4C\u9A13\u5024"
+      Flags: 0000
+      Languages_Touch: []
     - Term: FONT
       TermType: 1
       Description: 
@@ -22449,7 +22513,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 1.0
+      - 1
       - 0.75
       Flags: 0000
       Languages_Touch: []
@@ -22477,6 +22541,14 @@ MonoBehaviour:
       - "\u8A2D\u5B9A"
       Flags: 0000
       Languages_Touch: []
+    - Term: HP
+      TermType: 0
+      Description: 
+      Languages:
+      - "HP\t"
+      - HP
+      Flags: 0000
+      Languages_Touch: []
     - Term: Hit-Active
       TermType: 0
       Description: 
@@ -22491,569 +22563,6 @@ MonoBehaviour:
       Languages:
       - Home
       - "\u30DB\u30FC\u30E0"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Kinetic
-      TermType: 0
-      Description: 
-      Languages:
-      - Kinetic
-      - "\u885D\u6483"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Left
-      TermType: 0
-      Description: 
-      Languages:
-      - Left
-      - "\u6B8B\u5F3E"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Level up
-      TermType: 0
-      Description: 
-      Languages:
-      - Level Up
-      - "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Log List
-      TermType: 0
-      Description: 
-      Languages:
-      - Log List
-      - "\u5C65\u6B74\u4E00\u89A7"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Mission
-      TermType: 0
-      Description: 
-      Languages:
-      - Mission
-      - "\u4EFB\u52D9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Missions
-      TermType: 0
-      Description: 
-      Languages:
-      - Missions
-      - "\u4EFB\u52D9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Normal Attack
-      TermType: 0
-      Description: 
-      Languages:
-      - Normal Attack
-      - "\u901A\u5E38\u653B\u6483"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ORDINAL
-      TermType: 0
-      Description: 
-      Languages:
-      - true
-      - false
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ORDINAL-1st
-      TermType: 0
-      Description: 
-      Languages:
-      - st
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ORDINAL-2nd
-      TermType: 0
-      Description: 
-      Languages:
-      - nd
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ORDINAL-3rd
-      TermType: 0
-      Description: 
-      Languages:
-      - rd
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ORDINAL-Xth
-      TermType: 0
-      Description: 
-      Languages:
-      - th
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Period
-      TermType: 0
-      Description: 
-      Languages:
-      - .
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Plural-s
-      TermType: 0
-      Description: 
-      Languages:
-      - s
-      - ' '
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Rescue
-      TermType: 0
-      Description: 
-      Languages:
-      - Rescue
-      - "\u6551\u51FA"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Robot
-      TermType: 0
-      Description: 
-      Languages:
-      - Robot
-      - "\u6A5F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Shield
-      TermType: 0
-      Description: 
-      Languages:
-      - Shield
-      - "\u30B7\u30FC\u30EB\u30C9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Speed
-      TermType: 0
-      Description: 
-      Languages:
-      - Speed
-      - "\u901F\u529B"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Thermal
-      TermType: 0
-      Description: 
-      Languages:
-      - Thermal
-      - "\u71B1\u529B"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Titan
-      TermType: 0
-      Description: 
-      Languages:
-      - Titan
-      - "\u5DE8"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-C
-      TermType: 0
-      Description: 
-      Languages:
-      - C
-      - "\u63EE"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-D
-      TermType: 0
-      Description: 
-      Languages:
-      - D
-      - "\u99C6"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-F
-      TermType: 0
-      Description: 
-      Languages:
-      - F
-      - "\u95D8"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-G
-      TermType: 0
-      Description: 
-      Languages:
-      - G
-      - "\u5C04"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-J
-      TermType: 0
-      Description: 
-      Languages:
-      - J
-      - "\u59A8"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-L
-      TermType: 0
-      Description: 
-      Languages:
-      - L
-      - "\u69CD"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-M
-      TermType: 0
-      Description: 
-      Languages:
-      - M
-      - "\u6551"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-R
-      TermType: 0
-      Description: 
-      Languages:
-      - R
-      - "\u5075"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-S
-      TermType: 0
-      Description: 
-      Languages:
-      - S
-      - "\u72D9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Tuning-T
-      TermType: 0
-      Description: 
-      Languages:
-      - T
-      - "\u58C1"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Turn
-      TermType: 0
-      Description: 
-      Languages:
-      - Turn
-      - "\u30BF\u30FC\u30F3"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: X hits.
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
-      - "{[X]}\u56DE\u88AB\u5F3E"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: X hits.-Active
-      TermType: 0
-      Description: 
-      Languages:
-      - ' {[X]} hits.[i2p_Zero] no hits.[i2p_One]{[X]} hit.'
-      - " {[X]}\u56DE\u547D\u4E2D"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: X shots
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} shots'
-      - "{[X]}\u56DE\u653B\u6483"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Xth wave
-      TermType: 0
-      Description: 
-      Languages:
-      - '{[X]} wave'
-      - "{[X]}\u6226\u76EE"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: absorbs
-      TermType: 0
-      Description: 
-      Languages:
-      - absorbs
-      - "\u5438\u53CE"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: absorbs X shields
-      TermType: 0
-      Description: 
-      Languages:
-      - ' absorbs {[X]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs {[X]}
-        shield.'
-      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u51FA\u6765\u306A\u304B\u3063\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: crushed!
-      TermType: 0
-      Description: 
-      Languages:
-      - <b>crushed!</b>
-      - "\u6483\u7834!"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: gets A (valid for X turns).
-      TermType: 0
-      Description: 
-      Languages:
-      - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
-        {[A]} (valid for {[X]} turn).
-      - "\u306F{[A]}({[X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: heals X shields.
-      TermType: 0
-      Description: 
-      Languages:
-      - ' heals {[X]} shields.[i2p_Zero] heals no shields.[i2p_One] heals {[X]} shield.'
-      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: heals all shields.
-      TermType: 0
-      Description: 
-      Languages:
-      - heals all shields.
-      - "\u306E\u30B7\u30FC\u30EB\u30C9\u306F\u5168\u56DE\u5FA9\u3057\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: level
-      TermType: 0
-      Description: 
-      Languages:
-      - level
-      - "\u30EC\u30D9\u30EB"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: shield
-      TermType: 0
-      Description: 
-      Languages:
-      - shield
-      - "\u30B7\u30FC\u30EB\u30C9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: takes X damages,
-      TermType: 0
-      Description: 
-      Languages:
-      - ' takes {[X]} damages,[i2p_Zero] takes no damages,[i2p_One] takes {[X]} damage,'
-      - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Trigger Possibility
-      TermType: 0
-      Description: 
-      Languages:
-      - Trigger Possibility
-      - "\u767A\u52D5\u7387"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: 'Next: A (X)'
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Next: {[A]}[i2p_Zero]No usuage count left'
-      - "\u6B21: {[A]}[i2p_Zero]\u6B8B\u6570\u306A\u3057"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: hate
-      TermType: 0
-      Description: 
-      Languages:
-      - hate
-      - "\u30D8\u30A4\u30C8"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: 'Effective Attack: X'
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Atk: {[X]}'
-      - "\u653B: {[X]}"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: 'Effective Defense: X'
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Def: {[X]}'
-      - "\u9632: {[X]}"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Time over.
-      TermType: 0
-      Description: 
-      Languages:
-      - Time over.
-      - "\u6642\u9593\u5207\u308C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Skill
-      TermType: 0
-      Description: 
-      Languages:
-      - Skill
-      - "\u30B9\u30AD\u30EB"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Buff
-      TermType: 0
-      Description: 
-      Languages:
-      - Buff
-      - "\u30D0\u30D5"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Captured X from A.
-      TermType: 0
-      Description: 
-      Languages:
-      - Captured {[X]} from {[A]}.
-      - "{[A]}\u304B\u3089{[X]}\u3092\u9E75\u7372\u3057\u305F"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Status
-      TermType: 0
-      Description: 
-      Languages:
-      - Status
-      - "\u30B9\u30C6\u30FC\u30BF\u30B9"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Equiped Item List
-      TermType: 0
-      Description: 
-      Languages:
-      - Equiped Item List
-      - "\u88C5\u5099\u4E00\u89A7"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Unit Type
-      TermType: 0
-      Description: 
-      Languages:
-      - Unit Type
-      - "\u5175\u7A2E"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Pilot
-      TermType: 0
-      Description: 
-      Languages:
-      - Pilot
-      - "\u642D\u4E57\u8005"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: 'to the next level: X'
-      TermType: 0
-      Description: 
-      Languages:
-      - 'to the next level: {[X]}'
-      - "\u6B21\u306E\u30EC\u30D9\u30EB\u307E\u3067\u3042\u3068: {[X]}"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Experience
-      TermType: 0
-      Description: 
-      Languages:
-      - Experience
-      - "\u7D4C\u9A13\u5024"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: HP
-      TermType: 0
-      Description: 
-      Languages:
-      - "HP\t"
-      - HP
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Attack
-      TermType: 0
-      Description: 
-      Languages:
-      - Attack
-      - "\u653B\u6483\u529B"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Accuracy
-      TermType: 0
-      Description: 
-      Languages:
-      - Accuracy
-      - "\u547D\u4E2D\u7CBE\u5EA6"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Mobility
-      TermType: 0
-      Description: 
-      Languages:
-      - Mobility
-      - "\u6A5F\u52D5\u6027"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Number of Attacks
-      TermType: 0
-      Description: 
-      Languages:
-      - Number of Attacks
-      - "\u653B\u6483\u56DE\u6570"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Offense
-      TermType: 0
-      Description: 
-      Languages:
-      - Offense
-      - "\u653B\u6483"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Optimum Range Bonus
-      TermType: 0
-      Description: 
-      Languages:
-      - Optimum Range Bonus
-      - "\u6709\u52B9\u5C04\u7A0B\u88DC\u6B63"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Skills
-      TermType: 0
-      Description: 
-      Languages:
-      - Skills
-      - "\u30B9\u30AD\u30EB"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: none
-      TermType: 0
-      Description: 
-      Languages:
-      - none
-      - "\u306A\u3057"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: usage count
-      TermType: 0
-      Description: 
-      Languages:
-      - usage count
-      - "\u4F7F\u7528\u56DE\u6570"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: Valid for X turns
-      TermType: 0
-      Description: 
-      Languages:
-      - Valid for {[X]} turns[i2p_Zero]Valid for no turns[i2p_One]Valid for {[X]}
-        turn
-      - "{[X]}\u30BF\u30FC\u30F3\u6709\u52B9"
       Flags: 0000
       Languages_Touch: []
     - Term: ItemCategoryShort-Abli
@@ -23200,6 +22709,641 @@ MonoBehaviour:
       - "\u653B\u71B1"
       Flags: 0000
       Languages_Touch: []
+    - Term: Kinetic
+      TermType: 0
+      Description: 
+      Languages:
+      - Kinetic
+      - "\u885D\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Left
+      TermType: 0
+      Description: 
+      Languages:
+      - Left
+      - "\u6B8B\u5F3E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Level up
+      TermType: 0
+      Description: 
+      Languages:
+      - Level Up
+      - "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Log List
+      TermType: 0
+      Description: 
+      Languages:
+      - Log List
+      - "\u5C65\u6B74\u4E00\u89A7"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mission
+      TermType: 0
+      Description: 
+      Languages:
+      - Mission
+      - "\u4EFB\u52D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Missions
+      TermType: 0
+      Description: 
+      Languages:
+      - Missions
+      - "\u4EFB\u52D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Mobility
+      TermType: 0
+      Description: 
+      Languages:
+      - Mobility
+      - "\u6A5F\u52D5\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: 'Next: A (X)'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Next: {[A]}[i2p_Zero]No usuage count left'
+      - "\u6B21: {[A]}[i2p_Zero]\u6B8B\u6570\u306A\u3057"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Normal Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - Normal Attack
+      - "\u901A\u5E38\u653B\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Number of Attacks
+      TermType: 0
+      Description: 
+      Languages:
+      - Number of Attacks
+      - "\u653B\u6483\u56DE\u6570"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL
+      TermType: 0
+      Description: 
+      Languages:
+      - TRUE
+      - FALSE
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-1st
+      TermType: 0
+      Description: 
+      Languages:
+      - st
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-2nd
+      TermType: 0
+      Description: 
+      Languages:
+      - nd
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-3rd
+      TermType: 0
+      Description: 
+      Languages:
+      - rd
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ORDINAL-Xth
+      TermType: 0
+      Description: 
+      Languages:
+      - th
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Offense
+      TermType: 0
+      Description: 
+      Languages:
+      - Offense
+      - "\u653B\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Optimum Range Bonus
+      TermType: 0
+      Description: 
+      Languages:
+      - Optimum Range Bonus
+      - "\u6709\u52B9\u5C04\u7A0B\u88DC\u6B63"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Period
+      TermType: 0
+      Description: 
+      Languages:
+      - .
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Pilot
+      TermType: 0
+      Description: 
+      Languages:
+      - Pilot
+      - "\u642D\u4E57\u8005"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Plural-s
+      TermType: 0
+      Description: 
+      Languages:
+      - s
+      - ' '
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Rescue
+      TermType: 0
+      Description: 
+      Languages:
+      - Rescue
+      - "\u6551\u51FA"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Robot
+      TermType: 0
+      Description: 
+      Languages:
+      - Robot
+      - "\u6A5F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Shield
+      TermType: 0
+      Description: 
+      Languages:
+      - Shield
+      - "\u30B7\u30FC\u30EB\u30C9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skill
+      TermType: 0
+      Description: 
+      Languages:
+      - Skill
+      - "\u30B9\u30AD\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skills
+      TermType: 0
+      Description: 
+      Languages:
+      - Skills
+      - "\u30B9\u30AD\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Speed
+      TermType: 0
+      Description: 
+      Languages:
+      - Speed
+      - "\u901F\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Status
+      TermType: 0
+      Description: 
+      Languages:
+      - Status
+      - "\u30B9\u30C6\u30FC\u30BF\u30B9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Thermal
+      TermType: 0
+      Description: 
+      Languages:
+      - Thermal
+      - "\u71B1\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Time over.
+      TermType: 0
+      Description: 
+      Languages:
+      - Time over.
+      - "\u6642\u9593\u5207\u308C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Titan
+      TermType: 0
+      Description: 
+      Languages:
+      - Titan
+      - "\u5DE8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Trigger Possibility
+      TermType: 0
+      Description: 
+      Languages:
+      - Trigger Possibility
+      - "\u767A\u52D5\u7387"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-C
+      TermType: 0
+      Description: 
+      Languages:
+      - C
+      - "\u63EE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-D
+      TermType: 0
+      Description: 
+      Languages:
+      - D
+      - "\u99C6"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-F
+      TermType: 0
+      Description: 
+      Languages:
+      - F
+      - "\u95D8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-G
+      TermType: 0
+      Description: 
+      Languages:
+      - G
+      - "\u5C04"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-J
+      TermType: 0
+      Description: 
+      Languages:
+      - J
+      - "\u59A8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-L
+      TermType: 0
+      Description: 
+      Languages:
+      - L
+      - "\u69CD"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-M
+      TermType: 0
+      Description: 
+      Languages:
+      - M
+      - "\u6551"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-R
+      TermType: 0
+      Description: 
+      Languages:
+      - R
+      - "\u5075"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-S
+      TermType: 0
+      Description: 
+      Languages:
+      - S
+      - "\u72D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Tuning-T
+      TermType: 0
+      Description: 
+      Languages:
+      - T
+      - "\u58C1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Turn
+      TermType: 0
+      Description: 
+      Languages:
+      - Turn
+      - "\u30BF\u30FC\u30F3"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Unit Type
+      TermType: 0
+      Description: 
+      Languages:
+      - Unit Type
+      - "\u5175\u7A2E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Valid for X turns
+      TermType: 0
+      Description: 
+      Languages:
+      - Valid for {[X]} turns[i2p_Zero]Valid for no turns[i2p_One]Valid for {[X]}
+        turn
+      - "{[X]}\u30BF\u30FC\u30F3\u6709\u52B9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X hits.
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} hits.[i2p_Zero]no hits.[i2p_One]{[X]} hit.'
+      - "{[X]}\u56DE\u88AB\u5F3E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X hits.-Active
+      TermType: 0
+      Description: 
+      Languages:
+      - ' {[X]} hits.[i2p_Zero] no hits.[i2p_One]{[X]} hit.'
+      - " {[X]}\u56DE\u547D\u4E2D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: X shots
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} shots'
+      - "{[X]}\u56DE\u653B\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Xth wave
+      TermType: 0
+      Description: 
+      Languages:
+      - '{[X]} wave'
+      - "{[X]}\u6226\u76EE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: absorbs
+      TermType: 0
+      Description: 
+      Languages:
+      - absorbs
+      - "\u5438\u53CE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: absorbs X shields
+      TermType: 0
+      Description: 
+      Languages:
+      - ' absorbs {[X]} shields.[i2p_Zero] absorbs no shields.[i2p_One] absorbs {[X]}
+        shield.'
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u5438\u53CE\u51FA\u6765\u306A\u304B\u3063\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: crushed!
+      TermType: 0
+      Description: 
+      Languages:
+      - <b>crushed!</b>
+      - "\u6483\u7834!"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: gets A (valid for X turns).
+      TermType: 0
+      Description: 
+      Languages:
+      - gets {[A]} (valid for {[X]} turns).[i2p_Zero]gets {[A]} (valid for no turns).[i2p_One]gets
+        {[A]} (valid for {[X]} turn).
+      - "\u306F{[A]}({[X]}\u30BF\u30FC\u30F3\u6709\u52B9)\u3092\u5F97\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hate
+      TermType: 0
+      Description: 
+      Languages:
+      - hate
+      - "\u30D8\u30A4\u30C8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: heals X shields.
+      TermType: 0
+      Description: 
+      Languages:
+      - ' heals {[X]} shields.[i2p_Zero] heals no shields.[i2p_One] heals {[X]} shield.'
+      - "\u306F {[X]}\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u305F[i2p_Zero]\u306F\u30B7\u30FC\u30EB\u30C9\u56DE\u5FA9\u3057\u306A\u304B\u3063\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: heals all shields.
+      TermType: 0
+      Description: 
+      Languages:
+      - heals all shields.
+      - "\u306E\u30B7\u30FC\u30EB\u30C9\u306F\u5168\u56DE\u5FA9\u3057\u305F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: level
+      TermType: 0
+      Description: 
+      Languages:
+      - level
+      - "\u30EC\u30D9\u30EB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: none
+      TermType: 0
+      Description: 
+      Languages:
+      - none
+      - "\u306A\u3057"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: shield
+      TermType: 0
+      Description: 
+      Languages:
+      - shield
+      - "\u30B7\u30FC\u30EB\u30C9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: takes X damages,
+      TermType: 0
+      Description: 
+      Languages:
+      - ' takes {[X]} damages,[i2p_Zero] takes no damages,[i2p_One] takes {[X]} damage,'
+      - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: 'to the next level: X'
+      TermType: 0
+      Description: 
+      Languages:
+      - 'to the next level: {[X]}'
+      - "\u6B21\u306E\u30EC\u30D9\u30EB\u307E\u3067\u3042\u3068: {[X]}"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: usage count
+      TermType: 0
+      Description: 
+      Languages:
+      - usage count
+      - "\u4F7F\u7528\u56DE\u6570"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-nothing
+      TermType: 0
+      Description: 
+      Languages:
+      - nothing
+      - "\u306A\u3057"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Weapon Kinetic
+      TermType: 0
+      Description: 
+      Languages:
+      - Weapon Kinetic
+      - "\u6B66\u5668 \u885D\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Weapon Chemical
+      TermType: 0
+      Description: 
+      Languages:
+      - Weapon Chemical
+      - "\u6B66\u5668 \u7206\u6483"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Weapon Thermal
+      TermType: 0
+      Description: 
+      Languages:
+      - Weapon Thermal
+      - "\u6B66\u5668 \u71B1\u529B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Head (+Accuracy)
+      TermType: 0
+      Description: 
+      Languages:
+      - Head (+Accuracy)
+      - "\u982D\u90E8 (+\u547D\u4E2D)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Body (+Base HP)
+      TermType: 0
+      Description: 
+      Languages:
+      - Body (+Base HP)
+      - "\u80F4\u4F53 (+\u57FA\u790EHP)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Structure (+Base Defense)
+      TermType: 0
+      Description: 
+      Languages:
+      - Structure (+Base Defense)
+      - "\u69CB\u9020 (+\u57FA\u790E\u9632\u5FA1)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Arm (+Base Attack)
+      TermType: 0
+      Description: 
+      Languages:
+      - Arm (+Base Attack)
+      - "\u8155 (+\u57FA\u790E\u653B\u6483\u529B)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Leg (+Base Mobility)
+      TermType: 0
+      Description: 
+      Languages:
+      - Leg (+Base Mobility)
+      - "\u811A\u90E8  (+\u57FA\u790E\u6A5F\u52D5\u529B)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Shield (+Base Shield)
+      TermType: 0
+      Description: 
+      Languages:
+      - Shield (+Base Shield)
+      - "\u30B7\u30FC\u30EB\u30C9 (+\u57FA\u790E\u30B7\u30FC\u30EB\u30C9)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Magazine (+Number of attacks)
+      TermType: 0
+      Description: 
+      Languages:
+      - Magazine (+Number of attacks)
+      - "\u5F3E\u5009 (+\u653B\u6483\u56DE\u6570)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-(+Critical damage)
+      TermType: 0
+      Description: 
+      Languages:
+      - (+Critical damage)
+      - "(+\u5FC5\u6BBA\u5A01\u529B)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Armor (+Defense Kinetic)
+      TermType: 0
+      Description: 
+      Languages:
+      - Armor (+Defense Kinetic)
+      - "\u88C5\u7532 (+\u885D\u6483\u9632\u5FA1)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Armor (+Defense Chemical)
+      TermType: 0
+      Description: 
+      Languages:
+      - Armor (+Defense Chemical)
+      - "\u88C5\u7532 (+\u7206\u6483\u9632\u5FA1)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Armor (+Defense Thermal)
+      TermType: 0
+      Description: 
+      Languages:
+      - Armor (+Defense Thermal)
+      - "\u88C5\u7532 (+\u71B1\u529B\u9632\u5FA1)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Repair (+Base HP)
+      TermType: 0
+      Description: 
+      Languages:
+      - Repair (+Base HP)
+      - "\u4FEE\u5FA9\u3000(+\u57FA\u790EHP)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Ability (+ability)
+      TermType: 0
+      Description: 
+      Languages:
+      - Ability (+ability)
+      - "\u30A2\u30D3\u30EA\u30C6\u30A3\u3000(+\u30A2\u30D3\u30EA\u30C6\u30A3\u5F37\u5316)"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategory-Breastplate (+Defense Critical)
+      TermType: 0
+      Description: 
+      Languages:
+      - Breastplate (+Defense Critical)
+      - "\u80F8\u7532 (+\u5FC5\u6BBA\u9632\u5FA1)"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -23223,7 +23367,7 @@ MonoBehaviour:
     GoogleUpdateDelay: 0
     Assets:
     - {fileID: 12800000, guid: cece894e914fe4163b030de98a9faaec, type: 3}
-    Spreadsheet_LocalFileName: /Users/celvena/Desktop/Localization.txt
+    Spreadsheet_LocalFileName: /Users/celvena/Desktop/Localization20200113.txt
     Spreadsheet_LocalCSVSeparator: "\t"
     Spreadsheet_LocalCSVEncoding: utf-16
     Spreadsheet_SpecializationAsRows: 1
@@ -24561,7 +24705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 500, y: 0}
   m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2531591010826301356

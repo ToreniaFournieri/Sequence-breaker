@@ -283,33 +283,33 @@ namespace SequenceBreaker.Master.Items
                 case 3:
                     return Word.Get("ItemCategory-Weapon Thermal");
                 case 10:
-                    return Word.Get("ItemCategory-Head (Accuracy)");
+                    return Word.Get("ItemCategory-Head (+Accuracy)");
                 case 11:
-                    return Word.Get("ItemCategory-Body (Base HP)");
+                    return Word.Get("ItemCategory-Body (+Base HP)");
                 case 12:
-                    return Word.Get("ItemCategory-Structure (Base Defense)");
+                    return Word.Get("ItemCategory-Structure (+Base Defense)");
                 case 13:
-                    return Word.Get("ItemCategory-Brestplate (Defense Critical)");
+                    return Word.Get("ItemCategory-Breastplate (+Defense Critical)");
                 case 14:
-                    return Word.Get("ItemCategory-Arm (Base Attack)");
+                    return Word.Get("ItemCategory-Arm (+Base Attack)");
                 case 15:
-                    return Word.Get("ItemCategory-Leg (Base Mobility)");
+                    return Word.Get("ItemCategory-Leg (+Base Mobility)");
                 case 16:
-                    return Word.Get("ItemCategory-Shield (Base Shield)");
+                    return Word.Get("ItemCategory-Shield (+Base Shield)");
                 case 20:
-                    return Word.Get("ItemCategory-Magazine (Number of attacks)");
+                    return Word.Get("ItemCategory-Magazine (+Number of attacks)");
                 case 21:
-                    return Word.Get("ItemCategory-(Increase Critical damage)");
+                    return Word.Get("ItemCategory-(+Critical damage)");
                 case 30:
-                    return Word.Get("ItemCategory-Armor (Defense Kinetic)");
+                    return Word.Get("ItemCategory-Armor (+Defense Kinetic)");
                 case 31:
-                    return Word.Get("ItemCategory-Armor (Defense Chemical)");
+                    return Word.Get("ItemCategory-Armor (+Defense Chemical)");
                 case 32:
-                    return Word.Get("ItemCategory-Armor (Defense Thermal)");
+                    return Word.Get("ItemCategory-Armor (+Defense Thermal)");
                 case 40:
-                    return Word.Get("ItemCategory-Repair (Base HP)");
+                    return Word.Get("ItemCategory-Repair (+Base HP)");
                 case 60:
-                    return Word.Get("ItemCategory-Ability (increase ability)");
+                    return Word.Get("ItemCategory-Ability (+ability)");
 
 
 
@@ -326,39 +326,39 @@ namespace SequenceBreaker.Master.Items
                 case 0:
                     return Word.Get("ItemCategoryShort-No");
                 case 1:
-                    return Word.Get("ShordWords-WKin");
+                    return Word.Get("ItemCategoryShort-WKin");
                 case 2:
-                    return Word.Get("ShordWords-WChe");
+                    return Word.Get("ItemCategoryShort-WChe");
                 case 3:
-                    return Word.Get("ShordWords-WThe");
+                    return Word.Get("ItemCategoryShort-WThe");
                 case 10:
-                    return Word.Get("ShordWords-Head");
+                    return Word.Get("ItemCategoryShort-Head");
                 case 11:
-                    return Word.Get("ShordWords-Body");
+                    return Word.Get("ItemCategoryShort-Body");
                 case 12:
-                    return Word.Get("ShordWords-Strc");
+                    return Word.Get("ItemCategoryShort-Strc");
                 case 13:
-                    return Word.Get("ShordWords-Bres");
+                    return Word.Get("ItemCategoryShort-Bres");
                 case 14:
-                    return Word.Get("ShordWords-Arm");
+                    return Word.Get("ItemCategoryShort-Arm");
                 case 15:
-                    return Word.Get("ShordWords-Leg");
+                    return Word.Get("ItemCategoryShort-Leg");
                 case 16:
-                    return Word.Get("ShordWords-Shie");
+                    return Word.Get("ItemCategoryShort-Shie");
                 case 20:
-                    return Word.Get("ShordWords-Mgzn");
+                    return Word.Get("ItemCategoryShort-Mgzn");
                 case 21:
-                    return Word.Get("ShordWords-DCri");
+                    return Word.Get("ItemCategoryShort-DCri");
                 case 30:
-                    return Word.Get("ShordWords-DKin");
+                    return Word.Get("ItemCategoryShort-DKin");
                 case 31:
-                    return Word.Get("ShordWords-DChe");
+                    return Word.Get("ItemCategoryShort-DChe");
                 case 32:
-                    return Word.Get("ShordWords-DThe");
+                    return Word.Get("ItemCategoryShort-DThe");
                 case 40:
-                    return Word.Get("ShordWords-Repa");
+                    return Word.Get("ItemCategoryShort-Repa");
                 case 60:
-                    return Word.Get("ShordWords-Abli");
+                    return Word.Get("ItemCategoryShort-Abli");
                 default:
                     return itemCategory + "?";
             }
