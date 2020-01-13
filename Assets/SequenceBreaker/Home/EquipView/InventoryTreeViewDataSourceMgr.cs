@@ -187,50 +187,56 @@ namespace SequenceBreaker.Home.EquipView
         {
             _mItemDataList.Clear();
 
-            for (int i = 0; i < _mTreeViewItemCount; ++i)
+            List<Item> itemList = new List<Item>();
+            if (isInfinityInventoryMode)
+            {
+                infinityInventoryItemList.Init();
+                itemList = infinityInventoryItemList.inventory.itemList;
+            }
+            else
+            {
+                allyInventoryItemList.Init();
+                itemList = allyInventoryItemList.inventory.itemList;
+            }
+
+            itemList.Sort((x, y) => (x.baseItem.itemCategory - y.baseItem.itemCategory));
+
+            int categoryCount = 0;
+            int ppreviousCategory = 0;
+            List<int> categorySorted = new List<int>();
+            foreach (Item item in itemList)
+            {
+                if (item.baseItem.itemCategory != ppreviousCategory)
+                {
+                    categoryCount++;
+                    ppreviousCategory = item.baseItem.itemCategory;
+                    categorySorted.Add(item.baseItem.itemCategory);
+                }
+            }
+            //for (int i = 0; i < _mTreeViewItemCount; ++i)
+
+            foreach (int category in categorySorted)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData
                 {
-                    MName = "Main Item Category: " + i,
+                    MName = ItemDataBase.instance.GetItemCategoryName(category),
                     MIcon = "1"
                 };
                 _mItemDataList.Add(tData);
 
-
-                if (isInfinityInventoryMode)
+                //List<Item> _categorizedItemList = itemList.FindAll(x => x.baseItem.itemCategory == category);
+                //_categorizedItemList.Sort((x, y) => (y.enhancedValue - x.enhancedValue));
+                foreach (Item item in itemList.FindAll(x => x.baseItem.itemCategory == category))
                 {
-                    infinityInventoryItemList.Init();
-                    //infinityInventoryItemList.inventory.itemList.Sort((x, y) => (x.baseItem.itemId - y.baseItem.itemId));
-
-                    foreach (Item item in infinityInventoryItemList.inventory.itemList)
-                    {
-                        tData.AddChild(item);
-                    }
-
-                    tData.SortItemList();
-
-                }
-                else
-                {
-                    allyInventoryItemList.Init();
-
-                    if (allyInventoryItemList.inventory.itemList != null)
-                    {
-                        //allyInventoryItemList.inventory.itemList.Sort((x, y) =>
-                        //    (x.baseItem.itemId - y.baseItem.itemId));
-                        foreach (Item item in allyInventoryItemList.inventory.itemList)
-                        {
-                            tData.AddChild(item);
-                        }
-
-                        tData.SortItemList();
-
-                    }
+                    tData.AddChild(item);
                 }
 
+                tData.SortItemList();
 
-                inventoryTreeViewWithStickyHeadScript.Initialization();
             }
+
+            inventoryTreeViewWithStickyHeadScript.Initialization();
+
 
 
         }

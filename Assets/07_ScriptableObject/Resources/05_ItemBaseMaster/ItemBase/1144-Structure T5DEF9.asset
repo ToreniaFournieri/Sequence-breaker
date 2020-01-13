@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1144-Structure T5DEF9
   m_EditorClassIdentifier: 
   itemId: 1144
+  itemCategory: 12
   itemName: Structure T5DEF9
   itemDescription: 
   icon: {fileID: 0}

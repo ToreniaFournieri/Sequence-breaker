@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1140-Structure S4DEF6
   m_EditorClassIdentifier: 
   itemId: 1140
+  itemCategory: 12
   itemName: Structure S4DEF6
   itemDescription: 
   icon: {fileID: 0}

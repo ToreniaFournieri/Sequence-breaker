@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1048-Armor-Thermal T2THE8
   m_EditorClassIdentifier: 
   itemId: 1048
+  itemCategory: 32
   itemName: Armor-Thermal T2THE8
   itemDescription: 
   icon: {fileID: 0}

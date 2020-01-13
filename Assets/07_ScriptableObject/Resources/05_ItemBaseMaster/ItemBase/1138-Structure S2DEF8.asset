@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1138-Structure S2DEF8
   m_EditorClassIdentifier: 
   itemId: 1138
+  itemCategory: 12
   itemName: Structure S2DEF8
   itemDescription: 
   icon: {fileID: 0}

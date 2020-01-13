@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1259-Repair kit R4H05
   m_EditorClassIdentifier: 
   itemId: 1259
+  itemCategory: 40
   itemName: Repair kit R4H05
   itemDescription: 
   icon: {fileID: 0}

@@ -10,6 +10,7 @@ namespace SequenceBreaker.Editor
     {
         public string itemName;
         public int itemId;
+        public int itemCategory;
 
         public string itemDescription;
         //public string icon;

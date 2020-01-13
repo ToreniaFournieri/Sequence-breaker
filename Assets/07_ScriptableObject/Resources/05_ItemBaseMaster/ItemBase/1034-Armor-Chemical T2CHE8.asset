@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1034-Armor-Chemical T2CHE8
   m_EditorClassIdentifier: 
   itemId: 1034
+  itemCategory: 31
   itemName: Armor-Chemical T2CHE8
   itemDescription: 
   icon: {fileID: 0}

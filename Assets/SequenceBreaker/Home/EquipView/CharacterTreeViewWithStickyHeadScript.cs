@@ -83,7 +83,7 @@ namespace SequenceBreaker.Home.EquipView
             bool isStatusExpended = _mTreeItemCountMgr.IsTreeItemExpand(0);
             int count = CharacterTreeViewDataSourceMgr.Get.TreeViewItemCount;
 
-            Debug.Log(count + "<- count, itemTotalCount: " + mLoopListView.ItemTotalCount);
+            //Debug.Log(count + "<- count, itemTotalCount: " + mLoopListView.ItemTotalCount);
 
             TreeViewItemCountData countData;
             List<bool> isHeadAllowExpended = new List<bool>();

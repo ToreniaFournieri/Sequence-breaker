@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1076-Body A2HP8
   m_EditorClassIdentifier: 
   itemId: 1076
+  itemCategory: 11
   itemName: Body A2HP8
   itemDescription: 
   icon: {fileID: 0}

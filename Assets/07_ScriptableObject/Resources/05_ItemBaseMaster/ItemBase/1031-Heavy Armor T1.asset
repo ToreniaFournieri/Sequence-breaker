@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1031-Heavy Armor T1
   m_EditorClassIdentifier: 
   itemId: 1031
+  itemCategory: 30
   itemName: Heavy Armor T1
   itemDescription: 
   icon: {fileID: 0}

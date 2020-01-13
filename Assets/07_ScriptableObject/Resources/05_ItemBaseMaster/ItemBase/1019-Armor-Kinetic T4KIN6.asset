@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1019-Armor-Kinetic T4KIN6
   m_EditorClassIdentifier: 
   itemId: 1019
+  itemCategory: 30
   itemName: Armor-Kinetic T4KIN6
   itemDescription: 
   icon: {fileID: 0}

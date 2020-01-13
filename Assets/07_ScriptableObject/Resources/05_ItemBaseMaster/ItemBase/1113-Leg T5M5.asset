@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1113-Leg T5M5
   m_EditorClassIdentifier: 
   itemId: 1113
+  itemCategory: 15
   itemName: Leg T5M5
   itemDescription: 
   icon: {fileID: 0}

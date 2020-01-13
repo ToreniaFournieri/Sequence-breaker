@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1066-Shield A6SH4
   m_EditorClassIdentifier: 
   itemId: 1066
+  itemCategory: 16
   itemName: Shield A6SH4
   itemDescription: 
   icon: {fileID: 0}

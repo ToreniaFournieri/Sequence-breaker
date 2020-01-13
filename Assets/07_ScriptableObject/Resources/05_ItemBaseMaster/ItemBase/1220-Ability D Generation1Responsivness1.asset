@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1220-Ability D Generation1Responsivness1
   m_EditorClassIdentifier: 
   itemId: 1220
+  itemCategory: 60
   itemName: Ability D Generation1Responsivness1
   itemDescription: 
   icon: {fileID: 0}

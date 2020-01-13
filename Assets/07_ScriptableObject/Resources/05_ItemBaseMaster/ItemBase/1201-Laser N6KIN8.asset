@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1201-Laser N6KIN8
   m_EditorClassIdentifier: 
   itemId: 1201
+  itemCategory: 3
   itemName: Laser N6KIN8
   itemDescription: 
   icon: {fileID: 0}

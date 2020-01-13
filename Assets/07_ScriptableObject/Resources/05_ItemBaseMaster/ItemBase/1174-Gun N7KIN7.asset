@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1174-Gun N7KIN7
   m_EditorClassIdentifier: 
   itemId: 1174
+  itemCategory: 1
   itemName: Gun N7KIN7
   itemDescription: 
   icon: {fileID: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1237-Ability C StAbility C2
   m_EditorClassIdentifier: 
   itemId: 1237
+  itemCategory: 60
   itemName: Ability C StAbility C2
   itemDescription: 
   icon: {fileID: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1195-Laser M3KIN7
   m_EditorClassIdentifier: 
   itemId: 1195
+  itemCategory: 3
   itemName: Laser M3KIN7
   itemDescription: 
   icon: {fileID: 0}

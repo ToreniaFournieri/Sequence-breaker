@@ -13,11 +13,9 @@ namespace SequenceBreaker.Master.Items
         public ItemBaseMasterList suffixBaseList;
 
 
-
         public ItemPresetList itemPresetList;
 
         public static ItemDataBase instance;
-
 
         private void Awake()
         {
@@ -57,7 +55,7 @@ namespace SequenceBreaker.Master.Items
                         //Debug.Log("file name: " + file.Name);
                         //if(file.Name == "Ally-100001-item.save")
                         //{
-                            file.Delete();
+                        file.Delete();
 
                         //}
                     }
@@ -269,6 +267,59 @@ namespace SequenceBreaker.Master.Items
             return item;
 
         }
+
+        public string GetItemCategoryName(int itemCategory)
+        {
+            switch (itemCategory)
+            {
+
+                case 0:
+                    return "0 nothing";
+                case 1:
+                    return "Weapon Kinetic";
+                case 2:
+                    return "Weapon Chemical";
+                case 3:
+                    return "Weapon Thermal";
+                case 10:
+                    return "Head (Accuracy)";
+                case 11:
+                    return "Body (Base HP)";
+                case 12:
+                    return "Structure (Base Defense)";
+                case 13:
+                    return "Brestplate (Defense Critical)";
+                case 14:
+                    return "Arm (Base Attack)";
+                case 15:
+                    return "Leg (Base Mobility)";
+                case 16:
+                    return "Shield (Base Shield)";
+                case 20:
+                    return "Magazine (Number of attacks)";
+                case 21:
+                    return "(Increase Critical damage)";
+                case 30:
+                    return "Armor (Defense Kinetic)";
+                case 31:
+                    return "Armor (Defense Chemical)";
+                case 32:
+                    return "Armor (Defense Thermal)";
+                case 40:
+                    return "Repair (Base HP)";
+                case 60:
+                    return "Ability (increase ability)";
+
+
+
+                default:
+                    return itemCategory + " unknown";
+            }
+
+
+
+        }
+
 
     }
 }

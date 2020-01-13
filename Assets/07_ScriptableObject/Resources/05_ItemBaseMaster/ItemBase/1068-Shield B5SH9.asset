@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1068-Shield B5SH9
   m_EditorClassIdentifier: 
   itemId: 1068
+  itemCategory: 16
   itemName: Shield B5SH9
   itemDescription: 
   icon: {fileID: 0}

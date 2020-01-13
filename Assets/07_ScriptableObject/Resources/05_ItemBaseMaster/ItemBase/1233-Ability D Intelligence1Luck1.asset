@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1233-Ability D Intelligence1Luck1
   m_EditorClassIdentifier: 
   itemId: 1233
+  itemCategory: 60
   itemName: Ability D Intelligence1Luck1
   itemDescription: 
   icon: {fileID: 0}

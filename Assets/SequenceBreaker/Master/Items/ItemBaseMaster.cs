@@ -11,6 +11,7 @@ namespace SequenceBreaker.Master.Items
 	{
 		public int itemId;
 
+        public int itemCategory;
 		public string itemName;
 		public string itemDescription;
 		public Sprite icon;

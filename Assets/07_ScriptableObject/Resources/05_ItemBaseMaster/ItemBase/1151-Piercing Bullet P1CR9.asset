@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1151-Piercing Bullet P1CR9
   m_EditorClassIdentifier: 
   itemId: 1151
+  itemCategory: 21
   itemName: Piercing Bullet P1CR9
   itemDescription: 
   icon: {fileID: 0}

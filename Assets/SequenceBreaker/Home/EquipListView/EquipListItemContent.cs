@@ -96,7 +96,7 @@ namespace SequenceBreaker.Home.EquipListView
         void OnContentClicked()
         {
 
-            Debug.Log("On content clicked unit:" + unitClass.shortName);
+            //Debug.Log("On content clicked unit:" + unitClass.shortName);
 
 
 

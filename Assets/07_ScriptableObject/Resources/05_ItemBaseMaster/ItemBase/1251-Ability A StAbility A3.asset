@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1251-Ability A StAbility A3
   m_EditorClassIdentifier: 
   itemId: 1251
+  itemCategory: 60
   itemName: Ability A StAbility A3
   itemDescription: 
   icon: {fileID: 0}

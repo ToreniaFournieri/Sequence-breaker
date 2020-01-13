@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1088-Magazine N1
   m_EditorClassIdentifier: 
   itemId: 1088
+  itemCategory: 20
   itemName: Magazine N1
   itemDescription: 
   icon: {fileID: 0}

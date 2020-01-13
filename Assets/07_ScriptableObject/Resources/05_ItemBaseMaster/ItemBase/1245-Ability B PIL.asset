@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1245-Ability B PIL
   m_EditorClassIdentifier: 
   itemId: 1245
+  itemCategory: 60
   itemName: Ability B PIL
   itemDescription: 
   icon: {fileID: 0}

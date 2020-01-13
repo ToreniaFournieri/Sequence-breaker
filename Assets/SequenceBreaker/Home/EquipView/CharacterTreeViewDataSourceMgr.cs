@@ -143,7 +143,7 @@ namespace SequenceBreaker.Home.EquipView
         private void DoRefreshDataSource()
         {
 
-            Debug.Log("in DoRefresh ");
+            //Debug.Log("in DoRefresh ");
             characterStatusDisplay.selectedCharacter.UpdateItemCapacity();
 
             if (characterStatusDisplay.selectedCharacter.affiliation == Environment.Affiliation.Enemy)

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1098-Head H4AC6
   m_EditorClassIdentifier: 
   itemId: 1098
+  itemCategory: 10
   itemName: Head H4AC6
   itemDescription: 
   icon: {fileID: 0}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1217-Ability D Pow1Intelligence1
   m_EditorClassIdentifier: 
   itemId: 1217
+  itemCategory: 60
   itemName: Ability D Pow1Intelligence1
   itemDescription: 
   icon: {fileID: 0}

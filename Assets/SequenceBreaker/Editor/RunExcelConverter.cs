@@ -378,6 +378,7 @@ namespace SequenceBreaker.Editor
 
                 itemBaseMaster.itemId = itemMaster.itemId;
                 itemBaseMaster.itemName = itemMaster.itemName;
+                itemBaseMaster.itemCategory = itemMaster.itemCategory;
                 itemBaseMaster.itemDescription = itemMaster.itemDescription;
                 //itemBaseMaster.icon
 

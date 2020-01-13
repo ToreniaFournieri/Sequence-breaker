@@ -162,6 +162,8 @@ namespace SequenceBreaker.Home.EquipView
                 //update the TreeItem's content
                 item.UserIntData1 = treeItemIndex;
                 item.UserIntData2 = 0;
+
+                //Debug.Log("treeViewItemData.MName: " + treeViewItemData.MName);
                 itemScript.mText.text = treeViewItemData.MName;
 
                 itemScript.SetItemData(treeItemIndex, countData.MIsExpand);

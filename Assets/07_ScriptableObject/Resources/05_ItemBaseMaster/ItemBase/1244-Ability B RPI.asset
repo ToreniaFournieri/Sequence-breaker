@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1244-Ability B RPI
   m_EditorClassIdentifier: 
   itemId: 1244
+  itemCategory: 60
   itemName: Ability B RPI
   itemDescription: 
   icon: {fileID: 0}
