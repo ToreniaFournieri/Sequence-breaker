@@ -3581,7 +3581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 500, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311650527
@@ -21854,8 +21854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 608.83044, y: 0}
-  m_SizeDelta: {x: 1207.6609, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029746897
 MonoBehaviour:
@@ -23056,71 +23056,15 @@ MonoBehaviour:
       - "{[X]}\u30BF\u30FC\u30F3\u6709\u52B9"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-No
+    - Term: ItemCategoryShort-Abli
       TermType: 0
       Description: 
       Languages:
-      - No
-      - "\u7121"
+      - Abil
+      - "\u80FD\u529B"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Body
-      TermType: 0
-      Description: 
-      Languages:
-      - Body
-      - "\u80F4"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-Head
-      TermType: 0
-      Description: 
-      Languages:
-      - Head
-      - "\u982D"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-WChe
-      TermType: 0
-      Description: 
-      Languages:
-      - WChe
-      - "\u653B\u7206"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-WKin
-      TermType: 0
-      Description: 
-      Languages:
-      - WKin
-      - "\u653B\u885D"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-WThe
-      TermType: 0
-      Description: 
-      Languages:
-      - WThe
-      - "\u653B\u71B1"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-Strc
-      TermType: 0
-      Description: 
-      Languages:
-      - Strc
-      - "\u69CB\u9020"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-Bres
-      TermType: 0
-      Description: 
-      Languages:
-      - Bres
-      - "\u80F8\u7532"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-Arm
+    - Term: ItemCategoryShort-Arm
       TermType: 0
       Description: 
       Languages:
@@ -23128,47 +23072,23 @@ MonoBehaviour:
       - "\u8155"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Leg
+    - Term: ItemCategoryShort-Body
       TermType: 0
       Description: 
       Languages:
-      - Leg
-      - "\u811A"
+      - Body
+      - "\u80F4"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Shie
+    - Term: ItemCategoryShort-Bres
       TermType: 0
       Description: 
       Languages:
-      - Shie
-      - "\u76FE"
+      - Bres
+      - "\u80F8\u7532"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Mgzn
-      TermType: 0
-      Description: 
-      Languages:
-      - Mgzn
-      - "\u5F3E\u5009"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-DCri
-      TermType: 0
-      Description: 
-      Languages:
-      - DCri
-      - "\u9632\u5FC5"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-DKin
-      TermType: 0
-      Description: 
-      Languages:
-      - DKin
-      - "\u9632\u885D"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: ShordWords-DChe
+    - Term: ItemCategoryShort-DChe
       TermType: 0
       Description: 
       Languages:
@@ -23176,7 +23096,23 @@ MonoBehaviour:
       - "\u9632\u7206"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-DThe
+    - Term: ItemCategoryShort-DCri
+      TermType: 0
+      Description: 
+      Languages:
+      - DCri
+      - "\u9632\u5FC5"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-DKin
+      TermType: 0
+      Description: 
+      Languages:
+      - DKin
+      - "\u9632\u885D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-DThe
       TermType: 0
       Description: 
       Languages:
@@ -23184,7 +23120,39 @@ MonoBehaviour:
       - "\u9632\u71B1"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Repa
+    - Term: ItemCategoryShort-Head
+      TermType: 0
+      Description: 
+      Languages:
+      - Head
+      - "\u982D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-Leg
+      TermType: 0
+      Description: 
+      Languages:
+      - Leg
+      - "\u811A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-Mgzn
+      TermType: 0
+      Description: 
+      Languages:
+      - Mgzn
+      - "\u5F3E\u5009"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-No
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u7121"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-Repa
       TermType: 0
       Description: 
       Languages:
@@ -23192,12 +23160,44 @@ MonoBehaviour:
       - "\u4FEE\u5FA9"
       Flags: 0000
       Languages_Touch: []
-    - Term: ShordWords-Abli
+    - Term: ItemCategoryShort-Shie
       TermType: 0
       Description: 
       Languages:
-      - Abil
-      - "\u80FD\u529B"
+      - Shie
+      - "\u76FE"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-Strc
+      TermType: 0
+      Description: 
+      Languages:
+      - Strc
+      - "\u69CB\u9020"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-WChe
+      TermType: 0
+      Description: 
+      Languages:
+      - WChe
+      - "\u653B\u7206"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-WKin
+      TermType: 0
+      Description: 
+      Languages:
+      - WKin
+      - "\u653B\u885D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: ItemCategoryShort-WThe
+      TermType: 0
+      Description: 
+      Languages:
+      - WThe
+      - "\u653B\u71B1"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -24561,7 +24561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 500, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2531591010826301356

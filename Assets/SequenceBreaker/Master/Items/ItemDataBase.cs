@@ -275,41 +275,41 @@ namespace SequenceBreaker.Master.Items
             {
 
                 case 0:
-                    return "0 nothing";
+                    return Word.Get("ItemCategory-nothing");
                 case 1:
-                    return "Weapon Kinetic";
+                    return Word.Get("ItemCategory-Weapon Kinetic");
                 case 2:
-                    return "Weapon Chemical";
+                    return Word.Get("ItemCategory-Weapon Chemical");
                 case 3:
-                    return "Weapon Thermal";
+                    return Word.Get("ItemCategory-Weapon Thermal");
                 case 10:
-                    return "Head (Accuracy)";
+                    return Word.Get("ItemCategory-Head (Accuracy)");
                 case 11:
-                    return "Body (Base HP)";
+                    return Word.Get("ItemCategory-Body (Base HP)");
                 case 12:
-                    return "Structure (Base Defense)";
+                    return Word.Get("ItemCategory-Structure (Base Defense)");
                 case 13:
-                    return "Brestplate (Defense Critical)";
+                    return Word.Get("ItemCategory-Brestplate (Defense Critical)");
                 case 14:
-                    return "Arm (Base Attack)";
+                    return Word.Get("ItemCategory-Arm (Base Attack)");
                 case 15:
-                    return "Leg (Base Mobility)";
+                    return Word.Get("ItemCategory-Leg (Base Mobility)");
                 case 16:
-                    return "Shield (Base Shield)";
+                    return Word.Get("ItemCategory-Shield (Base Shield)");
                 case 20:
-                    return "Magazine (Number of attacks)";
+                    return Word.Get("ItemCategory-Magazine (Number of attacks)");
                 case 21:
-                    return "(Increase Critical damage)";
+                    return Word.Get("ItemCategory-(Increase Critical damage)");
                 case 30:
-                    return "Armor (Defense Kinetic)";
+                    return Word.Get("ItemCategory-Armor (Defense Kinetic)");
                 case 31:
-                    return "Armor (Defense Chemical)";
+                    return Word.Get("ItemCategory-Armor (Defense Chemical)");
                 case 32:
-                    return "Armor (Defense Thermal)";
+                    return Word.Get("ItemCategory-Armor (Defense Thermal)");
                 case 40:
-                    return "Repair (Base HP)";
+                    return Word.Get("ItemCategory-Repair (Base HP)");
                 case 60:
-                    return "Ability (increase ability)";
+                    return Word.Get("ItemCategory-Ability (increase ability)");
 
 
 
@@ -324,7 +324,7 @@ namespace SequenceBreaker.Master.Items
             {
 
                 case 0:
-                    return Word.Get("ShordWords-No");
+                    return Word.Get("ItemCategoryShort-No");
                 case 1:
                     return Word.Get("ShordWords-WKin");
                 case 2:
