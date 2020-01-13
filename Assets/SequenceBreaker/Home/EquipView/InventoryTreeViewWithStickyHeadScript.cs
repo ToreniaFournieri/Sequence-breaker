@@ -10,7 +10,7 @@ namespace SequenceBreaker.Home.EquipView
     public sealed class InventoryTreeViewWithStickyHeadScript : MonoBehaviour
     {
 
-  
+
 
         public LoopListView2 mLoopListView;
         Button _mScrollToButton;
@@ -216,6 +216,55 @@ namespace SequenceBreaker.Home.EquipView
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
         }
+
+
+        public void OnJumpIndexHovered(int itemIndex)
+        {
+
+            Debug.Log("on jump index hovered :" + itemIndex);
+            //int itemIndex = 0;
+            int childIndex = 0;
+            int finalIndex = 0;
+            //if (int.TryParse(_mScrollToInputItem.text, out itemIndex) == false)
+            //{
+            //    return;
+            //}
+            //if (int.TryParse(_mScrollToInputChild.text, out childIndex) == false)
+            //{
+            //    childIndex = 0;
+            //}
+            //if (childIndex < 0)
+            //{
+            //    childIndex = 0;
+            //}
+            TreeViewItemCountData itemCountData = _mTreeItemCountMgr.GetTreeItem(itemIndex);
+            if (itemCountData == null)
+            {
+                return;
+            }
+            int childCount = itemCountData.MChildCount;
+            if (itemCountData.MIsExpand == false || childCount == 0 || childIndex == 0)
+            {
+                finalIndex = itemCountData.MBeginIndex;
+            }
+            else
+            {
+                if (childIndex > childCount)
+                {
+                    childIndex = childCount;
+                }
+                if (childIndex < 1)
+                {
+                    childIndex = 1;
+                }
+                finalIndex = itemCountData.MBeginIndex + childIndex;
+                //finalIndex = itemCountData.MBeginIndex;
+            }
+            mLoopListView.MovePanelToItemIndex(finalIndex + 1, _mStickeyHeadItemHeight);
+            //mLoopListView.MovePanelToItemIndex(finalIndex, _mStickeyHeadItemHeight);
+        }
+
+
         void OnJumpBtnClicked()
         {
             int itemIndex = 0;

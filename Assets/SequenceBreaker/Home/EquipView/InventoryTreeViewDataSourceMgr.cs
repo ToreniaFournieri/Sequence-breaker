@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using SequenceBreaker.Environment;
 using SequenceBreaker.Master.Items;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace SequenceBreaker.Home.EquipView
 {
@@ -68,6 +71,9 @@ namespace SequenceBreaker.Home.EquipView
         //For update graphics
         public InventoryTreeViewWithStickyHeadScript inventoryTreeViewWithStickyHeadScript;
 
+
+        public Transform jumpIndexTransform;
+        public SimpleObjectPool jumpObjectPool;
 
         List<InventoryTreeViewItemData> _mItemDataList = new List<InventoryTreeViewItemData>();
 
@@ -213,8 +219,15 @@ namespace SequenceBreaker.Home.EquipView
                     categorySorted.Add(item.baseItem.itemCategory);
                 }
             }
-            //for (int i = 0; i < _mTreeViewItemCount; ++i)
 
+            // reset jump index
+
+            foreach (Transform child in jumpIndexTransform)
+            {
+                jumpObjectPool.ReturnObject(child.gameObject);
+            }
+
+            int  _index = 0;
             foreach (int category in categorySorted)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData
@@ -224,14 +237,29 @@ namespace SequenceBreaker.Home.EquipView
                 };
                 _mItemDataList.Add(tData);
 
-                //List<Item> _categorizedItemList = itemList.FindAll(x => x.baseItem.itemCategory == category);
-                //_categorizedItemList.Sort((x, y) => (y.enhancedValue - x.enhancedValue));
                 foreach (Item item in itemList.FindAll(x => x.baseItem.itemCategory == category))
                 {
                     tData.AddChild(item);
                 }
 
                 tData.SortItemList();
+
+
+                //Set Jump index
+                GameObject _gameObject = jumpObjectPool.GetObject();
+                _gameObject.GetComponentInChildren<Text>().text = ItemDataBase.instance.GetItemIndexShortName(category);
+                _gameObject.GetComponent<RectTransform>().SetParent(jumpIndexTransform);
+                _gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                GetComponentInParent<EventTrigger>();
+                EventTrigger.Entry entry = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+
+                // Funny thingsm but need "setIndex" to copy the value is needed. Otherwise referenced _index value and always max + 1 values has been selected.
+                int setIndex = _index;
+                entry.callback.AddListener((data) => { inventoryTreeViewWithStickyHeadScript.OnJumpIndexHovered(setIndex); });
+
+                _gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+
+                _index++;
 
             }
 

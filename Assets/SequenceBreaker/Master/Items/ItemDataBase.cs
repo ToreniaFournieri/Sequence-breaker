@@ -315,9 +315,52 @@ namespace SequenceBreaker.Master.Items
                 default:
                     return itemCategory + " unknown";
             }
+        }
 
+        public string GetItemIndexShortName(int itemCategory)
+        {
+            switch (itemCategory)
+            {
 
-
+                case 0:
+                    return "no";
+                case 1:
+                    return "WKi";
+                case 2:
+                    return "WCh";
+                case 3:
+                    return "WTh";
+                case 10:
+                    return "Hea";
+                case 11:
+                    return "Bod";
+                case 12:
+                    return "Str";
+                case 13:
+                    return "Bre";
+                case 14:
+                    return "Arm";
+                case 15:
+                    return "Leg";
+                case 16:
+                    return "Shi";
+                case 20:
+                    return "Mag";
+                case 21:
+                    return "CrD";
+                case 30:
+                    return "DKi";
+                case 31:
+                    return "DCh";
+                case 32:
+                    return "DTh";
+                case 40:
+                    return "Rep";
+                case 60:
+                    return "Abl";
+                default:
+                    return itemCategory + "?";
+            }
         }
 
 
