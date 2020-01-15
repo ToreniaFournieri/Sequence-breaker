@@ -41,7 +41,7 @@ namespace SequenceBreaker.Home.EquipView
             selectedCharacter = targetCharacter;
 
             //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
-            Debug.Log("SetCharacter: " + targetCharacter);
+            //Debug.Log("SetCharacter: " + targetCharacter);
 
             //2. Set Character infomation and each item into the  List<CharacterTreeViewItemData> _mItemDataList.
             characterTreeViewDataSourceMgr.Init();

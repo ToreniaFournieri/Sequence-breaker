@@ -112,15 +112,19 @@ namespace SequenceBreaker.Home.EquipView
 
             _mTreeItemCountMgr.SetItemExpand(0, isStatusExpended);
 
-            float _anchoredPositionY = scrollRectTransform.anchoredPosition.y;
-            float _anchoredPositionX = scrollRectTransform.anchoredPosition.x;
+            //float _anchoredPositionY = scrollRectTransform.anchoredPosition.y;
+            //float _anchoredPositionX = scrollRectTransform.anchoredPosition.x;
 
-            mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
-
-            scrollRectTransform.anchoredPosition = new Vector2(_anchoredPositionX, _anchoredPositionY);
+            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
 
             mLoopListView.RefreshAllShownItem();
-            UpdateStickeyHeadPos();
+
+            //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+
+            //scrollRectTransform.anchoredPosition = new Vector2(_anchoredPositionX, _anchoredPositionY);
+
+            //mLoopListView.RefreshAllShownItem();
+            //UpdateStickeyHeadPos();
 
         }
 
