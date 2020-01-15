@@ -106,7 +106,7 @@ namespace SequenceBreaker.Home.EquipView
             {
                 int childCount = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
-                _mTreeItemCountMgr.AddTreeItem(childCount, true);               
+                _mTreeItemCountMgr.AddTreeItem(childCount, true);
 
             }
 
@@ -117,7 +117,10 @@ namespace SequenceBreaker.Home.EquipView
 
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
 
-            mLoopListView.RefreshAllShownItem();
+
+            //mLoopListView.RefreshAllShownItem();
+
+            mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
             //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
@@ -274,8 +277,6 @@ namespace SequenceBreaker.Home.EquipView
         public void OnClosedClicked(int index)
         {
             _mTreeItemCountMgr.SetItemExpand(index, false);
-
-
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), true);
             mLoopListView.RefreshAllShownItem();
 
@@ -283,7 +284,9 @@ namespace SequenceBreaker.Home.EquipView
 
         public void OnExpandClicked(int index)
         {
+            Debug.Log("OnExpandClicked: " + index);
             _mTreeItemCountMgr.ToggleItemExpand(index);
+            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
 
         }

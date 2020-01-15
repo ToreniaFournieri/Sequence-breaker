@@ -131,6 +131,8 @@ namespace SequenceBreaker.Home.EquipView
             //remove from other inventory
             characterStatusDisplay.RemoveAndSaveItem(item);
 
+            //characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
+
 
             characterStatusDisplay.RefreshCharacterStatusAndItemList();
 

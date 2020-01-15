@@ -184,6 +184,9 @@ namespace SequenceBreaker.Home.EquipView
 
                 DoRefreshDataSource();
                 otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.RefreshCharacterStatusAndItemList();
+
+                //otherCharacterTreeViewDataSourceMgr.characterStatusDisplay.characterTreeViewWithStickyHeadScript.Initialization();
+
             }
         }
 
@@ -227,7 +230,7 @@ namespace SequenceBreaker.Home.EquipView
                 jumpObjectPool.ReturnObject(child.gameObject);
             }
 
-            int  _index = 0;
+            int _index = 0;
             foreach (int category in categorySorted)
             {
                 InventoryTreeViewItemData tData = new InventoryTreeViewItemData
