@@ -10,14 +10,14 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
     public class TreeViewDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
-        Button _mScrollToButton;
-        Button _mExpandAllButton;
-        Button _mCollapseAllButton;
-        InputField _mScrollToInputItem;
-        InputField _mScrollToInputChild;
-        Button _mBackButton;
+        Button mScrollToButton;
+        Button mExpandAllButton;
+        Button mCollapseAllButton;
+        InputField mScrollToInputItem;
+        InputField mScrollToInputChild;
+        Button mBackButton;
         // an helper class for TreeView item showing.
-        TreeViewItemCountMgr _mTreeItemCountMgr = new TreeViewItemCountMgr();
+        TreeViewItemCountMgr mTreeItemCountMgr = new TreeViewItemCountMgr();
         // Use this for initialization
         void Start()
         {
@@ -27,24 +27,24 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             {
                 int childCount = TreeViewDataSourceMgr.Get.GetItemDataByIndex(i).ChildCount;
                 //second param "true" tells mTreeItemCountMgr this TreeItem is in expand status, that is to say all its children are showing.
-                _mTreeItemCountMgr.AddTreeItem(childCount, true);
+                mTreeItemCountMgr.AddTreeItem(childCount, true);
             }
 
 
             //initialize the InitListView
             //mTreeItemCountMgr.GetTotalItemAndChildCount() return the total items count in the TreeView, include all TreeItems and all TreeChildItems.
-            mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+            mLoopListView.InitListView(mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
-            _mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
-            _mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
-            _mCollapseAllButton = GameObject.Find("ButtonPanel/buttonGroup3/CollapseAllButton").GetComponent<Button>();
-            _mScrollToInputItem = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldItem").GetComponent<InputField>();
-            _mScrollToInputChild = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldChild").GetComponent<InputField>();
-            _mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
-            _mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
-            _mBackButton.onClick.AddListener(OnBackBtnClicked);
-            _mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
-            _mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
+            mExpandAllButton = GameObject.Find("ButtonPanel/buttonGroup1/ExpandAllButton").GetComponent<Button>();
+            mScrollToButton = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToButton").GetComponent<Button>();
+            mCollapseAllButton = GameObject.Find("ButtonPanel/buttonGroup3/CollapseAllButton").GetComponent<Button>();
+            mScrollToInputItem = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldItem").GetComponent<InputField>();
+            mScrollToInputChild = GameObject.Find("ButtonPanel/buttonGroup2/ScrollToInputFieldChild").GetComponent<InputField>();
+            mScrollToButton.onClick.AddListener(OnJumpBtnClicked);
+            mBackButton = GameObject.Find("ButtonPanel/BackButton").GetComponent<Button>();
+            mBackButton.onClick.AddListener(OnBackBtnClicked);
+            mExpandAllButton.onClick.AddListener(OnExpandAllBtnClicked);
+            mCollapseAllButton.onClick.AddListener(OnCollapseAllBtnClicked);
 
 
         }
@@ -86,12 +86,12 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
              then we should return TreeItem1 to SuperScrollView
             */
 
-            TreeViewItemCountData countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
+            TreeViewItemCountData countData = mTreeItemCountMgr.QueryTreeItemByTotalIndex(index);
             if(countData == null)
             {
                 return null;
             }
-            int treeItemIndex = countData.MTreeItemIndex;
+            int treeItemIndex = countData.mTreeItemIndex;
             TreeViewItemData treeViewItemData = TreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
@@ -102,11 +102,11 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 {
                     item.IsInitHandlerCalled = true;
                     itemScript.Init();
-                    itemScript.SetClickCallBack(OnExpandClicked);
+                    itemScript.SetClickCallBack(this.OnExpandClicked);
                 }
                 //update the TreeItem's content
                 itemScript.mText.text = treeViewItemData.mName;
-                itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
+                itemScript.SetItemData(treeItemIndex, countData.mIsExpand);
                 return item;
             }
             else // if is a TreeChildItem
@@ -136,8 +136,8 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
         }
         public void OnExpandClicked(int index)
         {
-            _mTreeItemCountMgr.ToggleItemExpand(index);
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(),false);
+            mTreeItemCountMgr.ToggleItemExpand(index);
+            mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(),false);
             mLoopListView.RefreshAllShownItem();
         }
         void OnJumpBtnClicked()
@@ -145,11 +145,11 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             int itemIndex = 0;
             int childIndex = 0;
             int finalIndex = 0;
-            if (int.TryParse(_mScrollToInputItem.text, out itemIndex) == false)
+            if (int.TryParse(mScrollToInputItem.text, out itemIndex) == false)
             {
                 return;
             }
-            if (int.TryParse(_mScrollToInputChild.text, out childIndex) == false)
+            if (int.TryParse(mScrollToInputChild.text, out childIndex) == false)
             {
                 childIndex = 0;
             }
@@ -157,15 +157,15 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
             {
                 childIndex = 0;
             }
-            TreeViewItemCountData itemCountData = _mTreeItemCountMgr.GetTreeItem(itemIndex);
+            TreeViewItemCountData itemCountData = mTreeItemCountMgr.GetTreeItem(itemIndex);
             if(itemCountData == null)
             {
                 return;
             }
-            int childCount = itemCountData.MChildCount;
-            if (itemCountData.MIsExpand == false || childCount == 0 || childIndex == 0)
+            int childCount = itemCountData.mChildCount;
+            if (itemCountData.mIsExpand == false || childCount == 0 || childIndex == 0)
             {
-                finalIndex = itemCountData.MBeginIndex;
+                finalIndex = itemCountData.mBeginIndex;
             }
             else
             {
@@ -177,30 +177,30 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 {
                     childIndex = 1;
                 }
-                finalIndex = itemCountData.MBeginIndex + childIndex;
+                finalIndex = itemCountData.mBeginIndex + childIndex;
             }
             mLoopListView.MovePanelToItemIndex(finalIndex, 0);
         }
 
         void OnExpandAllBtnClicked()
         {
-            int count = _mTreeItemCountMgr.TreeViewItemCount;
+            int count = mTreeItemCountMgr.TreeViewItemCount;
             for (int i = 0; i < count; ++i)
             {
-                _mTreeItemCountMgr.SetItemExpand(i, true);
+                mTreeItemCountMgr.SetItemExpand(i, true);
             }
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+            mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
         }
 
         void OnCollapseAllBtnClicked()
         {
-            int count = _mTreeItemCountMgr.TreeViewItemCount;
+            int count = mTreeItemCountMgr.TreeViewItemCount;
             for (int i = 0; i < count; ++i)
             {
-                _mTreeItemCountMgr.SetItemExpand(i, false);
+                mTreeItemCountMgr.SetItemExpand(i, false);
             }
-            mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
+            mLoopListView.SetListItemCount(mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
             mLoopListView.RefreshAllShownItem();
         }
 

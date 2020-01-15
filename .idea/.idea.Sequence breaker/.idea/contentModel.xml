@@ -607,6 +607,7 @@
               <e p="CharacterStatusDisplay.cs" t="Include" />
               <e p="CharacterTreeViewDataSourceMgr.cs" t="Include" />
               <e p="CharacterTreeViewWithStickyHeadScript.cs" t="Include" />
+              <e p="DetailCell.cs" t="Include" />
               <e p="InventoryItemList.cs" t="Include" />
               <e p="InventoryListItemContent.cs" t="Include" />
               <e p="InventoryListItemSubTitle.cs" t="Include" />
@@ -620,6 +621,10 @@
               <e p="HomeListContents.cs" t="Include" />
               <e p="HomeListDataSourceMgr.cs" t="Include" />
               <e p="HomeListItem.cs" t="Include" />
+            </e>
+            <e p="WandObsolateEquipListView" t="Include">
+              <e p="EquipListContents.cs" t="Include" />
+              <e p="EquipListDataSourceMgr.cs" t="Include" />
             </e>
           </e>
           <e p="Master" t="Include">

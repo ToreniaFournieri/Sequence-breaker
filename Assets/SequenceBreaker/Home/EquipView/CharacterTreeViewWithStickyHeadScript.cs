@@ -92,7 +92,7 @@ namespace SequenceBreaker.Home.EquipView
                 countData = _mTreeItemCountMgr.QueryTreeItemByTotalIndex(i);
                 if (countData != null)
                 {
-                    isHeadAllowExpended.Add(countData.MIsExpand);
+                    isHeadAllowExpended.Add(countData.mIsExpand);
                 }
                 else
                 {
@@ -169,7 +169,7 @@ namespace SequenceBreaker.Home.EquipView
             {
                 return null;
             }
-            int treeItemIndex = countData.MTreeItemIndex;
+            int treeItemIndex = countData.mTreeItemIndex;
             CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
             if (countData.IsChild(index) == false)// if is a TreeItem
             {
@@ -189,7 +189,7 @@ namespace SequenceBreaker.Home.EquipView
                 item.UserIntData2 = 0;
                 itemScript.mText.text = treeViewItemData.MName;
                 itemScript.rightText.text = treeViewItemData.RightText;
-                itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
+                itemScript.SetItemData(treeItemIndex, countData.mIsExpand);
                 return item;
             }
             else// if is a TreeChildItem
@@ -305,10 +305,10 @@ namespace SequenceBreaker.Home.EquipView
             {
                 return;
             }
-            int childCount = itemCountData.MChildCount;
-            if (itemCountData.MIsExpand == false || childCount == 0 || childIndex == 0)
+            int childCount = itemCountData.mChildCount;
+            if (itemCountData.mIsExpand == false || childCount == 0 || childIndex == 0)
             {
-                finalIndex = itemCountData.MBeginIndex;
+                finalIndex = itemCountData.mBeginIndex;
             }
             else
             {
@@ -320,7 +320,7 @@ namespace SequenceBreaker.Home.EquipView
                 {
                     childIndex = 1;
                 }
-                finalIndex = itemCountData.MBeginIndex + childIndex;
+                finalIndex = itemCountData.mBeginIndex + childIndex;
             }
             mLoopListView.MovePanelToItemIndex(finalIndex, _mStickeyHeadItemHeight);
         }
@@ -413,7 +413,7 @@ namespace SequenceBreaker.Home.EquipView
                 }
                 return;
             }
-            if (countData.MIsExpand == false || countData.MChildCount == 0)
+            if (countData.mIsExpand == false || countData.mChildCount == 0)
             {
                 if (isHeadItemVisible)
                 {
@@ -432,7 +432,7 @@ namespace SequenceBreaker.Home.EquipView
                 CharacterTreeViewItemData treeViewItemData = CharacterTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.MName;
                 mStickeyHeadItem.rightText.text = treeViewItemData.RightText;
-                mStickeyHeadItem.SetItemData(itemIndex, countData.MIsExpand);
+                mStickeyHeadItem.SetItemData(itemIndex, countData.mIsExpand);
             }
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;
             float lastChildPosAbs = -end;

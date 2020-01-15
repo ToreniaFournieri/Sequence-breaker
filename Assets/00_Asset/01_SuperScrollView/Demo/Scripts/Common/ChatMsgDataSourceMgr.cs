@@ -52,7 +52,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<ChatMsgDataSourceMgr>();
+                    instance = Object.FindObjectOfType<ChatMsgDataSourceMgr>();
                 }
                 return instance;
             }

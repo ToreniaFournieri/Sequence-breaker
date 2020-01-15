@@ -24,7 +24,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
                 ListItem14Elem elem = new ListItem14Elem();
                 elem.mRootObj = tf.gameObject;
                 elem.mIcon = tf.Find("ItemIcon").GetComponent<Image>();
-                elem.mName = tf.Find("ItemIcon/unitName").GetComponent<Text>();
+                elem.mName = tf.Find("ItemIcon/name").GetComponent<Text>();
                 mElemItemList.Add(elem);
             }
         }

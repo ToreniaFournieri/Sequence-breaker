@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SequenceBreaker.GUIController;
 using SequenceBreaker.Home.EquipListView;
+using SequenceBreaker.Home.WandObsolateEquipListView;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Units;

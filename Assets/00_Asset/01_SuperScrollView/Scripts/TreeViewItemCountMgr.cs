@@ -4,15 +4,15 @@ namespace _00_Asset._01_SuperScrollView.Scripts
 {
     public class TreeViewItemCountData
     {
-        public int MTreeItemIndex = 0;
-        public int MChildCount = 0;
-        public bool MIsExpand = true;
-        public int MBeginIndex = 0;
-        public int MEndIndex = 0;
+        public int mTreeItemIndex = 0;
+        public int mChildCount = 0;
+        public bool mIsExpand = true;
+        public int mBeginIndex = 0;
+        public int mEndIndex = 0;
 
         public bool IsChild(int index)
         {
-            return (index != MBeginIndex);
+            return (index != mBeginIndex);
         }
 
         public int GetChildIndex(int index)
@@ -21,71 +21,71 @@ namespace _00_Asset._01_SuperScrollView.Scripts
             {
                 return -1;
             }
-            return (index - MBeginIndex - 1);
+            return (index - mBeginIndex - 1);
         }
 
     }
     public class TreeViewItemCountMgr
     {
 
-        List<TreeViewItemCountData> _mTreeItemDataList = new List<TreeViewItemCountData>();
-        TreeViewItemCountData _mLastQueryResult = null;
-        bool _mIsDirty = true;
+        List<TreeViewItemCountData> mTreeItemDataList = new List<TreeViewItemCountData>();
+        TreeViewItemCountData mLastQueryResult = null;
+        bool mIsDirty = true;
         public void AddTreeItem(int count, bool isExpand)
         {
             TreeViewItemCountData data = new TreeViewItemCountData();
-            data.MTreeItemIndex = _mTreeItemDataList.Count;
-            data.MChildCount = count;
-            data.MIsExpand = isExpand;
-            _mTreeItemDataList.Add(data);
-            _mIsDirty = true;
+            data.mTreeItemIndex = mTreeItemDataList.Count;
+            data.mChildCount = count;
+            data.mIsExpand = isExpand;
+            mTreeItemDataList.Add(data);
+            mIsDirty = true;
         }
 
         public void Clear()
         {
-            _mTreeItemDataList.Clear();
-            _mLastQueryResult = null;
-            _mIsDirty = true;
+            mTreeItemDataList.Clear();
+            mLastQueryResult = null;
+            mIsDirty = true;
         }
 
         public TreeViewItemCountData GetTreeItem(int treeIndex)
         {
-            if (treeIndex < 0 || treeIndex >= _mTreeItemDataList.Count)
+            if (treeIndex < 0 || treeIndex >= mTreeItemDataList.Count)
             {
                 return null;
             }
-            return _mTreeItemDataList[treeIndex];
+            return mTreeItemDataList[treeIndex];
         }
         public void SetItemChildCount(int treeIndex, int count)
         {
-            if (treeIndex < 0 || treeIndex >= _mTreeItemDataList.Count)
+            if (treeIndex < 0 || treeIndex >= mTreeItemDataList.Count)
             {
                 return;
             }
-            _mIsDirty = true;
-            TreeViewItemCountData data = _mTreeItemDataList[treeIndex];
-            data.MChildCount = count;
+            mIsDirty = true;
+            TreeViewItemCountData data = mTreeItemDataList[treeIndex];
+            data.mChildCount = count;
         }
         public void SetItemExpand(int treeIndex, bool isExpand)
         {
-            if (treeIndex < 0 || treeIndex >= _mTreeItemDataList.Count)
+            if (treeIndex < 0 || treeIndex >= mTreeItemDataList.Count)
             {
                 return;
             }
-            _mIsDirty = true;
-            TreeViewItemCountData data = _mTreeItemDataList[treeIndex];
-            data.MIsExpand = isExpand;
+            mIsDirty = true;
+            TreeViewItemCountData data = mTreeItemDataList[treeIndex];
+            data.mIsExpand = isExpand;
         }
 
         public void ToggleItemExpand(int treeIndex)
         {
-            if (treeIndex < 0 || treeIndex >= _mTreeItemDataList.Count)
+            if (treeIndex < 0 || treeIndex >= mTreeItemDataList.Count)
             {
                 return;
             }
-            _mIsDirty = true;
-            TreeViewItemCountData data = _mTreeItemDataList[treeIndex];
-            data.MIsExpand = !data.MIsExpand;
+            mIsDirty = true;
+            TreeViewItemCountData data = mTreeItemDataList[treeIndex];
+            data.mIsExpand = !data.mIsExpand;
         }
 
         public bool IsTreeItemExpand(int treeIndex)
@@ -95,34 +95,32 @@ namespace _00_Asset._01_SuperScrollView.Scripts
             {
                 return false;
             }
-            return data.MIsExpand;
+            return data.mIsExpand;
         }
-
-
 
         void UpdateAllTreeItemDataIndex()
         {
-            if (_mIsDirty == false)
+            if (mIsDirty == false)
             {
                 return;
             }
-            _mLastQueryResult = null;
-            _mIsDirty = false;
-            int count = _mTreeItemDataList.Count;
+            mLastQueryResult = null;
+            mIsDirty = false;
+            int count = mTreeItemDataList.Count;
             if (count == 0)
             {
                 return;
             }
-            TreeViewItemCountData data0 = _mTreeItemDataList[0];
-            data0.MBeginIndex = 0;
-            data0.MEndIndex = (data0.MIsExpand ? data0.MChildCount : 0);
-            int curEnd = data0.MEndIndex;
+            TreeViewItemCountData data0 = mTreeItemDataList[0];
+            data0.mBeginIndex = 0;
+            data0.mEndIndex = (data0.mIsExpand ? data0.mChildCount : 0);
+            int curEnd = data0.mEndIndex;
             for (int i = 1; i < count; ++i)
             {
-                TreeViewItemCountData data = _mTreeItemDataList[i];
-                data.MBeginIndex = curEnd + 1;
-                data.MEndIndex = data.MBeginIndex + (data.MIsExpand ? data.MChildCount : 0);
-                curEnd = data.MEndIndex;
+                TreeViewItemCountData data = mTreeItemDataList[i];
+                data.mBeginIndex = curEnd + 1;
+                data.mEndIndex = data.mBeginIndex + (data.mIsExpand ? data.mChildCount : 0);
+                curEnd = data.mEndIndex;
             }
         }
 
@@ -130,19 +128,19 @@ namespace _00_Asset._01_SuperScrollView.Scripts
         {
             get
             {
-                return _mTreeItemDataList.Count;
+                return mTreeItemDataList.Count;
             }
         }
 
         public int GetTotalItemAndChildCount()
         {
-            int count = _mTreeItemDataList.Count;
+            int count = mTreeItemDataList.Count;
             if (count == 0)
             {
                 return 0;
             }
             UpdateAllTreeItemDataIndex();
-            return _mTreeItemDataList[count - 1].MEndIndex + 1;
+            return mTreeItemDataList[count - 1].mEndIndex + 1;
         }
         public TreeViewItemCountData QueryTreeItemByTotalIndex(int totalIndex)
         {
@@ -150,17 +148,17 @@ namespace _00_Asset._01_SuperScrollView.Scripts
             {
                 return null;
             }
-            int count = _mTreeItemDataList.Count;
+            int count = mTreeItemDataList.Count;
             if (count == 0)
             {
                 return null;
             }
             UpdateAllTreeItemDataIndex();
-            if (_mLastQueryResult != null)
+            if (mLastQueryResult != null)
             {
-                if (_mLastQueryResult.MBeginIndex <= totalIndex && _mLastQueryResult.MEndIndex >= totalIndex)
+                if (mLastQueryResult.mBeginIndex <= totalIndex && mLastQueryResult.mEndIndex >= totalIndex)
                 {
-                    return _mLastQueryResult;
+                    return mLastQueryResult;
                 }
             }
             int low = 0;
@@ -169,13 +167,13 @@ namespace _00_Asset._01_SuperScrollView.Scripts
             while (low <= high)
             {
                 int mid = (low + high) / 2;
-                data = _mTreeItemDataList[mid];
-                if (data.MBeginIndex <= totalIndex && data.MEndIndex >= totalIndex)
+                data = mTreeItemDataList[mid];
+                if (data.mBeginIndex <= totalIndex && data.mEndIndex >= totalIndex)
                 {
-                    _mLastQueryResult = data;
+                    mLastQueryResult = data;
                     return data;
                 }
-                else if (totalIndex > data.MEndIndex)
+                else if (totalIndex > data.mEndIndex)
                 {
                     low = mid + 1;
                 }

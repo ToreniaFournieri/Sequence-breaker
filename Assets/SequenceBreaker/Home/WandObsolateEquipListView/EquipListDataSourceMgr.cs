@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace SequenceBreaker.Home.EquipListView
+namespace SequenceBreaker.Home.WandObsolateEquipListView
 {
     
 

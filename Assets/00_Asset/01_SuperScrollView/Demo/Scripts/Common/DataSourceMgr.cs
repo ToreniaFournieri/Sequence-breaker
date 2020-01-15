@@ -37,7 +37,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.Common
             {
                 if (instance == null)
                 {
-                    instance = FindObjectOfType<DataSourceMgr>();
+                    instance = Object.FindObjectOfType<DataSourceMgr>();
                 }
                 return instance;
             }

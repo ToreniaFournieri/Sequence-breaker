@@ -133,7 +133,7 @@ namespace SequenceBreaker.Home.EquipListView
             {
                 return null;
             }
-            int treeItemIndex = countData.MTreeItemIndex;
+            int treeItemIndex = countData.mTreeItemIndex;
             EquipListTreeViewItemData treeViewItemData = EquipListTreeViewDataSourceMgr.Get.GetItemDataByIndex(treeItemIndex);
             //UnitClass unitClass = EquipListTreeViewDataSourceMgr.Get.selectedCharacter;
             if (countData.IsChild(index) == false)// if is a TreeItem
@@ -155,7 +155,7 @@ namespace SequenceBreaker.Home.EquipListView
                 item.UserIntData2 = 0;
                 itemScript.mText.text = treeViewItemData.MName;
                 //itemScript.rightText.text = treeViewItemData.RightText;
-                itemScript.SetItemData(treeItemIndex, countData.MIsExpand);
+                itemScript.SetItemData(treeItemIndex, countData.mIsExpand);
                 return item;
             }
             else// if is a TreeChildItem
@@ -245,10 +245,10 @@ namespace SequenceBreaker.Home.EquipListView
             {
                 return;
             }
-            int childCount = itemCountData.MChildCount;
-            if (itemCountData.MIsExpand == false || childCount == 0 || childIndex == 0)
+            int childCount = itemCountData.mChildCount;
+            if (itemCountData.mIsExpand == false || childCount == 0 || childIndex == 0)
             {
-                finalIndex = itemCountData.MBeginIndex;
+                finalIndex = itemCountData.mBeginIndex;
             }
             else
             {
@@ -260,7 +260,7 @@ namespace SequenceBreaker.Home.EquipListView
                 {
                     childIndex = 1;
                 }
-                finalIndex = itemCountData.MBeginIndex + childIndex;
+                finalIndex = itemCountData.mBeginIndex + childIndex;
             }
             mLoopListView.MovePanelToItemIndex(finalIndex, _mStickeyHeadItemHeight);
         }
@@ -353,7 +353,7 @@ namespace SequenceBreaker.Home.EquipListView
                 }
                 return;
             }
-            if (countData.MIsExpand == false || countData.MChildCount == 0)
+            if (countData.mIsExpand == false || countData.mChildCount == 0)
             {
                 if (isHeadItemVisible)
                 {
@@ -372,7 +372,7 @@ namespace SequenceBreaker.Home.EquipListView
                 EquipListTreeViewItemData treeViewItemData = EquipListTreeViewDataSourceMgr.Get.GetItemDataByIndex(itemIndex);
                 mStickeyHeadItem.mText.text = treeViewItemData.MName;
                 //mStickeyHeadItem.rightText.text = treeViewItemData.RightText;
-                mStickeyHeadItem.SetItemData(itemIndex, countData.MIsExpand);
+                mStickeyHeadItem.SetItemData(itemIndex, countData.mIsExpand);
             }
             mStickeyHeadItem.gameObject.transform.localPosition = Vector3.zero;
             float lastChildPosAbs = -end;
