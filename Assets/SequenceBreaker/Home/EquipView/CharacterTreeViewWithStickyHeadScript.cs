@@ -119,6 +119,7 @@ namespace SequenceBreaker.Home.EquipView
 
             mLoopListView.RefreshAllShownItem();
 
+
             //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
             //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
