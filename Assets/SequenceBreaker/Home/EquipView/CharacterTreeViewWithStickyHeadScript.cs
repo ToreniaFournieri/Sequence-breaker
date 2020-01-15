@@ -117,10 +117,9 @@ namespace SequenceBreaker.Home.EquipView
 
             mLoopListView.SetListItemCount(_mTreeItemCountMgr.GetTotalItemAndChildCount(), false);
 
+            mLoopListView.RefreshAllShownItem();
 
-            //mLoopListView.RefreshAllShownItem();
-
-            mLoopListView.RefreshAllShownItemWithFirstIndex(0);
+            //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
             //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
 
@@ -128,6 +127,7 @@ namespace SequenceBreaker.Home.EquipView
 
             //mLoopListView.RefreshAllShownItem();
             //UpdateStickeyHeadPos();
+
 
         }
 
