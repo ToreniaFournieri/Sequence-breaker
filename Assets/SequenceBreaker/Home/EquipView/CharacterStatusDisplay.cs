@@ -32,33 +32,16 @@ namespace SequenceBreaker.Home.EquipView
 
         public void SetCharacterStatus(UnitClass targetCharacter)
         {
-            //bool isChanged = true;
-            //if (selectedCharacter == targetCharacter)
-            //{
-            //    isChanged = false;
-            //}
+
             //1. set selected character.
             selectedCharacter = targetCharacter;
-
-            //characterTreeViewWithStickyHeadScript.mLoopListView.RefreshAllShownItem();
-            //Debug.Log("SetCharacter: " + targetCharacter);
 
             //2. Set Character infomation and each item into the  List<CharacterTreeViewItemData> _mItemDataList.
             characterTreeViewDataSourceMgr.Init();
 
             //3. Update sticky header infomation.
-
-            //if (isChanged)
-            //{
-            //    characterTreeViewWithStickyHeadScript.scrollRectTransform.anchoredPosition
-            //        = new Vector2(0, 0);
-            //}
-
-            //characterTreeViewWithStickyHeadScript.mLoopListView.GetShownItemByIndexWithoutCheck
             characterTreeViewWithStickyHeadScript.Initialization();
-            Debug.Log("SetCharacter after sticky init: " + targetCharacter);
 
-            //4. need to update cells.
 
 
 
