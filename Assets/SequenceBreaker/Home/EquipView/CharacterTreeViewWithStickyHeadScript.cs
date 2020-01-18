@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _00_Asset._01_SuperScrollView.Scripts;
 using _00_Asset._01_SuperScrollView.Scripts.Common;
 using _00_Asset._01_SuperScrollView.Scripts.ListView;
+using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
+using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -120,9 +123,21 @@ namespace SequenceBreaker.Home.EquipView
             mLoopListView.RefreshAllShownItem();
 
 
+            //float height = 0;
+            //foreach (Transform child in scrollRectTransform)
+            //{
+            //    //if (child.gameObject.activeSelf)
+            //    {
+            //        height += child.GetComponent<RectTransform>().rect.height;
+            //        Debug.Log(height + " height + " + child.GetComponent<RectTransform>().rect.height);
+            //    }
+            //}
+
+            //scrollRectTransform.sizeDelta = new Vector2(scrollRectTransform.sizeDelta.x, scrollRectTransform.sizeDelta.y + 2000);
             //mLoopListView.RefreshAllShownItemWithFirstIndex(0);
 
             //mLoopListView.InitListView(_mTreeItemCountMgr.GetTotalItemAndChildCount(), OnGetItemByIndex);
+
 
             //scrollRectTransform.anchoredPosition = new Vector2(_anchoredPositionX, _anchoredPositionY);
 
@@ -224,6 +239,7 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem = listView.NewListViewItem("CharacterStatusCell");
                     characterStatus = loopListItem.GetComponent<CharacterStatusCell>();
 
+
                     if (loopListItem.IsInitHandlerCalled == false)
                     {
                         loopListItem.IsInitHandlerCalled = true;
@@ -237,6 +253,20 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem.UserIntData2 = childIndex;
                     characterStatus.SetCharacterStatusData(characterStatusDisplay.selectedCharacter);
 
+
+
+                    //characterStatus.gameObject.GetComponent<RectTransform>().ForceUpdateRectTransforms();
+                    //float _height = characterStatus.gameObject.GetComponent<RectTransform>().rect.height;
+
+
+
+                    // 130 is fixed heigh of Icon And Text
+
+                    float height = 0;
+                    string[] lines = characterStatus.detailText.text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                    characterStatus.detailText.font = Word.Font();
+                    height = lines.Length * float.Parse(LocalizationManager.GetTranslation("FONT-StatusHeightSize"));
+                    loopListItem.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height + 130);
 
                 }
                 else
@@ -258,6 +288,8 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem.UserIntData2 = childIndex;
                     itemScript.SetItemData(item, treeItemIndex, childIndex);
                 }
+
+
 
 
                 return loopListItem;

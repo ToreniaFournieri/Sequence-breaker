@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
 {
-
-    public class TreeViewWithStickyHeadDemoScript : MonoBehaviour
+      public class TreeViewWithStickyHeadDemoScript : MonoBehaviour
     {
         public LoopListView2 mLoopListView;
         Button mScrollToButton;
@@ -153,6 +152,8 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
                 item.UserIntData1 = treeItemIndex;
                 item.UserIntData2 = childIndex;
                 itemScript.SetItemData(itemData, treeItemIndex, childIndex);
+                float height = Random.Range(200, 400);//random the item's height, just for demo show
+                item.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
                 return item;
             }
 
@@ -374,5 +375,7 @@ namespace _00_Asset._01_SuperScrollView.Demo.Scripts.ListView
 
 
     }
+
+
 
 }
