@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/00_Asset/08_Easy Panel Transitions/Scripts/PanelAnimator.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="267" Column="67" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewWithStickyHeadScript.cs" Line="271" Column="18" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterTreeViewDataSourceMgr.cs" Line="86" Column="21" />
       <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusDisplay.cs" Line="43" Column="54" />
       <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="103" Column="45" />
+      <File FileName="Assets/SequenceBreaker/GUIController/TouchEffect.cs" Line="14" Column="69" />
+      <File FileName="Assets/00_Asset/08_Easy Panel Transitions/Scripts/PanelAnimator.cs" Line="63" Column="64" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

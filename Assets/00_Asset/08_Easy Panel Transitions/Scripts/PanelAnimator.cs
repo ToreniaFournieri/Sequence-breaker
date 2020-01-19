@@ -59,8 +59,8 @@ namespace _00_Asset._08_Easy_Panel_Transitions.Scripts
         void Start()
         {
             //Modification Torenia Fournieri
-            Debug.Log(transform.root.GetComponent<RectTransform>().rect.width + " top gameobject witdh: " + gameObject.name
-                + " name of loot is " + transform.root.name);
+            //Debug.Log(transform.root.GetComponent<RectTransform>().rect.width + " top gameobject witdh: " + gameObject.name
+            //    + " name of loot is " + transform.root.name);
             outAnimEndPosition = new Vector3(transform.root.GetComponent<RectTransform>().rect.width + 10f, 0f, 0f);
             // End Modification
 
