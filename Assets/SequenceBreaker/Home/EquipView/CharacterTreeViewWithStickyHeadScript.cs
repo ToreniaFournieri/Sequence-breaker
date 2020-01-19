@@ -266,7 +266,7 @@ namespace SequenceBreaker.Home.EquipView
                     string[] lines = characterStatus.detailText.text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
                     characterStatus.detailText.font = Word.Font();
                     height = lines.Length * float.Parse(LocalizationManager.GetTranslation("FONT-StatusHeightSize"));
-                    loopListItem.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height + 130);
+                    loopListItem.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height + 130 + 12);
 
                 }
                 else
@@ -287,6 +287,10 @@ namespace SequenceBreaker.Home.EquipView
                     loopListItem.UserIntData1 = treeItemIndex;
                     loopListItem.UserIntData2 = childIndex;
                     itemScript.SetItemData(item, treeItemIndex, childIndex);
+
+                    loopListItem.CachedRectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,120);
+
+
                 }
 
 

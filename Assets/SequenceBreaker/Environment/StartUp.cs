@@ -7,6 +7,7 @@ using SequenceBreaker.Master.Mission;
 using SequenceBreaker.Master.Units;
 using SequenceBreaker.Play.MissionView;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SequenceBreaker.Environment
 {
@@ -45,6 +46,9 @@ namespace SequenceBreaker.Environment
             InitializeInventory();
             transparentMessageController.transparentMessage.SetActive(true);
 
+//gameObject.GetComponent<CanvasScaler>().referenceResolution.y / gameObject.GetComponent<CanvasScaler>().matchWidthOrHeight
+            //Debug.Log( gameObject.GetComponent<RectTransform>().rect.width + " rect.width");
+
 
             //Import ally info
             EquipListContentData allyEquipListContentData;
@@ -61,9 +65,12 @@ namespace SequenceBreaker.Environment
                 {
                     foreach (UnitClass unit in wave.unitWave)
                     {
-                        unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
-                        unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
-                        unit.CalculateLevel();
+                        if (unit.affiliation == Affiliation.Ally)
+                        {
+                            unit.itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
+                            unit.experience = ItemDataBase.instance.LoadUnitInfo(unit).experience;
+                            unit.CalculateLevel();
+                        }
                         //allyEquipListContentData.unitClassList.Add(unit);
                     }
 

@@ -1,160 +1,163 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace _00_Asset._08_Easy_Panel_Transitions.Scripts
 {
-	public class PanelAnimator : MonoBehaviour {
-    
-		[Header ("In Animation")]
+    public class PanelAnimator : MonoBehaviour
+    {
 
-		[Tooltip("From (0,0) to (1,1), the curve used by the animation")]
-		public AnimationCurve inAnim;
+        [Header("In Animation")]
 
-		[Tooltip("How long this Animation should take (Seconds)")]
-		public float inAnimDuration;
+        [Tooltip("From (0,0) to (1,1), the curve used by the animation")]
+        public AnimationCurve inAnim;
 
-		[Tooltip("What is the final position of this Animation?")]
-		public Vector3 inAnimEndPosition;
+        [Tooltip("How long this Animation should take (Seconds)")]
+        public float inAnimDuration;
 
-		[Header("Out Animation")]
+        [Tooltip("What is the final position of this Animation?")]
+        public Vector3 inAnimEndPosition;
 
-		[Tooltip("From (0,0) to (1,1), the curve used by the animation")]
-		public AnimationCurve outAnim;
+        [Header("Out Animation")]
 
-		[Tooltip("How long this Animation should take (Seconds)")]
-		public float outAnimDuration;
+        [Tooltip("From (0,0) to (1,1), the curve used by the animation")]
+        public AnimationCurve outAnim;
 
-		[Tooltip("What is the final position of this Animation?")]
-		public Vector3 outAnimEndPosition;
+        [Tooltip("How long this Animation should take (Seconds)")]
+        public float outAnimDuration;
 
-		[Header("Animation Controllers")]
+        [Tooltip("What is the final position of this Animation?")]
+        public Vector3 outAnimEndPosition;
 
-		[Tooltip("Should the object begin off-screen?")]
-		public bool startOffScreen;
+        [Header("Animation Controllers")]
 
-		[Tooltip("When the scene starts, should this panel animate in?")]
-		public bool AnimateInOnStart;
+        [Tooltip("Should the object begin off-screen?")]
+        public bool startOffScreen;
 
-		[Tooltip("The RectTransform of the UI Object")]
+        [Tooltip("When the scene starts, should this panel animate in?")]
+        public bool AnimateInOnStart;
 
-		private RectTransform animObject;
-		public enum AnimState
-		{
-			none,
-			into,
-			outro
-		}
-		private AnimState animState;
-		private Vector3 animStartPosition;
-		private float animationStartTime;
-		private float animationEndTime;
+        [Tooltip("The RectTransform of the UI Object")]
 
-		public void Awake()
-		{
-			animState = AnimState.none;
-			
-			//Modification Torenia Fournieri
-//			Debug.Log("Screen x:" + Screen.currentResolution.width + " y:" + Screen.currentResolution.height);
-			outAnimEndPosition = new Vector3(Screen.currentResolution.width / 0.491f + 10f,0f, 0f);
+        private RectTransform animObject;
+        public enum AnimState
+        {
+            none,
+            into,
+            outro
+        }
+        private AnimState animState;
+        private Vector3 animStartPosition;
+        private float animationStartTime;
+        private float animationEndTime;
 
-			// End Modification
-		}
+        public void Awake()
+        {
+            animState = AnimState.none;
+        }
 
-		// Use this for initialization
-		void Start () 
-		{
-			animObject = GetComponent<RectTransform>();
+        // Use this for initialization
+        void Start()
+        {
+            //Modification Torenia Fournieri
+            Debug.Log(transform.root.GetComponent<RectTransform>().rect.width + " top gameobject witdh: " + gameObject.name
+                + " name of loot is " + transform.root.name);
+            outAnimEndPosition = new Vector3(transform.root.GetComponent<RectTransform>().rect.width + 10f, 0f, 0f);
+            // End Modification
 
-			if(startOffScreen)
-				animObject.localPosition = outAnimEndPosition;
 
-			if (AnimateInOnStart)
-			{
-				animObject.localPosition = outAnimEndPosition;
-				StartAnimIn();
-			}
-		}
-	
-		// Update is called once per frame
-		void Update () 
-		{
-			switch(animState)
-			{
-				case AnimState.into:
-				{
-					AnimateIn();
-					break;
-				}
-				case AnimState.outro:
-				{
-					AnimateOut();
-					break;
-				}
-				case AnimState.none:
-				{
-					// do nothing
-					break;
-				}
-			}
-		}
+            animObject = GetComponent<RectTransform>();
 
-		// Manage beginning the "in" animation
-		public void StartAnimIn()
-		{
-			// set up variables and change the state
-			animState = AnimState.none;
-			animationStartTime = Time.timeSinceLevelLoad;
-			animationEndTime = Time.timeSinceLevelLoad + inAnimDuration;
-			animStartPosition = animObject.localPosition;
-			animState = AnimState.into;
-		}
+            if (startOffScreen)
+                animObject.localPosition = outAnimEndPosition;
 
-		// Manage beginning the "out" animation
-		public void StartAnimOut()
-		{
-			// set up variables and change the state
-			animState = AnimState.none;
-			animationStartTime = Time.timeSinceLevelLoad;
-			animationEndTime = Time.timeSinceLevelLoad + outAnimDuration;
-			animStartPosition = animObject.localPosition;
-			animState = AnimState.outro;
-		}
+            if (AnimateInOnStart)
+            {
+                animObject.localPosition = outAnimEndPosition;
+                StartAnimIn();
+            }
+        }
 
-		private void AnimateIn()
-		{
-			// every frame, update the animation
-			if (animationEndTime >= Time.timeSinceLevelLoad)
-			{
-				// Get the appropriate value from the AnimationCurve using a normalised value
-				float curveValue = inAnim.Evaluate((Time.timeSinceLevelLoad - animationStartTime) / (animationEndTime - animationStartTime));
+        // Update is called once per frame
+        void Update()
+        {
+            switch (animState)
+            {
+                case AnimState.into:
+                    {
+                        AnimateIn();
+                        break;
+                    }
+                case AnimState.outro:
+                    {
+                        AnimateOut();
+                        break;
+                    }
+                case AnimState.none:
+                    {
+                        // do nothing
+                        break;
+                    }
+            }
+        }
 
-				// lerp between positions
-				animObject.localPosition = Vector3.LerpUnclamped(animStartPosition, inAnimEndPosition, curveValue);
-			}
-			else
-			{
-				// clean up and end the animation
-				animObject.localPosition = inAnimEndPosition; // Force the object to its destination
-				animState = AnimState.none;
-			}
-		}
+        // Manage beginning the "in" animation
+        public void StartAnimIn()
+        {
+            // set up variables and change the state
+            animState = AnimState.none;
+            animationStartTime = Time.timeSinceLevelLoad;
+            animationEndTime = Time.timeSinceLevelLoad + inAnimDuration;
+            animStartPosition = animObject.localPosition;
+            animState = AnimState.into;
+        }
 
-		private void AnimateOut()
-		{
-			// every frame, update the animation
-			if(animationEndTime >= Time.timeSinceLevelLoad)
-			{
-				// Get the appropriate value from the AnimationCurve using a normalised value
-				float curveValue = inAnim.Evaluate((Time.timeSinceLevelLoad - animationStartTime) / (animationEndTime - animationStartTime));
+        // Manage beginning the "out" animation
+        public void StartAnimOut()
+        {
+            // set up variables and change the state
+            animState = AnimState.none;
+            animationStartTime = Time.timeSinceLevelLoad;
+            animationEndTime = Time.timeSinceLevelLoad + outAnimDuration;
+            animStartPosition = animObject.localPosition;
+            animState = AnimState.outro;
+        }
 
-				// leap between positions
-				animObject.localPosition = Vector3.LerpUnclamped(animStartPosition, outAnimEndPosition, curveValue);
-			}
-			else
-			{
-				// clean up and end the animation
-				animObject.localPosition = outAnimEndPosition; // Force the object to its destination
-				animState = AnimState.none;
-			}
-		}
-	}
+        private void AnimateIn()
+        {
+            // every frame, update the animation
+            if (animationEndTime >= Time.timeSinceLevelLoad)
+            {
+                // Get the appropriate value from the AnimationCurve using a normalised value
+                float curveValue = inAnim.Evaluate((Time.timeSinceLevelLoad - animationStartTime) / (animationEndTime - animationStartTime));
+
+                // lerp between positions
+                animObject.localPosition = Vector3.LerpUnclamped(animStartPosition, inAnimEndPosition, curveValue);
+            }
+            else
+            {
+                // clean up and end the animation
+                animObject.localPosition = inAnimEndPosition; // Force the object to its destination
+                animState = AnimState.none;
+            }
+        }
+
+        private void AnimateOut()
+        {
+            // every frame, update the animation
+            if (animationEndTime >= Time.timeSinceLevelLoad)
+            {
+                // Get the appropriate value from the AnimationCurve using a normalised value
+                float curveValue = inAnim.Evaluate((Time.timeSinceLevelLoad - animationStartTime) / (animationEndTime - animationStartTime));
+
+                // leap between positions
+                animObject.localPosition = Vector3.LerpUnclamped(animStartPosition, outAnimEndPosition, curveValue);
+            }
+            else
+            {
+                // clean up and end the animation
+                animObject.localPosition = outAnimEndPosition; // Force the object to its destination
+                animState = AnimState.none;
+            }
+        }
+    }
 }
