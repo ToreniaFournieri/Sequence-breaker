@@ -441,9 +441,9 @@ namespace SequenceBreaker.Play.Battle
                 switch (justCrushedEnemy.Count)
                 {
                     case 1:
-                        speechText = justCrushedEnemy[0].name + " is crushed, well done " + order.Actor.name + "."; break;
+                        //speechText = justCrushedEnemy[0].name + " is crushed, well done " + order.Actor.name + "."; break;
                     case 2:
-                        speechText = "Double crushed! good job " + order.Actor.name + "."; break;
+                        //speechText = "Double crushed! good job " + order.Actor.name + "."; break;
                     case 3:
                         speechText = "Triple crushed! " + order.Actor.name + ", Keep going."; break;
                     default:

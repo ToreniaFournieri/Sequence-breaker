@@ -489,16 +489,17 @@ namespace SequenceBreaker.Play.Battle
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
 
-                                    ////Navigation Logic
-                                    //var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
-                                    //    _characters, _effects, orderStatus);
+                                    //Navigation Logic
+                                    var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
+                                        _characters, _effects, orderStatus);
 
-                                    //List<string> navigationLog  = new List<string>();
-                                    //navigationLog.Add(navigatorSpeechAfterMove.Log);
+                                    List<string> navigationLog = new List<string>();
+                                    navigationLog.Add(navigatorSpeechAfterMove.Log);
+                                    if (navigatorSpeechAfterMove.Log == null) continue;
                                     //if (navigationLog.Count == 0) continue;
                                     //navigationLog += new string(' ', 2) + "-------------\n";
-                                    //battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
-                                    //battleLogList.Add(battleLog);
+                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
+                                    battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
                             } // action Phase.
