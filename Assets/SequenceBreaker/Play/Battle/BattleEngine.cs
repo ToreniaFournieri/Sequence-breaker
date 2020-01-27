@@ -99,7 +99,7 @@ namespace SequenceBreaker.Play.Battle
             // Battle environment setting
             const int battleWavesSets = 1;
             const int battleWaves = 1; // one set of battle 
-            //const string navigatorName = "Navigator";
+            const string navigatorName = "Navigator";
 
             //FuncBattleConditionsText text;
             int seed = (int)DateTime.Now.Ticks; // when you find something wrong, use seed value to Reproduction the situation
@@ -448,6 +448,8 @@ namespace SequenceBreaker.Play.Battle
                                     }
 
                                     //[6]. ------------------------ReAction Skill - check.------------------------
+                                    var orderStatus = new OrderStatusClass(); orderStatus.Initialize();
+
 
                                     var nestNumber = 0;
 
@@ -483,8 +485,20 @@ namespace SequenceBreaker.Play.Battle
                                     while (reAttackStack != null && reAttackStack.Count > 0) { orders.Push(reAttackStack.Pop()); nestNumber++; }
 
                                     //[7-4]. Push rescue
+                                    if (damageControlAssistStack != null) { orderStatus.DamageControlAssistCount = damageControlAssistStack.Count; }
                                     while (damageControlAssistStack != null && damageControlAssistStack.Count > 0) { orders.Push(damageControlAssistStack.Pop()); nestNumber++; }
 
+
+                                    ////Navigation Logic
+                                    //var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
+                                    //    _characters, _effects, orderStatus);
+
+                                    //List<string> navigationLog  = new List<string>();
+                                    //navigationLog.Add(navigatorSpeechAfterMove.Log);
+                                    //if (navigationLog.Count == 0) continue;
+                                    //navigationLog += new string(' ', 2) + "-------------\n";
+                                    //battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation);
+                                    //battleLogList.Add(battleLog);
                                 }  // Until all Characters act.
 
                             } // action Phase.
