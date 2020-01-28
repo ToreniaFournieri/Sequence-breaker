@@ -49,6 +49,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         // this is temp.
         public Sprite allyImage;
         public Sprite enemyImage;
+        public Sprite naviImage;
 
         //public SimpleObjectPool unitIconObjectPool;
         //public SimpleObjectPool mainTextObjectPool;
@@ -171,7 +172,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
                 //Debug.Log((count) + " text: " + t1.MainText);
                 int cellSize = (count) * int.Parse(LocalizationManager.GetTranslation("FONT-BattleLogHightSize")) + additionalHight;
-                const int cellMinSize = 220;
+                const int cellMinSize = 240;
                 if (cellSize < cellMinSize) { cellSize = cellMinSize; }
 
                 if (t1.IsHeaderInfo)
@@ -191,7 +192,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
             foreach (Transform child in parentJumpIndex)
             {
-                if(child.name == index.ToString())
+                if (child.name == index.ToString())
                 {
                     //Debug.Log("Bingo!" + child.name);
                     child.GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
@@ -387,6 +388,14 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 else if (dataList[dataIndex].Affiliation == Affiliation.Enemy)
                 {
                     setSprite = enemyImage;
+
+                }
+
+                // Over ride 
+                if (dataList[dataIndex].isNavigation)
+                {
+                    setSprite = naviImage;
+                    Debug.Log("navi is called ");
                 }
 
                 cellView.SetData(dataList[dataIndex], nextData, _calculateLayout, setSprite);

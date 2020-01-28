@@ -258,6 +258,7 @@ MonoBehaviour:
   canvasToGetWidth: {fileID: 1184356220}
   allyImage: {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
   enemyImage: {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
+  naviImage: {fileID: 21300000, guid: af3f2fc3a1cc04a259c61759b22984a8, type: 3}
   searchBar: {fileID: 291637266}
   log: {fileID: 978793925}
   searchResultText: {fileID: 1102031299}

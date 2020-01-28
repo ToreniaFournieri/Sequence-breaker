@@ -221,7 +221,8 @@ namespace SequenceBreaker.Play.Prepare
 
                     barrierRemains = battle.LogList[i].Order.Actor.buff.BarrierRemaining;
 
-                    if (battle.LogList[i].Order.Actor.combat.hitPointCurrent > 0)
+
+                    if (battle.LogList[i].Order.Actor.combat.hitPointCurrent > 0 )
                     {
                         isDead = false;
                     }
@@ -235,7 +236,7 @@ namespace SequenceBreaker.Play.Prepare
                 }
 
                 string speedString = null;
-                if (battle.LogList[i].OrderCondition.Speed != 0)
+                if (battle.LogList[i].OrderCondition.Speed != 0 && battle.LogList[i].IsNavigation == false)
                 {
                     speedString = " " + Word.Get("Speed") + ":" + battle.LogList[i].OrderCondition.Speed;
                 }
@@ -299,6 +300,7 @@ namespace SequenceBreaker.Play.Prepare
                     MainTextList = _mainText,
                     BigText = _bigText,
                     Affiliation = battle.LogList[i].WhichAffiliationAct,
+                    isNavigation = battle.LogList[i].IsNavigation ,
                     NestLevel = battle.LogList[i].OrderCondition.Nest,
                     IsDead = isDead,
                     BarrierRemains = barrierRemains,

@@ -33,7 +33,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
 
         public Affiliation Affiliation;
-
+        public bool isNavigation;
 
         /// <summary>
         /// We will store the cell size in the model so that the cell view can update it

@@ -589,7 +589,8 @@ namespace SequenceBreaker.Play.Battle
                 //        + healedByAbsorbShield + " " + Word.Get("shield")+ Word.Get("Period") +  " \n"; }
 
                 var orderCondition = order.OrderCondition;
-                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine, loglist: logList, whichAffiliationAct: order.Actor.affiliation);
+                BattleLog = new BattleLogClass(orderCondition: orderCondition, order: order, firstLine: firstLine,
+                    loglist: logList, whichAffiliationAct: order.Actor.affiliation, false);
             }
         }
 

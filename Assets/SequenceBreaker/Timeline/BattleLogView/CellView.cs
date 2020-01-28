@@ -244,16 +244,39 @@ namespace SequenceBreaker.Timeline.BattleLogView
             Color darkGreen = new Color32(20, 36, 20, 255); // dark green
             Color color = new Color32(24, 24, 24, 255);
             Color unitColor = new Color32(120, 120, 120, 255);
+            Color naviColor = new Color32(255, 255, 255, 255);
 
-            unitIcon.color = unitColor;
-
-            if (data.IsDead)
+            if (data.IsDead && data.isNavigation == false)
             {
+
                 mainUnit.SetActive(false);
             }
             else
             {
+
+                if (data.isNavigation)
+                {
+                    unitIcon.color = naviColor;
+                    iconMask.GetComponent<Image>().color = Color.black;
+                    // Shield Bar(mask)
+
+
+                    mainUnit.transform.GetChild(2).gameObject.SetActive(false);
+                    // HP bar(mask)
+                    mainUnit.transform.GetChild(3).gameObject.SetActive(false);
+                }
+                else
+                {
+                    unitIcon.color = unitColor;
+                    // Shield Bar(mask)
+                    mainUnit.transform.GetChild(2).gameObject.SetActive(true);
+                    // HP bar(mask)
+                    mainUnit.transform.GetChild(3).gameObject.SetActive(true);
+
+                }
+
                 mainUnit.SetActive(true);
+
             }
 
             if (unitSprite != null)
