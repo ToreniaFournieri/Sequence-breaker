@@ -256,7 +256,7 @@ MonoBehaviour:
   jumpIndexPrefab: {fileID: 5769422159230819302, guid: 076204334dbac4e03be4e56d68ee2b82,
     type: 3}
   canvasToGetWidth: {fileID: 1184356220}
-  allyImage: {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
+  allyImage: {fileID: 21300000, guid: 3b8a0e0105c57412bac0744828c6546a, type: 3}
   enemyImage: {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
   naviImage: {fileID: 21300000, guid: af3f2fc3a1cc04a259c61759b22984a8, type: 3}
   searchBar: {fileID: 291637266}

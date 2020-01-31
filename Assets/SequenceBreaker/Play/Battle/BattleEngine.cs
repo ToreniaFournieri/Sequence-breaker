@@ -493,14 +493,12 @@ namespace SequenceBreaker.Play.Battle
                                     var navigatorSpeechAfterMove = new NavigatorSpeechAfterMoveClass(navigatorName, order,
                                         _characters, _effects, orderStatus);
 
-                                    List<string> navigationLog = new List<string>();
-                                    navigationLog.Add(navigatorSpeechAfterMove.Log);
-                                    if (navigatorSpeechAfterMove.Log == null) continue;
-                                    //if (navigationLog.Count == 0) continue;
-                                    //navigationLog += new string(' ', 2) + "-------------\n";
-                                    battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation, true);
-                                    Debug.Log("navi is called :" + navigatorSpeechAfterMove.Log + " " );
-                                    battleLogList.Add(battleLog); 
+                                    //List<string> navigationLog = new List<string>();
+                                    //navigationLog.Add(navigatorSpeechAfterMove.Log);
+                                    //if (navigatorSpeechAfterMove.Log == null) continue;
+                                    //battleLog = new BattleLogClass(order.OrderCondition, null, null, navigationLog, order.Actor.affiliation, true);
+                                    //Debug.Log("navi is called :" + navigatorSpeechAfterMove.Log + " " );
+                                    //battleLogList.Add(battleLog); 
                                 }  // Until all Characters act.
 
                             } // action Phase.

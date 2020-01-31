@@ -179,6 +179,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                         _unitInfoSet.SetValueFromXML(mainString);
                         _gameObject.transform.SetParent(multiMainTextTransform);
                         _gameObject.transform.localScale = new Vector3(1, 1, 1);
+                        _gameObject.GetComponentInChildren<Image>().sprite = unitIcon.sprite;
 
 
                     }

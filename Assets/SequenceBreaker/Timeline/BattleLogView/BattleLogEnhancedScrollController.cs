@@ -383,6 +383,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 Sprite setSprite = null;
                 if (dataList[dataIndex].Affiliation == Affiliation.Ally)
                 {
+
                     setSprite = allyImage;
                 }
                 else if (dataList[dataIndex].Affiliation == Affiliation.Enemy)
