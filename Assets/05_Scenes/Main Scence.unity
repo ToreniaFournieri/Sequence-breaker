@@ -32887,7 +32887,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - ' takes {[X]} damages,[i2p_Zero] takes no damages,[i2p_One] takes {[X]} damage,'
+      - ' takes {[X]} damage,[i2p_Zero] takes no damage,[i2p_One] takes {[X]} damage,'
       - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []

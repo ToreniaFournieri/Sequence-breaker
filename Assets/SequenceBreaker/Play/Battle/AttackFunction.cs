@@ -501,7 +501,7 @@ namespace SequenceBreaker.Play.Battle
                         if (damageRateSpace < 0) { damageRateSpace = 0; }
 
 
-                        logList.Add("<SB_UnitText>" + opponents[fTargetColumn].shortName + Word.Get("takes X damages,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
+                        logList.Add("<SB_UnitText>" + opponents[fTargetColumn].shortName + Word.Get("takes X damage,", totalDealtDamages[opponents[fTargetColumn].uniqueId].WithComma())
                             + " "
                             + Word.Get("X hits.", totalIndividualHits[opponents[fTargetColumn].uniqueId].WithComma()) + "</SB_UnitText>");
 
