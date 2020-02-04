@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20112
   shortName: DD-Fighter
+  unitIconString: 
   affiliation: 1
   unitType: 2
   itemCapacity: 17

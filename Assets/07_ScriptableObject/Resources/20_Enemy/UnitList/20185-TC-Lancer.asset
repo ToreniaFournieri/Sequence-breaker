@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20185
   shortName: TC-Lancer
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 15

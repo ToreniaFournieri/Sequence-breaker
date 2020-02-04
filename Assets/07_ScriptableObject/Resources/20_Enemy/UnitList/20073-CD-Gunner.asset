@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20073
   shortName: CD-Gunner
+  unitIconString: 
   affiliation: 1
   unitType: 1
   itemCapacity: 16

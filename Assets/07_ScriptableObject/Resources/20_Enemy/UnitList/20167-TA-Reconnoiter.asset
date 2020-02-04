@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20167
   shortName: TA-Reconnoiter
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 7

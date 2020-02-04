@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20056
   shortName: CB-Medic
+  unitIconString: 
   affiliation: 1
   unitType: 1
   itemCapacity: 8

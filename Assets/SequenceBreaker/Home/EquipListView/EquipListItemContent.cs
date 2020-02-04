@@ -1,6 +1,7 @@
 ﻿using System;
 using SequenceBreaker.GUIController.Segue;
 using SequenceBreaker.Home.EquipView;
+using SequenceBreaker.Master.Illustrate;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
@@ -138,6 +139,8 @@ namespace SequenceBreaker.Home.EquipListView
         public void SetItemData(UnitClass unitClass, int itemIndex, int childIndex)
         {
             mNameText.text = unitClass.TrueName();
+
+            mIcon.sprite = IconDataBase.instance.GetSprite(unitClass.unitIconString);
 
             int currentAmount = unitClass.GetItemAmount();
             if (unitClass.GetItemAmount() > unitClass.itemCapacity)

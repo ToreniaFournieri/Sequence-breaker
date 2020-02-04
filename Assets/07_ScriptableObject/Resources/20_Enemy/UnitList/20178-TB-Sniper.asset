@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20178
   shortName: TB-Sniper
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 11

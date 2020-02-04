@@ -14871,6 +14871,7 @@ Transform:
   - {fileID: 996112116}
   - {fileID: 296629313}
   - {fileID: 1382343337}
+  - {fileID: 1077076164}
   m_Father: {fileID: 2123972852}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20833,7 +20834,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1427007369}
   m_HandleRect: {fileID: 1427007368}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21334,6 +21335,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070376849}
   m_CullTransparentMesh: 0
+--- !u!1 &1077076163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077076164}
+  - component: {fileID: 1077076165}
+  m_Layer: 0
+  m_Name: IconDataBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077076164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077076163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 913453031}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077076165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077076163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a6081d0ce19430382dcc5126c82019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconSpriteList:
+  - {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
+  - {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
+  - {fileID: 21300000, guid: 3b8a0e0105c57412bac0744828c6546a, type: 3}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
@@ -25077,7 +25125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0010375977}
+  m_AnchoredPosition: {x: 0, y: 0.0010986328}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5000001, y: 1.0000005}
 --- !u!114 &1447162701
@@ -32883,14 +32931,6 @@ MonoBehaviour:
       - "\u30B7\u30FC\u30EB\u30C9"
       Flags: 0000
       Languages_Touch: []
-    - Term: takes X damages,
-      TermType: 0
-      Description: 
-      Languages:
-      - ' takes {[X]} damage,[i2p_Zero] takes no damage,[i2p_One] takes {[X]} damage,'
-      - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
-      Flags: 0000
-      Languages_Touch: []
     - Term: 'to the next level: X'
       TermType: 0
       Description: 
@@ -33057,6 +33097,14 @@ MonoBehaviour:
       Languages:
       - 40.708
       - 52.6519
+      Flags: 0000
+      Languages_Touch: []
+    - Term: takes X damage,
+      TermType: 0
+      Description: 
+      Languages:
+      - ' takes {[X]} damage,[i2p_Zero] takes no damage,[i2p_One] takes {[X]} damage,'
+      - "\u306B {[X]}\u306E\u30C0\u30E1\u30FC\u30B8"
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0

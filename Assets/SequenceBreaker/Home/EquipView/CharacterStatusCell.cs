@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SequenceBreaker.Master.Illustrate;
 using SequenceBreaker.Master.Items;
 using SequenceBreaker.Master.Units;
 using UnityEngine;
@@ -87,6 +88,7 @@ namespace SequenceBreaker.Home.EquipView
             bigOneLineText.text = characterStatusContent.bigText;
             upsideDescriptionText.text = characterStatusContent.upsideDescription;
             detailText.text = characterStatusContent.detailString;
+            characterIcon.sprite = IconDataBase.instance.GetSprite(unitClass.unitIconString);
 
         }
     }

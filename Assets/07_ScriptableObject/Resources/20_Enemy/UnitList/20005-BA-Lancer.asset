@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20005
   shortName: BA-Lancer
+  unitIconString: 
   affiliation: 1
   unitType: 0
   itemCapacity: 3
-  itemList: []
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 4bdce0829c22444d29fc79d7510dd73a, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
   level: 1

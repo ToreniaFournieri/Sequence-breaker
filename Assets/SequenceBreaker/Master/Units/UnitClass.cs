@@ -14,6 +14,7 @@ namespace SequenceBreaker.Master.Units
     {
         public int uniqueId;
         public string shortName;
+        public string unitIconString;
         public Affiliation affiliation;
         public UnitType unitType;
         public int itemCapacity;
@@ -32,6 +33,7 @@ namespace SequenceBreaker.Master.Units
         {
             uniqueId = unit.uniqueId;
             shortName = unit.shortName;
+            unitIconString = unit.unitIconString;
             affiliation = unit.affiliation;
             unitType = unit.unitType;
             itemCapacity = unit.itemCapacity;

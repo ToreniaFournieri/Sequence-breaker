@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20139
   shortName: RB-Tank
+  unitIconString: 
   affiliation: 1
   unitType: 3
   itemCapacity: 10

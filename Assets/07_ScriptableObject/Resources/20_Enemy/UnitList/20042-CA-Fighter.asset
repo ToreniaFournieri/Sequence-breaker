@@ -14,10 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20042
   shortName: CA-Fighter
+  unitIconString: 
   affiliation: 1
   unitType: 1
   itemCapacity: 4
-  itemList: []
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 2d0d01d4b9b5c4ec6ba4027017e2081f, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
   level: 1

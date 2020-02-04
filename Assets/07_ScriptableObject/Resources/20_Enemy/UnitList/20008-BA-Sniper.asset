@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20008
   shortName: BA-Sniper
+  unitIconString: 
   affiliation: 1
   unitType: 0
   itemCapacity: 3
-  itemList: []
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 1f6aff855c27d4a4db78a5d8783024d4, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
   level: 1

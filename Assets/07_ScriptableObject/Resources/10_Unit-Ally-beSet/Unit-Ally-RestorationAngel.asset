@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 100002
   shortName: RestorationAngel
+  unitIconString: Robot-2leg-STIA
   affiliation: 0
   unitType: 3
-  itemCapacity: 5
+  itemCapacity: 11
   itemList:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: e2eb3cdb300fc427c8ad14441ab8ef3c, type: 2}
   pilot: {fileID: 11400000, guid: 0f980838e85ce4b13b5fa8ba641ce674, type: 2}
-  level: 12
-  experience: 1284
-  toNextLevel: 218
+  level: 42
+  experience: 41870
+  toNextLevel: 781

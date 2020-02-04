@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20145
   shortName: RC-Lancer
+  unitIconString: 
   affiliation: 1
   unitType: 3
   itemCapacity: 14

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20090
   shortName: DB-Commander
+  unitIconString: 
   affiliation: 1
   unitType: 2
   itemCapacity: 9

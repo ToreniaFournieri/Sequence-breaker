@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20111
   shortName: DD-Destroyer
+  unitIconString: 
   affiliation: 1
   unitType: 2
   itemCapacity: 17

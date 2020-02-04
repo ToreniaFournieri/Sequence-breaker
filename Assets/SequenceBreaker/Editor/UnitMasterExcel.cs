@@ -5,39 +5,42 @@ using UnityEngine;
 
 namespace SequenceBreaker.Editor
 {
-	[Serializable]
-	public class UnitMasterExcel
-	{
-		public string unitName;
-		public int uniqueId;
-		public Affiliation affiliation;
-		public UnitType unitType;
-		public int itemCapacity;
-		public string coreFrameString;
-		public string pilotString;
+    [Serializable]
+    public class UnitMasterExcel
+    {
+        public string unitName;
+        public int uniqueId;
+        public string unitIconString;
 
-		public UnitClass GetUnitClass()
-		{
-			UnitClass unit = ScriptableObject.CreateInstance<UnitClass>();
-			unit.shortName = unitName;
-			unit.uniqueId = uniqueId;
-			unit.affiliation = affiliation;
-			unit.unitType = unitType;
-			unit.itemCapacity = itemCapacity;
-			string coreFramePath = "11_Unit-Base-Master/01_CoreFrame/" + coreFrameString;
-			unit.coreFrame = Resources.Load<CoreFrame>(coreFramePath);
-			string pilotPath = "11_Unit-Base-Master/02_Pilot/" + pilotString;
-			unit.pilot = Resources.Load<Pilot>(pilotPath);
-			unit.level = 1;
+        public Affiliation affiliation;
+        public UnitType unitType;
+        public int itemCapacity;
+        public string coreFrameString;
+        public string pilotString;
 
-			return unit;
+        public UnitClass GetUnitClass()
+        {
+            UnitClass unit = ScriptableObject.CreateInstance<UnitClass>();
+            unit.shortName = unitName;
+            unit.uniqueId = uniqueId;
+            unit.unitIconString = unitIconString;
+            unit.affiliation = affiliation;
+            unit.unitType = unitType;
+            unit.itemCapacity = itemCapacity;
+            string coreFramePath = "11_Unit-Base-Master/01_CoreFrame/" + coreFrameString;
+            unit.coreFrame = Resources.Load<CoreFrame>(coreFramePath);
+            string pilotPath = "11_Unit-Base-Master/02_Pilot/" + pilotString;
+            unit.pilot = Resources.Load<Pilot>(pilotPath);
+            unit.level = 1;
 
-		}
+            return unit;
 
-	}
+        }
+
+    }
 
 
 
- 
-    
+
+
 }

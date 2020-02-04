@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20142
   shortName: RC-Fighter
+  unitIconString: 
   affiliation: 1
   unitType: 3
   itemCapacity: 14

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20171
   shortName: TB-Destroyer
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 11

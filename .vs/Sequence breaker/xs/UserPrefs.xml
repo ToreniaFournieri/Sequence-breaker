@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="591" Column="59" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="504" Column="116" />
       <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="502" Column="64" />
       <File FileName="Assets/SequenceBreaker/Environment/Enumeration.cs" Line="1" Column="1" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="774" Column="86" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs" Line="23" Column="40" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="17" Column="38" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="144" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Master/Illustrate/IconDataBase.cs" Line="43" Column="32" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

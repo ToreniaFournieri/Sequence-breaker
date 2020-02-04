@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20170
   shortName: TB-Commander
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 11

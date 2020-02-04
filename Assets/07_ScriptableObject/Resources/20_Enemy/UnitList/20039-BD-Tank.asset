@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20039
   shortName: BD-Tank
+  unitIconString: 
   affiliation: 1
   unitType: 0
   itemCapacity: 15

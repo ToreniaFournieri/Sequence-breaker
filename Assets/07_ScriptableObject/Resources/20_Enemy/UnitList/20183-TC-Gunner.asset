@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20183
   shortName: TC-Gunner
+  unitIconString: 
   affiliation: 1
   unitType: 4
   itemCapacity: 15

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 20088
   shortName: DA-Sniper
+  unitIconString: 
   affiliation: 1
   unitType: 2
   itemCapacity: 5
