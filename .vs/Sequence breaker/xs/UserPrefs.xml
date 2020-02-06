@@ -5,9 +5,9 @@
       <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="502" Column="64" />
       <File FileName="Assets/SequenceBreaker/Environment/Enumeration.cs" Line="1" Column="1" />
       <File FileName="Assets/SequenceBreaker/Master/Units/UnitClass.cs" Line="17" Column="38" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="144" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipListView/EquipListItemContent.cs" Line="143" Column="59" />
       <File FileName="Assets/SequenceBreaker/Master/Illustrate/IconDataBase.cs" Line="43" Column="32" />
-      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="1" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" Line="91" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
