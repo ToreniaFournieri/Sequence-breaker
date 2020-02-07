@@ -13,6 +13,7 @@ namespace SequenceBreaker.Master.BattleUnit
         [FormerlySerializedAs("UniqueID")] [SerializeField] public int uniqueId;
         [SerializeField] public string longName;
         [SerializeField] public string shortName;
+        [SerializeField] public string unitIconString;
         [FormerlySerializedAs("Affiliation")] [SerializeField] public Affiliation affiliation;
         [FormerlySerializedAs("UnitType")] [SerializeField] public UnitType unitType;
         [FormerlySerializedAs("Buff")] [SerializeField] public BuffClass buff;
@@ -56,10 +57,12 @@ namespace SequenceBreaker.Master.BattleUnit
         }
 
 
-        public BattleUnit(int uniqueId, string longName, string shortName, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
+        public BattleUnit(int uniqueId, string longName, string shortName, string unitIconString, Affiliation affiliation, UnitType unitType, AbilityClass ability, CombatClass combat, FeatureClass feature,
             OffenseMagnificationClass offenseMagnification, DefenseMagnificationClass defenseMagnification, UnitSkillMagnificationClass skillMagnification)
         {
-            this.uniqueId = uniqueId; this.longName = longName; this.shortName = shortName; this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
+            this.uniqueId = uniqueId; this.longName = longName; this.shortName = shortName;
+            this.unitIconString = unitIconString;
+            this.affiliation = affiliation; this.unitType = unitType; this.ability = ability; this.combat = combat;
             this.feature = feature; this.offenseMagnification = offenseMagnification; this.defenseMagnification = defenseMagnification; this.skillMagnification = skillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -67,11 +70,13 @@ namespace SequenceBreaker.Master.BattleUnit
             Statistics = new StatisticsCollectionClass(); PermanentStatistics = new StatisticsCollectionClass();
         }
 
-        public void Set(int iUniqueId, string ilongName, string iShortName, Affiliation iAffiliation, UnitType iUnitType, AbilityClass iAbility, CombatClass iCombat, FeatureClass iFeature,
+        public void Set(int iUniqueId, string ilongName, string iShortName, string iUnitIconString, Affiliation iAffiliation, UnitType iUnitType, AbilityClass iAbility, CombatClass iCombat, FeatureClass iFeature,
             OffenseMagnificationClass iOffenseMagnification, DefenseMagnificationClass iDefenseMagnification, UnitSkillMagnificationClass iSkillMagnification)
         {
 
-            uniqueId = iUniqueId; longName = ilongName; shortName = iShortName; affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
+            uniqueId = iUniqueId; longName = ilongName; shortName = iShortName;
+            unitIconString = iUnitIconString;
+            affiliation = iAffiliation; unitType = iUnitType; ability = iAbility; combat = iCombat;
             feature = iFeature; offenseMagnification = iOffenseMagnification; defenseMagnification = iDefenseMagnification; skillMagnification = iSkillMagnification;
             //Initialize 
             Deterioration = 0.0; buff = new BuffClass(); IsOptimumTarget = false; IsBarrierBrokenJustNow = false;
@@ -92,6 +97,7 @@ namespace SequenceBreaker.Master.BattleUnit
                             + "<followingBarrier>" + buff.BarrierRemaining + "</followingBarrier>"
                             + "<effectiveDefense>" + effectiveDefense + "</effectiveDefense>"
                             + "<defense>" + combat.defense + "</defense>"
+                            + "<sprite>" + unitIconString + "</sprite>"
                             + "</SB_HPandShield>"
                             ;
 

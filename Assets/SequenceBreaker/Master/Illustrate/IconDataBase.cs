@@ -11,7 +11,8 @@ namespace SequenceBreaker.Master.Illustrate
     {
 
         [SerializeField]
-        List<Sprite> IconSpriteList;
+        public List<Sprite> IconSpriteList;
+        public Sprite DefaultSprite;
 
 
         public static IconDataBase instance;
@@ -50,6 +51,11 @@ namespace SequenceBreaker.Master.Illustrate
                 {
                     selectedSprite = icon;
                 }
+            }
+
+            if (selectedSprite == null)
+            {
+                selectedSprite = DefaultSprite;
             }
 
             return selectedSprite;

@@ -194,6 +194,7 @@ namespace SequenceBreaker.Play.Prepare
             {
                 // _data set
                 string unitNameText = null;
+                string unitIconString = null;
                 //string unitHealthText = null;
                 string reactText = null;
                 float previousShieldRatio = 0f;
@@ -213,6 +214,8 @@ namespace SequenceBreaker.Play.Prepare
 
                         reactText = battle.LogList[i].Order.ActionType + preposition + battle.LogList[i].Order.IndividualTarget.longName;
                     }
+
+                    unitIconString = battle.LogList[i].Order.Actor.unitIconString;
 
                     previousShieldRatio = battle.LogList[i].Order.Actor.previousShield / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
                     shieldRatio = battle.LogList[i].Order.Actor.combat.shieldCurrent / (float)battle.LogList[i].Order.Actor.combat.shieldMax;
@@ -294,7 +297,7 @@ namespace SequenceBreaker.Play.Prepare
                     CellSize = 1300, // this is dummy, need to calculate later
                     ReactText = reactText,
                     Wave = wave,
-
+                    UnitIconString = unitIconString,
                     UnitInfo = unitNameText + " " + speedString,
                     FirstLine = battle.LogList[i].FirstLine,
                     MainTextList = _mainText,

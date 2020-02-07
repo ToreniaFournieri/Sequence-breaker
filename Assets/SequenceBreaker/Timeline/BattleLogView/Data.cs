@@ -16,7 +16,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public string UnitInfo;
         public List<string> MainTextList;
         public string BigText; // no ReactText, UnitInfo, FirstLine. only this BigText.
-
+        public string UnitIconString;
 
 
         public bool IsDead;
@@ -30,7 +30,6 @@ namespace SequenceBreaker.Timeline.BattleLogView
         public string HeaderText;
         public bool IsHeaderInfo;
         public List<BattleUnit> Characters;
-
 
         public Affiliation Affiliation;
         public bool isNavigation;

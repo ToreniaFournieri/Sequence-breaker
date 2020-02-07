@@ -764,7 +764,7 @@ namespace SequenceBreaker.Master.Units
 
 
             battleUnit = ScriptableObject.CreateInstance<BattleUnit.BattleUnit>();
-            battleUnit.Set(1, unitClass.TrueName(), unitClass.shortName, Affiliation.None, unitClass.unitType, _ability,
+            battleUnit.Set(1, unitClass.TrueName(), unitClass.shortName, unitClass.unitIconString, Affiliation.None, unitClass.unitType, _ability,
                 _combat, _feature, _offenseMagnification,
                 _defenseMagnification, _unitSkillMagnification);
 

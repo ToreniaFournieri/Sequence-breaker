@@ -1,4 +1,5 @@
 ﻿using System;
+using SequenceBreaker.Master.Illustrate;
 using SequenceBreaker.Translate;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,7 +10,7 @@ namespace SequenceBreaker.Play.Battle
     public sealed class UnitInfoSet : MonoBehaviour
     {
         //public GameObject iconMask;
-        //public Image unitIcon;
+        public Image unitIcon;
         public Image healedShieldBar;
         public Image previousShieldBar;
         public Image shieldBar;
@@ -40,6 +41,7 @@ namespace SequenceBreaker.Play.Battle
             int _followingBarrier = 0;
             float _effectiveDefense = 0;
             int _defense = 0;
+            string _unitIconString = null;
             string _otherText = null;
 
             if (shieldHPXML.Contains("<SB_HPandShield>") && shieldHPXML.Contains("</SB_HPandShield>"))
@@ -257,6 +259,25 @@ namespace SequenceBreaker.Play.Battle
                     Debug.LogError("failed to get defense");
                 }
 
+                if (shieldHPXML.Contains("<sprite>") && shieldHPXML.Contains("</sprite>"))
+                {
+                    int _startIndex = shieldHPXML.IndexOf("<sprite>", System.StringComparison.Ordinal) + "<sprite>".Length;
+                    int _endIndex = shieldHPXML.IndexOf("</sprite>", System.StringComparison.Ordinal);
+
+                    try
+                    {
+                        _unitIconString = (shieldHPXML.Substring(_startIndex, _endIndex - _startIndex));
+                    }
+                    catch
+                    {
+                        Debug.LogError("Faild to get string: " + shieldHPXML.Substring(_startIndex, _endIndex - _startIndex) + " _sprite ");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("failed to get sprite icon image");
+                }
+
 
                 if (shieldHPXML.Contains("<otherText>") && shieldHPXML.Contains("</otherText>"))
                 {
@@ -329,11 +350,20 @@ namespace SequenceBreaker.Play.Battle
                     barrierObject.SetActive(false);
                 }
 
-                var defenseRatio = Math.Round((double)_effectiveDefense / (double)_defense * 100, 0) ;
+                if (_unitIconString != null)
+                {
 
-                infoText.text = Word.Get("Effective Defense: X", ((int)_effectiveDefense).ToString() + " ("+ (int)defenseRatio + "%)" + " " + _otherText);
+                    //Debug.Log("_unitIconString " + _unitIconString);
+                    unitIcon.sprite = IconDataBase.instance.GetSprite(_unitIconString);
+                }
 
-            } else
+
+                var defenseRatio = Math.Round((double)_effectiveDefense / (double)_defense * 100, 0);
+
+                infoText.text = Word.Get("Effective Defense: X", ((int)_effectiveDefense).ToString() + " (" + (int)defenseRatio + "%)" + " " + _otherText);
+
+            }
+            else
             {
                 Debug.LogError("No <SB_HPandShield> in UnitInfoSet:" + shieldHPXML);
             }

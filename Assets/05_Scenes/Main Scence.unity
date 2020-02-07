@@ -21382,6 +21382,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
   - {fileID: 21300000, guid: ba1634ded3bf04fae9d779d77bce14b9, type: 3}
   - {fileID: 21300000, guid: 3b8a0e0105c57412bac0744828c6546a, type: 3}
+  DefaultSprite: {fileID: 21300000, guid: 726717f203cc240a2aa1a8a4b909b836, type: 3}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
@@ -34206,6 +34207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3736c34a1174f46af3d7f59469996e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitIcon: {fileID: 1232551354}
   healedShieldBar: {fileID: 519272019}
   previousShieldBar: {fileID: 681387017}
   shieldBar: {fileID: 2531591010826300165}
