@@ -1,10 +1,14 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListTreeViewWithStickyHeadScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Illustrate/IconDataBase.cs">
     <Files>
-      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListItemSubTitle.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListTreeViewDataSourceMgr.cs" Line="165" Column="56" />
-      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListContents.cs" Line="10" Column="18" />
-      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListTreeViewWithStickyHeadScript.cs" Line="149" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListItemSubTitle.cs" Line="28" Column="56" IsPinned="True" />
+      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListTreeViewDataSourceMgr.cs" />
+      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListContents.cs" />
+      <File FileName="Assets/SequenceBreaker/Home/CharacterCreateView/CharacterCreateListTreeViewWithStickyHeadScript.cs" />
+      <File FileName="Assets/SequenceBreaker/Home/EquipView/CharacterStatusCell.cs" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/CellView.cs" Line="67" Column="24" />
+      <File FileName="Assets/SequenceBreaker/Timeline/BattleLogView/BattleLogEnhancedScrollController.cs" Line="385" Column="55" />
+      <File FileName="Assets/SequenceBreaker/Master/Illustrate/IconDataBase.cs" Line="44" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

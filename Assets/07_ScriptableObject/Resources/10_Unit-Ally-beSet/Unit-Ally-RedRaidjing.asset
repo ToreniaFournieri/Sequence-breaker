@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueId: 100001
   shortName: RedRaidjing
-  unitIconString: Robot-2leg-STIA
+  unitIconString: "\u5360"
   affiliation: 0
   unitType: 3
   itemCapacity: 11
@@ -30,5 +30,5 @@ MonoBehaviour:
   coreFrame: {fileID: 11400000, guid: 6836afd70f4a149e5acce6566a1d6ed2, type: 2}
   pilot: {fileID: 11400000, guid: d3ddf08e968ff488095ba5bbd01100e3, type: 2}
   level: 42
-  experience: 41870
-  toNextLevel: 781
+  experience: 42001
+  toNextLevel: 650

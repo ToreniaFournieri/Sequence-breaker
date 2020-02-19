@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _00_Asset._05_EnhancedScroller_v2.Plugins;
 using _00_Asset.I2.Localization.Scripts.Manager;
 using SequenceBreaker.Environment;
+using SequenceBreaker.Master.Illustrate;
 using SequenceBreaker.Play.Prepare;
 using SequenceBreaker.Translate;
 using UnityEngine;
@@ -381,16 +382,17 @@ namespace SequenceBreaker.Timeline.BattleLogView
                 }
 
                 Sprite setSprite = null;
-                if (dataList[dataIndex].Affiliation == Affiliation.Ally)
-                {
+                setSprite = IconDataBase.instance.GetSprite(dataList[dataIndex].UnitIconString);
+                //if (dataList[dataIndex].Affiliation == Affiliation.Ally)
+                //{
 
-                    setSprite = allyImage;
-                }
-                else if (dataList[dataIndex].Affiliation == Affiliation.Enemy)
-                {
-                    setSprite = enemyImage;
+                //    setSprite = allyImage;
+                //}
+                //else if (dataList[dataIndex].Affiliation == Affiliation.Enemy)
+                //{
+                //    setSprite = enemyImage;
 
-                }
+                //}
 
                 // Over ride 
                 if (dataList[dataIndex].isNavigation)
