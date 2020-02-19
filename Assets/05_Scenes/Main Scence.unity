@@ -22261,9 +22261,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f3217d7d585174088b3ebd7403118a40, type: 3}
   - {fileID: 21300000, guid: 3f100d9887448479690b14e6c032e210, type: 3}
   - {fileID: 21300000, guid: 077e1c998a41c4de6af8b15ab8c51b10, type: 3}
-  - {fileID: 21300000, guid: 09170cecb2df041548341c9197626680, type: 3}
-  - {fileID: 21300000, guid: 857e24e375e794eb986fd7ad9b2efe02, type: 3}
-  DefaultSprite: {fileID: 21300000, guid: 857e24e375e794eb986fd7ad9b2efe02, type: 3}
+  - {fileID: 21300000, guid: fbbe3bb37c334494aaf60a62ad678abf, type: 3}
+  - {fileID: 21300000, guid: ce337d3ad225b4ac39207aedb9acbc87, type: 3}
+  DefaultSprite: {fileID: 21300000, guid: fbbe3bb37c334494aaf60a62ad678abf, type: 3}
 --- !u!1 &1102031298
 GameObject:
   m_ObjectHideFlags: 0
