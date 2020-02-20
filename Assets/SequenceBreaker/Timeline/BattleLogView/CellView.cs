@@ -244,7 +244,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
             Color darkRed = new Color32(36, 20, 20, 255); // dark red
             Color darkGreen = new Color32(20, 36, 20, 255); // dark green
             Color color = new Color32(24, 24, 24, 255);
-            Color unitColor = new Color32(120, 120, 120, 255);
+            Color unitColor = new Color32(215, 215, 215, 255);
             Color naviColor = new Color32(255, 255, 255, 255);
 
             if (data.IsDead && data.isNavigation == false)
