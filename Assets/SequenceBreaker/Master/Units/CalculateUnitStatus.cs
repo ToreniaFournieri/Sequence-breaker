@@ -224,7 +224,6 @@ namespace SequenceBreaker.Master.Units
                 case TuningStyle.救:
                     _tuningStyleAbility.Set(0, 3, 1, 0, 0, 0, 0);
                     break;
-
                 case TuningStyle.砲:
                     _tuningStyleAbility.Set(2, 0, 0, 0, 2, 0, 0);
                     break;

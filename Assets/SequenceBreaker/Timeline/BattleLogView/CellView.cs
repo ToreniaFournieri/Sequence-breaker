@@ -282,7 +282,7 @@ namespace SequenceBreaker.Timeline.BattleLogView
 
             if (unitSprite != null)
             {
-                            Debug.Log("unitSprite is " + unitSprite.name);
+                            //Debug.Log("unitSprite is " + unitSprite.name);
 
                 unitIcon.sprite = unitSprite;
                 iconMask.SetActive(true);
