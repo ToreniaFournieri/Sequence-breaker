@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace SequenceBreaker.Master.Units
 {
-    
+
     [CreateAssetMenu(fileName = "Unit-", menuName = "Unit/Unit", order = 3)]
     public sealed class UnitClass : ScriptableObject
     {
@@ -26,7 +26,7 @@ namespace SequenceBreaker.Master.Units
         public int level;
         public int experience;
         public int toNextLevel;
-         
+
         private int _levelUpAmount;
 
         public void Copy(UnitClass unit)
@@ -45,7 +45,7 @@ namespace SequenceBreaker.Master.Units
             toNextLevel = unit.toNextLevel;
         }
 
-        public int GainExperience (int experienceAdd)
+        public int GainExperience(int experienceAdd)
         {
             experience += experienceAdd;
 
@@ -60,17 +60,17 @@ namespace SequenceBreaker.Master.Units
         {
             // Short Name of tuningStyle
             //Debug.Log("Unit: " + shortName);
-            string tuningEnglishLetter = coreFrame.tuningStyle.ToString().Substring(0,1);
-            string tuningStyleFirstLetter = Word.Get("Tuning-" + tuningEnglishLetter);
+            string tuningEnglishLetter = coreFrame.tuningStyle.ToString().Substring(0, 1);
+            //string tuningStyleFirstLetter = Word.Get("Tuning-" + tuningEnglishLetter);
 
-                return "[" + tuningStyleFirstLetter + "]"
-                       + shortName 
-                       +"[" + Word.Get(unitType.ToString()) + "]"
+            //return "[" + tuningStyleFirstLetter + "]"
+            return "[" + tuningEnglishLetter + "]"   + shortName
+                       + "[" + Word.Get(unitType.ToString()) + "]"
                        + " (Lv:" + level + ")";
-            
+
         }
-        
-        
+
+
         // don't use itemList.Count. Because item may have multiple amount. use this.
         public int GetItemAmount()
         {
@@ -102,7 +102,7 @@ namespace SequenceBreaker.Master.Units
             }
         }
 
-        public void CalculateLevel ()
+        public void CalculateLevel()
         {
             int internalLevel = 1;
             int remainder = experience;
@@ -111,7 +111,7 @@ namespace SequenceBreaker.Master.Units
             {
 
                 //Sample implement.
-                int step = (int)(Mathf.Pow(1.26f - 0.001f * internalLevel, internalLevel) - 10 + internalLevel * 20) ;
+                int step = (int)(Mathf.Pow(1.26f - 0.001f * internalLevel, internalLevel) - 10 + internalLevel * 20);
                 toNextLevel = step - remainder;
                 remainder -= step;
 
@@ -120,7 +120,7 @@ namespace SequenceBreaker.Master.Units
                     internalLevel++;
                     _levelUpAmount++;
                 }
-            
+
             }
 
             level = internalLevel;
@@ -132,7 +132,7 @@ namespace SequenceBreaker.Master.Units
         public int ExperienceFromBeaten()
         {
             //Sample implement.
-            return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 10 + level * 20 )/30);
+            return (int)((Mathf.Pow(1.26f - 0.001f * level, level) + 10 + level * 20) / 30);
 
         }
 
