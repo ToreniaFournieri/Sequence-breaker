@@ -18,28 +18,7 @@ MonoBehaviour:
   affiliation: 1
   unitType: 0
   itemCapacity: 3
-  itemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  itemList: []
   coreFrame: {fileID: 11400000, guid: 4b6a8ab333fa1432384ac16d20e90b1e, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
   level: 1

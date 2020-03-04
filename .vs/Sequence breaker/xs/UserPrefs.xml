@@ -1,11 +1,17 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="11" Column="27" />
-      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="579" Column="21" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="651" Column="39" />
       <File FileName="Assets/SequenceBreaker/Master/BattleUnit/AbilityClass.cs" Line="10" Column="74" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="25" Column="42" />
-      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="84" Column="71" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/BattleEngine.cs" Line="258" Column="1" />
+      <File FileName="Assets/SequenceBreaker/Play/Battle/AttackFunction.cs" Line="59" Column="39" />
+      <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="468" Column="81" />
+      <File FileName="Assets/SequenceBreaker/Editor/UnitCreate.cs" Line="24" Column="25" />
+      <File FileName="Assets/SequenceBreaker/Editor/UnitMasterExcel.cs" Line="21" Column="26" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CoreFrame.cs" Line="11" Column="57" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/TuningStyleClass.cs" Line="14" Column="55" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs" Line="62" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

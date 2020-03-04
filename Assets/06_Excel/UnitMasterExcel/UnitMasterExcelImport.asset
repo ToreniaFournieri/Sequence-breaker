@@ -13,6 +13,382 @@ MonoBehaviour:
   m_Name: UnitMasterExcelImport
   m_EditorClassIdentifier: 
   unitMaster:
+  - unitName: "\u4E59"
+    uniqueId: 101
+    unitIconString: "\u4E59"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 1
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u4E5D"
+    uniqueId: 102
+    unitIconString: "\u4E5D"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 2
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u4E5E"
+    uniqueId: 103
+    unitIconString: "\u4E5E"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 3
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5915"
+    uniqueId: 104
+    unitIconString: "\u5915"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 3
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u571F"
+    uniqueId: 105
+    unitIconString: "\u571F"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 3
+    coreFrameString: "\u6551"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5C11"
+    uniqueId: 106
+    unitIconString: "\u5C11"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u516B"
+    uniqueId: 107
+    unitIconString: "\u516B"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 2
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5927"
+    uniqueId: 108
+    unitIconString: "\u5927"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 3
+    coreFrameString: "\u7832"
+    pilotString: Pilot-CommonA
+  - unitName: "\u4E08"
+    uniqueId: 109
+    unitIconString: "\u4E08"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 3
+    coreFrameString: "\u7832"
+    pilotString: Pilot-CommonA
+  - unitName: "\u592B"
+    uniqueId: 110
+    unitIconString: "\u592B"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u7832"
+    pilotString: Pilot-CommonA
+  - unitName: "\u516D"
+    uniqueId: 111
+    unitIconString: "\u516D"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5143"
+    uniqueId: 112
+    unitIconString: "\u5143"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5C6F"
+    uniqueId: 113
+    unitIconString: "\u5C6F"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5316"
+    uniqueId: 114
+    unitIconString: "\u5316"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u63EE"
+    pilotString: Pilot-CommonA
+  - unitName: "\u76BF"
+    uniqueId: 115
+    unitIconString: "\u76BF"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u8840"
+    uniqueId: 116
+    unitIconString: "\u8840"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5360"
+    uniqueId: 117
+    unitIconString: "\u5360"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u56DA"
+    uniqueId: 118
+    unitIconString: "\u56DA"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u696F"
+    pilotString: Pilot-CommonA
+  - unitName: "\u4ECB"
+    uniqueId: 119
+    unitIconString: "\u4ECB"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u6551"
+    pilotString: Pilot-CommonA
+  - unitName: "\u53F1"
+    uniqueId: 120
+    unitIconString: "\u53F1"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u829D"
+    uniqueId: 121
+    unitIconString: "\u829D"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u5075"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5144"
+    uniqueId: 122
+    unitIconString: "\u5144"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5931"
+    uniqueId: 123
+    unitIconString: "\u5931"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u7832"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5171"
+    uniqueId: 124
+    unitIconString: "\u5171"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5146"
+    uniqueId: 125
+    unitIconString: "\u5146"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u8FBC"
+    uniqueId: 126
+    unitIconString: "\u8FBC"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u59A8"
+    pilotString: Pilot-CommonA
+  - unitName: "\u8FBA"
+    uniqueId: 127
+    unitIconString: "\u8FBA"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u70B8"
+    pilotString: Pilot-CommonA
+  - unitName: "\u8FC5"
+    uniqueId: 128
+    unitIconString: "\u8FC5"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u70B8"
+    pilotString: Pilot-CommonA
+  - unitName: "\u65E5"
+    uniqueId: 129
+    unitIconString: "\u65E5"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 4
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5727"
+    uniqueId: 130
+    unitIconString: "\u5727"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u6551"
+    pilotString: Pilot-CommonA
+  - unitName: "\u884C"
+    uniqueId: 131
+    unitIconString: "\u884C"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u65E7"
+    uniqueId: 132
+    unitIconString: "\u65E7"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 5
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5728"
+    uniqueId: 133
+    unitIconString: "\u5728"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u6551"
+    pilotString: Pilot-CommonA
+  - unitName: "\u9580"
+    uniqueId: 134
+    unitIconString: "\u9580"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 8
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u808C"
+    uniqueId: 135
+    unitIconString: "\u808C"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u7A4D"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5148"
+    uniqueId: 136
+    unitIconString: "\u5148"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u4F0F"
+    uniqueId: 137
+    unitIconString: "\u4F0F"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u6551"
+    pilotString: Pilot-CommonA
+  - unitName: "\u809D"
+    uniqueId: 138
+    unitIconString: "\u809D"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u7A4D"
+    pilotString: Pilot-CommonA
+  - unitName: "\u6C99"
+    uniqueId: 139
+    unitIconString: "\u6C99"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u591A"
+    uniqueId: 140
+    unitIconString: "\u591A"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u5175"
+    uniqueId: 141
+    unitIconString: "\u5175"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
+  - unitName: "\u8C9D"
+    uniqueId: 142
+    unitIconString: "\u8C9D"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u72D9"
+    pilotString: Pilot-CommonA
+  - unitName: "\u514B"
+    uniqueId: 143
+    unitIconString: "\u514B"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u99C6"
+    pilotString: Pilot-CommonA
+  - unitName: "\u72C2"
+    uniqueId: 144
+    unitIconString: "\u72C2"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u72D9"
+    pilotString: Pilot-CommonA
+  - unitName: "\u56E0"
+    uniqueId: 145
+    unitIconString: "\u56E0"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u696F"
+    pilotString: Pilot-CommonA
+  - unitName: "\u56F2"
+    uniqueId: 146
+    unitIconString: "\u56F2"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 7
+    coreFrameString: "\u696F"
+    pilotString: Pilot-CommonA
+  - unitName: "\u975E"
+    uniqueId: 147
+    unitIconString: "\u975E"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 8
+    coreFrameString: "\u6226"
+    pilotString: Pilot-CommonA
   - unitName: BA-Commander
     uniqueId: 20000
     unitIconString: 
