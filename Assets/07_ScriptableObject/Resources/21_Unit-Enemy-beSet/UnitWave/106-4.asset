@@ -17,7 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df7c45967366b458697b145f8f5e8990, type: 2}
   - {fileID: 11400000, guid: 20cd055a3e30a45efb2c3f22b6dd2f98, type: 2}
   - {fileID: 11400000, guid: c5bf5f9dfc88e43c3b0c14b160df60bd, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  level: 0
+  level: 11

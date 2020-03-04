@@ -74,6 +74,8 @@ namespace SequenceBreaker.Editor
                 }
             }
 
+            Debug.Log("cannot find value: " + unitString);
+
             return null;
         }
 

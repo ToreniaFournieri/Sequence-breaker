@@ -14,10 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitWave:
   - {fileID: 11400000, guid: e50ef942778f34b30bbcc28e04972949, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  level: 0
+  level: 15

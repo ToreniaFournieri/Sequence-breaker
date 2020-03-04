@@ -46,7 +46,7 @@ namespace SequenceBreaker.Environment
             InitializeInventory();
             transparentMessageController.transparentMessage.SetActive(true);
 
-//gameObject.GetComponent<CanvasScaler>().referenceResolution.y / gameObject.GetComponent<CanvasScaler>().matchWidthOrHeight
+            //gameObject.GetComponent<CanvasScaler>().referenceResolution.y / gameObject.GetComponent<CanvasScaler>().matchWidthOrHeight
             //Debug.Log( gameObject.GetComponent<RectTransform>().rect.width + " rect.width");
 
 
@@ -100,19 +100,14 @@ namespace SequenceBreaker.Environment
                     enemyHomeContentData.isInfinityInventoryMode = true;
                     unitWave.level = mission.levelInitial;
 
+
                     foreach (var unit in unitWave.unitWave)
                     {
-                        try
-                        { 
-                        if (unit.uniqueId != 0 && unit != null)
+                        if (unit != null)
+                        //if (unit.uniqueId != 0 && unit != null)
                         {
                             List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;
-                        }
-                        }
-                        catch
-                        {
-                            Debug.LogError("Unit error: " + unitWave.name);
                         }
 
                     }

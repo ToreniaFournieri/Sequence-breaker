@@ -15,9 +15,4 @@ MonoBehaviour:
   unitWave:
   - {fileID: 11400000, guid: c383f36fb93a643d497e25219b50d9a2, type: 2}
   - {fileID: 11400000, guid: b12f5e73057aa460bb661ee371d47558, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   level: 7
