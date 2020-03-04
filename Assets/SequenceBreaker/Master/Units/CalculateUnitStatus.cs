@@ -165,70 +165,75 @@ namespace SequenceBreaker.Master.Units
             // (1-1) Ability calculation -> CoreFrameAddAbility
             // CoreFrame.FrameType.AddAbility + CoreFrame.TuningStyle.AddAbility
 
-            _frameTypeAbility = ScriptableObject.CreateInstance<AbilityClass>();
-            switch (unit.coreFrame.frameType)
-            {
-                case FrameType.Caterpillar:
-                    _frameTypeAbility.Set(6, 3, 6, 3, 2, 0, 0);
+            //_frameTypeAbility = ScriptableObject.CreateInstance<AbilityClass>();
+            //switch (unit.coreFrame.frameType)
+            //{
+            //    case FrameType.Caterpillar:
+            //        _frameTypeAbility.Set(6, 3, 6, 3, 2, 0, 0);
 
-                    break;
-                case FrameType.ReverseJointLegs:
-                    //                    _frameTypeAbility = new AbilityClass(3, 3, 3, 8, 2, 0, 2);
-                    _frameTypeAbility.Set(3, 3, 3, 8, 2, 0, 2);
+            //        break;
+            //    case FrameType.ReverseJointLegs:
+            //        //                    _frameTypeAbility = new AbilityClass(3, 3, 3, 8, 2, 0, 2);
+            //        _frameTypeAbility.Set(3, 3, 3, 8, 2, 0, 2);
 
-                    break;
-                case FrameType.SpiderLegs:
-                    //                    _frameTypeAbility = new AbilityClass(4, 3, 5, 4, 3, 0, 1);
-                    _frameTypeAbility.Set(4, 3, 5, 4, 3, 0, 1);
-                    break;
-                case FrameType.TwoLegs:
-                    _frameTypeAbility.Set(5, 3, 4, 5, 2, 0, 1);
-                    break;
-                case FrameType.Wheel:
-                    _frameTypeAbility.Set(2, 6, 3, 4, 2, 0, 3);
-                    break;
-                default:
-                    Debug.LogError("CoreFrame.FrameType unexpected value, need FrameType case update! :" + unit.coreFrame.frameType);
-                    break;
-            }
-            _ability.AddUp(_frameTypeAbility);
+            //        break;
+            //    case FrameType.SpiderLegs:
+            //        //                    _frameTypeAbility = new AbilityClass(4, 3, 5, 4, 3, 0, 1);
+            //        _frameTypeAbility.Set(4, 3, 5, 4, 3, 0, 1);
+            //        break;
+            //    case FrameType.TwoLegs:
+            //        _frameTypeAbility.Set(5, 3, 4, 5, 2, 0, 1);
+            //        break;
+            //    case FrameType.Wheel:
+            //        _frameTypeAbility.Set(2, 6, 3, 4, 2, 0, 3);
+            //        break;
+            //    default:
+            //        Debug.LogError("CoreFrame.FrameType unexpected value, need FrameType case update! :" + unit.coreFrame.frameType);
+            //        break;
+            //}
+            //_ability.AddUp(_frameTypeAbility);
 
             _tuningStyleAbility = ScriptableObject.CreateInstance<AbilityClass>();
 
             switch (unit.coreFrame.tuningStyle)
             {
-                case TuningStyle.Commander:
-                    _tuningStyleAbility.Set(0, 0, 0, 2, 2, 2, 0);
+                case TuningStyle.壁:
+                    _tuningStyleAbility.Set(0, 0, 4, 0, 0, 0, 0);
                     break;
-                case TuningStyle.Destroyer:
-                    _tuningStyleAbility.Set(2, 0, 2, 2, 0, 0, 0);
+                case TuningStyle.楯:
+                    _tuningStyleAbility.Set(0, 0, 1, 3, 0, 0, 0);
                     break;
-                case TuningStyle.Fighter:
-                    _tuningStyleAbility.Set(2, 0, 0, 2, 2, 0, 0);
+                case TuningStyle.駆:
+                    _tuningStyleAbility.Set(0, 2, 0, 2, 0, 0, 0);
                     break;
-                case TuningStyle.Gunner:
-                    _tuningStyleAbility.Set(3, 0, 0, 0, 2, 0, 0);
+                case TuningStyle.戦:
+                    _tuningStyleAbility.Set(3, 0, 1, 0, 0, 0, 0);
                     break;
-                case TuningStyle.Jammer:
-                    _tuningStyleAbility.Set(0, 2, 0, 0, 2, 2, 0);
+                case TuningStyle.載:
+                    _tuningStyleAbility.Set(0, 0, 3, 0, 0, 1, 0);
                     break;
-                case TuningStyle.Lancer:
-                    _tuningStyleAbility.Set(3, 1, 0, 0, 2, 0, 0);
+                case TuningStyle.偵:
+                    _tuningStyleAbility.Set(1, 0, 2, 1, 0, 0, 0);
                     break;
-                case TuningStyle.Medic:
-                    _tuningStyleAbility.Set(0, 5, 2, 0, 0, 1, 0);
+                case TuningStyle.妨:
+                    _tuningStyleAbility.Set(0, 0, 0, 1, 0, 3, 0);
                     break;
-                case TuningStyle.Reconnoiter:
-                    _tuningStyleAbility.Set(1, 1, 2, 3, 0, 0, 0);
+                case TuningStyle.揮:
+                    _tuningStyleAbility.Set(0, 1, 0, 1, 2, 0, 0);
                     break;
-                case TuningStyle.Sniper:
-                    _tuningStyleAbility.Set(0, 0, 0, 0, 5, 0, 1);
-                    break;
-
-                case TuningStyle.Tank:
-                    _tuningStyleAbility.Set(0, 2, 4, 0, 0, 0, 0);
+                case TuningStyle.救:
+                    _tuningStyleAbility.Set(0, 3, 1, 0, 0, 0, 0);
                     break;
 
+                case TuningStyle.砲:
+                    _tuningStyleAbility.Set(2, 0, 0, 0, 2, 0, 0);
+                    break;
+                case TuningStyle.炸:
+                    _tuningStyleAbility.Set(1, 0, 0, 0, 3, 0, 0);
+                    break;
+                case TuningStyle.狙:
+                    _tuningStyleAbility.Set(0, 0, 0, 0, 4, 0, 0);
+                    break;
                 default:
                     Debug.LogError("CoreFrame.TuningStyle unexpected value, need TuningStyle case update! :" + unit.coreFrame.tuningStyle);
                     break;

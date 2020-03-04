@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{A6229E00-30E9-C630-9067-94CAE7859B47}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Editor/UnitSetExcel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs">
     <Files>
       <File FileName="Assets/SequenceBreaker/Master/BattleUnit/BattleUnit.cs" Line="11" Column="27" />
       <File FileName="Assets/SequenceBreaker/Environment/StartUp.cs" Line="106" Column="29" />
@@ -7,7 +7,9 @@
       <File FileName="Assets/SequenceBreaker/Play/Prepare/RunBattle.cs" Line="142" Column="25" />
       <File FileName="Assets/SequenceBreaker/Master/Mission/UnitWave.cs" Line="21" Column="38" />
       <File FileName="Assets/SequenceBreaker/Editor/RunExcelConverter.cs" Line="637" Column="34" />
-      <File FileName="Assets/SequenceBreaker/Editor/UnitSetExcel.cs" Line="53" Column="62" />
+      <File FileName="Assets/SequenceBreaker/Editor/UnitSetExcel.cs" Line="77" Column="57" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/CalculateUnitStatus.cs" Line="219" Column="51" />
+      <File FileName="Assets/SequenceBreaker/Master/Units/TuningStyleMaster.cs" Line="62" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
