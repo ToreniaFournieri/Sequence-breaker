@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e6f04067f804239b987b20cb9bfaef, type: 3}
+  m_Name: UnitSet-112
+  m_EditorClassIdentifier: 
+  missionId: 112
+  unitSetList:
+  - {fileID: 11400000, guid: 8caff5ba3e4b2474887cdf43e5d03520, type: 2}
+  - {fileID: 11400000, guid: 25eead83615c24667ad3a47978f31eca, type: 2}
+  - {fileID: 11400000, guid: c8cabe9ebdbc44ef286725524827e7eb, type: 2}
+  - {fileID: 11400000, guid: 932430b18f32d4039a1dba28d84c5328, type: 2}

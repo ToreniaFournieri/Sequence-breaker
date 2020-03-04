@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f94a0c6741f54d5fbbf900880934973, type: 3}
+  m_Name: Mission-111
+  m_EditorClassIdentifier: 
+  missionName: "\u72D9\u6483\u5175\u306B\u72D9\u308F\u308C\u3066"
+  category: B
+  Id: 111
+  locationString: "[\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB]\u72D9\u6483\u6A5F\u3000\u306E\u5F79\u5272"
+  levelInitial: 21
+  unitSet: {fileID: 11400000, guid: 26135497566854aa6891a80cf1ca18a0, type: 2}

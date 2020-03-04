@@ -102,10 +102,17 @@ namespace SequenceBreaker.Environment
 
                     foreach (var unit in unitWave.unitWave)
                     {
+                        try
+                        { 
                         if (unit.uniqueId != 0 && unit != null)
                         {
                             List<Item> itemList = ItemDataBase.instance.GetItemsFromUniqueId(unit.uniqueId);
                             unit.itemList = itemList;
+                        }
+                        }
+                        catch
+                        {
+                            Debug.LogError("Unit error: " + unitWave.name);
                         }
 
                     }

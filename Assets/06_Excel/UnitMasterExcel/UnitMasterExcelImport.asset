@@ -277,8 +277,16 @@ MonoBehaviour:
     itemCapacity: 6
     coreFrameString: "\u6551"
     pilotString: Pilot-CommonA
-  - unitName: "\u9580"
+  - unitName: "\u65E8"
     uniqueId: 134
+    unitIconString: "\u65E8"
+    affiliation: 1
+    unitType: 3
+    itemCapacity: 6
+    coreFrameString: "\u58C1"
+    pilotString: Pilot-CommonA
+  - unitName: "\u9580"
+    uniqueId: 135
     unitIconString: "\u9580"
     affiliation: 1
     unitType: 3
@@ -286,7 +294,7 @@ MonoBehaviour:
     coreFrameString: "\u6226"
     pilotString: Pilot-CommonA
   - unitName: "\u808C"
-    uniqueId: 135
+    uniqueId: 136
     unitIconString: "\u808C"
     affiliation: 1
     unitType: 3
@@ -294,7 +302,7 @@ MonoBehaviour:
     coreFrameString: "\u7A4D"
     pilotString: Pilot-CommonA
   - unitName: "\u5148"
-    uniqueId: 136
+    uniqueId: 137
     unitIconString: "\u5148"
     affiliation: 1
     unitType: 3
@@ -302,7 +310,7 @@ MonoBehaviour:
     coreFrameString: "\u99C6"
     pilotString: Pilot-CommonA
   - unitName: "\u4F0F"
-    uniqueId: 137
+    uniqueId: 138
     unitIconString: "\u4F0F"
     affiliation: 1
     unitType: 3
@@ -310,7 +318,7 @@ MonoBehaviour:
     coreFrameString: "\u6551"
     pilotString: Pilot-CommonA
   - unitName: "\u809D"
-    uniqueId: 138
+    uniqueId: 139
     unitIconString: "\u809D"
     affiliation: 1
     unitType: 3
@@ -318,7 +326,7 @@ MonoBehaviour:
     coreFrameString: "\u7A4D"
     pilotString: Pilot-CommonA
   - unitName: "\u6C99"
-    uniqueId: 139
+    uniqueId: 140
     unitIconString: "\u6C99"
     affiliation: 1
     unitType: 3
@@ -326,7 +334,7 @@ MonoBehaviour:
     coreFrameString: "\u99C6"
     pilotString: Pilot-CommonA
   - unitName: "\u591A"
-    uniqueId: 140
+    uniqueId: 141
     unitIconString: "\u591A"
     affiliation: 1
     unitType: 3
@@ -334,7 +342,7 @@ MonoBehaviour:
     coreFrameString: "\u99C6"
     pilotString: Pilot-CommonA
   - unitName: "\u5175"
-    uniqueId: 141
+    uniqueId: 142
     unitIconString: "\u5175"
     affiliation: 1
     unitType: 3
@@ -342,7 +350,7 @@ MonoBehaviour:
     coreFrameString: "\u6226"
     pilotString: Pilot-CommonA
   - unitName: "\u8C9D"
-    uniqueId: 142
+    uniqueId: 143
     unitIconString: "\u8C9D"
     affiliation: 1
     unitType: 3
@@ -350,7 +358,7 @@ MonoBehaviour:
     coreFrameString: "\u72D9"
     pilotString: Pilot-CommonA
   - unitName: "\u514B"
-    uniqueId: 143
+    uniqueId: 144
     unitIconString: "\u514B"
     affiliation: 1
     unitType: 3
@@ -358,7 +366,7 @@ MonoBehaviour:
     coreFrameString: "\u99C6"
     pilotString: Pilot-CommonA
   - unitName: "\u72C2"
-    uniqueId: 144
+    uniqueId: 145
     unitIconString: "\u72C2"
     affiliation: 1
     unitType: 3
@@ -366,7 +374,7 @@ MonoBehaviour:
     coreFrameString: "\u72D9"
     pilotString: Pilot-CommonA
   - unitName: "\u56E0"
-    uniqueId: 145
+    uniqueId: 146
     unitIconString: "\u56E0"
     affiliation: 1
     unitType: 3
@@ -374,7 +382,7 @@ MonoBehaviour:
     coreFrameString: "\u696F"
     pilotString: Pilot-CommonA
   - unitName: "\u56F2"
-    uniqueId: 146
+    uniqueId: 147
     unitIconString: "\u56F2"
     affiliation: 1
     unitType: 3
@@ -382,7 +390,7 @@ MonoBehaviour:
     coreFrameString: "\u696F"
     pilotString: Pilot-CommonA
   - unitName: "\u975E"
-    uniqueId: 147
+    uniqueId: 148
     unitIconString: "\u975E"
     affiliation: 1
     unitType: 3
