@@ -12,19 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6eb012475644fc99c4aa768f9cd125, type: 3}
   m_Name: TuningStyleMaster
   m_EditorClassIdentifier: 
-  commanderSkills:
-  - {fileID: 11400000, guid: be9a44af6d9734330a4c43d457a76df3, type: 2}
-  destroyerSkills:
-  - {fileID: 11400000, guid: fb9a2c74b8de64f2c82cff5d956c78f0, type: 2}
-  fighterSkills:
+  "\u58C1skills": []
+  "\u696Fskills": []
+  "\u99C6skills": []
+  "\u6226skills":
+  - {fileID: 11400000, guid: 3f5e81d4b57cd47df94a2fc556a0720e, type: 2}
+  "\u8F09skills": []
+  "\u5075skills": []
+  "\u59A8skills": []
+  "\u63EEskills": []
+  "\u6551skills": []
+  "\u7832skills": []
+  "\u70B8skills": []
+  "\u72D9skills":
   - {fileID: 11400000, guid: 4ecf3f7386dac4de3b88adf01971adbb, type: 2}
-  gunnerSkills:
-  - {fileID: 11400000, guid: 56cd320e453b64adc930717e61c052ea, type: 2}
-  jammerSkills: []
-  lancerSkills: []
-  medicSkills:
-  - {fileID: 11400000, guid: 5f0f7d8e491e44b4a96f374bdc261aa7, type: 2}
-  reconnoiterSkills: []
-  sniperSkills: []
-  tankSkills:
-  - {fileID: 11400000, guid: ff6b9d212415a4732ae3319dc8103886, type: 2}

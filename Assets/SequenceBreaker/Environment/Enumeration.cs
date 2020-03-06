@@ -53,5 +53,5 @@ namespace SequenceBreaker.Environment
         BaseShield, BaseHitPoint, BaseNumberOfAttacks, MiniRange, MaxRange, BaseAccuracy, BaseMobility, BaseAttack, BaseDefense
     }
 
-    public enum MagnificationPercent { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Eleven, Twelve, Thirteen }
+    public enum MagnificationPercent { Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Eleven, Twelve, Thirteen, Fourteen }
 }

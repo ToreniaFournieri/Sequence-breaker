@@ -275,46 +275,37 @@ namespace SequenceBreaker.Master.Items
             {
 
                 case 0:
-                    return Word.Get("ItemCategory-nothing");
+                    return Word.Get("なし");
                 case 1:
-                    return Word.Get("ItemCategory-Weapon Kinetic");
+                    return Word.Get("衝撃兵器");
                 case 2:
-                    return Word.Get("ItemCategory-Weapon Chemical");
+                    return Word.Get("化学兵器");
                 case 3:
-                    return Word.Get("ItemCategory-Weapon Thermal");
+                    return Word.Get("光熱兵器");
+                case 4:
+                    return Word.Get("耐衝撃");
+                case 5:
+                    return Word.Get("耐化学");
+                case 6:
+                    return Word.Get("耐光熱");
+                case 7:
+                    return Word.Get("機体改造");
+                case 8:
+                    return Word.Get("補助");
+                case 9:
+                    return Word.Get("修復");
                 case 10:
-                    return Word.Get("ItemCategory-Head (+Accuracy)");
+                    return Word.Get("バフ");
                 case 11:
-                    return Word.Get("ItemCategory-Body (+Base HP)");
+                    return Word.Get("デバフ");
                 case 12:
-                    return Word.Get("ItemCategory-Structure (+Base Defense)");
-                case 13:
-                    return Word.Get("ItemCategory-Breastplate (+Defense Critical)");
-                case 14:
-                    return Word.Get("ItemCategory-Arm (+Base Attack)");
-                case 15:
-                    return Word.Get("ItemCategory-Leg (+Base Mobility)");
-                case 16:
-                    return Word.Get("ItemCategory-Shield (+Base Shield)");
+                    return Word.Get("内部機関");
                 case 20:
-                    return Word.Get("ItemCategory-Magazine (+Number of attacks)");
-                case 21:
-                    return Word.Get("ItemCategory-(+Critical damage)");
+                    return Word.Get("接頭辞");
                 case 30:
-                    return Word.Get("ItemCategory-Armor (+Defense Kinetic)");
-                case 31:
-                    return Word.Get("ItemCategory-Armor (+Defense Chemical)");
-                case 32:
-                    return Word.Get("ItemCategory-Armor (+Defense Thermal)");
-                case 40:
-                    return Word.Get("ItemCategory-Repair (+Base HP)");
-                case 60:
-                    return Word.Get("ItemCategory-Ability (+ability)");
-
-
-
+                    return Word.Get("接尾辞");
                 default:
-                    return itemCategory + " unknown";
+                    return itemCategory + " 不明";
             }
         }
 
@@ -322,45 +313,76 @@ namespace SequenceBreaker.Master.Items
         {
             switch (itemCategory)
             {
-
                 case 0:
-                    return Word.Get("ItemCategoryShort-No");
+                    return Word.Get("なし");
                 case 1:
-                    return Word.Get("ItemCategoryShort-WKin");
+                    return Word.Get("衝撃");
                 case 2:
-                    return Word.Get("ItemCategoryShort-WChe");
+                    return Word.Get("化学");
                 case 3:
-                    return Word.Get("ItemCategoryShort-WThe");
+                    return Word.Get("光熱");
+                case 4:
+                    return Word.Get("耐衝撃");
+                case 5:
+                    return Word.Get("耐化学");
+                case 6:
+                    return Word.Get("耐光熱");
+                case 7:
+                    return Word.Get("機体改");
+                case 8:
+                    return Word.Get("補助");
+                case 9:
+                    return Word.Get("修復");
                 case 10:
-                    return Word.Get("ItemCategoryShort-Head");
+                    return Word.Get("バフ");
                 case 11:
-                    return Word.Get("ItemCategoryShort-Body");
+                    return Word.Get("デバフ");
                 case 12:
-                    return Word.Get("ItemCategoryShort-Strc");
-                case 13:
-                    return Word.Get("ItemCategoryShort-Bres");
-                case 14:
-                    return Word.Get("ItemCategoryShort-Arm");
-                case 15:
-                    return Word.Get("ItemCategoryShort-Leg");
-                case 16:
-                    return Word.Get("ItemCategoryShort-Shie");
+                    return Word.Get("内部機");
                 case 20:
-                    return Word.Get("ItemCategoryShort-Mgzn");
-                case 21:
-                    return Word.Get("ItemCategoryShort-DCri");
+                    return Word.Get("接頭辞");
                 case 30:
-                    return Word.Get("ItemCategoryShort-DKin");
-                case 31:
-                    return Word.Get("ItemCategoryShort-DChe");
-                case 32:
-                    return Word.Get("ItemCategoryShort-DThe");
-                case 40:
-                    return Word.Get("ItemCategoryShort-Repa");
-                case 60:
-                    return Word.Get("ItemCategoryShort-Abli");
+                    return Word.Get("接尾辞");
                 default:
-                    return itemCategory + "?";
+                    return itemCategory + " 不明";
+                    //case 0:
+                    //    return Word.Get("ItemCategoryShort-No");
+                    //case 1:
+                    //    return Word.Get("ItemCategoryShort-WKin");
+                    //case 2:
+                    //    return Word.Get("ItemCategoryShort-WChe");
+                    //case 3:
+                    //    return Word.Get("ItemCategoryShort-WThe");
+                    //case 10:
+                    //    return Word.Get("ItemCategoryShort-Head");
+                    //case 11:
+                    //    return Word.Get("ItemCategoryShort-Body");
+                    //case 12:
+                    //    return Word.Get("ItemCategoryShort-Strc");
+                    //case 13:
+                    //    return Word.Get("ItemCategoryShort-Bres");
+                    //case 14:
+                    //    return Word.Get("ItemCategoryShort-Arm");
+                    //case 15:
+                    //    return Word.Get("ItemCategoryShort-Leg");
+                    //case 16:
+                    //    return Word.Get("ItemCategoryShort-Shie");
+                    //case 20:
+                    //    return Word.Get("ItemCategoryShort-Mgzn");
+                    //case 21:
+                    //    return Word.Get("ItemCategoryShort-DCri");
+                    //case 30:
+                    //    return Word.Get("ItemCategoryShort-DKin");
+                    //case 31:
+                    //    return Word.Get("ItemCategoryShort-DChe");
+                    //case 32:
+                    //    return Word.Get("ItemCategoryShort-DThe");
+                    //case 40:
+                    //    return Word.Get("ItemCategoryShort-Repa");
+                    //case 60:
+                    //    return Word.Get("ItemCategoryShort-Abli");
+                    //default:
+                    //    return itemCategory + "?";
             }
         }
 
