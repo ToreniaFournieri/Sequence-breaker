@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1099-Head H5AC5
   m_EditorClassIdentifier: 
   itemId: 1099
-  itemCategory: 10
+  itemCategory: 100
   itemName: Head H5AC5
   itemDescription: 
   icon: {fileID: 0}

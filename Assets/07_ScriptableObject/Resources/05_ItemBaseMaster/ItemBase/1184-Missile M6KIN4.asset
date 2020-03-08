@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1184-Missile M6KIN4
   m_EditorClassIdentifier: 
   itemId: 1184
-  itemCategory: 2
+  itemCategory: 100
   itemName: Missile M6KIN4
   itemDescription: 
   icon: {fileID: 0}

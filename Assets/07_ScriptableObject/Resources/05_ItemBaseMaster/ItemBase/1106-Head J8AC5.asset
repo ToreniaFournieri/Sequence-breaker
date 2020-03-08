@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1106-Head J8AC5
   m_EditorClassIdentifier: 
   itemId: 1106
-  itemCategory: 10
+  itemCategory: 100
   itemName: Head J8AC5
   itemDescription: 
   icon: {fileID: 0}

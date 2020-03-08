@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1047-Armor-Thermal T1THE9
   m_EditorClassIdentifier: 
   itemId: 1047
-  itemCategory: 32
+  itemCategory: 100
   itemName: Armor-Thermal T1THE9
   itemDescription: 
   icon: {fileID: 0}

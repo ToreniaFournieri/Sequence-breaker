@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1053-Armor-Thermal U4THE10
   m_EditorClassIdentifier: 
   itemId: 1053
-  itemCategory: 32
+  itemCategory: 100
   itemName: Armor-Thermal U4THE10
   itemDescription: 
   icon: {fileID: 0}

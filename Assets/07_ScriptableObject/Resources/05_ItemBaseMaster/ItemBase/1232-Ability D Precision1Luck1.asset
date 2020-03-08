@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1232-Ability D Precision1Luck1
   m_EditorClassIdentifier: 
   itemId: 1232
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability D Precision1Luck1
   itemDescription: 
   icon: {fileID: 0}

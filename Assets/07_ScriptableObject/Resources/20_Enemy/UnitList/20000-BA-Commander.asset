@@ -17,10 +17,13 @@ MonoBehaviour:
   unitIconString: 
   affiliation: 1
   unitType: 0
-  itemCapacity: 3
-  itemList: []
+  itemCapacity: 2
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   coreFrame: {fileID: 11400000, guid: 0c781943c75484121b18fa851c4c668a, type: 2}
   pilot: {fileID: 11400000, guid: f3893eeff428a466e8e31a8364eec39a, type: 2}
-  level: 1
+  level: 3
   experience: 0
   toNextLevel: 0

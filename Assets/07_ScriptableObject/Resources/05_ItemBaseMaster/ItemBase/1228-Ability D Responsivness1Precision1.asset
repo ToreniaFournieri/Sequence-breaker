@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1228-Ability D Responsivness1Precision1
   m_EditorClassIdentifier: 
   itemId: 1228
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability D Responsivness1Precision1
   itemDescription: 
   icon: {fileID: 0}

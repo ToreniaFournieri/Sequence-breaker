@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1194-Laser M2KIN8
   m_EditorClassIdentifier: 
   itemId: 1194
-  itemCategory: 3
+  itemCategory: 100
   itemName: Laser M2KIN8
   itemDescription: 
   icon: {fileID: 0}

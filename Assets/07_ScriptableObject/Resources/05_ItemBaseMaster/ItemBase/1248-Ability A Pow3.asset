@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1248-Ability A Pow3
   m_EditorClassIdentifier: 
   itemId: 1248
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability A Pow3
   itemDescription: 
   icon: {fileID: 0}

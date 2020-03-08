@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1234-Ability C Pow2
   m_EditorClassIdentifier: 
   itemId: 1234
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability C Pow2
   itemDescription: 
   icon: {fileID: 0}

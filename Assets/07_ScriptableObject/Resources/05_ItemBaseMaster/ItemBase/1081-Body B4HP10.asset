@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1081-Body B4HP10
   m_EditorClassIdentifier: 
   itemId: 1081
-  itemCategory: 11
+  itemCategory: 100
   itemName: Body B4HP10
   itemDescription: 
   icon: {fileID: 0}

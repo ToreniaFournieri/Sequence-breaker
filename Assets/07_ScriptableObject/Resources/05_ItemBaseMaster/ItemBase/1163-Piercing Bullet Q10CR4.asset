@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1163-Piercing Bullet Q10CR4
   m_EditorClassIdentifier: 
   itemId: 1163
-  itemCategory: 21
+  itemCategory: 100
   itemName: Piercing Bullet Q10CR4
   itemDescription: 
   icon: {fileID: 0}

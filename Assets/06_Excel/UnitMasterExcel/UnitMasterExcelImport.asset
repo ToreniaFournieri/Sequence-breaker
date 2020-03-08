@@ -12598,4 +12598,7000 @@ MonoBehaviour:
     enhanced24: 0
     enhanced25: 0
     enhanced26: 0
-  itemBase: []
+  itemBase:
+  - itemName: "\u30E9\u30A4\u30D5\u30EB\u7832 57mm"
+    itemId: 101
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64831, \u653B\u6483\u529B3,
+      \u9632\u5FA11, \u885D\u6483\u5A01\u529B x1.2, \u885D\u6483\u5A01\u529B +14%"
+    combatBaseValue: 010_WeaponKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30E9\u30A4\u30D5\u30EB\u7832 75mm"
+    itemId: 102
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64831, \u653B\u6483\u529B6,
+      \u9632\u5FA12, \u885D\u6483\u5A01\u529B x1.2, \u885D\u6483\u5A01\u529B +13%"
+    combatBaseValue: 010_WeaponKinetic
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30E9\u30A4\u30D5\u30EB\u7832 90mm"
+    itemId: 103
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64831, \u653B\u6483\u529B9,
+      \u9632\u5FA13, \u885D\u6483\u5A01\u529B x1.2, \u885D\u6483\u5A01\u529B +12%"
+    combatBaseValue: 010_WeaponKinetic
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B5\u30D6\u30DE\u30B7\u30F3\u30AC\u30F3"
+    itemId: 104
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64833, \u653B\u6483\u529B3,
+      \u9632\u5FA11, \u885D\u6483\u5A01\u529B +8%, \u30B9\u30AD\u30EB:\u8DF3\u5F3E\u3000\u78BA\u7387\u767A\u52D5
+      \u5A01\u529Bx1.2"
+    combatBaseValue: 010_WeaponKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u4E8C\u9023\u88C5\u7832 57mm"
+    itemId: 105
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64833, \u653B\u6483\u529B3,
+      \u9632\u5FA11, \u885D\u6483\u5A01\u529B +7%, \u30B9\u30AD\u30EB:\u901F\u5C04\u3000\u78BA\u7387\u767A\u52D5
+      \u653B\u6483\u56DE\u65702\u500D"
+    combatBaseValue: 010_WeaponKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30EC\u30FC\u30EB\u30AC\u30F3 160mm"
+    itemId: 106
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64832, \u653B\u6483\u529B15,
+      \u9632\u5FA15"
+    combatBaseValue: 010_WeaponKinetic
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D8\u30F4\u30A3\u30CF\u30F3\u30DE\u30FC"
+    itemId: 107
+    itemCategory: 1
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u885D\u64831, \u653B\u6483\u529B6,
+      \u9632\u5FA12, \u885D\u6483\u5A01\u529B x1.3"
+    combatBaseValue: 010_WeaponKinetic
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B0\u30EC\u30CD\u30FC\u30C9\u30E9\u30F3\u30C1\u30E3\u30FC 40mm"
+    itemId: 108
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B661, \u653B\u6483\u529B3,
+      \u547D\u4E2D1, \u5316\u5B66\u5A01\u529B x1.2, \u5316\u5B66\u5A01\u529B +14%"
+    combatBaseValue: 020_WeaponChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B0\u30EC\u30CD\u30FC\u30C9\u30E9\u30F3\u30C1\u30E3\u30FC 78mm"
+    itemId: 109
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B661, \u653B\u6483\u529B6,
+      \u547D\u4E2D2, \u5316\u5B66\u5A01\u529B x1.2, \u5316\u5B66\u5A01\u529B +13%"
+    combatBaseValue: 020_WeaponChemical
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u6ED1\u8154\u7832 103mm"
+    itemId: 110
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B661, \u653B\u6483\u529B9,
+      \u547D\u4E2D3, \u5316\u5B66\u5A01\u529B x1.2, \u5316\u5B66\u5A01\u529B +12%"
+    combatBaseValue: 020_WeaponChemical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30ED\u30B1\u30C3\u30C8\u7832"
+    itemId: 111
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B663, \u653B\u6483\u529B3,
+      \u547D\u4E2D1, \u5316\u5B66\u5A01\u529B +8%, \u30B9\u30AD\u30EB:\u6B63\u78BA\u6295\u64F2\u3000\u78BA\u7387\u767A\u52D5
+      \u653B\u6483\u529B\u306E\u3070\u3089\u3064\u304D\u306A\u304F100\uFF05\u5A01\u529B\u304C\u78BA\u5B9A\u3059\u308B"
+    combatBaseValue: 020_WeaponChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u591A\u9023\u88C5\u30ED\u30B1\u30C3\u30C8\u7832"
+    itemId: 112
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B663, \u653B\u6483\u529B3,
+      \u547D\u4E2D1, \u5316\u5B66\u5A01\u529B +7%, \u30B9\u30AD\u30EB:\u5168\u4F53\u7206\u6483\u3000\u78BA\u7387\u767A\u52D5\u3000\u6575\u5168\u4F53\u653B\u6483\u3000\u5A01\u529Bx1.0
+      \u6E1B\u8870\u306A\u3057"
+    combatBaseValue: 020_WeaponChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30DF\u30B5\u30A4\u30EB\u30E9\u30F3\u30C1\u30E3\u30FC"
+    itemId: 113
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B662, \u653B\u6483\u529B15,
+      \u547D\u4E2D5"
+    combatBaseValue: 020_WeaponChemical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8FEB\u6483\u7832 103mm"
+    itemId: 114
+    itemCategory: 2
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5316\u5B661, \u653B\u6483\u529B9,
+      \u547D\u4E2D3, \u5316\u5B66\u5A01\u529B x1.3"
+    combatBaseValue: 020_WeaponChemical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30EC\u30FC\u30B6\u30FC\u7832\u300050kW"
+    itemId: 115
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B11, \u653B\u6483\u529B3,
+      \u30B7\u30FC\u30EB\u30C91, \u5149\u71B1\u5A01\u529B x1.2, \u5149\u71B1\u5A01\u529B
+      +14%"
+    combatBaseValue: 030_WeaponThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30EC\u30FC\u30B6\u30FC\u7832\u300075kW"
+    itemId: 116
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B11, \u653B\u6483\u529B6,
+      \u30B7\u30FC\u30EB\u30C92, \u5149\u71B1\u5A01\u529B x1.2, \u5149\u71B1\u5A01\u529B
+      +13%"
+    combatBaseValue: 030_WeaponThermal
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30EC\u30FC\u30B6\u30FC\u7832\u3000100kW"
+    itemId: 117
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B11, \u653B\u6483\u529B9,
+      \u30B7\u30FC\u30EB\u30C93, \u5149\u71B1\u5A01\u529B x1.2, \u5149\u71B1\u5A01\u529B
+      +12%"
+    combatBaseValue: 030_WeaponThermal
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30C1\u30E3\u30FC\u30B8\u30EC\u30FC\u30B6\u30FC"
+    itemId: 118
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B13, \u653B\u6483\u529B3,
+      \u30B7\u30FC\u30EB\u30C91, \u5149\u71B1\u5A01\u529B +8%, \u30B9\u30AD\u30EB:
+      \u30AA\u30FC\u30D0\u30FC\u30C1\u30E3\u30FC\u30B8 \u78BA\u7387\u767A\u52D5 \u5A01\u529Bx1.5"
+    combatBaseValue: 030_WeaponThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30C9\u30EC\u30A4\u30F3\u30EC\u30FC\u30B6\u30FC"
+    itemId: 119
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B13, \u653B\u6483\u529B3,
+      \u30B7\u30FC\u30EB\u30C91, \u5149\u71B1\u5A01\u529B +7%, \u30B9\u30AD\u30EB:
+      \u30B7\u30FC\u30EB\u30C9\u5438\u53CE \u78BA\u7387\u767A\u52D5 \u6575\u306E\u30B7\u30FC\u30EB\u30C9\u30C0\u30E1\u30FC\u30B8\u306E\u4E00\u90E8\u3092\u81EA\u8EAB\u306E\u30B7\u30FC\u30EB\u30C9\u306B\u9084\u5143\u3059\u308B"
+    combatBaseValue: 030_WeaponThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D7\u30E9\u30BA\u30DE\u30AD\u30E3\u30CE\u30F3"
+    itemId: 120
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B12, \u653B\u6483\u529B15,
+      \u30B7\u30FC\u30EB\u30C95"
+    combatBaseValue: 030_WeaponThermal
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5927\u5BB9\u91CF\u30B3\u30F3\u30C7\u30F3\u30B5"
+    itemId: 121
+    itemCategory: 3
+    itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B11, \u653B\u6483\u529B6,
+      \u30B7\u30FC\u30EB\u30C92, \u5149\u71B1\u5A01\u529B x1.3"
+    combatBaseValue: 030_WeaponThermal
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9632\u5F3E\u92FC\u677F 57mm"
+    itemId: 122
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B2, HP2, \u885D\u6483\u8010\u6027 x0.9, \u885D\u6483\u8010\u6027
+      +14%"
+    combatBaseValue: 040_ArmorKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9632\u5F3E\u92FC\u677F 75mm"
+    itemId: 123
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B4, HP4, \u885D\u6483\u8010\u6027 x0.9, \u885D\u6483\u8010\u6027
+      +13%"
+    combatBaseValue: 040_ArmorKinetic
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9632\u5F3E\u92FC\u677F 90mm"
+    itemId: 124
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B8, HP8, \u885D\u6483\u8010\u6027 x0.9, \u885D\u6483\u8010\u6027
+      +12%"
+    combatBaseValue: 040_ArmorKinetic
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u7A4D\u5C64\u88C5\u7532"
+    itemId: 125
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B2, HP2, \u885D\u6483\u8010\u6027 +8%, \u9632\u5FA1\u529B\u57FA\u790E\u5024
+      x1.2"
+    combatBaseValue: 040_ArmorKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin8Percent
+    magnific2: BaseDefensex1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30C1\u30BF\u30CB\u30A6\u30E0\u5408\u91D1"
+    itemId: 126
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B2, HP2, \u885D\u6483\u8010\u6027 +7%, HP\u57FA\u790E\u5024
+      x1.2"
+    combatBaseValue: 040_ArmorKinetic
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin7Percent
+    magnific2: BaseHitPointx1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u50BE\u659C\u88C5\u7532"
+    itemId: 127
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B4, HP4, \u885D\u6483\u8010\u6027 x0.7"
+    combatBaseValue: 040_ArmorKinetic
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.7
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u52A3\u5316\u30A6\u30E9\u30F3\u88C5\u7532"
+    itemId: 128
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B10, HP10, \u56DE\u907F-2"
+    combatBaseValue: 040_ArmorKinetic
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u91CD\u88C5\u786C\u5316\u88C5\u7532"
+    itemId: 129
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B5, \u56DE\u907F\u529B-3, \u91CD\u88C5\u7532(\u672A\u5B9F\u88C5),\u3000\u884C\u52D5\u9806x0.7(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 041_HeavyArmor
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u982D\u90E8\u4FDD\u8B77\u88C5\u7532"
+    itemId: 130
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B3, \u547D\u4E2DDOWN\u8010\u6027 +1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 042_ArmorDef
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D5\u30A1\u30A4\u30A2\u30FC\u30A6\u30A9\u30FC\u30EB"
+    itemId: 131
+    itemCategory: 4
+    itemDescription: "\u9632\u5FA1\u529B3, \u30CF\u30C3\u30AD\u30F3\u30B0\u8010\u6027
+      +1(\u672A\u5B9F\u88C5), \u71C3\u713C\u8010\u6027-1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 042_ArmorDef
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u591A\u91CD\u7A7A\u9593\u88C5\u7532 40mm"
+    itemId: 132
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B1, \u56DE\u907F\u529B3, \u5316\u5B66\u8010\u6027
+      x0.9, \u5316\u5B66\u8010\u6027 +14%"
+    combatBaseValue: 050_ArmorChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u591A\u91CD\u7A7A\u9593\u88C5\u7532 78mm"
+    itemId: 133
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B2, \u56DE\u907F\u529B6, \u5316\u5B66\u8010\u6027
+      x0.9, \u5316\u5B66\u8010\u6027 +13%"
+    combatBaseValue: 050_ArmorChemical
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u591A\u91CD\u7A7A\u9593\u88C5\u7532 103mm"
+    itemId: 134
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B3, \u56DE\u907F\u529B9, \u5316\u5B66\u8010\u6027
+      x0.9, \u5316\u5B66\u8010\u6027 +12%"
+    combatBaseValue: 050_ArmorChemical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B1\u30FC\u30B8\u88C5\u7532"
+    itemId: 135
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B1, \u56DE\u907F\u529B3, \u5316\u5B66\u8010\u6027
+      +8%, \u56DE\u907F\u57FA\u790E\u5024 x1.2"
+    combatBaseValue: 050_ArmorChemical
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe8Percent
+    magnific2: BaseMobilityx1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u4ED8\u52A0\u88C5\u7532"
+    itemId: 136
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B1, \u56DE\u907F\u529B3, \u5316\u5B66\u8010\u6027
+      +7%, \u9632\u5FA1\u57FA\u790E\u5024 x1.2"
+    combatBaseValue: 050_ArmorChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe7Percent
+    magnific2: BaseDefensex1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u7206\u767A\u53CD\u5FDC\u88C5\u7532"
+    itemId: 137
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B3, \u56DE\u907F\u529B9, \u5316\u5B66\u8010\u6027
+      x0.7"
+    combatBaseValue: 050_ArmorChemical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.7
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30A2\u30EB\u30DF\u30CB\u30A6\u30E0\u5408\u91D1\u88C5\u7532"
+    itemId: 138
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B5, \u56DE\u907F\u529B15"
+    combatBaseValue: 050_ArmorChemical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u95A2\u7BC0\u90E8\u4FDD\u8B77\u88C5\u7532"
+    itemId: 139
+    itemCategory: 5
+    itemDescription: "\u9632\u5FA1\u529B1, \u56DE\u907F\u529B3, \u5FC5\u6BBA\u8010\u6027
+      x0.7"
+    combatBaseValue: 050_ArmorChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9632\u8150\u30B3\u30FC\u30C6\u30A3\u30F3\u30B0"
+    itemId: 140
+    itemCategory: 5
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, \u8150\u98DF\u8010\u6027\u3000+1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 051_ArmorShield
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u811A\u90E8\u9632\u5875\u5E03"
+    itemId: 141
+    itemCategory: 5
+    itemDescription: "\u56DE\u907F\u529B3, \u654F\u6377DOWN\u8010\u6027"
+    combatBaseValue: 052_Avoid
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u03B1\u30B3\u30FC\u30C6\u30A3\u30F3\u30B0\u30B7\u30FC\u30EB\u30C9"
+    itemId: 142
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, HP1, \u5149\u71B1\u8010\u6027 x0.9,
+      \u5149\u71B1\u8010\u6027 +14%"
+    combatBaseValue: 060_ArmorThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe14Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u03B2\u30B3\u30FC\u30C6\u30A3\u30F3\u30B0\u30B7\u30FC\u30EB\u30C9"
+    itemId: 143
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C96, HP2, \u5149\u71B1\u8010\u6027 x0.9,
+      \u5149\u71B1\u8010\u6027 +13%"
+    combatBaseValue: 060_ArmorThermal
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe13Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u03B3\u30B3\u30FC\u30C6\u30A3\u30F3\u30B0\u30B7\u30FC\u30EB\u30C9"
+    itemId: 144
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C99, HP3, \u5149\u71B1\u8010\u6027 x0.9,
+      \u5149\u71B1\u8010\u6027 +12%"
+    combatBaseValue: 060_ArmorThermal
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe12Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u78C1\u6C17\u30B7\u30FC\u30EB\u30C9"
+    itemId: 145
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, HP1, \u5149\u71B1\u8010\u6027 +8%,
+      \u30B7\u30FC\u30EB\u30C9\u57FA\u790E\u5024 x1.2"
+    combatBaseValue: 060_ArmorThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe8Percent
+    magnific2: BaseShieldx1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30DF\u30E9\u30FC\u30B7\u30FC\u30EB\u30C9"
+    itemId: 146
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, HP1, \u5149\u71B1\u8010\u6027 +7%,
+      HP\u57FA\u790E\u5024 x1.2"
+    combatBaseValue: 060_ArmorThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe7Percent
+    magnific2: BaseHitPointx1.20
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u504F\u5149\u30B7\u30FC\u30EB\u30C9"
+    itemId: 147
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C96, HP2, \u5149\u71B1\u8010\u6027 x0.7"
+    combatBaseValue: 060_ArmorThermal
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.7
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30A8\u30CA\u30B8\u30FC\u30B7\u30FC\u30EB\u30C9"
+    itemId: 148
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C915, HP5, "
+    combatBaseValue: 060_ArmorThermal
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u4E0D\u71C3\u6027\u8FFD\u52A0\u88C5\u7532"
+    itemId: 149
+    itemCategory: 6
+    itemDescription: "HP3, \u71C3\u713C\u8010\u6027 +1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 061_ArmorHP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u56DE\u8DEF\u4FDD\u8B77\u30B7\u30FC\u30EB\u30C9"
+    itemId: 150
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, HP1, \u9EBB\u75FA\u8010\u6027 +1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 060_ArmorThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5C04\u6483\u88C5\u7F6E\u9632\u8B77\u677F"
+    itemId: 151
+    itemCategory: 6
+    itemDescription: "\u30B7\u30FC\u30EB\u30C93, HP1, \u5C04\u6483\u4E0D\u826F\u8010\u6027
+      +1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 060_ArmorThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u5F37\u5316 \u5F31"
+    itemId: 152
+    itemCategory: 7
+    itemDescription: "\u30B7\u30FC\u30EB\u30C9 +10"
+    combatBaseValue: 070_Shield
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u5F37\u5316 \u4E2D"
+    itemId: 153
+    itemCategory: 7
+    itemDescription: "\u30B7\u30FC\u30EB\u30C9 +20"
+    combatBaseValue: 070_Shield
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u5F37\u5316 \u5F37"
+    itemId: 154
+    itemCategory: 7
+    itemDescription: "\u30B7\u30FC\u30EB\u30C9 +40"
+    combatBaseValue: 070_Shield
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "HP\u5F37\u5316 \u5F31"
+    itemId: 155
+    itemCategory: 7
+    itemDescription: HP +10
+    combatBaseValue: 071_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "HP\u5F37\u5316 \u4E2D"
+    itemId: 156
+    itemCategory: 7
+    itemDescription: HP +20
+    combatBaseValue: 071_HP
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "HP\u5F37\u5316 \u5F37"
+    itemId: 157
+    itemCategory: 7
+    itemDescription: HP +40
+    combatBaseValue: 071_HP
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5F37\u5316\u6B66\u88C5\u8155"
+    itemId: 158
+    itemCategory: 7
+    itemDescription: "\u683C\u95D8\u3000x2.0 \u653B\u6483\u529B\u304C\u5897\u52A0\u3057\u306A\u3044\u88C5\u5099\u3092\u7740\u3051\u3066\u3044\u308B\u5834\u5408\u3001\u653B\u6483\u529B\u304C2\u500D\u306B\u306A\u308B"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u6B66\u88C5\u8155"
+    itemId: 159
+    itemCategory: 7
+    itemDescription: "\u683C\u95D8\u3000x1.5 \u653B\u6483\u529B\u304C\u5897\u52A0\u3057\u306A\u3044\u88C5\u5099\u3092\u7740\u3051\u3066\u3044\u308B\u5834\u5408\u3001\u653B\u6483\u529B\u304C1.5\u500D\u306B\u306A\u308B"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u69CB\u9020\u5F37\u5316"
+    itemId: 160
+    itemCategory: 7
+    itemDescription: "HP\u57FA\u790E\u5024\u3000x1.3 "
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8D64\u5916\u7DDA\u30BB\u30F3\u30B5"
+    itemId: 161
+    itemCategory: 8
+    itemDescription: "\u547D\u4E2D\u57FA\u790E\u5024\u3000x1.3"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8D85\u97F3\u6CE2\u30BB\u30F3\u30B5"
+    itemId: 162
+    itemCategory: 8
+    itemDescription: "\u547D\u4E2D\u57FA\u790E\u5024\u3000x1.2"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D6\u30FC\u30B9\u30BF\u30FC"
+    itemId: 163
+    itemCategory: 8
+    itemDescription: "\u884C\u52D5\u9806 x1.3(\u672A\u5B9F\u88C5), \u56DE\u907F\u57FA\u790E\u5024
+      x1.2"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D1\u30EB\u30B9\u30D6\u30FC\u30B9\u30BF\u30FC"
+    itemId: 164
+    itemCategory: 8
+    itemDescription: "\u884C\u52D5\u9806 x1.2(\u672A\u5B9F\u88C5), \u56DE\u907F\u57FA\u790E\u5024
+      x1.2"
+    combatBaseValue: 072_None
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30AB\u30FC\u30C8\u30EA\u30C3\u30B8\u62E1\u5F35"
+    itemId: 165
+    itemCategory: 8
+    itemDescription: "\u653B\u6483\u56DE\u6570\u3000+5"
+    combatBaseValue: 073_NumberOfAttacks
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u30AD\u30C3\u30C8 \u5C0F"
+    itemId: 166
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.7(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB: \u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u3000\u3000\u5473\u65B9\u5358\u4F53\u306E\u30B7\u30FC\u30EB\u30C9\u3092\u5C11\u91CF\u56DE\u5FA9\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u30AD\u30C3\u30C8 \u4E2D"
+    itemId: 167
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.6(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB: \u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u3000\u3000\u5473\u65B9\u5358\u4F53\u306E\u30B7\u30FC\u30EB\u30C9\u3092\u4E2D\u91CF\u56DE\u5FA9\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u30AD\u30C3\u30C8 \u5168\u4F53"
+    itemId: 168
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.2(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB: \u30B7\u30FC\u30EB\u30C9\u4FEE\u5FA9\u3000\u3000\u5473\u65B9\u5168\u4F53\u306E\u30B7\u30FC\u30EB\u30C9\u3092\u5C11\u91CF\u56DE\u5FA9\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u885D\u6483\u5175\u5668\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 169
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C92, \u56DE\u907F\u529B2, \u56DE\u5FA9\u5A01\u529B
+      x1.3(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u885D\u6483\u8010\u6027\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u885D\u6483\u8010\u6027\u306E\u30C7\u30D0\u30D5\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5316\u5B66\u5175\u5668\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 170
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C92, \u56DE\u907F\u529B2, \u56DE\u5FA9\u5A01\u529B
+      x1.3(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u5316\u5B66\u8010\u6027\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u5316\u5B66\u8010\u6027\u306E\u30C7\u30D0\u30D5\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5149\u71B1\u5175\u5668\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 171
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C92, \u56DE\u907F\u529B2, \u56DE\u5FA9\u5A01\u529B
+      x1.3(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u5149\u71B1\u8010\u6027\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u885D\u6483\u8010\u6027\u306E\u30C7\u30D0\u30D5\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8150\u98DF\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 172
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u8150\u98DF\u56DE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u8150\u98DF\u52B9\u679C\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u6D88\u5316\u5668"
+    itemId: 173
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u6D88\u706B\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u5EF6\u713C\u52B9\u679C\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u96FB\u6C17\u7CFB\u7D71\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 174
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u96FB\u6C17\u7CFB\u7D71\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u9EBB\u75FA\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30CF\u30C3\u30AD\u30F3\u30B0\u56DE\u5FA9"
+    itemId: 175
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u30CF\u30C3\u30AD\u30F3\u30B0\u56DE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u9060\u9694\u64CD\u4F5C\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5C04\u6483\u5236\u5FA1\u88C5\u7F6E\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 176
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u5C04\u6483\u5236\u5FA1\u88C5\u7F6E\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u5C04\u6483\u4E0D\u826F\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u811A\u90E8\u4FEE\u5FA9\u30AD\u30C3\u30C8"
+    itemId: 177
+    itemCategory: 9
+    itemDescription: "\u30B7\u30FC\u30EB\u30C91, \u56DE\u907F\u529B1, \u56DE\u5FA9\u5A01\u529B
+      x1.4(\u672A\u5B9F\u88C5), \u30B9\u30AD\u30EB:\u654F\u6377\u4F4E\u4E0B\u4FEE\u5FA9\u3000\u5473\u65B9\u5168\u4F53\u306B\u304B\u304B\u3063\u3066\u3044\u308B\u654F\u6377\u4F4E\u4E0B\u52B9\u679C\u3092\u7121\u52B9\u5316\u3059\u308B"
+    combatBaseValue: 090_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u885D\u6483\u5A01\u529B\u5F37\u5316"
+    itemId: 178
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u885D\u6483\u5A01\u529B\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u885D\u6483\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u885D\u6483\u8010\u6027\u5F37\u5316"
+    itemId: 179
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u885D\u6483\u8010\u6027\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u885D\u6483\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5316\u5B66\u5A01\u529B\u5F37\u5316"
+    itemId: 180
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5316\u5B66\u5A01\u529B\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u5316\u5B66\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5316\u5B66\u8010\u6027\u5F37\u5316"
+    itemId: 181
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5316\u5B66\u8010\u6027\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u5316\u5B66\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5149\u71B1\u5A01\u529B\u5F37\u5316"
+    itemId: 182
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5149\u71B1\u5A01\u529B\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u5149\u71B1\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5149\u71B1\u8010\u6027\u5F37\u5316"
+    itemId: 183
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5149\u71B1\u8010\u6027\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u5149\u71B1\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u654F\u6377\u5F37\u5316"
+    itemId: 184
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u654F\u6377\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u56DE\u907F\u529B\u3068\u884C\u52D5\u6C7A\u5B9A\u901F\u5EA6\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u547D\u4E2D\u5F37\u5316"
+    itemId: 185
+    itemCategory: 10
+    itemDescription: "\u9632\u5FA1\u529B1, \u30B9\u30AD\u30EB:\u5168\u4F53\u547D\u4E2D\u5F37\u5316\u3000\u5473\u65B9\u5168\u4F53\u306E\u547D\u4E2D\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F37\u5316\u3059\u308B"
+    combatBaseValue: 100_Buff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u885D\u6483\u5A01\u529B\u5F31\u5316"
+    itemId: 186
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u885D\u6483\u5A01\u529B\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u885D\u6483\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u885D\u6483\u8010\u6027\u5F31\u5316"
+    itemId: 187
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u885D\u6483\u8010\u6027\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u885D\u6483\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5316\u5B66\u5A01\u529B\u5F31\u5316"
+    itemId: 188
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5316\u5B66\u5A01\u529B\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u5316\u5B66\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5316\u5B66\u8010\u6027\u5F31\u5316"
+    itemId: 189
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5316\u5B66\u8010\u6027\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u5316\u5B66\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5149\u71B1\u5A01\u529B\u5F31\u5316"
+    itemId: 190
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5149\u71B1\u5A01\u529B\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u5149\u71B1\u5A01\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u5149\u71B1\u8010\u6027\u5F31\u5316"
+    itemId: 191
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u5149\u71B1\u8010\u6027\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u5149\u71B1\u8010\u6027\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u654F\u6377\u5F31\u5316"
+    itemId: 192
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u654F\u6377\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u56DE\u907F\u529B\u3068\u884C\u52D5\u6C7A\u5B9A\u901F\u5EA6\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30B9\u30AD\u30EB_\u5168\u4F53\u547D\u4E2D\u5F31\u5316"
+    itemId: 193
+    itemCategory: 11
+    itemDescription: "\u547D\u4E2D1, \u30B9\u30AD\u30EB:\u5168\u4F53\u547D\u4E2D\u5F31\u5316\u3000\u76F8\u624B\u5168\u4F53\u306E\u547D\u4E2D\u529B\u30923\u30BF\u30FC\u30F3\u306E\u95931\u30B9\u30BF\u30C3\u30AF\u5F31\u5316\u3059\u308B"
+    combatBaseValue: 110_Debuff
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D0\u30EA\u30A2\u751F\u6210\u88C5\u7F6E"
+    itemId: 194
+    itemCategory: 12
+    itemDescription: "HP1, \u30B9\u30AD\u30EB: 3\u30BF\u30FC\u30F3\u76EE\u306B\u81EA\u5206\u81EA\u8EAB\u306B\u30D0\u30EA\u30A2
+      +10"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u529B"
+    itemId: 195
+    itemCategory: 12
+    itemDescription: "HP1, \u529B+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u767A\u96FB"
+    itemId: 196
+    itemCategory: 12
+    itemDescription: "HP1, \u767A\u96FB+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u5B89\u5B9A"
+    itemId: 197
+    itemCategory: 12
+    itemDescription: "HP1, \u5B89\u5B9A+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u654F\u6377"
+    itemId: 198
+    itemCategory: 12
+    itemDescription: "HP1, \u654F\u6377+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u7CBE\u5EA6"
+    itemId: 199
+    itemCategory: 12
+    itemDescription: "HP1, \u7CBE\u5EA6+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Precision
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5897\u5E45\u5668_\u904B"
+    itemId: 200
+    itemCategory: 12
+    itemDescription: "HP1, \u904B+1 \u653B\u6483\u56DE\u6570+1"
+    combatBaseValue: 120_HP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Luck
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8CAB\u304F"
+    itemId: 3001
+    itemCategory: 20
+    itemDescription: "\u885D\u6483\u5A01\u529B+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8CAB\u304B\u306A\u3044"
+    itemId: 3002
+    itemCategory: 20
+    itemDescription: "\u885D\u6483\u8010\u6027+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u8D77\u7206\u3059\u308B"
+    itemId: 3003
+    itemCategory: 20
+    itemDescription: "\u5316\u5B66\u5A01\u529B+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5B89\u5B9A\u3057\u305F"
+    itemId: 3004
+    itemCategory: 20
+    itemDescription: "\u5316\u5B66\u8010\u6027+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u96C6\u675F\u3057\u305F"
+    itemId: 3005
+    itemCategory: 20
+    itemDescription: "\u5149\u71B1\u5A01\u529B+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u653E\u71B1\u3059\u308B"
+    itemId: 3006
+    itemCategory: 20
+    itemDescription: "\u5149\u71B1\u8010\u6027+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5FC5\u6BBA\u306E"
+    itemId: 3007
+    itemCategory: 20
+    itemDescription: "\u5FC5\u6BBA\u5A01\u529B+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCri9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5B89\u5168\u306A"
+    itemId: 3008
+    itemCategory: 20
+    itemDescription: "\u5FC5\u6BBA\u8010\u6027+9%"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9AD8\u51FA\u529B\u306E"
+    itemId: 3009
+    itemCategory: 20
+    itemDescription: "\u30B7\u30FC\u30EB\u30C9\u57FA\u790E\u5024 x1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30BF\u30D5\u306A"
+    itemId: 3010
+    itemCategory: 20
+    itemDescription: "HP\u57FA\u790E\u5024\u3000x1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u529B\u5F37\u3044"
+    itemId: 3011
+    itemCategory: 20
+    itemDescription: "\u653B\u6483\u529B\u57FA\u790E\u5024 x.1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5805\u7262\u306A"
+    itemId: 3012
+    itemCategory: 20
+    itemDescription: "\u9632\u5FA1\u529B\u57FA\u790E\u5024\u3000x1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u9003\u3055\u306A\u3044"
+    itemId: 3013
+    itemCategory: 20
+    itemDescription: "\u547D\u4E2D\u57FA\u790E\u5024\u3000x1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u907F\u3051\u308B"
+    itemId: 3014
+    itemCategory: 20
+    itemDescription: "\u56DE\u907F\u57FA\u790E\u5024\u3000x1.6"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.60
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u5F81\u3059\u308B"
+    itemId: 3015
+    itemCategory: 20
+    itemDescription: "\u30B7\u30FC\u30EB\u30C9\u57FA\u790E\u5024 x1.4\nHP\u57FA\u790E\u5024\u3000x1.4\n\u653B\u6483\u529B\u57FA\u790E\u5024
+      x.1.4\n\u9632\u5FA1\u529B\u57FA\u790E\u5024\u3000x1.4\n\u547D\u4E2D\u57FA\u790E\u5024\u3000x1.4\n\u56DE\u907F\u57FA\u790E\u5024\u3000x1.4"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.40
+    magnific2: BaseHitPointx1.40
+    magnific3: BaseDefensex1.40
+    magnific4: BaseDefensex1.40
+    magnific5: BaseAccuracyx1.40
+    magnific6: BaseMobilityx1.40
+  - itemName: "\u5FB9\u7532\u5F3EAP"
+    itemId: 4001
+    itemCategory: 30
+    itemDescription: "\u885D\u6483\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u786C\u82AF\u5FB9\u7532\u5F3E APCR"
+    itemId: 4002
+    itemCategory: 30
+    itemDescription: "\u885D\u6483\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+2(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u88C5\u5F3E\u7B52\u4ED8\u5FB9\u7532\u5F3E APDS"
+    itemId: 4003
+    itemCategory: 30
+    itemDescription: "\u885D\u6483\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+3(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u69B4\u5F3E HE"
+    itemId: 4004
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+1(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u30D7\u30E9\u30B9\u30C1\u30C3\u30AF\u69B4\u5F3E HEP"
+    itemId: 4005
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+2(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u6210\u5F62\u70B8\u85AC\u5F3E HEAT"
+    itemId: 4006
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u5A01\u529B\u5F37\u5316+3(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u786B\u9178\u5F3E"
+    itemId: 4007
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u72B6\u614B\u7570\u5E38:\u8150\u98DF\u30001\u30B9\u30BF\u30C3\u30AF\u4ED8\u4E0E(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u713C\u5937\u5F3E"
+    itemId: 4008
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u72B6\u614B\u7570\u5E38:\u71C3\u713C\u30001\u30B9\u30BF\u30C3\u30AF\u4ED8\u4E0E(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u7C98\u7740\u5F3E"
+    itemId: 4009
+    itemCategory: 30
+    itemDescription: "\u5316\u5B66\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u30C7\u30D0\u30D5:\u654F\u6377DOWN\u30001\u30B9\u30BF\u30C3\u30AF\u4ED8\u4E0E(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: "\u96FB\u78C1\u30D1\u30EB\u30B9"
+    itemId: 4010
+    itemCategory: 30
+    itemDescription: "\u5149\u71B1\u5175\u5668\u306B\u306E\u307F\u4ED8\u304F\u3002\u3000\u72B6\u614B\u7570\u5E38:
+      \u9EBB\u75FA 1\u30B9\u30BF\u30C3\u30AF\u4ED8\u4E0E(\u672A\u5B9F\u88C5)"
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M0KIN10
+    itemId: 1164
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M1KIN9
+    itemId: 1165
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M2KIN8
+    itemId: 1166
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M3KIN7
+    itemId: 1167
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M4KIN6
+    itemId: 1168
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M5KIN5
+    itemId: 1169
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun M6KIN4
+    itemId: 1170
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKinx1.20
+    magnific2: OffKin4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N4KIN10
+    itemId: 1171
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N5KIN9
+    itemId: 1172
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N6KIN8
+    itemId: 1173
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N7KIN7
+    itemId: 1174
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N8KIN6
+    itemId: 1175
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N9KIN5
+    itemId: 1176
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Gun N10KIN4
+    itemId: 1177
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9230_WeaponKinetic
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffKin4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M0KIN10
+    itemId: 1178
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M1KIN9
+    itemId: 1179
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M2KIN8
+    itemId: 1180
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M3KIN7
+    itemId: 1181
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M4KIN6
+    itemId: 1182
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M5KIN5
+    itemId: 1183
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile M6KIN4
+    itemId: 1184
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChex1.20
+    magnific2: OffChe4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N4KIN10
+    itemId: 1185
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N5KIN9
+    itemId: 1186
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N6KIN8
+    itemId: 1187
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N7KIN7
+    itemId: 1188
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N8KIN6
+    itemId: 1189
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N9KIN5
+    itemId: 1190
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Missile N10KIN4
+    itemId: 1191
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9240_WeaponChemical
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffChe4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M0KIN10
+    itemId: 1192
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M1KIN9
+    itemId: 1193
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M2KIN8
+    itemId: 1194
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M3KIN7
+    itemId: 1195
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M4KIN6
+    itemId: 1196
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M5KIN5
+    itemId: 1197
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser M6KIN4
+    itemId: 1198
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThex1.20
+    magnific2: OffThe4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N4KIN10
+    itemId: 1199
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N5KIN9
+    itemId: 1200
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N6KIN8
+    itemId: 1201
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N7KIN7
+    itemId: 1202
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N8KIN6
+    itemId: 1203
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N9KIN5
+    itemId: 1204
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Laser N10KIN4
+    itemId: 1205
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9250_WeaponThermal
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffThe4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H0AC10
+    itemId: 1094
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H1AC9
+    itemId: 1095
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H2AC8
+    itemId: 1096
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H3AC7
+    itemId: 1097
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H4AC6
+    itemId: 1098
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H5AC5
+    itemId: 1099
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head H4AC4
+    itemId: 1100
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.20
+    magnific2: BaseAccuracy4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J4AC10
+    itemId: 1101
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J4AC9
+    itemId: 1102
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J5AC8
+    itemId: 1103
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J6AC7
+    itemId: 1104
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J7AC6
+    itemId: 1105
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J8AC5
+    itemId: 1106
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Head J9AC4
+    itemId: 1107
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9160_HeadAccCou
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracy4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A0HP10
+    itemId: 1074
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A1HP9
+    itemId: 1075
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A2HP8
+    itemId: 1076
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A3HP7
+    itemId: 1077
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A4HP6
+    itemId: 1078
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A5HP5
+    itemId: 1079
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body A6HP4
+    itemId: 1080
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.20
+    magnific2: BaseHitPoint4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B4HP10
+    itemId: 1081
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B5HP9
+    itemId: 1082
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B6HP8
+    itemId: 1083
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B7HP7
+    itemId: 1084
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B8HP6
+    itemId: 1085
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B9HP5
+    itemId: 1086
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Body B10HP4
+    itemId: 1087
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9120_Body
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPoint4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S0DEF10
+    itemId: 1136
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S1DEF9
+    itemId: 1137
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S2DEF8
+    itemId: 1138
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S3DEF7
+    itemId: 1139
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S4DEF6
+    itemId: 1140
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S5DEF5
+    itemId: 1141
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure S6DEF4
+    itemId: 1142
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.20
+    magnific2: BaseDefense4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T4DEF10
+    itemId: 1143
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T5DEF9
+    itemId: 1144
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T6DEF8
+    itemId: 1145
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T7DEF7
+    itemId: 1146
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T8DEF6
+    itemId: 1147
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T9DEF5
+    itemId: 1148
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Structure T10DEF4
+    itemId: 1149
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9190_Structure
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefense4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T0CR10
+    itemId: 1001
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T1CR9
+    itemId: 1002
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T2CR8
+    itemId: 1003
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T3CR7
+    itemId: 1004
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T4CR6
+    itemId: 1005
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T5CR5
+    itemId: 1006
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate T6CR4
+    itemId: 1007
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCrix0.9
+    magnific2: DefCri4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U4CR10
+    itemId: 1008
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U5CR9
+    itemId: 1009
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U6CR8
+    itemId: 1010
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U7CR7
+    itemId: 1011
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U8CR6
+    itemId: 1012
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U9CR5
+    itemId: 1013
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Breastplate U10CR4
+    itemId: 1014
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9014_Breastplate
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefCri4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A0AT10
+    itemId: 1122
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A1AT9
+    itemId: 1123
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A2AT8
+    itemId: 1124
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A3AT7
+    itemId: 1125
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A4AT6
+    itemId: 1126
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A5AT5
+    itemId: 1127
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm A6AT4
+    itemId: 1128
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.20
+    magnific2: BaseAttack4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B4AT10
+    itemId: 1129
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B5AT9
+    itemId: 1130
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B6AT8
+    itemId: 1131
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B7AT7
+    itemId: 1132
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B8AT6
+    itemId: 1133
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B9AT5
+    itemId: 1134
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Arm B10AT4
+    itemId: 1135
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9180_ArmAttackHP
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttack4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T0M10
+    itemId: 1108
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T1M9
+    itemId: 1109
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T2M8
+    itemId: 1110
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T3M7
+    itemId: 1111
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T4M6
+    itemId: 1112
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T5M5
+    itemId: 1113
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg T6M4
+    itemId: 1114
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.20
+    magnific2: BaseMobility4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U4M10
+    itemId: 1115
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U5M9
+    itemId: 1116
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U6M8
+    itemId: 1117
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U7M7
+    itemId: 1118
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U8M6
+    itemId: 1119
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U9M5
+    itemId: 1120
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Leg U10M4
+    itemId: 1121
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9170_LegMob
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobility4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A0SH10
+    itemId: 1060
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A1SH9
+    itemId: 1061
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A2SH8
+    itemId: 1062
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A3SH7
+    itemId: 1063
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A4SH6
+    itemId: 1064
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A5SH5
+    itemId: 1065
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield A6SH4
+    itemId: 1066
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.20
+    magnific2: BaseShield4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B4SH10
+    itemId: 1067
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B5SH9
+    itemId: 1068
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B6SH8
+    itemId: 1069
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B7SH7
+    itemId: 1070
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B8SH6
+    itemId: 1071
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B9SH5
+    itemId: 1072
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Shield B10SH4
+    itemId: 1073
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9110_ShieldShi
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShield4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N1
+    itemId: 1088
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N2
+    itemId: 1089
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N3
+    itemId: 1090
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 7
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N4
+    itemId: 1091
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N5
+    itemId: 1092
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 9
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Magazine N6
+    itemId: 1093
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9130_MagazineNoA
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P0CR10
+    itemId: 1150
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P1CR9
+    itemId: 1151
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P2CR8
+    itemId: 1152
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P3CR7
+    itemId: 1153
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P4CR6
+    itemId: 1154
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P5CR5
+    itemId: 1155
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet P6CR4
+    itemId: 1156
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix1.20
+    magnific2: OffCrix4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q4CR10
+    itemId: 1157
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q5CR9
+    itemId: 1158
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q6CR8
+    itemId: 1159
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q7CR7
+    itemId: 1160
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q8CR6
+    itemId: 1161
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q9CR5
+    itemId: 1162
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Piercing Bullet Q10CR4
+    itemId: 1163
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9210_WeaponCritical
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: OffCrix4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T0KIN10
+    itemId: 1015
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T1KIN9
+    itemId: 1016
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T2KIN8
+    itemId: 1017
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T3KIN7
+    itemId: 1018
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T4KIN6
+    itemId: 1019
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T5KIN5
+    itemId: 1020
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic T6KIN4
+    itemId: 1021
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.9
+    magnific2: DefKin4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U4KIN10
+    itemId: 1022
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U5KIN9
+    itemId: 1023
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U6KIN8
+    itemId: 1024
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U7KIN7
+    itemId: 1025
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U8KIN6
+    itemId: 1026
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U9KIN5
+    itemId: 1027
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Kinetic U10KIN4
+    itemId: 1028
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: GeneralArmor
+    itemId: 1029
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKin4Percent
+    magnific2: DefChe4Percent
+    magnific3: DefThe4Percent
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T0CHE10
+    itemId: 1032
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T1CHE9
+    itemId: 1033
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T2CHE8
+    itemId: 1034
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T3CHE7
+    itemId: 1035
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T4CHE6
+    itemId: 1036
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T5CHE5
+    itemId: 1037
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical T6CHE4
+    itemId: 1038
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChex0.9
+    magnific2: DefChe4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U4CHE10
+    itemId: 1039
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U5CHE9
+    itemId: 1040
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U6CHE8
+    itemId: 1041
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U7CHE7
+    itemId: 1042
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U8CHE6
+    itemId: 1043
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U9CHE5
+    itemId: 1044
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Chemical U10CHE4
+    itemId: 1045
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefChe4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T0THE10
+    itemId: 1046
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe10Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T1THE9
+    itemId: 1047
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe9Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T2THE8
+    itemId: 1048
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe8Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T3THE7
+    itemId: 1049
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe7Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T4THE6
+    itemId: 1050
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe6Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T5THE5
+    itemId: 1051
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe5Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal T6THE4
+    itemId: 1052
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThex0.9
+    magnific2: DefThe4Percent
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U4THE10
+    itemId: 1053
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe10Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U5THE9
+    itemId: 1054
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe9Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U6THE8
+    itemId: 1055
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 12
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe8Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U7THE7
+    itemId: 1056
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 14
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe7Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U8THE6
+    itemId: 1057
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 16
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe6Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U9THE5
+    itemId: 1058
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 18
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe5Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Armor-Thermal U10THE4
+    itemId: 1059
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9012_ArmorDefU
+    level: 20
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefThe4Percent
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: AntiKineticArmor
+    itemId: 1030
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.7
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Heavy Armor T1
+    itemId: 1031
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9011_ArmorDefT
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: DefKinx0.8
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R0H09
+    itemId: 1255
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.09
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R1H08
+    itemId: 1256
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 2
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.08
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R2H07
+    itemId: 1257
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 4
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.07
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R3H06
+    itemId: 1258
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 6
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.06
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R4H05
+    itemId: 1259
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 8
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.05
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Repair kit R5H04
+    itemId: 1260
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 9400_Repair
+    level: 10
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseHitPointx1.04
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Pow1
+    itemId: 1206
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAttackx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Generation1
+    itemId: 1207
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseShieldx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Stability1
+    itemId: 1208
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseDefensex1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Responsiveness1
+    itemId: 1209
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseMobilityx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Precision1
+    itemId: 1210
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Precision
+    addAbility2: 
+    addAbility3: 
+    magnific1: BaseAccuracyx1.30
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Intelligence1
+    itemId: 1211
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Intelligence
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability E Luck1
+    itemId: 1212
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Luck
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Generation1
+    itemId: 1213
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Generation
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Stability1
+    itemId: 1214
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Stability
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Responsivness1
+    itemId: 1215
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Responsiveness
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Precision1
+    itemId: 1216
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Precision
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Intelligence1
+    itemId: 1217
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Intelligence
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Pow1Luck1
+    itemId: 1218
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Generation1Stability1
+    itemId: 1219
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Stability
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Generation1Responsivness1
+    itemId: 1220
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Responsiveness
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Generation1Precision1
+    itemId: 1221
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Precision
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Generation1Intelligence1
+    itemId: 1222
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Intelligence
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Generation1Luck1
+    itemId: 1223
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Stability1Responsivness1
+    itemId: 1224
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 1Responsiveness
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Stability1Precision1
+    itemId: 1225
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 1Precision
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Stability1Intelligence1
+    itemId: 1226
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 1Intelligence
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Stability1Luck1
+    itemId: 1227
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Responsivness1Precision1
+    itemId: 1228
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 1Precision
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Responsivness1Intelligence1
+    itemId: 1229
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 1Intelligence
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Responsivness1Luck1
+    itemId: 1230
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Precision1Intelligence1
+    itemId: 1231
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Precision
+    addAbility2: 1Intelligence
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Precision1Luck1
+    itemId: 1232
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Precision
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability D Intelligence1Luck1
+    itemId: 1233
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Intelligence
+    addAbility2: 1Luck
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Pow2
+    itemId: 1234
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Power
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Generation2
+    itemId: 1235
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Generation
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Responsiveness2
+    itemId: 1236
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Responsiveness
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C StAbility C2
+    itemId: 1237
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Stability
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Precision2
+    itemId: 1238
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Precision
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Intelligence2
+    itemId: 1239
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Intelligence
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability C Luck2
+    itemId: 1240
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 2Luck
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B PGS
+    itemId: 1241
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Power
+    addAbility2: 1Generation
+    addAbility3: 1Stability
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B GSR
+    itemId: 1242
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Generation
+    addAbility2: 1Stability
+    addAbility3: 1Responsiveness
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B SRP
+    itemId: 1243
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Stability
+    addAbility2: 1Responsiveness
+    addAbility3: 1Precision
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B RPI
+    itemId: 1244
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Responsiveness
+    addAbility2: 1Precision
+    addAbility3: 1Intelligence
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B PIL
+    itemId: 1245
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Precision
+    addAbility2: 1Intelligence
+    addAbility3: 1Luck
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B ILP
+    itemId: 1246
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Intelligence
+    addAbility2: 1Luck
+    addAbility3: 1Power
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability B LPG
+    itemId: 1247
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 1Luck
+    addAbility2: 1Power
+    addAbility3: 1Generation
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Pow3
+    itemId: 1248
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Power
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Generation3
+    itemId: 1249
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Generation
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Responsiveness3
+    itemId: 1250
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Responsiveness
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A StAbility A3
+    itemId: 1251
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Stability
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Precision3
+    itemId: 1252
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Precision
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Intelligence3
+    itemId: 1253
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Intelligence
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 
+  - itemName: Ability A Luck3
+    itemId: 1254
+    itemCategory: 100
+    itemDescription: 
+    combatBaseValue: 
+    level: 0
+    skill1: 
+    skill2: 
+    skill3: 
+    addAbility1: 3Luck
+    addAbility2: 
+    addAbility3: 
+    magnific1: 
+    magnific2: 
+    magnific3: 
+    magnific4: 
+    magnific5: 
+    magnific6: 

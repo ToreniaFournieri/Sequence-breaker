@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1131-Arm B6AT8
   m_EditorClassIdentifier: 
   itemId: 1131
-  itemCategory: 14
+  itemCategory: 100
   itemName: Arm B6AT8
   itemDescription: 
   icon: {fileID: 0}

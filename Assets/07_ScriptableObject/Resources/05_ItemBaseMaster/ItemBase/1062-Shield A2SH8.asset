@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1062-Shield A2SH8
   m_EditorClassIdentifier: 
   itemId: 1062
-  itemCategory: 16
+  itemCategory: 100
   itemName: Shield A2SH8
   itemDescription: 
   icon: {fileID: 0}

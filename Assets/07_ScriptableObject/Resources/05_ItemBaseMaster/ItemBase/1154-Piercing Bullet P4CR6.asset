@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1154-Piercing Bullet P4CR6
   m_EditorClassIdentifier: 
   itemId: 1154
-  itemCategory: 21
+  itemCategory: 100
   itemName: Piercing Bullet P4CR6
   itemDescription: 
   icon: {fileID: 0}

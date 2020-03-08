@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1207-Ability E Generation1
   m_EditorClassIdentifier: 
   itemId: 1207
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability E Generation1
   itemDescription: 
   icon: {fileID: 0}

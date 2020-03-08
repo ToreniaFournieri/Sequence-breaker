@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1161-Piercing Bullet Q8CR6
   m_EditorClassIdentifier: 
   itemId: 1161
-  itemCategory: 21
+  itemCategory: 100
   itemName: Piercing Bullet Q8CR6
   itemDescription: 
   icon: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1150-Piercing Bullet P0CR10
   m_EditorClassIdentifier: 
   itemId: 1150
-  itemCategory: 21
+  itemCategory: 100
   itemName: Piercing Bullet P0CR10
   itemDescription: 
   icon: {fileID: 0}

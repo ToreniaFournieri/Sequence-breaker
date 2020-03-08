@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1100-Head H4AC4
   m_EditorClassIdentifier: 
   itemId: 1100
-  itemCategory: 10
+  itemCategory: 100
   itemName: Head H4AC4
   itemDescription: 
   icon: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1006-Breastplate T5CR5
   m_EditorClassIdentifier: 
   itemId: 1006
-  itemCategory: 13
+  itemCategory: 100
   itemName: Breastplate T5CR5
   itemDescription: 
   icon: {fileID: 0}

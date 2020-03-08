@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1052-Armor-Thermal T6THE4
   m_EditorClassIdentifier: 
   itemId: 1052
-  itemCategory: 32
+  itemCategory: 100
   itemName: Armor-Thermal T6THE4
   itemDescription: 
   icon: {fileID: 0}

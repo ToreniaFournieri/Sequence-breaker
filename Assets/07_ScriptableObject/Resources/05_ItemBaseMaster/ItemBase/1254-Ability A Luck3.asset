@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1254-Ability A Luck3
   m_EditorClassIdentifier: 
   itemId: 1254
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability A Luck3
   itemDescription: 
   icon: {fileID: 0}

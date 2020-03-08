@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1096-Head H2AC8
   m_EditorClassIdentifier: 
   itemId: 1096
-  itemCategory: 10
+  itemCategory: 100
   itemName: Head H2AC8
   itemDescription: 
   icon: {fileID: 0}

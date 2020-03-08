@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1074-Body A0HP10
   m_EditorClassIdentifier: 
   itemId: 1074
-  itemCategory: 11
+  itemCategory: 100
   itemName: Body A0HP10
   itemDescription: 
   icon: {fileID: 0}

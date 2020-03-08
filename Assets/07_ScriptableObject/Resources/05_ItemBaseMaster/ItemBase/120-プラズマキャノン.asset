@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f2635044ab4b4ba45f2ebf382a67b, type: 3}
+  m_Name: "120-\u30D7\u30E9\u30BA\u30DE\u30AD\u30E3\u30CE\u30F3"
+  m_EditorClassIdentifier: 
+  itemId: 120
+  itemCategory: 3
+  itemName: "\u30D7\u30E9\u30BA\u30DE\u30AD\u30E3\u30CE\u30F3"
+  itemDescription: "\u653B\u6483\u5C5E\u6027:\u5149\u71B12, \u653B\u6483\u529B15,
+    \u30B7\u30FC\u30EB\u30C95"
+  icon: {fileID: 0}
+  combatBaseValue: {fileID: 0}
+  level: 8
+  skillsMasterList: []
+  addAbilityList: []
+  magnificationMasterList: []

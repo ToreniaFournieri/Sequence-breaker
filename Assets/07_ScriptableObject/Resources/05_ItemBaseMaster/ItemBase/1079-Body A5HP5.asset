@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1079-Body A5HP5
   m_EditorClassIdentifier: 
   itemId: 1079
-  itemCategory: 11
+  itemCategory: 100
   itemName: Body A5HP5
   itemDescription: 
   icon: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1209-Ability E Responsiveness1
   m_EditorClassIdentifier: 
   itemId: 1209
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability E Responsiveness1
   itemDescription: 
   icon: {fileID: 0}

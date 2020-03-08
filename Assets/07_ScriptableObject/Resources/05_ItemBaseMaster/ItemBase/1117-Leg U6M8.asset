@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1117-Leg U6M8
   m_EditorClassIdentifier: 
   itemId: 1117
-  itemCategory: 15
+  itemCategory: 100
   itemName: Leg U6M8
   itemDescription: 
   icon: {fileID: 0}

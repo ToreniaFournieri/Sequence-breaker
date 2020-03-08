@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1040-Armor-Chemical U5CHE9
   m_EditorClassIdentifier: 
   itemId: 1040
-  itemCategory: 31
+  itemCategory: 100
   itemName: Armor-Chemical U5CHE9
   itemDescription: 
   icon: {fileID: 0}

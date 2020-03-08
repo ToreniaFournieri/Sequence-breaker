@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1001-Breastplate T0CR10
   m_EditorClassIdentifier: 
   itemId: 1001
-  itemCategory: 13
+  itemCategory: 100
   itemName: Breastplate T0CR10
   itemDescription: 
   icon: {fileID: 0}

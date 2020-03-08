@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1012-Breastplate U8CR6
   m_EditorClassIdentifier: 
   itemId: 1012
-  itemCategory: 13
+  itemCategory: 100
   itemName: Breastplate U8CR6
   itemDescription: 
   icon: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1219-Ability D Generation1Stability1
   m_EditorClassIdentifier: 
   itemId: 1219
-  itemCategory: 60
+  itemCategory: 100
   itemName: Ability D Generation1Stability1
   itemDescription: 
   icon: {fileID: 0}
